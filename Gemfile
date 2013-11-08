@@ -25,6 +25,7 @@ gem 'devise'
 group :development do
   gem 'sextant'
   gem 'pry'
+  gem 'mailcatcher'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
