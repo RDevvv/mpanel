@@ -4,7 +4,7 @@ Gullak2::Application.routes.draw do
 
     #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
     get "/",:to=>"merchants#index"
-    devise_for :users 
+    devise_for :users ,:module => "devise"
     #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
     #   # get "login" => "devise/sessions#new",:as=>:merchant_login
     
