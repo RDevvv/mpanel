@@ -27,6 +27,14 @@ group :development do
   gem 'pry'
   gem 'mailcatcher'
 end
+
+
+gem "cancan"
+gem "rolify"
+gem 'kaminari'
+gem 'client_side_validations'
+gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
+gem "carrierwave"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
