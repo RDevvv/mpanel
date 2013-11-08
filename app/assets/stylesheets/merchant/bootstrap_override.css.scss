@@ -1,0 +1,74 @@
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+$iconSpritePath:          asset-url("glyphicons-halflings.png", image) !default;
+/*$btnPrimaryBackground: #f00;*/
+/*#414246*/
+$navbarBackground: #242424;
+$navbarBackgroundHighlight: #555;
+$navbarText: #eee;
+$navbarLinkColorActive:#fff;
+/*LINK TEXT COLOR*/
+$navbarLinkColorHover:#fff;
+/*Link BACKGROUND COLOR*/
+$navbarLinkBackgroundHover:#111;
+$navbarLinkBackgroundActive: #111;
+$navbarHeight:50px;
+$navbarLinkColor: #fff;
+@import "bootstrap";
+
+body {
+  padding-top: 6%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8em;
+  line-height: 18px;
+  color: #333;
+  /*background-color: #f7f7f7;*/
+
+ }
+
+
+@import "bootstrap-responsive";
+[class^="icon-"], [class*=" icon-"] {
+  background-image: url($iconSpritePath);
+  }
+.icon-white{
+   background-image: url($iconWhiteSpritePath);
+}
+
+
+/*Sticky Footer Start*/
+html,body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto 1%;
+  }
+#push{
+   height: 6%;
+}
+#footer {
+  border-top:1px solid #E5E5E5;
+  background-color:whiteSmoke;
+  /*padding:10px 0px;*/
+  padding:1% 0px;
+  height: 4%;
+
+}
+
+.border{
+  border: solid 1px #ccc;
+  padding:20px;
+}
+
+
+.login-remember-me-font{
+  font-size: 0.9em
+}
+.clear{
+  clear: both;
+}

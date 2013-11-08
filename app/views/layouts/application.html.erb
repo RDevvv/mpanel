@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= content_for?(:title) ? yield(:title) : "Gullak Master" %></title>
+
+    <%= stylesheet_link_tag    "application", media: "all"%>
+    <%= javascript_include_tag "application"%>
+     
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <%#= render 'menu' %>
+      </header>
+      <div id="main" role="main">
+        <div class="container">
+          <div class="main-content">
+            <div class="row-fluid">
+              <div class="span12">
+                <%= render 'message' %>
+                <%= yield %>
+              </div>
+            </div><!--! end of .row-fluid-->
+          </div><!--! end of .content -->
+        </div> <!--! end of .container -->
+      </div> <!--! end of #main -->
+      <div id="push"></div>
+    </div>  <!--! end of #wrap -->
+
+    <div id="footer">
+      <div class="container">
+        <%= yield :javascript %>
+
+        <p class="span2">&nbsp;</p>
+        <p class="copyright">&copy; 2013 <a href="http://courseit.in">Courseit</a> All Rights Reserved</p>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+
