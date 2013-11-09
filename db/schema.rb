@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20131109082912) do
+ActiveRecord::Schema.define(:version => 20131109110103) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -43,35 +42,6 @@ ActiveRecord::Schema.define(:version => 20131109082912) do
     t.integer  "user_ids"
   end
 
-  create_table "brands", :force => true do |t|
-    t.integer  "brand_id"
-    t.string   "brand_name"
-    t.string   "brand_alias"
-    t.string   "brand_code"
-    t.integer  "category_id"
-    t.string   "website_url"
-    t.boolean  "is_active"
-    t.boolean  "is_verified"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "account_ids"
-  end
-
-  create_table "user_accounts", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "account_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "account_brand_ids"
-  end
-
-  create_table "user_brand_accounts", :force => true do |t|
-    t.integer  "user_account_id"
-    t.integer  "account_brand_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -89,6 +59,110 @@ ActiveRecord::Schema.define(:version => 20131109082912) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "ads", :force => true do |t|
+    t.integer  "latest_version_id"
+    t.integer  "brand_account_id"
+    t.string   "ad_type"
+    t.string   "ad_title"
+    t.boolean  "is_monday"
+    t.boolean  "is_tuesday"
+    t.boolean  "is_wednesday"
+    t.boolean  "is_thursday"
+    t.boolean  "is_friday"
+    t.boolean  "is_saturday"
+    t.boolean  "is_sunday"
+    t.datetime "start_date"
+    t.datetime "expiry_date"
+    t.boolean  "is_active"
+    t.text     "sms_text"
+    t.integer  "promocode_type_id"
+    t.string   "daily_cap"
+    t.float    "lilfetime_budget"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "areas", :force => true do |t|
+    t.integer  "city_id"
+    t.string   "area_name"
+    t.integer  "pincode"
+    t.string   "area_alias"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "brands", :force => true do |t|
+    t.integer  "brand_id"
+    t.string   "brand_name"
+    t.string   "brand_alias"
+    t.string   "brand_code"
+    t.integer  "category_id"
+    t.string   "website_url"
+    t.boolean  "is_active"
+    t.boolean  "is_verified"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "account_ids"
+  end
+
+  create_table "keywords", :force => true do |t|
+    t.text     "keywords"
+    t.integer  "ad_ids"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "outlets", :force => true do |t|
+    t.integer  "latest_version_id"
+    t.integer  "account_brand_id"
+    t.integer  "outlet_type_id"
+    t.string   "outlet_name"
+    t.string   "outlet_alias"
+    t.text     "address"
+    t.integer  "area_id"
+    t.integer  "phone_number"
+    t.integer  "mobile_country_id"
+    t.integer  "mobile_number"
+    t.integer  "payment_value_id"
+    t.string   "email_id"
+    t.boolean  "is_active"
+    t.boolean  "is_verified"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "daily_cap"
+    t.string   "outlet_key"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "user_accounts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "account_brand_ids"
+  end
+
+  create_table "user_brand_accounts", :force => true do |t|
+    t.integer  "user_account_id"
+    t.integer  "account_brand_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
