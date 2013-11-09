@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  brand_id: 1
+  brand_name: MyString
+  brand_alias: MyString
+  brand_code: MyString
+  category_id: 1
+  website_url: MyString
+  is_active: false
+  is_verified: false
+
+two:
+  brand_id: 1
+  brand_name: MyString
+  brand_alias: MyString
+  brand_code: MyString
+  category_id: 1
+  website_url: MyString
+  is_active: false
+  is_verified: false
