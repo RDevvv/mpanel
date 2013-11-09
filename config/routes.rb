@@ -1,5 +1,11 @@
 Gullak2::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
+
+  devise_for :admin_users
+
+  
+
   namespace :merchant do
 
     #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
