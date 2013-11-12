@@ -11,23 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109110103) do
+ActiveRecord::Schema.define(:version => 20131112122923) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
     t.integer  "account_id"
     t.boolean  "is_active"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "user_acount_ids"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "user_account_ids"
+    t.string   "daily_cap"
   end
 
   create_table "accounts", :force => true do |t|
     t.text     "address_line1"
-    t.text     "address_line2"
     t.integer  "area_id"
-    t.integer  "city_id"
-    t.integer  "pincode"
     t.integer  "currency_id"
     t.string   "payment_status"
     t.float    "account_balance"
@@ -35,11 +33,45 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
     t.boolean  "is_active"
     t.integer  "admin_user_id"
     t.boolean  "is_deleted"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "user_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "brand_ids"
     t.integer  "user_ids"
+    t.string   "registered_company_name"
+    t.boolean  "is_verified"
+  end
+
+  create_table "ad_keywords", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "keyword_id"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ad_versions", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "version_id"
+    t.integer  "account_brand_id"
+    t.string   "ad_type"
+    t.string   "ad_title"
+    t.boolean  "is_monday"
+    t.boolean  "is_tuesday"
+    t.boolean  "is_wednesday"
+    t.boolean  "is_thursday"
+    t.boolean  "is_friday"
+    t.boolean  "is_saturday"
+    t.boolean  "is_sunday"
+    t.datetime "start_date"
+    t.datetime "expiry_date"
+    t.boolean  "is_active"
+    t.text     "sms_text"
+    t.integer  "promocode_type_id"
+    t.string   "daily_cap"
+    t.float    "lilfetime_budget"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "admin_users", :force => true do |t|
@@ -62,7 +94,7 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
 
   create_table "ads", :force => true do |t|
     t.integer  "latest_version_id"
-    t.integer  "brand_account_id"
+    t.integer  "account_brand_id"
     t.string   "ad_type"
     t.string   "ad_title"
     t.boolean  "is_monday"
@@ -81,6 +113,8 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
     t.float    "lilfetime_budget"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "outlet_ids"
+    t.integer  "keyword_ids"
   end
 
   create_table "areas", :force => true do |t|
@@ -93,7 +127,6 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
   end
 
   create_table "brands", :force => true do |t|
-    t.integer  "brand_id"
     t.string   "brand_name"
     t.string   "brand_alias"
     t.string   "brand_code"
@@ -106,11 +139,119 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
     t.integer  "account_ids"
   end
 
+  create_table "categories", :force => true do |t|
+    t.integer  "industry_id"
+    t.string   "category_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "cities", :force => true do |t|
+    t.integer  "state_id"
+    t.string   "city_name"
+    t.integer  "metro_id"
+    t.string   "time_zone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "country_name"
+    t.string   "iso_code"
+    t.integer  "phone_country_code"
+    t.integer  "currency_id"
+    t.string   "currency_name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "industries", :force => true do |t|
+    t.string   "industry_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "keyword_aliases", :force => true do |t|
+    t.integer  "keyword_id"
+    t.string   "alias_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "keywords", :force => true do |t|
     t.text     "keywords"
     t.integer  "ad_ids"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "metros", :force => true do |t|
+    t.string   "metro_name"
+    t.string   "metro_long_name"
+    t.string   "metro_code"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "country_id"
+  end
+
+  create_table "multiple_codes_any_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "promocode"
+    t.boolean  "is_used"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "multiple_codes_specific_outlets", :force => true do |t|
+    t.integer  "outlet_ad_id"
+    t.string   "promocode"
+    t.boolean  "is_used"
+    t.datetime "start_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "outlet_ads", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "outlet_id"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "outlet_types", :force => true do |t|
+    t.string   "outlet_type_name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "outlet_versions", :force => true do |t|
+    t.integer  "outlet_id"
+    t.integer  "version_id"
+    t.integer  "account_brand_id"
+    t.integer  "outlet_type_id"
+    t.string   "outlet_name"
+    t.string   "outlet_alias"
+    t.text     "address"
+    t.integer  "area_id"
+    t.integer  "phone_number"
+    t.integer  "mobile_country_id"
+    t.integer  "mobile_number"
+    t.integer  "payment_value_id"
+    t.string   "email_id"
+    t.boolean  "is_active"
+    t.boolean  "is_verified"
+    t.string   "outlet_key"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "daily_cap"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "outlets", :force => true do |t|
@@ -134,6 +275,21 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
     t.string   "outlet_key"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "ad_ids"
+  end
+
+  create_table "payment_values", :force => true do |t|
+    t.float    "catchment_radius"
+    t.integer  "currency_id"
+    t.float    "value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "promocode_types", :force => true do |t|
+    t.string   "promocode_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -149,6 +305,34 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "single_code_any_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "promocode"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "single_code_specific_outlets", :force => true do |t|
+    t.integer  "outlet_ad_id"
+    t.string   "promocode"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "states", :force => true do |t|
+    t.string   "state_name"
+    t.string   "state_code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "country_id"
+  end
+
   create_table "user_accounts", :force => true do |t|
     t.integer  "user_id"
     t.integer  "account_id"
@@ -162,6 +346,7 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
     t.integer  "account_brand_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "is_deleted"
   end
 
   create_table "users", :force => true do |t|
@@ -178,6 +363,14 @@ ActiveRecord::Schema.define(:version => 20131109110103) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "account_ids"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "mobile_country_id"
+    t.integer  "mobile_number"
+    t.string   "user_key"
+    t.boolean  "is_active"
+    t.boolean  "email_verified"
+    t.boolean  "mobile_verified"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

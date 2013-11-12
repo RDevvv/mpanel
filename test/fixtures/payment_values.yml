@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  catchment_radius: 1.5
+  currency_id: 1
+  value: 1.5
+
+two:
+  catchment_radius: 1.5
+  currency_id: 1
+  value: 1.5

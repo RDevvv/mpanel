@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  outlet_id: 1
+  version_id: 1
+  brand_account_id: 1
+  outlet_type_id: 1
+  outlet_name: MyString
+  outlet_alias: MyString
+  address: MyText
+  area_id: 1
+  phone_number: 1
+  mobile_country_id: 1
+  mobile_number: 1
+  payment_value_id: 1
+  email_id: MyString
+  is_active: false
+  is_verified: false
+  outlet_key: MyString
+  latitude: 1.5
+  longitude: 1.5
+  daily_cap: MyString
+  is_deleted: false
+
+two:
+  outlet_id: 1
+  version_id: 1
+  brand_account_id: 1
+  outlet_type_id: 1
+  outlet_name: MyString
+  outlet_alias: MyString
+  address: MyText
+  area_id: 1
+  phone_number: 1
+  mobile_country_id: 1
+  mobile_number: 1
+  payment_value_id: 1
+  email_id: MyString
+  is_active: false
+  is_verified: false
+  outlet_key: MyString
+  latitude: 1.5
+  longitude: 1.5
+  daily_cap: MyString
+  is_deleted: false

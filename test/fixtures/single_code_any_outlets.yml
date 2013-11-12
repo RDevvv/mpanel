@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ad_id: 1
+  promocode: MyString
+  start_date: 2013-11-11 15:06:57
+  end_date: 2013-11-11 15:06:57
+  is_deleted: false
+
+two:
+  ad_id: 1
+  promocode: MyString
+  start_date: 2013-11-11 15:06:57
+  end_date: 2013-11-11 15:06:57
+  is_deleted: false
