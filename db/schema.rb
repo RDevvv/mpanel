@@ -11,34 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112122923) do
+ActiveRecord::Schema.define(:version => 20131112161510) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
     t.integer  "account_id"
     t.boolean  "is_active"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.integer  "user_account_ids"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "daily_cap"
   end
 
   create_table "accounts", :force => true do |t|
     t.text     "address"
     t.integer  "area_id"
-    t.integer  "currency_id"
+    t.string   "currency_id"
     t.string   "payment_status"
     t.float    "account_balance"
-    t.integer  "account_key"
+    t.string   "account_key"
     t.boolean  "is_active"
-    t.integer  "admin_user_id"
     t.boolean  "is_deleted"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
-    t.integer  "brand_ids"
-    t.integer  "user_ids"
     t.string   "registered_company_name"
     t.boolean  "is_verified"
+    t.integer  "owner_id"
   end
 
   create_table "ad_keywords", :force => true do |t|
@@ -110,17 +107,15 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.text     "sms_text"
     t.integer  "promocode_type_id"
     t.string   "daily_cap"
-    t.float    "lilfetime_budget"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "outlet_ids"
-    t.integer  "keyword_ids"
+    t.float    "lifetime_budget"
   end
 
   create_table "areas", :force => true do |t|
     t.integer  "city_id"
     t.string   "area_name"
-    t.integer  "pincode"
+    t.string   "pincode"
     t.string   "area_alias"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -136,7 +131,6 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.boolean  "is_verified"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "account_ids"
   end
 
   create_table "categories", :force => true do |t|
@@ -159,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.string   "country_name"
     t.string   "iso_code"
     t.integer  "phone_country_code"
-    t.integer  "currency_id"
+    t.string   "currency_id"
     t.string   "currency_name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
@@ -180,7 +174,6 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
 
   create_table "keywords", :force => true do |t|
     t.text     "keywords"
-    t.integer  "ad_ids"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -213,6 +206,7 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.boolean  "is_deleted"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.datetime "end_date"
   end
 
   create_table "outlet_ads", :force => true do |t|
@@ -238,9 +232,9 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.string   "outlet_alias"
     t.text     "address"
     t.integer  "area_id"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.integer  "mobile_country_id"
-    t.integer  "mobile_number"
+    t.string   "mobile_number"
     t.integer  "payment_value_id"
     t.string   "email_id"
     t.boolean  "is_active"
@@ -262,9 +256,9 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.string   "outlet_alias"
     t.text     "address"
     t.integer  "area_id"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.integer  "mobile_country_id"
-    t.integer  "mobile_number"
+    t.string   "mobile_number"
     t.integer  "payment_value_id"
     t.string   "email_id"
     t.boolean  "is_active"
@@ -275,12 +269,11 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.string   "outlet_key"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "ad_ids"
   end
 
   create_table "payment_values", :force => true do |t|
     t.float    "catchment_radius"
-    t.integer  "currency_id"
+    t.string   "currency_id"
     t.float    "value"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
@@ -336,9 +329,8 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
   create_table "user_accounts", :force => true do |t|
     t.integer  "user_id"
     t.integer  "account_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "account_brand_ids"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_brand_accounts", :force => true do |t|
@@ -362,11 +354,10 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "account_ids"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "mobile_country_id"
-    t.integer  "mobile_number"
+    t.string   "mobile_number"
     t.string   "user_key"
     t.boolean  "is_active"
     t.boolean  "email_verified"
