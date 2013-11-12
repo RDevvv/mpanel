@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20131112122923) do
   end
 
   create_table "accounts", :force => true do |t|
-    t.text     "address_line1"
+    t.text     "address"
     t.integer  "area_id"
     t.integer  "currency_id"
     t.string   "payment_status"
