@@ -1,5 +1,7 @@
 Gullak2::Application.routes.draw do
 
+  get "accounts/create"
+
   mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
 
   devise_for :admin_users
@@ -18,8 +20,10 @@ Gullak2::Application.routes.draw do
     #   get "sign_in", :to => "devise/sessions#new"
     # end
   end  
-
-  root :to => "home#index"
+  
+  resources :accounts
+    root :to => "home#index"
+  # root :to => "accounts#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

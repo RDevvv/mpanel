@@ -4,6 +4,7 @@ class Account < ActiveRecord::Base
   has_many :brands, :through => :account_brands
   has_many :user_accounts, :dependent => :destroy
   has_many :users, :through => :user_accounts
+  accepts_nested_attributes_for :users
   belongs_to :owner,:class_name=>"User",:foreign_key=>:owner_id
   belongs_to :area
 end
