@@ -19,7 +19,8 @@
         </li>
       <% else %>
         
-          <%= link_to 'Sign up', new_merchant_user_registration_path ,:class=>"btn btn-warning",:style=>"color:#78671a"%>
+          <%#= link_to 'Sign up', new_merchant_user_registration_path ,:class=>"btn btn-warning",:style=>"color:#78671a"%>
+          <%= link_to 'Sign up', new_merchant_account_path ,:class=>"btn btn-warning",:style=>"color:#78671a"%>
         <a class="dropdown-toggle btn btn-success" href="#" data-toggle="dropdown"> <strong>Log In</strong></a>
         <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
           <%= render :partial=>"merchant/users/sessions/user_login" %>
