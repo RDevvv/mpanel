@@ -7,7 +7,8 @@ class Merchant::AccountsController <  Merchant::BaseController
   	@account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
-        format.html { redirect_to merchant_verified_account_account_path(@account),:notice=>"Account is created!.Check your inbox to verify it" }
+
+        format.html { redirect_to verified_account_merchant_account_path(@account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
       end
