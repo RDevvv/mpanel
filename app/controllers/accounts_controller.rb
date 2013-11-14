@@ -1,7 +1,6 @@
 class AccountsController < ApplicationController
   def create
   	@account = Account.new(params[:account])
-    binding.pry
     respond_to do |format|
       if @account.save
         format.html { redirect_to new_account_path }
@@ -17,8 +16,7 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
-    # @users = @account.users.first
-    1.times { @account.users.build }
+    @account.users.build
     respond_to do |format|
       format.html # new.html.erb
     end

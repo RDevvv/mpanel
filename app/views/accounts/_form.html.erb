@@ -3,12 +3,13 @@
   <h4>Company Information</h4>
   
   <%= f.text_field :registered_company_name,:placeholder=>"Company Name" %><br>
-  <%= f.text_field :address,:placeholder=>"Address"%><br>
+  <%= f.text_field :address,:placeholder=>"Address"%>
   <%= f.select :area_id,options_for_select(%w[Mumbai Pune]),:placeholder=>"Area"%><br>
   <%= f.select :currency_id,options_for_select(%w[Rupees Euro]),:placeholder=>"Currency"%>
   <br><br>
   <%= f.fields_for :users do |builder| %>
     <%= render "user_fields", :f => builder %>
   <% end %>
+  <br><br>
   <%= f.submit "Register"%>
 <% end %>
