@@ -1,9 +1,13 @@
-class AccountsController < ApplicationController
+class Merchant::AccountsController <  Merchant::BaseController
+# Only viewable Gullak Admin
+  def index
+    
+  end
   def create
   	@account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
-        format.html { redirect_to new_account_path }
+        format.html { redirect_to merchant_verified_account_account_path(@account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
       end
@@ -45,9 +49,15 @@ class AccountsController < ApplicationController
   
   def show 
     @account = Account.find(params[:id])
-    @users = @account.users.first
+    @user = @account.owner
     respond_to do |format|
       format.html # show.html.erb
     end
   end
+
+  def verified_account
+    @account = Account.find(params[:id])
+    @user = @account.owner
+  end
+
 end

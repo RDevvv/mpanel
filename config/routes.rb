@@ -11,7 +11,7 @@ Gullak2::Application.routes.draw do
   namespace :merchant do
 
     #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
-    get "/",:to=>"merchants#index"
+    get "/",:to=>"merchants#index",:as=>:merchants
     devise_for :users ,:module => "devise"
     #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
     #   # get "login" => "devise/sessions#new",:as=>:merchant_login
@@ -19,9 +19,14 @@ Gullak2::Application.routes.draw do
     # devise_scope :user do
     #   get "sign_in", :to => "devise/sessions#new"
     # end
+
+    resources :accounts do
+      member do
+         get 'verified_account'
+      end
+    end
   end  
   
-  resources :accounts
     root :to => "home#index"
   # root :to => "accounts#new"
   # The priority is based upon order of creation:
