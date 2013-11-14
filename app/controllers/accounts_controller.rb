@@ -42,5 +42,12 @@ class AccountsController < ApplicationController
       end
     end
   end
-
+  
+  def show 
+    @account = Account.find(params[:id])
+    @users = @account.users.first
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
 end

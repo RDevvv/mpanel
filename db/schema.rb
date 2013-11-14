@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112161510) do
+ActiveRecord::Schema.define(:version => 20131114050224) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20131112161510) do
     t.string   "registered_company_name"
     t.boolean  "is_verified"
     t.integer  "owner_id"
+    t.integer  "pincode"
+    t.string   "city"
   end
 
   create_table "ad_keywords", :force => true do |t|

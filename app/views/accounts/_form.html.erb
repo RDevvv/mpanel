@@ -4,7 +4,9 @@
   
   <%= f.text_field :registered_company_name,:placeholder=>"Company Name" %><br>
   <%= f.text_field :address,:placeholder=>"Address"%>
-  <%= f.select :area_id,options_for_select(%w[Mumbai Pune]),:placeholder=>"Area"%><br>
+  <%= f.text_field :pincode,:placeholder=>"Pincode"%>
+  <%= f.select :city,options_for_select(%w[Mumbai Pune]),:placeholder=>"City"%>
+  <%= f.select :area_id,options_for_select(%w[East West]),:placeholder=>"Area"%><br>
   <%= f.select :currency_id,options_for_select(%w[Rupees Euro]),:placeholder=>"Currency"%>
   <br><br>
   <%= f.fields_for :users do |builder| %>
