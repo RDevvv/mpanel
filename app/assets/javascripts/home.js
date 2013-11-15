@@ -1,2 +1,14 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var GL = GL || {};
+GL = (function($, window, document, Gullak){
+
+  Gullak.home = {
+    changeAccount : function(){
+      $("select#account_id").on("change",function(){
+        
+      })
+    }
+  }
+  return Gullak;
+})(jQuery, this, this.document, Gullak);
+
+

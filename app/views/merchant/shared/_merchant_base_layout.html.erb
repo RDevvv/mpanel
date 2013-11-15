@@ -1,0 +1,13 @@
+<% if  current_merchant_user %>
+  <%= render :partial=>"merchant/shared/merchant_header" %>
+  <div class="row-fluid">
+    <div class="span2">
+      <%= render :partial=>"merchant/shared/sidebar_menu" %>
+    </div>
+    <div class="span8">
+      <%= yield %>
+    </div>
+  </div>
+<% else %>
+  <%= yield %>  
+<% end %>
