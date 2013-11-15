@@ -1,0 +1,7 @@
+<%= form_for(@brand,:url=>root_path) do |f| %>
+	<%= f.text_field :brand_name, :placeholder=>"Brand Name"%>
+	<%= f.text_field :brand_alias, :placeholder=>"Brand Alias"%>
+	<%= f.text_field :brand_code, :placeholder=>"Short Code"%><br>
+	<%= f.select :category_id, options_for_select(%w[Coffee Movies])%>
+	<%= f.text_field :website_url,:placeholder=>"Brand Website Url" %>
+<% end %>

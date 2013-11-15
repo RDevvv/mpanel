@@ -1,1 +1,22 @@
-<%= render 'form' %>
+<%= form_for(@account,:url=>merchant_account_path) do |f| %>
+	<%= f.select :registered_company_name,options_for_select(%w[Gullak GullakMaster]) %><br>
+  <h4>Edit Account Details</h4>
+  <br>
+  <%= f.label :Company_Name %>    
+  <%= f.text_field :registered_company_name %>
+  <%= f.label :Account_Currency %>
+  <%= f.select :currency_id,options_for_select(%w[Rupees Euro]),:placeholder=>"Currency"%>
+  <%= f.check_box :is_active %>Active
+  <%= f.check_box :is_verified %>Account Verified
+  <%= f.label :Address %>
+  <%= f.text_field :address,:placeholder=>"Address"%>
+  <%= f.label :Pincode %>
+  <%= f.text_field :pincode,:placeholder=>"Pincode"%>
+  <%= f.label :Area %>
+  <%= f.select :area_id,options_for_select(%w[East West]),:placeholder=>"Area"%>
+  <%= f.label :City %>
+  <%= f.select :city,options_for_select(%w[Mumbai Pune]),:placeholder=>"City"%><br>
+  <%= f.button "Delete Account",:class=>"btn btn-default btn-lg active"%>
+  <%= f.button "Link Brands to this Account",:class=>"btn btn-default btn-lg active"%>
+  <%= f.submit "Save",:class=>"btn btn-primary"%>
+<% end %>

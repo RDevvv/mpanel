@@ -25,6 +25,7 @@ Gullak2::Application.routes.draw do
          get 'verified_account'
       end
     end
+    resources :brands
   end  
   
     root :to => "home#index"

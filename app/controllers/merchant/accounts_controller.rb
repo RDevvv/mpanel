@@ -7,7 +7,6 @@ class Merchant::AccountsController <  Merchant::BaseController
   	@account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
-
         format.html { redirect_to verified_account_merchant_account_path(@account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
@@ -37,11 +36,10 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
 
   def update
-  	@account = Account.find(params[:id])
-
+   	@account = Account.find(params[:id])
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to root_path }
+        format.html { redirect_to merchant_account_path }
       else
         format.html { render action: "edit" }
       end
