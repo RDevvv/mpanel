@@ -4,6 +4,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     
   end
   def create
+    binding.pry
   	@account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
@@ -27,7 +28,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
 
   def destroy
-  	@account = Account.find(params[:id])
+   	@account = Account.find(params[:id])
     @account.destroy
 
     respond_to do |format|

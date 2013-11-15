@@ -1,7 +1,20 @@
-<%= form_for(@brand,:url=>root_path) do |f| %>
-	<%= f.text_field :brand_name, :placeholder=>"Brand Name"%>
-	<%= f.text_field :brand_alias, :placeholder=>"Brand Alias"%>
-	<%= f.text_field :brand_code, :placeholder=>"Short Code"%><br>
-	<%= f.select :category_id, options_for_select(%w[Coffee Movies])%>
-	<%= f.text_field :website_url,:placeholder=>"Brand Website Url" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="span12 offset1">
+		<%= form_for(@brand,:url=>root_path) do |f| %>
+		<div class="span2">
+      <%= render :action=>"new",:partial=>"merchant/shared/sidebar_menu", :method=>"get" %>
+    </div>
+    <div class="span8 offset1"><br><br><br>
+			<%= f.text_field :brand_name, :placeholder=>"Brand Name"%>
+			<%= f.text_field :brand_alias, :placeholder=>"Brand Alias"%>
+			<%= f.text_field :brand_code, :placeholder=>"Short Code"%><br>
+			<%= f.select :category_id, options_for_select(%w[Coffee Movies])%>
+			<%= f.text_field :website_url,:placeholder=>"Brand Website Url" %><br><br><br>
+			<%binding.pry%>
+			<%= f.submit "save",:class=>"btn btn-primary span3"%>
+		</div>
+		<% end %>
+		<div class="clearfix"></div>
+  </div>
+</div>

@@ -1,22 +1,33 @@
-<%= form_for(@account,:url=>merchant_account_path) do |f| %>
-	<%= f.select :registered_company_name,options_for_select(%w[Gullak GullakMaster]) %><br>
-  <h4>Edit Account Details</h4>
-  <br>
-  <%= f.label :Company_Name %>    
-  <%= f.text_field :registered_company_name %>
-  <%= f.label :Account_Currency %>
-  <%= f.select :currency_id,options_for_select(%w[Rupees Euro]),:placeholder=>"Currency"%>
-  <%= f.check_box :is_active %>Active
-  <%= f.check_box :is_verified %>Account Verified
-  <%= f.label :Address %>
-  <%= f.text_field :address,:placeholder=>"Address"%>
-  <%= f.label :Pincode %>
-  <%= f.text_field :pincode,:placeholder=>"Pincode"%>
-  <%= f.label :Area %>
-  <%= f.select :area_id,options_for_select(%w[East West]),:placeholder=>"Area"%>
-  <%= f.label :City %>
-  <%= f.select :city,options_for_select(%w[Mumbai Pune]),:placeholder=>"City"%><br>
-  <%= f.button "Delete Account",:class=>"btn btn-default btn-lg active"%>
-  <%= f.button "Link Brands to this Account",:class=>"btn btn-default btn-lg active"%>
-  <%= f.submit "Save",:class=>"btn btn-primary"%>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="span12 offset1">
+      <%= form_for(@account,:url=>merchant_account_path) do |f| %>
+      <div class="span2">
+        <%= render :action=>"edit",:partial=>"merchant/shared/sidebar_menu", :method=>"get" %>
+      </div>
+      <div class="span5 offset1">
+      	<%= f.select :registered_company_name,options_for_select(%w[Gullak GullakMaster]) %>
+        <h4>Edit Account Details</h4>
+        <%= f.label :Company_Name %>    
+        <%= f.text_field :registered_company_name %>
+        <%= f.label :Account_Currency %>
+        <%= f.select :currency_id,options_for_select(%w[Rupees Euro]),:placeholder=>"Currency"%>
+        <br>
+        <%= f.check_box :is_active %>Active
+        <%= f.check_box :is_verified %>Account Verified<br><br>
+        <%= f.label :Address %>
+        <%= f.text_field :address,:placeholder=>"Address"%>
+        <%= f.label :Pincode %>
+        <%= f.text_field :pincode,:placeholder=>"Pincode"%>
+        <%= f.label :Area %>
+        <%= f.select :area_id,options_for_select(%w[East West]),:placeholder=>"Area"%>
+        <%= f.label :City %>
+        <%= f.select :city,options_for_select(%w[Mumbai Pune]),:placeholder=>"City"%><br>
+        <%= link_to "Delete Account",merchant_account_path(@account), method: :delete,:class => "btn btn-default btn-lg active"%>
+        <%= f.button "Link Brands to this Account",:class=>"btn btn-default btn-lg active"%>
+        <%= f.submit "Save",:class=>"btn btn-primary"%>
+      </div>
+      <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>

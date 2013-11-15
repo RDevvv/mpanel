@@ -9,11 +9,11 @@ before_filter :load_account
 	end
 
 	def create
+		binding.pry
 		@brand = @account.brands.new(params[:barnd])
-
     respond_to do |format|
       if @brand.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to merchant_brand_path(@brand) }
       else
         format.html { render action: "new" }
       end
