@@ -1,7 +1,9 @@
 <% if  current_merchant_user %>
-<div class="row-fluid">
-  <div class="span2">
-    <%= render :partial=>"merchant/shared/sidebar_menu" %>
+  <%= render :partial=>"merchant/shared/merchant_header" %>
+  <div class="row-fluid">
+
+    <div class="span2">
+      <%= render :partial=>"merchant/shared/sidebar_menu" %>
+    </div>
   </div>
-</div>
 <% end %>

@@ -36,6 +36,7 @@ gem 'client_side_validations'
 gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
 gem "carrierwave"
 gem "rails_admin"
+gem "breadcrumbs_on_rails"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

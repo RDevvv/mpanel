@@ -16,4 +16,8 @@ class Account < ActiveRecord::Base
   def owner
     self.users.select{|u| u.has_role?(:owner,self) }.first
   end
+
+  def name
+    registered_company_name
+  end
 end
