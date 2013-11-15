@@ -34,7 +34,6 @@ before_filter :load_account
 
 	protected
   def load_account
-  	binding.pry
-   @account = Account.find(params[:id]) 
+   @account = Account.find(params[:account_id]) 
   end
 end
