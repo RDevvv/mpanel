@@ -1,2 +1,62 @@
-
-Link Brands to <XYZ Company> Account
+<div class="container">
+  <div class="row">
+    <div class="span12 offset1">
+    	<%= form_tag(merchant_account_account_brands_path,:method=>:get) do |f|%>
+    		<div class="span5 offset4">
+    			<%= select_tag :registered_company_name, options_for_select([@account.registered_company_name]) %>
+    		</div>
+    		<div class="clearfix"></div>
+    		<div class="span2">
+	      	<%= render :action=>"create",:partial=>"merchant/shared/sidebar_menu", :method=>"post" %>
+	    	</div>
+	    	<div class="span8 offset1"><br><br><br>
+					Link Brands to <%= @account.registered_company_name%> Account<br><br>
+					<%= text_field_tag "search[nm]",(params[:search].present? ? params[:search][:nm]: ''),:placeholder=>"Search By Brand Name"%>
+					<%= hidden_field_tag :id ,@account.id%>
+					<%= submit_tag "Search", :class=>"btn btn-success btn-search"%>
+					<div class="clearfix"></div>
+				<div>
+					<div class="span4">
+						<table class="table table-striped table-bordered info">
+			      <tr>
+			        <th>All Brands</th>
+			      </tr>
+			      <% if @account_brands.by_brand_name(params[:search][:nm]).count	== 0 %>
+				      <td>Add<%= link_to params[:search][:nm], new_merchant_account_brand_path(@account) %>to GullakMaster Database</td>
+				    <% else %>
+			      <% @account_brands.each do |brand| %>
+				    <% category = brand.category%>
+				      <tr>
+				        <td>
+				          <%= link_to brand.brand_name %>
+				          <%= category.category_name %>
+				          <% if brand.is_verified == true %>
+				    	      <% verification_status = "Verified" %>
+				          <% else %>
+				      	    <% verification_status = "Not Verified" %> 
+				          <% end %>
+				          <%= verification_status %>
+				        </td>
+				      </tr>
+				    <% end %>
+				    <% end %>
+			    	</table>
+					</div>
+					<div class="span4">
+						<table class="table table-striped table-bordered info">
+			      <tr>
+			        <th>Selected Brands </th>
+			      </tr>
+				    <tr><td></td></tr>
+			    	</table>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="span4 offset5">
+					<%= button_tag "Cancel",:class=>"btn btn-default btn-lg active"%>
+			    <%= submit_tag "Save",:class=>"btn btn-primary"%>
+				</div>
+			<% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>

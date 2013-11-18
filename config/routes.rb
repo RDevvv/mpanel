@@ -6,8 +6,6 @@ Gullak2::Application.routes.draw do
 
   devise_for :admin_users
 
-  
-
   namespace :merchant do
 
     #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
@@ -26,9 +24,9 @@ Gullak2::Application.routes.draw do
         
       end
       resources :account_brands
-      
+      resources :brands
     end
-    resources :brands
+    
   end  
   
     root :to => "merchant/accounts#new"
