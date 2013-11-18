@@ -9,6 +9,6 @@ GL = (function($, window, document, Gullak){
     }
   }
   return Gullak;
-})(jQuery, this, this.document, Gullak);
+})(jQuery, this, this.document, GL);
 
 

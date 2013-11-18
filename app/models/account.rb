@@ -9,6 +9,7 @@ class Account < ActiveRecord::Base
   validates_presence_of :registered_company_name, :address, :pincode	
   accepts_nested_attributes_for :users
   after_create :add_owner
+  
   def add_owner
     self.users.first.add_role :owner,self
   end

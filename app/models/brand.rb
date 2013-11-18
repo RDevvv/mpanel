@@ -3,5 +3,5 @@ class Brand < ActiveRecord::Base
   has_many :account_brands, :dependent => :destroy
   has_many :accounts, :through => :account_brands
   belongs_to :category
-  scope :by_brand_name ,lambda{|nm|where("brand_name like ?","%#{nm}%") if nm.present?}
+  scope :by_brand_name ,lambda{|name|where("lower(brands.brand_name) like (?)","%#{name}%") if name.present?}
 end
