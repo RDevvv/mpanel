@@ -23,7 +23,9 @@
 					      <tr>
 					        <td>
 					          <%= link_to brand.brand_name %>
-					          <%= category.category_name %>
+					          <% if !brand.category.nil? %>
+					          	<%= category.category_name %>
+					          <% end %>
 					          <% if brand.is_verified == true %>
 					    	      <% verification_status = "Verified" %>
 					          <% else %>
@@ -46,7 +48,9 @@
 				      <tr>
 				        <td>
 				          <%= link_to brand.brand_name %>
-				          <%= category.category_name %>
+				          <% if !brand.category.nil? %>
+					          <%= category.category_name %>
+					        <% end %>
 				          <% if brand.is_verified == true %>
 				    	      <% verification_status = "Verified" %>
 				          <% else %>

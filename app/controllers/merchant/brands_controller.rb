@@ -37,5 +37,11 @@ before_filter :load_account
 	def update
 	end
 
-
+  def index
+    @brands = @account.brands
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+ 
 end

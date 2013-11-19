@@ -47,6 +47,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
   
   def show 
+    @accounts = Account.pluck(:registered_company_name)
     @account = Account.find(params[:id])
     @user = @account.owner
     respond_to do |format|
