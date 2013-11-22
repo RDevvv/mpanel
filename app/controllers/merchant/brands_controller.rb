@@ -22,6 +22,13 @@ before_filter :load_account
 	end
 
 	def destroy
+    binding.pry
+    @brand = @account.brands.find(params[:id])
+    @brand.destroy
+
+    respond_to do |format|
+      format.html { redirect_to merchant_account_brands_path }
+    end
 	end
 
 	def show
@@ -38,7 +45,8 @@ before_filter :load_account
 	end
 
   def index
-    @brands = @account.brands
+    @brands = @account.brands.all
+    @accounts = Account.all
     respond_to do |format|
       format.html # index.html.erb
     end

@@ -24,7 +24,8 @@ Gullak2::Application.routes.draw do
         
       end
       resources :account_brands
-      resources :brands  
+      resources :brands
+      resources :users  
     end
 
     

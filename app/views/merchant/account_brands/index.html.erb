@@ -5,6 +5,7 @@
 				Link Brands to <%= @account.registered_company_name%> Account<br><br>
 				<%= text_field_tag "search_name",params[:search_name],:placeholder=>"Search By Brand Name"%>
 				<%= submit_tag "Search", :class=>"btn btn-success btn-search"%>
+			</div>
 				<div class="clearfix"></div>
 			<div>
 				<div class="span6">
@@ -69,5 +70,6 @@
 		    <%= submit_tag "Save",:class=>"btn btn-primary"%>
 			</div>
 		<% end %>
+	</div>
   <div class="clearfix"></div>
 </div>

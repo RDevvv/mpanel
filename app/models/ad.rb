@@ -4,8 +4,8 @@ class Ad < ActiveRecord::Base
   has_many :outlets, :through => :outlet_ads
   has_many :ad_keywords, :dependent => :destroy
   has_many :keywords, :through => :ad_keywords
-  has_many :multiple_codes_any_outlet, :dependent => :destroy
-  has_many :single_code_any_outlet, :dependent => :destroy
+  has_many :multiple_codes_any_outlets, :dependent => :destroy
+  has_many :single_code_any_outlets, :dependent => :destroy
   belongs_to :account_brand
   has_many :ad_versions
 end
