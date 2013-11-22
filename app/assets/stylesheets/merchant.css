@@ -11,4 +11,5 @@
  *= require_self
  *= require merchant/bootstrap_override
  *= require merchant/login
+ *= require merchant/layout
  */
