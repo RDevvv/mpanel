@@ -22,10 +22,8 @@ before_filter :load_account
 	end
 
 	def destroy
-    binding.pry
     @brand = @account.brands.find(params[:id])
     @brand.destroy
-
     respond_to do |format|
       format.html { redirect_to merchant_account_brands_path }
     end

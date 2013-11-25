@@ -1,4 +1,4 @@
-<div class="row-fluid1">
+<div class="row-fluid">
   <div class="">
   	<%= form_tag(merchant_account_account_brands_path(@account),:method=>:get) do |f|%>
   		<div class="">
@@ -45,10 +45,10 @@
 			        <th>Selected Brands </th>
 			      </tr>
 				   	<% @account_brands .each do |brand| %>
-					    <% category = brand.category%>
+					    <% category = brand.category %>
 				      <tr>
 				        <td>
-				          <%= link_to brand.brand_name %>
+				          <%= link_to brand.brand_name , merchant_account_brand_outlets_path(:account_brand_id=>brand.id) %>
 				          <% if !brand.category.nil? %>
 					          <%= category.category_name %>
 					        <% end %>

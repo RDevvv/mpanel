@@ -22,7 +22,7 @@
           <% end %>
         </td>
         <td>
-          <% if brand.is_active == true %>
+          <% if brand.is_verified == true %>
             <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
           <% else %>
             <%= check_box_tag :is_verified %>
