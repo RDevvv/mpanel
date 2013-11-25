@@ -11,87 +11,25 @@
       <!--[if lt IE 9]>
         <%#= javascript_include_tag "vendor/html5shiv" %>
         <%#= javascript_include_tag "vendor/excanvas" %>
-  <![endif]-->
-    <%= stylesheet_link_tag    "merchant", media: "all"%>
-    <%= javascript_include_tag "merchant"%>
-     
-    <%= csrf_meta_tags %>
-    <%= yield(:head) %>
+        <![endif]-->
+        <%= stylesheet_link_tag    "merchant", media: "all"%>
+        <%= javascript_include_tag "merchant"%>
+
+        <%= csrf_meta_tags %>
+        <%= yield(:head) %>
 
   </head>
   <body>
 
-  <%= render :partial=>'merchant/shared/top_navigation' %>
-  <%= render :partial=>'merchant/shared/side_navigation' %>
-  <div class="main-content">
-    <div class="container-fluid">
-      <div class="row-fluid">
-
-       <div class="area-top clearfix">
-        <div class="pull-left header">
-          <h3 class="title">
-            <i class="icon-dashboard"></i>
-            Dashboard
-          </h3>
-          <h5>
-            <span class="hidden-tablet hidden-phone">
-              Click <a href="#" id="switch-sidebar">here</a> for a different sidebar
-            </span>
-            <span class="hidden-desktop">
-              A subtitle can go here
-            </span>
-          </h5>
-        </div>
-
-        <ul class="inline pull-right sparkline-box">
-
-          <li class="sparkline-row">
-            <h4 class="blue"><span>Orders</span> 847</h4>
-            <div class="sparkline big" data-color="blue"><!--19,20,8,3,25,13,23,9,17,29,19,16--></div>
-          </li>
-
-          <li class="sparkline-row">
-            <h4 class="green"><span>Reviews</span> 223</h4>
-            <div class="sparkline big" data-color="green"><!--4,29,19,19,21,6,5,9,25,9,16,13--></div>
-          </li>
-
-          <li class="sparkline-row">
-            <h4 class="red"><span>New visits</span> 7930</h4>
-            <div class="sparkline big"><!--7,21,7,23,23,12,3,28,16,11,19,7--></div>
-          </li>
-
-        </ul>
-      </div>
+    <%= render :partial=>'merchant/shared/top_navigation' %>
+    <%= render :partial=>'merchant/shared/side_navigation' %>
+    <div class="main-content">
+      <%= yield :content_header %>
+      <%= yield :breadcrumbs %>
+      <div class="container-fluid padded">
+        <%= yield %>
       </div>
     </div>
-
-    <div class="container-fluid padded">
-      <div class="row-fluid">
-
-        <!-- Breadcrumb line -->
-
-       <div id="breadcrumbs">
-        <div class="breadcrumb-button blue">
-          <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
-          <span class="breadcrumb-arrow"><span></span></span>
-        </div>
-
-        
-
-        <div class="breadcrumb-button">
-          <span class="breadcrumb-label">
-            <i class="icon-dashboard"></i> Dashboard
-          </span>
-          <span class="breadcrumb-arrow"><span></span></span>
-        </div>
-      </div>
-      </div>
-    </div>
-
-    <div class="container-fluid padded">
-      <%= yield %>
-    </div>
-  </div>
 
   </body>
 </html>

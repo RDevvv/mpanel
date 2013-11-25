@@ -1,0 +1,79 @@
+<%= content_for :content_header do %>
+  <div class="container-fluid">
+
+
+    <div class="row-fluid">
+
+     <div class="area-top clearfix">
+      <div class="pull-left header">
+        <h3 class="title">
+          <i class="icon-account"></i>
+          Accounts
+        </h3>
+       
+        </h5>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= content_for :breadcrumbs do %>
+  <div class="container-fluid padded">
+    <div class="row-fluid">
+
+      <!-- Breadcrumb line -->
+
+      <div id="breadcrumbs">
+        <div class="breadcrumb-button blue">
+          <a href="">
+            <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+            <span class="breadcrumb-arrow"><span></span></span>
+          </a>  
+        </div>
+
+
+
+        <div class="breadcrumb-button">
+          <span class="breadcrumb-label">
+            <i class="icon-account"></i> Accounts
+          </span>
+          <span class="breadcrumb-arrow"><span></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>      
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+      <div class="box-header">
+        <span class="title">Accounts</span>
+      </div>
+      <div class="box-content">
+        <div id="dataTables">
+
+          <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+            <thead>
+              <tr>
+
+                <th>Name</th>
+                <th></th>
+              </thead>
+            </tr>
+          </thead>  
+          <tbody>
+            <% @accounts.each do |account| %>
+              <tr>
+                <td>
+                  <%= link_to account.name, merchant_account_path(account) %>
+                </td>
+                <td></td>
+                
+              </tr> 
+            <% end %>
+          </tbody>  
+        </table>
+      </div>  
+    </div>
+  </div>
+</div>  

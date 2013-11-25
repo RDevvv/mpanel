@@ -28,7 +28,7 @@ group :development do
   gem 'sextant'
   gem 'pry'
   gem 'mailcatcher'
-
+gem 'quiet_assets'
 end
 
 

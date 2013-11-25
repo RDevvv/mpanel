@@ -4,6 +4,8 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
   def index 
     @brands = Brand.by_brand_name(params[:search_name]).where("brands.id not in (?)", @account.brands.pluck(:id))
   	@account_brands = @account.brands
+     add_breadcrumb "Brand", merchant_merchants_path(),:title=>"Home path"
+
   	respond_to do |format|
       format.html # index.html.erb
     end

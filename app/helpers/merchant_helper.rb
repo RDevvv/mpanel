@@ -7,9 +7,11 @@ module MerchantHelper
       "brands"=>"brand",
     }
     if class_name == (classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || '')
-    "btn-primary" 
-  else
-    "btn-success" 
+      "btn-primary" 
+    else
+      "btn-success" 
+    end
   end
-  end
+
+  
 end

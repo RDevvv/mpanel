@@ -1,7 +1,8 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
+before_filter :load_account,:only=>[:index]
   def index
-    
+    @accounts = current_user.accounts
   end
   def create
     binding.pry
