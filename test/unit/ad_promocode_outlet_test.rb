@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SingleCodeAnyOutletTest < ActiveSupport::TestCase
+class AdPromocodeOutletTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

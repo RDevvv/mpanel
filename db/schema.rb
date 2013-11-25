@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122074519) do
+ActiveRecord::Schema.define(:version => 20131123084029) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(:version => 20131122074519) do
     t.boolean  "is_deleted"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "ad_promocode_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "outlet_id"
+    t.integer  "ad_promocode_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "ad_promocodes", :force => true do |t|
+    t.string   "set_name"
+    t.string   "promocode"
+    t.integer  "ad_id"
+    t.float    "cap"
+    t.float    "usage"
+    t.boolean  "is_used",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "ad_versions", :force => true do |t|

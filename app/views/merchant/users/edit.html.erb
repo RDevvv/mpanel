@@ -1,9 +1,11 @@
-<div class="row-fluid">
-	<%= form_for([@account,@user], :url=>merchant_account_user_path(@account,@user), :method=>:put) do |f| %>
-		<h4>Edit User Details</h4>
-		<div class="span9">
-			<%= f.collection_select :id, @users,:id,:user_key%>
-		</div>
+
+<div>
+	<%= form_for([@account,@user], :url=>merchant_account_user_path(@account,@user)) do |f| %>
+ 		<div class="content-header">
+        <h2>Edit User Details
+          <!-- <small> &nbsp;super admin only</small> -->
+        </h2>
+      </div>
 		<div class="clearfix"></div>
 		<div class="span9">
 			<%= f.text_field :first_name, :class=>"span4"%>

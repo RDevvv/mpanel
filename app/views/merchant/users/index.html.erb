@@ -1,47 +1,52 @@
-<%= form_tag(new_merchant_account_user_path(@account),:method=>:get) do %>
-  <%= label_tag :Select_Company%>
-  <%= collection_select :account,:id, @accounts,:id,:registered_company_name%>
-  <%= button_to "Create User", new_merchant_account_user_path,:class=>"btn btn-primary offset10 span2"%>
+<div class="pull-right">
+  <%= link_to "Create User", new_merchant_account_user_path,:class=>"btn btn-info"%>
+<br/>
+<br/>  
+</div>
 
-  <table class="table table-striped table-bordered info">
-    <tr>
-      <th>Status</th>
-      <th>Verified</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
-      <th>Role</th>
-      <th>Brand Access</th>
-      <th></th>
-    </tr>
+<div>
 
-    <% @users.each do |user| %>
+  <%= form_tag(new_merchant_account_user_path(@account),:method=>:get) do %>
+    <table class="table table-striped table-bordered info">
       <tr>
-        <td>
-          <% if user.is_active == true%>
-            <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-          <% else %>
-            <%= check_box_tag :is_active %>
-          <% end %>
-        </td>
-        <td>
-          <% if user.email_verified == true%>
-            <%= check_box_tag :email_verified, :ssl_enabled, :boolean, :default => 1%>
-          <% else %>
-            <%= check_box_tag :email_verified %>
-          <% end %>
-        </td>
-        <td><% name = user.first_name + " " +user.last_name %>
-          <%= link_to name, edit_merchant_account_user_path(@account,user) %></td>
-        <td><%= user.email %></td>
-        <td><%= user.mobile_number%></td>
-        <td></td>
-        <td></td>
-        <td>
-          <%= link_to 'Destroy', merchant_account_user_path(@account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr> 
-    <% end %>
-  </table>
-<% end %>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Role</th>
+        <th>Brand Access</th>
+        <th>Status</th>
+        <th>Verified</th>
+        <th></th>
+      </tr>
+
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user.user_name, edit_merchant_account_user_path(@account,user) %></td>
+          <td><%= user.email %></td>
+          <td><%= user.mobile_number%></td>
+          <td></td>
+          <td></td>
+          <td>
+            <% if user.is_active == true%>
+              <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
+            <% else %>
+              <%= check_box_tag :is_active %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', merchant_account_user_path(@account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+           <td>
+            <% if user.email_verified == true%>
+              <%= check_box_tag :email_verified, :ssl_enabled, :boolean, :default => 1%>
+            <% else %>
+              <%= check_box_tag :email_verified %>
+            <% end %>
+          </td>
+        </tr> 
+      <% end %>
+    </table>
+  <% end %>
+</div>  
 
