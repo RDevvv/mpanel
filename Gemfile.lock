@@ -28,30 +28,33 @@ GEM
     activesupport (3.2.14)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    arel (3.0.2)
+    arel (3.0.3)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
-    breadcrumbs_on_rails (2.2.0)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
     cancan (1.6.10)
     capistrano (3.0.1)
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
-    capistrano-bundler (1.0.0)
-      capistrano (>= 3.0.0.pre)
+    capistrano-bundler (1.1.0)
+      capistrano (~> 3.0)
+      sshkit (>= 1.2.0)
     capistrano-rails (1.1.0)
       capistrano (>= 3.0.0)
       capistrano-bundler (>= 1.0.0)
     capistrano-rvm (0.0.3)
       capistrano
-    carrierwave (0.8.0)
+    carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+      json (>= 1.7)
+    chunky_png (1.2.8)
     client_side_validations (3.2.6)
-    coderay (1.0.9)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -59,9 +62,17 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    daemon_controller (1.1.2)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
+    crumbs (1.0.8)
+      rails (>= 3.0.0)
+    daemon_controller (1.1.7)
     daemons (1.1.9)
-    devise (3.1.0)
+    devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -73,10 +84,10 @@ GEM
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.0.2)
-    fastthread (1.0.7)
-    font-awesome-rails (3.2.1.2)
+    font-awesome-rails (3.2.1.3)
       railties (>= 3.2, < 5.0)
-    haml (4.0.3)
+    fssm (0.2.10)
+    haml (4.0.4)
       tilt
     hike (1.2.3)
     i18n (0.6.5)
@@ -88,25 +99,24 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.1)
-    kaminari (0.14.1)
+    kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailcatcher (0.2.4)
-      eventmachine
-      haml
-      i18n
-      json
-      mail
-      sinatra
-      skinny (>= 0.1.2)
-      sqlite3-ruby
-      thin
+    mailcatcher (0.5.12)
+      activesupport (~> 3.0)
+      eventmachine (~> 1.0.0)
+      haml (>= 3.1, < 5)
+      mail (~> 2.3)
+      sinatra (~> 1.2)
+      skinny (~> 0.2.3)
+      sqlite3 (~> 1.3)
+      thin (~> 1.5.0)
     method_source (0.8.2)
-    mime-types (1.25)
-    mini_portile (0.5.1)
+    mime-types (1.25.1)
+    mini_portile (0.5.2)
     multi_json (1.8.2)
     nested_form (0.3.2)
     net-scp (1.1.2)
@@ -114,16 +124,15 @@ GEM
     net-ssh (2.7.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    orm_adapter (0.4.0)
-    passenger (3.0.19)
-      daemon_controller (>= 1.0.0)
-      fastthread (>= 1.0.1)
+    orm_adapter (0.5.0)
+    passenger (4.0.25)
+      daemon_controller (>= 1.1.0)
       rack
       rake (>= 0.8.1)
     pg (0.17.0)
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.4.5)
@@ -132,7 +141,7 @@ GEM
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
       rack (~> 1.3)
-    rack-protection (1.5.0)
+    rack-protection (1.5.1)
       rack
     rack-ssl (1.3.3)
       rack
@@ -173,7 +182,7 @@ GEM
       json (~> 1.4)
     remotipart (1.2.1)
     rolify (3.2.0)
-    safe_yaml (0.9.4)
+    safe_yaml (0.9.7)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -181,24 +190,22 @@ GEM
       tilt (~> 1.3)
     sextant (0.2.4)
       rails (>= 3.2)
-    sinatra (1.4.3)
+    sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     skinny (0.2.3)
       eventmachine (~> 1.0.0)
       thin (~> 1.5.0)
-    slop (3.4.6)
+    slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.8)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
-    sshkit (1.1.0)
-      net-scp
+    sshkit (1.2.0)
+      net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
     term-ansicolor (1.2.2)
@@ -216,7 +223,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
-    uglifier (2.3.0)
+    uglifier (2.3.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
@@ -226,7 +233,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 2.3.2.2)
   breadcrumbs_on_rails
   cancan
   capistrano (~> 3.0.1)
@@ -235,6 +241,9 @@ DEPENDENCIES
   capistrano-rvm (~> 0.0.3)
   carrierwave
   client_side_validations
+  compass
+  compass-rails
+  crumbs
   devise
   exception_notification
   jquery-rails
