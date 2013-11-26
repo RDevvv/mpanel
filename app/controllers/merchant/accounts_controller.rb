@@ -5,7 +5,6 @@ before_filter :load_account,:only=>[:index]
     @accounts = current_user.accounts
   end
   def create
-    binding.pry
     @account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
@@ -27,8 +26,6 @@ before_filter :load_account,:only=>[:index]
   def new
     @account = Account.new
     @account.users.build
-    @account.build_area
-    #@account.areas.build
     @areas = Area.all
     @cities = City.all
     @countries = Country.all
@@ -47,6 +44,7 @@ before_filter :load_account,:only=>[:index]
   end
 
   def update
+    binding.pry
    	@account = Account.find(params[:id])
     respond_to do |format|
       if @account.update_attributes(params[:account])

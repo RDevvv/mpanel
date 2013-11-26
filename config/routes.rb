@@ -25,7 +25,6 @@ Gullak2::Application.routes.draw do
       resources :account_brands 
       resources :brands
       resources :users  
-      # resources :outlets
     end
 
     resources :account_brands do
@@ -33,9 +32,9 @@ Gullak2::Application.routes.draw do
     end
   end  
   
-    root :to => "merchant/accounts#new"
+    # root :to => "merchant/accounts#new"
 
-    # root :to => "home#index"
+    root :to => "merchant/accounts#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

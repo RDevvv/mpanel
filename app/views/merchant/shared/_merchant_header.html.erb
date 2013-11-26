@@ -1,8 +1,5 @@
 <div class="merchant_sub_header">
   <div class="row-fluid">
-    <div class="span8">
-      <%= render_breadcrumbs :builder => ::BootstrapBreadcrumbsBuilder, :separator => "/" %>
-    </div>
     <div class="span4">
       <% if merchant_user_signed_in? %>
       <%=select_tag :account_id,options_from_collection_for_select(current_user.accounts,:id,:name,@account.id),:prompt=>"Select Account" %>

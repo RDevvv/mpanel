@@ -1,3 +1,4 @@
+<%= render :partial=>'header' %>
 <%= form_tag(merchant_account_brands_path(@account),:method=>:get) do %>
   <%= label_tag :Select_Company%>
   <%= collection_select :account,:id, @accounts,:id,:registered_company_name%>

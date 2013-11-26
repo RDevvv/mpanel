@@ -1,3 +1,4 @@
+<%= render :partial=>'header' %>
 <div class="container">
   <div class="row">
     <div class="span12 offset1">
@@ -6,10 +7,9 @@
         <h4>Company Information</h4>
         <%= f.text_field :registered_company_name,:placeholder=>"Company Name" %><br>
         <%= f.text_field :address,:placeholder=>"Address"%>
-        <%= f.fields_for :area do |builder| %>
-          <%= render "area_fields", :f => builder %>
-        <% end %>
-        <%= f.collection_select :area_id, @areas,:id,:area_name%><br>
+        <%= f.text_field :pincode,:placeholder=>"Pincode"%>
+        <%= f.collection_select :id, @cities,:id,:city_name%>
+        <%= f.collection_select :id, @areas,:id,:area_name%><br>
         <%= f.collection_select :id, @countries,:id,:currency_name%>
         <br><br>
         <%= f.fields_for :users do |builder| %>
