@@ -5,7 +5,7 @@
       <div class="pull-left header">
         <h3 class="title">
           <i class="icon-account"></i>
-         <%=  name.present? ? name : "Accounts" %>
+         <%= defined?(name) ? name : "Accounts" %>
         </h3>
        
         </h5>
