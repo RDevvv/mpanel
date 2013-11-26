@@ -1,12 +1,49 @@
-<%= render :partial=>'header' %>
-<div class="row-fluid1">
-  <div class="">
-    <%= form_for(@account,:url=>merchant_account_path) do |f| %>
-      <%= f.collection_select :id, @accounts,:id,:registered_company_name%>
-      <h4>Increase Footfall in 3 simple steps:</h4>
-      Link <%= link_to " Brands ", new_merchant_account_brand_path(@account) %> to your Account<br>
-      Create <%= link_to " Outlets ", new_merchant_account_brand_path(@account) %> for your Brands<br>
-      Run <%= link_to " Campaigns ", new_merchant_account_brand_path(@account) %> for specific Outlets
-    <% end %>
-    </div>
-</div>
+<!doctype html>
+  <html>
+    <head>
+    	<meta charset="utf-8">
+    	  <title>GullakMaster - Merchant Dashboard</title>
+    	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	  <!--<link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>-->
+    	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
+    	  <link rel="stylesheet" href="css/customstyles.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+    	  <section class="container">
+          <div class="row-fluid">
+          	<%= form_for(@account,:url=>merchant_account_path) do |f| %>
+      				<%= f.collection_select :id, @accounts,:id,:registered_company_name%>
+		            <div class="span12">
+		              <div class="span8"><h4>Increase footfall in 3 simple steps</h4></div>
+		              <div class="mt10 ml0 span10">
+		                <div class="span2"><a href=<%new_merchant_account_brand_path(@account)%>><img src="../../images/lnk-brnds.jpg" border="0" /></a></div>
+		                <div class="span6">
+		                    <div class="ft-div"><h4>Link <a href="#">Brands</a> to your Account</h4></div>
+		                </div>
+		              </div>
+		              <div class="mt10 ml0 span10">
+		                <div class="span2"><a href=<%new_merchant_account_brand_path(@account)%>><img src="../../images/crt-outlt.jpg" border="0" /></a></div>
+		                <div class="span6">
+		                    <div class="ft-div"><h4>Create <a href="#">Outlets</a> for your Brands</h4></div>
+		                </div>
+		              </div>
+		              <div class="mt10 ml0 span10">
+		                <div class="span2"><a href=<%new_merchant_account_brand_path(@account)%>><img src="../../images/campaigns.jpg" border="0" /></a></div>
+		                <div class="span6">
+		                    <div class="ft-div"><h4>Run <a href="#">Campaigns</a> for specific Outlets</h4></div>
+		                </div>
+		              </div>
+		            </div>
+		          <% end %>
+          </div>
+
+        </section>
+
+
+    </body>
+    </html>
