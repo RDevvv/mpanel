@@ -15,7 +15,7 @@ class Account < ActiveRecord::Base
   end
 
   def owner
-    self.users.select{|u| u.has_role?(:owner,self) }.first
+    # self.users.select{|u| u.has_role?(:owner,self) }.first
   end
 
   def name
