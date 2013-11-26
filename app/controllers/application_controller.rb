@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
     # IF it's merchant redirect to merchant page
     if resource.is_a?(User)
       merchant_merchants_path
+    else
+    super  
     end
   end
   private
