@@ -1,5 +1,38 @@
-<%= f.text_field :first_name,:placeholder=>"First Name"%>
-<%= f.text_field :last_name,:placeholder=>"Last Name"%><br>
-<%= f.text_field :email,:placeholder=>"Email"%><br>
-<%= f.password_field :password, :placeholder=>"Password",:class=>"required",:id=>"password" %><br>
-<%= f.password_field :password_confirmation, :placeholder=>"Confirm Password",:id=>"password_confirmation",:class=>"required" %>
+<hr/>
+
+<div class="control-group">
+  <label class="control-label">First name</label>
+  <div class="controls">
+    <%= f.text_field :first_name, :placeholder=>"First Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Last name</label>
+  <div class="controls">
+    <%= f.text_field :last_name, :placeholder=>"Last Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Email</label>
+  <div class="controls">
+    <%= f.text_field :email, :placeholder=>"Email", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Password</label>
+  <div class="controls">
+    <%= f.password_field :password, :placeholder=>"Password", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Password Confirmation</label>
+  <div class="controls">
+    <%= f.password_field :password, :placeholder=>"Confirm Password", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+  </div>
+</div>
+
+

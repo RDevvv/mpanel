@@ -1,9 +1,54 @@
-<%= render :partial=>'header' %>
-<div class="container">
+<%= render :partial=>'header',:locals=>{:name=>"New Account"} %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+
+      <div class="box-header">
+        <span class="title"><i class="icon-account"></i> New Account</span>
+      </div>
+      <div class="box-content">
+        <%= form_for(@account,:url=>merchant_accounts_path,:html=>{:class=>"form-horizontal fill-up validatable"}) do |f| %>
+          <div class="padded">
+            
+            <div class="control-group">
+              <label class="control-label">Company Name</label>
+              <div class="controls">
+                <%= f.text_field :registered_company_name, :placeholder=>"Company Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Address</label>
+              <div class="controls">
+                <%= f.text_field :address, :placeholder=>"Address", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Pincode</label>
+              <div class="controls">
+                <%= f.text_field :pincode, :placeholder=>"Pincode", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <%= f.fields_for :users do |builder| %>
+              <%= render "user_fields", :f => builder %>
+            <% end %>
+
+          </div>  
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Save changes</button>
+            <button type="button" class="btn btn-default">Cancel</button>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div>      
+<!-- <div class="container">
   <div class="row">
     <div class="span12 offset1">
       <%= form_for(@account,:url=>merchant_accounts_path) do |f| %>
-        <h3>Create New Account</h3>
         <h4>Company Information</h4>
         <%= f.text_field :registered_company_name,:placeholder=>"Company Name" %><br>
         <%= f.text_field :address,:placeholder=>"Address"%>
@@ -26,4 +71,4 @@
     </div>
     <div class="clearfix"></div>
   </div>
-</div>
+</div> -->
