@@ -1,10 +1,17 @@
-   
 <%= render :partial=>'header' %>
+
 <div class="row-fluid">
-  <div class="">
-  	<%= form_tag(merchant_account_account_brands_path(@account),:method=>:get) do |f|%>
+  <div class="span12">
+  	<div class="box">
+			
+			<div class="box-header">
+				<span class="title"><i class="icon-user"></i> Add brand to accounts</span>
+			</div>
+			<div class="box-content">
+				
+  			<%= form_tag(merchant_account_account_brands_path(@current_account),:method=>:get,:class=>"form-inline fill-up validatable") do |f|%>
   		<div class="">
-				Link Brands to <%= @account.registered_company_name%> Account<br><br>
+				Link Brands to <%= @current_account.registered_company_name%> Account<br><br>
 				<%= text_field_tag "search_name",params[:search_name],:placeholder=>"Search By Brand Name"%>
 				<%= submit_tag "Search", :class=>"btn btn-success btn-search"%>
 			</div>
