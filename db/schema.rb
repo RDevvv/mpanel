@@ -218,24 +218,7 @@ ActiveRecord::Schema.define(:version => 20131123084029) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "multiple_codes_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.datetime "end_date"
-  end
-
-  create_table "outlet_ads", :force => true do |t|
-    t.integer  "ad_id"
-    t.integer  "outlet_id"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  
 
   create_table "outlet_types", :force => true do |t|
     t.string   "outlet_type_name"
@@ -328,26 +311,6 @@ ActiveRecord::Schema.define(:version => 20131123084029) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
-
-  create_table "single_code_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "single_code_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
 
   create_table "states", :force => true do |t|
     t.string   "state_name"
