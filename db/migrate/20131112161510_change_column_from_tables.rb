@@ -14,13 +14,12 @@ class ChangeColumnFromTables < ActiveRecord::Migration
     add_column :ads,:lifetime_budget,:float
     change_column :outlet_versions,:mobile_number,:string
     change_column :outlet_versions,:phone_number,:string
-    add_column :multiple_codes_specific_outlets,:end_date,:datetime
     remove_column :brands,:account_ids
     change_column :accounts, :account_key, :string
     remove_column :accounts,:user_ids
     remove_column :accounts,:brand_ids
     remove_column :accounts,:admin_user_id
-    add_column :accounts,:owner_id,:integer
+    
     remove_column :users,:account_ids
     change_column :users, :mobile_number, :string
     change_column :areas, :pincode, :string

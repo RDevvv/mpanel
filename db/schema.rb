@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20131123084029) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "owner_id"
   end
 
   create_table "ad_keywords", :force => true do |t|
@@ -207,18 +206,6 @@ ActiveRecord::Schema.define(:version => 20131123084029) do
     t.integer  "country_id"
   end
 
-  create_table "multiple_codes_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  
 
   create_table "outlet_types", :force => true do |t|
     t.string   "outlet_type_name"
