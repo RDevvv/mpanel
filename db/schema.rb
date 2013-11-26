@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20131126061846) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "owner_id"
     t.integer  "pincode"
     t.string   "city"
   end
@@ -208,7 +207,6 @@ ActiveRecord::Schema.define(:version => 20131126061846) do
     t.datetime "updated_at",      :null => false
     t.integer  "country_id"
   end
-
 
   create_table "outlet_types", :force => true do |t|
     t.string   "outlet_type_name"
