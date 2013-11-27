@@ -33,6 +33,7 @@
 		            <th>Brand </th>
 		            <th>Alias </th>
 		            <th>Code </th>
+		            <th>Manage </th>
 		          </tr>
 		        </thead>  
 		        <tbody>
@@ -41,6 +42,7 @@
 	                <td><%= brand.brand_name %> <span class="badge badge-blue"><%=brand.category.category_name %></span></td>
 	                <td><%= brand.brand_alias %></td>
 	                <td><%= brand.brand_code %></td>
+	                <td><%= link_to "Create Ad","#"%></td>
 	              </tr>
 	            <% end %>  
 		        </tbody>
