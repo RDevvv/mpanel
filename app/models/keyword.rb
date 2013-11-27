@@ -3,4 +3,5 @@ class Keyword < ActiveRecord::Base
   has_many :ad_keywords, :dependent => :destroy
   has_many :ads, :through => :ad_keywords
   has_many :keyword_aliases, :dependent => :destroy
+  has_one :attachment, :as => :attachable ,:class_name=>'Attachment'
 end

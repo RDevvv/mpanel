@@ -8,4 +8,6 @@ class Ad < ActiveRecord::Base
   has_many :ad_promocodes #,:dependent=>:destroy
   has_many :ad_promocode_outlets#,:dependent=>:destroy
   has_many :outlets,:through=>:ad_promocode_outlets
+  has_one :attachment, :as => :attachable ,:class_name=>'Attachment'
+
 end
