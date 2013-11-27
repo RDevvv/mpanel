@@ -63,4 +63,6 @@
 *= require merchant/responsive480
 *= require_self
 */
-
+.no_sidebar{
+  margin-left: 5px;
+}

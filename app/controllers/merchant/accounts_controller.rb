@@ -44,7 +44,7 @@ before_filter :load_account
   end
 
   def update
-    binding.pry
+    
    	@account = Account.find(params[:id])
     respond_to do |format|
       if @account.update_attributes(params[:account])

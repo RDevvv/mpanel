@@ -13,5 +13,13 @@ module MerchantHelper
     end
   end
 
+  def no_sidebar
+    classes = {"accounts.new"=>"no_sidebar","accounts.verified_account"=>"no_sidebar"}
+      
+    unless current_merchant_user
+      classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || ''
+    end  
+  end
+
   
 end

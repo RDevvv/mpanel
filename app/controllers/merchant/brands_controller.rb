@@ -43,7 +43,6 @@ before_filter :load_account
 	end
 
   def index
-    binding.pry
     @brands = @account.brands.all
     @accounts = Account.all
     respond_to do |format|
