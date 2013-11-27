@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126061846) do
+ActiveRecord::Schema.define(:version => 20131127055508) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -139,6 +139,14 @@ ActiveRecord::Schema.define(:version => 20131126061846) do
     t.string   "area_alias"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "image"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "brands", :force => true do |t|

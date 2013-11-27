@@ -4,4 +4,5 @@ class Brand < ActiveRecord::Base
   has_many :accounts, :through => :account_brands
   belongs_to :category
   scope :by_brand_name ,lambda{|name|where("lower(brands.brand_name) like (?)","%#{name}%") if name.present?}
+  has_one :attachment, :as => :attachable ,:class_name=>'Attachment'
 end
