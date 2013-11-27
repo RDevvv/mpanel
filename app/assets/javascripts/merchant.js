@@ -32,3 +32,4 @@
 //= require merchant/charts/sparkline_samples
 //= require merchant/generic
 //= require jquery_ujs
+//= require jquery_nested_form

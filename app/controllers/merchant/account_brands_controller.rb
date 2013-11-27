@@ -16,6 +16,9 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
     if @current_account.save
       redirect_to merchant_account_account_brands_path(@current_account)
     else
+      @brands = Brand.by_brand_name(params[:search_name]).where("brands.id not in (?)", @current_account.brands.pluck(:id))
+      @account_brands = @current_account.brands.order("brands.category_id asc")
+    
       render :action=>:index
     end
   end

@@ -13,7 +13,6 @@ before_filter :load_account
 		@brand = @current_account.brands.new(params[:brand])
     respond_to do |format|
       if @brand.save
-        binding.pry
         format.html { redirect_to merchant_account_account_brands_path(@current_account),:notice=>"Brand Succesfully added"}
       else
         @categories = Category.all
