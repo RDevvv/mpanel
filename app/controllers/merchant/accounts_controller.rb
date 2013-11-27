@@ -5,6 +5,9 @@ before_filter :load_account
     @accounts = current_user.accounts
   end
   def create
+    @areas = Area.all
+    @cities = City.all
+    @countries = Country.all
     @account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
