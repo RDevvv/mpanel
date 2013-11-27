@@ -1,29 +1,17 @@
-<section class="container">
+<%= render :partial=>'account_header' %>
   <div class="row-fluid">
-  	<%= form_for(@account,:url=>merchant_account_path) do |f| %>
-			<%= f.collection_select :id, @accounts,:id,:registered_company_name%>
-        <div class="span12">
-          <div class="span8"><h4>Increase footfall in 3 simple steps</h4></div>
-          <div class="mt10 ml0 span10">
-            <div class="span2"><a href=<%new_merchant_account_brand_path(@account)%>><img src="/assets/lnk-brnds.jpg" border="0" /></a></div>
-            <div class="span6">
-                <div class="ft-div"><h4>Link <a href="#">Brands</a> to your Account</h4></div>
-            </div>
-          </div>
-          <div class="mt10 ml0 span10">
-            <div class="span2"><a href=<%new_merchant_account_brand_path(@account)%>><img src="/assets/crt-outlt.jpg" border="0" /></a></div>
-            <div class="span6">
-                <div class="ft-div"><h4>Create <a href="#">Outlets</a> for your Brands</h4></div>
-            </div>
-          </div>
-          <div class="mt10 ml0 span10">
-            <div class="span2"><a href=<%new_merchant_account_brand_path(@account)%>><img src="/assets/campaigns.jpg" border="0" /></a></div>
-            <div class="span6">
-                <div class="ft-div"><h4>Run <a href="#">Campaigns</a> for specific Outlets</h4></div>
-            </div>
-          </div>
+  	<div class="span12">
+      <div class="box">
+        <div class="box-header">
+          <span class="title">Accounts</span>
         </div>
-      <% end %>
+        <div class="box-content">
+          <div class="padded">
+            Account Dashboard
+          </div>  
+        </div>  
+      </div>  
+    </div>  
   </div>
-</section>
+
 

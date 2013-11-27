@@ -10,5 +10,14 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
       format.html # index.html.erb
     end
   end
+
+  def add_brands
+    @current_account.brand_ids = @current_account.brand_ids.push(params[:brand_ids].collect(&:to_i)).flatten.compact.uniq
+    if @current_account.save
+      redirect_to merchant_account_account_brands_path(@current_account)
+    else
+      render :action=>:index
+    end
+  end
   
 end
