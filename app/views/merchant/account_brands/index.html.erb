@@ -1,32 +1,24 @@
 <%= render :partial=>'header' %>
-
 <div class="row-fluid">
   <div class="span12">
-  	<div class="box">
-			
+  	<div class="box">			
 			<div class="box-header">
 				<span class="title"><i class="icon-user"></i> Add brand to accounts</span>
 				<div class="pull-right">
 					<%= form_tag(merchant_account_account_brands_path(@current_account),:method=>:get,:class=>"form-inline") do |f|%>
-				
-				 		 <input type="text" class="input-medium search-query">
+				 		<input type="text" class="input-medium search-query">
 					  <button type="submit" class="btn btn-success btn-search">Search</button>
 					<% end %>	  
 				</div>
 			</div>
-			<div class="box-content">
-				
-					
-				
+			<div class="box-content"></div>
+  		<%= form_tag(merchant_account_account_brands_path(@current_account),:method=>:get,:class=>"form-inline fill-up validatable") do |f|%>
+  			<div class="">
+					Link Brands to <%= @current_account.registered_company_name%> Account<br><br>
+					Looking for Brand ? <%= text_field_tag "search_name",params[:search_name],:placeholder=>"Search By Brand Name", :class=>"span3"%>
 				</div>
-  			<%= form_tag(merchant_account_account_brands_path(@current_account),:method=>:get,:class=>"form-inline fill-up validatable") do |f|%>
-  		<div class="">
-				Link Brands to <%= @current_account.registered_company_name%> Account<br><br>
-				<%= text_field_tag "search_name",params[:search_name],:placeholder=>"Search By Brand Name"%>
-				<%= submit_tag "Search", :class=>"btn btn-success btn-search"%>
-			</div>
-			<div class="clearfix"></div>
-			<div>
+				<div class="clearfix"></div>
+				<div>
 				<div class="span6">
 					<table class="table table-striped table-bordered info">
 			      <tr>
@@ -54,41 +46,55 @@
 					          <%= verification_status %>
 					        </td>
 					      </tr>
-					    <% end %>
-			    	<% end %>
-		    	</table>
+					    	<% end %>
+				    	<% end %>
+			    	</table>
+					</div>
+					<div class="span6">
+						<table class="table table-striped table-bordered info">
+				      <tr>
+				        <th>Selected Brands </th>
+				      </tr>
+					   	<% @account_brands .each do |brand| %>
+						    <% category = brand.category %>
+					      <tr>
+					        <td>
+					          <%= link_to brand.brand_name , merchant_account_brand_outlets_path(:account_brand_id=>brand.id) %>
+					          <% if !brand.category.nil? %>
+						          <%= category.category_name %>
+						        <% end %>
+					          <% if brand.is_verified == true %>
+					    	      <% verification_status = "Verified" %>
+					          <% else %>
+					      	    <% verification_status = "Not Verified" %> 
+					          <% end %>
+					          <%= verification_status %>
+					        </td>
+					      </tr>
+					    <% end %>  
+			    	</table>
+					</div>
 				</div>
-				<div class="span6">
+				<div class="clearfix"></div>
+
+				<div class="">
 					<table class="table table-striped table-bordered info">
 			      <tr>
-			        <th>Selected Brands </th>
+			        <th>Brand </th>
+			        <th>Alias </th>
+			        <th>Code </th>
 			      </tr>
-				   	<% @account_brands .each do |brand| %>
-					    <% category = brand.category %>
-				      <tr>
-				        <td>
-				          <%= link_to brand.brand_name , merchant_account_brand_outlets_path(:account_brand_id=>brand.id) %>
-				          <% if !brand.category.nil? %>
-					          <%= category.category_name %>
-					        <% end %>
-				          <% if brand.is_verified == true %>
-				    	      <% verification_status = "Verified" %>
-				          <% else %>
-				      	    <% verification_status = "Not Verified" %> 
-				          <% end %>
-				          <%= verification_status %>
-				        </td>
+			      <% @account_brands .each do |brand| %>
+			      	<tr>
+        				<td><%= brand.brand_name %></td>
+        				<td><%= brand.brand_alias %></td>
+        				<td><%= brand.brand_code %></td>
 				      </tr>
-				    <% end %>  
+				     <% end %>
 		    	</table>
 				</div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="span4 offset5">
-				<%= button_tag "Cancel",:class=>"btn btn-default btn-lg active"%>
-		    <%= submit_tag "Save",:class=>"btn btn-primary"%>
-			</div>
-		<% end %>
-	</div>
+				<div class="clearfix"></div>
+			<% end %>
+		</div>
   <div class="clearfix"></div>
 </div>
