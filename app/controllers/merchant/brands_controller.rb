@@ -10,10 +10,11 @@ before_filter :load_account
 	end
 
 	def create
-		@brand = @account.brands.new(params[:brand])
+		@brand = @current_account.brands.new(params[:brand])
     respond_to do |format|
       if @brand.save
-        format.html { redirect_to merchant_account_account_brands_path(@account),:notice=>"Brand Succesfully added"}
+        binding.pry
+        format.html { redirect_to merchant_account_account_brands_path(@current_account),:notice=>"Brand Succesfully added"}
       else
         @categories = Category.all
         format.html { render action: "new" }
