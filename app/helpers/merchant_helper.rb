@@ -21,5 +21,13 @@ module MerchantHelper
     end  
   end
 
+  def has_sidebar
+    classes = {"accounts.new"=>"has_sidebar","accounts.verified_account"=>"has_sidebar"}
+      
+    if current_merchant_user
+      classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || ''
+    end  
+  end
+
   
 end

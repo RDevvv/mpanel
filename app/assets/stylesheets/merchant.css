@@ -64,5 +64,9 @@
 *= require_self
 */
 .no_sidebar{
-  margin-left: 5px;
+  margin-left: 0px;
 }
+.has_sidebar{
+  margin-left:210px;
+}
+

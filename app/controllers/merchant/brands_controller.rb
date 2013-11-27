@@ -2,7 +2,7 @@ class Merchant::BrandsController <  Merchant::BaseController
 before_filter :load_account
 
 	def new
-		@brand = @account.brands.new
+		@brand = @current_account.brands.new
     @categories = Category.all
 		respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +43,7 @@ before_filter :load_account
 	end
 
   def index
-    @brands = @account.brands.all
+    @brands = @current_account.brands.all
     @accounts = Account.all
     respond_to do |format|
       format.html # index.html.erb

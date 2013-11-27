@@ -22,8 +22,9 @@
   <body>
 
     <%= render :partial=>'merchant/shared/top_navigation' %>
-    <%= render :partial=>'merchant/shared/side_navigation' %>
-    <div class="main-content  <%= no_sidebar %>">
+    <%= yield :sidebar %>
+    <%#= render :partial=>'merchant/shared/side_navigation' %>
+    <div class="main-content no_sidebar >
       <%= yield :content_header %>
       <%= yield :breadcrumbs %>
       <div class="container-fluid padded">

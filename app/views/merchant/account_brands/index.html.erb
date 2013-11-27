@@ -6,9 +6,19 @@
 			
 			<div class="box-header">
 				<span class="title"><i class="icon-user"></i> Add brand to accounts</span>
+				<div class="pull-right">
+					<%= form_tag(merchant_account_account_brands_path(@current_account),:method=>:get,:class=>"form-inline") do |f|%>
+				
+				 		 <input type="text" class="input-medium search-query">
+					  <button type="submit" class="btn btn-success btn-search">Search</button>
+					<% end %>	  
+				</div>
 			</div>
 			<div class="box-content">
 				
+					
+				
+				</div>
   			<%= form_tag(merchant_account_account_brands_path(@current_account),:method=>:get,:class=>"form-inline fill-up validatable") do |f|%>
   		<div class="">
 				Link Brands to <%= @current_account.registered_company_name%> Account<br><br>
