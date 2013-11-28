@@ -45,30 +45,3 @@
     </div>
   </div>
 </div>      
-<!-- <div class="container">
-  <div class="row">
-    <div class="span12 offset1">
-      <%= form_for(@account,:url=>merchant_accounts_path) do |f| %>
-        <h4>Company Information</h4>
-        <%= f.text_field :registered_company_name,:placeholder=>"Company Name" %><br>
-        <%= f.text_field :address,:placeholder=>"Address"%>
-        <%= f.text_field :pincode,:placeholder=>"Pincode"%>
-        <%= f.collection_select :id, @cities,:id,:city_name%>
-        <%= f.collection_select :id, @areas,:id,:area_name%><br>
-        <%= f.collection_select :id, @countries,:id,:currency_name%>
-        <br><br>
-        <%= f.fields_for :users do |builder| %>
-          <%= render "user_fields", :f => builder %>
-        <% end %>
-        <br><br>
-        
-        <% if f.object.new_record? %>
-          <%= f.submit "Register",:class=>"btn btn-primary"%>
-        <% else %>
-          <%= f.submit "Update",:class=>"btn btn-primary"%>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-</div> -->

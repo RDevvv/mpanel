@@ -22,7 +22,7 @@ before_filter :load_account
 	end
 
 	def destroy
-    @brand = @account.brands.find(params[:id])
+    @brand = @current_account.brands.find(params[:id])
     @brand.destroy
     respond_to do |format|
       format.html { redirect_to merchant_account_brands_path }
@@ -30,7 +30,7 @@ before_filter :load_account
 	end
 
 	def show
-		@brand = @account.brands.find(params[:id])
+		@brand = @current_account.brands.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
     end
