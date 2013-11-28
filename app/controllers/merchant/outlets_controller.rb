@@ -56,6 +56,6 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	protected
 	def load_account_brand
-		@account_brand = @cuurent_account.account_brands.find(params[:account_brand_id])
+		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
 end

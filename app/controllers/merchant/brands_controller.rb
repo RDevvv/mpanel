@@ -10,6 +10,7 @@ before_filter :load_account
 	end
 
 	def create
+    binding.pry
 		@brand = @current_account.brands.new(params[:brand])
     respond_to do |format|
       if @brand.save

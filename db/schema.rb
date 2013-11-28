@@ -11,15 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127055508) do
+ActiveRecord::Schema.define(:version => 20131128100310) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
     t.integer  "account_id"
-    t.boolean  "is_active"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "daily_cap"
   end
 
   create_table "accounts", :force => true do |t|
