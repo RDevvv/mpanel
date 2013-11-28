@@ -47,7 +47,6 @@ before_filter :load_account
   end
 
   def update
-    
    	@account = Account.find(params[:id])
     respond_to do |format|
       if @account.update_attributes(params[:account])

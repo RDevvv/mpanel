@@ -1,30 +1,63 @@
-<%= render :partial=>'header' %>
-<div class="container">
-  <div class="row">
-    <div class="span12 offset2">
-      <%= form_for(@account,:url=>merchant_account_path) do |f| %>
-        <%= f.collection_select :id, @accounts,:id,:registered_company_name%>
-        <h4>Edit Account Details</h4>
-        <%= f.label :Company_Name %>    
-        <%= f.text_field :registered_company_name %>
-        <%= f.label :Account_Currency %>
-        <%= f.collection_select :id, @countries,:id,:currency_name%>
-        <br>
-        <%= f.check_box :is_active %> Active
-        <%= f.check_box :is_verified %> Account Verified<br><br>
-        <%= f.label :Address %>
-        <%= f.text_field :address,:placeholder=>"Address"%>
-        <%= f.label :Pincode %>
-        <%= f.text_field :pincode,:placeholder=>"Pincode"%>
-        <%= f.label :Area %>
-        <%= f.collection_select :area_id, @areas,:id,:area_name%>
-        <%= f.label :City %>
-        <%= f.collection_select :id, @cities,:id,:city_name%><br>
-        <%= link_to "Delete Account",merchant_account_path, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-default btn-lg active"%>
-        <%= f.button "Link Brands to this Account",:class=>"btn btn-default btn-lg active"%>
-        <%= f.submit "Save",:class=>"btn btn-primary"%>
-      <% end %>
+<%= render :partial=>'header',:locals=>{:name=>"Edit Account"} %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+
+      <div class="box-header">
+        <span class="title"><i class="icon-account"></i> Edit Account</span>
+      </div>
+      <div class="box-content">
+        <%= form_for(@account, :url=>merchant_account_path(@account), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+        
+          <div class="padded">
+            <div class="control-group">
+              <label class="control-label">Company Name</label>
+              <div class="controls">
+                <%= f.text_field :registered_company_name, :placeholder=>"Company Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Currency</label>
+              <div class="controls">
+                <%= f.collection_select :id, @countries,:id,:currency_name%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Address</label>
+              <div class="controls">
+                <%= f.text_field :address,:placeholder=>"Address", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Pincode</label>
+              <div class="controls">
+                <%= f.text_field :pincode, :placeholder=>"Pincode", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Area</label>
+              <div class="controls">
+                <%= f.collection_select :area_id, @areas,:id,:area_name%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">City</label>
+              <div class="controls">
+                <%= f.collection_select :id, @cities,:id,:city_name%>
+              </div>
+            </div>
+          </div> 
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Save changes</button>
+            <%= f.button "Link Brands to this Account",:class=>"btn btn-default btn-lg active"%>
+            <%= link_to "Delete Account",merchant_account_path, method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-default btn-lg active"%>
+          </div>
+        <% end %>
     </div>
-    <div class="clearfix"></div>
   </div>
-</div>
+</div>      
