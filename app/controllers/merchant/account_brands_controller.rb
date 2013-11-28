@@ -22,5 +22,9 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
       render :action=>:index
     end
   end
+
+  def show
+    @account_brand = @current_account.account_brands.find(params[:id])
+  end
   
 end

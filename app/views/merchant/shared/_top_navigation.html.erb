@@ -35,17 +35,8 @@
             <li class="active"><a href="#" title="Go home"><i class="icon-home"></i> Home</a></li>
             <li><a href="<%= merchant_accounts_path %>" title="Manage Account"></i> Account</a></li>
             <li><a href="<%= merchant_account_account_brands_path(@current_account) %>" title="Manage Brand"></i> Brand</a></li>
-            <li><a href="<%= new_merchant_account_path %>" title="Manage Outlet"></i> Outlet</a></li>
-            <li><a href="<%= new_merchant_account_path %>" title="Manage User"></i> User</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Some link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><a href="<%= merchant_account_users_path(@current_account) %>" title="Manage User"></i> User</a></li>
+        
           </ul>
         </div>
       <% end %>
