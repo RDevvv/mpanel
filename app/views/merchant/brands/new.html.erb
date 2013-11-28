@@ -18,20 +18,6 @@
             </div>
 
             <div class="control-group">
-              <label class="control-label">Brand Alias</label>
-              <div class="controls">
-              	<%= f.text_field :brand_alias, :placeholder=>"Brand Alias", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label">Brand Code</label>
-              <div class="controls">
-                <%= f.text_field :brand_code, :placeholder=>"Short Code", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
-              </div>
-            </div>
-
-            <div class="control-group">
               <label class="control-label">Category</label>
               <div class="controls">
               	<%= f.collection_select :category_id, @categories,:id,:category_name%>
