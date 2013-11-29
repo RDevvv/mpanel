@@ -7,7 +7,7 @@
         <span class="title"><i class="icon-account"></i> Outlet </span>
       </div>
       <div class="box-content">
-        <%= form_for([@account,@account_brand,@outlet], :url=>merchant_account_brand_outlets_path, :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+        <%= form_for([@account,@account_brand,@outlet], :url=>merchant_account_brand_outlets_path(:id=>@outlet.id), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
           <div class="padded">
             
             <div class="control-group">

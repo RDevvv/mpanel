@@ -1,4 +1,4 @@
-class Merchant::AdtsController <  Merchant::BaseController
+class Merchant::AdsController <  Merchant::BaseController
 	before_filter :load_account, :load_account_brand
 
 	def index
@@ -7,6 +7,6 @@ class Merchant::AdtsController <  Merchant::BaseController
 
 	protected
 	def load_account_brand
-		@account_brand = @cuurent_account.account_brands.find(params[:account_brand_id])
+		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
 end

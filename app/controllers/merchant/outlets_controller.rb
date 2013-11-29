@@ -36,6 +36,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	def update
+		binding.pry
 		@outlet = @account_brand.outlets.find(params[:id])
     respond_to do |format|
       if @account.update_attributes(params[:outlet])
