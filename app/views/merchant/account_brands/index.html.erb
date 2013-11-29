@@ -33,12 +33,15 @@
 		        <tbody>
 		        	<% @account_brands.each do |account_brand| %>
 	              <tr>
-	                <td><%=link_to account_brand.brand.brand_name,merchant_account_account_brand_path(@current_account,account_brand) %> 
-	                	<% if account_brand.brand.category_id? %>
+	                <td>
+	                	<% if account_brand.brand_id? %>
+	                		<%= link_to account_brand.brand.brand_name, merchant_account_account_brand_path(@current_account,account_brand) %> 
 	                		<span class="badge badge-blue"><%= account_brand.brand.category.category_name %></span>
 	                	<% end %>
 	                </td>
-	                <td><%= link_to "Create Ad","#"%></td>
+	                <td><%= link_to "Create Ad",new_merchant_account_brand_ad_path(@accounts)%>&nbsp;&nbsp;&nbsp;
+	                	<%= link_to 'Destroy', merchant_account_account_brand_path(@current_account,@accounts), method: :delete, data: { confirm: 'Are you sure?' } %>
+	                </td>
 	              </tr>
 	            <% end %>  
 		        </tbody>

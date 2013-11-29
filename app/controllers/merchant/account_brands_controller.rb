@@ -4,8 +4,7 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
   def index 
     @brands = Brand.by_brand_name(params[:search_name]).where("brands.id not in (?)", @current_account.brands.pluck(:id))
   	@account_brands = @current_account.account_brands.includes(:brand).order("brands.category_id asc")
-    
-  	# @accounts = @current_account.account_brands
+  	@accounts = @account_brands.first
     respond_to do |format|
       format.html # index.html.erb
     end
@@ -23,8 +22,15 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
     end
   end
 
+  def destroy
+    @account_brand = @current_account.account_brands.find(params[:id])
+    @account_brand.destroy
+    respond_to do |format|
+      format.html { redirect_to merchant_account_account_brands_path(@current_account) }
+    end
+  end
+
   def show
-    binding.pry
     @account_brand = @current_account.account_brands.find(params[:id])
   end
   

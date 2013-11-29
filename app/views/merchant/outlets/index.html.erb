@@ -1,5 +1,5 @@
 <%= render :partial=>'header' %>
-<%= form_tag(new_merchant_account_brand_outlet_path(@account_brand),:method=>:get) do %>
+<%= form_tag(new_merchant_account_brand_outlet_path(@account_brand),:method=>:post) do %>
 <div class="pull-left">
   <%= collection_select :brand,:id, @brands,:id,:brand_name,:prompt=>"Select Brand"%>
   <%= collection_select :city,:id, @cities,:id,:city_name,:prompt=>"Select City"%>
@@ -23,16 +23,18 @@
           <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
             <thead>
               <tr>
-                <th>Status</th>
-                <th>Verified</th>
                 <th>Outlet Key</th>
                 <th>Address</th>
+                <th>Status</th>
+                <th>Verified</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
             <% @outlets.each do |outlet| %>
               <tr>
+                <td><%= outlet.outlet_key %></td>
+                <td><%= outlet.address %></td>
                 <td>
                 <% if outlet.is_active == true %>
                     <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
@@ -47,8 +49,6 @@
                     <%= check_box_tag :is_verified %>
                   <% end %>
                 </td>
-                <td><%= outlet.outlet_key %></td>
-                <td><%= outlet.address %></td>
                 <td><%= link_to 'Destroy', merchant_account_brand_outlet_path(@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr> 
