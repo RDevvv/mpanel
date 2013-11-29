@@ -33,6 +33,7 @@ Gullak2::Application.routes.draw do
 
     resources :account_brands do
       resources :outlets
+      resources :ads 
     end
   end  
   

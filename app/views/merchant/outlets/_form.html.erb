@@ -1,30 +1,56 @@
-<div class="11 offset1">
-	<%= form_for([@account,@account_brand,@outlet], :url=>merchant_account_brand_outlets_path) do |f| %>
-		<div class="span3">
-			<%= f.collection_select :id, @brands,:id,:brand_name %>
-		</div>
-		<div class="clearfix"></div>
-		<div class="span7">
-			<%= f.text_field :outlet_name, :placeholder=>"Outlet Name" %>
-			<%= f.text_field :outlet_alias, :placeholder=>"Outlet Alias" %>
-		</div>
-		<div class="clearfix"></div>
-		<div class="span7">
-			<%= f.text_field :address, :placeholder=>"Address" %>
-		</div>
-		<div class="clearfix"></div>
-		<div class="span7">
-			<%= f.text_field :email_id, :placeholder=>"Email Id" %>
-			<%= f.text_field :mobile_number, :placeholder=>"+91-Mobile Number"%>
-			<%= f.text_field :phone_number, :placeholder=>"022- Phone Number" %>
-		</div>
-		<div class="clearfix"></div>
-		<div class="span7">
-			<%= f.text_field :daily_cap, :placeholder=>"Outlet Daily Budget"%>
-		</div>
-		<div class="clearfix"></div>
-		<div class="span7">
-			<%= f.submit "Add Outlet",:class=>"btn btn-primary span3" %>
-		</div>
-	<% end %>
-</div>
+<%= render :partial=>'header' %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+
+      <div class="box-header">
+        <span class="title"><i class="icon-account"></i> Outlet </span>
+      </div>
+      <div class="box-content">
+        <%= form_for([@account,@account_brand,@outlet], :url=>merchant_account_brand_outlets_path(:id=>@outlet.id), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+          <div class="padded">
+            
+            <div class="control-group">
+              <label class="control-label">Brand Name</label>
+              <div class="controls">
+              	<%= f.collection_select :id, @brands,:id,:brand_name %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Address</label>
+              <div class="controls">
+              	<%= f.text_field :address, :placeholder=>"Address", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>              	
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Email Id</label>
+              <div class="controls">
+                <%= f.text_field :email_id, :placeholder=>"Email Id", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Mobile Number</label>
+              <div class="controls">
+                <%= f.text_field :mobile_number, :placeholder=>"+91-Mobile Number", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>  
+
+            <div class="control-group">
+              <label class="control-label">Mobile Number</label>
+              <div class="controls">
+                <%= f.text_field :phone_number, :placeholder=>"022- Phone Number", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+            
+          </div>  
+          <div class="form-actions">
+						<button type="submit" class="btn btn-blue">Save</button>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div>      

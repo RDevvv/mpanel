@@ -4,7 +4,7 @@
     <div class="box">
 
       <div class="box-header">
-        <span class="title"><i class="icon-account"></i> New Account</span>
+        <span class="title"><i class="icon-account"></i> New Brand</span>
       </div>
       <div class="box-content">
         <%= nested_form_for([@current_account,@brand], :url=>merchant_account_brands_path(@current_account,@brand), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>

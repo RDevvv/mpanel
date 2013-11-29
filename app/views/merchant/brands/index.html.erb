@@ -20,7 +20,6 @@
                 <th>Verified</th>
                 <th>Current Brands</th>
                 <th>Outlets</th>
-                <th>Daily Cap</th>
                 <th></th>
               </tr>
             </thead>
@@ -47,7 +46,6 @@
                   <% end %>
                 </td>
                 <td></td>
-                <td><%= brand.daily_cap %></td>
                 <td> <%= link_to 'Destroy', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr> 
             <% end %>
