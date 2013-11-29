@@ -1,5 +1,5 @@
 class Merchant::OutletsController <  Merchant::BaseController
-	before_filter :load_account, :load_account_brand
+	before_filter  :load_account_and_brand
 
 	def index
 		@outlets = @account_brand.outlets.all
@@ -56,7 +56,14 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	protected
-	def load_account_brand
-		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
+	def load_account_and_brand
+		@account_brand = AccountBrand.find(params[:account_brand_id])
+    current_account = @account_brand.account
+    if current_user.accounts.include?(current_account)
+      @current_account = current_account
+    else
+      redirect_to merchant_merchants_path,:error=>"You are not authorized to access this page"
+    end  
+
 	end
 end

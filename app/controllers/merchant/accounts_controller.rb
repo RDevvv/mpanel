@@ -1,6 +1,6 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
-before_filter :load_account
+  before_filter :load_current_account
   def index
     @accounts = current_user.accounts
   end
@@ -58,8 +58,9 @@ before_filter :load_account
   end
   
   def show 
-    @accounts = Account.all
-    @account = Account.find(params[:id])
+    @accounts = current_user.accounts
+    @account = current_user.accounts.find(params[:id])
+    @current_account = @account
     @user = @account.owner
     respond_to do |format|
       format.html # show.html.erb
@@ -69,6 +70,13 @@ before_filter :load_account
   def verified_account
     @account = Account.find(params[:id])
     @user = @account.owner
+  end
+  protected
+  def load_current_account
+    if current_user
+      @current_account = current_user.accounts.find(params[:id]) if params[:id].present?
+      @current_account = @current_account || current_user.accounts.first
+    end   
   end
   
 end
