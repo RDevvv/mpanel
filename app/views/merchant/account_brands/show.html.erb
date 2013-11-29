@@ -1,7 +1,8 @@
 <%= render :partial=>'header' %>
 <div class="pull-right">
-  <%= link_to "Maage Outlets", "#",:class=>"btn btn-info"%>
-  <%= link_to "Maage Ads", "#",:class=>"btn btn-info"%>
+  <%binding.pry%>
+  <%= link_to "Manage Outlets", merchant_account_brand_outlets_path(@account_brand), :class=>"btn btn-info"%>
+  <%= link_to "Manage Ads", merchant_account_brand_outlets_path(@account_brand), :class=>"btn btn-info"%>
   <br/>
   <br/>  
 </div>
@@ -19,5 +20,3 @@
     </div>  
   </div>  
 </div>
-
-
