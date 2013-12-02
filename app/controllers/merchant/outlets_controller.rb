@@ -1,4 +1,5 @@
 class Merchant::OutletsController <  Merchant::BaseController
+  before_filter  :load_account
 	before_filter  :load_account_and_brand
 
 	def index
@@ -23,7 +24,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@outlet = @account_brand.outlets.new(params[:outlet])
     respond_to do |format|
       if @outlet.save
-        format.html { redirect_to merchant_account_brand_outlets_path,:notice=>"Outlet Succesfully added"}
+        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully added"}
       else
         format.html { render action: "new" }
       end
@@ -32,15 +33,14 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	def edit
 		@outlet = @account_brand.outlets.find(params[:id])
-		@brands = Brand.all
+		
 	end
 
 	def update
-		binding.pry
 		@outlet = @account_brand.outlets.find(params[:id])
     respond_to do |format|
-      if @account.update_attributes(params[:outlet])
-        format.html { redirect_to merchant_account_brand_outlets_path }
+      if @outlet.update_attributes(params[:outlet])
+        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand) }
       else
         format.html { render action: "edit" }
       end
@@ -51,19 +51,13 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @outlet.destroy
     respond_to do |format|
-      format.html { redirect_to merchant_account_brand_outlets_path }
+      format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@outlet) }
     end
 	end
 
 	protected
 	def load_account_and_brand
-		@account_brand = AccountBrand.find(params[:account_brand_id])
-    current_account = @account_brand.account
-    if current_user.accounts.include?(current_account)
-      @current_account = current_account
-    else
-      redirect_to merchant_merchants_path,:error=>"You are not authorized to access this page"
-    end  
-
+		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
+   
 	end
 end

@@ -39,7 +39,7 @@
 	                		<span class="badge badge-blue"><%= account_brand.brand.category.category_name %></span>
 	                	<% end %>
 	                </td>
-	                <td><%= link_to "Create Ad",new_merchant_account_brand_ad_path(@accounts)%>&nbsp;&nbsp;&nbsp;
+	                <td>
 	                	<%= link_to 'Destroy', merchant_account_account_brand_path(@current_account,@accounts), method: :delete, data: { confirm: 'Are you sure?' } %>
 	                </td>
 	              </tr>

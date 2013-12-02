@@ -1,15 +1,16 @@
 <%= render :partial=>'header' %>
-<%= form_tag(new_merchant_account_brand_outlet_path(@account_brand),:method=>:post) do %>
-<div class="pull-left">
-  <%= collection_select :brand,:id, @brands,:id,:brand_name,:prompt=>"Select Brand"%>
-  <%= collection_select :city,:id, @cities,:id,:city_name,:prompt=>"Select City"%>
+<%#= form_tag(new_merchant_account_account_brand_outlet_path(@current_account,@account_brand)) do %>
+<!-- <div class="pull-left">
+  <%#= collection_select :brand,:id, @brands,:id,:brand_name,:prompt=>"Select Brand"%>
+  <%#= collection_select :city,:id, @cities,:id,:city_name,:prompt=>"Select City"%>
   <br/>
   <br/>
-</div>
+</div> -->
+<%#end %>
 <div class="pull-right">
-  <%= button_tag "Add Outlet",:class=>"btn btn-info"%>
+  <%= link_to "Add Outlet",new_merchant_account_account_brand_outlet_path(@current_account,@account_brand),:class=>"btn btn-info"%>
   <br/>
-  <br/>  
+  <br/>
 </div>
 <div class="row-fluid">
   <div class="span12">
@@ -49,7 +50,10 @@
                     <%= check_box_tag :is_verified %>
                   <% end %>
                 </td>
-                <td><%= link_to 'Destroy', merchant_account_brand_outlet_path(@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <td>
+                  <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> | 
+                
+                  <%= link_to 'Destroy', merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr> 
             <% end %>
@@ -60,4 +64,3 @@
     </div>
   </div>
 </div>  
-<% end %>  

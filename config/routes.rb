@@ -26,15 +26,13 @@ Gullak2::Application.routes.draw do
         collection do
           post "add_brands"
         end
+        resources :outlets
+        resources :ads 
       end
       resources :brands
       resources :users  
     end
 
-    resources :account_brands do
-      resources :outlets
-      resources :ads 
-    end
   end  
   
     # root :to => "merchant/accounts#new"

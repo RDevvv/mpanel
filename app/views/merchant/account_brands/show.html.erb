@@ -1,7 +1,7 @@
 <%= render :partial=>'header' %>
 <div class="pull-right">
-  <%= link_to "Manage Outlets", merchant_account_brand_outlets_path(@account_brand), :class=>"btn btn-info"%>
-  <%= link_to "Manage Ads", merchant_account_brand_ads_path(@account_brand), :class=>"btn btn-info"%>
+  <%= link_to "Manage Outlets", merchant_account_account_brand_outlets_path(@current_account,@account_brand), :class=>"btn btn-info"%>
+  <%= link_to "Manage Ads", merchant_account_account_brand_ads_path(@current_account,@account_brand), :class=>"btn btn-info"%>
   <br/>
   <br/>  
 </div>

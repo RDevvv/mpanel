@@ -7,43 +7,10 @@
         <span class="title"><i class="icon-account"></i> Outlet </span>
       </div>
       <div class="box-content">
-        <%= form_for([@account,@account_brand,@outlet], :url=>merchant_account_brand_outlets_path(:id=>@outlet.id), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+        <%= form_for([@current_account,@account_brand,@outlet], :url=>merchant_account_account_brand_outlets_path(@current_account,@account_brand,@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
           <div class="padded">
             
-            <div class="control-group">
-              <label class="control-label">Brand Name</label>
-              <div class="controls">
-              	<%= f.collection_select :id, @brands,:id,:brand_name %>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label">Address</label>
-              <div class="controls">
-              	<%= f.text_field :address, :placeholder=>"Address", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>              	
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label">Email Id</label>
-              <div class="controls">
-                <%= f.text_field :email_id, :placeholder=>"Email Id", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-label">Mobile Number</label>
-              <div class="controls">
-                <%= f.text_field :mobile_number, :placeholder=>"+91-Mobile Number", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
-              </div>
-            </div>  
-
-            <div class="control-group">
-              <label class="control-label">Mobile Number</label>
-              <div class="controls">
-                <%= f.text_field :phone_number, :placeholder=>"022- Phone Number", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
-              </div>
-            </div>
+            <%= render :partial=>"outlet_field",:locals=>{:f=>f} %>
             
           </div>  
           <div class="form-actions">
