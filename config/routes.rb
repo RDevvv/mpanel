@@ -21,17 +21,21 @@ Gullak2::Application.routes.draw do
     resources :accounts do
       member do
         get 'verified_account'
-        
       end
-      resources :account_brands
-      resources :brands  
+      resources :account_brands 
+      resources :brands
+      resources :users  
+      # resources :outlets
     end
 
-    
+    resources :account_brands do
+      resources :outlets
+    end
   end  
   
     root :to => "merchant/accounts#new"
-  # root :to => "accounts#new"
+
+    # root :to => "home#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

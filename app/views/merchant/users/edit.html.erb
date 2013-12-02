@@ -1,0 +1,32 @@
+
+<div>
+	<%= form_for([@account,@user], :url=>merchant_account_user_path(@account,@user)) do |f| %>
+ 		<div class="content-header">
+        <h2>Edit User Details
+          <!-- <small> &nbsp;super admin only</small> -->
+        </h2>
+      </div>
+		<div class="clearfix"></div>
+		<div class="span9">
+			<%= f.text_field :first_name, :class=>"span4"%>
+			<%= f.text_field :last_name, :class=>"span4"%>
+		</div>
+		<div class="clearfix"></div>
+		<div class="span9">
+			<%= f.text_field :email, :class=>"span4"%>
+			<%= f.check_box :email_verified%> Email Verified
+		</div>
+		<div class="clearfix"></div>
+		<div class="span9">
+			<%= f.text_field :mobile_number, :class=>"span4"%>
+			<%= f.check_box :mobile_verified %> Mobile Verified
+		</div>
+		<div class="clearfix"></div>
+		<div class="span9">
+			<%= f.button "Reset Password", :class=>"btn btn-default btn-lg active"%>
+			<%= f.button "Link Bands for User", :class=>"btn btn-default btn-lg active"%>
+			<%= f.submit "Save", :class=>"btn btn-primary span3"%>
+		</div>
+		<div class="clearfix"></div>
+	<% end %>
+</div>

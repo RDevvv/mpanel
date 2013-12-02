@@ -1,10 +1,11 @@
-<div class="row-fluid1">
+<div class="row-fluid">
   <div class="">
   	<%= form_tag(merchant_account_account_brands_path(@account),:method=>:get) do |f|%>
   		<div class="">
 				Link Brands to <%= @account.registered_company_name%> Account<br><br>
 				<%= text_field_tag "search_name",params[:search_name],:placeholder=>"Search By Brand Name"%>
 				<%= submit_tag "Search", :class=>"btn btn-success btn-search"%>
+			</div>
 				<div class="clearfix"></div>
 			<div>
 				<div class="span6">
@@ -44,10 +45,10 @@
 			        <th>Selected Brands </th>
 			      </tr>
 				   	<% @account_brands .each do |brand| %>
-					    <% category = brand.category%>
+					    <% category = brand.category %>
 				      <tr>
 				        <td>
-				          <%= link_to brand.brand_name %>
+				          <%= link_to brand.brand_name , merchant_account_brand_outlets_path(:account_brand_id=>brand.id) %>
 				          <% if !brand.category.nil? %>
 					          <%= category.category_name %>
 					        <% end %>
@@ -69,5 +70,6 @@
 		    <%= submit_tag "Save",:class=>"btn btn-primary"%>
 			</div>
 		<% end %>
+	</div>
   <div class="clearfix"></div>
 </div>

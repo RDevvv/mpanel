@@ -3,9 +3,9 @@
 one:
   ad_id: 1
   outlet_id: 1
-  is_deleted: false
+  ad_promocode_id: 1
 
 two:
   ad_id: 1
   outlet_id: 1
-  is_deleted: false
+  ad_promocode_id: 1

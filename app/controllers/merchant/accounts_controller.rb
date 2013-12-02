@@ -4,6 +4,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     
   end
   def create
+    binding.pry
     @account = Account.new(params[:account])
     respond_to do |format|
       if @account.save
@@ -16,11 +17,20 @@ class Merchant::AccountsController <  Merchant::BaseController
 
   def edit
   	@account = Account.find(params[:id])
+    @areas = Area.all
+    @cities = City.all
+    @countries = Country.all
+    @accounts = Account.all
   end
 
   def new
     @account = Account.new
     @account.users.build
+    @account.build_area
+    #@account.areas.build
+    @areas = Area.all
+    @cities = City.all
+    @countries = Country.all
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -31,7 +41,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     @account.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to edit_merchant_account_path(@account) }
     end
   end
 
@@ -47,7 +57,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
   
   def show 
-    @accounts = Account.pluck(:registered_company_name)
+    @accounts = Account.all
     @account = Account.find(params[:id])
     @user = @account.owner
     respond_to do |format|
@@ -59,5 +69,5 @@ class Merchant::AccountsController <  Merchant::BaseController
     @account = Account.find(params[:id])
     @user = @account.owner
   end
-
+  
 end

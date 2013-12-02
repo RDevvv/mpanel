@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MultipleCodesSpecificOutletsTest < ActiveSupport::TestCase
+class AdPromocodeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

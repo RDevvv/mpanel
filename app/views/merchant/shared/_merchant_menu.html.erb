@@ -3,28 +3,33 @@
     <div class="container">
       <%=link_to "Gullak Master","/",:class=>"brand" %>
       <ul class="nav">
-        <li><%= link_to '<i class="icon-home icon-white"></i> Home'.html_safe,root_url  %></li>
-         
+        <li><%= link_to '<i class="icon-home icon-white"></i> Home'.html_safe,merchant_merchants_path  %></li>
+        <% if merchant_user_signed_in? %>
+          <li><%= link_to '<i class="icon-user icon-white"></i> Users'.html_safe,merchant_merchants_path  %></li>
+          <li><%= link_to 'Brands'.html_safe,merchant_account_account_brands_path(@account)  %></li>
+          <li><%= link_to 'Outlets'.html_safe,root_url  %></li>
+          <li><%= link_to 'Campaigns'.html_safe,root_url  %></li>
+        <% end %>
       </ul>
     
       <ul class="nav pull-right">
-      <% if merchant_user_signed_in? %>
-        <li class="dropdown <%=  %> collapse_nav_mob">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_merchant_user.email %> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to '<i class="icon-cog"></i> Profie Setting'.html_safe, edit_merchant_user_registration_path  %></li>
-            
-            <li><%= link_to '<i class="icon-off"></i> Logout'.html_safe, destroy_merchant_user_session_path, :method=>'delete' %></li>
-          </ul>
-        </li>
-      <% else %>
-        
-          <%#= link_to 'Sign up', new_merchant_user_registration_path ,:class=>"btn btn-warning",:style=>"color:#78671a"%>
+
+        <% if merchant_user_signed_in? %>
+          <li class="dropdown <%=  %> collapse_nav_mob">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_merchant_user.email %> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to '<i class="icon-cog"></i> Profie Setting'.html_safe, edit_merchant_user_registration_path  %></li>
+              
+              <li><%= link_to '<i class="icon-off"></i> Logout'.html_safe, destroy_merchant_user_session_path, :method=>'delete' %></li>
+            </ul>
+          </li>
+        <% else %>
+         <%#= link_to 'Sign up', new_merchant_user_registration_path ,:class=>"btn btn-warning",:style=>"color:#78671a"%>
           <%= link_to 'Sign up', new_merchant_account_path ,:class=>"btn btn-warning",:style=>"color:#78671a"%>
-        <a class="dropdown-toggle btn btn-success" href="#" data-toggle="dropdown"> <strong>Log In</strong></a>
-        <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-          <%= render :partial=>"merchant/users/sessions/user_login" %>
-        </ul>
+          <a class="dropdown-toggle  btn btn-success" href="#" data-toggle="dropdown"> <strong>Log In</strong></a>
+          <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+            <%= render :partial=>"merchant/users/sessions/user_login" %>
+          </ul>
       <% end %>
     </ul>
   </nav>

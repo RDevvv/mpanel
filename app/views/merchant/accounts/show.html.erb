@@ -1,8 +1,7 @@
 <div class="row-fluid1">
   <div class="">
     <%= form_for(@account,:url=>merchant_account_path) do |f| %>
-      <%= select_tag :registered_company_name, options_for_select([@account.registered_company_name]) %>
-      <%#select_tag :account, options_from_collection_for_select([@accounts,'id','name']) %>
+      <%= f.collection_select :id, @accounts,:id,:registered_company_name%>
       <h4>Increase Footfall in 3 simple steps:</h4>
       Link <%= link_to " Brands ", new_merchant_account_brand_path(@account) %> to your Account<br>
       Create <%= link_to " Outlets ", new_merchant_account_brand_path(@account) %> for your Brands<br>

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  rolify
+  #rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
   has_many :accounts, :through => :user_accounts
   # attr_accessible :title, :body
   validates_presence_of :first_name, :last_name
-  validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
+  # validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
+
+  def user_name
+    (self.first_name+ " "+ self.last_name).strip
+  end
 end

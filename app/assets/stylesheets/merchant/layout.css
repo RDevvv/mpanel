@@ -147,4 +147,11 @@ section {
     width: 1168px; /* 2px less to account for left/right borders being removed when in fixed mode */
   }
 }
-
+.content-header h2{
+      /*border-bottom: 1px solid #EEE;*/
+      margin: 0 0 18px;
+      padding-bottom: 17px;
+      padding: 0;
+      font-size: 1.5em
+  
+  }
