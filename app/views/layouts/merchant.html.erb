@@ -24,14 +24,14 @@
     <%= render :partial=>'merchant/shared/top_navigation' %>
     <%= yield :sidebar %>
     <%#= render :partial=>'merchant/shared/side_navigation' %>
-    <div class="main-content no_sidebar >
+    <div class="main-content no_sidebar">
       <%= yield :content_header %>
       <%= yield :breadcrumbs %>
       <div class="container-fluid padded">
         <%= yield %>
       </div>
     </div>
-
+    <%= yield :javascript %>
   </body>
 </html>
 
