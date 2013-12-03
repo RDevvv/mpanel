@@ -1,8 +1,10 @@
 set :stage, :staging
 set :application, 'c4c'
+set :scm, :git
 set :repo_url, 'git@github.com:adadoo/Gullak-2.git'
 set :branch, "bootstrap_theme"
-set :scm, :git
+set :deploy_via, :remote_cache
+
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
@@ -20,6 +22,7 @@ set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"staging"
 set :deploy_to, '/home/ubuntu/apps/gullak2'
+
 set :pty, true
 set :ssh_options, { :forward_agent => true }
 # set :ssh_options, {
