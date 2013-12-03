@@ -1,5 +1,7 @@
 Gullak2::Application.routes.draw do
 
+    resources :home
+
   get "accounts/create"
 
   mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
