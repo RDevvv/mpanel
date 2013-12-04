@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
   resourcify
-  attr_accessible :account_balance, :registered_company_name, :account_key, :address,:owner_id, :area_id, :currency_id, :is_active, :is_deleted, :is_verified, :payment_status, :users_attributes, :areas_attributes
+  attr_accessible :account_balance, :registered_company_name, :account_key, :address,:owner_id, :area_id, :currency_id, :is_active, :is_deleted, :is_verified, :payment_status, :users_attributes, :areas_attributes, :pincode, :city
   has_many :account_brands, :dependent => :destroy
   has_many :brands, :through => :account_brands
   has_many :user_accounts, :dependent => :destroy
