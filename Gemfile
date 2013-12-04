@@ -29,6 +29,7 @@ gem 'quiet_assets'
 gem 'irbtools'
 gem 'sextant'
 gem 'rails_best_practices'
+gem 'seed_dump'
 end
 
 
