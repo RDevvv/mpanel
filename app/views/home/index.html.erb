@@ -34,14 +34,15 @@
             <div class="c-loc">
               <div class="txt">Use Current location</div>
               <div class="locimg">
-                <%= link_to image_tag "current_location_big.png" %>
+                <%= link_to image_tag("current_location_big.png"), :map_listing %>
               </div>
               <div class="txt">OR</div>
 
               <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Enter Location">
+							<%= form_tag '', :class => 'form-without-submit' do |f| %>
+									<%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
+							<% end %>
                   <div class="input-group-btn">
-                    <!-- Button and dropdown menu -->
                   </div>
                 </div>
             </div>
