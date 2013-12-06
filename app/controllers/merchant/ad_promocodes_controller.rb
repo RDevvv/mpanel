@@ -35,12 +35,14 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
 
   # Can Have multiple  promocode 
   def add_multiple_code
-    binding.pry
-    Array(params[:ad_promocode][:promocode].split(",")).each do |promocode|
+    
+    Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
       params[:ad_promocode][:promocode] = promocode
+      params[:ad_promocode][:cap] = 1
       ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
       ad_promocode.save               
     end
+    redirect_to merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad),:notice=>"Promocode Succesfully added"
   end
 
   def edit

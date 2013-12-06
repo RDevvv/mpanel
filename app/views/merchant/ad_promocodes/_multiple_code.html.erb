@@ -2,16 +2,16 @@
 
   <div class="padded">    
     <div class="control-group">
-      <label class="control-label">Promocode Name *</label>
+      <label class="control-label">Set Name *</label>
       <div class="controls">
-        <%= f.text_field :set_name, :placeholder=>"Promocode Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>               
+        <%= f.text_field :set_name, :placeholder=>"Set Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>               
       </div>
     </div>
 
     <div class="control-group">
       <label class="control-label">Promocode</label>
       <div class="controls">
-        <%= f.text_area :promocode, :placeholder=>"Promocode separated be comma", :class=>"validate[required]", "data-prompt-position"=>"topLeft",:rows=> 3 %>               
+        <%= f.text_area :promocodes, :placeholder=>"Promocode separated be comma", :class=>"validate[required]", "data-prompt-position"=>"topLeft",:rows=> 3 %>               
       </div>
     </div>
 
@@ -21,11 +21,11 @@
         <%= f.collection_select("outlet_ids", @account_brand.outlets,:id,:address,{},:multiple=>true,:class=>"chzn-select") %>               
       </div>
     </div>
-  <!-- 
-    <div class="control-group">
+  
+    <!-- <div class="control-group">
       <label class="control-label">Cap</label>
       <div class="controls">
-        <%= f.text_field :cap, :placeholder=>"Cap", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>
+        <%#= f.text_field :cap, :placeholder=>"Cap", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>
       </div>
     </div> -->
   </div>  
