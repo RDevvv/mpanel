@@ -1,6 +1,7 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
   before_filter :load_current_account
+
   def index
     @accounts = current_user.accounts
   end
@@ -71,6 +72,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     @account = Account.find(params[:id])
     @user = @account.owner
   end
+  
   protected
   def load_current_account
     if current_user
