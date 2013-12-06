@@ -31,6 +31,7 @@
                 <%= f.text_field :website_url,:placeholder=>"Brand Website Url", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
               </div>
             </div>  
+            <%binding.pry%>
             <%= f.fields_for :attachments %>
             <%= f.link_to_add "Add a image", :attachments %>
           </div>  

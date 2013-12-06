@@ -39,12 +39,14 @@ class Merchant::AdsController <  Merchant::BaseController
   end
   
   def destroy
-     @ad = @account_brand.ads.find(params[:id])
-     @ad.destroy
-     redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand)
+    @ad = @account_brand.ads.find(params[:id])
+    @ad.destroy
+    redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand)
   end
+
 	protected
 	def load_account_brand
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
+  
 end

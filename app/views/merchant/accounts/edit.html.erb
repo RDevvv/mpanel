@@ -18,10 +18,22 @@
             </div>
 
             <div class="control-group">
-              <label class="control-label">Currency</label>
+              <label class="control-label">Account Currency</label>
               <div class="controls">
                 <%= f.collection_select :id, @countries,:id,:currency_name%>
               </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Account </label>
+              <div class="controls">
+                <label class="checkbox inline" style="padding-left:20px;">
+                  <%= f.check_box :is_active,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Active
+                </label>
+                <label class="checkbox inline" style="padding-left:20px;">
+                  <%= f.check_box :is_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Verified
+                </label>
+              </div>    
             </div>
 
             <div class="control-group">

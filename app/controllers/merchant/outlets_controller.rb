@@ -32,8 +32,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	def edit
-		@outlet = @account_brand.outlets.find(params[:id])
-		
+		@outlet = @account_brand.outlets.find(params[:id])	
 	end
 
 	def update
