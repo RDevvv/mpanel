@@ -4,18 +4,21 @@
     <div class="box">
 
       <div class="box-header">
-        <span class="title"><i class="icon-account"></i> Ad </span>
+        
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#single" data-toggle="tab">Single Code Multiple Use</a></li>
+          <li><a href="#multiple" data-toggle="tab"><span>Multiple Code Single Use</span></a></li>
+        </ul>
       </div>
       <div class="box-content">
-        <%= form_for([@current_account,@account_brand,@ad,@ad_promocode], :url=>merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
-
-          <div class="padded">    
-            <%= render :partial=>"ad_promocode_field",:locals=>{:f=>f} %>
-          </div>  
-          <div class="form-actions">
-            <button type="submit" class="btn btn-blue">Save</button>
+        <div class="tab-content">
+          <div class="tab-pane active" id="single">
+            <%= render :partial=>"single_code" %>
           </div>
-        <% end %>
+          <div class="tab-pane" id="multiple">  <%= render :partial=>"multiple_code" %></div>
+        </div>  
+      
+        
       </div>  
     </div>
   </div>

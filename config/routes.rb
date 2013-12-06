@@ -28,7 +28,12 @@ Gullak2::Application.routes.draw do
         end
         resources :outlets
         resources :ads do
-          resources :ad_promocodes
+          resources :ad_promocodes do
+            collection do
+              post 'add_single_code'
+              post 'add_multiple_code'
+            end
+          end
         end
       end
       resources :brands

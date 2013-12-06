@@ -19,6 +19,14 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
       end
     end
   end
+  # Only One promocode is available
+  def add_single_code
+    
+  end
+  # Can Have multiple  promocode 
+  def add_multiple_code
+    
+  end
 
   def edit
     @ad_promocode = @ad.ad_promocodes.find(params[:id])
@@ -44,12 +52,14 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   end
 
   protected
-  def load_ad
-    @ad = Ad.find(params[:ad_id])
-  end
+  
 
   def load_account_brand
     @account_brand = @current_account.account_brands.find(params[:account_brand_id])
+  end
+
+  def load_ad
+    @ad = @account_brand.ads.find(params[:ad_id])
   end
 
 end
