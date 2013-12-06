@@ -1,2 +1,22 @@
-<h1>AdPromocode#edit</h1>
-<p>Find me in app/views/ad_promocode/edit.html.erb</p>
+<%= render :partial=>'header' %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+
+      <div class="box-header">
+        <span class="title"><i class="icon-account"></i> Ad </span>
+      </div>
+      <div class="box-content">
+        <%= form_for([@current_account,@account_brand,@ad,@ad_promocode], :url=>merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+
+          <div class="padded">    
+            <%= render :partial=>"ad_promocode_field",:locals=>{:f=>f} %>
+          </div>  
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Save</button>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div> 

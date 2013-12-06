@@ -1,0 +1,36 @@
+<div class="control-group">
+  <label class="control-label">Promocode Name</label>
+  <div class="controls">
+    <%= f.text_field :set_name, :placeholder=>"Promocode Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>               
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Promocode</label>
+  <div class="controls">
+    <%= f.text_field :promocode, :placeholder=>"Promocode", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>               
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Cap</label>
+  <div class="controls">
+    <%= f.text_field :cap, :placeholder=>"Cap", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Usage</label>
+  <div class="controls">
+    <%= f.text_field :usage, :placeholder=>"Usage", :class=>"validate[required]", "data-prompt-position"=>"topLeft" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <label class="control-label">Promocode is used? </label>
+  <div class="controls">
+    <label class="checkbox inline" style="padding-left:20px;">
+      <%= f.check_box :is_used,:class=>"inline-checkbox padded",:style=>"width:20px;" %>
+    </label>
+  </div>    
+</div>

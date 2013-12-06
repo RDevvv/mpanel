@@ -1,14 +1,32 @@
 <%= render :partial=>'header' %>
+<div class="pull-right">
+  <%= link_to "Create Promocode",new_merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad),:class=>"btn btn-info"%>
+  <br/>
+  <br/>  
+</div>
+<div class="clearfix"></div>
 
+  
     <div class="box">
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-          <li><a href="#keyword" data-toggle="tab"><i class="icon-comments-alt"></i> <span>Expired Ads</span></a></li>
+          <li><a href="#keyword" data-toggle="tab"><i class="icon-comments-alt"></i> <span>Expired Promocodes</span></a></li>
           <li><a href="#settings" data-toggle="tab"><i class="icon-cog"></i> <span>Settings</span></a></li>
         </ul>
 
         <div class="title">Left tabs</div>
       </div>
 
-      
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <%= render :partial=>"ad_promocodes",:locals=>{:ad_promocodes=>@ad_promocodes} %>
+          </div>
+          <div class="tab-pane" id="profile">And now to the profile</div>
+          <div class="tab-pane" id="keyword">No new messages</div>
+          <div class="tab-pane" id="settings">Changing the settings</div>
+        </div>
+      </div>
+    </div>
+  

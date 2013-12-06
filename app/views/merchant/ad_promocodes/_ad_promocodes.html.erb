@@ -1,0 +1,35 @@
+ <div id="dataTables">
+  <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Promocode</th>
+        <th>Cap</th>
+        <th>Usage</th>
+        <th>Manage Promocodes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ad_promocodes.each do |ad_promocode| %>
+      <tr>
+        <td>
+          <%= ad_promocode.set_name %>
+        </td>
+        <td>
+          <%= ad_promocode.promocode %>
+        </td>
+        <td>
+          <%= ad_promocode.cap %>
+        </td>
+        <td>
+          <%= ad_promocode.usage %>
+        </td>
+        <td> 
+          <%= link_to "Edit",edit_merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad,ad_promocode) %> |
+          <%= link_to 'Destroy', merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad,ad_promocode), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr> 
+      <% end %>
+    </tbody>  
+  </table>
+</div>

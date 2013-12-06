@@ -5,7 +5,7 @@
     <div class="pull-left header">
       <h3 class="title">
         <i class="icon-ad"></i>
-        Brand's Ads
+        Promocodes
       </h3>
     </div>
   </div>
@@ -38,10 +38,10 @@
           <span class="breadcrumb-arrow"><span></span></span>
         </a>  
       </div>       
-      <div class="breadcrumb-button">
+      <div class="breadcrumb-button blue">
         <a href="<%= merchant_account_account_brand_ads_path(@current_account,@account_brand)%>">
           <span class="breadcrumb-label">
-            <i class="icon-ad"></i> Ad's
+            <i class="icon-ad"></i> Ad <%= @ad.present? ? "- " + @ad.ad_title : "" %>
           </span>
           <span class="breadcrumb-arrow"><span></span></span>
         </a>  
