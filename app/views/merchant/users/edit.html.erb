@@ -21,11 +21,20 @@
 					</div>
 
 					<div class="control-group">
-						<label class="control-label">Username</label>
+						<label class="control-label">Last Name</label>
 						<div class="controls">
 							<%= f.text_field :last_name, :placeholder=>"Last Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
 						</div>
 					</div>
+
+					<div class="control-group">
+            <label class="control-label">Account </label>
+            <div class="controls">
+              <label class="checkbox inline" style="padding-left:20px;">
+                <%= f.check_box :is_active,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Active
+              </label>
+            </div>    
+          </div>
 
 					<div class="control-group">
 						<label class="control-label">Email</label>
@@ -35,12 +44,30 @@
 					</div>
 
 					<div class="control-group">
+            <label class="control-label"> </label>
+            <div class="controls">
+              <label class="checkbox inline" style="padding-left:20px;">
+                <%= f.check_box :email_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Email Verified
+              </label>
+            </div>    
+          </div>
+
+					<div class="control-group">
 						<label class="control-label">Mobile Number</label>
 						<div class="controls">
 							<%= f.text_field :mobile_number, :placeholder=>"Mobile Number", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
 						</div>
 					</div>
-				</div>
+					
+					<div class="control-group">
+	          <label class="control-label"> </label>
+	          <div class="controls">
+	            <label class="checkbox inline" style="padding-left:20px;">
+	              <%= f.check_box :mobile_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Mobile Verified
+	            </label>
+	          </div>    
+	        </div>
+	      </div>
 
 				<div class="form-actions">
 					<button type="submit" class="btn btn-blue">Save</button>
