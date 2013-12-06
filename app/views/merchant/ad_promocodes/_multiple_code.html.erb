@@ -17,8 +17,7 @@
 
    <div class="control-group">
     <label class="control-label">Outlets</label>
-    <div class="controls">
-       
+    <div class="controls">   
       <%= f.collection_select("outlet_ids", @account_brand.outlets,:id,:address,{},:multiple=>true,:class=>"chzn-select") %>               
     </div>
   </div>
