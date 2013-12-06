@@ -10,7 +10,7 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   end
 
   def create
-    binding.pry
+    
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
     respond_to do |format|
       if @ad_promocode.save
@@ -22,8 +22,8 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   end
   # Only One promocode is available
   def add_single_code
-    params["outlet_ids"]=params[:ad_promocode][:outlet_ids].reject{|x|x.blank?}
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
+
     respond_to do |format|
       if @ad_promocode.save
         format.html { redirect_to merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad),:notice=>"Promocode Succesfully added"}
@@ -34,7 +34,11 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   end
   # Can Have multiple  promocode 
   def add_multiple_code
-    binding.pry
+    Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
+      params[:ad_promocode][:promocode] = promocode
+      ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
+      ad_promocode.save
+    end
 
   end
 
