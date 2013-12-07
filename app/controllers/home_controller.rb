@@ -3,9 +3,10 @@ class HomeController < ApplicationController
   end
 
 	def outlet_listing
-	@brands = Account.first.brands
+	@brands = Brand.all
 	end
 
 	def map_listing
+        @brands = Brand.all
 	end
 end
