@@ -58,11 +58,12 @@ class Merchant::AccountsController <  Merchant::BaseController
     end
   end
   
-  def show 
-    @accounts = current_user.accounts
-    @account = current_user.accounts.find(params[:id])
-    @current_account = @account
-    @user = @account.owner
+  def show
+    # @accounts = current_user.accounts
+    # @account = current_user.accounts.find(params[:id])
+    # @current_account = @account
+    # @user = @account.owner
+    @brands = @current_account.brands
     respond_to do |format|
       format.html # show.html.erb
     end
