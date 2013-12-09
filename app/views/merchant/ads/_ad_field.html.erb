@@ -65,8 +65,12 @@
   </div>
 </div>
 
-
-
+<div class="control-group">
+  <label class="control-label">Keywords</label>
+  <div class="controls">
+    <%= f.collection_select :keyword_ids,@keywords,:id,:keyword,{},{:multiple=>true,:class=>"chzn-select"} %>
+  </div>
+</div>
 
 <%= content_for :javascript  do %>
 <script type="text/javascript">
