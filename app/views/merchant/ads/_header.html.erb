@@ -41,7 +41,7 @@
       <div class="breadcrumb-button">
         <a href="<%= merchant_account_account_brand_ads_path(@current_account,@account_brand)%>">
           <span class="breadcrumb-label">
-            <i class="icon-ad"></i> Ad's
+            <i class="icon-ad"></i> Ad <%= @ad.present? ? "- " + @ad.ad_title : "" %>
           </span>
           <span class="breadcrumb-arrow"><span></span></span>
         </a>  
