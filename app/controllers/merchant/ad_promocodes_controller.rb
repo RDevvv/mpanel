@@ -35,8 +35,8 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
 
   # Can Have multiple  promocode 
   def add_multiple_code
-    
-    Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
+    binding.pry
+      Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
       params[:ad_promocode][:promocode] = promocode
       params[:ad_promocode][:cap] = 1
       ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])

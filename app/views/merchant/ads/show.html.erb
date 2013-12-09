@@ -1,18 +1,39 @@
 <%= render :partial=>'header',:locals=>{:ad=>@ad} %>
 <div class="pull-right">
-  <%= link_to "Manage Promocode",merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad),:class=>"btn btn-info"%>
-  <br/>
-  <br/>
+	<%= link_to "Create Ad",new_merchant_account_account_brand_ad_path(@current_account,@account_brand),:class=>"btn btn-info"%>
+	<br/>
+	<br/>  
 </div>
-<div class="row-fluid">
-  <div class="span12">
-    <div class="box">
-      <div class="box-header">
-        <span class="title">Ad - <%= @ad.ad_title %></span>
+<div class="clearfix"></div>
+<div class="box">
+	<div class="box-header">
+		<ul class="nav nav-tabs nav-tabs-left">
+			<li class="active"><a href="#ad" data-toggle="tab">Ad</a></li>
+			<li><a href="#keywords" data-toggle="tab"><span>Keywords</span></a></li>
+			<li><a href="#promocodes" data-toggle="tab"><span>Promocode</span></a></li>
+		</ul>
+		<div class="title">Left tabs</div>
+	</div>
+	<div class="box-content">
+    <div class="tab-content">
+      <div class="tab-pane active" id="ad">
+        <%= form_for([@current_account,@account_brand,@ad], :url=>merchant_account_account_brand_ads_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+	      	<div class="padded">
+	          <%= render :partial=>"ad_field",:locals=>{:f=>f} %>
+	        </div>  
+		      <div class="form-actions">
+		        <button type="submit" class="btn btn-blue">Save</button>
+		      </div>
+      	  <% end %>
       </div>
-      <div class="box-content padded">
-        Promocode Form And Listing
-      </div>  
-    </div>  
-  </div>  
+      <div class="tab-pane" id="keywords">
+      	<%= render :partial=>"ad_keyword" %>
+      </div>
+      <div class="tab-pane" id="promocodes">
+      	<%= render :partial=>"ad_promocode" %>
+      </div>
+    </div>
+
+  </div>
 </div>
+	

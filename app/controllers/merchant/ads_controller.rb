@@ -9,8 +9,10 @@ class Merchant::AdsController <  Merchant::BaseController
     @ad = @account_brand.ads.new
     @keywords = Keyword.all
   end
+
   def show
     @ad = @account_brand.ads.find(params[:id])
+    @keywords = Keyword.all
   end
   
   def create
