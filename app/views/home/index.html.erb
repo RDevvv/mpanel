@@ -34,7 +34,7 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
             <div class="c-loc">
                 <div class="txt">Use Current location</div>
                 <div class="locimg">
-                    <%= link_to image_tag("current_location_big.png"), :map_listing %>
+                    <%= link_to image_tag("current_location_big.png"), map_listing_path(:latitude => 19.07741, :longitude => 72.85746) %>
                 </div>
                 <div class="txt">OR</div>
 

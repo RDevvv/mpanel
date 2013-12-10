@@ -15,7 +15,9 @@ class HomeController < ApplicationController
     end
 
     def map_listing
-        @outlets = Outlet.all
+        latitude = params["latitude"]
+        longitude = params["longitude"]
+        @outlet_versions = OutletVersion.new(:latitude => latitude, :longitude => longitude).nearbys(2)
     end
 
 end
