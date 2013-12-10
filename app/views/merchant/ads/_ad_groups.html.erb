@@ -17,7 +17,11 @@
           <%= ad_group.ad_promocodes.size %>
         </td>
         <td>
-          <%= ad_group.is_active %>
+          <% if ad_group.is_active %>
+            <%= check_box_tag :is_active, true,:checked=>true%>
+          <% else %>
+            <%= check_box_tag :is_active %>
+          <% end %>
         </td>
       </tr> 
       <% end %>

@@ -14,13 +14,7 @@
         <tr>
           <td><%= outlet.outlet_key %></td>
           <td><%= outlet.address %></td>
-          <td>
-          <% if outlet.is_active == true %>
-              <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-            <% else %>
-              <%= check_box_tag :is_active %>
-            <% end %>
-          </td>
+         
         </tr> 
       <% end %>
       </tbody>  
