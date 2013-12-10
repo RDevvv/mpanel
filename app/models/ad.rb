@@ -9,5 +9,6 @@ class Ad < ActiveRecord::Base
   has_many :ad_promocode_outlets#,:dependent=>:destroy
   has_many :outlets,:through=>:ad_promocode_outlets
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
+  has_many :ad_groups, :dependent => :destroy
   accepts_nested_attributes_for :ad_keywords
 end
