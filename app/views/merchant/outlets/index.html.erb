@@ -38,14 +38,14 @@
                 <td><%= outlet.address %></td>
                 <td>
                 <% if outlet.is_active == true %>
-                    <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
+                    <%= check_box_tag :is_active,  true, :checked=>true%>
                   <% else %>
                     <%= check_box_tag :is_active %>
                   <% end %>
                 </td>
                 <td>
                   <% if outlet.is_verified == true %>
-                    <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
+                    <%= check_box_tag :is_verified, true, :checked=>true%>
                   <% else %>
                     <%= check_box_tag :is_verified %>
                   <% end %>
