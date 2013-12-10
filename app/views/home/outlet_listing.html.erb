@@ -1,33 +1,40 @@
 <div align="center" class="container-location">
     <div class="row-fluid">
         <div class="span12">
-            <% @brands.each do |r| %>
-                <div class="bdiv">
+            <% if @outlet_versions.nil? %>
+                No results found
+            <% else %>
+                <% @outlet_versions.each do |outlet_version| %>
+                <% if outlet_version.is_active == true %>
+                <% puts outlet_version.id %>
+            <div class="bdiv">
                 <div class="bbox">
-                    <div class="brandtitle"><%= r.brand_name %></div>
-                <div class="eye2"><a onclick="$.pnotify({
-                        title: 'Offer',
-                        text: 'The offer text would get displayed here.',
-                        opacity: .9
-                        });" class="btn source"></a></div>
-                <div align="center" class="brandlogo"><img class="img-responsive" src="img/maple-medium.png" border="0" /> </div>
-                <div class="rch-btns-div">
-                    <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                    <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                </div>
-                <div class="distance-div">Distance: xx.x km</div>
-                <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                        <a href="#">
-                            <div class="run2"></div>
-                            <div class="runtxt">20.3K</div>
-                        </a>
+                    <div class="brandtitle"><%= outlet_version.outlet.account_brand.brand.brand_name %></div>
+                    <div class="eye2"><a onclick="$.pnotify({
+                            title: 'Offer',
+                            text: 'The offer text would get displayed here.',
+                            opacity: .9
+                            });" class="btn source"></a></div>
+                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/maple-medium.png" border="0" /> </div>
+                    <div class="rch-btns-div">
+                        <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
+                        <div class="btn190"><a class="button_call2" href="tel:+91-<%= outlet_version.outlet.mobile_number %>9819654191">CALL</a></div>
+                    </div>
+                    <div class="distance-div">Distance: <%= (outlet_version.distance * 1.6).to_f.round(2) %> km</div>
+                    <div class="lower-box">
+                        <div class="refr2"></div>
+                        <div class="star2"></div>
+                        <div class="right-box">
+                            <a href="#">
+                                <div class="run2"></div>
+                                <div class="runtxt">20.3K</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+        <% end %>
+        <% end %>
+        <% end %>
         </div>
-    <% end %>
     </div>
-</div>
