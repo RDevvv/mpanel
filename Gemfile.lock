@@ -91,6 +91,7 @@ GEM
     font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
     g (1.7.2)
+    geocoder (1.1.8)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -311,6 +312,7 @@ DEPENDENCIES
   client_side_validations
   devise
   exception_notification
+  geocoder
   irbtools
   jquery-rails
   kaminari
