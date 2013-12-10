@@ -34,6 +34,9 @@ Gullak2::Application.routes.draw do
               post 'add_multiple_code'
             end
           end
+          resources  :ad_groups,:only=>[:show] do
+            
+          end
         end
       end
       resources :brands

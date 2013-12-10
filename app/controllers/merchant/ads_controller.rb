@@ -12,6 +12,7 @@ class Merchant::AdsController <  Merchant::BaseController
 
   def show
     @ad = @account_brand.ads.find(params[:id])
+    @ad_groups = @ad.ad_groups
     @keywords = Keyword.all
     @ad_promocodes = @ad.ad_promocodes
   end

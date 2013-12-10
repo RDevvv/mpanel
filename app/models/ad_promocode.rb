@@ -6,4 +6,5 @@ class AdPromocode < ActiveRecord::Base
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :outlets,:through=>:ad_promocode_outlets
   validates :promocode, :format => { :with => /\A[a-zA-Z0-9]+\z/,:message => "Invalid Promocode" } 
+  validates_presence_of :set_name
 end

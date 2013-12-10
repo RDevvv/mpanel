@@ -1,0 +1,26 @@
+ <div id="dataTables">
+  <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Promocode</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ad_groups.each do |ad_group| %>
+      <tr>
+        <td>
+          <%=link_to ad_group.name ,merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,ad_group)%>
+        </td>
+        <td>
+          <%= ad_group.ad_promocodes.size %>
+        </td>
+        <td>
+          <%= ad_group.is_active %>
+        </td>
+      </tr> 
+      <% end %>
+    </tbody>  
+  </table>
+</div>
