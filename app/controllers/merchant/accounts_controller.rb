@@ -5,6 +5,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   def index
     @accounts = current_user.accounts
   end
+
   def create
     @areas = Area.all
     @cities = City.all
@@ -64,6 +65,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     # @current_account = @account
     # @user = @account.owner
     @account_brands = @current_account.account_brands
+    @brands=Brand.all
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -74,6 +76,25 @@ class Merchant::AccountsController <  Merchant::BaseController
     @user = @account.owner
   end
   
+  def add_brands
+    @current_account.brand_ids = @current_account.brand_ids.push(params[:brand_ids].collect(&:to_i)).flatten.compact.uniq
+    if @current_account.save
+      redirect_to merchant_accounts_path
+    else
+      @brands = Brand.by_brand_name(params[:search_name]).where("brands.id not in (?)", @current_account.brands.pluck(:id))
+      @account_brands = @current_account.brands.order("brands.category_id asc")
+      redirect_to merchant_account_path(@current_account)
+    end
+  end
+
+  # def destroy_brand
+  #   @account_brand = @current_account.account_brands.find(params[:id])
+  #   @account_brand.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to merchant_account_account_brands_path(@current_account) }
+  #   end
+  # end
+
   protected
   def load_current_account
     if current_user
