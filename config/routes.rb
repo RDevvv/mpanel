@@ -44,7 +44,7 @@ Gullak2::Application.routes.draw do
   # resources :ad_promocodes
     # root :to => "merchant/accounts#new"
 
-    root :to => "home#index"
+    root :to => "merchant/accounts#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

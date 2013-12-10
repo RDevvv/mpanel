@@ -1,5 +1,5 @@
 class Merchant::AdsController <  Merchant::BaseController
-	before_filter :load_account, :load_account_brand
+	before_filter :load_account, :load_account_and_brand
 
 	def index
 		@ads = @account_brand.ads		
@@ -48,7 +48,7 @@ class Merchant::AdsController <  Merchant::BaseController
   end
 
 	protected
-	def load_account_brand
+	def load_account_and_brand
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
   

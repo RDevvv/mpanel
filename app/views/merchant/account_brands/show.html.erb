@@ -9,13 +9,56 @@
   <div class="span12">
     <div class="box">
       <div class="box-header">
-        <span class="title">Brand</span>
+        <span class="title">Outlets</span>
       </div>
       <div class="box-content">
-        <div class="padded">
-          Acount Brand Dashboard
-        </div>  
-      </div>  
-    </div>  
-  </div>  
-</div>
+        
+        <div id="dataTables">
+          <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+            <thead>
+              <tr>
+                <th>Outlet Key</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Mobile Number</th>
+                <th>Email ID</th>
+                <th>Status</th>
+                <th>Verified</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @outlets.each do |outlet| %>
+              <tr>
+                <td><%= outlet.outlet_key %></td>
+                <td><%= outlet.address %></td>
+                <td><%= outlet.phone_number %></td>
+                <td><%= outlet.mobile_number %></td>
+                <td><%= outlet.email_id %></td>
+                <td>
+                <% if outlet.is_active == true %>
+                    <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
+                  <% else %>
+                    <%= check_box_tag :is_active %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if outlet.is_verified == true %>
+                    <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
+                  <% else %>
+                    <%= check_box_tag :is_verified %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> | 
+                  <%= link_to 'Destroy', merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr> 
+            <% end %>
+            </tbody>  
+          </table>
+      </div>
+      
+    </div>
+  </div>
+</div>  

@@ -18,6 +18,7 @@
               <tr>
                 <th>Current Brands</th>
                 <th>Outlets</th>
+                <th>Website URL</th>
                 <th>Status</th>
                 <th>Verified</th>
                 <th></th>
@@ -32,6 +33,7 @@
                   <% end %>
                 </td>
                 <td></td>
+                <td><%= brand.website_url%></td>
                 <td>
                   <% if brand.is_active == true %>
                     <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>

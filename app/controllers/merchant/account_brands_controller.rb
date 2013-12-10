@@ -32,6 +32,7 @@ class Merchant::AccountBrandsController <  Merchant::BaseController
 
   def show
     @account_brand = @current_account.account_brands.find(params[:id])
+    @outlets = @account_brand.outlets
   end
   
 end
