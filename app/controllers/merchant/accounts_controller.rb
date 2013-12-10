@@ -63,7 +63,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     # @account = current_user.accounts.find(params[:id])
     # @current_account = @account
     # @user = @account.owner
-    @brands = @current_account.brands
+    @account_brands = @current_account.account_brands
     respond_to do |format|
       format.html # show.html.erb
     end

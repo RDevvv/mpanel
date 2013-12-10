@@ -1,60 +1,38 @@
 <%= render :partial=>'header' %>
-<div class="pull-right">
-  <%= link_to "Add Account",new_merchant_account_path,:class=>"btn btn-info"%>
-  <br/>
-  <br/>  
-</div>
 <div class="row-fluid">
   <div class="span12">
-    <div class="box">
+    <div class="box">     
       <div class="box-header">
-        <span class="title">Brands</span>
+        <span class="title"><i class="icon-user"></i> Account Brands</span>
       </div>
       <div class="box-content">
-        <%= form_tag(merchant_accounts_path) do %>
+       
         <div id="dataTables">
           <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
             <thead>
-              <tr>
-                <th>Current Brands</th>
-                <th>Outlets</th>
-                <th>Website URL</th>
-                <th>Status</th>
-                <th>Verified</th>
-                <th></th>
+             <tr>
+                <th>Brand </th>
+                
+                <th>Manage </th>
               </tr>
-            </thead>
+            </thead>  
             <tbody>
-            <% @brands.each do |brand| %>
-              <tr>
-                <td><% brand_name = @current_account.brands.pluck(:brand_name) %>
-                  <% brand_name.each do |brands| %>
-                  <%= brands %>
-                  <% end %>
-                </td>
-                <td></td>
-                <td><%= brand.website_url%></td>
-                <td>
-                  <% if brand.is_active == true %>
-                    <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                    <%= check_box_tag :is_active %>
-                  <% end %>
-                </td>
-                <td>
-                  <% if brand.is_verified == true %>
-                    <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                    <%= check_box_tag :is_verified %>
-                  <% end %>
-                </td>
-                <td> <%= link_to 'Destroy', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr> 
-            <% end %>
-            </tbody>  
-          </table>
+              <% @account_brands.each do |account_brand| %>
+                <tr>
+                  <td>
+                    <% if account_brand.brand_id? %>
+                      <%= link_to account_brand.brand.brand_name, merchant_account_account_brand_path(@current_account,account_brand) %> 
+                      <span class="badge badge-blue"><%= account_brand.brand.category.category_name %></span>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to 'Destroy', merchant_account_account_brand_path(@current_account,account_brand), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
+                </tr>
+              <% end %>  
+            </tbody>
+        </div>  
       </div>
-      <% end %>  
     </div>
-  </div>
-</div>  
+  <div class="clearfix"></div>
+</div>
