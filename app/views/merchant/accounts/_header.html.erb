@@ -27,7 +27,7 @@
         <div class="breadcrumb-button">
           <a href="<%= merchant_accounts_path%>">
             <span class="breadcrumb-label">
-              <i class="icon-account"></i> Accounts
+              <i class="icon-account"></i> Accounts <% if params[:action] == "show" %> <%=  @current_account.registered_company_name? && !@current_account.registered_company_name.nil? ? "- " + @current_account.registered_company_name: "" %><%end%>
             </span>
             <span class="breadcrumb-arrow"><span></span></span>
           </a>  
