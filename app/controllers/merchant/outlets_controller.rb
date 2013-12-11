@@ -24,7 +24,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@outlet = @account_brand.outlets.new(params[:outlet])
     respond_to do |format|
       if @outlet.save
-        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully added"}
+        format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully added"}
       else
         format.html { render action: "new" }
       end

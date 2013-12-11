@@ -2,19 +2,14 @@
   <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
     <thead>
       <tr>
-        <th>Name</th>
         <th>Promocode</th>
         <th>Cap</th>
         <th>Usage</th>
-        
       </tr>
     </thead>
     <tbody>
       <% @ad_promocodes.each do |ad_promocode| %>
       <tr>
-        <td>
-          <%= ad_promocode.set_name %>
-        </td>
         <td>
           <%= ad_promocode.promocode %>
         </td>
