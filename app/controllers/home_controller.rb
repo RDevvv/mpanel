@@ -19,4 +19,9 @@ class HomeController < ApplicationController
         longitude = params["longitude"]
         @outlet_versions = OutletVersion.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
     end
+
+    def individual_outlet
+        @outlet_version = OutletVersion.find(params[:id])
+        puts " ===================>@outlet_version "
+    end
 end

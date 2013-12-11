@@ -3,6 +3,7 @@ Gullak2::Application.routes.draw do
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
     match 'map_listing' => 'home#map_listing'
+    match 'individual_outlet/(:id)' => 'home#individual_outlet'
 
     get "accounts/create"
 
