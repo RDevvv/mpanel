@@ -34,8 +34,9 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
             <div class="c-loc">
                 <div class="txt">Use Current location</div>
                 <div class="locimg">
-                    <%= link_to image_tag("current_location_big.png"), map_listing_path(:latitude => 19.07741, :longitude => 72.85746) %>
+                    <%= link_to image_tag("current_location_big.png"), map_listing_path(:latitude => 19.07741, :longitude => 71.85746), :id => 'map' %>
                 </div>
+                <div class="error"></div>
                 <div class="txt">OR</div>
 
                 <div class="input-group">
@@ -49,5 +50,25 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
         </div>
     </div>
 </div>
+<script type="text/javascript">
+var map_link=document.getElementById("map");
+var error_div=document.getElementById("error");
+function getLocation()
+{
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else
+    {
+        error_div.innerHTML="Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position)
+{
+    map_link.href = "/map_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
+}
+getLocation();
+</script>
 </body>
 </html>
