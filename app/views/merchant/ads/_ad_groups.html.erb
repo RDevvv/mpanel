@@ -17,11 +17,15 @@
           <%= ad_group.ad_promocodes.size %>
         </td>
         <td>
-          <% if ad_group.is_active %>
-            <%= check_box_tag :is_active, true,:checked=>true%>
-          <% else %>
-            <%= check_box_tag :is_active %>
-          <% end %>
+          <%= form_tag(activate_promocodes_merchant_account_account_brand_ads_path(@current_account,@account_brand,:id=>@ad.id)) do %>
+            <% if ad_group.is_active %>
+              <%= check_box_tag :is_active, true,:checked=>true %>
+            <% else %>
+              <%= check_box_tag :is_active %>
+            <% end %>
+            Activate/Deactivate Promocodes
+            <button type="submit" class="btn btn-blue">Submit</button>
+          <% end %>           
         </td>
       </tr> 
       <% end %>
