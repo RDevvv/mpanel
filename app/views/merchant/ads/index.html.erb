@@ -9,10 +9,8 @@
   <div class="box-header">
     <ul class="nav nav-tabs nav-tabs-left">
       <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-      <li><a href="#keyword" data-toggle="tab"><i class="icon-comments-alt"></i> <span>Expired Ads</span></a></li>
-      <li><a href="#settings" data-toggle="tab"><i class="icon-cog"></i> <span>Settings</span></a></li>
+      <li><a href="#expiry_ads" data-toggle="tab"><i class="icon-comments-alt"></i> <span>Expiry Ads</span></a></li>
     </ul>
-
     <div class="title">Left tabs</div>
   </div>
 
@@ -21,9 +19,9 @@
       <div class="tab-pane active" id="home">
         <%= render :partial=>"ads",:locals=>{:ads=>@ads} %>
       </div>
-      <div class="tab-pane" id="profile">And now to the profile</div>
-      <div class="tab-pane" id="keyword">No new messages</div>
-      <div class="tab-pane" id="settings">Changing the settings</div>
+      <div class="tab-pane" id="expiry_ads">
+        <%= render :partial=>"ads",:locals=>{:ads=>@expiry_ads} %>
+      </div>
     </div>
   </div>
 </div>
