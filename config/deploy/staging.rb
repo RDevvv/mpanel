@@ -2,7 +2,7 @@ set :stage, :staging
 set :application, 'c4c'
 set :scm, :git
 set :repo_url, 'git@github.com:adadoo/Gullak-2.git'
-set :branch, "bootstrap_theme"
+set :branch, "master"
 set :deploy_via, :remote_cache
 
 # Simple Role Syntax
