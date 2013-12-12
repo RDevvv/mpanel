@@ -3,7 +3,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	before_filter  :load_account_and_brand
 
 	def index
-		@outlets = @account_brand.outlets.all
+		@outlets = @account_brand.outlets
 		@brands = Brand.all
 		@cities = City.all
     respond_to do |format|
