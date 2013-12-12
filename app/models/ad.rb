@@ -11,4 +11,5 @@ class Ad < ActiveRecord::Base
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   has_many :ad_groups, :dependent => :destroy
   accepts_nested_attributes_for :ad_keywords
+  has_paper_trail
 end
