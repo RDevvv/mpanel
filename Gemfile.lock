@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:goncalossilva/acts_as_paranoid.git
+  revision: 7781e85944a4a041d97774c1dd4b84d6c9338ccc
+  branch: rails3.2
+  specs:
+    acts_as_paranoid (0.0.0)
+      activerecord (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -182,9 +190,9 @@ GEM
     ori (0.1.0)
     orm_adapter (0.5.0)
     paint (0.8.6)
-    paper_trail (3.0.0)
-      activerecord (>= 3.0, < 5.0)
-      activesupport (>= 3.0, < 5.0)
+    paper_trail (2.7.2)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
     passenger (4.0.27)
       daemon_controller (>= 1.1.0)
       rack
@@ -329,6 +337,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_paranoid!
   bootstrap-sass (~> 2.3.2.2)
   breadcrumbs_on_rails
   cancan
@@ -350,7 +359,7 @@ DEPENDENCIES
   kaminari
   mailcatcher
   nested_form
-  paper_trail (>= 3.0.0.rc2)
+  paper_trail (~> 2.7.2)
   passenger
   pg
   pry

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131211115522) do
+ActiveRecord::Schema.define(:version => 20131212085045) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(:version => 20131211115522) do
     t.integer  "outlet_views"
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
+    t.time     "deleted_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -356,12 +357,13 @@ ActiveRecord::Schema.define(:version => 20131211115522) do
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "versions", :force => true do |t|
-    t.string   "item_type",  :null => false
-    t.integer  "item_id",    :null => false
-    t.string   "event",      :null => false
+    t.string   "item_type",      :null => false
+    t.integer  "item_id",        :null => false
+    t.string   "event",          :null => false
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.text     "object_changes"
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"

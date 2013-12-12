@@ -59,7 +59,8 @@ gem 'exception_notification'
 gem 'crumbs'
 gem "fog"
 gem 'unf'
-gem 'paper_trail', '>= 3.0.0.rc2' 
+gem 'paper_trail', '~> 2.7.2' 
+gem 'acts_as_paranoid',:git=>"git@github.com:goncalossilva/acts_as_paranoid.git",:branch=>"rails3.2"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

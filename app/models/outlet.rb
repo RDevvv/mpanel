@@ -6,8 +6,8 @@ class Outlet < ActiveRecord::Base
   has_many :outlet_versions
   belongs_to :area
   belongs_to :account_brand
-  belongs_to :payment_value
   belongs_to :outlet_type
 
   has_paper_trail
+  acts_as_paranoid
 end
