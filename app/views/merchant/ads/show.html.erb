@@ -1,0 +1,33 @@
+<%= render :partial=>'header',:locals=>{:ad=>@ad} %>
+<div class="pull-right">
+  <%= link_to "Create Promocode",new_merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad),:class=>"btn btn-info"%>
+  <br/>
+  <br/>  
+</div>
+<div class="clearfix"></div>
+<div class="box">
+	<div class="box-header">
+		<ul class="nav nav-tabs nav-tabs-left">
+			<li><a href="#ad" data-toggle="tab">Ad</a></li>
+			<li class="active"><a href="#ad_groups" data-toggle="tab"><span>Sets</span></a></li>
+		</ul>
+	</div>
+	<div class="box-content">
+    <div class="tab-content">
+      <div class="tab-pane" id="ad">
+        <%= form_for([@current_account,@account_brand,@ad], :url=>merchant_account_account_brand_ads_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+	      	<div class="padded">
+	          <%= render :partial=>"ad_field",:locals=>{:f=>f} %>
+	        </div>  
+		      <div class="form-actions">
+		        <button type="submit" class="btn btn-blue">Save</button>
+		      </div>
+      	<% end %>
+      </div>
+      <div class="tab-pane active" id="ad_groups">
+      	<%= render :partial=>"ad_groups",:locals=>{:ad_groups=>@ad_groups} %>
+      </div>
+    </div>
+  </div>
+</div>
+	

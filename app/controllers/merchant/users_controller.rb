@@ -2,7 +2,7 @@ class Merchant::UsersController <  Merchant::BaseController
   before_filter :load_account
 
   def new
-    @user = @account.users.new 
+    @user = @current_account.users.new 
     @users = User.all
     respond_to do |format|
       format.html # new.html.erb
@@ -10,7 +10,7 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def create
-    @user = @account.users.new(params[:account])
+    @user = @current_account.users.new(params[:account])
     respond_to do |format|
       if @user.save
         format.html { redirect_to merchant_account_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
@@ -21,7 +21,7 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def index 
-    @users = @account.users.all
+    @users = @current_account.users.all
     @accounts = Account.all
     respond_to do |format|
       format.html # index.html.erb
@@ -29,7 +29,7 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def destroy
-    @user = @account.users.find(params[:id])
+    @user = @current_account.users.find(params[:id])
     @user.destroy
 
     respond_to do |format|
@@ -38,12 +38,12 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def edit
-    @user = @account.users.find(params[:id])
+    @user = @current_account.users.find(params[:id])
     @users = User.all
   end
 
   def update
-    @user = @account.users.find(params[:id])
+    @user = @current_account.users.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

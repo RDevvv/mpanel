@@ -1,5 +1,6 @@
 class Merchant::OutletsController <  Merchant::BaseController
-	before_filter :load_account, :load_account_brand
+  before_filter  :load_account
+	before_filter  :load_account_and_brand
 
 	def index
 		@outlets = @account_brand.outlets.all
@@ -23,7 +24,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@outlet = @account_brand.outlets.new(params[:outlet])
     respond_to do |format|
       if @outlet.save
-        format.html { redirect_to merchant_account_brand_outlets_path,:notice=>"Outlet Succesfully added"}
+        format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
       else
         format.html { render action: "new" }
       end
@@ -31,16 +32,14 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	def edit
-		@outlet = @account_brand.outlets.find(params[:id])
-		@brands = Brand.all
+		@outlet = @account_brand.outlets.find(params[:id])	
 	end
 
 	def update
-		binding.pry
 		@outlet = @account_brand.outlets.find(params[:id])
     respond_to do |format|
-      if @account.update_attributes(params[:outlet])
-        format.html { redirect_to merchant_account_brand_outlets_path }
+      if @outlet.update_attributes(params[:outlet])
+        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated #{undo_link}" }
       else
         format.html { render action: "edit" }
       end
@@ -51,12 +50,17 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @outlet.destroy
     respond_to do |format|
-      format.html { redirect_to merchant_account_brand_outlets_path }
+    	format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Destoyed #{undo_link}"}
     end
 	end
 
 	protected
-	def load_account_brand
-		@account_brand = @account.account_brands.find(params[:account_brand_id])
+	def load_account_and_brand
+		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
+	end
+
+	private
+	def undo_link
+  	view_context.link_to("undo", revert_version_path(@outlet.versions.scoped.last), :method => :post)
 	end
 end

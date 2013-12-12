@@ -1,0 +1,27 @@
+ <div id="dataTables">
+  <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+    <thead>
+      <tr>
+        <th>Promocode</th>
+        <th>Cap</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ad_promocodes.each do |ad_promocode| %>
+      <tr>
+        <td>
+          <%= ad_promocode.promocode %>
+        </td>
+        <td>
+          <%= ad_promocode.cap %>
+        </td>
+        <td>
+          <%= ad_promocode.usage %>
+        </td>
+        
+      </tr> 
+      <% end %>
+    </tbody>  
+  </table>
+</div>

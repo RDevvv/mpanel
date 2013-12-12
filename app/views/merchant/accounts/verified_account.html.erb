@@ -1,14 +1,29 @@
-<h4><%= @account.registered_company_name %> Account has been created</h4>
-<br><br>
+<%#= render :partial=>"header" %>
+<div class="alert alert-info">
+  <!-- <button type="button" class="close" data-dismiss="alert">×</button> -->
+  <strong><%= @account.registered_company_name %></strong> account has been created
+</div>
 
-<b>Dear <%= @user.first_name %></b>
+<div class="row-fluid">
 
-<blockquote>You are one step away from
-increasing footfall at your stores.<br>
-After verifying your account<br>
-details, we will send you an email<br>
-with your access details.<br>
-We look forward to having you<br>
-on-board.
-GullakMaster.
-</blockquote>
+  <div class="span6">
+    <div class="box">
+      <div class="box-header ">
+        <h4 class="padded"><%= @account.registered_company_name %> Confirmation</h4>
+      </div>
+      <div class="box-conent padded"> 
+        <p>Dear <%= @account.users.first.first_name %></p>
+        <p>You are one step away from increasing footfall at your stores. After verifying your account details, we will send you an email with your access details.</p>
+        <p>We look forward to having you on-board.</p>
+        <p>GullakMaster</p>
+      </div>  
+    </div>  
+  </div>
+  <div class="span6">
+    <h3>Increase Footfall at your Stores</h3>
+    <div class="pic">
+      <%= image_tag "home-rightimg.jpg" ,:border=>"0", :alt=>"Increase Footfall at your Stores", :title=>"Increase Footfall at your Stores" %>
+        
+    </div>
+  </div>
+</div>

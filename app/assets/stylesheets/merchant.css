@@ -8,8 +8,18 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require merchant/bootstrap_override
- *= require merchant/login
- *= require merchant/layout
- */
+/*
+*= require merchant/application
+
+*= require_self
+*/
+.no_sidebar{
+  margin-left: 0px;
+}
+.has_sidebar{
+  margin-left:210px;
+}
+.inlinecheckbox{
+  width:10px;
+}
+

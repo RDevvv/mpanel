@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:goncalossilva/acts_as_paranoid.git
+  revision: 7781e85944a4a041d97774c1dd4b84d6c9338ccc
+  branch: rails3.2
+  specs:
+    acts_as_paranoid (0.0.0)
+      activerecord (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,37 +37,41 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     alias (0.2.3)
-    arel (3.0.2)
+    arel (3.0.3)
     atomic (1.1.14)
-    awesome_print (1.1.0)
+    awesome_print (1.2.0)
     bcrypt-ruby (3.1.2)
+    binding.repl (0.8.0)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     boson (1.2.4)
     boson-more (0.2.2)
       boson (>= 1.2.0)
-    breadcrumbs_on_rails (2.2.0)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
     cancan (1.6.10)
     capistrano (3.0.1)
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
-    capistrano-bundler (1.0.0)
-      capistrano (>= 3.0.0.pre)
+    capistrano-bundler (1.1.1)
+      capistrano (~> 3.0)
+      sshkit (>= 1.2.0)
     capistrano-rails (1.1.0)
       capistrano (>= 3.0.0)
       capistrano-bundler (>= 1.0.0)
     capistrano-rvm (0.0.3)
       capistrano
-    carrierwave (0.8.0)
+    carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+      json (>= 1.7)
+    chunky_png (1.2.9)
     client_side_validations (3.2.6)
     clipboard (1.0.5)
     code_analyzer (0.4.3)
       sexp_processor
-    coderay (1.0.9)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -68,9 +80,17 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     colored (1.2)
-    daemon_controller (1.1.2)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.1.2)
+      compass (>= 0.12.2)
+    crumbs (1.0.8)
+      rails (>= 3.0.0)
+    daemon_controller (1.1.7)
     daemons (1.1.9)
-    devise (3.1.0)
+    devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -82,41 +102,54 @@ GEM
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
+    excon (0.28.0)
     execjs (2.0.2)
     fancy_irb (0.7.3)
       paint (>= 0.8.1)
       unicode-display_width (>= 0.1.1)
-    fastthread (1.0.7)
     ffi (1.9.3)
-    font-awesome-rails (3.2.1.2)
+    fog (1.18.0)
+      builder
+      excon (~> 0.28.0)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5)
+      ruby-hmac
+    font-awesome-rails (3.2.1.3)
       railties (>= 3.2, < 5.0)
+    formatador (0.2.4)
+    fssm (0.2.10)
     g (1.7.2)
-    geocoder (1.1.8)
-    haml (4.0.3)
+    geocoder (1.1.9)
+    haml (4.0.4)
       tilt
     hike (1.2.3)
     hirb (0.7.1)
-    i18n (0.6.5)
+    i18n (0.6.9)
     interactive_editor (0.0.10)
       spoon (>= 0.0.1)
-    irbtools (1.5.0)
+    irbtools (1.5.1)
       alias (~> 0.2.3)
-      awesome_print (~> 1.1.0)
+      awesome_print (~> 1.2.0)
+      binding.repl (>= 0.7.0)
       boson (~> 1.2.4)
       boson-more (~> 0.2.2)
       clipboard (~> 1.0.5)
-      coderay (~> 1.0.9)
-      every_day_irb (>= 1.5.0)
+      coderay (~> 1.1.0)
+      every_day_irb (>= 1.5.1)
       fancy_irb (>= 0.7.3)
       g (>= 1.7.2)
       hirb (~> 0.7.1)
       interactive_editor (>= 0.0.10)
       method_locator (>= 0.0.4)
-      method_source (>= 0.8.1)
+      method_source (>= 0.8.2)
       methodfinder (>= 1.2.5)
       ori (~> 0.1.0)
       paint (>= 0.8.6)
-      wirb (>= 1.0.1)
+      wirb (>= 1.0.2)
       zucker (>= 13.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -126,28 +159,27 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.1)
-    kaminari (0.14.1)
+    kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailcatcher (0.2.4)
-      eventmachine
-      haml
-      i18n
-      json
-      mail
-      sinatra
-      skinny (>= 0.1.2)
-      sqlite3-ruby
-      thin
+    mailcatcher (0.5.12)
+      activesupport (~> 3.0)
+      eventmachine (~> 1.0.0)
+      haml (>= 3.1, < 5)
+      mail (~> 2.3)
+      sinatra (~> 1.2)
+      skinny (~> 0.2.3)
+      sqlite3 (~> 1.3)
+      thin (~> 1.5.0)
     method_locator (0.0.4)
     method_source (0.8.2)
     methodfinder (2.0.0)
-    mime-types (1.25)
-    mini_portile (0.5.1)
+    mime-types (1.25.1)
+    mini_portile (0.5.2)
     multi_json (1.8.2)
     nested_form (0.3.2)
     net-scp (1.1.2)
@@ -156,17 +188,19 @@ GEM
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     ori (0.1.0)
-    orm_adapter (0.4.0)
+    orm_adapter (0.5.0)
     paint (0.8.6)
-    passenger (3.0.19)
-      daemon_controller (>= 1.0.0)
-      fastthread (>= 1.0.1)
+    paper_trail (2.7.2)
+      activerecord (~> 3.0)
+      railties (~> 3.0)
+    passenger (4.0.27)
+      daemon_controller (>= 1.1.0)
       rack
       rake (>= 0.8.1)
     pg (0.17.0)
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
     quiet_assets (1.0.2)
@@ -177,7 +211,7 @@ GEM
     rack-pjax (0.7.0)
       nokogiri (~> 1.5)
       rack (~> 1.3)
-    rack-protection (1.5.0)
+    rack-protection (1.5.1)
       rack
     rack-ssl (1.3.3)
       rack
@@ -229,27 +263,28 @@ GEM
     remotipart (1.2.1)
     require_all (1.3.2)
     rolify (3.2.0)
+    ruby-hmac (0.4.0)
     ruby-progressbar (1.2.0)
-    safe_yaml (0.9.4)
+    safe_yaml (0.9.7)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    seed_dump (2.0.0)
+    seed_dump (3.0.0)
       activerecord
       activesupport
     sexp_processor (4.4.0)
     sextant (0.2.4)
       rails (>= 3.2)
-    sinatra (1.4.3)
+    sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     skinny (0.2.3)
       eventmachine (~> 1.0.0)
       thin (~> 1.5.0)
-    slop (3.4.6)
+    slop (3.4.7)
     spoon (0.0.4)
       ffi
     sprockets (2.2.2)
@@ -258,10 +293,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.8)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
-    sshkit (1.1.0)
-      net-scp
+    sshkit (1.2.0)
+      net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
     term-ansicolor (1.2.2)
@@ -287,9 +320,12 @@ GEM
       rails (>= 3.1)
       railties (>= 3.1)
     tzinfo (0.3.38)
-    uglifier (2.3.0)
+    uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.3)
+      unf_ext
+    unf_ext (0.0.6)
     unicode-display_width (0.1.1)
     warden (1.2.3)
       rack (>= 1.0)
@@ -301,6 +337,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_paranoid!
   bootstrap-sass (~> 2.3.2.2)
   breadcrumbs_on_rails
   cancan
@@ -310,14 +347,19 @@ DEPENDENCIES
   capistrano-rvm (~> 0.0.3)
   carrierwave
   client_side_validations
+  compass
+  compass-rails
+  crumbs
   devise
   exception_notification
+  fog
   geocoder
   irbtools
   jquery-rails
   kaminari
   mailcatcher
   nested_form
+  paper_trail (~> 2.7.2)
   passenger
   pg
   pry
@@ -332,3 +374,4 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails (= 2.2.7)
   uglifier (>= 1.0.3)
+  unf

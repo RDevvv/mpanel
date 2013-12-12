@@ -1,0 +1,48 @@
+<%= content_for :content_header do %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+     <div class="area-top clearfix">
+      <div class="pull-left header">
+        <h3 class="title">
+          <i class="icon-brand"></i>
+          Brands
+        </h3>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= content_for :breadcrumbs do %>
+  <div class="container-fluid padded">
+    <div class="row-fluid">
+
+      <!-- Breadcrumb line -->
+
+      <div id="breadcrumbs">
+        <div class="breadcrumb-button blue">
+          <a href="<%= merchant_merchants_path%>">
+            <span class="breadcrumb-label"><i class="icon-home"></i> Home</span>
+            <span class="breadcrumb-arrow"><span></span></span>
+          </a>  
+        </div>
+       
+        <div class="breadcrumb-button blue">
+          <a href="<%= merchant_account_path(@current_account)%>">
+            <span class="breadcrumb-label">
+              <i class="icon-account"></i> <%= @current_account.name%>
+            </span>
+            <span class="breadcrumb-arrow"><span></span></span>
+          </a>  
+        </div>
+        
+        <div class="breadcrumb-button">
+          <a href="<%= merchant_account_account_brands_path(@current_account)%>">
+            <span class="breadcrumb-label">
+              <i class="icon-brand"></i> Brand
+            </span>
+            <span class="breadcrumb-arrow"><span></span></span>
+          </a>  
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
