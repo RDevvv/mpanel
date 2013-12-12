@@ -8,4 +8,6 @@ class Outlet < ActiveRecord::Base
   belongs_to :account_brand
   belongs_to :payment_value
   belongs_to :outlet_type
+
+  has_paper_trail
 end

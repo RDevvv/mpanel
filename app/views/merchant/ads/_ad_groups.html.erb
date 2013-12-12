@@ -17,7 +17,7 @@
           <%= ad_group.ad_promocodes.size %>
         </td>
         <td>
-          <%= form_tag(activate_promocodes_merchant_account_account_brand_ads_path(@current_account,@account_brand,:id=>@ad.id)) do %>
+          <%= form_tag(activate_promocodes_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad)) do %>
             <% if ad_group.is_active %>
               <%= check_box_tag :is_active, true,:checked=>true %>
             <% else %>

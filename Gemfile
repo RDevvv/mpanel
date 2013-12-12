@@ -51,7 +51,8 @@ gem 'passenger'
 gem 'exception_notification'
 gem 'crumbs'
 gem "fog"
-gem 'unf' 
+gem 'unf'
+gem 'paper_trail', '>= 3.0.0.rc2' 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

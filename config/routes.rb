@@ -1,5 +1,6 @@
 Gullak2::Application.routes.draw do
 
+  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"
 
   mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
@@ -31,9 +32,6 @@ Gullak2::Application.routes.draw do
         end
         resources :outlets
         resources :ads do
-          collection do
-            post 'activate_promocodes'
-          end
           resources :ad_promocodes do
             collection do
               post 'add_single_code'
@@ -41,7 +39,9 @@ Gullak2::Application.routes.draw do
             end
           end
           resources  :ad_groups,:only=>[:show] do
-            
+            member do
+              post 'activate_promocodes'
+            end  
           end
         end
       end
