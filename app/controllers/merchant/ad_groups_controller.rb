@@ -7,25 +7,10 @@ class Merchant::AdGroupsController <  Merchant::BaseController
     @outlets = @ad_group.outlets
   end
 
-  def activate_promocodes
-    @ad = @account_brand.ads.find(params[:id])
-    @ad_groups = @ad.ad_groups
-    @ad_groups.each do |ad_group|
-      if ad_promocodes = ad_group.ad_promocodes.present?
-        ad_promocodes = ad_group.ad_promocodes
-        ad_promocodes.each do |ad_promocode|
-          if ad_promocode.present?
-            if !params[:is_active].nil?
-              ad_group.update_attributes(is_active: true)
-              ad_promocode.update_attributes(is_active: true)
-            else
-              ad_group.update_attributes(is_active: false)
-              ad_promocode.update_attributes(is_active: false)
-            end
-          end 
-        end
-      end
-    end
+  def toggle_active
+    @ad_group = @ad.ad_groups.find(params[:id])
+    @ad_group.toggle_active
+
     redirect_to  merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad)
   end
 

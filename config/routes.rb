@@ -40,7 +40,7 @@ Gullak2::Application.routes.draw do
           end
           resources  :ad_groups,:only=>[:show] do
             member do
-              post 'activate_promocodes'
+              post 'toggle_active'
             end  
           end
         end

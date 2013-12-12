@@ -29,5 +29,14 @@ module MerchantHelper
     end  
   end
 
+  def display_label_for_activate(active=false)
+    if active
+      "<span class='label label-success'>De Activate</span>".html_safe
+      
+    else
+      "<span class='label label-info'>Activate</span>".html_safe
+    end
+  end
+
   
 end
