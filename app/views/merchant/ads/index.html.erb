@@ -5,28 +5,26 @@
   <br/>  
 </div>
 <div class="clearfix"></div>
+<div class="box">
+  <div class="box-header">
+    <ul class="nav nav-tabs nav-tabs-left">
+      <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+      <li><a href="#keyword" data-toggle="tab"><i class="icon-comments-alt"></i> <span>Expired Ads</span></a></li>
+      <li><a href="#settings" data-toggle="tab"><i class="icon-cog"></i> <span>Settings</span></a></li>
+    </ul>
 
-  
-    <div class="box">
-      <div class="box-header">
-        <ul class="nav nav-tabs nav-tabs-left">
-          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-          <li><a href="#keyword" data-toggle="tab"><i class="icon-comments-alt"></i> <span>Expired Ads</span></a></li>
-          <li><a href="#settings" data-toggle="tab"><i class="icon-cog"></i> <span>Settings</span></a></li>
-        </ul>
+    <div class="title">Left tabs</div>
+  </div>
 
-        <div class="title">Left tabs</div>
+  <div class="box-content">
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">
+        <%= render :partial=>"ads",:locals=>{:ads=>@ads} %>
       </div>
-
-      <div class="box-content">
-        <div class="tab-content">
-          <div class="tab-pane active" id="home">
-            <%= render :partial=>"ads",:locals=>{:ads=>@ads} %>
-          </div>
-          <div class="tab-pane" id="profile">And now to the profile</div>
-          <div class="tab-pane" id="keyword">No new messages</div>
-          <div class="tab-pane" id="settings">Changing the settings</div>
-        </div>
-      </div>
+      <div class="tab-pane" id="profile">And now to the profile</div>
+      <div class="tab-pane" id="keyword">No new messages</div>
+      <div class="tab-pane" id="settings">Changing the settings</div>
     </div>
+  </div>
+</div>
   
