@@ -1,12 +1,17 @@
+ruby "1.9.3"
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
+gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'jquery-rails'
+gem 'devise'
+gem 'twitter-bootstrap-rails', '2.2.7'
+gem 'geocoder'
 
+
+
+gem 'therubyracer', :platforms => :ruby
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,8 +34,10 @@ group :development do
   gem 'pry'
   gem 'mailcatcher'
   gem 'quiet_assets'
-  gem 'railroady'
-
+  gem 'irbtools'
+  gem 'sextant'
+  gem 'rails_best_practices'
+  gem 'seed_dump'
 end
 
 

@@ -9,6 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
+ *= require jquery.pnotify.default 
+ *= require jquery.pnotify.default.icons
+ *= require mobile-css-styles
  * require_tree .
  *= require home
  */

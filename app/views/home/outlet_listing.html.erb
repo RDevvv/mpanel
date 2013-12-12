@@ -1,0 +1,49 @@
+<div align="center" class="container-location">
+    <div class="row-fluid">
+        <div class="span12">
+            <% if @outlet_versions.nil? %>
+                No results found
+            <% else %>
+                <% @outlet_versions.each do |outlet_version| %>
+                <% if outlet_version.is_active == true %>
+                <% puts outlet_version.id %>
+            <div class="bdiv">
+                <div class="bbox">
+                        <% brand_name = outlet_version.outlet.account_brand.brand.brand_name.to_s %>
+                        <div class="brandtitle"><%= brand_name[0..6] %>
+                        <% unless brand_name.length < 7 %>
+                                ..
+                            <% end %>
+                            </div>
+                    <div class="eye2"><a onclick="$.pnotify({
+                            title: 'Offer',
+                            text: 'The offer text would get displayed here.',
+                            opacity: .9
+                            });" class="btn source"></a></div>
+                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/maple-medium.png" border="0" /> </div>
+                    <div class="rch-btns-div">
+                        <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
+                            <% unless outlet_version.outlet.mobile_number.empty? %>
+                                <div class="btn190">
+                                <a class="button_call2" href="tel:+91-<%= outlet_version.outlet.mobile_number %>">CALL</a>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="distance-div">Distance: <%= (outlet_version.distance * 1.6).to_f.round(2) %> km</div>
+                    <div class="lower-box">
+                        <div class="refr2"></div>
+                        <div class="star2"></div>
+                        <div class="right-box">
+                            <a href="#">
+                                <div class="run2"></div>
+                                <div class="runtxt">20.3K</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <% end %>
+        <% end %>
+        </div>
+    </div>

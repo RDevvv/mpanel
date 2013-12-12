@@ -6,8 +6,10 @@ class Account < ActiveRecord::Base
   has_many :user_accounts, :dependent => :destroy
   has_many :users, :through => :user_accounts
   belongs_to :area
+  
   validates_presence_of :registered_company_name, :address, :pincode	
-  accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :users,:area
+  
   after_create :add_owner
   
   def add_owner
