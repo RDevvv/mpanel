@@ -12,4 +12,8 @@ class Ad < ActiveRecord::Base
   has_many :ad_groups, :dependent => :destroy
   accepts_nested_attributes_for :ad_keywords
   has_paper_trail
+  
+
+  scope :expire_ads,lambda{where("expiry_date is not null and expiry_date < ?",Date.today)}
+  scope :active_ads,lambda{where("expiry_date is  null or expiry_date >= ?",Date.today)}
 end
