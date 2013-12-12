@@ -2,7 +2,6 @@
 
 one:
   latest_version_id: 1
-  brand_account_id: 1
   ad_type: MyString
   ad_title: MyString
   is_monday: false
@@ -18,11 +17,10 @@ one:
   sms_text: MyText
   promocode_type_id: 1
   daily_cap: MyString
-  lilfetime_budget: 1.5
+  lifetime_budget: 1.5
 
 two:
   latest_version_id: 1
-  brand_account_id: 1
   ad_type: MyString
   ad_title: MyString
   is_monday: false
@@ -38,4 +36,4 @@ two:
   sms_text: MyText
   promocode_type_id: 1
   daily_cap: MyString
-  lilfetime_budget: 1.5
+  lifetime_budget: 1.5
