@@ -7,9 +7,27 @@ module MerchantHelper
       "brands"=>"brand",
     }
     if class_name == (classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || '')
-    "btn-primary" 
-  else
-    "btn-success" 
+      "btn-primary" 
+    else
+      "btn-success" 
+    end
   end
+
+  def no_sidebar
+    classes = {"accounts.new"=>"no_sidebar","accounts.verified_account"=>"no_sidebar"}
+      
+    unless current_merchant_user
+      classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || ''
+    end  
   end
+
+  def has_sidebar
+    classes = {"accounts.new"=>"has_sidebar","accounts.verified_account"=>"has_sidebar"}
+      
+    if current_merchant_user
+      classes[controller.controller_name + '.' + controller.action_name] || classes[controller.controller_name] || ''
+    end  
+  end
+
+  
 end

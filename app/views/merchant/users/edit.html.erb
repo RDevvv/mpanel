@@ -1,32 +1,81 @@
+<%= render :partial=>'header' %> 
+<div class="row-fluid">
+	<div class="span12">
 
-<div>
-	<%= form_for([@account,@user], :url=>merchant_account_user_path(@account,@user)) do |f| %>
- 		<div class="content-header">
-        <h2>Edit User Details
-          <!-- <small> &nbsp;super admin only</small> -->
-        </h2>
-      </div>
-		<div class="clearfix"></div>
-		<div class="span9">
-			<%= f.text_field :first_name, :class=>"span4"%>
-			<%= f.text_field :last_name, :class=>"span4"%>
+		<div class="box">
+			<div class="box-header">
+				<span class="title"><i class="icon-user"></i> Edit User</span>
+			</div>
+
+			<div class="box-content">
+				<%= form_for([@account,@user], :url=>merchant_account_user_path(@current_account,@user),:html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+
+				<div class="padded">
+
+					<div class="control-group">
+						<label class="control-label">First Name</label>
+						<div class="controls">
+							<%= f.text_field :first_name, :placeholder=>"First Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">Last Name</label>
+						<div class="controls">
+							<%= f.text_field :last_name, :placeholder=>"Last Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+						</div>
+					</div>
+
+					<div class="control-group">
+            <label class="control-label">Account </label>
+            <div class="controls">
+              <label class="checkbox inline" style="padding-left:20px;">
+                <%= f.check_box :is_active,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Active
+              </label>
+            </div>    
+          </div>
+
+					<div class="control-group">
+						<label class="control-label">Email</label>
+						<div class="controls">
+							<%= f.text_field :email, :placeholder=>"Email", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+						</div>
+					</div>
+
+					<div class="control-group">
+            <label class="control-label"> </label>
+            <div class="controls">
+              <label class="checkbox inline" style="padding-left:20px;">
+                <%= f.check_box :email_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Email Verified
+              </label>
+            </div>    
+          </div>
+
+					<div class="control-group">
+						<label class="control-label">Mobile Number</label>
+						<div class="controls">
+							<%= f.text_field :mobile_number, :placeholder=>"Mobile Number", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+						</div>
+					</div>
+					
+					<div class="control-group">
+	          <label class="control-label"> </label>
+	          <div class="controls">
+	            <label class="checkbox inline" style="padding-left:20px;">
+	              <%= f.check_box :mobile_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Mobile Verified
+	            </label>
+	          </div>    
+	        </div>
+	      </div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-blue">Save</button>
+					<%= f.button "Reset Password", :class=>"btn btn-default btn-lg active"%>
+					<%= f.button "Link Bands for User", :class=>"btn btn-default btn-lg active"%>
+				</div>
+				<% end %>
+			</div>
 		</div>
-		<div class="clearfix"></div>
-		<div class="span9">
-			<%= f.text_field :email, :class=>"span4"%>
-			<%= f.check_box :email_verified%> Email Verified
-		</div>
-		<div class="clearfix"></div>
-		<div class="span9">
-			<%= f.text_field :mobile_number, :class=>"span4"%>
-			<%= f.check_box :mobile_verified %> Mobile Verified
-		</div>
-		<div class="clearfix"></div>
-		<div class="span9">
-			<%= f.button "Reset Password", :class=>"btn btn-default btn-lg active"%>
-			<%= f.button "Link Bands for User", :class=>"btn btn-default btn-lg active"%>
-			<%= f.submit "Save", :class=>"btn btn-primary span3"%>
-		</div>
-		<div class="clearfix"></div>
-	<% end %>
+	</div>
 </div>

@@ -2,7 +2,7 @@ class Merchant::BrandsController <  Merchant::BaseController
 before_filter :load_account
 
 	def new
-		@brand = @account.brands.new
+		@brand = @current_account.brands.new
     @categories = Category.all
 		respond_to do |format|
       format.html # new.html.erb
@@ -10,10 +10,10 @@ before_filter :load_account
 	end
 
 	def create
-		@brand = @account.brands.new(params[:brand])
+		@brand = @current_account.brands.new(params[:brand])
     respond_to do |format|
       if @brand.save
-        format.html { redirect_to merchant_account_account_brands_path(@account),:notice=>"Brand Succesfully added"}
+        format.html { redirect_to merchant_account_account_brands_path(@current_account),:notice=>"Brand Succesfully added"}
       else
         @categories = Category.all
         format.html { render action: "new" }
@@ -22,7 +22,7 @@ before_filter :load_account
 	end
 
 	def destroy
-    @brand = @account.brands.find(params[:id])
+    @brand = @current_account.brands.find(params[:id])
     @brand.destroy
     respond_to do |format|
       format.html { redirect_to merchant_account_brands_path }
@@ -30,7 +30,7 @@ before_filter :load_account
 	end
 
 	def show
-		@brand = @account.brands.find(params[:id])
+		@brand = @current_account.brands.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -43,7 +43,7 @@ before_filter :load_account
 	end
 
   def index
-    @brands = @account.brands.all
+    @brands = @current_account.brands.all
     @accounts = Account.all
     respond_to do |format|
       format.html # index.html.erb

@@ -1,5 +1,6 @@
 Gullak2::Application.routes.draw do
 
+  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"
 
   mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
@@ -19,23 +20,40 @@ Gullak2::Application.routes.draw do
     # end
 
     resources :accounts do
+      collection do
+        post "add_brands"
+      end
       member do
         get 'verified_account'
       end
-      resources :account_brands 
+      resources :account_brands do
+        collection do
+          post "add_brands"
+        end
+        resources :outlets
+        resources :ads do
+          resources :ad_promocodes do
+            collection do
+              post 'add_single_code'
+              post 'add_multiple_code'
+            end
+          end
+          resources  :ad_groups,:only=>[:show] do
+            member do
+              post 'activate_promocodes'
+            end  
+          end
+        end
+      end
       resources :brands
       resources :users  
-      # resources :outlets
     end
 
-    resources :account_brands do
-      resources :outlets
-    end
   end  
-  
-    root :to => "merchant/accounts#new"
+  # resources :ad_promocodes
+    # root :to => "merchant/accounts#new"
 
-    # root :to => "home#index"
+    root :to => "merchant/accounts#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

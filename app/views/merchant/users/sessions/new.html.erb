@@ -1,27 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="span4 offset4">
-      <h3>Sign In</h3>
-      <div class="border">
-        <% resource ||= User.new %> 
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-          <div><%= f.label :email %>
-          <%= f.email_field :email, :autofocus => true, :class=>"span12" %></div>
+<div class="span4 offset4">
+  <div class="padded">
+    
+    <div class="login box" style="margin-top: 80px;">
+      <div class="box-header">
+        <span class="title">Login</span>
+      </div>
 
-          <div><%= f.label :password %>
-          <%= f.password_field :password, :class=>"span12" %></div>
-
-          <% if devise_mapping.rememberable? -%>                                  
-            <div><%= f.check_box :remember_me, :style=>"margin-top: 0%;" %>&nbsp;Remember me</div>
-          <% end -%>
+      <div class="box-content padded">
+        <div class="separate-sections">
+          <% resource ||= User.new %> 
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class=>"separate-sections") do |f| %>
+            <div class="input-prepend">
+              <span class="add-on" href="#">
+                <i class="icon-user"></i>
+              </span>
+              <%= f.email_field :email, :autofocus => true, :placeholder=>"username" %>
+            </div>
+            <div class="input-prepend">
+              <span class="add-on" href="#">
+                  <i class="icon-key"></i>
+              </span>
+              <%= f.password_field :password, :placeholder=>"password" %>
+            </div>
+            <div>
+              <%= f.submit "Login".html_safe, :class=>"btn btn-blue btn-block" %>
+            </div>
+          <% end %>
+        </div>
+        <div>
           <br/>
-
-          <div><%= f.submit "Sign in", :class=>"btn btn-success span3" %></div>
-        <% end %>
-
-        <%= render "/merchant/users/shared/links" %>
-       </div>
+          <%= render "/merchant/users/shared/devise_links" %>
+        </div>
+      </div>
     </div>
+   
   </div>
-</div>
-
+</div>  

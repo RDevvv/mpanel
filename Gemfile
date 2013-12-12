@@ -18,14 +18,18 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+   gem 'compass-rails'
 end
-gem 'bootstrap-sass', '~> 2.3.2.2'
+# gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'compass'
 gem 'jquery-rails'
 gem 'devise'
 group :development do
   gem 'sextant'
   gem 'pry'
   gem 'mailcatcher'
+  gem 'quiet_assets'
+  gem 'railroady'
 
 end
 
@@ -45,6 +49,10 @@ gem 'capistrano-rvm', '~> 0.0.3'
 gem 'capistrano-bundler'
 gem 'passenger'
 gem 'exception_notification'
+gem 'crumbs'
+gem "fog"
+gem 'unf'
+gem 'paper_trail', '>= 3.0.0.rc2' 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

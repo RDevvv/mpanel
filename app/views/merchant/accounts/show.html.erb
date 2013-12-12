@@ -1,11 +1,58 @@
-<div class="row-fluid1">
-  <div class="">
-    <%= form_for(@account,:url=>merchant_account_path) do |f| %>
-      <%= f.collection_select :id, @accounts,:id,:registered_company_name%>
-      <h4>Increase Footfall in 3 simple steps:</h4>
-      Link <%= link_to " Brands ", new_merchant_account_brand_path(@account) %> to your Account<br>
-      Create <%= link_to " Outlets ", new_merchant_account_brand_path(@account) %> for your Brands<br>
-      Run <%= link_to " Campaigns ", new_merchant_account_brand_path(@account) %> for specific Outlets
-    <% end %>
+<%= render :partial=>'header' %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">     
+      <div class="box-header">
+        <span class="title"><i class="icon-user"></i> Account Brands</span>
+      </div>
+      <div class="box-content">
+        <div class="padded alert">
+          You can add brands to your account. If you don't see your desirable brand you can <strong>
+          <%= link_to "create new brand", new_merchant_account_brand_path(@current_account) %></strong>
+        </div>      
+        <%= form_tag(add_brands_merchant_accounts_path(:id=>@current_account.id),:method=>:post,:class=>"form-inline fill-up validatable") do |f|%>
+          <div class="padded">
+            <div class="control-group">
+              <label class="control-label">Brand Name</label>
+              <div class="controls">
+               <%= select_tag "brand_ids[]",options_from_collection_for_select(@brands,:id,:brand_name),:multiple=>true,:class=>"chzn-select" ,:placeholder=>"Select Brand"%> 
+              </div>
+            </div>
+            <button type="submit" class="btn btn-blue">Add Brand</button>
+          </div>  
+        <% end %> 
+
+        <div id="dataTables">
+          <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+            <thead>
+             <tr>
+                <th>Brand </th>
+                <th>Manage </th>
+              </tr>
+            </thead>  
+            <tbody>
+              <% @account_brands.each do |account_brand| %>
+                <tr>
+                  <td>
+                    <% if account_brand.id? %>
+                      <% if !account_brand.brand.nil? %>
+                        <%= link_to account_brand.brand.brand_name, merchant_account_account_brand_path(@current_account,account_brand) %> 
+                      <% end %>
+                      <span class="badge badge-blue">
+                        <% if !account_brand.brand.category.nil? %>
+                          <%= account_brand.brand.category.category_name %>
+                        <% end %>
+                      </span>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to 'Destroy', merchant_account_account_brand_path(@current_account,account_brand), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </td>
+                </tr>
+              <% end %>  
+            </tbody>
+        </div>  
+      </div>
     </div>
+  <div class="clearfix"></div>
 </div>

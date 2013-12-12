@@ -8,8 +8,68 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require merchant/bootstrap_override
- *= require merchant/login
- *= require merchant/layout
- */
+/*
+*= require merchant/bootstrap_include
+*= require merchant/uniform_default
+*= require merchant/base
+*= require merchant/box
+*= require merchant/message_box
+*= require merchant/dropdowns
+*= require merchant/font-awesome
+*= require merchant/responsive-tables
+*= require merchant/fullcalendar
+*= require merchant/gritter
+*= require merchant/numeric_stats
+*= require merchant/form_elements
+*= require merchant/tags
+*= require merchant/navigation
+*= require merchant/sidebar
+*= require merchant/breadcrumbs
+*= require merchant/triangle_button
+*= require merchant/tooltips
+*= require merchant/buttons
+*= require merchant/action_nav
+*= require merchant/stats
+*= require merchant/ibutton
+*= require merchant/content_progress
+*= require merchant/charts
+*= require merchant/select2
+*= require merchant/select2_overrides
+*= require merchant/ui_custom
+*= require merchant/icheck_blue
+*= require merchant/xcharts
+*= require merchant/justgage
+*= require merchant/easy_pie_chart
+*= require merchant/sparkline_box
+*= require merchant/chat-box
+*= require merchant/dataTables
+*= require merchant/accordion
+*= require merchant/bootstrap_alerts
+*= require merchant/pagination
+*= require merchant/modal
+*= require merchant/touchTouch
+*= require merchant/tables
+*= require merchant/scrollable
+*= require merchant/news
+*= require merchant/badges
+*= require merchant/bootstrap-wizard
+*= require merchant/error_pages
+*= require merchant/bootstrap-wysihtml5
+*= require merchant/validation_engine
+*= require merchant/bootstrap-editable
+*= require merchant/bootstrap-editable-fix
+*= require merchant/responsive979
+*= require merchant/responsive768
+*= require merchant/responsive480
+*= require_self
+*/
+.no_sidebar{
+  margin-left: 0px;
+}
+.has_sidebar{
+  margin-left:210px;
+}
+.inlinecheckbox{
+  width:10px;
+}
+
