@@ -3,14 +3,14 @@
 <div class="control-group">
   <label class="control-label">First name</label>
   <div class="controls">
-    <%= f.text_field :first_name, :placeholder=>"First Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+    <%= f.text_field :first_name, :placeholder=>"First Name", :class=>"validate[required],maxSize[30]", "data-prompt-position"=>"topLeft"%>
   </div>
 </div>
 
 <div class="control-group">
   <label class="control-label">Last name</label>
   <div class="controls">
-    <%= f.text_field :last_name, :placeholder=>"Last Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+    <%= f.text_field :last_name, :placeholder=>"Last Name", :class=>"validate[required],maxSize[30]", "data-prompt-position"=>"topLeft"%>
   </div>
 </div>
 
