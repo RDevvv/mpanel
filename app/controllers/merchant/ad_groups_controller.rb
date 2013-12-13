@@ -14,6 +14,12 @@ class Merchant::AdGroupsController <  Merchant::BaseController
     redirect_to  merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad)
   end
 
+  def delete_outlet
+    @ad_group = @ad.ad_groups.find(params[:id])
+    @ad_group.delete_outlet(params[:outlet_id])
+    redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
+  end
+
   protected
   def load_account_brand
     @account_brand = @current_account.account_brands.find(params[:account_brand_id])

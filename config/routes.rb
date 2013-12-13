@@ -41,6 +41,7 @@ Gullak2::Application.routes.draw do
           resources  :ad_groups,:only=>[:show] do
             member do
               post 'toggle_active'
+              get 'delete_outlet'
             end  
           end
         end

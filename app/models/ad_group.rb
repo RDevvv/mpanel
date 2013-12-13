@@ -2,6 +2,7 @@ class AdGroup < ActiveRecord::Base
   attr_accessible :is_active, :name, :ad_id
   has_many :ad_promocodes, :dependent=>:destroy
   has_many :outlets, :through=>:ad_promocodes
+  has_many :ad_promocode_outlets, :through=>:ad_promocodes
   
 
   belongs_to :ad
@@ -21,5 +22,9 @@ class AdGroup < ActiveRecord::Base
     self.is_active = false
     self.ad_promocodes.update_all(:is_active=>false)
     self.save
+  end
+
+  def delete_outlet(outlet_id)
+    self.ad_promocode_outlets.where(:outlet_id=>outlet_id).destroy_all
   end
 end

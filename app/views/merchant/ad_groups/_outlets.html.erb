@@ -5,6 +5,7 @@
         <tr>
           <th>Outlet Key</th>
           <th>Address</th>
+          <th>Manage</th>
           </tr>
       </thead>
       <tbody>
@@ -12,6 +13,7 @@
         <tr>
           <td><%= outlet.outlet_key %></td>
           <td><%= outlet.address %></td>
+          <td><%=link_to "destroy",delete_outlet_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group,:outlet_id=>outlet.id),:confirm=>"Are you sure?" %></td>
         </tr> 
       <% end %>
       </tbody>  
