@@ -7,7 +7,9 @@ class Outlet < ActiveRecord::Base
   belongs_to :area
   belongs_to :account_brand
   belongs_to :outlet_type
+  has_many :ad_promocode_outlets,:dependent=>:destroy
+  has_many :ad_promocodes,:through=>:ad_promocode_outlets
 
   has_paper_trail
-  acts_as_paranoid
+  # acts_as_paranoid
 end
