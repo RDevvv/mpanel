@@ -4,8 +4,12 @@
      <div class="area-top clearfix">
       <div class="pull-left header">
         <h3 class="title">
-          <i class="icon-user"></i>
-          Account's Brand
+          <i class="icon-account"></i>
+          <% if params[:action] == "show" %>
+            <%= @account_brand.present? ? @account_brand.brand.brand_name + "'s" : "" %> Outlets
+          <% else %>
+            Brands
+          <% end %>
         </h3>
       </div>
     </div>
@@ -34,7 +38,12 @@
         <div class="breadcrumb-button">
           <a href="#">
             <span class="breadcrumb-label">
-              <i class="icon-account"></i> Brand  <%= @account_brand.present? ? "- " + @account_brand.brand.brand_name : "" %>
+              <i class="icon-account"></i>
+                <% if params[:action] == "show" %> 
+                  <%= @account_brand.present? ? @account_brand.brand.brand_name : "" %>
+                <% else %>
+                  Brands
+                <% end %>
             </span>
             <span class="breadcrumb-arrow"><span></span></span>
           </a>  
