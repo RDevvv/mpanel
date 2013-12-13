@@ -1,7 +1,7 @@
 <div class="control-group">
   <label class="control-label">Ad Title</label>
   <div class="controls">
-    <%= f.text_field :ad_title, :placeholder=>"Title", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>               
+    <%= f.text_field :ad_title, :placeholder=>"Title", :class=>"validate[required,maxSize[60]]", "data-prompt-position"=>"topLeft"%>               
   </div>
 </div>
 

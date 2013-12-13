@@ -11,7 +11,6 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   end
 
   def create
-    
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
     respond_to do |format|
       if @ad_promocode.save
@@ -24,7 +23,6 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
 
   # Only One promocode is available
   def add_single_code
-    
     params[:ad_promocode][:cap] = params[:ad_promocode][:cap] || 1
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
     

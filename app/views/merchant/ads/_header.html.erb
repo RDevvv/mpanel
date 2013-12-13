@@ -41,7 +41,12 @@
       <div class="breadcrumb-button">
         <a href="<%= merchant_account_account_brand_ads_path(@current_account,@account_brand)%>">
           <span class="breadcrumb-label">
-            <i class="icon-ad"></i> Ad <%= @ad.present? && !@ad.ad_title.nil? ? "- " + @ad.ad_title : "" %>
+            <i class="icon-ad"></i> 
+            <% if params[:action] == "show" %> 
+              <%= @ad.present? && !@ad.ad_title.nil? ? @ad.ad_title : "" %>
+            <% else %>
+              Ads
+            <% end %> 
           </span> 
           <span class="breadcrumb-arrow"><span></span></span>
         </a>  
