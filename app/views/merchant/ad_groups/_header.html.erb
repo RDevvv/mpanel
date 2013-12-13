@@ -5,7 +5,11 @@
     <div class="pull-left header">
       <h3 class="title">
         <i class="icon-ad"></i>
-        Promocodes
+        <% if params[:action] == "show" %>
+          <%= @ad_group.present? ? @ad_group.name + "'s" : "" %> Promocodes
+        <% else %>
+          Promocodes
+        <% end %>
       </h3>
     </div>
   </div>
@@ -49,7 +53,7 @@
       <div class="breadcrumb-button">
         <a href="#">
           <span class="breadcrumb-label">
-            <i class="icon-promocode"></i> <%= @ad_group.name%>
+            <i class="icon-promocode"></i><%= @ad_group.present? ? @ad_group.name : "" %>
           </span>
           <span class="breadcrumb-arrow"><span></span></span>
         </a>  

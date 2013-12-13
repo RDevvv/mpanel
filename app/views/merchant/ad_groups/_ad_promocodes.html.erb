@@ -9,18 +9,17 @@
     </thead>
     <tbody>
       <% @ad_promocodes.each do |ad_promocode| %>
-      <tr>
-        <td>
-          <%= ad_promocode.promocode %>
-        </td>
-        <td>
-          <%= ad_promocode.cap %>
-        </td>
-        <td>
-          <%= ad_promocode.usage %>
-        </td>
-        
-      </tr> 
+        <tr>
+          <td>
+            <%= ad_promocode.promocode %>
+          </td>
+          <td>
+            <%= ad_promocode.cap %>
+          </td>
+          <td>
+            <%= ad_promocode.usage %>
+          </td>
+        </tr> 
       <% end %>
     </tbody>  
   </table>
