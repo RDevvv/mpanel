@@ -42,7 +42,7 @@ end
 
 group :test do
     gem 'simplecov'
-    gem 'guard'
+    gem 'guard-test'
 end
 
 
