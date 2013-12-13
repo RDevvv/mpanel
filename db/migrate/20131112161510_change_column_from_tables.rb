@@ -6,7 +6,7 @@ class ChangeColumnFromTables < ActiveRecord::Migration
     remove_column :outlets,:ad_ids
     change_column :outlets,:mobile_number,:string
     change_column :outlets,:phone_number,:string
-    change_column :payment_values,:currency_id,:string
+    # change_column :payment_values,:currency_id,:string
     remove_column :keywords,:ad_ids
     remove_column :ads,:outlet_ids
     remove_column :ads,:keyword_ids
