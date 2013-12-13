@@ -40,6 +40,11 @@ group :development do
   gem 'seed_dump'
 end
 
+group :test do
+    gem 'simplecov'
+    gem 'guard'
+end
+
 
 gem "cancan"
 gem "rolify"

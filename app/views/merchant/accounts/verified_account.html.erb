@@ -12,7 +12,7 @@
         <h4 class="padded"><%= @account.registered_company_name %> Confirmation</h4>
       </div>
       <div class="box-conent padded"> 
-        <p>Dear <%= @account.users.first.first_name %></p>
+        <p>Dear <%= @current_account.users.first.first_name %></p>
         <p>You are one step away from increasing footfall at your stores. After verifying your account details, we will send you an email with your access details.</p>
         <p>We look forward to having you on-board.</p>
         <p>GullakMaster</p>
@@ -22,8 +22,7 @@
   <div class="span6">
     <h3>Increase Footfall at your Stores</h3>
     <div class="pic">
-      <%= image_tag "home-rightimg.jpg" ,:border=>"0", :alt=>"Increase Footfall at your Stores", :title=>"Increase Footfall at your Stores" %>
-        
+      <%= image_tag "home-rightimg.jpg" ,:border=>"0", :alt=>"Increase Footfall at your Stores", :title=>"Increase Footfall at your Stores" %>   
     </div>
   </div>
 </div>
