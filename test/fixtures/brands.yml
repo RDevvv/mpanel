@@ -2,8 +2,6 @@
 
 one:
   brand_name: MyString
-  brand_alias: MyString
-  brand_code: MyString
   category_id: 1
   website_url: MyString
   is_active: false
@@ -11,8 +9,6 @@ one:
 
 two:
   brand_name: MyString
-  brand_alias: MyString
-  brand_code: MyString
   category_id: 1
   website_url: MyString
   is_active: false

@@ -2,7 +2,6 @@
 
 one:
   latest_version_id: 1
-  ad_type: MyString
   ad_title: MyString
   is_monday: false
   is_tuesday: false
@@ -15,13 +14,9 @@ one:
   expiry_date: 2013-11-09 16:31:03
   is_active: false
   sms_text: MyText
-  promocode_type_id: 1
-  daily_cap: MyString
-  lifetime_budget: 1.5
 
 two:
   latest_version_id: 1
-  ad_type: MyString
   ad_title: MyString
   is_monday: false
   is_tuesday: false
@@ -34,6 +29,3 @@ two:
   expiry_date: 2013-11-09 16:31:03
   is_active: false
   sms_text: MyText
-  promocode_type_id: 1
-  daily_cap: MyString
-  lifetime_budget: 1.5
