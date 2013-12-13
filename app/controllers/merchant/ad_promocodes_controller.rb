@@ -24,8 +24,9 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   # Only One promocode is available
   def add_single_code
     params[:ad_promocode][:cap] = params[:ad_promocode][:cap] || 1
+    params[:ad_promocode][:outlet_ids] =params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
+
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
-    
     respond_to do |format|
       if @ad_promocode.valid?
         @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name])
@@ -48,6 +49,7 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
     ad_promocodes = [] 
     invalid_promocode =  false
     Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
+      params[:ad_promocode][:outlet_ids] = params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
       params[:ad_promocode][:promocode] = promocode
       params[:ad_promocode][:cap] = 1
       ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
@@ -89,8 +91,9 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
 
   def destroy
     @ad_promocode = @ad.ad_promocodes.find(params[:id])
+    @ad_group = @ad_promocode.ad_group
     @ad_promocode.destroy
-    redirect_to merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad)
+    redirect_to merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
   end
 
   protected

@@ -5,6 +5,7 @@
         <th>Promocode</th>
         <th>Cap</th>
         <th>Usage</th>
+        <th width="20%">Manage</th>
       </tr>
     </thead>
     <tbody>
@@ -17,8 +18,13 @@
             <%= ad_promocode.cap %>
           </td>
           <td>
-            <%= ad_promocode.usage %>
+            <%= ad_promocode.usage || 0 %>
           </td>
+          <td>
+            <%if ad_promocode.usage.blank? || ad_promocode.usage == 0 %>
+              <%= link_to "Destroy",merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad,ad_promocode) %>
+            <% end %>
+          </td> 
         </tr> 
       <% end %>
     </tbody>  

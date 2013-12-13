@@ -25,7 +25,7 @@
           <%= ad.sms_text %>
         </td>
         <td> 
-          <%= link_to "Edit",edit_merchant_account_account_brand_ad_path(@current_account,@account_brand,ad) %> |
+          <%= link_to "Edit",merchant_account_account_brand_ad_path(@current_account,@account_brand,ad) %> |
           <%= link_to 'Destroy', merchant_account_account_brand_ad_path(@current_account,@account_brand,ad), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr> 
