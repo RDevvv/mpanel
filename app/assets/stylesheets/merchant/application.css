@@ -10938,7 +10938,7 @@ hr.divider, li.divider {
       display: inline-block;
       vertical-align: top;
       overflow: hidden;
-      margin-left: -5px; }
+      margin-left: -9px; }
       /* line 171, /home/andrei/core-admin-release/core-admin/source/stylesheets/breadcrumbs.scss */
       #breadcrumbs .breadcrumb-button .breadcrumb-arrow span {
         border-radius: 4px;
