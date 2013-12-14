@@ -6,12 +6,12 @@ AdminUser.create([
   {:email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123" }
 ])
 
-#Account.create([
-#  { :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
-#  { :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
-#  { :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
-#  { :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
-#])
+Account.create([
+  { :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
+  { :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
+  { :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
+  { :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
+])
 
 AccountBrand.create([
   { :brand_id => 1, :account_id => 1},
@@ -1219,7 +1219,37 @@ Brand.create([
   { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil}
 ])
 
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 1)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/CCD.jpg"))
+logo.save
 
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 2)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/amoregelato.jpg"))
+logo.save
+
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 3)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/Cocoberry.jpg"))
+logo.save
+
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 4)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/amoregelato.jpg"))
+logo.save
+
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 5)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/aromathai.jpg"))
+logo.save
+
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 6)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/auraspaworld.jpg"))
+logo.save
+
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 7)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/Croma.jpg"))
+logo.save
+
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 8)
+logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/themobilestore.jpg"))
+logo.save
 
 Category.create([
   { :industry_id => 1, :category_name => "Beverages" },
@@ -1636,5 +1666,6 @@ UserBrandAccount.create([
   { :user_account_id => 2, :account_brand_id => 23},
   { :user_account_id => 3, :account_brand_id => 24}
 ])
+
 
 
