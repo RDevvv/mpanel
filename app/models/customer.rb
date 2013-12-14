@@ -6,8 +6,10 @@ class Customer < ActiveRecord::Base
         while(customer_uuid == nil)
             customer_uuid = SecureRandom.uuid
             unless Customer.exists?(:uuid => customer_uuid)
-                return customer_uuid
+                customer_uuid
             end
         end
+        Customer.create(:uuid => customer_uuid)
+        return customer_uuid
     end
 end

@@ -1,4 +1,12 @@
 class HomeController < ApplicationController
+    before_filter :check_cookies
+
+    def check_cookies
+        if cookies[:customer_uuid].blank?
+            cookies[:customer_uuid] = Customer.generate_cookie
+        end
+    end
+
     def index
     end
 
@@ -22,6 +30,5 @@ class HomeController < ApplicationController
 
     def individual_outlet
         @outlet_version = OutletVersion.find(params[:id])
-        puts " ===================>@outlet_version "
     end
 end
