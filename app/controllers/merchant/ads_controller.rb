@@ -21,7 +21,7 @@ class Merchant::AdsController <  Merchant::BaseController
   def create
     @ad = @account_brand.ads.new(params[:ad])
     if @ad.save
-      redirect_to merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad),:notice=>"Ad successfylly created #{undo_link}"
+      redirect_to new_merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad),:notice=>"Ad successfylly created"
     else
       @keywords = Keyword.all
       render :action=>"new"

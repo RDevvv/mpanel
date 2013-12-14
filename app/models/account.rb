@@ -9,7 +9,8 @@ class Account < ActiveRecord::Base
   
   validates_presence_of :registered_company_name, :address, :pincode	
   accepts_nested_attributes_for :users,:area
-  
+  validates :registered_company_name, :format => { :with => /\A[a-zA-Z0-9]+\z/,:message => "Invalid Company Name" }
+  validates :pincode, :presence => true, :numericality => {:greater_than => 0, :message => " is an invalid pincode."}
   after_create :add_owner
   
   def add_owner

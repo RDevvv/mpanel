@@ -8,10 +8,8 @@
       </div>
       <div class="box-content">
         <%= form_for([@current_account,@account_brand,@outlet], :url=>merchant_account_account_brand_outlet_path(@current_account,@account_brand,@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
-          <div class="padded">
-            
-            <%= render :partial=>"outlet_field",:locals=>{:f=>f} %>
-            
+          <div class="padded">            
+            <%= render :partial=>"outlet_field",:locals=>{:f=>f} %> 
           </div>  
           <div class="form-actions">
             <button type="submit" class="btn btn-blue">Save</button>
