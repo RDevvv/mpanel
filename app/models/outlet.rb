@@ -13,7 +13,7 @@ class Outlet < ActiveRecord::Base
   has_paper_trail
 
 #  acts_as_paranoid
-  validates :mobile_number, :format => { :with => /^[0-9\-\+]{9,15}$/,:message => "Invalid Mobile Number" }
-  validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" }
-	validates :phone_number, :presence => true, :numericality => {:greater_than => 0, :message => " is an invalid number."}  
+  validates :mobile_number, :format => { :with => /^[0-9\-\+]{9,15}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
+  validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
+	validates :phone_number, :presence => true, :numericality => {:greater_than => 0, :message => " is an invalid number."}   ,:allow_nil => true, :allow_blank => true
 end

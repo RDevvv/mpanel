@@ -39,7 +39,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@outlet = @account_brand.outlets.find(params[:id])
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])
-        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated #{undo_link}" }
+        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
       else
         format.html { render action: "edit" }
       end
@@ -50,7 +50,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @outlet.destroy
     respond_to do |format|
-    	format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Destoyed #{undo_link}"}
+    	format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Destoyed"}
     end
 	end
 
