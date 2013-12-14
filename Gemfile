@@ -38,6 +38,7 @@ group :development do
   gem 'sextant'
   gem 'rails_best_practices'
   gem 'seed_dump'
+gem 'railroady'
 end
 
 group :test do
