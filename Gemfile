@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails', '2.2.7'
 gem 'geocoder'
-
+gem 'useragent'
 
 
 gem 'therubyracer', :platforms => :ruby
