@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212085045) do
+ActiveRecord::Schema.define(:version => 20131214100241) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -208,8 +208,9 @@ ActiveRecord::Schema.define(:version => 20131212085045) do
 
   create_table "keywords", :force => true do |t|
     t.text     "keyword"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "keyword_alias"
   end
 
   create_table "metros", :force => true do |t|

@@ -9,8 +9,8 @@ class Merchant::UsersController <  Merchant::BaseController
     end 
   end
 
-  def create
-    @user = @current_account.users.new(params[:account])
+  def creates
+    @user = @current_account.users.new(params[:user])
     respond_to do |format|
       if @user.save
         format.html { redirect_to merchant_account_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
