@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-    attr_accessible :uuid
+    attr_accessible :uuid, :browser, :platform, :browser_version
 
     def self.generate_cookie
         customer_uuid = nil
@@ -9,7 +9,6 @@ class Customer < ActiveRecord::Base
                 customer_uuid
             end
         end
-        Customer.create(:uuid => customer_uuid)
         return customer_uuid
     end
 end

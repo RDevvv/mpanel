@@ -4,6 +4,9 @@ class HomeController < ApplicationController
     def check_cookies
         if cookies[:customer_uuid].blank?
             cookies[:customer_uuid] = Customer.generate_cookie
+            agent = request.env['HTTP_USER_AGENT']
+            parsed_agent = UserAgent.parse(agent)
+            Customer.create(:uuid => cookies[:customer_uuid], :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
         end
     end
 
