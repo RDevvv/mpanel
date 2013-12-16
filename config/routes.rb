@@ -1,5 +1,11 @@
 Gullak2::Application.routes.draw do
 
+  resources :address_button_selects
+
+
+  resources :call_button_selects
+
+
   resources :customers
 
 

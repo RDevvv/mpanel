@@ -1,0 +1,23 @@
+<h1>Listing address_button_selects</h1>
+
+<table>
+  <tr>
+    <th>Customer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @address_button_selects.each do |address_button_select| %>
+  <tr>
+    <td><%= address_button_select.customer %></td>
+    <td><%= link_to 'Show', address_button_select %></td>
+    <td><%= link_to 'Edit', edit_address_button_select_path(address_button_select) %></td>
+    <td><%= link_to 'Destroy', address_button_select, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Address button select', new_address_button_select_path %>
