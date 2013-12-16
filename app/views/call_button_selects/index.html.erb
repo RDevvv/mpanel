@@ -1,0 +1,23 @@
+<h1>Listing call_button_selects</h1>
+
+<table>
+  <tr>
+    <th>Customer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @call_button_selects.each do |call_button_select| %>
+  <tr>
+    <td><%= call_button_select.customer %></td>
+    <td><%= link_to 'Show', call_button_select %></td>
+    <td><%= link_to 'Edit', edit_call_button_select_path(call_button_select) %></td>
+    <td><%= link_to 'Destroy', call_button_select, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Call button select', new_call_button_select_path %>
