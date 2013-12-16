@@ -1,6 +1,13 @@
 class ButtonClicksController < ApplicationController
-  # GET /button_clicks
-  # GET /button_clicks.json
+    def get_click
+        customer = Customer.where(:uuid => params[:id]).first
+        ButtonClick.create(:customer_id => customer.id, :button_class => params[:button_class])
+
+        respond_to do |format|
+            format.json {render :nothing => true}
+        end
+    end
+
   def index
     @button_clicks = ButtonClick.all
 

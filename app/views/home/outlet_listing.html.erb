@@ -6,7 +6,7 @@
     {
         console.log("within if condition");
         $.ajax({
-                url: "get_click/".concat($.cookie("customer_uuid")).concat(".json")
+                url: "get_call_click/".concat($.cookie("customer_uuid")).concat(".json")
                 }).done(function(){
                     console.log("vivekkkkkk");
                     })
@@ -15,12 +15,9 @@
     {
         console.log("within else condition");
         $.ajax({
-                url: "get_click/1.json"
+                url: "get_button_click/".concat($.cookie("customer_uuid")).concat("/").concat(check_class).concat(".json")
                 }).done(function(){
-                    console.log(this.attr("class"));
                     })
-        $
-    alert("vvvv");
     }
 
 }

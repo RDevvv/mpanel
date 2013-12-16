@@ -1,10 +1,7 @@
 class CallButtonSelectsController < ApplicationController
 
     def get_click
-        puts "ajax request receiveddddddddddddddddddddddddddddddddd"
-        puts "customer_uuid =============> #{params[:id]}"
         customer = Customer.where(:uuid => params[:id]).first
-        puts "customer_id ===============> #{customer.id}"
         CallButtonSelect.create(:customer_id => customer.id)
 
         respond_to do |format|
