@@ -17,6 +17,11 @@ doc/*
 /config/database.yml
 public/assets
 public/uploads
+
+# Ignore test coverage files
 coverage
+
+# Ignore database schema
+db/schema.rb
 
 Gemfile.lock
