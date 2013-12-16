@@ -6,7 +6,6 @@
             <% else %>
                 <% @outlet_versions.each do |outlet_version| %>
                 <% if outlet_version.is_active == true %>
-                <% puts outlet_version.id %>
             <div class="bdiv">
                 <div class="bbox">
                         <% brand = outlet_version.outlet.account_brand.brand %>
@@ -21,7 +20,11 @@
                             opacity: .9
                             });" class="btn source"></a></div>
                     <div align="center" class="brandlogo">
-                        <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
+                    <% if brand.attachments.empty? %>
+                        <%= image_tag "assets/categories/#{brand.category.category_name}.png", :class => "img-responsive" %>
+                    <% else %>
+                            <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
+                    <% end %>
                     </div>
                     <div class="rch-btns-div">
                         <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
