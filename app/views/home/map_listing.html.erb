@@ -3,26 +3,6 @@
 <title>GullakMaster - Mapview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="css/transition.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="js/fasw.transitions.min.js"></script>
-<script type="text/javascript">
-(function inittrans() 
- {
- var params =  //All params are optional, you can just assign {} 
- { 
- "navB" : "slide reverse", //Effect for navigation button, leave it empty to disable it
- "but" : true,       //Flag to enable transitions on button, false by default
- "cBa" : onTransitionFinished // function() { alert("Done!"); }  //callback function
- };
- new ft(params);
- })();
-
-function onTransitionFinished()
-{
-    //Do anything you want 
-}
-
-</script>
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -38,8 +18,6 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
 </head>
 <body>
 <!-- Preloader -->
-<div id="spinner"></div>
-<img src="img/ajax-loader.gif" id="loading-indicator" style="display:none" />
 <header>
     <div class="back-btn"><a href="outletview-headertest1.html" class="back-btn2" data-ftrans="slide">&nbsp;</a></div>
     <div class="head-brand">Ice-cream</div>

@@ -1,13 +1,9 @@
 Gullak2::Application.routes.draw do
 
   resources :address_button_selects
-
-
   resources :call_button_selects
-
-
   resources :customers
-
+  get "get_click/:id" => "call_button_selects#get_click"
 
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"

@@ -1,3 +1,30 @@
+    <script type="text/javascript" >
+    function track(element)
+{
+    check_class = $(element).attr("class");
+    if(check_class=="button_call2")
+    {
+        console.log("within if condition");
+        $.ajax({
+                url: "get_click/".concat($.cookie("customer_uuid")).concat(".json")
+                }).done(function(){
+                    console.log("vivekkkkkk");
+                    })
+    }
+    else //if(check_class=="button_map2")
+    {
+        console.log("within else condition");
+        $.ajax({
+                url: "get_click/1.json"
+                }).done(function(){
+                    console.log(this.attr("class"));
+                    })
+        $
+    alert("vvvv");
+    }
+
+}
+    </script>
 <div align="center" class="container-location">
     <div class="row-fluid">
         <div class="span12">
@@ -27,10 +54,10 @@
                     <% end %>
                     </div>
                     <div class="rch-btns-div">
-                        <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
+                        <div class="btn190"><a class="button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
                         <% unless outlet_version.outlet.mobile_number.empty? %>
                             <div class="btn190">
-                            <a class="button_call2" href="tel:+91-<%= outlet_version.outlet.mobile_number %>">CALL</a>
+                            <a class="button_call2" onclick="track(this)" href="tel:+91-<%= outlet_version.outlet.mobile_number %>">CALL</a>
                         </div>
                     <% end %>
                     </div>
@@ -52,3 +79,4 @@
         <% end %>
         </div>
     </div>
+
