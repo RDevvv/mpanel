@@ -1206,13 +1206,13 @@ Area.create([
 
 Brand.create([
   { :brand_name => "Cafe Coffee Day", :category_id => 1, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Love & Latte", :category_id => 1, :website_url => "http://lovenlatte.com/", :is_active => true, :is_verified => true},
-  { :brand_name => "Cocoberry", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
   { :brand_name => "Amore Gellato", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Cocoberry", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
   { :brand_name => "Aroma Thai", :category_id => 11, :website_url => "http://www.aromathai.net/", :is_active => true, :is_verified => true},
   { :brand_name => "Aura Spa", :category_id => 11, :website_url => nil, :is_active => true, :is_verified => true},
   { :brand_name => "Croma", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
   { :brand_name => "The Mobile Store", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Love & Latte", :category_id => 1, :website_url => "http://lovenlatte.com/", :is_active => true, :is_verified => true},
   { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil},
   { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil},
   { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil},
@@ -1232,22 +1232,18 @@ logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/see
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 4)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/amoregelato.jpg"))
-logo.save
-
-logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 5)
 logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/aromathai.jpg"))
 logo.save
 
-logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 6)
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 5)
 logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/auraspaworld.jpg"))
 logo.save
 
-logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 7)
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 6)
 logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/Croma.jpg"))
 logo.save
 
-logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 8)
+logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 7)
 logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/themobilestore.jpg"))
 logo.save
 
