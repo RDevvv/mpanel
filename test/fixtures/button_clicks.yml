@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer: 
+  button_class: MyString
+  ad_id: 1
+
+two:
+  customer: 
+  button_class: MyString
+  ad_id: 1

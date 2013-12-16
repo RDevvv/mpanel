@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @button_click.customer %>
+</p>
+
+<p>
+  <b>Button class:</b>
+  <%= @button_click.button_class %>
+</p>
+
+<p>
+  <b>Ad:</b>
+  <%= @button_click.ad_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_button_click_path(@button_click) %> |
+<%= link_to 'Back', button_clicks_path %>
