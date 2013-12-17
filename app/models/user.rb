@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   # validates_presence_of :first_name, :last_name
   # validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   has_one :avatar, :as => :attachable ,:class_name=>'Attachment'
+
   def user_name
     (self.first_name+ " "+ self.last_name).strip
   end
@@ -21,4 +22,5 @@ class User < ActiveRecord::Base
   def name
     (self.first_name+ " "+ self.last_name).strip
   end
+  
 end

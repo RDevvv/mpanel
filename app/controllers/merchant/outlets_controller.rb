@@ -20,7 +20,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     end
 	end
 
-	def create
+	def create	
 		@outlet = @account_brand.outlets.new(params[:outlet])
     respond_to do |format|
       if @outlet.save
@@ -30,6 +30,11 @@ class Merchant::OutletsController <  Merchant::BaseController
       end
     end
 	end
+
+	def import
+    Outlet.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
 
 	def edit
 		@outlet = @account_brand.outlets.find(params[:id])	

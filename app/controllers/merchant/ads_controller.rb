@@ -15,8 +15,19 @@ class Merchant::AdsController <  Merchant::BaseController
     @ad = @account_brand.ads.find(params[:id])
     @ad_groups = @ad.ad_groups
     @keywords = Keyword.all
+    @keyword = Keyword.new    
     @ad_promocodes = @ad.ad_promocodes
   end
+
+  # def add_keywords
+  #   @ad = @account_brand.ads.find(params[:id])
+  #   @keyword = Keyword.new(params[:keyword])
+  #   if @keyword.save
+  #     redirect_to merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad)
+  #   else
+  #     render :action=>"show"
+  #   end
+  # end
 
   def create
     @ad = @account_brand.ads.new(params[:ad])

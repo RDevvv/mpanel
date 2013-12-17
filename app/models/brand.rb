@@ -6,5 +6,5 @@ class Brand < ActiveRecord::Base
   scope :by_brand_name ,lambda{|name|where("lower(brands.brand_name) like (?)","%#{name}%") if name.present?}
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
-  validates :brand_name, :format => { :with => /\A[a-zA-Z0-9\s]+\z/,:message => "Invalid Brand Name" }
+  validates_presence_of :brand_name
 end

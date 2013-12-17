@@ -7,10 +7,18 @@
   <br/>
 </div> -->
 <%#end %>
-<div class="pull-right">
+<div>
+<div class="pull-left">
+<h5>Import a CSV File</h5>
+    <%= form_tag import_merchant_account_account_brand_outlets_path(@current_account,@account_brand), multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" ,:class => "btn btn-info"%> <br><br>
+    <% end %>
+</div>
+<div class="pull-right"><br><br>
   <%= link_to "Add Outlet",new_merchant_account_account_brand_outlet_path(@current_account,@account_brand),:class=>"btn btn-info"%>
-  <br/>
-  <br/>
+
+</div>
 </div>
 <div class="row-fluid">
   <div class="span12">
