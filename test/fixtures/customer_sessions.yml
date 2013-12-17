@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer: 
+  browser: MyString
+  platform: MyString
+  browser_version: MyString
+  referer_link: MyString
+
+two:
+  customer: 
+  browser: MyString
+  platform: MyString
+  browser_version: MyString
+  referer_link: MyString
