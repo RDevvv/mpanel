@@ -15,7 +15,7 @@
   
     <div class="tab-content">
       <div class="tab-pane" id="ad">
-        <%= form_for([@current_account,@account_brand,@ad], :url=>merchant_account_account_brand_ads_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+        <%= nested_form_for([@current_account,@account_brand,@ad], :url=>merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
 	      	<div class="padded">
 	          <%= render :partial=>"ad_field",:locals=>{:f=>f} %>
 	        </div>  
