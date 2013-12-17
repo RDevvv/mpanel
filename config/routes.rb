@@ -1,5 +1,6 @@
 Gullak2::Application.routes.draw do
 
+  resources :customer_sessions
   resources :button_clicks
   resources :address_button_selects
   resources :call_button_selects
@@ -65,6 +66,7 @@ Gullak2::Application.routes.draw do
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
     match 'map_listing' => 'home#map_listing'
+    match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
     match 'individual_outlet/(:id)' => 'home#individual_outlet'
 
     root :to => "home#index"

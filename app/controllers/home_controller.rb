@@ -51,4 +51,8 @@ class HomeController < ApplicationController
     def individual_outlet
         @outlet_version = OutletVersion.find(params[:id])
     end
+
+    def refered_listing
+        #@refered_ad = Outlet.find(params[:id1])
+    end
 end
