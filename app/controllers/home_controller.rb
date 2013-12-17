@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
     before_filter :check_cookies
+    before_filter :get_referer, :only => [:index]
 
     def check_cookies
         if cookies[:customer_uuid].blank?
@@ -8,6 +9,11 @@ class HomeController < ApplicationController
             parsed_agent = UserAgent.parse(agent)
             Customer.create(:uuid => cookies[:customer_uuid], :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
         end
+    end
+
+    def get_referer
+        request.env["rack.session"]["referer"].first[:base_url]
+        #binding.pry
     end
 
     def index
