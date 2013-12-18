@@ -40,7 +40,7 @@ class Outlet < ActiveRecord::Base
     csv.each do |row|
       begin     
         attempts += 1
-        i=Outlet.create!(:latest_version_id=>row[0],
+        i= Outlet.create!(:latest_version_id=>row[0],
         :account_brand_id=> row[1],
         :outlet_type_id=>row[2],
         :address => row[3],
@@ -59,10 +59,10 @@ class Outlet < ActiveRecord::Base
         puts "Exception Occured"
         invalid_records.push(row)
         puts invalid_records
-        retry if attempts < csv.count
-        return (invalid_records)
+      
       end  
     end
+    invalid_records
   end
 
 end
