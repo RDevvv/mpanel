@@ -64,8 +64,4 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
 
-	private
-	def undo_link
-  	view_context.link_to("undo", revert_version_path(@outlet.versions.scoped.last), :method => :post)
-	end
 end

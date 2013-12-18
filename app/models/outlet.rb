@@ -40,26 +40,19 @@ class Outlet < ActiveRecord::Base
     csv.each do |row|
       begin     
         attempts += 1
-        i= Outlet.create!(:latest_version_id=>row[0],
-        :account_brand_id=> row[1],
-        :outlet_type_id=>row[2],
-        :address => row[3],
-        :area_id => row[4],
-        :phone_number => row[5],
-        :mobile_country_id => row[6],
-        :mobile_number => row[7],
-        :email_id=> row[8],
-        :is_active=> row[9],
-        :is_verified => row[10],
-        :latitude=>row[11],
-        :longitude=> row[12],
-        :outlet_key => row[13]
+        i= Outlet.create!(:account_brand_id=> row[0],
+        :outlet_type_id=>row[1],
+        :address => row[2],
+        :area_id => row[3],
+        :phone_number => row[4],
+        :mobile_country_id => row[5],
+        :mobile_number => row[6],
+        :email_id=> row[7]
         )
       rescue
         puts "Exception Occured"
         invalid_records.push(row)
         puts invalid_records
-      
       end  
     end
     invalid_records
