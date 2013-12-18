@@ -97,8 +97,6 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   end
 
   protected
-  
-
   def load_account_brand
     @account_brand = @current_account.account_brands.find(params[:account_brand_id])
   end

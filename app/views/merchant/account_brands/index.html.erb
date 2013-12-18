@@ -35,8 +35,8 @@
 	              <tr>
 	                <td>
 	                	<% if account_brand.brand_id? %>
-	                		<%= link_to account_brand.brand.brand_name, merchant_account_account_brand_path(@current_account,account_brand) %> 
-	                		<span class="badge badge-blue"><%= account_brand.brand.category.category_name %></span>
+	                		<%= link_to account_brand.brand.brand_name, merchant_account_account_brand_path(@current_account,account_brand) %>
+	                		<span class="badge badge-blue"><%= account_brand.brand.category.present? ? account_brand.brand.category.category_name : "" %></span>
 	                	<% end %>
 	                </td>
 	                <td>

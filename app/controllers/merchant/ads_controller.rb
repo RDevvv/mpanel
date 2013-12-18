@@ -19,16 +19,6 @@ class Merchant::AdsController <  Merchant::BaseController
     @ad_promocodes = @ad.ad_promocodes
   end
 
-  # def add_keywords
-  #   @ad = @account_brand.ads.find(params[:id])
-  #   @keyword = Keyword.new(params[:keyword])
-  #   if @keyword.save
-  #     redirect_to merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad)
-  #   else
-  #     render :action=>"show"
-  #   end
-  # end
-
   def create
     @ad = @account_brand.ads.new(params[:ad])
     if @ad.save
@@ -47,7 +37,7 @@ class Merchant::AdsController <  Merchant::BaseController
   def update
     @ad = @account_brand.ads.find(params[:id])
     if @ad.update_attributes(params[:ad])
-      redirect_to  merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad),:notice=>"Ad successfylly updated #{undo_link}"
+      redirect_to  merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad),:notice=>"Ad successfylly updated"
     else
       @keywords = Keyword.all
       render :action=>"edit"
@@ -57,7 +47,7 @@ class Merchant::AdsController <  Merchant::BaseController
   def destroy
     @ad = @account_brand.ads.find(params[:id])
     @ad.destroy
-    redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand),:notice=>"Ad successfylly Destroyed #{undo_link}"
+    redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand),:notice=>"Ad successfylly Destroyed"
   end
 
 	protected
@@ -65,8 +55,4 @@ class Merchant::AdsController <  Merchant::BaseController
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
   
-  private
-  def undo_link
-    view_context.link_to("undo", revert_version_path(@ad.versions.scoped.last), :method => :post)
-  end
 end

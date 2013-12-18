@@ -29,37 +29,41 @@ class Outlet < ActiveRecord::Base
   def self.import(file)
     require 'csv'
     # CSV.foreach(file.path, headers: true) do |row|
- 
-    #   outlet_hash = row.to_hash # exclude the price field
+    #   outlet_hash = row.to_hash
     #   outlet = Outlet.where(id: outlet_hash["id"])
  
     #   if outlet.count == 1
     #     outlet.first.update_attributes(outlet_hash)
     #   else
     #     Outlet.create!(outlet_hash)
-    #   end # end if !product.nil?
-    # end # end CSV.foreach
-    
+    #   end
+    # end 
+
     current_file = file.open
     csv_text = File.read(current_file)
     csv = CSV.parse(csv_text, :headers => true)
+    invalid_records = Array.new
+    attempts = 0
+    
     csv.each do |row|
-      Outlet.create!(:latest_version_id=>row[0],
-      :account_brand_id=> row[1],
-      :outlet_type_id=>row[2],
-      :address => row[3],
-      :area_id => row[4],
-      :phone_number => row[5],
-      :mobile_country_id => row[6],
-      :mobile_number => row[7],
-      :email_id=> row[8],
-      :is_active=> row[9],
-      :is_verified => row[10],
-      :latitude=>row[11],
-      :longitude=> row[12],
-      :outlet_key => row[13]
-      )  
+      begin     
+        attempts += 1
+        i= Outlet.create!(:account_brand_id=> row[0],
+        :outlet_type_id=>row[1],
+        :address => row[2],
+        :area_id => row[3],
+        :phone_number => row[4],
+        :mobile_country_id => row[5],
+        :mobile_number => row[6],
+        :email_id=> row[7]
+        )
+      rescue
+        puts "Exception Occured"
+        invalid_records.push(row)
+        puts invalid_records
+      end  
     end
+    invalid_records
+  end
 
-  end # end self.import(file)
 end
