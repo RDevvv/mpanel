@@ -59,7 +59,7 @@
                           </div>
                           <div class="distance-div">Distance: <%= (outlet.distance * 1.6).to_f.round(2) %> km</div>
                           <div class="lower-box">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link outlet, cookies[:customer_uuid] %>" target="_blank">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=<%#= generate_referer_link outlet, cookies[:customer_uuid] %>" target="_blank">
                               <div class="refr2"></div>
                             </a>
                             <% if outlet.ads.first.is_exclusive %>
