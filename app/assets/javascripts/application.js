@@ -16,4 +16,3 @@
 //= require bootstrap 
 //= require jquery.pnotify.min
 //= require_tree .
-

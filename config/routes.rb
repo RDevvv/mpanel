@@ -31,8 +31,12 @@ Gullak2::Application.routes.draw do
           post "add_brands"
         end
         resources :outlets do
-          collection { post :import }
+          collection do
+            post :import 
+            post 'populate_areas'
+          end
         end
+
         resources :ads do
           resources :keywords
           resources :ad_promocodes do
