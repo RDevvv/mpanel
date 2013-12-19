@@ -14,11 +14,21 @@ class Merchant::OutletsController <  Merchant::BaseController
 	def new
 		@outlet = @account_brand.outlets.new
 		@brands = Brand.all
+		@cities = City.order("city_name")
+		@areas =[]
 		# @outlets = @account_brand.outlets.pluck(:outlet_name)
 		respond_to do |format|
       format.html # new.html.erb
     end
 	end
+
+	def populate_areas
+    # @city = city.find(params[:city])
+    # @areas = @city.areas
+    # @areas = Area.find( :all, :conditions => [" city_id = ?", params[:id]]  ).sort_by{ |k| k['area_name'] } 
+    @areas = Area.where(:city_id=>params[:city_id]).order(:area_name)
+    
+  end
 
 	def create	
 		@outlet = @account_brand.outlets.new(params[:outlet])
