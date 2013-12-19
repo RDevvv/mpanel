@@ -7,6 +7,7 @@ class Outlet < ActiveRecord::Base
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
 
   has_many :outlet_versions
+  has_many :ads,:through=>:ad_promocode_outlets
   belongs_to :area
   belongs_to :account_brand
   belongs_to :outlet_type
@@ -19,7 +20,13 @@ class Outlet < ActiveRecord::Base
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	validates :phone_number,  :numericality => {:greater_than => 0, :message => " is an invalid number."}   ,:allow_nil => true, :allow_blank => true
 
-  
+  after_validation :geocode
+  geocoded_by :geocoding_address
+
+  def geocoding_address
+      self.address
+  end
+
   def self.import(file)
     # CSV.foreach(file.path, headers: true) do |row|
     #   outlet_hash = row.to_hash

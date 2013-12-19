@@ -1,3 +1,27 @@
+    <script type="text/javascript" >
+    function track(element)
+{
+    check_class = $(element).attr("class");
+    if(check_class=="button_call2")
+    {
+        console.log("within if condition");
+        $.ajax({
+                url: "get_call_click/".concat($.cookie("customer_uuid")).concat(".json")
+                }).done(function(){
+                    console.log("vivekkkkkk");
+                    })
+    }
+    else //if(check_class=="button_map2")
+    {
+        console.log("within else condition");
+        $.ajax({
+                url: "get_button_click/".concat($.cookie("customer_uuid")).concat("/").concat(check_class).concat(".json")
+                }).done(function(){
+                    })
+    }
+
+}
+    </script>
 <div align="center" class="container-location">
     <div class="row-fluid">
         <div class="span12">
@@ -6,7 +30,6 @@
             <% else %>
                 <% @outlet_versions.each do |outlet_version| %>
                 <% if outlet_version.is_active == true %>
-                <% puts outlet_version.id %>
             <div class="bdiv">
                 <div class="bbox">
                         <% brand = outlet_version.outlet.account_brand.brand %>
@@ -21,19 +44,23 @@
                             opacity: .9
                             });" class="btn source"></a></div>
                     <div align="center" class="brandlogo">
-                        <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
+                    <% if brand.attachments.empty? %>
+                        <%= image_tag "assets/categories/#{brand.category.category_name}.png", :class => "img-responsive" %>
+                    <% else %>
+                            <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
+                    <% end %>
                     </div>
                     <div class="rch-btns-div">
-                        <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
+                        <div class="btn190"><a class="button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
                         <% unless outlet_version.outlet.mobile_number.empty? %>
                             <div class="btn190">
-                            <a class="button_call2" href="tel:+91-<%= outlet_version.outlet.mobile_number %>">CALL</a>
+                            <a class="button_call2" onclick="track(this)" href="tel:+91-<%= outlet_version.outlet.mobile_number %>">CALL</a>
                         </div>
                     <% end %>
                     </div>
                     <div class="distance-div">Distance: <%= (outlet_version.distance * 1.6).to_f.round(2) %> km</div>
                     <div class="lower-box">
-                        <div class="refr2"></div>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link outlet_version.outlet, cookies[:customer_uuid] %>" target="_blank"><div class="refr2"></div></a>
                         <div class="star2"></div>
                         <div class="right-box">
                             <a href="#">
@@ -49,3 +76,4 @@
         <% end %>
         </div>
     </div>
+

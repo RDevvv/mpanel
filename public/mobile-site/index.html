@@ -2,14 +2,18 @@
   <html>
     <head>
     	<meta charset="utf-8">
-    	  <title>GullakMaster - Outletview</title>
-    	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	  <title>GullakMaster - Home</title>
+    	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
     	  <link rel="stylesheet" href="css/mobile-css-styles.css">
         <!-- jQuery -->
-          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
           <script type="text/javascript" src="js/jquery.pnotify.min.js"></script>
         <link href="css/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css" />
+
+        <script src="js/jquery.color.js"></script>
+        <script src="js/script.js"></script>
+
         <!-- Include this file if you are using Pines Icons. -->
         <link href="css/jquery.pnotify.default.icons.css" media="all" rel="stylesheet" type="text/css" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -25,6 +29,27 @@
     // ]]>
     </script>
      <!-- Preloader -->
+    <script type="text/javascript">
+        (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+    </script>
+
+    <script type="text/javascript">
+      (function(){
+          var field = document.getElementById('s');
+          var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
+
+          field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
+          field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
+      })(); 
+    </script>
 
     </head>
     <body>
@@ -41,18 +66,32 @@
             <div class="c-loc">
               <div class="txt">Use Current location</div>
               <div class="locimg">
-                <a href="#"><img src="png/CurrentLocation_Big-01.png"></a>
+                <a href="#"><img src="img/homepage-ico.png"></a>
               </div>
               <div class="txt">OR</div>
 
-              <div class="input-group">
+              <form id="searchForm">
+                      <fieldset>
+                          <div class="input">
+                              <input type="search" name="s" id="s" value="Search..." />
+                          </div>
+                          <input type="submit" id="searchSubmit" value="" />
+                      </fieldset>
+                  </form>
+
+              <!--
+
+            
+            <div class="input-group">
                   <input type="text" class="form-control" placeholder="Enter Location">
                   <div class="input-group-btn">
-                    <!-- Button and dropdown menu -->
+                    
                   </div>
-                </div>
+              </div>
 
-            </div>
+              <div class="txt">OR</div>
+              <a class="put_on_map" href="mapview.html">Put me on the Map</a>
+              </div>-->
           </div>
         </div>
     </div>

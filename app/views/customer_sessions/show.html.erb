@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @customer_session.customer %>
+</p>
+
+<p>
+  <b>Browser:</b>
+  <%= @customer_session.browser %>
+</p>
+
+<p>
+  <b>Platform:</b>
+  <%= @customer_session.platform %>
+</p>
+
+<p>
+  <b>Browser version:</b>
+  <%= @customer_session.browser_version %>
+</p>
+
+<p>
+  <b>Referer link:</b>
+  <%= @customer_session.referer_link %>
+</p>
+
+
+<%= link_to 'Edit', edit_customer_session_path(@customer_session) %> |
+<%= link_to 'Back', customer_sessions_path %>

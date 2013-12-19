@@ -3,26 +3,6 @@
 <title>GullakMaster - Mapview</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="css/transition.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="js/fasw.transitions.min.js"></script>
-<script type="text/javascript">
-(function inittrans() 
- {
- var params =  //All params are optional, you can just assign {} 
- { 
- "navB" : "slide reverse", //Effect for navigation button, leave it empty to disable it
- "but" : true,       //Flag to enable transitions on button, false by default
- "cBa" : onTransitionFinished // function() { alert("Done!"); }  //callback function
- };
- new ft(params);
- })();
-
-function onTransitionFinished()
-{
-    //Do anything you want 
-}
-
-</script>
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -38,8 +18,6 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
 </head>
 <body>
 <!-- Preloader -->
-<div id="spinner"></div>
-<img src="img/ajax-loader.gif" id="loading-indicator" style="display:none" />
 <header>
     <div class="back-btn"><a href="outletview-headertest1.html" class="back-btn2" data-ftrans="slide">&nbsp;</a></div>
     <div class="head-brand">Ice-cream</div>
@@ -57,12 +35,11 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
             <% else %>
                     <% @outlet_versions.each do |outlet_version| %>
                     <% if outlet_version.is_active == true %>
-                    <% puts outlet_version.id %>
                 <div class="bdiv">
                     <div class="bbox">
-                        <% brand_name = outlet_version.outlet.account_brand.brand.brand_name.to_s %>
-                        <div class="brandtitle"><%= brand_name[0..6] %>
-                        <% unless brand_name.length < 7 %>
+                        <% brand = outlet_version.outlet.account_brand.brand %>
+                        <div class="brandtitle"><%= brand.brand_name[0..6] %>
+                        <% unless brand.brand_name.length < 7 %>
                                 ..
                             <% end %>
                             </div>
@@ -71,7 +48,13 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
                                 text: 'The offer text would get displayed here.',
                                 opacity: .9
                                 });" class="btn source"></a></div>
-                        <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
+                        <div align="center" class="brandlogo">
+                            <% if brand.attachments.empty? %>
+                                <%= image_tag "assets/categories/#{brand.category.category_name}.png", :class => "img-responsive" %>
+                        <% else %>
+                                <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
+                        <% end %>
+                        </div>
                         <div class="rch-btns-div">
                             <% unless outlet_version.outlet.mobile_number.empty? %>
                                 <div class="btn190">
