@@ -1,3 +1,17 @@
+  <div class="control-group">
+    <label class="control-label">Select City</label>
+    <div class="controls">
+      <%= select_tag :city_id, options_for_select(@cities),:placeholder=>"Select City" %>
+    </div>
+  </div>
+
+<div class="control-group">
+  <label class="control-label">Area</label>
+  <div class="controls">
+    <%= select_tag :area_name, options_for_select(@areas),:placeholder=>"Select Area" %>              
+  </div>
+</div>
+
 <div class="control-group">
   <label class="control-label">Address</label>
   <div class="controls">
@@ -25,3 +39,25 @@
     <%= f.text_field :phone_number, :placeholder=>"022- Phone Number", :class=>"validate[]", "data-prompt-position"=>"topLeft"%>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('select#city_id').change(function() {
+      var city = 'city_id=' + $('select#city_id :selected').val();
+      jQuery.ajax({
+        url: '/merchant/accounts/<%= params[:account_id] %>+/account_brands/<%= params[:account_brand_id] %>/outlets/populate_areas',
+        type : "Post",
+        data: city,
+        dataType: 'json',
+        success: function(data){
+          alert("fine")
+          jQuery("#area_name").html(data);
+        },
+        error: function(response){
+          alert("error");
+        }
+      });
+    });
+  });
+</script>
+  

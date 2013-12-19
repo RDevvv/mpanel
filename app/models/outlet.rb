@@ -1,3 +1,5 @@
+require 'csv'
+
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
@@ -25,9 +27,7 @@ class Outlet < ActiveRecord::Base
       self.address
   end
 
-  
   def self.import(file)
-    require 'csv'
     # CSV.foreach(file.path, headers: true) do |row|
     #   outlet_hash = row.to_hash
     #   outlet = Outlet.where(id: outlet_hash["id"])
