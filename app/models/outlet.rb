@@ -3,7 +3,7 @@ require 'csv'
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
-  attr_accessible :latest_version_id, :latitude, :longitude, :mobile_country_id, :mobile_number
+  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
 
   has_many :outlet_versions
@@ -27,7 +27,7 @@ class Outlet < ActiveRecord::Base
       self.address
   end
 
-  def self.import(file)
+  def self.import(file,account_brand_id)
     # CSV.foreach(file.path, headers: true) do |row|
     #   outlet_hash = row.to_hash
     #   outlet = Outlet.where(id: outlet_hash["id"])
@@ -43,19 +43,18 @@ class Outlet < ActiveRecord::Base
     csv_text = File.read(current_file)
     csv = CSV.parse(csv_text, :headers => true)
     invalid_records = Array.new
-    attempts = 0
-    
+    attempts = 0 
     csv.each do |row|
       begin     
         attempts += 1
-        i= Outlet.create!(:account_brand_id=> row[0],
-        :outlet_type_id=>row[1],
-        :address => row[2],
-        :area_id => row[3],
-        :phone_number => row[4],
-        :mobile_country_id => row[5],
-        :mobile_number => row[6],
-        :email_id=> row[7]
+        i= Outlet.create!(:account_brand_id=> account_brand_id,
+        :outlet_type_id=>row[0],
+        :address => row[1],
+        :area_id => row[2],
+        :phone_number => row[3],
+        :mobile_country_id => row[4],
+        :mobile_number => row[5],
+        :email_id=> row[6]
         )
       rescue
         puts "Exception Occured"
