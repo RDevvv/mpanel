@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214100241) do
+ActiveRecord::Schema.define(:version => 20131217062729) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "owner_id"
     t.integer  "pincode"
     t.string   "city"
   end
@@ -63,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
   end
 
   create_table "ad_promocodes", :force => true do |t|
+    t.string   "set_name"
     t.string   "promocode"
     t.integer  "ad_id"
     t.float    "cap"
@@ -70,9 +70,8 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
     t.boolean  "is_used",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "is_active"
+    t.boolean  "is_active",   :default => true
     t.integer  "ad_group_id"
-    t.integer  "set_name"
   end
 
   create_table "ad_versions", :force => true do |t|
@@ -167,6 +166,24 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "button_clicks", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "button_class"
+    t.integer  "ad_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "button_clicks", ["customer_id"], :name => "index_button_clicks_on_customer_id"
+
+  create_table "call_button_selects", :force => true do |t|
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "call_button_selects", ["customer_id"], :name => "index_call_button_selects_on_customer_id"
+
   create_table "categories", :force => true do |t|
     t.integer  "industry_id"
     t.string   "category_name"
@@ -191,6 +208,24 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
     t.string   "currency_name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "customer_sessions", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "browser"
+    t.string   "platform"
+    t.string   "browser_version"
+    t.string   "referer_link"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "customer_sessions", ["customer_id"], :name => "index_customer_sessions_on_customer_id"
+
+  create_table "customers", :force => true do |t|
+    t.string   "uuid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "industries", :force => true do |t|
@@ -220,36 +255,6 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "country_id"
-  end
-
-  create_table "multiple_codes_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "multiple_codes_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.datetime "end_date"
-  end
-
-  create_table "outlet_ads", :force => true do |t|
-    t.integer  "ad_id"
-    t.integer  "outlet_id"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "outlet_types", :force => true do |t|
@@ -327,26 +332,6 @@ ActiveRecord::Schema.define(:version => 20131214100241) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
-
-  create_table "single_code_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "single_code_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
 
   create_table "states", :force => true do |t|
     t.string   "state_name"

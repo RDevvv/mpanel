@@ -1,14 +1,20 @@
   <div class="control-group">
     <label class="control-label">Select City</label>
     <div class="controls">
-      <%= select_tag :city_id, options_for_select(@cities),:placeholder=>"Select City" %>
+      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name),:prompt=>"Select City",:placeholder=>"Select City" %>
     </div>
   </div>
 
 <div class="control-group">
   <label class="control-label">Area</label>
-  <div class="controls">
-    <%= select_tag :area_name, options_for_select(@areas),:placeholder=>"Select Area" %>              
+  <div class="controls" id="area_div">
+
+    <%= select_tag "outlet[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
+    <a href="javascript:void(0)" id="new_area_link" style="display:none">Don't find your area? Create your area</a>
+    <div id="new_area_textbox" style="display:none"> 
+      <%= text_field_tag :area_name %>
+      <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a>
+    </div>           
   </div>
 </div>
 
@@ -43,21 +49,32 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('select#city_id').change(function() {
-      var city = 'city_id=' + $('select#city_id :selected').val();
+      $("#new_area_link").show()
+      var city = $('select#city_id').val();
       jQuery.ajax({
         url: '/merchant/accounts/<%= params[:account_id] %>+/account_brands/<%= params[:account_brand_id] %>/outlets/populate_areas',
-        type : "Post",
-        data: city,
-        dataType: 'json',
+        type : "GET",
+        data: {city_id:city},
+        dataType : 'html',
         success: function(data){
-          alert("fine")
-          jQuery("#area_name").html(data);
+          
+          $("#select_area").html(data);
         },
-        error: function(response){
-          alert("error");
+        error: function(jqXHR,textStatus,errorThrow){
+          
         }
       });
     });
+    $("#new_area_link").click(function(e){
+      $("#new_area_textbox").show();
+      $("#select_area").hide();
+      $("#new_area_link").hide()
+    })
+    $("#select_area_link").click(function(e){
+       $("#new_area_textbox").hide();
+      $("#select_area").show();
+      $("#new_area_link").show()
+    })
   });
 </script>
   
