@@ -30,7 +30,8 @@ class Merchant::OutletsController <  Merchant::BaseController
     if !Area.find_by_area_name(params[:area_name]).present?
       @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name])
       @area.save
-      @outlet = @account_brand.outlets.new(:address=>params[:outlet][:address],:email_id=>params[:outlet][:email_id],:mobile_number=>params[:outlet][:mobile_number],:phone_number=>params[:outlet][:phone_number],:account_brand_id=>params[:outlet][:account_brand_id],:area_id=>@area.id)
+      @outlet = @account_brand.outlets.new(params[:outlet])
+      @outlet.area = @area
       # @outlet = @account_brand.outlets.new(params[:outlet],:area_id=>@area.id)
     else
   		@outlet = @account_brand.outlets.new(params[:outlet])
