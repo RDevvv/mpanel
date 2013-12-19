@@ -3,11 +3,21 @@
     <head>
     	<meta charset="utf-8">
     	  <title>GullakMaster - Outletview</title>
-    	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
     	  <link rel="stylesheet" href="css/mobile-css-styles.css">
+        <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.css" />
         <!-- jQuery -->
-          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+          <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>-->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+          <script type="text/javascript" src="js/jquery.mmenu.js"></script>
+          <script type="text/javascript">
+            $(function() {
+              $('nav#menu').mmenu();
+            });
+          </script>
+
           <script type="text/javascript" src="js/jquery.pnotify.min.js"></script>
         <link href="css/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css" />
         <!-- Include this file if you are using Pines Icons. -->
@@ -24,52 +34,111 @@
     $(window).load(function() { $("#spinner").fadeOut("slow"); })
     // ]]>
     </script>
+    <script type="text/javascript">
+        (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+    </script>
+    <script type="text/javascript">
+      (function(){
+          var field = document.getElementById('s');
+          var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
+
+          field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
+          field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
+      })(); 
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            var pxShow = 80;//height on which the button will show
+            var fadeInTime = 500;//how slow/fast you want the button to show
+            var fadeOutTime = 500;//how slow/fast you want the button to hide
+            var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
+            jQuery(window).scroll(function(){
+                if(jQuery(window).scrollTop() >= pxShow){
+                    jQuery("#backtotop").fadeIn(fadeInTime);
+                }else{
+                    jQuery("#backtotop").fadeOut(fadeOutTime);
+                }
+            });
+            jQuery('#backtotop a').click(function(){
+                jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+                return false;
+            });
+        });
+    </script>
 
     </head>
     <body>
       <!-- Preloader -->
       <div id="spinner"></div>
-      <img src="img/ajax-loader.gif" id="loading-indicator" style="display:none" />
-    	<header>
+      <img src="img/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
+    	<div id="header">
         <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
         <ul class="left-icons">
-          <li><a href="#" class="loc">&nbsp;</a></li>
-          <li><a onclick="$.pnotify({
-                            title: 'Notification',
-                            text: 'You have notifications here',
-                            opacity: .9
-                        });" class="notify"><span class="badge badge-dark-red">5</span></a></li>
+          
+          <li><a href="#menu" class="srchlink3"></a></li>
+          <li><a class="notify"></a></li>
         </ul>
     	  <div class="head-brand">GullakMaster</div>
         <ul class="right-icons">
           <li><a href="#" class="invfrnd2"></a></li>
-          <li><a href="#" class="srchlink2"></a></li>
+          <li><a href="#" class="loc">&nbsp;</a></li>
         </ul>
-    	</header>
 
-    	<nav class="navbar navbar-default" role="navigation">
-        <div class="brnd-txt">Brand Text</div>
-        <div class="navbar-header">
-          <div class="dropdown">
-            <button type="button" class="navbar-toggle" id="dropdownMenu1" data-toggle="dropdown">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Personalise</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Hot Picks</a></li>
-            </ul>
-          </div>
-          <!--<a class="navbar-brand" href="#">Brand</a>-->
-        </div>
-      </nav>
+        <nav id="menu">
+          <ul>
 
+            <li class="subcat">Sort by:</li>
 
+            
 
+            <li><a href="#">Distance</a></li>
+            <li><a href="#">Hot Picks</a></li>
+            <li><a href="#">Personalize</a></li>
 
+            <li>&nbsp;</li>
 
+            <li class="subcat">Filter by:</li>
+
+            <li style="margin-top:10px;">
+                <form id="searchForm">
+                      <fieldset>
+                          <div class="input">
+                              <input type="search" name="s" id="s" value="Enter Category..." />
+                          </div>
+                          <input type="submit" id="searchSubmit" value="" />
+                      </fieldset>
+                  </form>
+            </li>
+
+            <li><a href="#">Aura</a></li>
+            <li><a href="#">Amore</a></li>
+            <li><a href="#">Maple</a></li>
+
+            <li>&nbsp;</li>
+
+            <li><a href="#">Aura</a></li>
+            <li><a href="#">Amore</a></li>
+            <li><a href="#">Maple</a></li>
+
+            <li>&nbsp;</li>
+
+            <li><a href="#">Aura</a></li>
+            <li><a href="#">Amore</a></li>
+            <li><a href="#">Maple</a></li>
+
+            <li>&nbsp;</li>
+          </ul> 
+        </nav>
+
+    	</div>
 
     	<div align="center" class="container-location">
     		<div class="row-fluid">
@@ -355,6 +424,13 @@
     				</div>
     		</div>
     	</div>
+      <div id="backtotop">
+        <a href="#">
+          <img src="img/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
+        </a>
+      </div>
+      <!--<script src="js/min.js"></script>-->
+      <script src="js/jquery.sidr.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
     </body>
     </html>
