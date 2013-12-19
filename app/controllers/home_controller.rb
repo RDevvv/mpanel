@@ -36,9 +36,24 @@ class HomeController < ApplicationController
             @location = result.first.data["geometry"]["location"]
             latitude = @location["lat"]
             longitude = @location["lng"]
-            @outlet_versions = OutletVersion.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+            @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+
+            @outlets_with_ad = Array.new
+            @outlets_without_ad = Array.new
+            outlets_with_ad_index = 0
+            outlets_without_ad_index = 0
+
+            @outlets.each do |outlet|
+                if outlet.ads.empty?
+                    @outlets_without_ad[outlets_without_ad_index] = outlet
+                    outlets_without_ad_index +=1
+                else
+                    @outlets_with_ad[outlets_with_ad_index] = outlet
+                    outlets_with_ad_index +=1
+                end
+            end
         else
-            @outlet_versions = nil
+            @outlets = nil
         end
     end
 
