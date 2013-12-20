@@ -1,5 +1,6 @@
 Gullak2::Application.routes.draw do
 
+  resources :call_forwardings
   resources :customer_sessions
   resources :button_clicks
   resources :address_button_selects
@@ -8,6 +9,8 @@ Gullak2::Application.routes.draw do
 
   get "get_call_click/:id" => "call_button_selects#get_click"
   get "get_button_click/:id/:button_class" => "button_clicks#get_click"
+  get "get_call_forwarding/:customer_number" => "call_forwardings#get_customer_number"
+  get "set_call_forwarding/:outlet_landline/:outlet_mobile" => "call_forwardings#return_outlet_number"
 
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"
