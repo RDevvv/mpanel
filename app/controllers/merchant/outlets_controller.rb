@@ -74,6 +74,15 @@ class Merchant::OutletsController <  Merchant::BaseController
     end
 	end
 
+  def show
+    @outlet = @account_brand.outlets.find(params[:id])
+    @area = @outlet.area
+    @city = @area.city
+    @country = @city.state.country
+    area_location = Test.new
+    puts area_location.get_area(@area, @city, @country)
+  end
+
 	protected
 	def load_account_and_brand
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
