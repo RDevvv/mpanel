@@ -8,9 +8,16 @@ class AdPromocode < ActiveRecord::Base
   validates :promocode, :format => { :with => /\A[a-zA-Z0-9]+\z/,:message => "Invalid Promocode" } 
   validates_presence_of :set_name
   before_destroy :can_delete
+  after_save :inactive_ad_promocode
   
   def can_delete
     (self.usage.blank? || self.usage.to_i == 0) ? true : false
+  end
+
+  def inactive_ad_promocode
+    if self.usage != self.cap
+      self.is_active = false
+    end
   end
   
 end
