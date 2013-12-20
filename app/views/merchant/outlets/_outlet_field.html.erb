@@ -10,12 +10,13 @@
   <div class="controls" id="area_div">
 
     <%= select_tag "outlet[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
-    <a href="javascript:void(0)" id="new_area_link" style="display:none">Don't find your area? Create your area</a>
+    <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a>
     <div id="new_area_textbox" style="display:none"> 
       <%= text_field_tag :area_name %>
       <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a>
     </div>           
   </div>
+
 </div>
 
 <div class="control-group">
@@ -57,7 +58,6 @@ $(document).ready(function(){
         data: {city_id:city},
         dataType : 'html',
         success: function(data){
-          
           $("#select_area").html(data);
         },
         error: function(jqXHR,textStatus,errorThrow){

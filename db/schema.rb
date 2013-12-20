@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131217062729) do
+ActiveRecord::Schema.define(:version => 20131219110725) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -134,9 +134,6 @@ ActiveRecord::Schema.define(:version => 20131217062729) do
     t.text     "sms_text"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "ad_sent"
-    t.integer  "ad_views"
-    t.integer  "ad_shares"
     t.boolean  "is_exclusive"
   end
 
@@ -287,7 +284,6 @@ ActiveRecord::Schema.define(:version => 20131217062729) do
   end
 
   create_table "outlets", :force => true do |t|
-    t.integer  "latest_version_id"
     t.integer  "account_brand_id"
     t.integer  "outlet_type_id"
     t.text     "address"
@@ -296,13 +292,13 @@ ActiveRecord::Schema.define(:version => 20131217062729) do
     t.integer  "mobile_country_id"
     t.string   "mobile_number"
     t.string   "email_id"
-    t.boolean  "is_active"
-    t.boolean  "is_verified"
+    t.boolean  "is_active",          :default => true
+    t.boolean  "is_verified",        :default => true
     t.float    "latitude"
     t.float    "longitude"
     t.string   "outlet_key"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.integer  "outlet_views"
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"

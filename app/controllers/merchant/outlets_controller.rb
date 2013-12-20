@@ -16,22 +16,26 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@brands = Brand.all
 		@cities = City.order("city_name")
 		@areas =[]
-		# @outlets = @account_brand.outlets.pluck(:outlet_name)
 		respond_to do |format|
       format.html # new.html.erb
     end
 	end
 
 	def populate_areas
-    # @city = city.find(params[:city])
-    # @areas = @city.areas
     # @areas = Area.find( :all, :conditions => [" city_id = ?", params[:id]]  ).sort_by{ |k| k['area_name'] } 
     @areas = Area.where(:city_id=>params[:city_id]).order(:area_name)
-    
   end
 
 	def create	
-		@outlet = @account_brand.outlets.new(params[:outlet])
+    if !Area.find_by_area_name(params[:area_name]).present?
+      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name])
+      @area.save
+      @outlet = @account_brand.outlets.new(params[:outlet])
+      @outlet.area = @area
+      # @outlet = @account_brand.outlets.new(params[:outlet],:area_id=>@area.id)
+    else
+  		@outlet = @account_brand.outlets.new(params[:outlet])
+    end
     respond_to do |format|
       if @outlet.save
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
@@ -42,12 +46,14 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	def import
-    invalid_records = Outlet.import(params[:file])
+    invalid_records = Outlet.import(params[:file],params[:account_brand_id])
     redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand), notice: "Outlets imported."
   end
 
 	def edit
 		@outlet = @account_brand.outlets.find(params[:id])	
+    @cities = City.order("city_name")
+    @areas =[]
 	end
 
 	def update

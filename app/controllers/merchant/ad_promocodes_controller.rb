@@ -57,11 +57,11 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
       
       invalid_promocode = true unless ad_promocode.valid?
     end
+
     if invalid_promocode 
       @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
       render :action=>:new
     else
-
       @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name])
       ad_promocodes.each do |promocode|
         promocode.ad_group = @ad_group
