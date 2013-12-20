@@ -9,6 +9,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails', '2.2.7'
 gem 'geocoder'
 gem 'useragent'
+gem 'shortener'
 
 
 gem 'therubyracer', :platforms => :ruby
