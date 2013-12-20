@@ -1,6 +1,6 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
-  before_filter :load_current_account
+  before_filter :load_account
 
   def index
     @accounts = current_user.accounts
@@ -94,13 +94,5 @@ class Merchant::AccountsController <  Merchant::BaseController
   #     format.html { redirect_to merchant_account_account_brands_path(@current_account) }
   #   end
   # end
-
-  protected
-  def load_current_account
-    if current_user
-      @current_account = current_user.accounts.find(params[:id]) if params[:id].present?
-      @current_account = @current_account || current_user.accounts.first
-    end   
-  end
   
 end
