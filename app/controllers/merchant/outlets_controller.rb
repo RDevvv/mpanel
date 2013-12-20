@@ -3,7 +3,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	before_filter  :load_account_and_brand
 
 	def index
-		@outlets = @account_brand.outlets
+    @outlets = @account_brand.outlets
 		@brands = Brand.all
 		@cities = City.all
     respond_to do |format|
@@ -27,12 +27,11 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
 	def create	
-    if !Area.find_by_area_name(params[:area_name]).present?
-      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name])
+    if !Area.find_by_area_name(params[:area_name].downcase).present?
+      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
       @area.save
       @outlet = @account_brand.outlets.new(params[:outlet])
       @outlet.area = @area
-      # @outlet = @account_brand.outlets.new(params[:outlet],:area_id=>@area.id)
     else
   		@outlet = @account_brand.outlets.new(params[:outlet])
     end

@@ -30,6 +30,7 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
     respond_to do |format|
       if @ad_promocode.valid?
         @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name])
+
         @ad_promocode.ad_group = @ad_group
         if @ad_promocode.save
           format.html { redirect_to merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group),:notice=>"Promocode Succesfully added"}
