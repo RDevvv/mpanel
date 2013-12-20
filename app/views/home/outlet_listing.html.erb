@@ -22,7 +22,36 @@
 </script>
 <div align="center" class="container-location">
   <div class="row-fluid">
-    <div class="span12">
+    <div class="span12"><div class="bdiv">
+      <div class="bbox">
+        <div class="brandtitle">maple</div>
+        <div class="eye2"><a onclick="$.pnotify({
+                title: 'Offer',
+                text: 'The offer text would get displayed here.',
+                opacity: .9
+                });" class="btn source"></a></div>
+        <div align="center" class="brandlogo"><img class="img-responsive" src="img/maple-medium.png" border="0" /> </div>
+        <div class="rch-btns-div">
+          <div class="btn190"><a class="button_map2" onclick="$.pnotify({
+                  title: 'Offer',
+                  text: 'The offer text would get displayed here.',
+                  opacity: .9
+                  });">ADDRESS</a></div>
+          <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+        </div>
+        <div class="distance-div">Distance: xx.x km</div>
+      </div>
+      <div class="lower-box">
+        <div class="refr2"></div>
+        <div class="star2"></div>
+        <div class="right-box">
+          <a href="#">
+            <div class="run2"></div>
+            <div class="runtxt">20.3K</div>
+          </a>
+        </div>
+      </div>
+    </div>
       <% if @outlets.nil? %>
           No results found
       <% else %>
@@ -80,4 +109,9 @@
       <% end %>
     </div>
   </div>
+</div>
+<div id="backtotop">
+  <a href="#">
+    <img src="back_to_top_btn-3.png" border="0" alt="Back to TOP" />
+  </a>
 </div>

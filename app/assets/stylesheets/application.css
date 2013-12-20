@@ -13,6 +13,6 @@
  *= require jquery.pnotify.default 
  *= require jquery.pnotify.default.icons
  *= require mobile-css-styles
- * require_tree .
+ *= require jquery.mmenu
  *= require home
  */

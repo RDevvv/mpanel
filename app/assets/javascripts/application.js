@@ -15,4 +15,4 @@
 //= require twitter/bootstrap
 //= require bootstrap 
 //= require jquery.pnotify.min
-//= require_tree .
+//= require jquery.mmenu
