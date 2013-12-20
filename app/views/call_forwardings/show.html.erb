@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Outlet:</b>
+  <%= @call_forwarding.outlet %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @call_forwarding.customer %>
+</p>
+
+
+<%= link_to 'Edit', edit_call_forwarding_path(@call_forwarding) %> |
+<%= link_to 'Back', call_forwardings_path %>
