@@ -23,10 +23,12 @@ class ApplicationController < ActionController::Base
   private
 
   def set_layout
-    if devise_controller? && devise_mapping.name == :merchant_user
-      "merchant"
-    else
-      "application"
-    end
+      if devise_controller? && devise_mapping.name == :merchant_user
+          "merchant"
+      elsif controller_name == 'home' && action_name == 'index'
+          "home_index"
+      else
+          "application"
+      end
   end
 end
