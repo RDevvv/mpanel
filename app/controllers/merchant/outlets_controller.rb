@@ -15,7 +15,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 		@outlet = @account_brand.outlets.new
 		@brands = Brand.all
 		@cities = City.order("city_name")
-		@areas =[]
+		@areas = []
 		respond_to do |format|
       format.html # new.html.erb
     end
@@ -45,11 +45,11 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	def import
-    invalid_records = Outlet.import(params[:file],params[:account_brand_id])
-    redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand), notice: "Outlets imported."
+    @csv_records,@file = Outlet.show_records(params[:file])
+    @valid_records, @invalid_records = Outlet.import(params[:file],params[:account_brand_id])
   end
 
-	def edit
+ 	def edit
 		@outlet = @account_brand.outlets.find(params[:id])	
     @cities = City.order("city_name")
     @areas =[]

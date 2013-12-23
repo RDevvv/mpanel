@@ -24,25 +24,15 @@ class Outlet < ActiveRecord::Base
   geocoded_by :geocoding_address
 
   def geocoding_address
-      self.address
+    self.address
   end
 
   def self.import(file,account_brand_id)
-    # CSV.foreach(file.path, headers: true) do |row|
-    #   outlet_hash = row.to_hash
-    #   outlet = Outlet.where(id: outlet_hash["id"])
- 
-    #   if outlet.count == 1
-    #     outlet.first.update_attributes(outlet_hash)
-    #   else
-    #     Outlet.create!(outlet_hash)
-    #   end
-    # end 
-
     current_file = file.open
     csv_text = File.read(current_file)
     csv = CSV.parse(csv_text, :headers => true)
     invalid_records = Array.new
+    valid_records = Array.new
     attempts = 0 
     csv.each do |row|
       begin     
@@ -56,13 +46,25 @@ class Outlet < ActiveRecord::Base
         :mobile_number => row[5],
         :email_id=> row[6]
         )
+        valid_records.push(row)
       rescue
         puts "Exception Occured"
         invalid_records.push(row)
         puts invalid_records
       end  
     end
-    invalid_records
+    return valid_records,invalid_records
+  end
+
+  def self.show_records(file)
+    current_file = file.open
+    csv_text = File.read(current_file)
+    csv = CSV.parse(csv_text, :headers => true)
+    records = Array.new
+      csv.each do |row|
+        records.push(row)
+      end
+    return records,file
   end
 
 end
