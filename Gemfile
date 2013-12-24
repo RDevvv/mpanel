@@ -25,6 +25,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
    gem 'compass-rails'
+    gem 'turbo-sprockets-rails3'
 end
 # gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'compass'

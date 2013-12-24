@@ -19,6 +19,7 @@ Gullak2::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.assets.logger = Logger.new($stdout)
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -47,7 +48,7 @@ Gullak2::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( merchant.css merchant.js)
-
+  config.assets.initialize_on_precompile = false
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 

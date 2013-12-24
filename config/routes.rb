@@ -46,7 +46,7 @@ Gullak2::Application.routes.draw do
         end
         resources :outlets do
           collection do
-            post :import 
+            post 'import'
             get 'populate_areas'
           end
         end

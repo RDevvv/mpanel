@@ -10,7 +10,7 @@
 
 <div class="pull-left">
 <h5>Import a CSV File</h5>
-    <%= form_tag import_merchant_account_account_brand_outlets_path(@current_account,@account_brand), multipart: true do %>
+    <%= form_tag import_merchant_account_account_brand_outlets_path(@current_account,@account_brand), action: :import, multipart: true do %>
       <%= file_field_tag :file %>
       <%= submit_tag "Import CSV" ,:class => "btn btn-info"%> <br><br>
     <% end %>
