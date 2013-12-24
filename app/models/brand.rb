@@ -7,4 +7,8 @@ class Brand < ActiveRecord::Base
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
   validates_presence_of :brand_name
+
+  def name
+    self.brand_name
+  end
 end
