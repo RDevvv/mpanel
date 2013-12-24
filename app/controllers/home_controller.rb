@@ -31,7 +31,11 @@ class HomeController < ApplicationController
     end
 
     def outlet_listing
-        result = Geocoder.search(params[:location]+" india")
+        unless params[:location].nil?
+            result = Geocoder.search(params[:location]+" india")
+        else
+            result = ""
+        end
         unless result.empty?
             @location = result.first.data["geometry"]["location"]
             latitude = @location["lat"]
@@ -52,6 +56,8 @@ class HomeController < ApplicationController
                     outlets_with_ad_index +=1
                 end
             end
+            @final_outlets = @outlets_without_ad + @outlets_with_ad
+            @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(1)
         else
             @outlets = nil
         end
