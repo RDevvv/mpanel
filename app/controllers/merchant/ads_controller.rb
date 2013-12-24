@@ -50,7 +50,7 @@ class Merchant::AdsController <  Merchant::BaseController
     redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand),:notice=>"Ad successfylly Destroyed"
   end
 
-	protected
+  protected
 	def load_account_and_brand
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end
