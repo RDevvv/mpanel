@@ -4,12 +4,13 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'pg'
 gem 'bootstrap-sass', '~> 2.3.2.2'
-gem 'jquery-rails'
+gem 'jquery-rails', "2.1.0"
 gem 'devise'
 gem 'twitter-bootstrap-rails', '2.2.7'
 gem 'geocoder'
 gem 'useragent'
 gem 'shortener'
+gem 'kaminari'
 
 
 gem 'therubyracer', :platforms => :ruby
@@ -29,7 +30,6 @@ group :assets do
 end
 # gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'compass'
-gem 'jquery-rails'
 gem 'devise'
 group :development do
   gem 'sextant'
