@@ -1263,7 +1263,7 @@ Category.create([
   { :industry_id => 1, :category_name => "Hypermarket" },
   { :industry_id => 1, :category_name => "Kids Fashion" },
   { :industry_id => 1, :category_name => "Ladies Fashion" },
-  { :industry_id => 1, :category_name => "Men\'s Fashion" },
+  { :industry_id => 1, :category_name => "Mens Fashion" },
   { :industry_id => 1, :category_name => "Music & Electronics" },
   { :industry_id => 1, :category_name => "Restaurants" },
   { :industry_id => 1, :category_name => "Sports Fashion" },

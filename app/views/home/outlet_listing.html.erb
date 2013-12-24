@@ -14,6 +14,7 @@
             console.log("within else condition");
             $.ajax({
                 url: "get_button_click/".concat($.cookie("customer_uuid")).concat("/").concat(check_class).concat(".json")
+                //add window.location.pathname to to given string
             }).done(function () {
                     })
         }

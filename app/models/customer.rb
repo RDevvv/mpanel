@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-    attr_accessible :uuid, :browser, :platform, :browser_version
+    attr_accessible :uuid, :browser, :platform, :browser_version, :email_id, :name, :age, :gender, :date_of_birth, :incentive_count
 
     def self.generate_cookie
         customer_uuid = nil
