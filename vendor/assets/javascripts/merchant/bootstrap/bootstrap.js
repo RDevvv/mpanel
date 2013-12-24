@@ -1,0 +1,13 @@
+//= require merchant/bootstrap/bootstrap-transition
+//= require merchant/bootstrap/bootstrap-affix
+//= require merchant/bootstrap/bootstrap-alert
+//= require merchant/bootstrap/bootstrap-button
+//= require merchant/bootstrap/bootstrap-carousel
+//= require merchant/bootstrap/bootstrap-collapse
+//= require merchant/bootstrap/bootstrap-dropdown
+//= require merchant/bootstrap/bootstrap-modal
+//= require merchant/bootstrap/bootstrap-scrollspy
+//= require merchant/bootstrap/bootstrap-tab
+//= require merchant/bootstrap/bootstrap-tooltip
+//= require merchant/bootstrap/bootstrap-popover
+//= require merchant/bootstrap/bootstrap-typeahead
