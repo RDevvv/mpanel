@@ -3,4 +3,9 @@ class City < ActiveRecord::Base
   has_many :areas, :dependent => :destroy
   belongs_to :state
   belongs_to :metro
+
+  
+  def name
+    city_name
+  end
 end

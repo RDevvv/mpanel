@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131220120813) do
+ActiveRecord::Schema.define(:version => 20131224111129) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -169,8 +169,11 @@ ActiveRecord::Schema.define(:version => 20131220120813) do
     t.integer  "customer_id"
     t.string   "button_class"
     t.integer  "ad_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "current_link"
+    t.string   "previous_link"
+    t.string   "session_id"
   end
 
   add_index "button_clicks", ["customer_id"], :name => "index_button_clicks_on_customer_id"
@@ -182,6 +185,16 @@ ActiveRecord::Schema.define(:version => 20131220120813) do
   end
 
   add_index "call_button_selects", ["customer_id"], :name => "index_call_button_selects_on_customer_id"
+
+  create_table "call_forwardings", :force => true do |t|
+    t.integer  "outlet_id"
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
+  add_index "call_forwardings", ["outlet_id"], :name => "index_call_forwardings_on_outlet_id"
 
   create_table "categories", :force => true do |t|
     t.integer  "industry_id"
@@ -225,8 +238,15 @@ ActiveRecord::Schema.define(:version => 20131220120813) do
 
   create_table "customers", :force => true do |t|
     t.string   "uuid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.float    "mobile_number"
+    t.string   "name"
+    t.string   "email_id"
+    t.datetime "date_of_birth"
+    t.integer  "age"
+    t.string   "gender"
+    t.integer  "incentive_count"
   end
 
   create_table "industries", :force => true do |t|
@@ -296,13 +316,13 @@ ActiveRecord::Schema.define(:version => 20131220120813) do
     t.integer  "mobile_country_id"
     t.string   "mobile_number"
     t.string   "email_id"
-    t.boolean  "is_active",          :default => true
-    t.boolean  "is_verified",        :default => true
+    t.boolean  "is_active",          :default => false
+    t.boolean  "is_verified",        :default => false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "outlet_key"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "outlet_views"
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
@@ -332,6 +352,20 @@ ActiveRecord::Schema.define(:version => 20131220120813) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "shortened_urls", :force => true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type", :limit => 20
+    t.string   "url",                                     :null => false
+    t.string   "unique_key", :limit => 10,                :null => false
+    t.integer  "use_count",                :default => 0, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
+
+  add_index "shortened_urls", ["owner_id", "owner_type"], :name => "index_shortened_urls_on_owner_id_and_owner_type"
+  add_index "shortened_urls", ["unique_key"], :name => "index_shortened_urls_on_unique_key", :unique => true
+  add_index "shortened_urls", ["url"], :name => "index_shortened_urls_on_url"
 
   create_table "states", :force => true do |t|
     t.string   "state_name"

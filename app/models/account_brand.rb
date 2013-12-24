@@ -7,4 +7,8 @@ class AccountBrand < ActiveRecord::Base
   has_many :ads, :dependent => :destroy
   belongs_to :account
   belongs_to :brand
+
+  def name
+    self.brand.brand_name
+  end
 end

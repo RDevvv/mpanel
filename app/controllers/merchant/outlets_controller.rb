@@ -45,8 +45,18 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
 	def import
-    @csv_records,@file = Outlet.show_records(params[:file])
-    @valid_records, @invalid_records = Outlet.import(params[:file],params[:account_brand_id])
+    @valid_records, @invalid_records  = Outlet.show_records(params[:file],@account_brand.id)
+    #@valid_records, @invalid_records = Outlet.import(params[:file],params[:account_brand_id])
+  end
+  def import_record
+    outlets = []
+    params[:outlets].each do |outlet_index,outlet|
+      verified = outlet.delete("verified")
+      if verified.present?
+        @account_brand.outlets.create(outlet)
+      end
+    end
+    redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Succesfully imported records"
   end
 
  	def edit

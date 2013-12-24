@@ -20,11 +20,20 @@ class Outlet < ActiveRecord::Base
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	validates :phone_number,  :numericality => {:greater_than => 0, :message => " is an invalid number."}   ,:allow_nil => true, :allow_blank => true
 
-  after_create :geocode
+  validates_presence_of :account_brand, :area
+  after_save :geocode,:if => :address_changed?
   geocoded_by :geocoding_address
 
   def geocoding_address
-    self.address
+    [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+  end
+  
+
+  def lat
+  end
+
+  def long
+    
   end
 
   def self.import(file,account_brand_id)
@@ -56,15 +65,30 @@ class Outlet < ActiveRecord::Base
     return valid_records,invalid_records
   end
 
-  def self.show_records(file)
+  def self.show_records(file,account_brand_id)
     current_file = file.open
     csv_text = File.read(current_file)
     csv = CSV.parse(csv_text, :headers => true)
     records = Array.new
-      csv.each do |row|
-        records.push(row)
-      end
-    return records,file
+    invalid_records = []
+    valid_records = []
+    csv.each do |row|
+      outlet = Outlet.new(:account_brand_id=> account_brand_id,
+      :outlet_type_id=>row[0],
+      :address => row[1],
+      :area_id => row[2],
+      :phone_number => row[3],
+      :mobile_country_id => row[4],
+      :mobile_number => row[5],
+      :email_id=> row[6]
+      )
+      if outlet.valid?
+        valid_records << outlet 
+      else
+        invalid_records << outlet 
+      end  
+    end
+    [valid_records,invalid_records]
   end
 
 end
