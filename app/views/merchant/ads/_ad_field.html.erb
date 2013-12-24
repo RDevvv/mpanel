@@ -35,7 +35,7 @@
   <div class="span3">
     <div class="control-group">
       <label class="control-label">Start Date</label>
-      <div class="controls">
+      <div class="controls" style="width: 35%;">
         <%= f.text_field :start_date, :placeholder=>"Start Date", :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"start_date"%>               
       </div>
     </div>
@@ -43,7 +43,7 @@
   <div class="span3">
     <div class="control-group">
       <label class="control-label">Expiry Date</label>
-      <div class="controls">
+      <div class="controls" style="width: 35%;">
         <%= f.text_field :expiry_date, :placeholder=>"Expiry Date", :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"end_date"%>               
       </div>
     </div>
@@ -69,6 +69,8 @@
   <label class="control-label">Keywords</label>
   <div class="controls">
     <%= f.collection_select :keyword_ids,@keywords,:id,:keyword,{},{:multiple=>true,:class=>"chzn-select"} %>
+    Don't find the keyword you were looking for?<%= link_to 'Create Keywords', new_merchant_account_account_brand_ad_keyword_path(@current_account,@account_brand,@ad) %>
+
   </div>
 </div>
 
