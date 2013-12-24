@@ -16,5 +16,4 @@
 //= require bootstrap
 //= require jquery.pnotify.min
 //= require jquery.mmenu
-//= require jquery.infinitescroll.min
 //= require jquery.cookie
