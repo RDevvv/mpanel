@@ -7,33 +7,52 @@
       <div class="box-header">
         <span class="title">Outlets</span>
       </div>
-      <%= form_tag import_merchant_account_account_brand_outlets_path(@current_account,@account_brand), action: :import, multipart: true do %>
+      <%= form_tag import_record_merchant_account_account_brand_outlets_path(@current_account,@account_brand), multipart: true do %>
         <div class="box-content">
           <div id="dataTables">
             <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
             
               <thead>
                 <tr>
-                  <th>Outlet Key</th>
                   <th>Address</th>
-                  <th>Phone_number</th>
-                  <th>mobile_numbe</th>
-                  <th>email_id</th>
+                  <th>Phone number</th>
+                  <th>Mobile number</th>
+                  <th>Email</th>
                   <th>Verify Records</th>
                 </tr>
               </thead>
 
               <tbody>
-              <% @csv_records.each do |row| %>
-                <tr>
-                  <td></td>
-                  <td><%= row[1] %></td>
-                  <td><%= row[3] %></td>
-                  <td><%= row[5] %></td>
-                  <td><%= row[6] %></td>
-                  <td><input type="checkbox" name="option1" value="Verify">Verify Record</td>
-                </tr> 
-              <% end %>
+                <% @valid_records.each_with_index do |outlet,index| %>
+                  <tr>
+                    <%= hidden_field_tag "outlets[#{index}][address]" ,outlet.address%>
+                    <%= hidden_field_tag "outlets[#{index}][phone_number]",outlet.phone_number %>
+                    <%= hidden_field_tag "outlets[#{index}][mobile_number]",outlet.mobile_number %>
+                    <%= hidden_field_tag "outlets[#{index}][mobile_country_id]",outlet.mobile_country_id %>
+                    <%= hidden_field_tag "outlets[#{index}][area_id]",outlet.area_id %>
+                    <%= hidden_field_tag "outlets[#{index}][account_brand_id]",outlet.account_brand_id %>
+                    <%= hidden_field_tag "outlets[#{index}][email_id]",outlet.email_id %>
+                    
+                    <td><%= outlet.address %></td>
+                    <td><%= outlet.phone_number %></td>
+                    <td><%= outlet.mobile_number %></td>
+                    <td><%=outlet.email_id %></td>
+                    <td><span class="label label-success">Valid</span>
+                      <%= check_box_tag "outlets[#{index}][verified]" %>  Verify Record 
+                     
+                  </tr> 
+
+                <% end %>
+                <% @invalid_records.each do |outlet| %>
+                  <tr>
+                    <td><%= outlet.address %></td>
+                    <td><%= outlet.phone_number %></td>
+                    <td><%= outlet.mobile_number %></td>
+                    <td><%=outlet.email_id %></td>
+                    <td><span class="label label-warning">In Valid</span> </td>
+                  </tr> 
+
+                <% end %>
               </tbody>  
 
             </table>

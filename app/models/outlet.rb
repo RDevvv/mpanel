@@ -5,7 +5,7 @@ class Outlet < ActiveRecord::Base
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
   attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
-  
+
   has_many :outlet_versions
   has_many :ads,:through=>:ad_promocode_outlets
   belongs_to :area
@@ -13,14 +13,14 @@ class Outlet < ActiveRecord::Base
   belongs_to :outlet_type
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :ad_promocodes,:through=>:ad_promocode_outlets
-  
-  # accepts_nested_attributes_for :area
 
   has_paper_trail
   #acts_as_paranoid
   validates :mobile_number, :format => { :with => /^[0-9\-\+]{9,15}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	validates :phone_number,  :numericality => {:greater_than => 0, :message => " is an invalid number."}   ,:allow_nil => true, :allow_blank => true
+
+  validates_presence_of :account_brand, :area
   after_save :geocode,:if => :address_changed?
   geocoded_by :geocoding_address
 
@@ -65,15 +65,30 @@ class Outlet < ActiveRecord::Base
     return valid_records,invalid_records
   end
 
-  def self.show_records(file)
+  def self.show_records(file,account_brand_id)
     current_file = file.open
     csv_text = File.read(current_file)
     csv = CSV.parse(csv_text, :headers => true)
     records = Array.new
-      csv.each do |row|
-        records.push(row)
-      end
-    return records,file
+    invalid_records = []
+    valid_records = []
+    csv.each do |row|
+      outlet = Outlet.new(:account_brand_id=> account_brand_id,
+      :outlet_type_id=>row[0],
+      :address => row[1],
+      :area_id => row[2],
+      :phone_number => row[3],
+      :mobile_country_id => row[4],
+      :mobile_number => row[5],
+      :email_id=> row[6]
+      )
+      if outlet.valid?
+        valid_records << outlet 
+      else
+        invalid_records << outlet 
+      end  
+    end
+    [valid_records,invalid_records]
   end
 
 end
