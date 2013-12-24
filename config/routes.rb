@@ -15,7 +15,7 @@ Gullak2::Application.routes.draw do
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"
 
-  match '/:id' => "shortener/shortened_urls#show"
+  #match '/:id' => "shortener/shortened_urls#show"
 
   mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
 
