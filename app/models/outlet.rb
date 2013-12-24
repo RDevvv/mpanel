@@ -20,11 +20,19 @@ class Outlet < ActiveRecord::Base
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	validates :phone_number,  :numericality => {:greater_than => 0, :message => " is an invalid number."}   ,:allow_nil => true, :allow_blank => true
 
-  after_create :geocode
+  after_save :geocode,:if => :address_changed?
   geocoded_by :geocoding_address
 
   def geocoding_address
-    self.address
+    [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+  end
+  
+
+  def lat
+  end
+
+  def long
+    
   end
 
   def self.import(file,account_brand_id)
