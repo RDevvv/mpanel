@@ -31,25 +31,38 @@ class HomeController < ApplicationController
     end
 
     def outlet_listing
-        result = Geocoder.search(params[:location]+" india")
-        unless result.empty?
-            @location = result.first.data["geometry"]["location"]
-            latitude = @location["lat"]
-            longitude = @location["lng"]
-            @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
-
-            @outlets_with_ad = Array.new
-            @outlets_without_ad = Array.new
-            outlets_with_ad_index = 0
-            outlets_without_ad_index = 0
-
-            @outlets.each do |outlet|
-                if outlet.ads.empty?
-                    @outlets_without_ad[outlets_without_ad_index] = outlet
-                    outlets_without_ad_index +=1
+        unless params[:location].nil?
+            location_cache = LocationCache.where("location = '%#{params[:location].downcase}%'")
+            if location_cache.count == 1
+                latitude = location_cache.first.latitude
+                longitude = location_cache.first.longitude
+            else
+                result = Geocoder.search(params[:location]+" india")
+                if result.empty?
+                    @outlets = nil
                 else
-                    @outlets_with_ad[outlets_with_ad_index] = outlet
-                    outlets_with_ad_index +=1
+                    @location = result.first.data["geometry"]["location"]
+                    latitude = @location["lat"]
+                    longitude = @location["lng"]
+                    LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
+
+                    @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+                    @outlets_with_ad = Array.new
+                    @outlets_without_ad = Array.new
+                    outlets_with_ad_index = 0
+                    outlets_without_ad_index = 0
+
+                    @outlets.each do |outlet|
+                        if outlet.ads.empty?
+                            @outlets_without_ad[outlets_without_ad_index] = outlet
+                            outlets_without_ad_index +=1
+                        else
+                            @outlets_with_ad[outlets_with_ad_index] = outlet
+                            outlets_with_ad_index +=1
+                        end
+                    end
+                    @final_outlets = @outlets_without_ad + @outlets_with_ad
+                    @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(1)
                 end
             end
         else
