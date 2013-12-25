@@ -73,22 +73,42 @@ class Outlet < ActiveRecord::Base
     invalid_records = []
     valid_records = []
     csv.each do |row|
-      outlet = Outlet.new(:account_brand_id=> account_brand_id,
-      :outlet_type_id=>row[0],
-      :address => row[1],
-      :area_id => row[2],
-      :phone_number => row[3],
-      :mobile_country_id => row[4],
-      :mobile_number => row[5],
-      :email_id=> row[6]
-      )
-      if outlet.valid?
-        valid_records << outlet 
-      else
-        invalid_records << outlet 
-      end  
+      records << row.to_a.collect{|x|x[1]}
+
     end
-    [valid_records,invalid_records]
+    records
   end
+
+  def self.get_closest_city(city_name=nil,area_name=nil,pincode=nil)
+    city = nil
+
+    cities = City.by_name(city_name) if city_name.present?
+    picode_areas = Area.by_pincode(pincode)  if pincode.present?
+    areas = Area.by_name(area_name)  if area_name.present?
+    if cities.present?
+      city = cities.first
+    elsif  picode_areas.present?
+      city = picode_areas.first.city 
+    elsif areas.present?
+      city = areas.first.city
+    end
+    city
+      
+  end
+
+  def self.import_record(params)
+    city = City.find(params[:city_id])
+    account_brand = AccountBrand.find(params[:account_brand_id])
+    area = city.areas.by_name(params[:area_name]).by_pincode(params[:pincode]).first
+    area = city.areas.create(:area_name=>params[:area_name],:pincode=>params[:pincode]) if area.blank?
+    outlet = account_brand.outlets.new(params[:outlet])
+    outlet.area_id = area.id
+    outlet.save
+    outlet
+
+    
+  end
+
+
 
 end
