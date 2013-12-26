@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224114454) do
+ActiveRecord::Schema.define(:version => 20131226103453) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "ads", :force => true do |t|
-    t.integer  "latest_version_id"
     t.integer  "account_brand_id"
     t.string   "ad_title"
     t.boolean  "is_monday"
@@ -133,9 +132,16 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.datetime "expiry_date"
     t.boolean  "is_active"
     t.text     "sms_text"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "is_exclusive"
+  end
+
+  create_table "area_pincodes", :force => true do |t|
+    t.integer  "area_id"
+    t.integer  "pincode_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "areas", :force => true do |t|
@@ -249,6 +255,16 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.string   "gender"
     t.integer  "incentive_count"
   end
+
+  create_table "facebook_shares", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "facebook_shares", ["ad_id"], :name => "index_facebook_shares_on_ad_id"
+  add_index "facebook_shares", ["customer_id"], :name => "index_facebook_shares_on_customer_id"
 
   create_table "industries", :force => true do |t|
     t.string   "industry_name"
@@ -366,6 +382,12 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
     t.time     "deleted_at"
+  end
+
+  create_table "pincodes", :force => true do |t|
+    t.integer  "pincode"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
