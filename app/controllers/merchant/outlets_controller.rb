@@ -104,8 +104,6 @@ class Merchant::OutletsController <  Merchant::BaseController
     @area = @outlet.area
     @city = @area.city
     @country = @city.state.country
-    area_location = Test.new
-    puts area_location.get_area(@area, @city, @country)
   end
 
 	protected

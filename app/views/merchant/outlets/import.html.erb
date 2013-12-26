@@ -2,13 +2,13 @@
 
 <div class="row-fluid">
   <div class="span12">
-    <div class="box1">
+    <div class="box">
 
-      <div class="box-header1">
+      <div class="box-header">
         <span class="title">Outlets</span>
       </div>
       
-        <div class="box-content1">
+        <div class="box-content">
           <div class="padded">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered responsive">
             
@@ -33,32 +33,32 @@
                        <%= hidden_field_tag :row_id,index+1 %>
                       <td>  
                         <% closest_city = Outlet.get_closest_city(record[0],record[2],record[3]) %>
-                        <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,closest_city.try(:id)),:placeholder=>"Select City" %>
+                        <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,closest_city.try(:id)),:placeholder=>"Select City"%>
                         <%if closest_city.blank? %>
                           <p> City is in valid or city is not present</p>
                         <% end %>
                       </td>  
-                      <td><%= text_field_tag "outlet[address]" ,record[1],:class=>"validate[required,maxSize[200]]","data-prompt-position"=>"topLeft"%>
+                      <td><%= text_field_tag "outlet[address]" ,record[1],:class=>"validate[required,maxSize[200]]","data-prompt-position"=>"topLeft",:style=>"width:95%"%>
                         <p class="error address_error" ></p>
                       </td>
                       <td>
-                        <%= text_field_tag "area_name" ,record[2],:class=>"validate[required]"%>
+                        <%= text_field_tag "area_name" ,record[2],:class=>"validate[required]",:style=>"width:95%"%>
                         <p class="error area_name_error" ></p>
                       </td>
                       <td>
-                        <%= text_field_tag "pincode" ,record[3],:class=>"validate[required]"%>
+                        <%= text_field_tag "pincode" ,record[3],:class=>"validate[required]",:style=>"width:95%"%>
                         <p class="error pincode_error" ></p>
                       </td>
                       <td>
-                        <%= text_field_tag "outlet[mobile_number]" ,record[4],:class=>"validate[minSize[10],maxSize[15]]"%>
+                        <%= text_field_tag "outlet[mobile_number]" ,record[4],:class=>"validate[minSize[10],maxSize[15]]",:style=>"width:95%"%>
                         <p class="error mobile_number_error" ></p>
                       </td>
                       <td>
-                        <%= text_field_tag "outlet[phone_number]" ,record[5]%>
+                        <%= text_field_tag "outlet[phone_number]" ,record[5],:style=>"width:95%"%>
                         <p class="error phone_number_error" ></p>
                       </td>
                       <td>
-                        <%= text_field_tag "outlet[email_id]" ,record[6],:class=>"validate[required]"%>
+                        <%= text_field_tag "outlet[email_id]" ,record[6],:class=>"validate[required]",:style=>"width:95%"%>
                         <p class="error email_id_error" ></p>
                       </td>
                       <td id="outlet_submit_<%= index+1 %>"><%= submit_tag "Activate" ,:class=>"btn btn-info" %></td>
@@ -69,12 +69,9 @@
                 <% end %>
                
               </tbody>  
-
             </table>
           </div>
-        </div>
-        
-      
+        </div>      
     </div>
   </div>  
 </div>

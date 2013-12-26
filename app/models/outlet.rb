@@ -105,8 +105,6 @@ class Outlet < ActiveRecord::Base
     outlet.area_id = area.id
     outlet.save
     outlet
-
-    
   end
 
 
