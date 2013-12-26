@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  latest_version_id: 1
   account_brand_id: 1
   outlet_type_id: 1
   address: MyText
@@ -17,7 +16,6 @@ one:
   outlet_key: MyString
 
 two:
-  latest_version_id: 1
   account_brand_id: 1
   outlet_type_id: 1
   address: MyText
