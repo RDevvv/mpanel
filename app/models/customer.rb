@@ -1,4 +1,6 @@
 class Customer < ActiveRecord::Base
+    has_many :facebook_shares
+
     attr_accessible :uuid, :browser, :platform, :browser_version, :email_id, :name, :age, :gender, :date_of_birth, :incentive_count
 
     def self.generate_cookie
