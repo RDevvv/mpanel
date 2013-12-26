@@ -44,19 +44,34 @@ class Merchant::OutletsController <  Merchant::BaseController
     end
 	end
 
+  def download_outlet_template
+    send_file "#{Rails.root}/public/outlet_template.csv"
+  end
+
+  def upload_outlets
+    
+  end
+
 	def import
-    @valid_records, @invalid_records  = Outlet.show_records(params[:file],@account_brand.id)
+    @records  = Outlet.show_records(params[:file],@account_brand.id)
+    @cities = City.all
     #@valid_records, @invalid_records = Outlet.import(params[:file],params[:account_brand_id])
   end
+
   def import_record
-    outlets = []
-    params[:outlets].each do |outlet_index,outlet|
-      verified = outlet.delete("verified")
-      if verified.present?
-        @account_brand.outlets.create(outlet)
-      end
-    end
-    redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Succesfully imported records"
+    
+    params[:account_brand_id] = @account_brand.id
+
+    set_error_for_outlet_record(params)
+    if @errors.blank?
+      outlet = Outlet.import_record(params)
+      @errors.merge!(outlet.errors.messages)
+      render :json=>{:success=>outlet.valid?,:errors=>@errors,:row_id=>params[:row_id]}
+    else
+      render :json=>{:success=>false,:errors=>@errors,:row_id=>params[:row_id]}
+    end  
+    # redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Succesfully imported records"
+    
   end
 
  	def edit
@@ -89,11 +104,17 @@ class Merchant::OutletsController <  Merchant::BaseController
     @area = @outlet.area
     @city = @area.city
     @country = @city.state.country
-    area_location = Test.new
-    puts area_location.get_area(@area, @city, @country)
   end
 
 	protected
+  
+  def set_error_for_outlet_record(params)
+    @errors = {}
+    @errors[:pincode]= ["can't be blank"] if params[:pincode].blank?
+    @errors[:area_name]= ["can't be blank"] if params[:area_name].blank?
+    @errors[:pincode] = Array(@errors[:pincode]).push("is not valid") if params[:pincode].present? && params[:pincode].length !=6
+  end
+
 	def load_account_and_brand
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
 	end

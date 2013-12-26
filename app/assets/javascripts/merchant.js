@@ -31,5 +31,6 @@
 //= require merchant/charts/xcharts_bar
 //= require merchant/charts/sparkline_samples
 //= require merchant/generic
+//= require outlet
 //= require jquery_ujs
 //= require jquery_nested_form

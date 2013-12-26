@@ -46,6 +46,8 @@ Gullak2::Application.routes.draw do
         end
         resources :outlets do
           collection do
+            get 'upload_outlets'
+            get 'download_outlet_template'
             post 'import'
             post 'import_record'
             get 'populate_areas'

@@ -3,6 +3,7 @@ class City < ActiveRecord::Base
   has_many :areas, :dependent => :destroy
   belongs_to :state
   belongs_to :metro
+  scope :by_name,lambda {|name| where("city_name ilike ?","%#{name}%")}
 
   
   def name
