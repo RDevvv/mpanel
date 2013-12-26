@@ -8,7 +8,7 @@ Gullak2::Application.routes.draw do
   resources :customers
 
   get "get_call_click/:id" => "call_button_selects#get_click"
-  get "get_button_click/:id/:button_class" => "button_clicks#get_click"
+  get "get_button_click/:id/:button_class/:current_link/:ad_id" => "button_clicks#get_click"
   get "get_call_forwarding" => "call_forwardings#get_customer_number"
   get "set_call_forwarding" => "call_forwardings#return_outlet_number"
 
