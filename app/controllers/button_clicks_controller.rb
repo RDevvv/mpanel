@@ -1,7 +1,7 @@
 class ButtonClicksController < ApplicationController
     def get_click
         customer = Customer.where(:uuid => params[:id]).first
-        ButtonClick.create(:customer_id => customer.id, :button_class => params[:button_class])
+        ButtonClick.create(:customer_id => customer.id, :button_class => params[:button_class], :current_link => params[:current_link], :ad_id => params[:ad_id])
 
         respond_to do |format|
             format.json {render :nothing => true}

@@ -1,22 +1,20 @@
 function track(element) {
-    check_class = $(element).attr("class");
-    if (check_class == "button_call2") {
-        console.log("within if condition");
-        $.ajax({
-            url: "get_call_click/".concat($.cookie("customer_uuid")).concat(".json")
-        }).done(function () {
-            console.log("vivekkkkkk");
-        })
-    }
-    else //if(check_class=="button_map2")
-        {
-            console.log("within else condition");
-            $.ajax({
-                url: "get_button_click/".concat($.cookie("customer_uuid")).concat("/").concat(check_class).concat(".json")
-                //add window.location.pathname to to given string
-            }).done(function () {
-            })
-        }
+    button_class = $(element).attr("class").split(" ")[0];
+    ad_id = $(element).closest('div[class="bdiv"]').attr("id");
 
+    tracking_url = "get_button_click/";
+    tracking_url += $.cookie("customer_uuid");
+    tracking_url += "/";
+    tracking_url += button_class;
+    tracking_url += "/";
+    tracking_url += window.location.pathname.replace("/","-");
+    tracking_url += "/";
+    tracking_url += ad_id;
+    tracking_url += ".json";
+
+    $.ajax({
+        url: tracking_url
+    }).done(function () {
+    })
 }
 
