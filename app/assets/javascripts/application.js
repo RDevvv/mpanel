@@ -17,3 +17,4 @@
 //= require jquery.pnotify.min
 //= require jquery.mmenu
 //= require jquery.cookie
+//= require home
