@@ -33,7 +33,7 @@
                        <%= hidden_field_tag :row_id,index+1 %>
                       <td>  
                         <% closest_city = Outlet.get_closest_city(record[0],record[2],record[3]) %>
-                        <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,closest_city.try(:id)),:placeholder=>"Select City"%>
+                        <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,closest_city.try(:id)),:placeholder=>"Select City" %>
                         <%if closest_city.blank? %>
                           <p> City is in valid or city is not present</p>
                         <% end %>
