@@ -62,7 +62,7 @@ class HomeController < ApplicationController
                         end
                     end
                     @final_outlets = @outlets_without_ad + @outlets_with_ad
-                    @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(1)
+                    @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
                 end
             end
         else
