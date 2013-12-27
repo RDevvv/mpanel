@@ -7,6 +7,7 @@ class Area < ActiveRecord::Base
   belongs_to :city
   geocoded_by :area_name   # can also be an IP address
 	after_validation :geocode #, :if => :address_changed?
+  validates_presence_of :area_name
   scope :by_name,lambda {|name| where("area_name ilike ?","%#{name}%") if name.present?}
   scope :by_pincode,lambda {|pincode| where("pincode = ?",pincode) if pincode.present?}
 

@@ -27,23 +27,18 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
 	def create
-    if !Pincode.find_by_pincode(params[:pincode][:pincode])
-      @pincode = Pincode.new(params[:pincode])
-      @pincode.save
-    else
-      @pincode = Pincode.find_by_pincode(params[:pincode][:pincode])
-    end
+    
+    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
+    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
+    @outlet = @account_brand.outlets.new(params[:outlet])  
     if !Area.find_by_area_name(params[:area_name].downcase).present?
-      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-      @area.save
-      @outlet = @account_brand.outlets.new(params[:outlet])
-      @outlet.area = @area
+      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
     else
       @area=Area.find(params[:outlet][:area_id])
-  		@outlet = @account_brand.outlets.new(params[:outlet])
     end
-    @area_pincode = AreaPincode.new(:area_id=>@area.id,:pincode_id=>@pincode.id)
-    @area_pincode.save
+    @outlet.area = @area
+    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
+    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     respond_to do |format|
       if @outlet.save
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
