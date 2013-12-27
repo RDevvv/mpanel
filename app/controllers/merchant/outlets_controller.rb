@@ -31,7 +31,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
     @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
     @outlet = @account_brand.outlets.new(params[:outlet])  
-    if !Area.find_by_area_name(params[:area_name].downcase).present?
+    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
       @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
     else
       @area=Area.find(params[:outlet][:area_id])
