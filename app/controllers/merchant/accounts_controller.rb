@@ -9,8 +9,6 @@ class Merchant::AccountsController <  Merchant::BaseController
   def new
     @account = Account.new
     @account.users.build
-    # @areas = Area.all
-    # @cities = City.all
     @cities = City.order("city_name")
     @areas = []
     @countries = Country.all
@@ -35,18 +33,17 @@ class Merchant::AccountsController <  Merchant::BaseController
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     respond_to do |format|
       if @account.save
-        format.html { redirect_to redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
+        format.html { redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
       end
     end
-
   end
 
   def edit
   	@account = Account.find(params[:id])
-    @areas = Area.all
-    @cities = City.all
+    @cities = City.order("city_name")
+    @areas = []
     @countries = Country.all
     @accounts = Account.all
   end
@@ -65,14 +62,25 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
 
   def update
-   	@account = Account.find(params[:id])
+
+    @account = Account.find(params[:id])
+    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
+    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
+    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
+      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
+    else
+      @area=Area.find(params[:account][:area_id])
+    end
+    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
+    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to merchant_account_path }
+        format.html { redirect_to merchant_account_path ,:notice=>"Account Succesfully Updated" }
       else
         format.html { render action: "edit" }
       end
     end
+
   end
   
   def show
