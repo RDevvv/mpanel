@@ -11,6 +11,8 @@ gem 'geocoder'
 gem 'useragent'
 gem 'shortener'
 gem 'kaminari'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 
 gem 'therubyracer', :platforms => :ruby
