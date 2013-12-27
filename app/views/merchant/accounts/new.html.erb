@@ -27,18 +27,18 @@
             <div class="control-group">
               <label class="control-label">Select City</label>
               <div class="controls">
-                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name),:prompt=>"Select City",:placeholder=>"Select City" ,:class=>"validate[required]"%>
+                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,@account.area.try(:city_id)),:prompt=>"Select City",:placeholder=>"Select City" ,:class=>"validate[required]"%>
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Area</label>
               <div class="controls" id="area_div">
-                <%= select_tag "account[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
-                <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a>
+                <%#= select_tag "account[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
+                <!-- <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a> -->
                 <div id="new_area_textbox" style="display:none"> 
-                  <%= text_field_tag :area_name %>
-                  <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a>
+                  <%= text_field_tag :area_name,@account.area.try(:area_name) %>
+                  <!-- <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a> -->
                 </div>           
               </div>
             </div>

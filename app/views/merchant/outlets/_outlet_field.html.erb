@@ -8,15 +8,15 @@
 <div class="control-group">
   <label class="control-label">Area</label>
   <div class="controls" id="area_div">
-    <% if @outlet.area.present? %>
-      <%= select_tag "outlet[area_id]", options_from_collection_for_select(@outlet.area.city.areas,:id,:area_name,@outlet.area_id),:placeholder=>"Select Area",:id=>"select_area" %>  
-    <% else %>
-      <%= select_tag "outlet[area_id]", options_from_collection_for_select(@areas,:id,:area_name,@outlet.area_id),:placeholder=>"Select Area",:id=>"select_area" %>  
-    <% end %>  
-    <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a>
-    <div id="new_area_textbox" style="display:none"> 
-      <%= text_field_tag :area_name %>
-      <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a>
+    <%# if @outlet.area.present? %>
+      <%#= select_tag "outlet[area_id]", options_from_collection_for_select(@outlet.area.city.areas,:id,:area_name,@outlet.area_id),:placeholder=>"Select Area",:id=>"select_area" %>  
+    <% #else %>
+      <%#= select_tag "outlet[area_id]", options_from_collection_for_select(@areas,:id,:area_name,@outlet.area_id),:placeholder=>"Select Area",:id=>"select_area" %>  
+    <%# end %>  
+    <!-- <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a> -->
+    <div id="new_area_textbox" style=""> 
+      <%= text_field_tag :area_name,@outlet.area.try(:area_name),:class=>"validate[required]" %>
+      <!-- <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a> -->
     </div>           
     
   </div>

@@ -22,12 +22,10 @@ class Merchant::AccountsController <  Merchant::BaseController
     @areas = []
     @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
     @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
+    @area = Area.by_area_name(params[:area_name]).first
     @account = Account.new(params[:account])  
-    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
-      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-    else
-      @area=Area.find(params[:account][:area_id])
-    end
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase) if @area.blank?
+    
     @account.area = @area
     @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
@@ -66,13 +64,11 @@ class Merchant::AccountsController <  Merchant::BaseController
     @account = Account.find(params[:id])
     @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
     @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
-    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
-      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-    else
-      @area=Area.find(params[:account][:area_id])
-    end
+    @area = Area.by_area_name(params[:area_name]).first
     @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase) if @area.blank?
+    params[:account][:area_id] = @area.id
     respond_to do |format|
       if @account.update_attributes(params[:account])
         format.html { redirect_to merchant_account_path ,:notice=>"Account Succesfully Updated" }

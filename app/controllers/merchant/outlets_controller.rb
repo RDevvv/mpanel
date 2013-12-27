@@ -30,10 +30,9 @@ class Merchant::OutletsController <  Merchant::BaseController
     @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
     @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
     @outlet = @account_brand.outlets.new(params[:outlet])  
-    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
+    @area = Area.by_area_name(params[:area_name]).first
+    if @area.blank?
       @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-    else
-      @area=Area.find(params[:outlet][:area_id])
     end
     @outlet.area = @area
     @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
@@ -87,17 +86,19 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
     @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
-    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
+    @area = Area.by_area_name(params[:area_name]).first
+    if @area.blank?
       @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-    else
-      @area=Area.find(params[:outlet][:area_id])
     end
+    
     @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
+    params[:outlet][:area_id] = @area.id
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])
         format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
       else
+        @cities = City.order("city_name")
         format.html { render action: "edit" }
       end
     end
