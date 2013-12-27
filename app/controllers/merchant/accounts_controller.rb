@@ -33,12 +33,11 @@ class Merchant::AccountsController <  Merchant::BaseController
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     respond_to do |format|
       if @account.save
-        format.html { redirect_to redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
+        format.html { redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
       end
     end
-
   end
 
   def edit
