@@ -36,6 +36,7 @@ Gullak2::Application.routes.draw do
     resources :accounts do
       collection do
         post "add_brands"
+        get 'populate_areas'
       end
       member do
         get 'verified_account'

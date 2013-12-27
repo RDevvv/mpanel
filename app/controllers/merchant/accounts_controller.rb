@@ -6,11 +6,37 @@ class Merchant::AccountsController <  Merchant::BaseController
     @accounts = current_user.accounts
   end
 
-  def create
-    @areas = Area.all
-    @cities = City.all
+  def new
+    @account = Account.new
+    @account.users.build
+    # @areas = Area.all
+    # @cities = City.all
+    @cities = City.order("city_name")
+    @areas = []
     @countries = Country.all
-    @account = Account.new(params[:account])
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+
+  def create
+    if !Pincode.find_by_pincode(params[:pincode][:pincode])
+      @pincode = Pincode.new(params[:pincode])
+      @pincode.save
+    else
+      @pincode = Pincode.find_by_pincode(params[:pincode][:pincode])
+    end
+    if !Area.find_by_area_name(params[:area_name].downcase).present?
+      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
+      @area.save
+      @account = Account.new(params[:account])
+      @account.area = @area
+    else
+      @area=Area.find(params[:account][:area_id])
+      @account = Account.new(params[:account])
+    end
+    @area_pincode = AreaPincode.new(:area_id=>@area.id,:pincode_id=>@pincode.id)
+    @area_pincode.save
     respond_to do |format|
       if @account.save
         format.html { redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
@@ -18,6 +44,17 @@ class Merchant::AccountsController <  Merchant::BaseController
         format.html { render action: "new" }
       end
     end
+    # @areas = Area.all
+    # @cities = City.all
+    # @countries = Country.all
+    # @account = Account.new(params[:account])
+    # respond_to do |format|
+    #   if @account.save
+    #     format.html { redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
+    #   else
+    #     format.html { render action: "new" }
+    #   end
+    # end
   end
 
   def edit
@@ -28,15 +65,8 @@ class Merchant::AccountsController <  Merchant::BaseController
     @accounts = Account.all
   end
 
-  def new
-    @account = Account.new
-    @account.users.build
-    @areas = Area.all
-    @cities = City.all
-    @countries = Country.all
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+  def populate_areas
+    @areas = Area.where(:city_id=>params[:city_id]).order(:area_name)
   end
 
   def destroy
