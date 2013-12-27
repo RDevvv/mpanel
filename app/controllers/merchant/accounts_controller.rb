@@ -20,41 +20,27 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
 
   def create
-    if !Pincode.find_by_pincode(params[:pincode][:pincode])
-      @pincode = Pincode.new(params[:pincode])
-      @pincode.save
-    else
-      @pincode = Pincode.find_by_pincode(params[:pincode][:pincode])
-    end
-    if !Area.find_by_area_name(params[:area_name].downcase).present?
-      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-      @area.save
-      @account = Account.new(params[:account])
-      @account.area = @area
+    @cities = City.order("city_name")
+    @areas = []
+    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
+    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
+    @account = Account.new(params[:account])  
+    if params[:area_name].present? && Area.by_area_name(params[:area_name]).blank?
+      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
     else
       @area=Area.find(params[:account][:area_id])
-      @account = Account.new(params[:account])
     end
-    @area_pincode = AreaPincode.new(:area_id=>@area.id,:pincode_id=>@pincode.id)
-    @area_pincode.save
+    @account.area = @area
+    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
+    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     respond_to do |format|
       if @account.save
-        format.html { redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
+        format.html { redirect_to redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
       end
     end
-    # @areas = Area.all
-    # @cities = City.all
-    # @countries = Country.all
-    # @account = Account.new(params[:account])
-    # respond_to do |format|
-    #   if @account.save
-    #     format.html { redirect_to verified_account_merchant_account_path(@current_account),:notice=>"Account is created!.Check your inbox to verify it" }
-    #   else
-    #     format.html { render action: "new" }
-    #   end
-    # end
+
   end
 
   def edit
