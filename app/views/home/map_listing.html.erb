@@ -1,85 +1,63 @@
-<head>
-<meta charset="utf-8">
-<title>GullakMaster - Mapview</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>-->
-<!-- Preloader -->
-<script type="text/javascript">// <![CDATA[
-$(window).load(function() { $("#spinner").fadeOut("slow"); })
-// ]]>
-</script>
-</head>
-<body>
-<!-- Preloader -->
-<header>
-    <div class="back-btn"><a href="outletview-headertest1.html" class="back-btn2" data-ftrans="slide">&nbsp;</a></div>
-    <div class="head-brand">Ice-cream</div>
-</header>
-
-<div class="container-location">
+<div align="center" class="container-location">
     <div class="row-fluid">
         <div class="span12">
             <iframe id="map_canvas" width="100%" height="209" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;spn=0.36664,0.676346&amp;t=m&amp;z=11&amp;iwloc=1&amp;cid=4670488372095120642&amp;output=embed"></iframe>
         </div>
-        <div class="ml0 span12">
-            <div class="out-add-div">
-                <% if @outlet_versions.nil? %>
-                    No results found
-            <% else %>
-                    <% @outlet_versions.each do |outlet_version| %>
-                    <% if outlet_version.is_active == true %>
-                <div class="bdiv">
-                    <div class="bbox">
-                        <% brand = outlet_version.outlet.account_brand.brand %>
-                        <div class="brandtitle"><%= brand.brand_name[0..6] %>
-                        <% unless brand.brand_name.length < 7 %>
-                                ..
-                            <% end %>
-                            </div>
-                        <div class="eye2"><a onclick="$.pnotify({
-                                title: 'Offer',
-                                text: 'The offer text would get displayed here.',
-                                opacity: .9
-                                });" class="btn source"></a></div>
-                        <div align="center" class="brandlogo">
-                            <% if brand.attachments.empty? %>
-                                <%= image_tag "assets/categories/#{brand.category.category_name}.png", :class => "img-responsive" %>
-                        <% else %>
-                                <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
-                        <% end %>
-                        </div>
-                        <div class="rch-btns-div">
-                            <% unless outlet_version.outlet.mobile_number.empty? %>
-                                <div class="btn190">
-                                <a class="button_call2" href="tel:+91-<%= outlet_version.outlet.mobile_number %>">CALL</a>
-                            </div>
-                        <% end %>
-                        </div>
-                        <div class="distance-div"><%= (outlet_version.distance * 1.6).to_f.round(2) %> km</div>
+        <div>
+            <% if @final_outlets.nil? %>
+                No results found
+        <% else %>
+                <% @final_outlets.each do |outlet| %>
+                <% if outlet.is_active == true %>
+                <% outlet.ads.each do |ad| %>
+                <div class="bdiv" id="<%= ad.id %>">
+                <div class="bbox">
+                    <% brand = outlet.account_brand.brand %>
+                    <div class="brandtitle"><%= brand.brand_name[0..6] %>
+                    <% unless brand.brand_name.length < 7 %>
+                            ..
+                    <% end %>
                     </div>
+                    <div class="eye2"><a onclick="track(this); $.pnotify({
+                            title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
+                            text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
+                            opacity: .9
+                            });" class="description btn source"></a></div>
+                    <div align="center" class="brandlogo">
+                        <% if brand.attachments.empty? %>
+                            <%= image_tag "assets/categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
+                    <% else %>
+                            <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
+                    <% end %>
+                    </div>
+                    <div class="rch-btns-div">
+                        <div class="btn190"><a class="address button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
+                        <% unless outlet.mobile_number.empty? %>
+                            <div class="btn190">
+                            <a class="call button_call2" onclick="track(this)" href="tel:+91-<%= outlet.mobile_number %>">CALL</a>
+                        </div>
+                    <% end %>
+                    </div>
+                    <div class="distance-div">Distance: <%= (outlet.distance * 1.6).to_f.round(2) %> km</div>
                     <div class="lower-box">
-                        <div class="refr2"></div>
-                        <div class="star2"></div>
+                        <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link outlet, cookies[:customer_uuid] %>" target="_blank">
+                            <div class="refr2"></div>
+                        </a>
+                        <% if outlet.ads.first.is_exclusive %>
+                            <div class="star2"></div>
+                    <% end %>
                         <div class="right-box">
-                            <a href="#">
-                                <div class="run2"></div>
-                                <div class="runtxt">20.3K</div>
-                            </a>
+                            <div class="run2"></div>
+                            <div class="runtxt"><%= ad.button_clicks.where(:button_class => "share").count %></div>
                         </div>
                     </div>
                 </div>
-            <% end %>
-            <% end %>
-            <% end %>
             </div>
+        <% end %>
+        <% end %>
+        <% end %>
+            <%= paginate @final_outlets %>
+        <% end %>
         </div>
     </div>
 </div>
-</body>
