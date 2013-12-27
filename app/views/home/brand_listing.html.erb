@@ -8,6 +8,8 @@
           <% @final_outlets.each do |outlet| %>
               <% if outlet.is_active == true %>
                   <% outlet.ads.each do |ad| %>
+                      <% puts "brand_id =======> #{ad.account_brand.brand_id}" %>
+                      <% if ad.account_brand.brand_id == params[:brand_id].to_i %>
                       <div class="bdiv" id="<%= ad.id %>">
                         <div class="bbox">
                           <% brand = outlet.account_brand.brand %>
@@ -37,7 +39,7 @@
                                 </div>
                             <% end %>
                           </div>
-                          <div class="distance-div">Distance: <%= (outlet.distance * 1.6).to_f.round(2) %> km</div>
+                          <div class="distance-div">.</div>
                           <div class="lower-box">
                             <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link outlet, cookies[:customer_uuid] %>" target="_blank">
                               <div class="refr2"></div>
@@ -53,6 +55,7 @@
                         </div>
                       </div>
                   <% end %>
+                <% end %>
               <% end %>
           <% end %>
         <%#= paginate @final_outlets %>
@@ -67,3 +70,4 @@
 </div>
 <% @brands = @brands.uniq %>
 <%# binding.pry %>
+

@@ -62,7 +62,7 @@ class HomeController < ApplicationController
                         end
                     end
                     @final_outlets = @outlets_without_ad + @outlets_with_ad
-                    @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
+                    #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
                 end
             end
         else
@@ -70,10 +70,30 @@ class HomeController < ApplicationController
         end
     end
 
+    def brand_listing
+        @final_outlets = Brand.find(params[:brand_id]).sort_by_brands
+    end
+
     def map_listing
         latitude = params["latitude"]
         longitude = params["longitude"]
-        @outlet_versions = OutletVersion.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        @outlets_with_ad = Array.new
+        @outlets_without_ad = Array.new
+        outlets_with_ad_index = 0
+        outlets_without_ad_index = 0
+
+        @outlets.each do |outlet|
+            if outlet.ads.empty?
+                @outlets_without_ad[outlets_without_ad_index] = outlet
+                outlets_without_ad_index +=1
+            else
+                @outlets_with_ad[outlets_with_ad_index] = outlet
+                outlets_with_ad_index +=1
+            end
+        end
+        @final_outlets = @outlets_without_ad + @outlets_with_ad
+        @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 
     def individual_outlet

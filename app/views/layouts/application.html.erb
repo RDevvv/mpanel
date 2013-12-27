@@ -48,30 +48,16 @@
         <form id="searchForm">
           <fieldset>
             <div class="input">
-              <input type="search" name="s" id="s" value="Enter Category..."/>
+              <input type="search" name="search" id="s" value="Enter Category..." onFocus="this.value=''"/>
             </div>
             <input type="submit" id="searchSubmit" value=""/>
           </fieldset>
         </form>
       </li>
 
-      <li><a href="#">Aura</a></li>
-      <li><a href="#">Amore</a></li>
-      <li><a href="#">Maple</a></li>
-
-      <li>&nbsp;</li>
-
-      <li><a href="#">Aura</a></li>
-      <li><a href="#">Amore</a></li>
-      <li><a href="#">Maple</a></li>
-
-      <li>&nbsp;</li>
-
-      <li><a href="#">Aura</a></li>
-      <li><a href="#">Amore</a></li>
-      <li><a href="#">Maple</a></li>
-
-      <li>&nbsp;</li>
+      <% @brands.each do |brand| %>
+          <li><a href="#"><%= brand.brand_name %></a></li>
+      <% end %>
     </ul>
   </nav>
 </div>

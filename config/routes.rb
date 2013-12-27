@@ -80,6 +80,7 @@ Gullak2::Application.routes.draw do
   # MAIN APP ROUTES
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
+    match 'brand_listing/:brand_id' => 'home#brand_listing'
     match 'map_listing' => 'home#map_listing'
     match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
     match 'individual_outlet/(:id)' => 'home#individual_outlet'
