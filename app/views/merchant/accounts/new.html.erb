@@ -49,9 +49,10 @@
                 <%= text_field_tag "pincode[pincode]",'', :placeholder=>"Pincode", :class=>"validate[required,minSize[6],maxSize[6]", "data-prompt-position"=>"topLeft"%>               
               </div>
             </div>
-
-            <%= f.fields_for :users do |builder| %>
-              <%= render "user_fields", :f => builder %>
+            <% unless current_merchant_user %>
+              <%= f.fields_for :users do |builder| %>
+                <%= render "user_fields", :f => builder %>
+              <% end %>
             <% end %>
 
           </div>  

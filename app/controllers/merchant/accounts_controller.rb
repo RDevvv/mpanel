@@ -25,12 +25,17 @@ class Merchant::AccountsController <  Merchant::BaseController
     @area = Area.by_area_name(params[:area_name]).first
     @account = Account.new(params[:account])  
     @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase) if @area.blank?
-    
     @account.area = @area
     @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
+    @account.pincode = @pincode
+    @account.users << current_merchant_user if current_merchant_user
     respond_to do |format|
       if @account.save
+        if current_merchant_user
+          format.html { redirect_to merchant_accounts_path()}
+        else
+        end
         format.html { redirect_to verified_account_merchant_account_path(@account),:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
@@ -69,6 +74,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase) if @area.blank?
     params[:account][:area_id] = @area.id
+    params[:account][:pincode_id] = @pincode.id
     respond_to do |format|
       if @account.update_attributes(params[:account])
         format.html { redirect_to merchant_account_path ,:notice=>"Account Succesfully Updated" }

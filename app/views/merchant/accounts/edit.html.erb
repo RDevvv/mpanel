@@ -24,33 +24,33 @@
               </div>
             </div>
 
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label">Account </label>
               <div class="controls">
                 <label class="checkbox inline" style="padding-left:20px;">
-                  <%= f.check_box :is_active,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Active
+                  <%#= f.check_box :is_active,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Active
                 </label>
                 <label class="checkbox inline" style="padding-left:20px;">
-                  <%= f.check_box :is_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Verified
+                  <%#= f.check_box :is_verified,:class=>"inline-checkbox padded",:style=>"width:20px;" %> Verified
                 </label>
               </div>    
-            </div>
+            </div> -->
 
             <div class="control-group">
               <label class="control-label">Select City</label>
               <div class="controls">
-                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name),:prompt=>"Select City",:placeholder=>"Select City" ,:class=>"validate[required]"%>
+                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,@account.area.try(:city_id)),:prompt=>"Select City",:placeholder=>"Select City" ,:class=>"validate[required]"%>
               </div>
             </div>
 
             <div class="control-group">
               <label class="control-label">Area</label>
               <div class="controls" id="area_div">
-                <%= select_tag "account[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
-                <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a>
-                <div id="new_area_textbox" style="display:none"> 
-                  <%= text_field_tag :area_name %>
-                  <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a>
+                <%#= select_tag "account[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
+                <!-- <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a> -->
+                <div id="new_area_textbox" style="display:none1"> 
+                  <%= text_field_tag :area_name,@account.area.try(:area_name) %>
+                  <!-- <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a> -->
                 </div>           
               </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="control-group">
               <label class="control-label">Pincode</label>
               <div class="controls">
-                <%= text_field_tag "pincode[pincode]",'', :placeholder=>"Pincode", :class=>"validate[required,minSize[6],maxSize[6]", "data-prompt-position"=>"topLeft"%>               
+                <%= text_field_tag "pincode[pincode]",@account.pincode.try(:pincode), :placeholder=>"Pincode", :class=>"validate[required,minSize[6],maxSize[6]", "data-prompt-position"=>"topLeft"%>               
               </div>
             </div>
 
