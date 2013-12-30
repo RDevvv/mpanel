@@ -2,8 +2,6 @@ class Area < ActiveRecord::Base
   attr_accessible :area_name, :city_id, :latitude, :longitude, :city_name,:pincode
   has_many :accounts, :dependent => :destroy
   has_many :outlets, :dependent => :destroy
-  has_many :area_pincodes, :dependent => :destroy
-  has_many :pincodes, :through => :area_pincodes
   belongs_to :city
   
 
@@ -29,8 +27,6 @@ class Area < ActiveRecord::Base
     city.country
   end
   
-  def get_first_pincode
-    self.pincodes.first.pincode
-  end
+ 
 	
 end
