@@ -9,6 +9,7 @@ class Merchant::BaseController < ApplicationController
 
   protected
   def load_account
+    
     if current_user
       @current_account = current_user.accounts.find(params[:account_id]) if params[:account_id]
       @current_account = @current_account || current_user.accounts.first
