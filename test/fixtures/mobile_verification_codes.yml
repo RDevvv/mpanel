@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  verification_code: MyString
+  customer: 
+
+two:
+  verification_code: MyString
+  customer: 

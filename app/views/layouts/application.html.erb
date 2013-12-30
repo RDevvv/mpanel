@@ -34,7 +34,6 @@
   <div class="head-brand">GullakMaster</div>
   <ul class="right-icons">
     <li><a href="#" class="invfrnd2"></a></li>
-    <li><a href="#" class="loc">&nbsp;</a></li>
   </ul>
 
   <nav id="menu">
@@ -42,37 +41,21 @@
       <li class="subcat">Sort by:</li>
       <li><a href="#">Distance</a></li>
       <li><a href="#">Hot Picks</a></li>
-      <li><a href="#">Personalize</a></li>
       <li>&nbsp;</li>
       <li class="subcat">Filter by:</li>
       <li style="margin-top:10px;">
-        <form id="searchForm">
-          <fieldset>
-            <div class="input">
-              <input type="search" name="s" id="s" value="Enter Category..."/>
-            </div>
-            <input type="submit" id="searchSubmit" value=""/>
-          </fieldset>
-        </form>
+        <%= form_tag 'outlet_search', :id => 'searchForm' do |f|  %>
+            <fieldset>
+              <div class="input">
+                <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
+              </div>
+            </fieldset>
+        <% end %>
       </li>
 
-      <li><a href="#">Aura</a></li>
-      <li><a href="#">Amore</a></li>
-      <li><a href="#">Maple</a></li>
-
-      <li>&nbsp;</li>
-
-      <li><a href="#">Aura</a></li>
-      <li><a href="#">Amore</a></li>
-      <li><a href="#">Maple</a></li>
-
-      <li>&nbsp;</li>
-
-      <li><a href="#">Aura</a></li>
-      <li><a href="#">Amore</a></li>
-      <li><a href="#">Maple</a></li>
-
-      <li>&nbsp;</li>
+      <% @brands.each do |brand| %>
+          <li><a href="#"><%= brand.brand_name %></a></li>
+      <% end %>
     </ul>
   </nav>
 </div>

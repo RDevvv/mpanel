@@ -1,0 +1,27 @@
+<h1>Listing sms_sents</h1>
+
+<table>
+  <tr>
+    <th>Text</th>
+    <th>Customer</th>
+    <th>Ad promocode</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sms_sents.each do |sms_sent| %>
+  <tr>
+    <td><%= sms_sent.text %></td>
+    <td><%= sms_sent.customer_id %></td>
+    <td><%= sms_sent.ad_promocode_id %></td>
+    <td><%= link_to 'Show', sms_sent %></td>
+    <td><%= link_to 'Edit', edit_sms_sent_path(sms_sent) %></td>
+    <td><%= link_to 'Destroy', sms_sent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sms sent', new_sms_sent_path %>

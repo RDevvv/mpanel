@@ -10,6 +10,7 @@ class Ad < ActiveRecord::Base
   has_many :outlets,:through=>:ad_promocode_outlets
   has_many :ad_groups, :dependent => :destroy
   has_many :facebook_shares
+  has_many :button_clicks
   
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true

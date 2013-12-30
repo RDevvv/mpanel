@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Text:</b>
+  <%= @sms_sent.text %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @sms_sent.customer_id %>
+</p>
+
+<p>
+  <b>Ad promocode:</b>
+  <%= @sms_sent.ad_promocode_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sms_sent_path(@sms_sent) %> |
+<%= link_to 'Back', sms_sents_path %>

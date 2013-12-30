@@ -1408,31 +1408,31 @@ Brand.create([
 ])
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 1)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/CCD.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/CCD.jpg"))
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 2)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/amoregelato.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/amoregelato.jpg"))
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 3)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/Cocoberry.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/Cocoberry.jpg"))
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 4)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/aromathai.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/aromathai.jpg"))
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 5)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/auraspaworld.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/auraspaworld.jpg"))
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 6)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/Croma.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/Croma.jpg"))
 logo.save
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 7)
-logo.image.store!(File.open("/home/vivek/projects/Gullak-2/app/assets/images/seeds/themobilestore.jpg"))
+logo.image.store!(File.open("app/assets/images/seeds/themobilestore.jpg"))
 logo.save
 
 Category.create([

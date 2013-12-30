@@ -1,5 +1,7 @@
 Gullak2::Application.routes.draw do
 
+  resources :sms_sents
+  resources :ads
   resources :call_forwardings
   resources :customer_sessions
   resources :button_clicks
@@ -7,10 +9,12 @@ Gullak2::Application.routes.draw do
   resources :call_button_selects
   resources :customers
 
+  get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
   get "get_call_click/:id" => "call_button_selects#get_click"
-  get "get_button_click/:id/:button_class" => "button_clicks#get_click"
+  post "get_button_click" => "button_clicks#get_click"
   get "get_call_forwarding" => "call_forwardings#get_customer_number"
   get "set_call_forwarding" => "call_forwardings#return_outlet_number"
+  post "set_sms_data" => "sms_sents#set_sms_data"
 
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"
@@ -84,6 +88,8 @@ Gullak2::Application.routes.draw do
   # MAIN APP ROUTES
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
+    match 'outlet_search' => 'home#outlet_search'
+    match 'brand_listing/:brand_id' => 'home#brand_listing'
     match 'map_listing' => 'home#map_listing'
     match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
     match 'individual_outlet/(:id)' => 'home#individual_outlet'

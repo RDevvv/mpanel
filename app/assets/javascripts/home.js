@@ -1,22 +1,40 @@
 function track(element) {
-    check_class = $(element).attr("class");
-    if (check_class == "button_call2") {
-        console.log("within if condition");
-        $.ajax({
-            url: "get_call_click/".concat($.cookie("customer_uuid")).concat(".json")
-        }).done(function () {
-            console.log("vivekkkkkk");
-        })
-    }
-    else //if(check_class=="button_map2")
-        {
-            console.log("within else condition");
-            $.ajax({
-                url: "get_button_click/".concat($.cookie("customer_uuid")).concat("/").concat(check_class).concat(".json")
-                //add window.location.pathname to to given string
-            }).done(function () {
-            })
-        }
+    customer_uuid = $.cookie("customer_uuid");
+    button_class  = $(element).attr("class").split(" ")[0];
+    box_element   = $(element).closest('div[class="bdiv"]');
+    ad_id         = box_element.attr("id");
+    outlet_id     = box_element.attr("outlet_id");
+    current_link  = window.location.pathname;
 
+
+    $.ajax({
+        url: "get_button_click.json",
+        type: "post",
+        data: {
+            'customer_uuid': customer_uuid,
+            'ad_id': ad_id,
+            'outlet_id': outlet_id,
+            'button_class': button_class,
+            'current_link': current_link
+        }
+    }).done(function () {
+    })
 }
 
+function send_ad(customer_uuid, element)
+{
+    customer_uuid = $.cookie("customer_uuid");
+    ad_id         = $(element).closest('div[class="bdiv"]').attr("id");
+    outlet_id     = $(element).closest('div[class="bdiv"]').attr("outlet_id");
+
+    $.ajax({
+        url: "set_sms_data.json",
+        type: "post",
+        data: {
+            'customer_uuid': customer_uuid,
+            'ad_id': ad_id,
+            'outlet_id': outlet_id
+        }
+    }).done(function () {
+    })
+}

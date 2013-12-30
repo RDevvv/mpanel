@@ -131,6 +131,21 @@ class Outlet < ActiveRecord::Base
     outlet
   end
 
+  def get_brands
+      brands = Array.new
+      self.ads.each do |ad|
+          brands.push ad.account_brand.brand
+      end
+      brands.uniq
+  end
 
-
+  def sort_by_brands(brand_id)
+      outlets = Array.new
+      Brand.find(brand_id).account_brands.each do |account_brand|
+          account_brand.ads.each do |ad|
+              outlets.push ad.outlets
+          end
+      end
+      outlets = outlets.flatten.uniq
+  end
 end

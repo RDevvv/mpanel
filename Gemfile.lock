@@ -215,6 +215,7 @@ GEM
       rake (>= 0.8.1)
     pg (0.17.0)
     polyglot (0.3.3)
+    pr_geohash (1.0.0)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -283,6 +284,8 @@ GEM
     remotipart (1.2.1)
     require_all (1.3.2)
     rolify (3.2.0)
+    rsolr (1.0.9)
+      builder (>= 2.1.2)
     ruby-hmac (0.4.0)
     ruby-progressbar (1.2.0)
     safe_yaml (0.9.7)
@@ -323,6 +326,14 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
+    sunspot (2.1.0)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.0.7)
+    sunspot_rails (2.1.0)
+      nokogiri
+      rails (>= 3)
+      sunspot (= 2.1.0)
+    sunspot_solr (2.1.0)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     test-unit (2.5.5)
@@ -407,6 +418,8 @@ DEPENDENCIES
   sextant
   shortener
   simplecov
+  sunspot_rails
+  sunspot_solr
   therubyracer
   turbo-sprockets-rails3
   twitter-bootstrap-rails (= 2.2.7)
