@@ -5,6 +5,8 @@ class Area < ActiveRecord::Base
   has_many :area_pincodes, :dependent => :destroy
   has_many :pincodes, :through => :area_pincodes
   belongs_to :city
+  
+
   geocoded_by :area_name   # can also be an IP address
 	after_validation :geocode #, :if => :address_changed?
   validates_presence_of :area_name
@@ -14,6 +16,14 @@ class Area < ActiveRecord::Base
 
   def name
     area_name
+  end
+
+  def country
+    city.country
+  end
+  
+  def get_first_pincode
+    self.pincodes.first.pincode
   end
 	
 end

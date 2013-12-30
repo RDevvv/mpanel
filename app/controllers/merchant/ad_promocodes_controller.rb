@@ -27,6 +27,7 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
     params[:ad_promocode][:outlet_ids] =params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
 
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
+    
     respond_to do |format|
       if @ad_promocode.valid?
         @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name])

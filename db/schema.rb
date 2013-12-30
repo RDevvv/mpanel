@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230060417) do
+ActiveRecord::Schema.define(:version => 20131230062755) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -348,6 +348,7 @@ ActiveRecord::Schema.define(:version => 20131230060417) do
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
     t.time     "deleted_at"
+    t.string   "pincode"
   end
 
   create_table "pincodes", :force => true do |t|

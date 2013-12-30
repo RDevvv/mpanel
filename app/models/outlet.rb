@@ -3,7 +3,7 @@ require 'csv'
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
-  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number
+  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number,:pincode
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
 
   has_many :outlet_versions
@@ -26,7 +26,7 @@ class Outlet < ActiveRecord::Base
   after_save :geocode,:if => :address_changed?
   after_create :add_uniq_outlet_key
   geocoded_by :geocoding_address
-  before_save :cleanup_landline
+  
 
   def cleanup_landline
     if self.phone_number.present? 
@@ -130,6 +130,7 @@ class Outlet < ActiveRecord::Base
     end
     outlet = account_brand.outlets.new(params[:outlet])
     outlet.area_id = area.id
+    outlet.pincode = pincode.pincode
     outlet.save
     outlet
   end
