@@ -16,6 +16,7 @@ class HomeController < ApplicationController
             session[:new_session] = 1
             agent = request.env['HTTP_USER_AGENT']
             parsed_agent = UserAgent.parse(agent)
+            puts "vivekkkkkkkkkkkkkk"
             customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
             CustomerSession.create(:customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
         end
@@ -32,11 +33,11 @@ class HomeController < ApplicationController
 
     def outlet_listing
         unless params[:location].nil?
-            location_cache = LocationCache.where("location = '%#{params[:location].downcase}%'")
-            if location_cache.count == 1
+            location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
+            #if location_cache.count == 1
                 latitude = location_cache.first.latitude
                 longitude = location_cache.first.longitude
-            else
+            #else
                 result = Geocoder.search(params[:location]+" india")
                 if result.empty?
                     @outlets = nil
@@ -64,7 +65,7 @@ class HomeController < ApplicationController
                     @final_outlets = @outlets_without_ad + @outlets_with_ad
                     #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
                 end
-            end
+            #end
         else
             @outlets = nil
         end
@@ -93,7 +94,7 @@ class HomeController < ApplicationController
             end
         end
         @final_outlets = @outlets_without_ad + @outlets_with_ad
-        @final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
+        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 
     def individual_outlet
