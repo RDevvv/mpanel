@@ -1,0 +1,29 @@
+<%= render :partial=>'header' %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+      <div class="box-header">
+        <span class="title">Add Promocode</span>
+      </div>
+
+      <div class="box-content">
+        <%= form_tag(add_more_outlets_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)) do %>
+          <div class="padded">    
+            <div class="control-group">
+              <label class="control-label">Promocode *</label>
+              <div class="controls">
+                <%= select_tag("outlet_ids",options_from_collection_for_select(@outlets,:id,:address,{}),:multiple=>true,:class=>"chzn-select validate[required] span11") %>          
+                    
+              </div>
+            </div>
+          </div>  
+          <div class="clearfix"></div> 
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Add Promocode</button>
+          </div>
+                  
+        <% end %>       
+      </div>  
+    </div>
+  </div>
+</div> 

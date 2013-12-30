@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131224114454) do
+ActiveRecord::Schema.define(:version => 20131230123634) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -33,17 +33,16 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "owner_id"
-    t.integer  "pincode"
-    t.string   "city"
+    t.integer  "pincode_id"
   end
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
-    t.boolean  "is_active",  :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.boolean  "is_active",   :default => true
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "ad_id"
+    t.boolean  "is_multiple", :default => false
   end
 
   create_table "ad_keywords", :force => true do |t|
@@ -63,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
   end
 
   create_table "ad_promocodes", :force => true do |t|
+    t.string   "set_name"
     t.string   "promocode"
     t.integer  "ad_id"
     t.float    "cap"
@@ -70,9 +70,8 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.boolean  "is_used",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "is_active"
+    t.boolean  "is_active",   :default => true
     t.integer  "ad_group_id"
-    t.integer  "set_name"
   end
 
   create_table "ad_versions", :force => true do |t|
@@ -119,7 +118,6 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "ads", :force => true do |t|
-    t.integer  "latest_version_id"
     t.integer  "account_brand_id"
     t.string   "ad_title"
     t.boolean  "is_monday"
@@ -133,15 +131,21 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.datetime "expiry_date"
     t.boolean  "is_active"
     t.text     "sms_text"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.boolean  "is_exclusive"
+  end
+
+  create_table "area_pincodes", :force => true do |t|
+    t.integer  "area_id"
+    t.integer  "pincode_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "areas", :force => true do |t|
     t.integer  "city_id"
     t.string   "area_name"
-    t.string   "pincode"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.float    "latitude"
@@ -250,6 +254,16 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.integer  "incentive_count"
   end
 
+  create_table "facebook_shares", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "facebook_shares", ["ad_id"], :name => "index_facebook_shares_on_ad_id"
+  add_index "facebook_shares", ["customer_id"], :name => "index_facebook_shares_on_customer_id"
+
   create_table "industries", :force => true do |t|
     t.string   "industry_name"
     t.datetime "created_at",    :null => false
@@ -285,36 +299,6 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "country_id"
-  end
-
-  create_table "multiple_codes_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "multiple_codes_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.datetime "end_date"
-  end
-
-  create_table "outlet_ads", :force => true do |t|
-    t.integer  "ad_id"
-    t.integer  "outlet_id"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "outlet_types", :force => true do |t|
@@ -366,6 +350,13 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
     t.time     "deleted_at"
+    t.integer  "pincode_id"
+  end
+
+  create_table "pincodes", :force => true do |t|
+    t.string   "pincode"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -405,26 +396,6 @@ ActiveRecord::Schema.define(:version => 20131224114454) do
   add_index "shortened_urls", ["owner_id", "owner_type"], :name => "index_shortened_urls_on_owner_id_and_owner_type"
   add_index "shortened_urls", ["unique_key"], :name => "index_shortened_urls_on_unique_key", :unique => true
   add_index "shortened_urls", ["url"], :name => "index_shortened_urls_on_url"
-
-  create_table "single_code_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "single_code_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
 
   create_table "states", :force => true do |t|
     t.string   "state_name"

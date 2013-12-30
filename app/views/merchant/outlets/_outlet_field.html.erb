@@ -1,19 +1,24 @@
-  <div class="control-group">
-    <label class="control-label">Select City</label>
-    <div class="controls">
-      <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name),:prompt=>"Select City",:placeholder=>"Select City" %>
-    </div>
+<div class="control-group">
+  <label class="control-label">Select City</label>
+  <div class="controls">
+    <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,@outlet.area.try(:city_id)),:prompt=>"Select City",:placeholder=>"Select City",:class=>"validate[required]" %>
   </div>
+</div>
 
 <div class="control-group">
   <label class="control-label">Area</label>
   <div class="controls" id="area_div">
-    <%= select_tag "outlet[area_id]", options_from_collection_for_select(@areas,:id,:area_name),:placeholder=>"Select Area",:id=>"select_area" %>  
-    <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a>
-    <div id="new_area_textbox" style="display:none"> 
-      <%= text_field_tag :area_name %>
-      <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a>
+    <%# if @outlet.area.present? %>
+      <%#= select_tag "outlet[area_id]", options_from_collection_for_select(@outlet.area.city.areas,:id,:area_name,@outlet.area_id),:placeholder=>"Select Area",:id=>"select_area" %>  
+    <% #else %>
+      <%#= select_tag "outlet[area_id]", options_from_collection_for_select(@areas,:id,:area_name,@outlet.area_id),:placeholder=>"Select Area",:id=>"select_area" %>  
+    <%# end %>  
+    <!-- <a href="javascript:void(0)" id="new_area_link">Don't find your area? Create your area</a> -->
+    <div id="new_area_textbox" style=""> 
+      <%= text_field_tag :area_name,@outlet.area.try(:area_name),:class=>"validate[required]" %>
+      <!-- <a href="javascript:void(0)" id="select_area_link">Select Area from existing</a> -->
     </div>           
+    
   </div>
 
 </div>
@@ -26,9 +31,16 @@
 </div>
 
 <div class="control-group">
+  <label class="control-label">Pincode</label>
+  <div class="controls">
+    <%= text_field_tag "pincode[pincode]",@outlet.pincode.try(:pincode), :placeholder=>"Pincode", :class=>"validate[required,minSize[6],maxSize[6]", "data-prompt-position"=>"topLeft"%>               
+  </div>
+</div>
+
+<div class="control-group">
   <label class="control-label">Email Id</label>
   <div class="controls">
-    <%= f.text_field :email_id, :placeholder=>"Email Id", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+    <%= f.email_field :email_id, :placeholder=>"Email Id", :class=>"validate[required,email]", "data-prompt-position"=>"topLeft"%>
   </div>
 </div>
 
@@ -46,9 +58,6 @@
   </div>
 </div>
 
-<%#= f.fields_for :areas do |builder| %>
-  <%#= render "area_field", :f => builder %>
-<%# end %>
 
 <script type="text/javascript">
 $(document).ready(function(){

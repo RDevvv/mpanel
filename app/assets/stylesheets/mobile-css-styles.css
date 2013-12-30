@@ -443,9 +443,15 @@ border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: sol
 /*border:solid 5px #000;*/ position: absolute; top:0px; right: -20px; height:30px;
 background: url(bigger-icons.png) no-repeat -359px -189px transparent; /*padding: 0 3px 0px 14px;*/ padding:14px 3px 11px 17px; width:auto; height:auto; /*border: none;*/}
 ul.left-icons li a.srchlink3{
-border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: solid 5px #F08B38; border-bottom: solid 0px #fff;
-/*border:solid 5px #000; left: 2px;*/ position: absolute; top:0; left: -5px; height:30px;
-background: url(bigger-icons.png) no-repeat -142px -362px transparent; /*padding: 0 3px 0px 14px;*/ padding:15px 4px 11px 16px; width:30px; height:auto; /*width:auto; border: none;*/}
+border-top: solid 5px #F08B38;
+border-left: solid 5px #F08B38; 
+border-right: solid 5px #F08B38; 
+border-bottom: solid 0px #fff;
+/*border:solid 5px #000; left: 2px;*/
+position: absolute; top:0; left: -5px; 
+height:30px;
+background: url(bigger-icons.png) no-repeat -142px -362px transparent; /*padding: 0 3px 0px 14px;*/ 
+padding:15px 4px 11px 16px; width:auto; height:auto; /*width:auto; border: none;*/}
 
 
 ul.left-icons li a.srchlink4{

@@ -40,6 +40,7 @@ Gullak2::Application.routes.draw do
     resources :accounts do
       collection do
         post "add_brands"
+        get 'populate_areas'
       end
       member do
         get 'verified_account'
@@ -57,9 +58,8 @@ Gullak2::Application.routes.draw do
             get 'populate_areas'
           end
         end
-
+        resources :keywords
         resources :ads do
-          resources :keywords
           resources :ad_promocodes do
             collection do
               post 'add_single_code'
@@ -70,6 +70,10 @@ Gullak2::Application.routes.draw do
             member do
               post 'toggle_active'
               get 'delete_outlet'
+              get 'more_promocodes'
+              get 'more_outlets'
+              post 'add_more_promocodes'
+              post 'add_more_outlets'
             end  
           end
         end

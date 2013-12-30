@@ -26,15 +26,19 @@ class Merchant::OutletsController <  Merchant::BaseController
     @areas = Area.where(:city_id=>params[:city_id]).order(:area_name)
   end
 
-	def create	
-    if !Area.find_by_area_name(params[:area_name].downcase).present?
-      @area = Area.new(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-      @area.save
-      @outlet = @account_brand.outlets.new(params[:outlet])
-      @outlet.area = @area
-    else
-  		@outlet = @account_brand.outlets.new(params[:outlet])
+	def create
+    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
+    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
+    @outlet = @account_brand.outlets.new(params[:outlet])  
+    @area = Area.by_area_name(params[:area_name]).first
+    if @area.blank?
+      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
     end
+    @outlet.area = @area
+    
+    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
+    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
+    @outlet.pincode_id = @pincode.id
     respond_to do |format|
       if @outlet.save
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
@@ -48,7 +52,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     send_file "#{Rails.root}/public/outlet_template.csv"
   end
 
-  def upload_outlets
+  def upload_outletsm
     
   end
 
@@ -75,17 +79,29 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
  	def edit
-		@outlet = @account_brand.outlets.find(params[:id])	
+    @outlet = @account_brand.outlets.find(params[:id])	
     @cities = City.order("city_name")
     @areas =[]
 	end
 
 	def update
-		@outlet = @account_brand.outlets.find(params[:id])
+    @outlet = @account_brand.outlets.find(params[:id])
+    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
+    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
+    @area = Area.by_area_name(params[:area_name]).first
+    if @area.blank?
+      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
+    end
+    
+    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
+    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
+    params[:outlet][:area_id] = @area.id
+    params[:outlet][:pincode_id] = @pincode.id
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])
-        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
+        format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
       else
+        @cities = City.order("city_name")
         format.html { render action: "edit" }
       end
     end
