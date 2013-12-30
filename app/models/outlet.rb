@@ -104,11 +104,12 @@ class Outlet < ActiveRecord::Base
     city = nil
 
     cities = City.by_name(city_name) if city_name.present?
-    picode_areas = Area.by_pincode(pincode)  if pincode.present?
+    binding.pry
+    pincode_areas = Area.by_pincode(pincode)  if pincode.present?
     areas = Area.by_name(area_name)  if area_name.present?
     if cities.present?
       city = cities.first
-    elsif  picode_areas.present?
+    elsif  pincode_areas.present?
       city = picode_areas.first.city 
     elsif areas.present?
       city = areas.first.city
