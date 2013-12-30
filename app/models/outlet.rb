@@ -19,10 +19,12 @@ class Outlet < ActiveRecord::Base
   validates :mobile_number, :format => { :with => /^[7-9]\d{9}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	validates :phone_number,  :format=>{:with =>  /^[0-9]\d{0,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
+  validates_uniqueness_of :outlet_key
   validates_presence_of  :address
   validates_presence_of :account_brand, :area
 
   after_save :geocode,:if => :address_changed?
+  after_create :add_uniq_outlet_key
   geocoded_by :geocoding_address
   before_save :cleanup_landline
 
@@ -36,13 +38,23 @@ class Outlet < ActiveRecord::Base
   def geocoding_address
     [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
-  
+
+  def add_uniq_outlet_key  
+    self.outlet_key = rand.to_s[2..7] 
+    if self.valid?
+      self.save
+    else
+      add_uniq_outlet_key   
+    end
+    
+  end
 
   def lat
+    self.latitude || self.area.latitude || self.city.latitude
   end
 
   def long
-    
+     self.longitude || self.area.longitude || self.city.longitude
   end
 
   def self.import(file,account_brand_id)
