@@ -12,15 +12,12 @@ class HomeController < ApplicationController
 
     def record_session
         unless session[:new_session] == 1
-            puts "within else condition => #{session[:new_session]}"
             session[:new_session] = 1
             agent = request.env['HTTP_USER_AGENT']
             parsed_agent = UserAgent.parse(agent)
-            puts "vivekkkkkkkkkkkkkk"
             customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
             CustomerSession.create(:customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
         end
-        puts "new session ===>#{session[:new_session]}<==="
     end
 
     def get_referer
@@ -103,5 +100,10 @@ class HomeController < ApplicationController
 
     def refered_listing
         #@refered_ad = Outlet.find(params[:id1])
+    end
+
+    def outlet_search
+        puts params[:search]
+
     end
 end
