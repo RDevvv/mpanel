@@ -1,8 +1,7 @@
 Gullak2::Application.routes.draw do
 
   resources :sms_sents
-
-
+  resources :ads
   resources :call_forwardings
   resources :customer_sessions
   resources :button_clicks
@@ -10,6 +9,7 @@ Gullak2::Application.routes.draw do
   resources :call_button_selects
   resources :customers
 
+  get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
   get "get_call_click/:id" => "call_button_selects#get_click"
   get "get_button_click/:id/:button_class/:current_link/:ad_id" => "button_clicks#get_click"
   get "get_call_forwarding" => "call_forwardings#get_customer_number"
