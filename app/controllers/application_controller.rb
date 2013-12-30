@@ -27,6 +27,8 @@ class ApplicationController < ActionController::Base
           "merchant"
       elsif controller_name == 'home' && action_name == 'index'
           "home_index"
+      elsif controller_name == 'customers'
+          "home_index"
       elsif controller_name == 'ads'
           "home_index"
       else
