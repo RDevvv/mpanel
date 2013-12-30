@@ -44,14 +44,13 @@
       <li>&nbsp;</li>
       <li class="subcat">Filter by:</li>
       <li style="margin-top:10px;">
-        <form id="searchForm">
-          <fieldset>
-            <div class="input">
-              <input type="search" name="search" id="s" value="Enter Category..." onFocus="this.value=''"/>
-            </div>
-            <input type="submit" id="searchSubmit" value=""/>
-          </fieldset>
-        </form>
+        <%= form_tag 'outlet_search', :id => 'searchForm' do |f|  %>
+            <fieldset>
+              <div class="input">
+                <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
+              </div>
+            </fieldset>
+        <% end %>
       </li>
 
       <% @brands.each do |brand| %>
