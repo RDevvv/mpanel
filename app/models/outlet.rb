@@ -6,7 +6,6 @@ class Outlet < ActiveRecord::Base
   attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
 
-  has_many :outlet_versions
   has_many :ads,:through=>:ad_promocode_outlets
   belongs_to :area
   belongs_to :account_brand
