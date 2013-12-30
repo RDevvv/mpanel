@@ -3,7 +3,7 @@ require 'csv'
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
-  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number,:pincode
+  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number,:pincode_id
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
 
   has_many :outlet_versions
@@ -11,6 +11,7 @@ class Outlet < ActiveRecord::Base
   belongs_to :area
   belongs_to :account_brand
   belongs_to :outlet_type
+  belongs_to :pincode
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :ad_promocodes,:through=>:ad_promocode_outlets
 
@@ -22,10 +23,6 @@ class Outlet < ActiveRecord::Base
   validates_uniqueness_of :outlet_key
   validates_presence_of  :address
   validates_presence_of :account_brand, :area
-  validates :pincode ,:presence => true,
-            :length => { :within => 5..6 },
-            :numericality => { :only_integer => true }
-
   after_save :geocode,:if => :is_address_changed?
   after_create :add_uniq_outlet_key
   geocoded_by :geocoding_address
@@ -39,11 +36,11 @@ class Outlet < ActiveRecord::Base
   end
 
   def is_address_changed?
-    address_changed? || pincode_changed?
+    address_changed? || pincode_id_changed? || area_id_changed?
   end
 
   def geocoding_address
-    [self.address, self.area.area_name, self.area.city.name, self.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+    [self.address, self.area.area_name, self.area.city.name, self.pincode.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
 
   def add_uniq_outlet_key  
@@ -137,7 +134,7 @@ class Outlet < ActiveRecord::Base
     end
     outlet = account_brand.outlets.new(params[:outlet])
     outlet.area_id = area.id
-    outlet.pincode = pincode.pincode
+    outlet.pincode_id = pincode.id
     outlet.save
     outlet
   end
