@@ -4,6 +4,7 @@
             <iframe id="map_canvas" width="100%" height="209" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;spn=0.36664,0.676346&amp;t=m&amp;z=11&amp;iwloc=1&amp;cid=4670488372095120642&amp;output=embed"></iframe>
         </div>
         <div>
+        <% @brands = Array.new %>
             <% if @final_outlets.nil? %>
                 No results found
         <% else %>
@@ -14,6 +15,7 @@
                 <div class="bbox">
                     <% brand = outlet.account_brand.brand %>
                     <div class="brandtitle"><%= brand.brand_name[0..6] %>
+                          <% @brands.push brand %>
                     <% unless brand.brand_name.length < 7 %>
                             ..
                     <% end %>
@@ -56,8 +58,9 @@
         <% end %>
         <% end %>
         <% end %>
-            <%= paginate @final_outlets %>
+            <%#= paginate @final_outlets %>
         <% end %>
         </div>
     </div>
 </div>
+<% @brands = @brands.uniq %>
