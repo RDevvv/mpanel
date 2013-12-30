@@ -54,9 +54,8 @@ Gullak2::Application.routes.draw do
             get 'populate_areas'
           end
         end
-
+        resources :keywords
         resources :ads do
-          resources :keywords
           resources :ad_promocodes do
             collection do
               post 'add_single_code'
