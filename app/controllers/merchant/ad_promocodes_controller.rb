@@ -49,20 +49,23 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
     ad_promocodes = [] 
     invalid_promocode =  false
     Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
-      params[:ad_promocode][:outlet_ids] = params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
-      params[:ad_promocode][:promocode] = promocode
-      params[:ad_promocode][:cap] = 1
-      ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
-      ad_promocodes <<  ad_promocode
-      
-      invalid_promocode = true unless ad_promocode.valid?
+      if promocode.present?
+        params[:ad_promocode][:outlet_ids] = params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
+        params[:ad_promocode][:promocode] = promocode
+        params[:ad_promocode][:cap] = 1
+        ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
+        ad_promocodes <<  ad_promocode
+        
+        invalid_promocode = true unless ad_promocode.valid?
+      end  
     end
 
     if invalid_promocode 
       @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
       render :action=>:new
     else
-      @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name])
+      @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name],:is_multiple=>true)
+
       ad_promocodes.each do |promocode|
         promocode.ad_group = @ad_group
         promocode.save

@@ -1,0 +1,27 @@
+<%= render :partial=>'header' %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+      <div class="box-header">
+        <span class="title">Add Promocode</span>
+      </div>
+
+      <div class="box-content">
+        <%= form_tag(add_more_promocodes_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)) do %>
+          <div class="padded">    
+            <div class="control-group">
+              <label class="control-label">Promocode *</label>
+              <div class="controls">
+                <%= text_area_tag :promocodes, '' ,:placeholder=>"Promocode separated be comma", :class=>"validate[required] span12", "data-prompt-position"=>"topLeft",:rows=> 3 %>       
+              </div>
+            </div>
+          </div>   
+          <div class="form-actions">
+            <button type="submit" class="btn btn-blue">Add Promocode</button>
+          </div>
+                  
+        <% end %>       
+      </div>  
+    </div>
+  </div>
+</div> 

@@ -66,6 +66,10 @@ Gullak2::Application.routes.draw do
             member do
               post 'toggle_active'
               get 'delete_outlet'
+              get 'more_promocodes'
+              get 'more_outlets'
+              post 'add_more_promocodes'
+              post 'add_more_outlets'
             end  
           end
         end
