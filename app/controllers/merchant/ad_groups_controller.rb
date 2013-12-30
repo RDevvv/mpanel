@@ -4,7 +4,7 @@ class Merchant::AdGroupsController <  Merchant::BaseController
   def show
     @ad_group  =@ad.ad_groups.find(params[:id])
     @ad_promocodes = @ad_group.ad_promocodes
-    @outlets = @ad_group.outlets
+    @outlets = @ad_group.outlets.uniq
   end
 
   def toggle_active
@@ -18,6 +18,44 @@ class Merchant::AdGroupsController <  Merchant::BaseController
     @ad_group = @ad.ad_groups.find(params[:id])
     @ad_group.delete_outlet(params[:outlet_id])
     redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
+  end
+
+  def more_promocodes
+    @ad_group = @ad.ad_groups.find(params[:id])
+  end
+
+  def more_outlets
+    @ad_group = @ad.ad_groups.find(params[:id])
+    @outlets = Outlet.all - @ad_group.outlets
+  end
+
+  def add_more_promocodes
+    @ad_group = @ad.ad_groups.find(params[:id])
+    if @ad_group.is_multiple
+
+      Array(params[:promocodes].split(",")).each do |promocode|
+        if promocode.present?
+          params[:ad_promocode] = {}
+          params[:ad_promocode][:outlet_ids] =@ad_group.outlet_ids.uniq
+          params[:ad_promocode][:promocode] = promocode
+          params[:ad_promocode][:cap] = 1
+          params[:ad_promocode][:set_name] = @ad_group.name
+          ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
+          ad_promocode.ad_group = @ad_group
+          ad_promocode.save
+        end  
+      end
+    end
+    redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group) 
+  end
+
+
+  def add_more_outlets
+    @ad_group = @ad.ad_groups.find(params[:id])
+    params[:outlet_ids] =params[:outlet_ids].reject {|x| x.blank?}
+    @ad_group.add_more_outlets(params[:outlet_ids])
+
+    redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group) 
   end
 
   protected
