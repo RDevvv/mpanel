@@ -1,7 +1,7 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
-  before_filter :load_account
-
+  # before_filter :load_account
+  skip_before_filter :authenticate_merchant_user!,:only=>[:new,:create,:verified_account]
   def index
     @accounts = current_user.accounts
   end
@@ -44,7 +44,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
 
   def edit
-  	@account = Account.find(params[:id])
+  	@account = current_user.accounts.find(params[:id])
     @cities = City.order("city_name")
     @areas = []
     @countries = Country.all
@@ -56,7 +56,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
 
   def destroy
-   	@account = Account.find(params[:id])
+   	@account = current_user.accounts.find(params[:id])
     @account.destroy
 
     respond_to do |format|
@@ -66,7 +66,7 @@ class Merchant::AccountsController <  Merchant::BaseController
 
   def update
 
-    @account = Account.find(params[:id])
+    @account = current_user.accounts.find(params[:id])
     @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
     @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
     @area = Area.by_area_name(params[:area_name]).first
@@ -90,6 +90,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     # @account = current_user.accounts.find(params[:id])
     # @current_account = @account
     # @user = @account.owner
+    @current_account = current_user.accounts.find(params[:id])
     @account_brands = @current_account.account_brands
     @brands=Brand.all
     respond_to do |format|
