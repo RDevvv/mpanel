@@ -23,7 +23,7 @@ class Outlet < ActiveRecord::Base
   validates_presence_of  :address
   validates_presence_of :account_brand, :area
 
-  after_save :geocode,:if => :address_changed?
+  after_save :geocode,:if => :is_address_changed?
   after_create :add_uniq_outlet_key
   geocoded_by :geocoding_address
   
@@ -35,8 +35,12 @@ class Outlet < ActiveRecord::Base
     end
   end
 
+  def is_address_changed?
+    address_changed? || pincode_changed?
+  end
+
   def geocoding_address
-    [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+    [self.address, self.area.area_name, self.area.city.name, self.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
 
   def add_uniq_outlet_key  
@@ -104,7 +108,6 @@ class Outlet < ActiveRecord::Base
     city = nil
 
     cities = City.by_name(city_name) if city_name.present?
-    binding.pry
     pincode_areas = Area.by_pincode(pincode)  if pincode.present?
     areas = Area.by_name(area_name)  if area_name.present?
     if cities.present?
@@ -126,7 +129,8 @@ class Outlet < ActiveRecord::Base
     if area.blank?
       pincode = Pincode.create(:pincode=>params[:pincode]) if pincode.blank?
       area = city.areas.new(:area_name=>params[:area_name]) 
-      area.pincode = pincode
+      binding.pry
+      area.pincodes << pincode
       area.save
     end
     outlet = account_brand.outlets.new(params[:outlet])

@@ -98,7 +98,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     params[:outlet][:pincode] = @pincode.pincode
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])
-        format.html { redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
+        format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
       else
         @cities = City.order("city_name")
         format.html { render action: "edit" }
