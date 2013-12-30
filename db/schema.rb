@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20131230080857) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
+    t.integer  "owner_id"
   end
 
   create_table "ad_groups", :force => true do |t|
@@ -61,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20131230080857) do
   end
 
   create_table "ad_promocodes", :force => true do |t|
-    t.string   "set_name"
     t.string   "promocode"
     t.integer  "ad_id"
     t.float    "cap"
@@ -69,8 +69,9 @@ ActiveRecord::Schema.define(:version => 20131230080857) do
     t.boolean  "is_used",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "is_active",   :default => true
+    t.boolean  "is_active"
     t.integer  "ad_group_id"
+    t.integer  "set_name"
   end
 
   create_table "ad_versions", :force => true do |t|
@@ -300,6 +301,36 @@ ActiveRecord::Schema.define(:version => 20131230080857) do
     t.integer  "country_id"
   end
 
+  create_table "multiple_codes_any_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "promocode"
+    t.boolean  "is_used"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "multiple_codes_specific_outlets", :force => true do |t|
+    t.integer  "outlet_ad_id"
+    t.string   "promocode"
+    t.boolean  "is_used"
+    t.datetime "start_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "end_date"
+  end
+
+  create_table "outlet_ads", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "outlet_id"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "outlet_types", :force => true do |t|
     t.string   "outlet_type_name"
     t.datetime "created_at",       :null => false
@@ -395,6 +426,26 @@ ActiveRecord::Schema.define(:version => 20131230080857) do
   add_index "shortened_urls", ["owner_id", "owner_type"], :name => "index_shortened_urls_on_owner_id_and_owner_type"
   add_index "shortened_urls", ["unique_key"], :name => "index_shortened_urls_on_unique_key", :unique => true
   add_index "shortened_urls", ["url"], :name => "index_shortened_urls_on_url"
+
+  create_table "single_code_any_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "promocode"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "single_code_specific_outlets", :force => true do |t|
+    t.integer  "outlet_ad_id"
+    t.string   "promocode"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "states", :force => true do |t|
     t.string   "state_name"
