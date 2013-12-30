@@ -1,5 +1,8 @@
 Gullak2::Application.routes.draw do
 
+  resources :sms_sents
+
+
   resources :call_forwardings
   resources :customer_sessions
   resources :button_clicks
@@ -11,6 +14,7 @@ Gullak2::Application.routes.draw do
   get "get_button_click/:id/:button_class/:current_link/:ad_id" => "button_clicks#get_click"
   get "get_call_forwarding" => "call_forwardings#get_customer_number"
   get "set_call_forwarding" => "call_forwardings#return_outlet_number"
+  post "set_sms_data" => "sms_sents#set_sms_data"
 
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   get "accounts/create"
