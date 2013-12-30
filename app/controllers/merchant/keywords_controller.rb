@@ -10,7 +10,7 @@ class Merchant::KeywordsController < Merchant::BaseController
 		if @keyword.save
 			# @ad_keyword = AdKeyword.new(:ad_id=>params[:ad_id], :keyword_id=>@keyword.id)
 			# @ad_keyword.save
-      redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Keyword successfylly created"
+      redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand),:notice=>"Keyword successfylly created"
     else
       render :action=>"new"
     end
