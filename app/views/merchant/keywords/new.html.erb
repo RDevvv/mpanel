@@ -7,7 +7,7 @@
         <span class="title"><i class="icon-account"></i> Add new Keywords</span>
       </div>
       <div class="box-content">
-				<%= nested_form_for([@current_account,@account_brand,@ad,@keyword], :url=>merchant_account_account_brand_ad_keywords_path(@current_account,@account_brand,@ad,@keyword), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+				<%= nested_form_for([@current_account,@account_brand,@keyword], :url=>merchant_account_account_brand_keywords_path(@current_account,@account_brand,@keyword), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
 
 
 					<div class="padded">
