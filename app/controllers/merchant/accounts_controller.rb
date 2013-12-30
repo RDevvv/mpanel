@@ -99,7 +99,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   def add_brands
     @current_account.brand_ids = @current_account.brand_ids.push(params[:brand_ids].collect(&:to_i)).flatten.compact.uniq
     if @current_account.save
-      redirect_to merchant_accounts_path
+      redirect_to merchant_account_path(@current_account)
     else
       @brands = Brand.by_brand_name(params[:search_name]).where("brands.id not in (?)", @current_account.brands.pluck(:id))
       @account_brands = @current_account.brands.order("brands.category_id asc")
