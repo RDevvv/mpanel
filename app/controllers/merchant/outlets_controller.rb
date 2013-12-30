@@ -35,9 +35,10 @@ class Merchant::OutletsController <  Merchant::BaseController
       @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
     end
     @outlet.area = @area
-    @area_pincode = @area.by_pincode(@pincode.pincode).first
+    
+    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
-    @outlet.pincode = @pincode.pincode
+    @outlet.pincode_id = @pincode.id
     respond_to do |format|
       if @outlet.save
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
@@ -95,7 +96,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
     @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
     params[:outlet][:area_id] = @area.id
-    params[:outlet][:pincode] = @pincode.pincode
+    params[:outlet][:pincode_id] = @pincode.id
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
