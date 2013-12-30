@@ -21,6 +21,9 @@ doc/*
 # Ignore test coverage files
 /coverage
 
+/solr
+/log/*.lck
+
 # Ignore database schema
 /db/schema.rb
 
