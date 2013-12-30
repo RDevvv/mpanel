@@ -285,29 +285,6 @@ ActiveRecord::Schema.define(:version => 20131230144207) do
     t.datetime "updated_at",       :null => false
   end
 
-  create_table "outlet_versions", :force => true do |t|
-    t.integer  "outlet_id"
-    t.integer  "account_brand_id"
-    t.integer  "outlet_type_id"
-    t.text     "address"
-    t.integer  "area_id"
-    t.string   "phone_number"
-    t.integer  "mobile_country_id"
-    t.string   "mobile_number"
-    t.string   "email_id"
-    t.boolean  "is_active"
-    t.boolean  "is_verified"
-    t.string   "outlet_key"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "outlet_views"
-    t.integer  "outlet_calls"
-    t.boolean  "outlet_impressions"
-  end
-
   create_table "outlets", :force => true do |t|
     t.integer  "account_brand_id"
     t.integer  "outlet_type_id"
