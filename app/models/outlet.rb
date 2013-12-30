@@ -22,6 +22,9 @@ class Outlet < ActiveRecord::Base
   validates_uniqueness_of :outlet_key
   validates_presence_of  :address
   validates_presence_of :account_brand, :area
+  validates :pincode ,:presence => true,
+            :length => { :within => 5..6 },
+            :numericality => { :only_integer => true }
 
   after_save :geocode,:if => :is_address_changed?
   after_create :add_uniq_outlet_key
@@ -129,7 +132,6 @@ class Outlet < ActiveRecord::Base
     if area.blank?
       pincode = Pincode.create(:pincode=>params[:pincode]) if pincode.blank?
       area = city.areas.new(:area_name=>params[:area_name]) 
-      binding.pry
       area.pincodes << pincode
       area.save
     end
