@@ -121,7 +121,13 @@ class Outlet < ActiveRecord::Base
     city = City.find(params[:city_id])
     account_brand = AccountBrand.find(params[:account_brand_id])
     area = city.areas.by_name(params[:area_name]).by_pincode(params[:pincode]).first
-    area = city.areas.create(:area_name=>params[:area_name],:pincode=>params[:pincode]) if area.blank?
+    pincode =  Pincode.by_pincode(params[:pincode]).first
+    if area.blank?
+      pincode = Pincode.create(:pincode=>params[:pincode]) if pincode.blank?
+      area = city.areas.new(:area_name=>params[:area_name]) 
+      area.pincode = pincode
+      area.save
+    end
     outlet = account_brand.outlets.new(params[:outlet])
     outlet.area_id = area.id
     outlet.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131227063714) do
+ActiveRecord::Schema.define(:version => 20131230060417) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -144,7 +144,6 @@ ActiveRecord::Schema.define(:version => 20131227063714) do
   create_table "areas", :force => true do |t|
     t.integer  "city_id"
     t.string   "area_name"
-    t.string   "pincode"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.float    "latitude"
