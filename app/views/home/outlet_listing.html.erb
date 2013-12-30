@@ -8,7 +8,7 @@
           <% @final_outlets.each do |outlet| %>
               <% if outlet.is_active == true %>
                   <% outlet.ads.each do |ad| %>
-                      <div class="bdiv" id="<%= ad.id %>">
+                      <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                         <div class="bbox">
                           <% brand = outlet.account_brand.brand %>
                           <div class="brandtitle"><%= brand.brand_name[0..6] %>
@@ -46,9 +46,11 @@
                                 <div class="star2"></div>
                             <% end %>
                             <div class="right-box">
-                                <div class="run2"></div>
-                                <div class="runtxt"><%= ad.button_clicks.where(:button_class => "share").count %></div>
-                            </div>
+                                <a href="#" onclick="send_ad($.cookie('customer_uuid'), this)">
+                                    <div class="run2"></div>
+                                        <div class="runtxt"><%= ad.button_clicks.where(:button_class => "share").count %></div>
+                                    </div>
+                                </a>
                           </div>
                         </div>
                       </div>

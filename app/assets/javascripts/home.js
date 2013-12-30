@@ -18,3 +18,20 @@ function track(element) {
     })
 }
 
+function send_ad(customer_uuid, element)
+{
+    ad_id = $(element).closest('div[class="bdiv"]').attr("id");
+    outlet_id = $(element).closest('div[class="bdiv"]').attr("outlet_id");
+
+    $.ajax({
+        url: "set_sms_data.json",
+        type: "post",
+        data: {
+            'customer_uuid': customer_uuid,
+            'ad_id': ad_id,
+            'outlet_id': outlet_id
+        }
+    }).done(function () {
+        console.log("sms sent");
+    })
+}
