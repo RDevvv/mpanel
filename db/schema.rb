@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230123634) do
+ActiveRecord::Schema.define(:version => 20131230135522) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "pincode_id"
   end
 
   create_table "ad_groups", :force => true do |t|
@@ -150,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.datetime "updated_at", :null => false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "pincode"
   end
 
   create_table "attachments", :force => true do |t|
@@ -350,13 +350,6 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
     t.time     "deleted_at"
-    t.integer  "pincode_id"
-  end
-
-  create_table "pincodes", :force => true do |t|
-    t.string   "pincode"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|

@@ -3,7 +3,7 @@ require 'csv'
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
-  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number,:pincode_id
+  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number
   attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
 
   has_many :outlet_versions
@@ -11,7 +11,6 @@ class Outlet < ActiveRecord::Base
   belongs_to :area
   belongs_to :account_brand
   belongs_to :outlet_type
-  belongs_to :pincode
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :ad_promocodes,:through=>:ad_promocode_outlets
 
@@ -19,7 +18,7 @@ class Outlet < ActiveRecord::Base
   #acts_as_paranoid
   validates :mobile_number, :format => { :with => /^[7-9]\d{9}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
-	validates :phone_number,  :format=>{:with =>  /^[0-9]\d{0,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
+	validates :phone_number,  :format=>{:with =>  /^[0-9]\d{2,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
   validates_uniqueness_of :outlet_key
   validates_presence_of  :address
   validates_presence_of :account_brand, :area
@@ -36,11 +35,11 @@ class Outlet < ActiveRecord::Base
   end
 
   def is_address_changed?
-    address_changed? || pincode_id_changed? || area_id_changed?
+    address_changed? ||  area_id_changed?
   end
 
   def geocoding_address
-    [self.address, self.area.area_name, self.area.city.name, self.pincode.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+    [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
 
   def add_uniq_outlet_key  
@@ -125,16 +124,9 @@ class Outlet < ActiveRecord::Base
     city = City.find(params[:city_id])
     account_brand = AccountBrand.find(params[:account_brand_id])
     area = city.areas.by_name(params[:area_name]).by_pincode(params[:pincode]).first
-    pincode =  Pincode.by_pincode(params[:pincode]).first
-    if area.blank?
-      pincode = Pincode.create(:pincode=>params[:pincode]) if pincode.blank?
-      area = city.areas.new(:area_name=>params[:area_name]) 
-      area.pincodes << pincode
-      area.save
-    end
+    area = city.areas.create!(:area_name=>params[:area_name],:pincode=>params[:pincode]) if area.blank?
     outlet = account_brand.outlets.new(params[:outlet])
     outlet.area_id = area.id
-    outlet.pincode_id = pincode.id
     outlet.save
     outlet
   end
