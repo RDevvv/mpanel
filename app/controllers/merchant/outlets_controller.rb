@@ -27,18 +27,11 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
 	def create
-    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
-    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
     @outlet = @account_brand.outlets.new(params[:outlet])  
-    @area = Area.by_area_name(params[:area_name]).first
-    if @area.blank?
-      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-    end
+    @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first    
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
     @outlet.area = @area
     
-    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
-    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
-    @outlet.pincode_id = @pincode.id
     respond_to do |format|
       if @outlet.save
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
@@ -86,17 +79,9 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	def update
     @outlet = @account_brand.outlets.find(params[:id])
-    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
-    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
-    @area = Area.by_area_name(params[:area_name]).first
-    if @area.blank?
-      @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase)
-    end
-    
-    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
-    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
+    @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first        
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
     params[:outlet][:area_id] = @area.id
-    params[:outlet][:pincode_id] = @pincode.id
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }

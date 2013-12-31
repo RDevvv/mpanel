@@ -1,6 +1,6 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
-  # before_filter :load_account
+  before_filter :load_account,:only=>[:add_brands]
   skip_before_filter :authenticate_merchant_user!,:only=>[:new,:create,:verified_account]
   def index
     @accounts = current_user.accounts
@@ -20,15 +20,10 @@ class Merchant::AccountsController <  Merchant::BaseController
   def create
     @cities = City.order("city_name")
     @areas = []
-    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
-    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
-    @area = Area.by_area_name(params[:area_name]).first
     @account = Account.new(params[:account])  
-    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase) if @area.blank?
+    @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
     @account.area = @area
-    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
-    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
-    @account.pincode = @pincode
     @account.users << current_merchant_user if current_merchant_user
     respond_to do |format|
       if @account.save
@@ -67,14 +62,9 @@ class Merchant::AccountsController <  Merchant::BaseController
   def update
 
     @account = current_user.accounts.find(params[:id])
-    @pincode = Pincode.by_pincode(params[:pincode][:pincode]).first
-    @pincode = Pincode.create!(params[:pincode]) if @pincode.blank?
-    @area = Area.by_area_name(params[:area_name]).first
-    @area_pincode = @area.area_pincodes.where(:pincode_id=>@pincode.id).first
-    @area_pincode = @area.area_pincodes.create!(:pincode_id=>@pincode.id) if @area_pincode.blank?
-    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase) if @area.blank?
+    @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
     params[:account][:area_id] = @area.id
-    params[:account][:pincode_id] = @pincode.id
     respond_to do |format|
       if @account.update_attributes(params[:account])
         format.html { redirect_to merchant_account_path ,:notice=>"Account Succesfully Updated" }
@@ -104,6 +94,7 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
   
   def add_brands
+   
     @current_account.brand_ids = @current_account.brand_ids.push(params[:brand_ids].collect(&:to_i)).flatten.compact.uniq
     if @current_account.save
       redirect_to merchant_account_path(@current_account)

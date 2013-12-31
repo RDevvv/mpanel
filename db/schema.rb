@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230123634) do
+ActiveRecord::Schema.define(:version => 20131230144207) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "pincode_id"
   end
 
   create_table "ad_groups", :force => true do |t|
@@ -74,31 +73,6 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.integer  "ad_group_id"
   end
 
-  create_table "ad_versions", :force => true do |t|
-    t.integer  "ad_id"
-    t.integer  "account_brand_id"
-    t.string   "ad_title"
-    t.boolean  "is_monday"
-    t.boolean  "is_tuesday"
-    t.boolean  "is_wednesday"
-    t.boolean  "is_thursday"
-    t.boolean  "is_friday"
-    t.boolean  "is_saturday"
-    t.boolean  "is_sunday"
-    t.datetime "start_date"
-    t.datetime "expiry_date"
-    t.boolean  "is_active"
-    t.text     "sms_text"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.float    "lifetime_budget"
-    t.integer  "ad_sent"
-    t.integer  "ad_views"
-    t.integer  "ad_shares"
-    t.boolean  "is_exclusive"
-  end
-
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -136,13 +110,6 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.boolean  "is_exclusive"
   end
 
-  create_table "area_pincodes", :force => true do |t|
-    t.integer  "area_id"
-    t.integer  "pincode_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "areas", :force => true do |t|
     t.integer  "city_id"
     t.string   "area_name"
@@ -150,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.datetime "updated_at", :null => false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "pincode"
   end
 
   create_table "attachments", :force => true do |t|
@@ -179,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.string   "current_link"
     t.string   "previous_link"
     t.string   "session_id"
+    t.integer  "outlet_id"
   end
 
   add_index "button_clicks", ["customer_id"], :name => "index_button_clicks_on_customer_id"
@@ -301,33 +270,19 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.integer  "country_id"
   end
 
+  create_table "mobile_verification_codes", :force => true do |t|
+    t.string   "verification_code"
+    t.integer  "customer_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "mobile_verification_codes", ["customer_id"], :name => "index_mobile_verification_codes_on_customer_id"
+
   create_table "outlet_types", :force => true do |t|
     t.string   "outlet_type_name"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-  end
-
-  create_table "outlet_versions", :force => true do |t|
-    t.integer  "outlet_id"
-    t.integer  "account_brand_id"
-    t.integer  "outlet_type_id"
-    t.text     "address"
-    t.integer  "area_id"
-    t.string   "phone_number"
-    t.integer  "mobile_country_id"
-    t.string   "mobile_number"
-    t.string   "email_id"
-    t.boolean  "is_active"
-    t.boolean  "is_verified"
-    t.string   "outlet_key"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "outlet_views"
-    t.integer  "outlet_calls"
-    t.boolean  "outlet_impressions"
   end
 
   create_table "outlets", :force => true do |t|
@@ -350,13 +305,6 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
     t.integer  "outlet_calls"
     t.integer  "outlet_impressions"
     t.time     "deleted_at"
-    t.integer  "pincode_id"
-  end
-
-  create_table "pincodes", :force => true do |t|
-    t.string   "pincode"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -396,6 +344,18 @@ ActiveRecord::Schema.define(:version => 20131230123634) do
   add_index "shortened_urls", ["owner_id", "owner_type"], :name => "index_shortened_urls_on_owner_id_and_owner_type"
   add_index "shortened_urls", ["unique_key"], :name => "index_shortened_urls_on_unique_key", :unique => true
   add_index "shortened_urls", ["url"], :name => "index_shortened_urls_on_url"
+
+  create_table "sms_sents", :force => true do |t|
+    t.string   "text"
+    t.integer  "is_sent"
+    t.integer  "customer_id_id"
+    t.integer  "ad_promocode_id_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "sms_sents", ["ad_promocode_id_id"], :name => "index_sms_sents_on_ad_promocode_id_id"
+  add_index "sms_sents", ["customer_id_id"], :name => "index_sms_sents_on_customer_id_id"
 
   create_table "states", :force => true do |t|
     t.string   "state_name"
