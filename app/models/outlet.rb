@@ -90,7 +90,7 @@ class Outlet < ActiveRecord::Base
 
   def self.show_records(file,account_brand_id)
     current_file = file.open
-    csv_text = File.read(current_file)
+    csv_text = File.open(current_file,"r:ISO-8859-1")
     csv = CSV.parse(csv_text, :headers => true)
     records = Array.new
     invalid_records = []
