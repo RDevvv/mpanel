@@ -82,7 +82,7 @@ Gullak2::Application.routes.draw do
         end
       end
       resources :brands
-      resources :users  
+      resources :users
     end
 
   end  

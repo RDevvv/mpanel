@@ -44,7 +44,7 @@
       <li>&nbsp;</li>
       <li class="subcat">Filter by:</li>
       <li style="margin-top:10px;">
-        <%= form_tag 'outlet_search', :id => 'searchForm' do |f|  %>
+        <%= form_tag :outlet_search, :id => 'searchForm' do |f|  %>
             <fieldset>
               <div class="input">
                 <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
