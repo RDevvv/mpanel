@@ -6,6 +6,8 @@
         <th>Start Date</th>
         <th>Expiry Date</th>
         <th>SMS Text</th>
+        <th>Exclusive</th>
+        <th>Status</th>
         <th></th>
       </tr>
     </thead>
@@ -23,6 +25,32 @@
         </td>
         <td>
           <%= ad.sms_text %>
+        </td>
+        <td>
+          <%= form_tag(toggle_exclusive_merchant_account_account_brand_ad_path(@current_account,@account_brand,ad),:style=>"display:inline") do %>
+            <% if ad.is_exclusive %>
+              <%= check_box_tag :is_exclusive, true,true,:disabled=>true%>
+            <% else %>
+              <%= check_box_tag :is_exclusive,false,false, :disabled=>true%>
+            <% end %>
+
+            <button type="submit" class=" btn-link">
+              <%= display_label_for_exclusive(ad.is_exclusive?) %>
+            </button>
+          <%end %>
+        </td>
+        <td>
+          <%= form_tag(toggle_active_merchant_account_account_brand_ad_path(@current_account,@account_brand,ad),:style=>"display:inline") do %>
+            <% if ad.is_active %>
+              <%= check_box_tag :is_active, true,true,:disabled=>true%>
+            <% else %>
+              <%= check_box_tag :is_active,false,false, :disabled=>true%>
+            <% end %>
+          
+            <button type="submit" class=" btn-link">
+              <%= display_label_for_activate(ad.is_active?) %>
+            </button>
+          <%end %>
         </td>
         <td> 
           <%= link_to "Edit",merchant_account_account_brand_ad_path(@current_account,@account_brand,ad) %> |

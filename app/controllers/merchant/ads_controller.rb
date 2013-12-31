@@ -5,7 +5,19 @@ class Merchant::AdsController <  Merchant::BaseController
 		@ads = @account_brand.ads.active_ads		
     @expiry_ads = @account_brand.ads.expire_ads
 	end
-  
+
+  def toggle_active
+    @ad = Ad.find(params[:id])
+    @ad.toggle_active
+    redirect_to  merchant_account_account_brand_ads_path(@current_account,@account_brand)
+  end
+
+  def toggle_exclusive
+    @ad = Ad.find(params[:id])
+    @ad.toggle_exclusive
+    redirect_to  merchant_account_account_brand_ads_path(@current_account,@account_brand)
+  end
+
   def new
     @ad = @account_brand.ads.new
     @keywords = Keyword.all

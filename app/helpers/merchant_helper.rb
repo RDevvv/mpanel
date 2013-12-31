@@ -38,5 +38,14 @@ module MerchantHelper
     end
   end
 
+  def display_label_for_exclusive(exclusive=false)
+    if exclusive
+      "<span class='label label-success'>Not Exclusive?</span>".html_safe
+      
+    else
+      "<span class='label label-info'>Exclusive</span>".html_safe
+    end
+  end
+
   
 end

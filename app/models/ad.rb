@@ -17,4 +17,32 @@ class Ad < ActiveRecord::Base
   
   scope :expire_ads,lambda{where("expiry_date is not null and expiry_date < ?",Date.today)}
   scope :active_ads,lambda{where("expiry_date is  null or expiry_date >= ?",Date.today)}
+
+  def toggle_active
+    self.is_active? ?  self.deactivate : self.activate
+  end
+
+  def activate
+    self.is_active = true
+    self.save
+  end
+
+  def deactivate
+    self.is_active = false
+    self.save
+  end
+
+  def toggle_exclusive
+    self.is_exclusive? ?  self.deactivate : self.activate
+  end
+
+  def activate
+    self.is_exclusive = true
+    self.save
+  end
+
+  def deactivate
+    self.is_exclusive = false
+    self.save
+  end
 end

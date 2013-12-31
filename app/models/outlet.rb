@@ -9,7 +9,6 @@ class Outlet < ActiveRecord::Base
   has_many :button_clicks
   belongs_to :area
   belongs_to :account_brand
-  belongs_to :outlet_type
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :ad_promocodes,:through=>:ad_promocode_outlets
 
