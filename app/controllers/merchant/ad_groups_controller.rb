@@ -26,7 +26,7 @@ class Merchant::AdGroupsController <  Merchant::BaseController
 
   def more_outlets
     @ad_group = @ad.ad_groups.find(params[:id])
-    @outlets = Outlet.all - @ad_group.outlets
+    @outlets = @ad.account_brand.outlets.all - @ad_group.outlets
   end
 
   def add_more_promocodes

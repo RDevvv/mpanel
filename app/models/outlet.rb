@@ -40,6 +40,9 @@ class Outlet < ActiveRecord::Base
     [self.address, self.area.area_name, self.area.city.name, self.area.pincode].compact.join(', ')    
     # [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
+  def full_address
+    [self.area.city.name, self.area.name, self.address].join(",")
+  end
 
   def add_uniq_outlet_key  
     self.outlet_key = rand.to_s[2..7] 
