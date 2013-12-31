@@ -38,7 +38,8 @@ class Outlet < ActiveRecord::Base
   end
 
   def geocoding_address
-    [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+    [self.address, self.area.area_name, self.area.city.name, self.area.pincode].compact.join(', ')    
+    # [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
 
   def add_uniq_outlet_key  

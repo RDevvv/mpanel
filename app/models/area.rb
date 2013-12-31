@@ -14,11 +14,14 @@ class Area < ActiveRecord::Base
   scope :by_pincode,lambda {|pincode|where("pincode = ?",pincode) if pincode.present?}
 
   def area_address
-    [self.area_name, self.city.name, self.pincode,self.city.country.country_name].compact.join(', ')
+    [self.area_name, self.city.name, self.pincode].compact.join(', ')
+    # [self.area_name, self.city.name, self.pincode,self.city.country.country_name].compact.join(', ')
   end
+
   def address_changed?
     area_name_changed? || city_id_changed? || pincode_changed?
   end
+
   def name
     area_name
   end
