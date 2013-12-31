@@ -4,8 +4,8 @@ class Ad < ActiveRecord::Base
   has_many :ad_keywords, :dependent => :destroy
   has_many :keywords, :through => :ad_keywords
   belongs_to :account_brand
-  has_many :ad_promocodes #,:dependent=>:destroy
-  has_many :ad_promocode_outlets#,:dependent=>:destroy
+  has_many :ad_promocodes ,:dependent=>:destroy
+  has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :outlets,:through=>:ad_promocode_outlets
   has_many :ad_groups, :dependent => :destroy
   has_many :facebook_shares
