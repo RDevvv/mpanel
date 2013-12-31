@@ -16,12 +16,15 @@
       <tr>
         <td>
           <%= link_to ad.ad_title,merchant_account_account_brand_ad_path(@current_account,@account_brand,ad)  %>
+          <% if ad.expired? %>
+            <span class="label label-important"> Expired </span> 
+          <% end %>
         </td>
         <td>
-          <%= ad.start_date %>
+          <%= ad.start_date.to_date.to_s(:db) %>
         </td>
         <td>
-          <%= ad.expiry_date %>
+          <%= ad.expiry_date.to_date.to_s(:db) %>
         </td>
         <td>
           <%= ad.sms_text %>

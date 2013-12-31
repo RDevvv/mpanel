@@ -2,8 +2,8 @@ class Merchant::AdsController <  Merchant::BaseController
 	before_filter :load_account, :load_account_and_brand
 
 	def index
-		@ads = @account_brand.ads.active_ads		
-    @expiry_ads = @account_brand.ads.expire_ads
+		@ads = @account_brand.ads.order("expiry_date desc")
+    # @expiry_ads = @account_brand.ads.expire_ads
 	end
 
   def toggle_active
