@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131231050954) do
+
+ActiveRecord::Schema.define(:version => 20131231070745) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
+    t.integer  "owner_id"
   end
 
   create_table "ad_groups", :force => true do |t|
@@ -61,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
   end
 
   create_table "ad_promocodes", :force => true do |t|
-    t.string   "set_name"
     t.string   "promocode"
     t.integer  "ad_id"
     t.float    "cap"
@@ -69,8 +70,9 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
     t.boolean  "is_used",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "is_active",   :default => true
+    t.boolean  "is_active"
     t.integer  "ad_group_id"
+    t.integer  "set_name"
   end
 
   create_table "admin_users", :force => true do |t|
@@ -260,13 +262,6 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "keyword_aliases", :force => true do |t|
-    t.integer  "keyword_id"
-    t.string   "alias_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "keywords", :force => true do |t|
     t.text     "keyword"
     t.datetime "created_at",    :null => false
@@ -282,15 +277,6 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "metros", :force => true do |t|
-    t.string   "metro_name"
-    t.string   "metro_long_name"
-    t.string   "metro_code"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "country_id"
-  end
-
   create_table "mobile_verification_codes", :force => true do |t|
     t.string   "verification_code"
     t.integer  "customer_id"
@@ -300,6 +286,36 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
 
   add_index "mobile_verification_codes", ["customer_id"], :name => "index_mobile_verification_codes_on_customer_id"
 
+  create_table "multiple_codes_any_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "promocode"
+    t.boolean  "is_used"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "multiple_codes_specific_outlets", :force => true do |t|
+    t.integer  "outlet_ad_id"
+    t.string   "promocode"
+    t.boolean  "is_used"
+    t.datetime "start_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "end_date"
+  end
+
+  create_table "outlet_ads", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "outlet_id"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "outlet_types", :force => true do |t|
     t.string   "outlet_type_name"
     t.datetime "created_at",       :null => false
@@ -308,23 +324,18 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
 
   create_table "outlets", :force => true do |t|
     t.integer  "account_brand_id"
-    t.integer  "outlet_type_id"
     t.text     "address"
     t.integer  "area_id"
     t.string   "phone_number"
-    t.integer  "mobile_country_id"
     t.string   "mobile_number"
     t.string   "email_id"
-    t.boolean  "is_active",          :default => false
-    t.boolean  "is_verified",        :default => false
+    t.boolean  "is_active",        :default => false
+    t.boolean  "is_verified",      :default => false
     t.float    "latitude"
     t.float    "longitude"
     t.string   "outlet_key"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
-    t.integer  "outlet_views"
-    t.integer  "outlet_calls"
-    t.integer  "outlet_impressions"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.time     "deleted_at"
   end
 
@@ -366,6 +377,26 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
   add_index "shortened_urls", ["unique_key"], :name => "index_shortened_urls_on_unique_key", :unique => true
   add_index "shortened_urls", ["url"], :name => "index_shortened_urls_on_url"
 
+  create_table "single_code_any_outlets", :force => true do |t|
+    t.integer  "ad_id"
+    t.string   "promocode"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "single_code_specific_outlets", :force => true do |t|
+    t.integer  "outlet_ad_id"
+    t.string   "promocode"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "is_deleted"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "sms_sents", :force => true do |t|
     t.string   "text"
     t.integer  "is_sent"
@@ -377,14 +408,6 @@ ActiveRecord::Schema.define(:version => 20131231050954) do
 
   add_index "sms_sents", ["ad_promocode_id_id"], :name => "index_sms_sents_on_ad_promocode_id_id"
   add_index "sms_sents", ["customer_id_id"], :name => "index_sms_sents_on_customer_id_id"
-
-  create_table "states", :force => true do |t|
-    t.string   "state_name"
-    t.string   "state_code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "country_id"
-  end
 
   create_table "user_accounts", :force => true do |t|
     t.integer  "user_id"
