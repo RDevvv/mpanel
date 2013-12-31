@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20131231070745) do
+ActiveRecord::Schema.define(:version => 20131231082101) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -192,14 +191,13 @@ ActiveRecord::Schema.define(:version => 20131231070745) do
   end
 
   create_table "cities", :force => true do |t|
-    t.integer  "state_id"
     t.string   "city_name"
-    t.integer  "metro_id"
     t.string   "time_zone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "country_id"
   end
 
   create_table "countries", :force => true do |t|

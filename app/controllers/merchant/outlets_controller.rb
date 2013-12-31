@@ -109,7 +109,6 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @area = @outlet.area
     @city = @area.city
-    @country = @city.state.country
   end
 
 	protected
