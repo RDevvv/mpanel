@@ -5,7 +5,7 @@ class AccountBrand < ActiveRecord::Base
   has_many :ads, :dependent => :destroy
   belongs_to :account
   belongs_to :brand
-
+  has_paper_trail
   def name
     self.brand.brand_name
   end
