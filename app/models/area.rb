@@ -14,7 +14,7 @@ class Area < ActiveRecord::Base
   scope :by_pincode,lambda {|pincode|where("pincode = ?",pincode) if pincode.present?}
 
   def area_address
-    [self.area_name, self.city.name, self.pincode].compact.join(', ')
+    [self.area_name, self.city.city_name, self.pincode].compact.join(', ')
     # [self.area_name, self.city.name, self.pincode,self.city.country.country_name].compact.join(', ')
   end
 
