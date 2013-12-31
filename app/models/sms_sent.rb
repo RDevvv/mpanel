@@ -1,6 +1,6 @@
 class SmsSent < ActiveRecord::Base
-  belongs_to :customer_id
-  belongs_to :ad_promocode_id
+  belongs_to :customer
+  belongs_to :ad_promocode
 
   attr_accessible :text, :is_sent
 
