@@ -7,7 +7,14 @@
       <thead>
         <tr>
           <th>Outlet Key</th>
+          <th>City</th>
+          <th>Area</th>
+          <th>Pincode</th>
           <th>Address</th>
+          <th>Phone Number</th>
+          <th>Mobile Number</th>
+          <th>Status</th>
+          <th>Verified</th>
           <th>Manage</th>
           </tr>
       </thead>
@@ -15,7 +22,27 @@
       <% @outlets.each do |outlet| %>
         <tr>
           <td><%= outlet.outlet_key %></td>
+          <td><%= !outlet.area.city.city_name.nil? ? outlet.area.city.city_name : " " %></td>
+          <td><%= !outlet.area.area_name.nil? ? outlet.area.area_name : " "%></td>
+          <td><%= !outlet.area.pincode.nil? ? outlet.area.pincode : " " %></td>
           <td><%= outlet.address %></td>
+          <td><%= outlet.cleanup_landline %></td>
+          <td><%= outlet.mobile_number %></td>
+          <td>
+          <% if outlet.is_active == true %>
+              <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
+            <% else %>
+              <%= check_box_tag :is_active %>
+            <% end %>
+          </td>
+          <td>
+            <% if outlet.is_verified == true %>
+              <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
+            <% else %>
+              <%= check_box_tag :is_verified %>
+            <% end %>
+          </td>
+          
           <td><%=link_to "Delete",delete_outlet_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group,:outlet_id=>outlet.id),:confirm=>"Are you sure?" %></td>
         </tr> 
       <% end %>
