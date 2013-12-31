@@ -17,6 +17,7 @@ class HomeController < ApplicationController
             parsed_agent = UserAgent.parse(agent)
             customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
             CustomerSession.create(:customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
+            session[:customer_id] = customer_id
         end
     end
 
