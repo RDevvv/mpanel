@@ -36,6 +36,9 @@ class Merchant::OutletsController <  Merchant::BaseController
       if @outlet.save
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Added"}
       else
+        @brands = Brand.all
+        @cities = City.order("city_name")
+
         format.html { render action: "new" }
       end
     end
@@ -87,6 +90,8 @@ class Merchant::OutletsController <  Merchant::BaseController
         format.html { redirect_to merchant_account_account_brand_path(@current_account,@account_brand),:notice=>"Outlet Succesfully Updated" }
       else
         @cities = City.order("city_name")
+        @brands = Brand.all
+
         format.html { render action: "edit" }
       end
     end

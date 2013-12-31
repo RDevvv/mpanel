@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230144207) do
+ActiveRecord::Schema.define(:version => 20131231050954) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -128,6 +128,16 @@ ActiveRecord::Schema.define(:version => 20131230144207) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "brand_sessions", :force => true do |t|
+    t.integer  "brand_id"
+    t.integer  "customer_session_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "brand_sessions", ["brand_id"], :name => "index_brand_sessions_on_brand_id"
+  add_index "brand_sessions", ["customer_session_id"], :name => "index_brand_sessions_on_customer_session_id"
+
   create_table "brands", :force => true do |t|
     t.string   "brand_name"
     t.integer  "category_id"
@@ -142,12 +152,14 @@ ActiveRecord::Schema.define(:version => 20131230144207) do
     t.integer  "customer_id"
     t.string   "button_class"
     t.integer  "ad_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "current_link"
     t.string   "previous_link"
     t.string   "session_id"
     t.integer  "outlet_id"
+    t.integer  "outlet_version_id"
+    t.integer  "ad_version_id"
   end
 
   add_index "button_clicks", ["customer_id"], :name => "index_button_clicks_on_customer_id"
@@ -232,6 +244,15 @@ ActiveRecord::Schema.define(:version => 20131230144207) do
 
   add_index "facebook_shares", ["ad_id"], :name => "index_facebook_shares_on_ad_id"
   add_index "facebook_shares", ["customer_id"], :name => "index_facebook_shares_on_customer_id"
+
+  create_table "incentives", :force => true do |t|
+    t.string   "name"
+    t.string   "sms_text"
+    t.datetime "expiry_date"
+    t.boolean  "is_active"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "industries", :force => true do |t|
     t.string   "industry_name"
