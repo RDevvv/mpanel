@@ -36,9 +36,36 @@
     <li><a href="#" class="invfrnd2"></a></li>
   </ul>
 
+  <nav id="menu">
+    <ul>
+      <li class="subcat">Sort by:</li>
+      <li><a href="#">Distance</a></li>
+      <li><a href="#">Hot Picks</a></li>
+      <li>&nbsp;</li>
+      <li class="subcat">Filter by:</li>
+      <li style="margin-top:10px;">
+        <%= form_tag 'outlet_search', :id => 'searchForm' do |f|  %>
+            <fieldset>
+              <div class="input">
+                <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
+              </div>
+            </fieldset>
+        <% end %>
+      </li>
+
+      <% @brands.each do |brand| %>
+          <li><a href="#"><%= brand.brand_name %></a></li>
+      <% end %>
+    </ul>
+  </nav>
 </div>
 <%= bootstrap_flash %>
 <%= yield %>
+  <script type="text/javascript">
+      $(function() {
+          $('nav#menu').mmenu();
+      });
+  </script>
 
 </body>
 </html>
