@@ -104,7 +104,12 @@ class HomeController < ApplicationController
     end
 
     def outlet_search
-        puts params[:search]
+        r = Keyword.search do
+            fulltext params[:search]
+        end
+        unless r.results.first.ads.nil?
+            @ads = r.results.first.ads
+        end
 
     end
 end

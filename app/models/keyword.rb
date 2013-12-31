@@ -11,5 +11,4 @@ class Keyword < ActiveRecord::Base
   searchable do
       text :keyword
   end
-
 end

@@ -12,6 +12,8 @@ class ChangeColumnFromTables < ActiveRecord::Migration
     remove_column :ads,:keyword_ids
     remove_column :ads,:lilfetime_budget
     add_column :ads,:lifetime_budget,:float
+    change_column :outlet_versions,:mobile_number,:string
+    change_column :outlet_versions,:phone_number,:string
     remove_column :brands,:account_ids
     change_column :accounts, :account_key, :string
     remove_column :accounts,:user_ids
