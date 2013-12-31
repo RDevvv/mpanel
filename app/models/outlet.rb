@@ -8,6 +8,7 @@ class Outlet < ActiveRecord::Base
 
   has_many :outlet_versions
   has_many :ads,:through=>:ad_promocode_outlets
+  has_many :outlets
   belongs_to :area
   belongs_to :account_brand
   belongs_to :outlet_type
