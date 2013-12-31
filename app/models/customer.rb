@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
 
     attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender, :date_of_birth, :incentive_count
 
-    validates :mobile_number, :uniqueness => true, :presence => true, :numericality => true,:length => {:minimum => 9, :maximum => 11}
+    validates :mobile_number, :uniqueness => true, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
 
     def self.generate_cookie
         customer_uuid = nil
