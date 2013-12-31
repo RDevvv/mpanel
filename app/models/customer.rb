@@ -1,5 +1,6 @@
 class Customer < ActiveRecord::Base
     has_many :facebook_shares
+    has_many :customer_sessions
 
     attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender, :date_of_birth, :incentive_count
 
