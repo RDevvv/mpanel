@@ -63,6 +63,10 @@ Gullak2::Application.routes.draw do
         end
         resources :keywords
         resources :ads do
+          member do
+            post 'toggle_active'
+            post 'toggle_exclusive'
+          end
           resources :ad_promocodes do
             collection do
               post 'add_single_code'

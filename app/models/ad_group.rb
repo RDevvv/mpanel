@@ -4,12 +4,10 @@ class AdGroup < ActiveRecord::Base
   has_many :outlets, :through=>:ad_promocodes
   has_many :ad_promocode_outlets, :through=>:ad_promocodes
   
-
   belongs_to :ad
   validates_presence_of :name
   def toggle_active
     self.is_active? ?  self.deactivate : self.activate
-
   end
 
   def activate
