@@ -3,8 +3,7 @@ require 'csv'
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
-  attr_accessible :latitude, :longitude, :mobile_country_id, :mobile_number
-  attr_accessible :outlet_key, :outlet_type_id, :phone_number, :outlet_views, :outlet_calls, :outlet_impressions
+  attr_accessible :latitude, :longitude, :mobile_number, :outlet_key, :phone_number
 
   has_many :ads,:through=>:ad_promocode_outlets
   has_many :button_clicks
@@ -39,7 +38,8 @@ class Outlet < ActiveRecord::Base
   end
 
   def geocoding_address
-    [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+    [self.address, self.area.area_name, self.area.city.name, self.area.pincode].compact.join(', ')    
+    # [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
   end
 
   def add_uniq_outlet_key  
@@ -98,7 +98,6 @@ class Outlet < ActiveRecord::Base
     valid_records = []
     csv.each do |row|
       records << row.to_a.collect{|x|x[1]}
-
     end
     records
   end

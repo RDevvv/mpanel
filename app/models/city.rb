@@ -1,17 +1,12 @@
 class City < ActiveRecord::Base
-  attr_accessible :city_name, :metro_id, :state_id, :time_zone
+  attr_accessible :city_name, :metro_id, :state_id, :time_zone, :country_id
   has_many :areas, :dependent => :destroy
-  has_many :pincodes,:through=>:areas
-  belongs_to :state
-# belongs_to :country,:through=>:state
-  belongs_to :metro
   scope :by_name,lambda {|name| where("city_name ilike ?","%#{name}%")}
-
-  
+  belongs_to :country
   def name
     city_name
   end
-  def country
-    state.country
-  end
+  # def country
+  #   state.country
+  # end
 end

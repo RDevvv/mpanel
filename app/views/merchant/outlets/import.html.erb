@@ -49,6 +49,7 @@
                         <%= text_field_tag "pincode" ,record[3],:class=>"validate[required]",:style=>"width:95%"%>
                         <p class="error pincode_error" ></p>
                       </td>
+
                       <td>
                         <%= text_field_tag "outlet[mobile_number]" ,record[4],:class=>"validate[minSize[10],maxSize[15]]",:style=>"width:95%"%>
                         <p class="error mobile_number_error" ></p>
@@ -58,7 +59,7 @@
                         <p class="error phone_number_error" ></p>
                       </td>
                       <td>
-                        <%= email_field_tag "outlet[email_id]" ,record[6],:class=>"validate[required]",:style=>"width:95%"%>
+                        <%= email_field_tag "outlet[email_id]" ,record[6],:style=>"width:95%"%>
                         <p class="error email_id_error" ></p>
                       </td>
                       <td id="outlet_submit_<%= index+1 %>">

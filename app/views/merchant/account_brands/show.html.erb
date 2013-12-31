@@ -19,10 +19,12 @@
             <thead>
               <tr>
                 <th>Outlet Key</th>
+                <th>City</th>
+                <th>Area</th>
+                <th>Pincode</th>
                 <th>Address</th>
                 <th>Phone Number</th>
                 <th>Mobile Number</th>
-                <th>Email ID</th>
                 <th>Status</th>
                 <th>Verified</th>
                 <th></th>
@@ -32,10 +34,12 @@
             <% @outlets.each do |outlet| %>
               <tr>
                 <td><%= outlet.outlet_key %></td>
+                <td><%= !outlet.area.city.city_name.nil? ? outlet.area.city.city_name : " " %></td>
+                <td><%= !outlet.area.area_name.nil? ? outlet.area.area_name : " "%></td>
+                <td><%= !outlet.area.pincode.nil? ? outlet.area.pincode : " " %></td>
                 <td><%= outlet.address %></td>
                 <td><%= outlet.cleanup_landline %></td>
                 <td><%= outlet.mobile_number %></td>
-                <td><%= outlet.email_id %></td>
                 <td>
                 <% if outlet.is_active == true %>
                     <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
@@ -52,7 +56,7 @@
                 </td>
                 <td>
                   <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> | 
-                  <%= link_to 'Destroy', merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Delete', merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
                 </td>
               </tr> 
             <% end %>
