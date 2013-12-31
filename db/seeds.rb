@@ -6,6 +6,184 @@ AdminUser.create([
   {:email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123" }
 ])
 
+OutletType.create([
+  { :outlet_type_name => "In Mall" },
+  { :outlet_type_name => "High Street" },
+  { :outlet_type_name => "Cut-In" },
+  { :outlet_type_name => "Multi-Brand" }
+])
+
+Role.create!([
+  { :name => "owner", :resource_id => 18, :resource_type => "Account" },
+  { :name => "owner", :resource_id => 1, :resource_type => "Account" },
+  { :name => "owner", :resource_id => 20, :resource_type => "Account" }
+])
+
+User.create([
+  {:email => "adadoo@gullakmaster.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "Abhishek", :last_name => "Dadoo", :mobile_number => "983000000000", :user_key => "abcdef", :is_active => true, :email_verified => true, :mobile_verified => false},
+  {:email => "amardaxini@gmail.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "amar", :last_name => "Daxini", :mobile_number => nil, :user_key => nil, :is_active => nil, :email_verified => nil, :mobile_verified => nil }
+])
+
+UserAccount.create([
+  { :user_id => 1, :account_id => 1 },
+  { :user_id => 1, :account_id => 2 },
+  { :user_id => 1, :account_id => 3 },
+  { :user_id => 2, :account_id => 4 }
+])
+Account.create([
+  { :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
+  { :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
+  { :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
+  { :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
+])
+
+
+UserBrandAccount.create([
+  { :user_account_id => 1, :account_brand_id => 1},
+  { :user_account_id => 2, :account_brand_id => 2},
+  { :user_account_id => 3, :account_brand_id => 3},
+  { :user_account_id => 1, :account_brand_id => 4},
+  { :user_account_id => 2, :account_brand_id => 5},
+  { :user_account_id => 3, :account_brand_id => 6},
+  { :user_account_id => 1, :account_brand_id => 7},
+  { :user_account_id => 2, :account_brand_id => 8},
+  { :user_account_id => 3, :account_brand_id => 9},
+  { :user_account_id => 1, :account_brand_id => 10},
+  { :user_account_id => 2, :account_brand_id => 11},
+  { :user_account_id => 3, :account_brand_id => 12},
+  { :user_account_id => 1, :account_brand_id => 13},
+  { :user_account_id => 2, :account_brand_id => 14},
+  { :user_account_id => 3, :account_brand_id => 15},
+  { :user_account_id => 1, :account_brand_id => 16},
+  { :user_account_id => 2, :account_brand_id => 17},
+  { :user_account_id => 3, :account_brand_id => 18},
+  { :user_account_id => 1, :account_brand_id => 19},
+  { :user_account_id => 2, :account_brand_id => 20},
+  { :user_account_id => 3, :account_brand_id => 21},
+  { :user_account_id => 1, :account_brand_id => 22},
+  { :user_account_id => 2, :account_brand_id => 23},
+  { :user_account_id => 3, :account_brand_id => 24}
+])
+
+
+
+City.create([
+  { :city_name => "Port Blair", :time_zone => "UTC+05:30" },
+  { :city_name => "Guntur", :time_zone => "UTC+05:30" },
+  { :city_name => "Hyderabad", :time_zone => "UTC+05:30" },
+  { :city_name => "Vijayawada", :time_zone => "UTC+05:30" },
+  { :city_name => "Visakhapatnam", :time_zone => "UTC+05:30" },
+  { :city_name => "Warangal", :time_zone => "UTC+05:30" },
+  { :city_name => "Itanagar", :time_zone => "UTC+05:30" },
+  { :city_name => "Dibrugarh", :time_zone => "UTC+05:30" },
+  { :city_name => "Guwahati", :time_zone => "UTC+05:30" },
+  { :city_name => "Nagaon", :time_zone => "UTC+05:30" },
+  { :city_name => "Silchar", :time_zone => "UTC+05:30" },
+  { :city_name => "Bhagalpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Biharsharif", :time_zone => "UTC+05:30" },
+  { :city_name => "Gaya", :time_zone => "UTC+05:30" },
+  { :city_name => "Muzaffarpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Patna", :time_zone => "UTC+05:30" },
+  { :city_name => "Chandigarh", :time_zone => "UTC+05:30" },
+  { :city_name => "Bhilai Nagar", :time_zone => "UTC+05:30" },
+  { :city_name => "Bilaspur", :time_zone => "UTC+05:30" },
+  { :city_name => "Durg", :time_zone => "UTC+05:30" },
+  { :city_name => "Korba", :time_zone => "UTC+05:30" },
+  { :city_name => "Raipur", :time_zone => "UTC+05:30" },
+  { :city_name => "Silvassa", :time_zone => "UTC+05:30" },
+  { :city_name => "Daman", :time_zone => "UTC+05:30" },
+  { :city_name => "Delhi", :time_zone => "UTC+05:30" },
+  { :city_name => "Panaji", :time_zone => "UTC+05:30" },
+  { :city_name => "Ahmedabad", :time_zone => "UTC+05:30" },
+  { :city_name => "Bhavnagar", :time_zone => "UTC+05:30" },
+  { :city_name => "Rajkot", :time_zone => "UTC+05:30" },
+  { :city_name => "Surat", :time_zone => "UTC+05:30" },
+  { :city_name => "Vadodara", :time_zone => "UTC+05:30" },
+  { :city_name => "Faridabad", :time_zone => "UTC+05:30" },
+  { :city_name => "Gurgaon", :time_zone => "UTC+05:30" },
+  { :city_name => "Hisar", :time_zone => "UTC+05:30" },
+  { :city_name => "Panipat", :time_zone => "UTC+05:30" },
+  { :city_name => "Rohtak", :time_zone => "UTC+05:30" },
+  { :city_name => "Shimla", :time_zone => "UTC+05:30" },
+  { :city_name => "Anantnag", :time_zone => "UTC+05:30" },
+  { :city_name => "Jammu", :time_zone => "UTC+05:30" },
+  { :city_name => "Srinagar", :time_zone => "UTC+05:30" },
+  { :city_name => "Bokaro Steel", :time_zone => "UTC+05:30" },
+  { :city_name => "Dhanbad", :time_zone => "UTC+05:30" },
+  { :city_name => "Jamshedpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Mango", :time_zone => "UTC+05:30" },
+  { :city_name => "Ranchi", :time_zone => "UTC+05:30" },
+  { :city_name => "Bangalore", :time_zone => "UTC+05:30" },
+  { :city_name => "Belgaum", :time_zone => "UTC+05:30" },
+  { :city_name => "Dharwad", :time_zone => "UTC+05:30" },
+  { :city_name => "Gulbarga", :time_zone => "UTC+05:30" },
+  { :city_name => "Hubliﾠ", :time_zone => "UTC+05:30" },
+  { :city_name => "Mysore", :time_zone => "UTC+05:30" },
+  { :city_name => "Kochi", :time_zone => "UTC+05:30" },
+  { :city_name => "Kollam", :time_zone => "UTC+05:30" },
+  { :city_name => "Kozhikode", :time_zone => "UTC+05:30" },
+  { :city_name => "Thrissur", :time_zone => "UTC+05:30" },
+  { :city_name => "Trivandrum", :time_zone => "UTC+05:30" },
+  { :city_name => "Kavaratti", :time_zone => "UTC+05:30" },
+  { :city_name => "Bhopal", :time_zone => "UTC+05:30" },
+  { :city_name => "Gwalior", :time_zone => "UTC+05:30" },
+  { :city_name => "Indore", :time_zone => "UTC+05:30" },
+  { :city_name => "Jabalpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Ujjain", :time_zone => "UTC+05:30" },
+  { :city_name => "Chinchwad", :time_zone => "UTC+05:30" },
+  { :city_name => "Mumbai", :time_zone => "UTC+05:30" },
+  { :city_name => "Nagpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Navi Mumbai", :time_zone => "UTC+05:30" },
+  { :city_name => "Pimpri", :time_zone => "UTC+05:30" },
+  { :city_name => "Pune", :time_zone => "UTC+05:30" },
+  { :city_name => "Thane", :time_zone => "UTC+05:30" },
+  { :city_name => "Imphal", :time_zone => "UTC+05:30" },
+  { :city_name => "Shillong", :time_zone => "UTC+05:30" },
+  { :city_name => "Aizawl", :time_zone => "UTC+05:30" },
+  { :city_name => "Dimapur", :time_zone => "UTC+05:30" },
+  { :city_name => "Bhubaneswar", :time_zone => "UTC+05:30" },
+  { :city_name => "Brahmapur", :time_zone => "UTC+05:30" },
+  { :city_name => "Cuttack", :time_zone => "UTC+05:30" },
+  { :city_name => "Puriﾠ", :time_zone => "UTC+05:30" },
+  { :city_name => "Raurkela", :time_zone => "UTC+05:30" },
+  { :city_name => "Town", :time_zone => "UTC+05:30" },
+  { :city_name => "Town", :time_zone => "UTC+05:30" },
+  { :city_name => "Ozhukarai", :time_zone => "UTC+05:30" },
+  { :city_name => "Puducherry", :time_zone => "UTC+05:30" },
+  { :city_name => "Amritsar", :time_zone => "UTC+05:30" },
+  { :city_name => "Bathinda", :time_zone => "UTC+05:30" },
+  { :city_name => "Jalandhar", :time_zone => "UTC+05:30" },
+  { :city_name => "Ludhiana", :time_zone => "UTC+05:30" },
+  { :city_name => "Patiala", :time_zone => "UTC+05:30" },
+  { :city_name => "Ajmer", :time_zone => "UTC+05:30" },
+  { :city_name => "Bikaner", :time_zone => "UTC+05:30" },
+  { :city_name => "Jaipur", :time_zone => "UTC+05:30" },
+  { :city_name => "Jodhpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Kota", :time_zone => "UTC+05:30" },
+  { :city_name => "Gangtok", :time_zone => "UTC+05:30" },
+  { :city_name => "Chennai", :time_zone => "UTC+05:30" },
+  { :city_name => "Coimbatore", :time_zone => "UTC+05:30" },
+  { :city_name => "Madurai", :time_zone => "UTC+05:30" },
+  { :city_name => "Salem", :time_zone => "UTC+05:30" },
+  { :city_name => "Tiruchirappalli", :time_zone => "UTC+05:30" },
+  { :city_name => "Agartala", :time_zone => "UTC+05:30" },
+  { :city_name => "Agra", :time_zone => "UTC+05:30" },
+  { :city_name => "Ghaziabad", :time_zone => "UTC+05:30" },
+  { :city_name => "Kanpur", :time_zone => "UTC+05:30" },
+  { :city_name => "Lucknow", :time_zone => "UTC+05:30" },
+  { :city_name => "Meerut", :time_zone => "UTC+05:30" },
+  { :city_name => "Dehradun", :time_zone => "UTC+05:30" },
+  { :city_name => "Haldwani", :time_zone => "UTC+05:30" },
+  { :city_name => "Hardwar", :time_zone => "UTC+05:30" },
+  { :city_name => "Kathgodam", :time_zone => "UTC+05:30" },
+  { :city_name => "Rudrapur", :time_zone => "UTC+05:30" },
+  { :city_name => "Asansol", :time_zone => "UTC+05:30" },
+  { :city_name => "Durgapur", :time_zone => "UTC+05:30" },
+  { :city_name => "Howrah", :time_zone => "UTC+05:30" },
+  { :city_name => "Kolkata", :time_zone => "UTC+05:30" },
+  { :city_name => "Siliguri", :time_zone => "UTC+05:30" }
+])
+
 
 Area.create([
   { :city_id => 64, :area_name => "Bandra West", :pincode => "400050"},
@@ -26,164 +204,6 @@ Area.create([
   { :city_id => 66, :area_name => "Vashi", :pincode => "400703"},
   { :city_id => 64, :area_name => "Vile Parle West", :pincode => "400049"}
 ])
-
-
-City.create([
-  { :state_id => 1, :city_name => "Port Blair", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 2, :city_name => "Guntur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 2, :city_name => "Hyderabad", :metro_id => 6, :time_zone => "UTC+05:30" },
-  { :state_id => 2, :city_name => "Vijayawada", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 2, :city_name => "Visakhapatnam", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 2, :city_name => "Warangal", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 3, :city_name => "Itanagar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 4, :city_name => "Dibrugarh", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 4, :city_name => "Guwahati", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 4, :city_name => "Nagaon", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 4, :city_name => "Silchar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 5, :city_name => "Bhagalpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 5, :city_name => "Biharsharif", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 5, :city_name => "Gaya", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 5, :city_name => "Muzaffarpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 5, :city_name => "Patna", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 6, :city_name => "Chandigarh", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 7, :city_name => "Bhilai Nagar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 7, :city_name => "Bilaspur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 7, :city_name => "Durg", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 7, :city_name => "Korba", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 7, :city_name => "Raipur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 8, :city_name => "Silvassa", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 9, :city_name => "Daman", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 10, :city_name => "Delhi", :metro_id => 1, :time_zone => "UTC+05:30" },
-  { :state_id => 11, :city_name => "Panaji", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 12, :city_name => "Ahmedabad", :metro_id => 7, :time_zone => "UTC+05:30" },
-  { :state_id => 12, :city_name => "Bhavnagar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 12, :city_name => "Rajkot", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 12, :city_name => "Surat", :metro_id => 9, :time_zone => "UTC+05:30" },
-  { :state_id => 12, :city_name => "Vadodara", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 13, :city_name => "Faridabad", :metro_id => 1, :time_zone => "UTC+05:30" },
-  { :state_id => 13, :city_name => "Gurgaon", :metro_id => 1, :time_zone => "UTC+05:30" },
-  { :state_id => 13, :city_name => "Hisar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 13, :city_name => "Panipat", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 13, :city_name => "Rohtak", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 14, :city_name => "Shimla", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 15, :city_name => "Anantnag", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 15, :city_name => "Jammu", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 15, :city_name => "Srinagar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 16, :city_name => "Bokaro Steel", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 16, :city_name => "Dhanbad", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 16, :city_name => "Jamshedpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 16, :city_name => "Mango", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 16, :city_name => "Ranchi", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 17, :city_name => "Bangalore", :metro_id => 5, :time_zone => "UTC+05:30" },
-  { :state_id => 17, :city_name => "Belgaum", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 17, :city_name => "Dharwad", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 17, :city_name => "Gulbarga", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 17, :city_name => "Hubliﾠ", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 17, :city_name => "Mysore", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 18, :city_name => "Kochi", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 18, :city_name => "Kollam", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 18, :city_name => "Kozhikode", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 18, :city_name => "Thrissur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 18, :city_name => "Trivandrum", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 19, :city_name => "Kavaratti", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 20, :city_name => "Bhopal", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 20, :city_name => "Gwalior", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 20, :city_name => "Indore", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 20, :city_name => "Jabalpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 20, :city_name => "Ujjain", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Chinchwad", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Mumbai", :metro_id => 2, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Nagpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Navi Mumbai", :metro_id => 2, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Pimpri", :metro_id => 8, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Pune", :metro_id => 8, :time_zone => "UTC+05:30" },
-  { :state_id => 21, :city_name => "Thane", :metro_id => 2, :time_zone => "UTC+05:30" },
-  { :state_id => 22, :city_name => "Imphal", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 23, :city_name => "Shillong", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 24, :city_name => "Aizawl", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 25, :city_name => "Dimapur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Bhubaneswar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Brahmapur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Cuttack", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Puriﾠ", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Raurkela", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Town", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 26, :city_name => "Town", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 27, :city_name => "Ozhukarai", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 27, :city_name => "Puducherry", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 28, :city_name => "Amritsar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 28, :city_name => "Bathinda", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 28, :city_name => "Jalandhar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 28, :city_name => "Ludhiana", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 28, :city_name => "Patiala", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 29, :city_name => "Ajmer", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 29, :city_name => "Bikaner", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 29, :city_name => "Jaipur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 29, :city_name => "Jodhpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 29, :city_name => "Kota", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 30, :city_name => "Gangtok", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 31, :city_name => "Chennai", :metro_id => 4, :time_zone => "UTC+05:30" },
-  { :state_id => 31, :city_name => "Coimbatore", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 31, :city_name => "Madurai", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 31, :city_name => "Salem", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 31, :city_name => "Tiruchirappalli", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 32, :city_name => "Agartala", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 33, :city_name => "Agra", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 33, :city_name => "Ghaziabad", :metro_id => 1, :time_zone => "UTC+05:30" },
-  { :state_id => 33, :city_name => "Kanpur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 33, :city_name => "Lucknow", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 33, :city_name => "Meerut", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 34, :city_name => "Dehradun", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 34, :city_name => "Haldwani", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 34, :city_name => "Hardwar", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 34, :city_name => "Kathgodam", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 34, :city_name => "Rudrapur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 35, :city_name => "Asansol", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 35, :city_name => "Durgapur", :metro_id => nil, :time_zone => "UTC+05:30" },
-  { :state_id => 35, :city_name => "Howrah", :metro_id => 3, :time_zone => "UTC+05:30" },
-  { :state_id => 35, :city_name => "Kolkata", :metro_id => 3, :time_zone => "UTC+05:30" },
-  { :state_id => 35, :city_name => "Siliguri", :metro_id => nil, :time_zone => "UTC+05:30" }
-])
-
-
-State.create([
-  { :state_name => "Andaman and Nicobar Islands", :state_code => "AN", :country_id => 6 },
-  { :state_name => "Andhra Pradesh", :state_code => "AP", :country_id => 6 },
-  { :state_name => "Arunachal Pradesh", :state_code => "AR", :country_id => 6 },
-  { :state_name => "Assam", :state_code => "AS", :country_id => 6 },
-  { :state_name => "Bihar", :state_code => "BR", :country_id => 6 },
-  { :state_name => "Chandigarh", :state_code => "CH", :country_id => 6 },
-  { :state_name => "Chhattisgarh", :state_code => "CT", :country_id => 6 },
-  { :state_name => "Dadar and Nagar Haveli", :state_code => "DN", :country_id => 6 },
-  { :state_name => "Daman and Diu", :state_code => "DD", :country_id => 6 },
-  { :state_name => "Delhi", :state_code => "DL", :country_id => 6 },
-  { :state_name => "Goa", :state_code => "GA", :country_id => 6 },
-  { :state_name => "Gujarat", :state_code => "GJ", :country_id => 6 },
-  { :state_name => "Haryana", :state_code => "HR", :country_id => 6 },
-  { :state_name => "Himachal Pradesh", :state_code => "HP", :country_id => 6 },
-  { :state_name => "Jammu and Kashmir", :state_code => "JK", :country_id => 6 },
-  { :state_name => "Jharkhand", :state_code => "JH", :country_id => 6 },
-  { :state_name => "Karnataka", :state_code => "KA", :country_id => 6 },
-  { :state_name => "Kerala", :state_code => "KL", :country_id => 6 },
-  { :state_name => "Lakshadweep", :state_code => "LD", :country_id => 6 },
-  { :state_name => "Madhya Pradesh", :state_code => "MP", :country_id => 6 },
-  { :state_name => "Maharashtra", :state_code => "MH", :country_id => 6 },
-  { :state_name => "Manipur", :state_code => "MN", :country_id => 6 },
-  { :state_name => "Meghalaya", :state_code => "ML", :country_id => 6 },
-  { :state_name => "Mizoram", :state_code => "MZ", :country_id => 6 },
-  { :state_name => "Nagaland", :state_code => "NL", :country_id => 6 },
-  { :state_name => "Odisha", :state_code => "OR", :country_id => 6 },
-  { :state_name => "Pondicherry", :state_code => "PY", :country_id => 6 },
-  { :state_name => "Punjab", :state_code => "PB", :country_id => 6 },
-  { :state_name => "Rajasthan", :state_code => "RJ", :country_id => 6 },
-  { :state_name => "Sikkim", :state_code => "SK", :country_id => 6 },
-  { :state_name => "Tamil Nadu", :state_code => "TN", :country_id => 6 },
-  { :state_name => "Tripura", :state_code => "TR", :country_id => 6 },
-  { :state_name => "Uttar Pradesh", :state_code => "UP", :country_id => 6 },
-  { :state_name => "Uttarakhand", :state_code => "UT", :country_id => 6 },
-  { :state_name => "West Bengal", :state_code => "WB", :country_id => 6 }
-])
-
 
 Country.create([
   { :country_name => "Australia", :iso_code => "AUS", :phone_country_code => 61, :currency_id => "AUD", :currency_name => "Dollar" },
@@ -213,13 +233,6 @@ Country.create([
   { :country_name => "Vietnam", :iso_code => "VNM", :phone_country_code => 84, :currency_id => "VND", :currency_name => "Dong" }
 ])
 
-
-Account.create([
-  { :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
-  { :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
-  { :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
-  { :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
-])
 
 AccountBrand.create([
   { :brand_id => 1, :account_id => 1},
@@ -1524,72 +1537,6 @@ Outlet.create([
   { :account_brand_id => 22, :outlet_type_id => 2, :address => "Shop No 2, Grain merchant CHS LTD, Plot no 26/35, Sector 17", :area_id => 16, :phone_number => nil, :mobile_country_id => 6, :mobile_number => "9830151515", :email_id => "adadoo@gullakmaster.com", :is_active => true, :is_verified => true, :latitude => 19.071457, :longitude => 72.999306, :outlet_key => "916102" },
   { :account_brand_id => 23, :outlet_type_id => 2, :address => "Shop No 2, Grain merchant CHS LTD, Plot no 26/35, Sector 17", :area_id => 16, :phone_number => nil, :mobile_country_id => 6, :mobile_number => "9830151515", :email_id => "adadoo@gullakmaster.com", :is_active => true, :is_verified => true, :latitude => 19.071457, :longitude => 72.999306, :outlet_key => "238006" },
   { :account_brand_id => 24, :outlet_type_id => 2, :address => "Shop No 2, Grain merchant CHS LTD, Plot no 26/35, Sector 17", :area_id => 16, :phone_number => nil, :mobile_country_id => 6, :mobile_number => "9830151515", :email_id => "adadoo@gullakmaster.com", :is_active => true, :is_verified => true, :latitude => 19.071457, :longitude => 72.999306, :outlet_key => "678405" }
-])
-
-
-
-OutletType.create([
-  { :outlet_type_name => "In Mall" },
-  { :outlet_type_name => "High Street" },
-  { :outlet_type_name => "Cut-In" },
-  { :outlet_type_name => "Multi-Brand" }
-])
-
-
-
-
-Role.create!([
-  { :name => "owner", :resource_id => 18, :resource_type => "Account" },
-  { :name => "owner", :resource_id => 1, :resource_type => "Account" },
-  { :name => "owner", :resource_id => 20, :resource_type => "Account" }
-])
-
-
-
-
-
-
-User.create([
-  {:email => "adadoo@gullakmaster.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "Abhishek", :last_name => "Dadoo", :mobile_number => "983000000000", :user_key => "abcdef", :is_active => true, :email_verified => true, :mobile_verified => false},
-  {:email => "amardaxini@gmail.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "amar", :last_name => "Daxini", :mobile_number => nil, :user_key => nil, :is_active => nil, :email_verified => nil, :mobile_verified => nil }
-])
-
-
-
-UserAccount.create([
-  { :user_id => 1, :account_id => 1 },
-  { :user_id => 1, :account_id => 2 },
-  { :user_id => 1, :account_id => 3 },
-  { :user_id => 14, :account_id => 20 }
-])
-
-
-
-UserBrandAccount.create([
-  { :user_account_id => 1, :account_brand_id => 1},
-  { :user_account_id => 2, :account_brand_id => 2},
-  { :user_account_id => 3, :account_brand_id => 3},
-  { :user_account_id => 1, :account_brand_id => 4},
-  { :user_account_id => 2, :account_brand_id => 5},
-  { :user_account_id => 3, :account_brand_id => 6},
-  { :user_account_id => 1, :account_brand_id => 7},
-  { :user_account_id => 2, :account_brand_id => 8},
-  { :user_account_id => 3, :account_brand_id => 9},
-  { :user_account_id => 1, :account_brand_id => 10},
-  { :user_account_id => 2, :account_brand_id => 11},
-  { :user_account_id => 3, :account_brand_id => 12},
-  { :user_account_id => 1, :account_brand_id => 13},
-  { :user_account_id => 2, :account_brand_id => 14},
-  { :user_account_id => 3, :account_brand_id => 15},
-  { :user_account_id => 1, :account_brand_id => 16},
-  { :user_account_id => 2, :account_brand_id => 17},
-  { :user_account_id => 3, :account_brand_id => 18},
-  { :user_account_id => 1, :account_brand_id => 19},
-  { :user_account_id => 2, :account_brand_id => 20},
-  { :user_account_id => 3, :account_brand_id => 21},
-  { :user_account_id => 1, :account_brand_id => 22},
-  { :user_account_id => 2, :account_brand_id => 23},
-  { :user_account_id => 3, :account_brand_id => 24}
 ])
 
 
