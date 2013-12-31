@@ -68,4 +68,7 @@
   </a>
 </div>
 <% @brands = @brands.uniq %>
+<% @brands.each do |brand| %>
+    <% BrandSession.create(:brand_id => brand.id, :customer_session_id => session[:customer_id]) %>
+<% end %>
 <%# binding.pry %>
