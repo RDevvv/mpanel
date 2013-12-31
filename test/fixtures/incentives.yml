@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  sms_text: MyString
+  expiry_date: 2013-12-31 10:39:54
+  is_active: false
+
+two:
+  name: MyString
+  sms_text: MyString
+  expiry_date: 2013-12-31 10:39:54
+  is_active: false

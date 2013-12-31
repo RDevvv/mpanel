@@ -1,5 +1,8 @@
 Gullak2::Application.routes.draw do
 
+  resources :incentives
+
+
   resources :sms_sents
   resources :ads
   resources :call_forwardings

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @incentive.name %>
+</p>
+
+<p>
+  <b>Sms text:</b>
+  <%= @incentive.sms_text %>
+</p>
+
+<p>
+  <b>Expiry date:</b>
+  <%= @incentive.expiry_date %>
+</p>
+
+<p>
+  <b>Is active:</b>
+  <%= @incentive.is_active %>
+</p>
+
+
+<%= link_to 'Edit', edit_incentive_path(@incentive) %> |
+<%= link_to 'Back', incentives_path %>
