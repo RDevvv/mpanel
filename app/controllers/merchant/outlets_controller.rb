@@ -29,7 +29,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	def create
     @outlet = @account_brand.outlets.new(params[:outlet])  
     @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first    
-    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name],:pincode=>params[:pincode]) if @area.blank?
     @outlet.area = @area
     
     respond_to do |format|
@@ -83,7 +83,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	def update
     @outlet = @account_brand.outlets.find(params[:id])
     @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first        
-    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name],:pincode=>params[:pincode]) if @area.blank?
     params[:outlet][:area_id] = @area.id
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])

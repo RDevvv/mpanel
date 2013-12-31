@@ -126,25 +126,26 @@ class Outlet < ActiveRecord::Base
     area = city.areas.create!(:area_name=>params[:area_name],:pincode=>params[:pincode]) if area.blank?
     outlet = account_brand.outlets.new(params[:outlet])
     outlet.area_id = area.id
+    outlet.is_active = true
     outlet.save
     outlet
   end
 
   def get_brands
-      brands = Array.new
-      self.ads.each do |ad|
-          brands.push ad.account_brand.brand
-      end
-      brands.uniq
+    brands = Array.new
+    self.ads.each do |ad|
+      brands.push ad.account_brand.brand
+    end
+    brands.uniq
   end
 
   def sort_by_brands(brand_id)
-      outlets = Array.new
-      Brand.find(brand_id).account_brands.each do |account_brand|
-          account_brand.ads.each do |ad|
-              outlets.push ad.outlets
-          end
+    outlets = Array.new
+    Brand.find(brand_id).account_brands.each do |account_brand|
+      account_brand.ads.each do |ad|
+        outlets.push ad.outlets
       end
-      outlets = outlets.flatten.uniq
+    end
+    outlets = outlets.flatten.uniq
   end
 end
