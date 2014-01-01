@@ -21,10 +21,10 @@
           <% end %>
         </td>
         <td>
-          <%= ad.start_date.to_date.to_s(:db) %>
+          <%= ad.start_date.to_date.to_s(:db) if ad.start_date%>
         </td>
         <td>
-          <%= ad.expiry_date.to_date.to_s(:db) %>
+          <%= ad.expiry_date.to_date.to_s(:db) if ad.expiry_date %>
         </td>
         <td>
           <%= ad.sms_text %>
