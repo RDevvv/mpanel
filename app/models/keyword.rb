@@ -7,7 +7,7 @@ class Keyword < ActiveRecord::Base
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
 
-  # searchable do
-  #     text :keyword
-  # end
+  searchable do
+      text :keyword
+  end
 end
