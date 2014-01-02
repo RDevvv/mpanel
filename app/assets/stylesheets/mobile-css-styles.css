@@ -1,6 +1,29 @@
 /* Custom styles */
 
 /* Custom font */
+@font-face {
+    font-family: 'gill_sans_mt_ext_condensed_Rg';
+    src: url('glsnecb-webfont.eot');
+    src: url('glsnecb-webfont.eot?#iefix') format('embedded-opentype'),
+         url('glsnecb-webfont.woff') format('woff'),
+         url('glsnecb-webfont.ttf') format('truetype'),
+         url('glsnecb-webfont.svg#gill_sans_mt_ext_condensed_Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'arial_rounded_mt_boldregular';
+    src: url('arlrdbd-webfont.eot');
+    src: url('arlrdbd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('arlrdbd-webfont.woff') format('woff'),
+         url('arlrdbd-webfont.ttf') format('truetype'),
+         url('arlrdbd-webfont.svg#arial_rounded_mt_boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 /* Custom font */
 
 /* CSS hack to prevent layout breaking in landscape
@@ -197,6 +220,14 @@ background: #7f7f7f;
 .lower-box .star1 img {}
 /* Test Styles */
 
+/* Error page Styles */
+.error-box {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #fff; background: url(../img/broken-glass-bg.png) no-repeat #fff;}
+.error-number {border:solid 2px #5f5f5f; width: 56px; height: 64px; padding: 0px; text-align: center; margin: 224px auto 0 auto; font-size: 52px; font-family: 'gill_sans_mt_ext_condensed_Rg'; color: #6d6d6d;}
+.error-line {border:solid 0px #fff; width: 306px; height: 44px; margin: 20px auto 5px auto; font-family: tahoma, arial; font-size: 11px; color: #424242; background: url(../img/error-line.png) no-repeat center center #fff;}
+.error-line p {float:left; clear:both;line-height: 15px; margin: 4px 0 0 100px;}
+.click-to-go {width: 100%; margin: 15px 0 0 0; background-color: #212121; font-family: 'arial_rounded_mt_boldregular'; font-size: 18px; text-transform: uppercase; color: #fff; text-align: center;}
+.error-logo {clear: both; margin: 10px auto 5px auto; text-align: center; border: none;}
+/* Error page Styles */
 
  .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
  .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
