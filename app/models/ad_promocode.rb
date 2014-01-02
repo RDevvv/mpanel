@@ -1,5 +1,5 @@
 class AdPromocode < ActiveRecord::Base
-  attr_accessible :ad_id, :cap, :is_used, :set_name, :usage, :promocode, :outlet_ids, :promocodes, :is_active, :ad_group_id
+  attr_accessible :ad_id, :cap, :is_used, :usage, :promocode, :outlet_ids, :promocodes, :is_active, :ad_group_id, :deleted_at
   attr_accessor :promocodes
   belongs_to :ad
   belongs_to :ad_group
@@ -9,7 +9,9 @@ class AdPromocode < ActiveRecord::Base
   validates_presence_of :set_name
   before_destroy :can_delete
   after_save :inactive_ad_promocode
-  
+
+  acts_as_paranoid
+    
   def can_delete
     (self.usage.blank? || self.usage.to_i == 0) ? true : false
   end

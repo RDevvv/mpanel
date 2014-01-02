@@ -1,11 +1,13 @@
 class AdGroup < ActiveRecord::Base
-  attr_accessible :is_active, :name, :ad_id,:is_multiple
+  attr_accessible :is_active, :name, :ad_id,:is_multiple, :deleted_at
   has_many :ad_promocodes, :dependent=>:destroy
   has_many :outlets, :through=>:ad_promocodes
   has_many :ad_promocode_outlets, :through=>:ad_promocodes
-  
   belongs_to :ad
   validates_presence_of :name
+
+  acts_as_paranoid
+  
   def toggle_active
     self.is_active? ?  self.deactivate : self.activate
   end

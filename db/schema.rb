@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131231130714) do
+ActiveRecord::Schema.define(:version => 20140102054918) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
     t.integer  "account_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.time     "deleted_at"
   end
 
   create_table "accounts", :force => true do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.string   "registered_company_name"
     t.boolean  "is_verified"
     t.integer  "owner_id"
+    t.time     "deleted_at"
   end
 
   create_table "ad_groups", :force => true do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.datetime "updated_at",                     :null => false
     t.integer  "ad_id"
     t.boolean  "is_multiple", :default => false
+    t.time     "deleted_at"
   end
 
   create_table "ad_keywords", :force => true do |t|
@@ -50,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.integer  "keyword_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.time     "deleted_at"
   end
 
   create_table "ad_promocode_outlets", :force => true do |t|
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.integer  "ad_promocode_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.time     "deleted_at"
   end
 
   create_table "ad_promocodes", :force => true do |t|
@@ -70,7 +75,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_active"
     t.integer  "ad_group_id"
-    t.integer  "set_name"
+    t.time     "deleted_at"
   end
 
   create_table "admin_users", :force => true do |t|
@@ -108,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.boolean  "is_exclusive"
+    t.time     "deleted_at"
   end
 
   create_table "areas", :force => true do |t|
@@ -327,6 +333,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.string   "outlet_key"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.time     "deleted_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -404,6 +411,7 @@ ActiveRecord::Schema.define(:version => 20131231130714) do
     t.integer  "account_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.time     "deleted_at"
   end
 
   create_table "users", :force => true do |t|
