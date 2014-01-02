@@ -19,7 +19,6 @@
                 <th>Status</th>
                 <th>Verified</th>
                 <th>Current Brands</th>
-                <th>Outlets</th>
                 <th></th>
               </tr>
             </thead>
@@ -42,11 +41,14 @@
                 </td>
                 <td><% brand_name = @current_account.brands.pluck(:brand_name) %>
                   <% brand_name.each do |brands| %>
-                  <%= brands %>
+                    <%= brands %>
+                    <% if brand_name.last != brands %>
+                      <%= " ,"%>
+                    <% end %>
                   <% end %>
                 </td>
-                <td></td>
-                <td> <%= link_to 'Delete', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td> <% link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %>
+                  <%= link_to 'Delete', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr> 
             <% end %>
             </tbody>  

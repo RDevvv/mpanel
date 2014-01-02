@@ -26,7 +26,7 @@ class Merchant::AdGroupsController <  Merchant::BaseController
 
   def more_outlets
     @ad_group = @ad.ad_groups.find(params[:id])
-    @outlets = Outlet.all - @ad_group.outlets
+    @outlets = @ad.account_brand.outlets - @ad_group.outlets
   end
 
   def add_more_promocodes
@@ -56,6 +56,12 @@ class Merchant::AdGroupsController <  Merchant::BaseController
     @ad_group.add_more_outlets(params[:outlet_ids])
 
     redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group) 
+  end
+
+  def destroy
+    @ad_group = @ad.ad_groups.find(params[:id])
+    @ad_group.destroy
+    redirect_to merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad),:notice=>"Ad successfylly Destroyed"  
   end
 
   protected

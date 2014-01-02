@@ -37,9 +37,20 @@ before_filter :load_account
 	end
 
 	def edit
+    @brand = @current_account.brands.find(params[:id])
+    @categories = Category.all
 	end
 
 	def update
+    @brand = @current_account.brands.find(params[:id])
+
+    respond_to do |format|
+      if @brand.update_attributes(params[:brand])
+        format.html { redirect_to merchant_account_brands_path, notice: 'Brand was successfully updated.' }
+      else
+        format.html { render action: "edit" }
+      end
+    end
 	end
 
   def index

@@ -14,7 +14,6 @@ class Merchant::BaseController < ApplicationController
       if params[:account_id]
         @current_account = current_user.accounts.find(params[:account_id]) 
       else
-        
         @current_account = current_user.accounts.first
       end
     end  

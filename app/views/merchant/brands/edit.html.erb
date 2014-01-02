@@ -1,0 +1,45 @@
+<%= render :partial=>'header',:locals=>{:name=>"New Brand"} %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="box">
+
+      <div class="box-header">
+        <span class="title"><i class="icon-account"></i> New Brand</span>
+      </div>
+      <div class="box-content">
+        <%= nested_form_for([@current_account,@brand], :url=>merchant_account_brand_path(@current_account,@brand), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+          <div class="padded">
+            
+            <div class="control-group">
+              <label class="control-label">Brand Name</label>
+              <div class="controls">
+              	<%= f.text_field :brand_name, :placeholder=>"Brand Name", :class=>"validate[required,maxSize[60]]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+
+            <div class="control-group">
+              <label class="control-label">Category</label>
+              <div class="controls">
+              	<%= f.collection_select :category_id, @categories,:id,:category_name%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Brand Website Url</label>
+              <div class="controls">
+                <%= f.text_field :website_url,:placeholder=>"Brand Website Url", :class=>"validate[]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>  
+            
+            <%= f.fields_for :attachments %>
+            <%= f.link_to_add "Add a image", :attachments %>
+          </div>  
+          <div class="form-actions">
+						<button type="submit" class="btn btn-blue">Save changes</button>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</div>      

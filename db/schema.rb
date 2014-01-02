@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131231082101) do
+ActiveRecord::Schema.define(:version => 20140102054918) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
     t.integer  "account_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.time     "deleted_at"
   end
 
   create_table "accounts", :force => true do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
+    t.time     "deleted_at"
   end
 
   create_table "ad_groups", :force => true do |t|
@@ -42,14 +44,15 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
     t.datetime "updated_at",                     :null => false
     t.integer  "ad_id"
     t.boolean  "is_multiple", :default => false
+    t.time     "deleted_at"
   end
 
   create_table "ad_keywords", :force => true do |t|
     t.integer  "ad_id"
     t.integer  "keyword_id"
-    t.boolean  "is_deleted"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.time     "deleted_at"
   end
 
   create_table "ad_promocode_outlets", :force => true do |t|
@@ -58,10 +61,10 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
     t.integer  "ad_promocode_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.time     "deleted_at"
   end
 
   create_table "ad_promocodes", :force => true do |t|
-    t.string   "set_name"
     t.string   "promocode"
     t.integer  "ad_id"
     t.float    "cap"
@@ -71,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
     t.datetime "updated_at",                     :null => false
     t.boolean  "is_active",   :default => true
     t.integer  "ad_group_id"
+    t.time     "deleted_at"
   end
 
   create_table "admin_users", :force => true do |t|
@@ -108,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.boolean  "is_exclusive"
+    t.time     "deleted_at"
   end
 
   create_table "areas", :force => true do |t|
@@ -283,12 +288,6 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
 
   add_index "mobile_verification_codes", ["customer_id"], :name => "index_mobile_verification_codes_on_customer_id"
 
-  create_table "outlet_types", :force => true do |t|
-    t.string   "outlet_type_name"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
   create_table "outlets", :force => true do |t|
     t.integer  "account_brand_id"
     t.text     "address"
@@ -347,27 +346,21 @@ ActiveRecord::Schema.define(:version => 20131231082101) do
   create_table "sms_sents", :force => true do |t|
     t.string   "text"
     t.integer  "is_sent"
-    t.integer  "customer_id"
-    t.integer  "ad_promocode_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "customer_id_id"
+    t.integer  "ad_promocode_id_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
-  add_index "sms_sents", ["ad_promocode_id"], :name => "index_sms_sents_on_ad_promocode_id"
-  add_index "sms_sents", ["customer_id"], :name => "index_sms_sents_on_customer_id"
+  add_index "sms_sents", ["ad_promocode_id_id"], :name => "index_sms_sents_on_ad_promocode_id_id"
+  add_index "sms_sents", ["customer_id_id"], :name => "index_sms_sents_on_customer_id_id"
 
   create_table "user_accounts", :force => true do |t|
     t.integer  "user_id"
     t.integer  "account_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "user_brand_accounts", :force => true do |t|
-    t.integer  "user_account_id"
-    t.integer  "account_brand_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.time     "deleted_at"
   end
 
   create_table "users", :force => true do |t|

@@ -1,24 +1,23 @@
 <%= form_for([@current_account,@account_brand,@ad,@ad_promocode], :url=>add_multiple_code_merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
 
   <div class="padded">    
-    <div class="control-group">
-      <label class="control-label">Set Name *</label>
-      <div class="controls">
-        <%= f.text_field :set_name, :placeholder=>"Set Name", :class=>"validate[required,maxSize[60]]", "data-prompt-position"=>"topLeft" %>               
-      </div>
+     <div class="control-group">
+   <label class="control-label">Set Name *</label>
+    <div class="controls">
+      <%= f.text_field :set_name, :placeholder=>"Set Name", :class=>"validate[required,maxSize[60]]", "data-prompt-position"=>"topLeft" %>               
     </div>
-
+  </div>
     <div class="control-group">
       <label class="control-label">Promocode</label>
       <div class="controls">
-        <%= f.text_area :promocodes, :placeholder=>"Promocode separated be comma", :class=>"validate[required,maxSize[16]]", "data-prompt-position"=>"topLeft",:rows=> 3 %>               
+        <%= f.text_area :promocodes, :placeholder=>"Promocode separated by comma", :class=>"validate[required]", "data-prompt-position"=>"topLeft",:rows=> 3 %>               
       </div>
     </div>
 
      <div class="control-group">
       <label class="control-label">Outlets</label>
       <div class="controls">   
-        <%= f.collection_select("outlet_ids", @account_brand.outlets,:id,:address,{},:multiple=>true,:class=>"chzn-select") %>               
+        <%= f.collection_select("outlet_ids", @account_brand.outlets,:id,:full_address,{},:multiple=>true,:class=>"chzn-select") %>               
       </div>
     </div>
   

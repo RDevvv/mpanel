@@ -1,7 +1,6 @@
 class UserAccount < ActiveRecord::Base
-  attr_accessible :account_id, :user_id
-  has_many :user_brand_accounts, :dependent => :destroy
-  has_many :account_brands, :through => :user_brand_accounts
+  attr_accessible :account_id, :user_id, :deleted_at
   belongs_to :account
   belongs_to :user
+  acts_as_paranoid
 end

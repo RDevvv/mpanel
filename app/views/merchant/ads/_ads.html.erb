@@ -6,6 +6,8 @@
         <th>Start Date</th>
         <th>Expiry Date</th>
         <th>SMS Text</th>
+        <th>Exclusive</th>
+        <th>Status</th>
         <th></th>
       </tr>
     </thead>
@@ -14,15 +16,44 @@
       <tr>
         <td>
           <%= link_to ad.ad_title,merchant_account_account_brand_ad_path(@current_account,@account_brand,ad)  %>
+          <% if ad.expired? %>
+            <span class="label label-important"> Expired </span> 
+          <% end %>
         </td>
         <td>
-          <%= ad.start_date %>
+          <%= ad.start_date.to_date.to_s(:db) if ad.start_date%>
         </td>
         <td>
-          <%= ad.expiry_date %>
+          <%= ad.expiry_date.to_date.to_s(:db) if ad.expiry_date %>
         </td>
         <td>
           <%= ad.sms_text %>
+        </td>
+        <td>
+          <%= form_tag(toggle_exclusive_merchant_account_account_brand_ad_path(@current_account,@account_brand,ad),:style=>"display:inline") do %>
+            <% if ad.is_exclusive %>
+              <%= check_box_tag :is_exclusive, true,true,:disabled=>true%>
+            <% else %>
+              <%= check_box_tag :is_exclusive,false,false, :disabled=>true%>
+            <% end %>
+
+            <button type="submit" class=" btn-link">
+              <%= display_label_for_exclusive(ad.is_exclusive?) %>
+            </button>
+          <%end %>
+        </td>
+        <td>
+          <%= form_tag(toggle_active_merchant_account_account_brand_ad_path(@current_account,@account_brand,ad),:style=>"display:inline") do %>
+            <% if ad.is_active %>
+              <%= check_box_tag :is_active, true,true,:disabled=>true%>
+            <% else %>
+              <%= check_box_tag :is_active,false,false, :disabled=>true%>
+            <% end %>
+          
+            <button type="submit" class=" btn-link">
+              <%= display_label_for_activate(ad.is_active?) %>
+            </button>
+          <%end %>
         </td>
         <td> 
           <%= link_to "Edit",merchant_account_account_brand_ad_path(@current_account,@account_brand,ad) %> |

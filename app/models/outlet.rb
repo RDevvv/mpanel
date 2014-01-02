@@ -3,18 +3,17 @@ require 'csv'
 class Outlet < ActiveRecord::Base
 
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
-  attr_accessible :latitude, :longitude, :mobile_number, :outlet_key, :phone_number
+  attr_accessible :latitude, :longitude, :mobile_number, :outlet_key, :phone_number, :deleted_at
 
   has_many :ads,:through=>:ad_promocode_outlets
   has_many :button_clicks
   belongs_to :area
   belongs_to :account_brand
-  belongs_to :outlet_type
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :ad_promocodes,:through=>:ad_promocode_outlets
 
   has_paper_trail
-  #acts_as_paranoid
+  acts_as_paranoid
   validates :mobile_number, :format => { :with => /^[7-9]\d{9}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	validates :phone_number,  :format=>{:with =>  /^[0-9]\d{1,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
@@ -40,6 +39,9 @@ class Outlet < ActiveRecord::Base
   def geocoding_address
     [self.address, self.area.area_name, self.area.city.name, self.area.pincode].compact.join(', ')    
     # [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+  end
+  def full_address
+    [self.area.city.name, self.area.name, self.address].join(",")
   end
 
   def add_uniq_outlet_key  
