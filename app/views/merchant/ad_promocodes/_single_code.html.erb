@@ -1,13 +1,7 @@
 <%= form_for([@current_account,@account_brand,@ad,@ad_promocode], :url=>add_single_code_merchant_account_account_brand_ad_ad_promocodes_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
 
 <div class="padded">    
-  <div class="control-group">
-    <label class="control-label">Set Name *</label>
-    <div class="controls">
-      <%= f.text_field :set_name, :placeholder=>"Set Name", :class=>"validate[required,maxSize[60]]", "data-prompt-position"=>"topLeft" %>               
-    </div>
-  </div>
-
+  
   <div class="control-group">
     <label class="control-label">Promocode</label>
     <div class="controls">
