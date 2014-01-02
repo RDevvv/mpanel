@@ -39,8 +39,7 @@
   <nav id="menu">
     <ul>
       <li class="subcat">Sort by:</li>
-      <li><a href="#">Distance</a></li>
-      <li><a href="#">Hot Picks</a></li>
+      <li><%= link_to "Distance", :outlet_listing %></li>
       <li>&nbsp;</li>
       <li class="subcat">Filter by:</li>
       <li style="margin-top:10px;">
@@ -65,7 +64,10 @@
       $(function() {
           $('nav#menu').mmenu();
       });
+
+$(document).ready(function(){$('.alert').fadeOut(2000)});
   </script>
 
 </body>
 </html>
+

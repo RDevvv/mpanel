@@ -82,12 +82,18 @@ class SmsSentsController < ApplicationController
   end
 
   def set_sms_data
-      ad = Ad.find(params[:ad_id])
-
-      ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id])
-      @sms_sent = SmsSent.create(:text => "ad.sms_text")
-      respond_to do |format|
-          format.json {render :nothing => true}
+      customer = Customer.where(:uuid => params[:customer_uuid]).first
+      unless customer.mobile_number.nil?
+          ad = Ad.find(params[:ad_id])
+          ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id])
+          @sms_sent = SmsSent.create(:text => "ad.sms_text")
+          puts "if set_sms_data"
+          respond_to do |format|
+              format.json {render :nothing => true}
+          end
+      else
+          puts "else set_sms_data"
+              render :json => {:mobile_number_presence => false, :customer_id => customer.id}
       end
   end
 end

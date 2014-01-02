@@ -92,6 +92,9 @@ Gullak2::Application.routes.draw do
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
     match 'outlet_search' => 'home#outlet_search'
+    match 'verify_mobile_number' => 'customers#verify_mobile_number'
+    match 'check_verification_code' => 'customers#check_verification_code'
+    match 'hot_picks' => 'home#hot_picks'
     match 'brand_listing/:brand_id' => 'home#brand_listing'
     match 'map_listing' => 'home#map_listing'
     match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
