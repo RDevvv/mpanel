@@ -1,0 +1,27 @@
+<div align="center" class="container-home">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="logo"><%= link_to image_tag "gullak-logo-main.jpg"%></div>
+            <div class="sub-txt2">Get offer codes by SMS!</div>
+        </div>
+
+        <div class="span12">
+            <div class="input-group">
+                <span class="input-group-addon">+91</span>
+                    <% if @customer.errors.any? %>
+                    <div id="error_explanation">
+                    <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+                    <ul>
+                        <% @customer.errors.full_messages.each do |msg| %>
+                            <li><%= msg %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
