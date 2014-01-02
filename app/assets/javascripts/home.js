@@ -30,11 +30,21 @@ function send_ad(customer_uuid, element)
     $.ajax({
         url: "set_sms_data.json",
         type: "post",
+        dataType: "json",
         data: {
             'customer_uuid': customer_uuid,
             'ad_id': ad_id,
             'outlet_id': outlet_id
         }
-    }).done(function () {
+    }).success(function (data) {
+        //string = JSON.parse(data);
+        if(data["mobile_number_presence"] == false)
+            {
+                window.location.replace("/customers/"+data["customer_id"]+"/edit")
+            }
+
+    }).fail(
+    function(data){
+        console.log("failure");
     })
 }

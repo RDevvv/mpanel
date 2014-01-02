@@ -80,4 +80,27 @@ class CustomersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def verify_mobile_number
+    @customer = Customer.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @customer }
+    end
+  end
+
+  def check_verification_code
+      @customer = Customer.where(:uuid => cookies[:customer_uuid]).first
+      if @customer.is_verified == true
+          @customer.errors.add(:already_verified, "This phone number is already verified")
+      elsif @customer.verification_code == (params[:customer][:verification_code])
+          @customer.update_attributes(:is_verified => true)
+          flash[:notice] = "We've successfully verified your phone number"
+          redirect_to :root
+      else
+          @customer.errors.add(:verification_code, "Enter correct verification code")
+          redirect_to :verify_mobile_number
+      end
+  end
 end
