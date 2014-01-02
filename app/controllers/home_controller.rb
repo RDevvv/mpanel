@@ -33,8 +33,8 @@ class HomeController < ApplicationController
         unless params[:location].nil?
             location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
             #if location_cache.count == 1
-                latitude = location_cache.first.latitude
-                longitude = location_cache.first.longitude
+            #    latitude = location_cache.first.latitude
+            #    longitude = location_cache.first.longitude
             #else
                 result = Geocoder.search(params[:location]+" india")
                 if result.empty?
@@ -110,6 +110,36 @@ class HomeController < ApplicationController
         unless r.results.first.ads.nil?
             @ads = r.results.first.ads
         end
+    end
 
+    def hot_picks
+        latitude = 18.97
+        longitude = 72.82
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        @outlets_with_ad = Array.new
+        @outlets_without_ad = Array.new
+        outlets_with_ad_index = 0
+        outlets_without_ad_index = 0
+
+        @outlet_ads = Array.new
+        @i = 0
+        @outlets.each do |outlet|
+            if outlet.is_active?
+                outlet.ads.each do |ad|
+                    @outlet_ads[i][:ad_id] = outlet.id
+                    @outlet_ads[i][:outlet_id] = outlet.outlet_id
+                    @outlet_ads[i][:account_brand_id] = outlet.account_brand_id
+                    @outlet_ads[i][:area_id] = outlet.area_id
+                    @outlet_ads[i][:address] = outlet.address
+                    @outlet_ads[i][:phone_number] = outlet.phone_number
+                    @outlet_ads[i][:mobile_number] = outlet.mobile_number
+                    @outlet_ads[i][:ad_title] = ad.ad_title
+                    @outlet_ads[i][:sms_text] = ad.sms_text
+                    i += 1
+                end
+            end
+        end
+        @final_outlets = @ads
+        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 end
