@@ -58,12 +58,6 @@ class Merchant::AdGroupsController <  Merchant::BaseController
     redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group) 
   end
 
-  def add_all_outlets
-    @ad_group = @ad.ad_groups.find(params[:id])
-    @ad_group.add_all_outlets
-    redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
-  end
-
   def destroy
     @ad_group = @ad.ad_groups.find(params[:id])
     @ad_group.destroy
