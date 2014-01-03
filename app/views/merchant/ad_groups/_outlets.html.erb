@@ -29,12 +29,21 @@
           <td><%= outlet.cleanup_landline %></td>
           <td><%= outlet.mobile_number %></td>
           <td>
-            <%= check_box_tag :is_active,outlet.is_active,outlet.is_active,:checked=>outlet.is_active,:disabled=>true %>
+            <%= form_tag(toggle_active_for_set_merchant_account_account_brand_outlet_path(@current_account,@account_brand,:ad_id=>@ad.id,:ad_group_id=>@ad_group.id,:id=>outlet.id),:style=>"display:inline") do %>
+                    <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
+                    <button type="submit" class=" btn-link">
+                      <%= display_label_for_activate(outlet.is_active?) %>
+                    </button>
+                  <%end %>
           </td>
           <td>
-            <%= check_box_tag :is_active,outlet.is_verified,outlet.is_verified,:checked=>outlet.is_verified,:disabled=>true %>
-           </td>
-          
+            <%= form_tag(toggle_verify_merchant_account_account_brand_outlet_path(@current_account,@account_brand,:ad_id=>@ad.id,:ad_group_id=>@ad_group.id,:id=>outlet.id),:style=>"display:inline") do %>
+              <%= check_box_tag :is_verified,outlet.is_verified,outlet.is_verified,:checked=>outlet.is_verified,:disabled=>true %>
+              <button type="submit" class=" btn-link">
+                <%= display_label_for_verify(outlet.is_verified?) %>
+              </button>
+            <%end %>
+          </td>          
           <td><%=link_to "Delete",delete_outlet_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group,:outlet_id=>outlet.id),:confirm=>"Are you sure?" %></td>
         </tr> 
       <% end %>

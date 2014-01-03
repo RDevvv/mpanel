@@ -46,6 +46,7 @@ class Ad < ActiveRecord::Base
     self.is_exclusive = false
     self.save
   end
+  
   def expired?
     self.expiry_date.present? && self.expiry_date < Date.today
   end

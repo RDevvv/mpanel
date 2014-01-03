@@ -41,12 +41,12 @@
                 <td><%= outlet.cleanup_landline %></td>
                 <td><%= outlet.mobile_number %></td>
                 <td>
-                <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
-                  <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
-                  <button type="submit" class=" btn-link">
-                    <%= display_label_for_activate(outlet.is_active?) %>
-                  </button>
-                <%end %>
+                  <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
+                    <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
+                    <button type="submit" class=" btn-link">
+                      <%= display_label_for_activate(outlet.is_active?) %>
+                    </button>
+                  <%end %>
                 </td>
                 <td>
                   <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
