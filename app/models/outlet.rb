@@ -24,7 +24,7 @@ class Outlet < ActiveRecord::Base
   after_create :add_uniq_outlet_key
   geocoded_by :geocoding_address
   
-
+  scope :active_outlets ,lambda { where("is_active = ?",true)}
   def cleanup_landline
     if self.phone_number.present? 
       self.phone_number.slice!(0) if self.phone_number.match(/^[0]/)
