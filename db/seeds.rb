@@ -24,13 +24,6 @@ UserAccount.create([
   { :user_id => 1, :account_id => 3 },
   { :user_id => 2, :account_id => 4 }
 ])
-Account.create([
-  { :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
-  #{ :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
-  #{ :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
-  #{ :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
-])
-
 
 
 
@@ -229,6 +222,12 @@ AccountBrand.create([
 ])
 
 
+#Account.create([
+  #{ :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
+  #{ :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
+  #{ :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
+  #{ :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
+#])
 
 Ad.create([
   { :account_brand_id => 1, :ad_title => "Get 1% off.", :is_monday => true, :is_tuesday => true, :is_wednesday => true, :is_thursday => true, :is_friday => true, :is_saturday => true, :is_sunday => false, :start_date => "2013-11-01 00:00:00", :expiry_date => "2013-12-31 00:00:00", :is_active => true, :sms_text => "Account: XYZ Company - Brand: CafeCoffeDay - Ad 1"},
