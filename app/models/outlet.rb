@@ -25,6 +25,21 @@ class Outlet < ActiveRecord::Base
   geocoded_by :geocoding_address
   
   scope :active_outlets ,lambda { where("is_active = ?",true)}
+
+  def toggle_active
+    self.is_active? ?  self.deactivate : self.activate
+  end
+
+  def activate
+    self.is_active = true
+    self.save
+  end
+
+  def deactivate
+    self.is_active = false
+    self.save
+  end
+
   def cleanup_landline
     if self.phone_number.present? 
       self.phone_number.slice!(0) if self.phone_number.match(/^[0]/)

@@ -112,6 +112,12 @@ class Merchant::OutletsController <  Merchant::BaseController
     @city = @area.city
   end
 
+  def toggle_active
+    @outlet = Outlet.find(params[:id])
+    @outlet.toggle_active
+    redirect_to  merchant_account_account_brand_path(@current_account,@account_brand)
+  end
+
 	protected
   
   def set_error_for_outlet_record(params)
