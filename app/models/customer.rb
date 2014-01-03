@@ -7,6 +7,7 @@ class Customer < ActiveRecord::Base
     attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified
 
     validates :mobile_number, :uniqueness => true, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
+    validates :uuid, :presence => true
 
     after_create :generate_verification_code
 
