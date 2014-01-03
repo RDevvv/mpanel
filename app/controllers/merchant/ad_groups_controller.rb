@@ -60,8 +60,7 @@ class Merchant::AdGroupsController <  Merchant::BaseController
 
   def add_all_outlets
     @ad_group = @ad.ad_groups.find(params[:id])
-    @outlets = @ad.account_brand.outlets - @ad_group.outlets
-    @ad_group.add_all_outlets(@outlets)
+    @ad_group.add_all_outlets
     redirect_to  merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
   end
 
