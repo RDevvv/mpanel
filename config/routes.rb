@@ -60,6 +60,9 @@ Gullak2::Application.routes.draw do
             post 'import_record'
             get 'populate_areas'
           end
+          member do
+            post 'toggle_active'
+          end
         end
         resources :keywords
         resources :ads do
@@ -81,6 +84,7 @@ Gullak2::Application.routes.draw do
               get 'more_outlets'
               post 'add_more_promocodes'
               post 'add_more_outlets'
+              get 'add_all_outlets'
             end  
           end
         end

@@ -34,15 +34,15 @@ class Ad < ActiveRecord::Base
   end
 
   def toggle_exclusive
-    self.is_exclusive? ?  self.deactivate : self.activate
+    self.is_exclusive? ?  self.deactivate_exclusive : self.activate_exclusive
   end
 
-  def activate
+  def activate_exclusive
     self.is_exclusive = true
     self.save
   end
 
-  def deactivate
+  def deactivate_exclusive
     self.is_exclusive = false
     self.save
   end

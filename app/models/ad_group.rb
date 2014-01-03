@@ -30,14 +30,20 @@ class AdGroup < ActiveRecord::Base
 
   def add_more_outlets(outlet_ids)
     outlet_ids = Array(outlet_ids).reject {|x| x.blank?}
-    outlet = Outlet.find(outlet_ids).first
-    if outlet.is_active == false
-      outlet.is_active = true
-      outlet.save
-    end
     self.ad_promocodes.each do |promocode|
       promocode.outlet_ids = (promocode.outlet_ids + outlet_ids).flatten.compact.uniq
       promocode.save
+    end
+  end
+
+  def add_all_outlets(outlets)
+    outlets.each do|outlet|
+      self.ad_promocodes.each do |promocode|
+        outlet_ids = Array(outlet.id)
+        promocode.outlet_ids = promocode.outlet_ids + outlet_ids
+        promocode.outlet_ids.flatten.compact.uniq
+        promocode.save
+      end
     end
   end
 end

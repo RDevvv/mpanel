@@ -348,14 +348,14 @@ ActiveRecord::Schema.define(:version => 20140102072306) do
   create_table "sms_sents", :force => true do |t|
     t.string   "text"
     t.integer  "is_sent"
-    t.integer  "customer_id"
-    t.integer  "ad_promocode_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "customer_id_id"
+    t.integer  "ad_promocode_id_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
-  add_index "sms_sents", ["ad_promocode_id"], :name => "index_sms_sents_on_ad_promocode_id"
-  add_index "sms_sents", ["customer_id"], :name => "index_sms_sents_on_customer_id"
+  add_index "sms_sents", ["ad_promocode_id_id"], :name => "index_sms_sents_on_ad_promocode_id_id"
+  add_index "sms_sents", ["customer_id_id"], :name => "index_sms_sents_on_customer_id_id"
 
   create_table "user_accounts", :force => true do |t|
     t.integer  "user_id"
