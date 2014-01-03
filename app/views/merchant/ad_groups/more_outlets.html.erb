@@ -12,14 +12,15 @@
             <div class="control-group">
               <label class="control-label">Outlets *</label>
               <div class="controls">
-                <%= select_tag("outlet_ids",options_from_collection_for_select(@outlets,:id,:full_address,{}),:multiple=>true,:class=>"chzn-select span11") %>          
+                <%= select_tag("outlet_ids",options_for_select(["All"]+@outlets.collect{|x|[x.full_address,x.id]}),:multiple=>true,:class=>"chzn-select span12") %>
+                 Want to add all outlets?<%= link_to 'Add all Outlets', add_all_outlets_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group) %>          
                     
               </div>
             </div>
           </div>  
           <div class="clearfix"></div> 
           <div class="form-actions">
-            <button type="submit" class="btn btn-blue">Add Promocode</button>
+            <button type="submit" class="btn btn-blue">Add Outlet</button>
           </div>
                   
         <% end %>       

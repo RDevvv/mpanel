@@ -24,6 +24,35 @@ class Outlet < ActiveRecord::Base
   after_create :add_uniq_outlet_key
   geocoded_by :geocoding_address
   
+  scope :active_outlets ,lambda { where("is_active = ?",true)}
+
+  def toggle_active
+    self.is_active? ?  self.deactivate : self.activate
+  end
+
+  def activate
+    self.is_active = true
+    self.save
+  end
+
+  def deactivate
+    self.is_active = false
+    self.save
+  end
+
+  def toggle_verify
+    self.is_verified? ?  self.deactivate_verify : self.activate_verify
+  end
+
+  def activate_verify
+    self.is_verified = true
+    self.save
+  end
+
+  def deactivate_verify
+    self.is_verified = false
+    self.save
+  end
 
   def cleanup_landline
     if self.phone_number.present? 

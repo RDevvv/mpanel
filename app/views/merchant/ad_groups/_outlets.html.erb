@@ -13,7 +13,7 @@
           <th>Address</th>
           <th>Phone Number</th>
           <th>Mobile Number</th>
-          <th>Status</th>
+          <th>Active</th>
           <th>Verified</th>
           <th>Manage</th>
           </tr>
@@ -29,20 +29,11 @@
           <td><%= outlet.cleanup_landline %></td>
           <td><%= outlet.mobile_number %></td>
           <td>
-          <% if outlet.is_active == true %>
-              <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-            <% else %>
-              <%= check_box_tag :is_active %>
-            <% end %>
+            <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
           </td>
           <td>
-            <% if outlet.is_verified == true %>
-              <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
-            <% else %>
-              <%= check_box_tag :is_verified %>
-            <% end %>
-          </td>
-          
+            <%= check_box_tag :is_verified,outlet.is_verified,outlet.is_verified,:checked=>outlet.is_verified,:disabled=>true %>
+          </td>          
           <td><%=link_to "Delete",delete_outlet_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group,:outlet_id=>outlet.id),:confirm=>"Are you sure?" %></td>
         </tr> 
       <% end %>

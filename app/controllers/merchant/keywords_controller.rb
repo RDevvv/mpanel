@@ -3,14 +3,17 @@ class Merchant::KeywordsController < Merchant::BaseController
 
 	def new
 		@keyword = Keyword.new
+		# @ad=Ad.find(params[:id])
 	end
 
 	def create
 		@keyword = Keyword.new(params[:keyword])
+		# @ad=Ad.find(params[:id])
 		if @keyword.save
 			# @ad_keyword = AdKeyword.new(:ad_id=>params[:ad_id], :keyword_id=>@keyword.id)
-			# @ad_keyword.save
+			# @ad_keyword.save merchant_account_account_brand_ad
       redirect_to merchant_account_account_brand_ads_path(@current_account,@account_brand),:notice=>"Keyword successfylly created"
+      # redirect_to merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad),:notice=>"Keyword successfylly created"
     else
       render :action=>"new"
     end

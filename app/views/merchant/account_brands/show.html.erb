@@ -41,18 +41,20 @@
                 <td><%= outlet.cleanup_landline %></td>
                 <td><%= outlet.mobile_number %></td>
                 <td>
-                <% if outlet.is_active == true %>
-                    <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                    <%= check_box_tag :is_active %>
-                  <% end %>
+                  <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
+                    <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
+                    <button type="submit" class=" btn-link">
+                      <%= display_label_for_activate(outlet.is_active?) %>
+                    </button>
+                  <%end %>
                 </td>
                 <td>
-                  <% if outlet.is_verified == true %>
-                    <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                    <%= check_box_tag :is_verified %>
-                  <% end %>
+                  <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
+                    <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
+                    <button type="submit" class=" btn-link">
+                      <%= display_label_for_verify(outlet.is_verified?) %>
+                    </button>
+                  <% end %>  
                 </td>
                 <td>
                   <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> |

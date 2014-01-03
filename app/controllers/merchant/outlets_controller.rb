@@ -31,6 +31,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first    
     @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name],:pincode=>params[:pincode]) if @area.blank?
     @outlet.area = @area
+    @outlet.is_active = true
     
     respond_to do |format|
       if @outlet.save
@@ -109,6 +110,19 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @area = @outlet.area
     @city = @area.city
+  end
+
+  def toggle_active
+    @outlet = @account_brand.outlets.find(params[:id])
+    @outlet.toggle_active
+    redirect_to merchant_account_account_brand_path(@current_account,@account_brand)
+  end
+
+ 
+  def toggle_verify
+    @outlet = @account_brand.outlets.find(params[:id])
+    @outlet.toggle_verify
+    redirect_to merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
   end
 
 	protected
