@@ -1,12 +1,15 @@
+puts gmap_config_file = File.join(Rails.root,'config','gmap.yml')
+gmap_config = YAML.load_file(gmap_config_file)[Rails.env].symbolize_keys
+
 Geocoder.configure(
-  # geocoding options
    :timeout      => 3,           # geocoding service timeout (secs)
    :lookup       => :google,     # name of geocoding service (symbol)
    :language     => :en,         # ISO-639 language code
+   :api_key      => gmap_config[:api_key] # API key for geocoding service
+
   # :use_https    => false,       # use HTTPS for lookup requests? (if supported)
   # :http_proxy   => nil,         # HTTP proxy server (user:pass@host:port)
   # :https_proxy  => nil,         # HTTPS proxy server (user:pass@host:port)
-   :api_key      => "AIzaSyAbZDWM9E7Mop1JA7l9jlhhwyHb4dQGL1s",         # API key for geocoding service
   # :cache        => nil,         # cache object (must respond to #[], #[]=, and #keys)
   # :cache_prefix => "geocoder:", # prefix (string) to use for all cache keys
 
