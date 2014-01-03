@@ -49,7 +49,12 @@
                   <%end %>
                 </td>
                 <td>
-                  <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
+                  <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
+                    <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
+                    <button type="submit" class=" btn-link">
+                      <%= display_label_for_verify(outlet.is_verified?) %>
+                    </button>
+                  <% end %>  
                 </td>
                 <td>
                   <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> |
