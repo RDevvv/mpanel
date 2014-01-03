@@ -30,6 +30,12 @@ class AdGroup < ActiveRecord::Base
 
   def add_more_outlets(outlet_ids)
     outlet_ids = Array(outlet_ids).reject {|x| x.blank?}
+    
+    if outlet_ids.include?("All")
+      outlets = self.ad.account_brand.outlets - self.outlets
+      outlet_ids = Array(outlets.collect(&:id))
+    end  
+ 
     self.ad_promocodes.each do |promocode|
       promocode.outlet_ids = (promocode.outlet_ids + outlet_ids).flatten.compact.uniq
       promocode.save

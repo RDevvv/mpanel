@@ -13,7 +13,7 @@
           <th>Address</th>
           <th>Phone Number</th>
           <th>Mobile Number</th>
-          <th>Status</th>
+          <th>Active</th>
           <th>Verified</th>
           <th>Manage</th>
           </tr>
@@ -30,11 +30,9 @@
           <td><%= outlet.mobile_number %></td>
           <td>
             <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
-            <%= display_label_for_activate(outlet.is_active?) %>
           </td>
           <td>
             <%= check_box_tag :is_verified,outlet.is_verified,outlet.is_verified,:checked=>outlet.is_verified,:disabled=>true %>
-            
           </td>          
           <td><%=link_to "Delete",delete_outlet_merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group,:outlet_id=>outlet.id),:confirm=>"Are you sure?" %></td>
         </tr> 
