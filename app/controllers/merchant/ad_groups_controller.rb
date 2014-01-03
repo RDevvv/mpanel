@@ -2,7 +2,7 @@ class Merchant::AdGroupsController <  Merchant::BaseController
   before_filter :load_account, :load_account_brand, :load_ad
 
   def show
-    @ad_group  =@ad.ad_groups.find(params[:id])
+    @ad_group = @ad.ad_groups.find(params[:id])
     @ad_promocodes = @ad_group.ad_promocodes
     @outlets = @ad_group.outlets.uniq
   end
