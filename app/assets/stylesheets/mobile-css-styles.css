@@ -221,12 +221,12 @@ background: #7f7f7f;
 /* Test Styles */
 
 /* Error page Styles */
-.error-box {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #fff; background: url(../img/broken-glass-bg.png) no-repeat #fff;}
-.error-box2 {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #ccc; background: url(../img/broken-glass-bg2.png) no-repeat #f7941d;}
+.error-box {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #fff; background: url(broken-glass-bg.png) no-repeat #fff;}
+.error-box2 {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #ccc; background: url(broken-glass-bg2.png) no-repeat #f7941d;}
 .error-number {border:solid 2px #5f5f5f; width: 56px; height: 64px; padding: 0px; text-align: center; margin: 224px auto 0 auto; font-size: 52px; font-family: 'gill_sans_mt_ext_condensed_Rg'; color: #6d6d6d;}
 .error-number2 {border:solid 2px #fff; width: 56px; height: 64px; padding: 0px; text-align: center; margin: 224px auto 0 auto; font-size: 52px; font-family: 'gill_sans_mt_ext_condensed_Rg'; color: #fff;}
-.error-line {border:solid 0px #fff; width: 306px; height: 44px; margin: 20px auto 5px auto; font-family: tahoma, arial; font-size: 12px; font-weight:bold; color: #424242; background: url(../img/error-line.png) no-repeat center center #fff;}
-.error-line2 {border:solid 0px #fff; width: 306px; height: 44px; margin: 20px auto 5px auto; font-family: tahoma, arial; font-size: 12px; font-weight:bold; color: #ffffff; background: url(../img/error-line2.png) no-repeat center center #f7941d;}
+.error-line {border:solid 0px #fff; width: 306px; height: 44px; margin: 20px auto 5px auto; font-family: tahoma, arial; font-size: 12px; font-weight:bold; color: #424242; background: url(error-line.png) no-repeat center center #fff;}
+.error-line2 {border:solid 0px #fff; width: 306px; height: 44px; margin: 20px auto 5px auto; font-family: tahoma, arial; font-size: 12px; font-weight:bold; color: #ffffff; background: url(error-line2.png) no-repeat center center #f7941d;}
 .error-line p, .error-line2 p {float:left; clear:both;line-height: 15px; margin: 4px 0 0 100px;}
 .click-to-go {width: 100%; margin: 15px 0 0 0; background-color: #212121; font-family: 'arial_rounded_mt_boldregular'; font-size: 18px; text-transform: uppercase; color: #fff; text-align: center;}
 .click-to-go2 {width: 100%; margin: 15px 0 0 0; background-color: #fff; font-family: 'arial_rounded_mt_boldregular'; font-size: 18px; text-transform: uppercase; color: #f7941d; text-align: center;}
