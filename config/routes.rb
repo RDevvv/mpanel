@@ -1,5 +1,8 @@
 Gullak2::Application.routes.draw do
 
+  resources :campaigns
+
+
   resources :incentives
 
 

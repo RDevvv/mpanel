@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Source:</b>
+  <%= @campaign.source %>
+</p>
+
+<p>
+  <b>Medium:</b>
+  <%= @campaign.medium %>
+</p>
+
+<p>
+  <b>Marketer:</b>
+  <%= @campaign.marketer %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @campaign.type %>
+</p>
+
+<p>
+  <b>Keyword:</b>
+  <%= @campaign.keyword %>
+</p>
+
+<p>
+  <b>Pre expiry forward url:</b>
+  <%= @campaign.pre_expiry_forward_url %>
+</p>
+
+<p>
+  <b>Post expiry forward url:</b>
+  <%= @campaign.post_expiry_forward_url %>
+</p>
+
+<p>
+  <b>Short url:</b>
+  <%= @campaign.short_url %>
+</p>
+
+<p>
+  <b>Unique key:</b>
+  <%= @campaign.unique_key %>
+</p>
+
+<p>
+  <b>Expires at:</b>
+  <%= @campaign.expires_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>

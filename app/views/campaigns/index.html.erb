@@ -1,0 +1,41 @@
+<h1>Listing campaigns</h1>
+
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Medium</th>
+    <th>Marketer</th>
+    <th>Type</th>
+    <th>Keyword</th>
+    <th>Pre expiry forward url</th>
+    <th>Post expiry forward url</th>
+    <th>Short url</th>
+    <th>Unique key</th>
+    <th>Expires at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campaigns.each do |campaign| %>
+  <tr>
+    <td><%= campaign.source %></td>
+    <td><%= campaign.medium %></td>
+    <td><%= campaign.marketer %></td>
+    <td><%= campaign.type %></td>
+    <td><%= campaign.keyword %></td>
+    <td><%= campaign.pre_expiry_forward_url %></td>
+    <td><%= campaign.post_expiry_forward_url %></td>
+    <td><%= campaign.short_url %></td>
+    <td><%= campaign.unique_key %></td>
+    <td><%= campaign.expires_at %></td>
+    <td><%= link_to 'Show', campaign %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+    <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campaign', new_campaign_path %>

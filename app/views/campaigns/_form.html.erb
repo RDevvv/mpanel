@@ -1,0 +1,57 @@
+<%= form_for(@campaign) do |f| %>
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+
+      <ul>
+      <% @campaign.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :source %><br />
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :medium %><br />
+    <%= f.text_field :medium %>
+  </div>
+  <div class="field">
+    <%= f.label :marketer %><br />
+    <%= f.text_field :marketer %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :keyword %><br />
+    <%= f.text_field :keyword %>
+  </div>
+  <div class="field">
+    <%= f.label :pre_expiry_forward_url %><br />
+    <%= f.text_field :pre_expiry_forward_url %>
+  </div>
+  <div class="field">
+    <%= f.label :post_expiry_forward_url %><br />
+    <%= f.text_field :post_expiry_forward_url %>
+  </div>
+  <div class="field">
+    <%= f.label :short_url %><br />
+    <%= f.text_field :short_url %>
+  </div>
+  <div class="field">
+    <%= f.label :unique_key %><br />
+    <%= f.text_field :unique_key %>
+  </div>
+  <div class="field">
+    <%= f.label :expires_at %><br />
+    <%= f.datetime_select :expires_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
