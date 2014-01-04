@@ -45,7 +45,7 @@
       <label class="control-label">Expiry Date</label>
       <div class="controls" style="width: 35%;">
         <%= f.text_field :expiry_date, :placeholder=>"Expiry Date", :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"end_date"%>               
-      </div>
+      </div>  
     </div>
   </div>  
   <div class="span4">
@@ -70,8 +70,8 @@
   <label class="control-label">Keywords</label>
   <div class="controls">
     <%= f.collection_select :keyword_ids,@keywords,:id,:keyword,{},{:multiple=>true,:class=>"chzn-select"} %>
-    Don't find the keyword you were looking for?<%= link_to 'Create Keywords', new_merchant_account_account_brand_keyword_path(@current_account,@account_brand) %>
-
+    Don't find the keyword you were looking for?
+    <%= link_to 'Create Keywords', new_merchant_account_account_brand_keyword_path(@current_account,@account_brand), :target => "_blank" %>
   </div>
 </div>
 
@@ -80,12 +80,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $('#start_date').datepicker({
-      format: 'dd/mm/yyyy',
+      format: 'yyyy-mm-dd',
   }).on('changeDate', function(ev){
     $('#end_date').datepicker('setStartDate', ev.date);
   });
   $('#end_date').datepicker({
-     format: 'dd/mm/yyyy',
+     format: 'yyyy-mm-dd',
   });
 });
 </script>

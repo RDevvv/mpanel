@@ -5,4 +5,9 @@ class AdPromocodeOutlet < ActiveRecord::Base
   belongs_to :outlet
   has_paper_trail
   acts_as_paranoid
+  after_create :add_ad
+  def add_ad
+  	self.ad_id = self.ad_promocode.ad.id
+  	self.save
+  end
 end

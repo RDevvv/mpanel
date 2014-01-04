@@ -29,18 +29,15 @@
                 <td><%= outlet.address %></td>
                 <td><%= outlet.email_id %></td>
                 <td>
-                <% if outlet.is_active == true %>
-                    <%= check_box_tag :is_active,  true, :checked=>true%>
-                  <% else %>
-                    <%= check_box_tag :is_active %>
-                  <% end %>
+                <%= form_tag(toggle_active_index_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
+                    <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
+                    <button type="submit" class=" btn-link">
+                      <%= display_label_for_activate(outlet.is_active?) %>
+                    </button>
+                  <%end %>
                 </td>
                 <td>
-                  <% if outlet.is_verified == true %>
-                    <%= check_box_tag :is_verified, true, :checked=>true%>
-                  <% else %>
-                    <%= check_box_tag :is_verified %>
-                  <% end %>
+                  <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
                 </td>
                 <td>
                   <% link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %>                 
