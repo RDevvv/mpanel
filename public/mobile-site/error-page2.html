@@ -1,0 +1,73 @@
+<!doctype html>
+  <html>
+    <head>
+    	<meta charset="utf-8">
+    	  <title>GullakMaster - Error</title>
+    	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="HandheldFriendly" content="true" />
+    	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
+    	  <link rel="stylesheet" href="css/mobile-css-styles.css">
+        <!-- jQuery -->
+          <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>-->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+          
+     
+    <!-- Preloader -->
+    <script type="text/javascript">// <![CDATA[
+    $(window).load(function() { $("#spinner").fadeOut("slow"); })
+    // ]]>
+    </script>
+    <script type="text/javascript">
+        (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+    </script>
+    
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            var pxShow = 80;//height on which the button will show
+            var fadeInTime = 500;//how slow/fast you want the button to show
+            var fadeOutTime = 500;//how slow/fast you want the button to hide
+            var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
+            jQuery(window).scroll(function(){
+                if(jQuery(window).scrollTop() >= pxShow){
+                    jQuery("#backtotop").fadeIn(fadeInTime);
+                }else{
+                    jQuery("#backtotop").fadeOut(fadeOutTime);
+                }
+            });
+            jQuery('#backtotop a').click(function(){
+                jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+                return false;
+            });
+        });
+    </script>
+
+    </head>
+    <body>
+      <!-- Preloader -->
+      <div id="spinner"></div>
+      <img src="img/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
+
+      <div class="container">
+        <div class="error-box2">
+          <div class="error-number2">404</div>
+          <div class="error-line2">
+            <p>Either the glass is broken</p>
+            <p>....or the page</p>
+          </div>
+          <div class="click-to-go2">CLICK HERE TO GO BACK</div>
+          <div class="error-logo"><img src="img/gm-small-logo-white.png"></div>
+        </diV>
+      </div>
+
+    </body>
+    </html>

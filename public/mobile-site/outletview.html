@@ -4,6 +4,7 @@
     	<meta charset="utf-8">
     	  <title>GullakMaster - Outletview</title>
     	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="HandheldFriendly" content="true" />
     	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
     	  <link rel="stylesheet" href="css/mobile-css-styles.css">
         <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.css" />
@@ -28,7 +29,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
         <!-- jQuery Plugin -->
-
+     
     <!-- Preloader -->
     <script type="text/javascript">// <![CDATA[
     $(window).load(function() { $("#spinner").fadeOut("slow"); })
@@ -52,7 +53,7 @@
 
           field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
           field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
-      })();
+      })(); 
     </script>
     <script type="text/javascript">
         jQuery(document).ready(function(){
@@ -73,6 +74,19 @@
             });
         });
     </script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+          $('a[rel*=leanModal]').leanModal({ top : 100, closeButton: ".modal_close", display: "none" });    
+        });
+        
+        // onclick handler for a button that does some stuff before opening a leanModal dialog
+    function mySampleFunc()
+    {
+      alert("Thank you for feedback!");
+      $("#basicPopup").click();
+    }
+    </script>        
 
     </head>
     <body>
@@ -82,13 +96,13 @@
     	<div id="header">
         <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
         <ul class="left-icons">
-
+          
           <li><a href="#menu" class="srchlink3"></a></li>
-          <li><a class="notify"></a></li>
+          <!--<li><a class="notify"></a></li>-->
         </ul>
     	  <div class="head-brand">GullakMaster</div>
         <ul class="right-icons">
-          <li><a href="#" class="invfrnd2"></a></li>
+          <!--<li><a href="#" class="invfrnd2"></a></li>-->
           <li><a href="#" class="loc">&nbsp;</a></li>
         </ul>
 
@@ -97,7 +111,7 @@
 
             <li class="subcat">Sort by:</li>
 
-
+            
 
             <li><a href="#">Distance</a></li>
             <li><a href="#">Hot Picks</a></li>
@@ -135,12 +149,12 @@
             <li><a href="#">Maple</a></li>
 
             <li>&nbsp;</li>
-          </ul>
+          </ul> 
         </nav>
 
     	</div>
 
-    	<div align="center" class="container-location">
+    	<div class="container-location">
     		<div class="row-fluid">
     				<div class="span12">
                 <div class="bdiv">
@@ -424,13 +438,102 @@
     				</div>
     		</div>
     	</div>
+      <footer>
+        <div class="mainfooter">
+        <div class="footer_div1">
+        <div class="footer_about_us">
+        <div class="footer_title">
+        <a href="#">About Us</a>
+        </div>
+        </div>
+            <ul class="footerdiv">
+              <li>
+                <a href="/company">Company</a>
+              </li>
+              <li>
+                <a href="/team">Team</a>
+              </li>
+              <li>
+                <a href="/careers">Careers</a>
+              </li>
+              <li>
+                <a href="/terms_of_use">Terms of Use</a>
+              </li>
+              <li>
+                <a href="/privacy_policy">Privacy Policy</a>
+              </li>
+            </ul>
+            </div>
+            <div class="footer_div2">
+            <div class="footer_about_us">
+            <div class="footer_title">
+            <a href="/marketing_managers">Merchants</a>
+            </div>
+            </div>
+              <ul class="footerdiv">
+                <li></li>
+                <li>
+                  <a href="/marketing_managers#location_based">Location targeting</a>
+                </li>
+                <li>
+                  <a href="/marketing_managers#context_based">Context marketing</a>
+                </li>
+                <li>
+                  <a href="/marketing_managers#mobile_targeting">Mobile advertising</a>
+                </li>
+                <li>
+                  <a target="_blank" href="mailto:merchant@gullakmaster.com">merchant@gullakmaster.com</a>
+                </li>
+              </ul>
+        </div>
+        <div class="footer_div3">
+        <div style="text-align:right; background-position:right bottom" class="footer_about_us">
+        <div class="footer_title">
+        <a href="/contact_us">Contact Us</a>
+        </div>
+        </div>
+        <p class="footerightdiv"></p>
+        <p class="footerightdiv">
+        <a href="/contact_us">Office locations</a>
+        </p>
+        <p class="footerightdiv">
+        Enquiry :
+        <a target="_blank" href="mailto:info@gullakmaster.com">info@gullakmaster.com</a>
+        </p>
+        <p class="footerightdiv">
+        Press :
+        <a target="_blank" href="mailto:media@gullakmaster.com">media@gullakmaster.com</a>
+        </p>
+        <p class="phone_no">+91 22 22843186</p>
+        <ul class="social-likebox">
+        <li>
+        <iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:46px; height:21px;" src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FGullakMaster&amp;send=false&amp;layout=button_count&amp;width=163&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" allowtransparency="true"></iframe>
+        </li>
+        <li>
+        <iframe scrolling="no" frameborder="0" id="twitter-widget-0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1387492107.html#_=1387790228989&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=gullakmaster&amp;show_count=false&amp;show_screen_name=false&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 60px; height: 20px;"></iframe>
+        </li>
+        </ul>
+        <p>GullakMaster &copy; 2013</p>
+        <p></p>
+        </div>
+        </div>
+
+        <div id="signup">
+      
+          
+          <p>Dynamic Text</p>
+          <p>popup text comes here</p>
+          <a class="modal_close" href="#"></a>
+        
+        
+        </div>
+
+      </footer>
       <div id="backtotop">
         <a href="#">
           <img src="img/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
         </a>
       </div>
-      <!--<script src="js/min.js"></script>-->
-      <script src="js/jquery.sidr.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
     </body>
     </html>
