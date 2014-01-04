@@ -17,7 +17,8 @@
      <div class="control-group">
       <label class="control-label">Outlets</label>
       <div class="controls">   
-        <%= f.collection_select("outlet_ids", @account_brand.outlets,:id,:full_address,{},:multiple=>true,:class=>"chzn-select") %>               
+        <%= f.select("outlet_ids",["All"]+@account_brand.outlets.collect{|x|[x.full_address,x.id]},{:multiple=>true},{:class=>"chzn-select",:multiple=>true}) %>      
+                
       </div>
     </div>
   

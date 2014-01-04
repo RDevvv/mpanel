@@ -24,8 +24,9 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
   # Only One promocode is available
   def add_single_code
     params[:ad_promocode][:cap] = params[:ad_promocode][:cap] || 1
-    params[:ad_promocode][:outlet_ids] =params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
 
+    params[:ad_promocode][:outlet_ids] =params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
+    params[:ad_promocode][:outlet_ids] = @account_brand.outlet_ids if params[:ad_promocode][:outlet_ids] &&  params[:ad_promocode][:outlet_ids].include?("All")
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
     
     respond_to do |format|
@@ -51,6 +52,7 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
     Array(params[:ad_promocode][:promocodes].split(",")).each do |promocode|
       if promocode.present?
         params[:ad_promocode][:outlet_ids] = params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
+        params[:ad_promocode][:outlet_ids] = @account_brand.outlet_ids if params[:ad_promocode][:outlet_ids] &&  params[:ad_promocode][:outlet_ids].include?("All")
         params[:ad_promocode][:promocode] = promocode
         params[:ad_promocode][:cap] = 1
         ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])

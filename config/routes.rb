@@ -62,6 +62,7 @@ Gullak2::Application.routes.draw do
           end
           member do
             post 'toggle_active'
+            post 'toggle_verify'
           end
         end
         resources :keywords

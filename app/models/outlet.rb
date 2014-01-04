@@ -40,6 +40,20 @@ class Outlet < ActiveRecord::Base
     self.save
   end
 
+  def toggle_verify
+    self.is_verified? ?  self.deactivate_verify : self.activate_verify
+  end
+
+  def activate_verify
+    self.is_verified = true
+    self.save
+  end
+
+  def deactivate_verify
+    self.is_verified = false
+    self.save
+  end
+
   def cleanup_landline
     if self.phone_number.present? 
       self.phone_number.slice!(0) if self.phone_number.match(/^[0]/)
