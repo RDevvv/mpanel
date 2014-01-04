@@ -11,7 +11,13 @@ class AdPromocode < ActiveRecord::Base
   after_save :inactive_ad_promocode
   attr_accessor :set_name
   acts_as_paranoid
-    
+  after_create :add_ad
+
+  def add_ad
+    self.ad_id = self.ad_group.ad.id
+    self.save
+  end    
+  
   def can_delete
     (self.usage.blank? || self.usage.to_i == 0) ? true : false
   end
