@@ -70,8 +70,8 @@
   <label class="control-label">Keywords</label>
   <div class="controls">
     <%= f.collection_select :keyword_ids,@keywords,:id,:keyword,{},{:multiple=>true,:class=>"chzn-select"} %>
-    Don't find the keyword you were looking for?<%= link_to 'Create Keywords', new_merchant_account_account_brand_keyword_path(@current_account,@account_brand) %>
-
+    Don't find the keyword you were looking for?
+    <%= link_to 'Create Keywords', new_merchant_account_account_brand_keyword_path(@current_account,@account_brand), :target => "_blank" %>
   </div>
 </div>
 
