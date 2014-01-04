@@ -3,6 +3,7 @@ class AdPromocodeOutlet < ActiveRecord::Base
   belongs_to :ad
   belongs_to :ad_promocode
   belongs_to :outlet
+  has_many :sms_sents
   has_paper_trail
   acts_as_paranoid
   after_create :add_ad
