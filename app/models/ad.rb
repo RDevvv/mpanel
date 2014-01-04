@@ -8,6 +8,7 @@ class Ad < ActiveRecord::Base
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :outlets,:through=>:ad_promocode_outlets
   has_many :ad_groups, :dependent => :destroy
+  
   has_many :facebook_shares
   has_many :button_clicks
   

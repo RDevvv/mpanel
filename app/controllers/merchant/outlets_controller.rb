@@ -118,6 +118,11 @@ class Merchant::OutletsController <  Merchant::BaseController
     redirect_to merchant_account_account_brand_path(@current_account,@account_brand)
   end
 
+  def toggle_active_index
+    @outlet = @account_brand.outlets.find(params[:id])
+    @outlet.toggle_active
+    redirect_to merchant_account_account_brand_outlets_path(@current_account,@account_brand)
+  end
  
   def toggle_verify
     @outlet = @account_brand.outlets.find(params[:id])
