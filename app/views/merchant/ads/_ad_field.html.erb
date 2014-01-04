@@ -44,8 +44,8 @@
     <div class="control-group">
       <label class="control-label">Expiry Date</label>
       <div class="controls" style="width: 35%;">
-        <%= f.text_field :expiry_date, :placeholder=>"Expiry Date", :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"end_date"%>               
-      </div>
+        <%= f.text_field :expiry_date, :placeholder=>"Expiry Date", :value => Date.today, :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"end_date"%>               
+      </div>  
     </div>
   </div>  
   <div class="span4">
@@ -85,7 +85,7 @@ $(document).ready(function(){
     $('#end_date').datepicker('setStartDate', ev.date);
   });
   $('#end_date').datepicker({
-     format: 'dd/mm/yyyy',
+     format: 'yyyy-mm-dd',
   });
 });
 </script>
