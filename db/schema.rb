@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104072006) do
+ActiveRecord::Schema.define(:version => 20140104073506) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(:version => 20140104072006) do
     t.boolean  "is_friday"
     t.boolean  "is_saturday"
     t.boolean  "is_sunday"
-    t.datetime "start_date"
+    t.date     "start_date"
     t.date     "expiry_date"
     t.boolean  "is_active"
     t.text     "sms_text"
