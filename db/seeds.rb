@@ -780,6 +780,13 @@ AdPromocode.create([
 ])
 
 
+AdGroup.create([
+    {:name => "xyz", :ad_id =>1},
+    {:name => "abc", :ad_id =>2},
+    {:name => "efg", :ad_id =>3},
+    {:name => "lmn", :ad_id =>4},
+])
+
 
   AdPromocodeOutlet.create([
 	{ :ad_id => 1, :outlet_id => 4, :ad_promocode_id => 1 },
