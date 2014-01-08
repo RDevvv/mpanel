@@ -27,7 +27,7 @@
             <thead>
              <tr>
                 <th><div>Brand</div></th>
-                <th><div>Manage</div></th>
+                <th>Manage</th>
               </tr>
             </thead>  
             <tbody>
@@ -46,7 +46,9 @@
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to 'Delete', merchant_account_account_brand_path(@current_account,account_brand), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% if can? :destroy, account_brand %>
+                      <%= link_to 'Delete', merchant_account_account_brand_path(@current_account,account_brand), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
                   </td>
                 </tr>
               <% end %>  

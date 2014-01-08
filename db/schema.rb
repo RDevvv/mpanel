@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104073506) do
+ActiveRecord::Schema.define(:version => 20140104092444) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -186,6 +186,21 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
 
   add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
   add_index "call_forwardings", ["outlet_id"], :name => "index_call_forwardings_on_outlet_id"
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "source"
+    t.string   "medium"
+    t.string   "marketer"
+    t.string   "type"
+    t.string   "keyword"
+    t.string   "pre_expiry_forward_url"
+    t.string   "post_expiry_forward_url"
+    t.string   "short_url"
+    t.string   "unique_key"
+    t.datetime "expires_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.integer  "industry_id"

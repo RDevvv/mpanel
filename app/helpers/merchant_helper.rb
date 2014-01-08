@@ -47,7 +47,7 @@ module MerchantHelper
     end
   end
 
-   def display_label_for_verify(verify=false)
+  def display_label_for_verify(verify=false)
     if verify
       "<span class='label label-success'>Not Verified?</span>".html_safe
       
@@ -56,5 +56,14 @@ module MerchantHelper
     end
   end
 
+  def display_label_for_role(role)
+    if role == "admin"
+      "<span class='label label-success'>Admin</span>".html_safe
+    end
+  end
   
+  def display_label_for_add_user_role
+    "<span class='label label-info'>Add Admin</span>".html_safe
+  end
+
 end

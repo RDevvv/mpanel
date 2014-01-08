@@ -34,6 +34,20 @@
 						</div>
 					</div>
 
+					<div class="control-group">
+					  <label class="control-label">Password</label>
+					  <div class="controls">
+					    <%= f.password_field :password, :placeholder=>"Password", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+					  </div>
+					</div>
+
+					<div class="control-group">
+					  <label class="control-label">Password Confirmation</label>
+					  <div class="controls">
+					    <%= f.password_field :password, :placeholder=>"Confirm Password", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+					  </div>
+					</div>
+
 				</div>
 
 				<div class="form-actions">

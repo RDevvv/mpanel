@@ -19,25 +19,17 @@
                 <th width="8%"><div>Status</div></th>
                 <th width="8%"><div>Verified</div></th>
                 <th><div>Current Brands</div></th>
-                <th></th>
+                <th>Manage</th>
               </tr>
             </thead>
             <tbody>
             <% @brands.each do |brand| %>
               <tr>
                 <td>
-                  <% if brand.is_active == true %>
-                    <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                    <%= check_box_tag :is_active %>
-                  <% end %>
+                  <%= check_box_tag :is_active, brand.is_active?,brand.is_active?,:disabled=>true%>
                 </td>
                 <td>
-                  <% if brand.is_verified == true %>
-                    <%= check_box_tag :is_verified, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                    <%= check_box_tag :is_verified %>
-                  <% end %>
+                  <%= check_box_tag :is_verified, brand.is_verified?,brand.is_verified?,:disabled=>true%>
                 </td>
                 <td><% brand_name = @current_account.brands.pluck(:brand_name) %>
                   <% brand_name.each do |brands| %>
@@ -47,8 +39,14 @@
                     <% end %>
                   <% end %>
                 </td>
-                <td> <% link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %>
-                  <%= link_to 'Delete', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td>
+                  <% if can? :update, brand %>
+                    <% link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %> |
+                  <% end %>
+                  <% if can? :destroy, brand %>
+                    <%= link_to 'Delete', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </td>
               </tr> 
             <% end %>
             </tbody>  

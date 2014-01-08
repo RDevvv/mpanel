@@ -23,18 +23,23 @@ class ApplicationController < ActionController::Base
   private
 
   def set_layout
-      if devise_controller? && devise_mapping.name == :merchant_user
-          "merchant"
-      elsif controller_name == 'home' && action_name == 'index'
-          "home_index"
-      elsif controller_name == 'home'
-          "listing"
-      elsif controller_name == 'customers'
-          "home_index"
-      elsif controller_name == 'ads'
-          "home_index"
-      else
-          "application"
-      end
+    if devise_controller? && devise_mapping.name == :merchant_user
+        "merchant"
+    elsif controller_name == 'home' && action_name == 'index'
+        "home_index"
+    elsif controller_name == 'home'
+        "listing"
+    elsif controller_name == 'customers'
+        "home_index"
+    elsif controller_name == 'ads'
+        "home_index"
+    else
+        "application"
+    end
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied."
+    redirect_to root_url
   end
 end

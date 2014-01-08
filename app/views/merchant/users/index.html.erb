@@ -24,7 +24,7 @@
                 <th><div>Brand Access</div></th>
                 <th width="8%"><div>Status</div></th>
                 <th width="8%"><div>Verified</div></th>
-                <th width="8%"><div>Manage</div></th>
+                <th width="8%">Manage</th>
               </thead>
             </tr>
           </thead>  
@@ -35,26 +35,41 @@
                 <%= link_to user.user_name, edit_merchant_account_user_path(@current_account,user) %></td>
                 <td><%= user.email %></td>
                 <td><%= user.mobile_number%></td>
-                <td></td>
-                <td></td>
                 <td>
-                  <% if user.is_active == true%>
-                  <%= check_box_tag :is_active, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                  <%= check_box_tag :is_active %>
+      
+                  <% user.roles.each do |role| %>
+                    <button type="submit" class=" btn-link">
+                      <%= role.name=="admin" ? display_label_for_role(role.name) : "" %>
+                    </button>
                   <% end %>
-                </td>
-                <td>
-                  <% if user.email_verified == true%>
-                  <%= check_box_tag :email_verified, :ssl_enabled, :boolean, :default => 1%>
-                  <% else %>
-                  <%= check_box_tag :email_verified %>
+
+                  <% if !user.roles.present? %>
+                    <%= form_tag(add_role_merchant_account_user_path(@current_account,user),:style=>"display:inline") do %>
+                      <button type="submit" class=" btn-link">
+                        <% if can? :update, user %><%= display_label_for_add_user_role %><%end%>
+                      </button>
+                    <% end %>
                   <% end %>
+
                 </td>
+
+                <td></td>
+
                 <td>
-                  <%= link_to 'Delete', merchant_account_user_path(@current_account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= check_box_tag :is_active, user.is_active?,user.is_active?,:disabled=>true%>
+                </td>
+
+                <td>
+                  <%= check_box_tag :email_verified, user.email_verified?,user.email_verified?,:disabled=>true%>
+                </td>
+
+                <td>
+                  <% if can? :destroy, user %>
+                    <%= link_to 'Delete', merchant_account_user_path(@current_account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
                 </td>
               </tr> 
+              
               <% end %>
             </tbody>  
           </table>

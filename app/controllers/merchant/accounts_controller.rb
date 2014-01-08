@@ -1,5 +1,7 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
+  load_and_authorize_resource
+  
   before_filter :load_account,:only=>[:add_brands]
   skip_before_filter :authenticate_merchant_user!,:only=>[:new,:create,:verified_account]
   def index
