@@ -82,7 +82,7 @@ class CallForwardingsController < ApplicationController
   end
 
   def get_customer_number
-      redirect_to :action => "return_outlet_number", :format => :json, :To => 9504454594
+      redirect_to :action => "return_outlet_number", :format => :json, :To => 09503467486
       #respond_to do |format|
       #    format.json {render :nothing => true}
       #end
