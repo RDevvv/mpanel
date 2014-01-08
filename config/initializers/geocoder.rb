@@ -1,5 +1,4 @@
-puts gmap_config_file = File.join(Rails.root,'config','gmap.yml')
-gmap_config = YAML.load_file(gmap_config_file)[Rails.env].symbolize_keys
+#gmap_config = YAML.load_file(gmap_config_file)[Rails.env].symbolize_keys
 
 Geocoder.configure(
    :timeout      => 3,           # geocoding service timeout (secs)
