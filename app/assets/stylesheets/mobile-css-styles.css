@@ -73,8 +73,8 @@ background: url(bigger-icons.png) no-repeat -359px -189px transparent; /*padding
 .back-btn2:hover {border: none; outline: none;}
 
 ul.right-icons-main li a.srch{background: url(mobile-sprite.png) no-repeat -16px -78px transparent; padding: 0px 20px 7px 14px; width:auto; height:auto;}
-ul.right-icons-main li a.srch1{background: url(png/Search_c-01.png) no-repeat transparent; padding: 0 10px 7px 14px; width:20px; height:20px;}
-ul.right-icons-main li a.srch2{background: url(img/Search_c-01.png)back-btnback-btn no-repeat transparent; padding: 0 5px 7px 14px; width:20px; height:20px;}
+ul.right-icons-main li a.srch1{background: url(Search_c-01.png) no-repeat transparent; padding: 0 10px 7px 14px; width:20px; height:20px;}
+ul.right-icons-main li a.srch2{background: url(Search_c-01.png)back-btnback-btn no-repeat transparent; padding: 0 5px 7px 14px; width:20px; height:20px;}
 ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent; /*background: url(bigger-icons.png) no-repeat -52px -271px transparent; padding: 1px 3px 10px 22px; bottom: 7px;*/ position: relative; top: 2px; padding: 10px 8px 6px 20px; width:auto; height:auto;}
 ul.right-icons-main li a.gps{background: url(mobile-sprite.png) no-repeat -20px -110px transparent; padding: 0 21px 12px 14px; width:auto; height:auto;}
 ul.right-icons-main li a.gps1{background: url(MarkerPoint_c-02.png) no-repeat transparent; padding: 0 21px 7px 14px; width:20px; height:20px; }
@@ -113,7 +113,7 @@ ul.right-icons li a.gps{background: url(mobile-sprite.png) no-repeat -20px -110p
 .out-add-div {float:left; border:solid 1px #CCC; /*width:300px;*/ width: 100%; height:auto;}
 
 .add-box{width:135px; float: left; position:relative; text-align: justify; background-color:transparent; color: #000; font-size:80%; /*margin: 13px 2px 2px 10px;*/ margin: 7px 2px 2px 12px; height:auto;}
-.add-box .adtitle {float: left; text-align: left; text-decoration: underline; }
+.add-box .adtitle, .add-box .adtitle1 {float: left; text-align: left; text-decoration: underline; }
 .add-box .adaddress {float: left; text-align: left; line-height: 10px; width: 80%; display: block; clear: both; margin: 5px 0 0 0; line-height: 19px; }
 .add-box .adloc {float: left; text-align: left; width: 80%; display: block; clear: both; font-weight: bold; margin: 5px 0 0 0; line-height: 15px; }
 
