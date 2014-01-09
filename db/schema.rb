@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104073506) do
+ActiveRecord::Schema.define(:version => 20140104092444) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
     t.datetime "updated_at",              :null => false
     t.string   "registered_company_name"
     t.boolean  "is_verified"
-    t.integer  "owner_id"
     t.time     "deleted_at"
   end
 
@@ -72,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
     t.boolean  "is_used",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.boolean  "is_active"
+    t.boolean  "is_active",   :default => true
     t.integer  "ad_group_id"
     t.time     "deleted_at"
   end
@@ -187,6 +186,21 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
   add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
   add_index "call_forwardings", ["outlet_id"], :name => "index_call_forwardings_on_outlet_id"
 
+  create_table "campaigns", :force => true do |t|
+    t.string   "source"
+    t.string   "medium"
+    t.string   "marketer"
+    t.string   "type"
+    t.string   "keyword"
+    t.string   "pre_expiry_forward_url"
+    t.string   "post_expiry_forward_url"
+    t.string   "short_url"
+    t.string   "unique_key"
+    t.datetime "expires_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
   create_table "categories", :force => true do |t|
     t.integer  "industry_id"
     t.string   "category_name"
@@ -222,6 +236,8 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
     t.string   "referer_link"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   add_index "customer_sessions", ["customer_id"], :name => "index_customer_sessions_on_customer_id"
@@ -290,36 +306,6 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
 
   add_index "mobile_verification_codes", ["customer_id"], :name => "index_mobile_verification_codes_on_customer_id"
 
-  create_table "multiple_codes_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "multiple_codes_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.boolean  "is_used"
-    t.datetime "start_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.datetime "end_date"
-  end
-
-  create_table "outlet_ads", :force => true do |t|
-    t.integer  "ad_id"
-    t.integer  "outlet_id"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "outlets", :force => true do |t|
     t.integer  "account_brand_id"
     t.text     "address"
@@ -361,51 +347,20 @@ ActiveRecord::Schema.define(:version => 20140104073506) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
-  create_table "shortened_urls", :force => true do |t|
-    t.integer  "owner_id"
-    t.string   "owner_type", :limit => 20
-    t.string   "url",                                     :null => false
-    t.string   "unique_key", :limit => 10,                :null => false
-    t.integer  "use_count",                :default => 0, :null => false
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-  end
-
-  add_index "shortened_urls", ["owner_id", "owner_type"], :name => "index_shortened_urls_on_owner_id_and_owner_type"
-  add_index "shortened_urls", ["unique_key"], :name => "index_shortened_urls_on_unique_key", :unique => true
-  add_index "shortened_urls", ["url"], :name => "index_shortened_urls_on_url"
-
-  create_table "single_code_any_outlets", :force => true do |t|
-    t.integer  "ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "single_code_specific_outlets", :force => true do |t|
-    t.integer  "outlet_ad_id"
-    t.string   "promocode"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean  "is_deleted"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "sms_sents", :force => true do |t|
     t.string   "text"
     t.integer  "is_sent"
-    t.integer  "customer_id_id"
-    t.integer  "ad_promocode_id_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.integer  "customer_id"
+    t.integer  "ad_promocode_id"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "button_click_id"
+    t.integer  "ad_promocode_outlet_id"
+    t.integer  "ad_promocode_outlet_version_id"
   end
 
-  add_index "sms_sents", ["ad_promocode_id_id"], :name => "index_sms_sents_on_ad_promocode_id_id"
-  add_index "sms_sents", ["customer_id_id"], :name => "index_sms_sents_on_customer_id_id"
+  add_index "sms_sents", ["ad_promocode_id"], :name => "index_sms_sents_on_ad_promocode_id"
+  add_index "sms_sents", ["customer_id"], :name => "index_sms_sents_on_customer_id"
 
   create_table "user_accounts", :force => true do |t|
     t.integer  "user_id"

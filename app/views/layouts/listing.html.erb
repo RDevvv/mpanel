@@ -49,10 +49,6 @@
             </fieldset>
         <% end %>
       </li>
-
-      <% Brand.all.each do |brand| %>
-          <li><%= link_to brand.brand_name, {:controller => "home", :action => "brand_listing", :brand_id => brand.id}  %></li>
-      <% end %>
     </ul>
   </nav>
 </div>
