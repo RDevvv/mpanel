@@ -6601,6 +6601,12 @@ input#s:focus {
     outline: none
 }
 
+input#s2 {font-family: Tahoma, Verdana, Segoe, sans-serif; color: #cbcbcb !important; font-size: 15px !important;
+    width:100%; border:0; border-radius:0px; background:transparent; height:auto; color:#b4bdc4;
+    text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; text-align: center;}
+
+input#s2:focus {outline:none}
+
 input#searchSubmit {
     width: 19px;
     height: 19px;
@@ -6785,10 +6791,8 @@ ul.splinks li a.selec {
         border-left: solid 5px #F08B38;
         border-right: solid 5px #F08B38;
         border-bottom: solid 0px #fff;
-        /*border:solid 5px #000; left: 2px;*/
-        position: absolute;
-        top: 4px;
-        left: -5px;
+        /*border:solid 5px #000; left: 2px; position: absolute; top: 4px; left: -5px;*/
+        margin: -7px 0 0 1px;       
         height: 30px;
         background: url(ikons-img.png) no-repeat -552px -609px transparent; /*padding: 0 3px 0px 14px;*/
         padding: 15px 4px 11px 16px;
@@ -7135,10 +7139,8 @@ ul.splinks li a.selec {
         border-left: solid 5px #F08B38;
         border-right: solid 5px #F08B38;
         border-bottom: solid 0px #fff;
-        /*border:solid 5px #000; left: 2px;*/
-        position: absolute;
-        top: -7px;
-        left: -5px;
+        /*border:solid 5px #000; left: 2px; position: absolute; top: -7px; left: -5px;*/
+        margin: -8px 0 0 0px;
         height: 30px;
         background: url(ikons-img.png) no-repeat -552px -609px transparent;
         padding: 15px 19px 17px 15px;

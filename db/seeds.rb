@@ -379,7 +379,56 @@ AdKeyword.create([
   { :ad_id => 48, :keyword_id => 8}
 ])
 
-
+AdGroup.create([
+    {:name => "xyz", :ad_id =>1},
+    {:name => "abc", :ad_id =>2},
+    {:name => "efg", :ad_id =>3},
+    {:name => "abc", :ad_id =>4},
+    {:name => "dcf", :ad_id =>5},
+    {:name => "ahg", :ad_id =>6},
+    {:name => "jsi", :ad_id =>7},
+    {:name => "snh", :ad_id =>8},
+    {:name => "syhe", :ad_id =>9},
+    {:name => "dkls", :ad_id =>10},
+    {:name => "wteh", :ad_id =>11},
+    {:name => "svg", :ad_id =>12},
+    {:name => "adn", :ad_id =>13},
+    {:name => "gnk", :ad_id =>14},
+    {:name => "snj", :ad_id =>15},
+    {:name => "lsj", :ad_id =>16},
+    {:name => "why", :ad_id =>17},
+    {:name => "snj", :ad_id =>18},
+    {:name => "aqw", :ad_id =>19},
+    {:name => "dnk", :ad_id =>20},
+    {:name => "cjka", :ad_id =>21},
+    {:name => "amk", :ad_id =>22},
+    {:name => "sbj", :ad_id =>23},
+    {:name => "zmkl", :ad_id =>24},
+    {:name => "anj", :ad_id =>25},
+    {:name => "qsd", :ad_id =>26},
+    {:name => "anj", :ad_id =>27},
+    {:name => "zmlk", :ad_id =>28},
+    {:name => "ahj", :ad_id =>29},
+    {:name => "sik", :ad_id =>30},
+    {:name => "djo", :ad_id =>31},
+    {:name => "vbn", :ad_id =>32},
+    {:name => "sjd", :ad_id =>33},
+    {:name => "sji", :ad_id =>34},
+    {:name => "sja", :ad_id =>35},
+    {:name => "dhuj", :ad_id =>36},
+    {:name => "dnc", :ad_id =>37},
+    {:name => "skm", :ad_id =>38},
+    {:name => "nck", :ad_id =>39},
+    {:name => "smk", :ad_id =>40},
+    {:name => "enj", :ad_id =>41},
+    {:name => "akk", :ad_id =>42},
+    {:name => "ska", :ad_id =>43},
+    {:name => "sjia", :ad_id =>44},
+    {:name => "ani", :ad_id =>45},
+    {:name => "smk", :ad_id =>46},
+    {:name => "aui", :ad_id =>47},
+    {:name => "sio", :ad_id =>48}
+])
 
 AdPromocode.create([
   { :set_name => "set - 1", :promocode => "2620000000000000", :ad_id => 1, :cap => nil, :usage => nil, :is_used => nil },
@@ -780,12 +829,6 @@ AdPromocode.create([
 ])
 
 
-AdGroup.create([
-    {:name => "xyz", :ad_id =>1},
-    {:name => "abc", :ad_id =>2},
-    {:name => "efg", :ad_id =>3},
-    {:name => "lmn", :ad_id =>4},
-])
 
 
   AdPromocodeOutlet.create([
@@ -1317,14 +1360,6 @@ AdGroup.create([
   { :ad_id => 48, :outlet_id => 48, :ad_promocode_id => 378 },
   { :ad_id => 48, :outlet_id => 48, :ad_promocode_id => 377 }
 ])
-
-
-
-
-
-
-
-
 
 
 Brand.create([
