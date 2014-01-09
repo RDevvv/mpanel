@@ -70,7 +70,7 @@
                             </div>
                             <div class="distance-div2">Distance: <%= (outlet.distance * 1.6).to_f.round(2) %> km</div>
                             <div class="lower-box">
-                              <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link outlet, cookies[:customer_uuid], ad %>" target="_blank">
+                                <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
                                 <div class="refr2"></div>
                               </a>
                               <% if outlet.ads.first.is_exclusive %>
@@ -78,7 +78,7 @@
                               <% end %>
                               <div class="right-box">
                                 <div class="run2"></div>
-                                <div class="runtxt"><%= ad.ad_promocode_outlets.first.sms_sents.count %></div>
+                                <div class="runtxt"><%= ad.ad_promocode_outlets.where(:outlet_id => outlet.id).first.sms_sents.count %></div>
                               </div>
                             </div>
                           </div>

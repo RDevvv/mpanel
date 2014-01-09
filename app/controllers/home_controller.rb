@@ -14,9 +14,12 @@ class HomeController < ApplicationController
         unless session[:new_session] == 1
             session[:new_session] = 1
             agent = request.env['HTTP_USER_AGENT']
+            puts "new_sessionnnnnnnnnnnnn"
+            puts referer_agent = request.env['HTTP_REFERER']
+            puts "new_sessionnnnnnnnnnnnn"
             parsed_agent = UserAgent.parse(agent)
             customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
-            CustomerSession.create(:customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser, :latitude => parsed_agent.latitude, :longitude => parsed_agent.longitude)
+            CustomerSession.create(:referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
             session[:customer_id] = customer_id
         end
     end
