@@ -1,5 +1,19 @@
 class Merchant::UsersController <  Merchant::BaseController
   before_filter :load_account
+  load_and_authorize_resource
+
+  def index 
+    # @users = @current_account.users.all
+    @roles = current_user.roles.find_all_by_name("owner")
+    @user = @roles.first.users
+    @user.each do |user|
+      @accounts = user.accounts
+    end
+    
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
 
   def new
     @user = @current_account.users.new 
@@ -18,13 +32,6 @@ class Merchant::UsersController <  Merchant::BaseController
       else
         format.html { render action: "new" }
       end
-    end
-  end
-
-  def index 
-    @users = @current_account.users.all
-    respond_to do |format|
-      format.html # index.html.erb
     end
   end
 
@@ -54,10 +61,11 @@ class Merchant::UsersController <  Merchant::BaseController
     end
   end
 
-  def add_role
-    @user = @current_account.users.find(params[:id])
-    @user.add_role
-    redirect_to merchant_account_users_path
-  end
+  # def add_role
+  #   @user = @current_account.users.find(params[:id])
+  #   binding.pry
+  #   @user.add_role
+  #   redirect_to merchant_account_users_path
+  # end
   
 end

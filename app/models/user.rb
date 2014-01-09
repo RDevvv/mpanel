@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   # validates_presence_of :first_name, :last_name
   # validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   has_one :avatar, :as => :attachable ,:class_name=>'Attachment'
+  # after_create :add_admin
+  
+  def add_admin
+    self.add_role :admin
+  end
 
   def user_name
     (self.first_name+ " "+ self.last_name).strip
@@ -23,14 +28,15 @@ class User < ActiveRecord::Base
     (self.first_name+ " "+ self.last_name).strip
   end
   
-  def add_role
-    if !self.has_any_role?
-      self.add_admin
-    end
-  end
+  # def add_role
+  #   if !self.has_any_role?
+  #     self.add_admin
+  #   end
+  # end
 
-  def add_admin
-    self.add_role("admin")
-  end
+  # def add_admin
+  #   binding.pry
+  #   self.add_role("admin")
+  # end
 
 end

@@ -1,6 +1,6 @@
 <%= render :partial=>'header' %>   
 <div class="pull-right">
-  <%= link_to "Create User", new_merchant_account_user_path,:class=>"btn btn-info"%>
+  <%= link_to "Create User", new_merchant_user_path,:class=>"btn btn-info"%>
   <br/>
   <br/>  
 </div>
@@ -29,47 +29,40 @@
             </tr>
           </thead>  
           <tbody>
-            <% @users.each do |user| %>
-            <tr>
-              <td>
-                <%= link_to user.user_name, edit_merchant_account_user_path(@current_account,user) %></td>
-                <td><%= user.email %></td>
-                <td><%= user.mobile_number%></td>
+            <% @accounts.each do |account|%>
+              <% users = account.users%>
+              <% users.each do |user| %>
+              <tr>
                 <td>
-      
-                  <% user.roles.each do |role| %>
-                    <button type="submit" class=" btn-link">
-                      <%= role.name=="admin" ? display_label_for_role(role.name) : "" %>
-                    </button>
-                  <% end %>
-
-                  <% if !user.roles.present? %>
-                    <%= form_tag(add_role_merchant_account_user_path(@current_account,user),:style=>"display:inline") do %>
+                  <%= link_to user.user_name, edit_merchant_user_path(@current_account,user) %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.mobile_number%></td>
+                  <td>
+                    <% user.roles.each do |role| %>
                       <button type="submit" class=" btn-link">
-                        <% if can? :update, user %><%= display_label_for_add_user_role %><%end%>
+                        <%= display_label_for_role(role.name)%>
                       </button>
                     <% end %>
-                  <% end %>
+                  </td>
 
-                </td>
+                  <td></td>
 
-                <td></td>
+                  <td>
+                    <%= check_box_tag :is_active, user.is_active?,user.is_active?,:disabled=>true%>
+                  </td>
 
-                <td>
-                  <%= check_box_tag :is_active, user.is_active?,user.is_active?,:disabled=>true%>
-                </td>
+                  <td>
+                    <%= check_box_tag :email_verified, user.email_verified?,user.email_verified?,:disabled=>true%>
+                  </td>
 
-                <td>
-                  <%= check_box_tag :email_verified, user.email_verified?,user.email_verified?,:disabled=>true%>
-                </td>
-
-                <td>
-                  <% if can? :destroy, user %>
-                    <%= link_to 'Delete', merchant_account_user_path(@current_account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
-                </td>
-              </tr> 
-              
+                  <td>
+                    <%# if current_user.has_role? :admin %>
+                      <%= link_to 'Delete', merchant_user_path(@current_account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% #end %>
+                  </td>
+                </tr> 
+                
+                <% end %>
               <% end %>
             </tbody>  
           </table>

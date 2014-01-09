@@ -95,12 +95,13 @@ Gullak2::Application.routes.draw do
         end
       end
       resources :brands
-      resources :users do
-        member do
-          post 'add_role'
-        end
-      end
     end
+    resources :users 
+    # do
+    #   member do
+    #     post 'add_role'
+    #   end
+    # end
 
   end  
 
