@@ -3,10 +3,7 @@ class CallForwarding < ActiveRecord::Base
   belongs_to :outlet
   belongs_to :customer
   # attr_accessible :title, :body
-
-  def get_all_parameters(path)
-  	CallForwarding.create(:from=>path["From"],:to=>path["to"],:direction=>path["Direction"],:dial_call_duration=>path["DialCallDuration"],:start_time=>path["StartTime"],:end_time=>path["EndTime"], :call_type=>path["CallType"],:digits=>path["digits"])
-		return "Success"  	
-  end
-
+  validates :from, :numericality => true,:length => {:minimum => 9, :maximum => 11}
+  validates :to, :numericality => true,:length => {:minimum => 9, :maximum => 11}
+  validates :call_sid, :uniqueness => true,:presence => true
 end
