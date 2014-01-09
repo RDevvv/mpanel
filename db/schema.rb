@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104092444) do
+ActiveRecord::Schema.define(:version => 20140109074150) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -255,6 +255,8 @@ ActiveRecord::Schema.define(:version => 20140104092444) do
     t.integer  "incentive_count"
     t.boolean  "is_verified"
     t.string   "verification_code"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "facebook_shares", :force => true do |t|
