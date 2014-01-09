@@ -5595,22 +5595,8 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
     border-width: 5px 5px 5px 0
 }
 
-.tooltip.left .tooltip-arrow {
-    top: 50%;
-    right: 0;
-    margin-top: -5px;
-    border-left-color: #000;
-    border-width: 5px 0 5px 5px
-}
-
-.tooltip.bottom .tooltip-arrow {
-    top: 0;
-    left: 50%;
-    margin-left: -5px;
-    border-bottom-color: #000;
-    border-width: 0 5px 5px
-}
-
+.tooltip.left .tooltip-arrow {top: 50%; right: 0; margin-top: -5px; border-left-color: #000; border-width: 5px 0 5px 5px } 
+.tooltip.bottom .tooltip-arrow {top: 0; left: 50%; margin-left: -5px; border-bottom-color: #000; border-width: 0 5px 5px }
 .popover {
     position: absolute;
     top: 0;
@@ -6615,6 +6601,12 @@ input#s:focus {
     outline: none
 }
 
+input#s2 {font-family: Tahoma, Verdana, Segoe, sans-serif; color: #cbcbcb !important; font-size: 15px !important;
+    width:100%; border:0; border-radius:0px; background:transparent; height:auto; color:#b4bdc4;
+    text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; text-align: center;}
+
+input#s2:focus {outline:none}
+
 input#searchSubmit {
     width: 19px;
     height: 19px;
@@ -6799,10 +6791,8 @@ ul.splinks li a.selec {
         border-left: solid 5px #F08B38;
         border-right: solid 5px #F08B38;
         border-bottom: solid 0px #fff;
-        /*border:solid 5px #000; left: 2px;*/
-        position: absolute;
-        top: 4px;
-        left: -5px;
+        /*border:solid 5px #000; left: 2px; position: absolute; top: 4px; left: -5px;*/
+        margin: -7px 0 0 1px;       
         height: 30px;
         background: url(ikons-img.png) no-repeat -552px -609px transparent; /*padding: 0 3px 0px 14px;*/
         padding: 15px 4px 11px 16px;
@@ -7104,7 +7094,7 @@ ul.splinks li a.selec {
     ul.right-icons li a.outlet {
         background: url(ikons-img.png) no-repeat -106px -1001px transparent; /*background: url(bigger-icons.png) no-repeat -311px -146px transparent; padding: 5px 7px 0 15px;*/
         position: relative;
-        bottom: 3px;
+        bottom: 5px;
         padding: 5px 18px 10px 15px;
         width: auto;
         height: auto;
@@ -7144,14 +7134,13 @@ ul.splinks li a.selec {
     }
 
     ul.left-icons li a.srchlink3 {
+        content: 'fdfsdfsdf';
         border-top: solid 5px #F08B38;
         border-left: solid 5px #F08B38;
         border-right: solid 5px #F08B38;
         border-bottom: solid 0px #fff;
-        /*border:solid 5px #000; left: 2px;*/
-        position: absolute;
-        top: -1px;
-        left: -5px;
+        /*border:solid 5px #000; left: 2px; position: absolute; top: -7px; left: -5px;*/
+        margin: -8px 0 0 0px;
         height: 30px;
         background: url(ikons-img.png) no-repeat -552px -609px transparent;
         padding: 15px 19px 17px 15px;

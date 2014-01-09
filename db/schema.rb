@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140104092444) do
+ActiveRecord::Schema.define(:version => 20140109114330) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -180,8 +180,18 @@ ActiveRecord::Schema.define(:version => 20140104092444) do
   create_table "call_forwardings", :force => true do |t|
     t.integer  "outlet_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "call_sid"
+    t.string   "from"
+    t.string   "to"
+    t.string   "direction"
+    t.time     "dial_call_duration"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "call_type"
+    t.string   "digits"
+    t.string   "recording_url"
   end
 
   add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
@@ -256,6 +266,8 @@ ActiveRecord::Schema.define(:version => 20140104092444) do
     t.integer  "incentive_count"
     t.boolean  "is_verified"
     t.string   "verification_code"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "facebook_shares", :force => true do |t|

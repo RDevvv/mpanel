@@ -1,176 +1,178 @@
 <!doctype html>
-  <html>
-    <head>
-    	<meta charset="utf-8">
-    	  <title>GullakMaster - Mapview</title>
-    	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-        <meta name="HandheldFriendly" content="true" />
-    	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
-    	  <link rel="stylesheet" href="css/mobile-css-styles.css">
-        <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.css" />
-          <!-- jQuery -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GullakMaster - Mapview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/mobile-css-styles.css">
+    <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.css"/>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 
-          <script type="text/javascript" src="js/jquery.mmenu.js"></script>
-          <script type="text/javascript">
-            $(function() {
-              $('nav#menu').mmenu();
-            });
-          </script>
+    <script type="text/javascript" src="js/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('nav#menu').mmenu();
+        });
+    </script>
 
-          <script src="js/jquery.color.js"></script>
-          <script src="js/script.js"></script>
-          <script type="text/javascript" src="js/jquery.pnotify.min.js"></script>
-        <link href="css/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css" />
-        <!-- Include this file if you are using Pines Icons. -->
-        <link href="css/jquery.pnotify.default.icons.css" media="all" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="css/jquery.sidr.dark.css">
-        <link href="css/transition.css" rel="stylesheet" type="text/css"/>
-        <!-- Preloader -->
-          <script type="text/javascript">
-          // <![CDATA[
-          $(window).load(function() { $("#spinner").fadeOut("slow"); })
-          // ]]>
-          </script>
-          <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-          <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-          <![endif]-->
-        <!-- jQuery Plugin -->
+    <script src="js/jquery.color.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery.pnotify.min.js"></script>
+    <link href="css/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css"/>
+    <!-- Include this file if you are using Pines Icons. -->
+    <link href="css/jquery.pnotify.default.icons.css" media="all" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/jquery.sidr.dark.css">
+    <link href="css/transition.css" rel="stylesheet" type="text/css"/>
+    <!-- Preloader -->
+    <script type="text/javascript">
+        // <![CDATA[
+        $(window).load(function () {
+            $("#spinner").fadeOut("slow");
+        })
+        // ]]>
+    </script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery Plugin -->
 
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
     <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see a blank space instead of the map, this
-      // is probably because you have denied permission for location sharing.
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see a blank space instead of the map, this
+        // is probably because you have denied permission for location sharing.
 
-      var map;
+        var map;
 
-      function initialize() {
-        var mapOptions = {
-          zoom: 6
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
+        function initialize() {
+            var mapOptions = {
+                zoom: 6
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
 
-        // Try HTML5 geolocation
-        if(navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                                             position.coords.longitude);
+            // Try HTML5 geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = new google.maps.LatLng(position.coords.latitude,
+                            position.coords.longitude);
 
-            var infowindow = new google.maps.InfoWindow({
-              map: map,
-              position: pos,
-              content: 'Location found using HTML5.'
-            });
+                    var infowindow = new google.maps.InfoWindow({
+                        map: map,
+                        position: pos,
+                        content: 'Location found using HTML5.'
+                    });
 
-            map.setCenter(pos);
-          }, function() {
-            handleNoGeolocation(true);
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleNoGeolocation(false);
-        }
-      }
-
-      function handleNoGeolocation(errorFlag) {
-        if (errorFlag) {
-          var content = 'Error: The Geolocation service failed.';
-        } else {
-          var content = 'Error: Your browser doesn\'t support geolocation.';
+                    map.setCenter(pos);
+                }, function () {
+                    handleNoGeolocation(true);
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleNoGeolocation(false);
+            }
         }
 
-        var options = {
-          map: map,
-          position: new google.maps.LatLng(60, 105),
-          content: content
-        };
+        function handleNoGeolocation(errorFlag) {
+            if (errorFlag) {
+                var content = 'Error: The Geolocation service failed.';
+            } else {
+                var content = 'Error: Your browser doesn\'t support geolocation.';
+            }
 
-        var infowindow = new google.maps.InfoWindow(options);
-        map.setCenter(options.position);
-      }
+            var options = {
+                map: map,
+                position: new google.maps.LatLng(60, 105),
+                content: content
+            };
 
-      google.maps.event.addDomListener(window, 'load', initialize);
+            var infowindow = new google.maps.InfoWindow(options);
+            map.setCenter(options.position);
+        }
 
-      </script>
-      <script type="text/javascript">
-        (function() {
-      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
-        var msViewportStyle = document.createElement("style");
-        msViewportStyle.appendChild(
-          document.createTextNode("@-ms-viewport{width:auto!important}")
-        );
-        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-      }
-    })();
+        google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
     <script type="text/javascript">
-      (function(){
-          var field = document.getElementById('s');
-          var placeholdertext = "Enter Category..."; // << change this to whatever you want the placeholder text to be
-
-          field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
-          field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
-      })(); 
+        (function () {
+            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                        document.createTextNode("@-ms-viewport{width:auto!important}")
+                );
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+        })();
     </script>
     <script type="text/javascript">
-      (function(){
-          var field = document.getElementById('s2');
-          var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
+        (function () {
+            var field = document.getElementById('s');
+            var placeholdertext = "Enter Category..."; // << change this to whatever you want the placeholder text to be
 
-          field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
-          field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
-      })(); 
+            field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
+            field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
+        })();
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var field = document.getElementById('s2');
+            var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
+
+            field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
+            field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
+        })();
     </script>
 
     <!-- efforless script below -->
     <script type="text/javascript">
-        jQuery(document).ready(function(){
+        jQuery(document).ready(function () {
             var pxShow = 80;//height on which the button will show
             var fadeInTime = 500;//how slow/fast you want the button to show
             var fadeOutTime = 500;//how slow/fast you want the button to hide
             var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
-            jQuery(window).scroll(function(){
-                if(jQuery(window).scrollTop() >= pxShow){
+            jQuery(window).scroll(function () {
+                if (jQuery(window).scrollTop() >= pxShow) {
                     jQuery("#backtotop").fadeIn(fadeInTime);
-                }else{
+                } else {
                     jQuery("#backtotop").fadeOut(fadeOutTime);
                 }
             });
-            jQuery('#backtotop a').click(function(){
-                jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+            jQuery('#backtotop a').click(function () {
+                jQuery('html, body').animate({scrollTop: 0}, scrollSpeed);
                 return false;
             });
         });
     </script>
 
-    </head>
-    <body>
-      <!-- Preloader -->
-      <div id="spinner"></div>
-      <img src="img/ajax-load.gif" id="loading-indicator" class="dn" />
-    	<div id="header">
-        <ul class="left-icons">
-          <li><a href="#menu" class="srchlink3"></a></li>
-          <!--<li><a class="notify"><div class="badge">5</div></a></li>-->
-        </ul>
+</head>
+<body>
+<!-- Preloader -->
+<div id="spinner"></div>
+<img src="img/ajax-load.gif" id="loading-indicator" class="dn"/>
 
-        <div class="head-brand">GullakMaster</div>
-        <ul class="right-icons">
-          <li><a href="#" class="invfrnd2"></a></li>
-          <li><a href="#" class="outlet"></a></li>
-        </ul>
+<div id="header">
+    <ul class="left-icons">
+        <li><a href="#menu" class="srchlink3"></a></li>
+        <!--<li><a class="notify"><div class="badge">5</div></a></li>-->
+    </ul>
+
+    <div class="head-brand">GullakMaster</div>
+    <ul class="right-icons">
+        <li><a href="#" class="invfrnd2"></a></li>
+        <li><a href="#" class="outlet"></a></li>
+    </ul>
 
 
-        <nav id="menu">
-          <ul>
+    <nav id="menu">
+        <ul>
 
             <li class="subcat">Sort by:</li>
 
-            
 
             <li><a href="#">Distance</a></li>
             <li><a href="#">Hot Picks</a></li>
@@ -182,13 +184,13 @@
 
             <li style="margin-top:10px;">
                 <form id="searchForm">
-                      <fieldset>
-                          <div class="input">
-                              <input type="search" name="s" id="s" value="Enter Category..." />
-                          </div>
-                          <input type="submit" id="searchSubmit" value="" />
-                      </fieldset>
-                  </form>
+                    <fieldset>
+                        <div class="input">
+                            <input type="search" name="s" id="s" value="Enter Category..."/>
+                        </div>
+                        <input type="submit" id="searchSubmit" value=""/>
+                    </fieldset>
+                </form>
             </li>
 
             <li><a href="#">Aura</a></li>
@@ -208,364 +210,375 @@
             <li><a href="#">Maple</a></li>
 
             <li>&nbsp;</li>
-          </ul> 
-        </nav>
-      </div>
+        </ul>
+    </nav>
+</div>
 
 
-
-        <div class="container-location">
-            <div class="row-fluid">
-                <div class="span12">
-                  <div class="search-div3">
-                  <form id="searchForm">
-                      <fieldset>
-                          <div class="input">
-                              <input type="search" name="s2" id="s2" value="Search New Location..." />
-                          </div>  
-                          <input type="submit" id="searchSubmit" value="" />
-                      </fieldset>
-                  </form>
-                  <div class="auto-locate"><img src="img/navigation-icon2.png" border="0" /></div>
-                  </div>
+<div class="container-location">
+<div class="row-fluid">
+<div class="span12">
+    <div class="search-div3">
+        <form id="searchForm">
+            <fieldset>
+                <div class="input">
+                    <input type="search" name="s2" id="s2" value="Search New Location..."/>
                 </div>
-                <div class="span12">
-                    <!--Map comes here-->
-                    <iframe id="map_canvas" width="100%" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Maple+Store+Bandra,+Bandra+West,+Mumbai,+Maharashtra,+India&amp;aq=1&amp;oq=Maple+store&amp;sll=37.0625,-95.677068&amp;sspn=39.235538,86.572266&amp;ie=UTF8&amp;hq=Maple+Store&amp;hnear=Bandra,+Bandra+East+to+West+Railway+Foot-Bridge,+Bairam+Naupada,+Bandra+West,+Mumbai,+Mumbai+Suburban,+Maharashtra+400050,+India&amp;ll=19.063634,72.835014&amp;spn=0.36664,0.676346&amp;t=m&amp;z=11&amp;iwloc=A&amp;cid=4670488372095120642&amp;output=embed"></iframe>
-                </div>
-                 <div id="map-canvas"></div>
-                 <div  class="ml0 span12">
-                        <div class="out-add-div">
+                <input type="submit" id="searchSubmit" value=""/>
+            </fieldset>
+        </form>
+        <div class="auto-locate"><img src="img/navigation-icon2.png" border="0"/></div>
+    </div>
+</div>
+<div class="span12">
+    <!--Map comes here-->
+    <iframe id="map_canvas" width="100%" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Maple+Store+Bandra,+Bandra+West,+Mumbai,+Maharashtra,+India&amp;aq=1&amp;oq=Maple+store&amp;sll=37.0625,-95.677068&amp;sspn=39.235538,86.572266&amp;ie=UTF8&amp;hq=Maple+Store&amp;hnear=Bandra,+Bandra+East+to+West+Railway+Foot-Bridge,+Bairam+Naupada,+Bandra+West,+Mumbai,+Mumbai+Suburban,+Maharashtra+400050,+India&amp;ll=19.063634,72.835014&amp;spn=0.36664,0.676346&amp;t=m&amp;z=11&amp;iwloc=A&amp;cid=4670488372095120642&amp;output=embed"></iframe>
+</div>
+<div id="map-canvas"></div>
+<div class="ml0 span12">
+<div class="out-add-div">
 
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
                                         title: 'Offer',
                                         text: 'The offer text would get displayed here.',
                                         opacity: .9
                                     });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
-                                        title: 'Offer',
-                                        text: 'The offer text would get displayed here.',
-                                        opacity: .9
-                                    });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
-                                        title: 'Offer',
-                                        text: 'The offer text would get displayed here.',
-                                        opacity: .9
-                                    });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
-                                        title: 'Offer',
-                                        text: 'The offer text would get displayed here.',
-                                        opacity: .9
-                                    });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
-                                        title: 'Offer',
-                                        text: 'The offer text would get displayed here.',
-                                        opacity: .9
-                                    });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
-                                        title: 'Offer',
-                                        text: 'The offer text would get displayed here.',
-                                        opacity: .9
-                                    });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                          <div class="bsc span12">
-                            <div class="bdiv2">
-                              <div class="bbox2">
-                                <div class="brandtitle">maple</div>
-                                <div class="eye2"><a onclick="$.pnotify({
-                                        title: 'Offer',
-                                        text: 'The offer text would get displayed here.',
-                                        opacity: .9
-                                    });" class="btn source"></a></div>
-                                <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0" /> </div>
-                                <div class="rch-btns-div2">
-                                  <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                                </div>
-                                <div class="distance-div2">Distance: xx.x km</div>
-                              </div>
-                              <div class="lower-box">
-                                <div class="refr2"></div>
-                                <div class="star2"></div>
-                                <div class="right-box">
-                                  <a href="#">
-                                    <div class="run2"></div>
-                                    <div class="runtxt">20.3K</div>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="add-box">
-                              <div class="adtitle">Address </div>
-                              <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
-                              <div class="adloc">Bandra West<br />Mumbai 40050</div>
-                              
-                            </div>
-                          </div>
-
-                        </div>  
-                </div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
             </div>
         </div>
-        <footer>
-        <div class="mainfooter">
+    </div>
+
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
+                                        title: 'Offer',
+                                        text: 'The offer text would get displayed here.',
+                                        opacity: .9
+                                    });" class="btn source"></a></div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
+                                        title: 'Offer',
+                                        text: 'The offer text would get displayed here.',
+                                        opacity: .9
+                                    });" class="btn source"></a></div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
+                                        title: 'Offer',
+                                        text: 'The offer text would get displayed here.',
+                                        opacity: .9
+                                    });" class="btn source"></a></div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
+                                        title: 'Offer',
+                                        text: 'The offer text would get displayed here.',
+                                        opacity: .9
+                                    });" class="btn source"></a></div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
+                                        title: 'Offer',
+                                        text: 'The offer text would get displayed here.',
+                                        opacity: .9
+                                    });" class="btn source"></a></div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+<div class="bsc span12">
+    <div class="bdiv2">
+        <div class="bbox2">
+            <div class="brandtitle">maple</div>
+            <div class="eye2"><a onclick="$.pnotify({
+                                        title: 'Offer',
+                                        text: 'The offer text would get displayed here.',
+                                        opacity: .9
+                                    });" class="btn source"></a></div>
+            <div align="center" class="brandlogo"><img src="img/maple-medium.png" border="0"/></div>
+            <div class="rch-btns-div2">
+                <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
+            </div>
+            <div class="distance-div2">Distance: xx.x km</div>
+        </div>
+        <div class="lower-box">
+            <div class="refr2"></div>
+            <div class="star2"></div>
+            <div class="right-box">
+                <a href="#">
+                    <div class="run2"></div>
+                    <div class="runtxt">20.3K</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle">Address</div>
+        <div class="adaddress">Ashiana Building, Flat 8, 31st Road, TPS 3, Opp. Shoppers Stop, Linking Road</div>
+        <div class="adloc">Bandra West<br/>Mumbai 40050</div>
+
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<footer>
+    <div class="mainfooter">
         <div class="footer_div1">
-        <div class="footer_about_us">
-        <div class="footer_title">
-        <a href="#">About Us</a>
-        </div>
-        </div>
-            <ul class="footerdiv">
-              <li>
-                <a href="/company">Company</a>
-              </li>
-              <li>
-                <a href="/team">Team</a>
-              </li>
-              <li>
-                <a href="/careers">Careers</a>
-              </li>
-              <li>
-                <a href="/terms_of_use">Terms of Use</a>
-              </li>
-              <li>
-                <a href="/privacy_policy">Privacy Policy</a>
-              </li>
-            </ul>
-            </div>
-            <div class="footer_div2">
             <div class="footer_about_us">
-            <div class="footer_title">
-            <a href="/marketing_managers">Merchants</a>
+                <div class="footer_title">
+                    <a href="#">About Us</a>
+                </div>
             </div>
+            <ul class="footerdiv">
+                <li>
+                    <a href="/company">Company</a>
+                </li>
+                <li>
+                    <a href="/team">Team</a>
+                </li>
+                <li>
+                    <a href="/careers">Careers</a>
+                </li>
+                <li>
+                    <a href="/terms_of_use">Terms of Use</a>
+                </li>
+                <li>
+                    <a href="/privacy_policy">Privacy Policy</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer_div2">
+            <div class="footer_about_us">
+                <div class="footer_title">
+                    <a href="/marketing_managers">Merchants</a>
+                </div>
             </div>
-              <ul class="footerdiv">
+            <ul class="footerdiv">
                 <li></li>
                 <li>
-                  <a href="/marketing_managers#location_based">Location targeting</a>
+                    <a href="/marketing_managers#location_based">Location targeting</a>
                 </li>
                 <li>
-                  <a href="/marketing_managers#context_based">Context marketing</a>
+                    <a href="/marketing_managers#context_based">Context marketing</a>
                 </li>
                 <li>
-                  <a href="/marketing_managers#mobile_targeting">Mobile advertising</a>
+                    <a href="/marketing_managers#mobile_targeting">Mobile advertising</a>
                 </li>
                 <li>
-                  <a target="_blank" href="mailto:merchant@gullakmaster.com">merchant@gullakmaster.com</a>
+                    <a target="_blank" href="mailto:merchant@gullakmaster.com">merchant@gullakmaster.com</a>
                 </li>
-              </ul>
+            </ul>
         </div>
         <div class="footer_div3">
-        <div style="text-align:right; background-position:right bottom" class="footer_about_us">
-        <div class="footer_title">
-        <a href="/contact_us">Contact Us</a>
+            <div style="text-align:right; background-position:right bottom" class="footer_about_us">
+                <div class="footer_title">
+                    <a href="/contact_us">Contact Us</a>
+                </div>
+            </div>
+            <p class="footerightdiv"></p>
+
+            <p class="footerightdiv">
+                <a href="/contact_us">Office locations</a>
+            </p>
+
+            <p class="footerightdiv">
+                Enquiry :
+                <a target="_blank" href="mailto:info@gullakmaster.com">info@gullakmaster.com</a>
+            </p>
+
+            <p class="footerightdiv">
+                Press :
+                <a target="_blank" href="mailto:media@gullakmaster.com">media@gullakmaster.com</a>
+            </p>
+
+            <p class="phone_no">+91 22 22843186</p>
+            <ul class="social-likebox">
+                <li>
+                    <iframe scrolling="no" frameborder="0"
+                            style="border:none; overflow:hidden; width:46px; height:21px;"
+                            src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FGullakMaster&amp;send=false&amp;layout=button_count&amp;width=163&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21"
+                            allowtransparency="true"></iframe>
+                </li>
+                <li>
+                    <iframe scrolling="no" frameborder="0" id="twitter-widget-0" allowtransparency="true"
+                            src="http://platform.twitter.com/widgets/follow_button.1387492107.html#_=1387790228989&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=gullakmaster&amp;show_count=false&amp;show_screen_name=false&amp;size=m"
+                            class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button"
+                            data-twttr-rendered="true" style="width: 60px; height: 20px;"></iframe>
+                </li>
+            </ul>
+            <p>GullakMaster &copy; 2013</p>
+
+            <p></p>
         </div>
-        </div>
-        <p class="footerightdiv"></p>
-        <p class="footerightdiv">
-        <a href="/contact_us">Office locations</a>
-        </p>
-        <p class="footerightdiv">
-        Enquiry :
-        <a target="_blank" href="mailto:info@gullakmaster.com">info@gullakmaster.com</a>
-        </p>
-        <p class="footerightdiv">
-        Press :
-        <a target="_blank" href="mailto:media@gullakmaster.com">media@gullakmaster.com</a>
-        </p>
-        <p class="phone_no">+91 22 22843186</p>
-        <ul class="social-likebox">
-        <li>
-        <iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:46px; height:21px;" src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FGullakMaster&amp;send=false&amp;layout=button_count&amp;width=163&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" allowtransparency="true"></iframe>
-        </li>
-        <li>
-        <iframe scrolling="no" frameborder="0" id="twitter-widget-0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1387492107.html#_=1387790228989&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=gullakmaster&amp;show_count=false&amp;show_screen_name=false&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 60px; height: 20px;"></iframe>
-        </li>
-        </ul>
-        <p>GullakMaster &copy; 2013</p>
-        <p></p>
-        </div>
-        </div>
-      </footer>
-        <div id="backtotop">
-           <a href="#">
-              <img src="img/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
-           </a>
-        </div>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-    </body>    
+    </div>
+</footer>
+<div id="backtotop">
+    <a href="#">
+        <img src="img/back_to_top_btn-3.png" border="0" alt="Back to TOP"/>
+    </a>
+</div>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
 </html>
