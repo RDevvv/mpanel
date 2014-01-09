@@ -21,7 +21,7 @@ class CallForwardingsController < ApplicationController
     end
   end
 
-  # GET /call_forwardings/new
+  # GET /call_forwardings/new                                               
   # GET /call_forwardings/new.json
   def new
     @call_forwarding = CallForwarding.new
@@ -82,24 +82,26 @@ class CallForwardingsController < ApplicationController
   end
 
   def get_customer_number
-      respond_to do |format|
-          format.json {render :nothing => true, :status => 200, :action => "return_outlet_number", :format => :json, :To => "09504454594"}
-      end
+    @call_forwarding = CallForwarding.create(:call_sid=>params["CallSid"],:from=>params["From"],:to=>params["To"],:direction=>params["Direction"],:dial_call_duration=>params["DialCallDuration"],:start_time=>params["StartTime"],:end_time=>params["EndTime"], :call_type=>params["CallType"],:digits=>params["digits"])
+    respond_to do |format|
+      format.json {render :nothing => true}
+    end
   end
 
   def get_outlet_number
-      redirect_to :action => "set_outlet_number", :format => :json, :To => "09504454594"
+    redirect_to :action => "set_outlet_number", :format => :json, :To => "09504454594"
   end
 
   def set_outlet_number
-      respond_to do |format|
-          format.json {render :nothing => true}
-      end
+    respond_to do |format|
+        format.json {render :nothing => true}
+    end
   end
 
   def return_outlet_number
-      respond_to do |format|
-          format.json {render :nothing => true}
-      end
+    respond_to do |format|
+      format.json {render :nothing => true}
+    end
   end
+
 end
