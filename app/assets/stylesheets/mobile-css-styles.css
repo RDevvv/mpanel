@@ -7130,6 +7130,7 @@ ul.splinks li a.selec {
     }
 
     ul.left-icons li a.srchlink3 {
+        content: 'fdfsdfsdf';
         border-top: solid 5px #F08B38;
         border-left: solid 5px #F08B38;
         border-right: solid 5px #F08B38;
