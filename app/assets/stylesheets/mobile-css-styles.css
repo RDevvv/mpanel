@@ -6601,6 +6601,12 @@ input#s:focus {
     outline: none
 }
 
+input#s2 {font-family: Tahoma, Verdana, Segoe, sans-serif; color: #cbcbcb !important; font-size: 15px !important;
+    width:100%; border:0; border-radius:0px; background:transparent; height:auto; color:#b4bdc4;
+    text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; text-align: center;}
+
+input#s2:focus {outline:none}
+
 input#searchSubmit {
     width: 19px;
     height: 19px;
