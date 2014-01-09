@@ -11,6 +11,9 @@ class Customer < ActiveRecord::Base
 
     after_create :generate_verification_code
 
+    geocoded_by :ip_address,
+
+
     def self.generate_cookie
         customer_uuid = nil
         while(customer_uuid == nil)
