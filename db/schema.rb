@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109093511) do
+ActiveRecord::Schema.define(:version => 20140109114330) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -182,8 +182,8 @@ ActiveRecord::Schema.define(:version => 20140109093511) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "call_sid"
-    t.integer  "from"
-    t.integer  "to"
+    t.string   "from"
+    t.string   "to"
     t.string   "direction"
     t.time     "dial_call_duration"
     t.datetime "start_time"

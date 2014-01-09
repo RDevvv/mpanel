@@ -21,7 +21,7 @@ class CallForwardingsController < ApplicationController
     end
   end
 
-  # GET /call_forwardings/new
+  # GET /call_forwardings/new                                               
   # GET /call_forwardings/new.json
   def new
     @call_forwarding = CallForwarding.new
@@ -82,25 +82,32 @@ class CallForwardingsController < ApplicationController
   end
 
   def get_customer_number
-      redirect_to :status => 200, :action => "return_outlet_number", :format => :json, :To => "09504454594"
-      #respond_to do |format|
-      #    format.json {render :nothing => true}
-      #end
+    # redirect_to :status => 200, :action => "return_outlet_number", :format => :json, :To => "09504454594"
+    path = "http://0.0.0.0:3000/get_call_forwarding.json?CallSid=1321360773.4&From=09880847047&To=08088919888&Direction=incoming&DialCallDuration=7&StartTime=2011-11-15+18%3A09%3A41&EndTime=0000-00-00+00%3A00%3A00&CallType=call&DialWhomNumber=09052161119&digits=%2289%22%20HTTP/1.1%22"
+    hashed_path = Rack::Utils.parse_query URI(path).query
+    #  CGI.parse(URI.parse(path).query)
+    @call_forwarding = CallForwarding.new
+    response = @call_forwarding.get_all_parameters(hashed_path)
+    
+    respond_to do |format|
+      format.json {render :nothing => true}
+    end
   end
 
   def get_outlet_number
-      redirect_to :action => "set_outlet_number", :format => :json, :To => "09504454594"
+    redirect_to :action => "set_outlet_number", :format => :json, :To => "09504454594"
   end
 
   def set_outlet_number
-      respond_to do |format|
-          format.json {render :nothing => true}
-      end
+    respond_to do |format|
+        format.json {render :nothing => true}
+    end
   end
 
   def return_outlet_number
-      respond_to do |format|
-          format.json {render :nothing => true}
-      end
+    respond_to do |format|
+      format.json {render :nothing => true}
+    end
   end
+
 end
