@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109074150) do
+ActiveRecord::Schema.define(:version => 20140109093511) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -179,8 +179,18 @@ ActiveRecord::Schema.define(:version => 20140109074150) do
   create_table "call_forwardings", :force => true do |t|
     t.integer  "outlet_id"
     t.integer  "customer_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "call_sid"
+    t.integer  "from"
+    t.integer  "to"
+    t.string   "direction"
+    t.time     "dial_call_duration"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "call_type"
+    t.string   "digits"
+    t.string   "recording_url"
   end
 
   add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
