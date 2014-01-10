@@ -28,15 +28,4 @@ class User < ActiveRecord::Base
     (self.first_name+ " "+ self.last_name).strip
   end
   
-  # def add_role
-  #   if !self.has_any_role?
-  #     self.add_admin
-  #   end
-  # end
-
-  # def add_admin
-  #   binding.pry
-  #   self.add_role("admin")
-  # end
-
 end

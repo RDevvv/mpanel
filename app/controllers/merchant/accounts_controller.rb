@@ -4,8 +4,9 @@ class Merchant::AccountsController <  Merchant::BaseController
   
   before_filter :load_account,:only=>[:add_brands]
   skip_before_filter :authenticate_merchant_user!,:only=>[:new,:create,:verified_account]
+  
   def index
-    @accounts = current_user.accounts
+    @accounts = current_user.accounts.uniq
   end
 
   def new

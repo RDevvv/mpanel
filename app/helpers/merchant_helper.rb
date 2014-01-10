@@ -65,9 +65,5 @@ module MerchantHelper
     #   "<span class='label label-info'>User</span>".html_safe
     end
   end
-  
-  def display_label_for_add_user_role
-    "<span class='label label-info'>Add Admin</span>".html_safe
-  end
 
 end

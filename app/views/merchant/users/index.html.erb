@@ -25,16 +25,14 @@
                 <th width="8%"><div>Status</div></th>
                 <th width="8%"><div>Verified</div></th>
                 <th width="8%">Manage</th>
-              </thead>
-            </tr>
-          </thead>  
-          <tbody>
-            <% @accounts.each do |account|%>
-              <% users = account.users.uniq%>
-              <% users.each do |user| %>
-              <tr>
-                <td>
-                  <%= link_to user.user_name, edit_merchant_user_path(@current_account,user) %></td>
+              </tr>
+            </thead>  
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <%= link_to user.user_name, edit_merchant_user_path(user) %>
+                  </td>
                   <td><%= user.email %></td>
                   <td><%= user.mobile_number%></td>
                   <td>
@@ -47,22 +45,17 @@
 
                   <td></td>
 
-                  <td>
-                    <%= check_box_tag :is_active, user.is_active?,user.is_active?,:disabled=>true%>
-                  </td>
+                  <td><%= check_box_tag :is_active, user.is_active?,user.is_active?,:disabled=>true%></td>
 
-                  <td>
-                    <%= check_box_tag :email_verified, user.email_verified?,user.email_verified?,:disabled=>true%>
-                  </td>
+                  <td><%= check_box_tag :email_verified, user.email_verified?,user.email_verified?,:disabled=>true%></td>
 
                   <td>
                     <%# if current_user.has_role? :admin %>
-                      <%= link_to 'Delete', merchant_user_path(@current_account,user), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= link_to 'Delete', merchant_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
                     <% #end %>
                   </td>
                 </tr> 
-                
-                <% end %>
+                  
               <% end %>
             </tbody>  
           </table>
