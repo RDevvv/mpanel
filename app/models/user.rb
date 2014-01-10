@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # validates_presence_of :first_name, :last_name
   # validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   has_one :avatar, :as => :attachable ,:class_name=>'Attachment'
-  # after_create :add_admin
+  after_create :add_admin
   
   def add_admin
     self.add_role :admin

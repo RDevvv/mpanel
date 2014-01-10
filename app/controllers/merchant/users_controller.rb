@@ -7,7 +7,7 @@ class Merchant::UsersController <  Merchant::BaseController
     @roles = current_user.roles.find_all_by_name("owner")
     @user = @roles.first.users
     @user.each do |user|
-      @accounts = user.accounts
+      @accounts = user.accounts.uniq
     end
     
     respond_to do |format|

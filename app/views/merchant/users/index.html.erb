@@ -30,7 +30,7 @@
           </thead>  
           <tbody>
             <% @accounts.each do |account|%>
-              <% users = account.users%>
+              <% users = account.users.uniq%>
               <% users.each do |user| %>
               <tr>
                 <td>
