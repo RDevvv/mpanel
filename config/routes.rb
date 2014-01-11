@@ -1,11 +1,7 @@
 Gullak2::Application.routes.draw do
 
   resources :campaigns
-
-
   resources :incentives
-
-
   resources :sms_sents
   resources :ads
   resources :call_forwardings
@@ -18,6 +14,7 @@ Gullak2::Application.routes.draw do
   get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
   get "get_call_click/:id" => "call_button_selects#get_click"
   post "get_button_click" => "button_clicks#get_click"
+  match "store_call_details" => "call_forwardings#store_call_details"
   get "get_call_forwarding" => "call_forwardings#get_customer_number"
   get "set_call_forwarding" => "call_forwardings#return_outlet_number"
   match "get_outlet_number" => "call_forwardings#get_outlet_number"
