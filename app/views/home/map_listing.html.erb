@@ -56,7 +56,7 @@
                                     });" class="description btn source"></a></div>
                             <div align="center" class="brandlogo">
                               <% if brand.attachments.empty? %>
-                                  <%= image_tag "assets/categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
+                                  <%= image_tag "categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
                               <% else %>
                                   <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
                               <% end %>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="distance-div2">Distance: <%= (outlet.distance * 1.6).to_f.round(2) %> km</div>
                             <div class="lower-box">
-                                <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
+                                <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%#= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
                                 <div class="refr2"></div>
                               </a>
                               <% if outlet.ads.first.is_exclusive %>
