@@ -2,13 +2,19 @@ function track(element) {
     customer_uuid = $.cookie("customer_uuid");
     button_class  = $(element).attr("class").split(" ")[0];
     box_element   = $(element).closest('div[class="bdiv"]');
+    redirection_url = "get_button_click.json";
     ad_id         = box_element.attr("id");
     outlet_id     = box_element.attr("outlet_id");
     current_link  = window.location.pathname;
 
+    if(button_class=='call')
+        {
+            redirection_url = 'store_call_details.json';
+        }
+
 
     $.ajax({
-        url: "get_button_click.json",
+        url: redirection_url,
         type: "post",
         data: {
             'customer_uuid': customer_uuid,
@@ -18,11 +24,13 @@ function track(element) {
             'current_link': current_link
         }
     }).done(function () {
+        console.log("done");
     })
 }
 
 function send_ad(customer_uuid, element)
 {
+console.log("zzz");
     customer_uuid = $.cookie("customer_uuid");
     ad_id         = $(element).closest('div[class="bdiv"]').attr("id");
     outlet_id     = $(element).closest('div[class="bdiv"]').attr("outlet_id");

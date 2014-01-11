@@ -1,3 +1,6 @@
+<script>
+    console.log("asfd");
+</script>
 <div align="center" class="container-location">
   <div class="row-fluid">
     <div>
@@ -24,7 +27,7 @@
                                   });" class="description btn source"></a></div>
                           <div align="center" class="brandlogo">
                             <% if brand.attachments.empty? %>
-                                <%= image_tag "assets/categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
+                                <%= image_tag "categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
                             <% else %>
                                 <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
                             <% end %>
@@ -33,7 +36,7 @@
                             <div class="btn190"><a class="address button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
                             <% unless outlet.mobile_number.empty? %>
                                 <div class="btn190">
-                                  <a class="call button_call2" onclick="track(this)" href="tel:+91-<%= outlet.mobile_number %>">CALL</a>
+                                  <a class="call button_call2" onclick="track(this)" href="tel:+91-09223183143">CALL</a>
                                 </div>
                             <% end %>
                           </div>

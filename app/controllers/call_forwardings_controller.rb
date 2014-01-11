@@ -99,9 +99,22 @@ class CallForwardingsController < ApplicationController
   end
 
   def return_outlet_number
-    respond_to do |format|
-      format.json {render :nothing => true}
-    end
+      respond_to do |format|
+          format.json {render :nothing => true}
+      end
   end
 
+  def store_call_details
+      puts "vivekkkkkkkkk"
+
+      customer = Customer.where(:uuid => params[:customer_uuid]).first
+      customer_session  = customer.customer_sessions.last
+      agent = request.env['HTTP_REFERER']
+
+      CallForwarding.create(:customer_id => customer.id, :ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :session_id => customer_session.id)
+
+      respond_to do |format|
+          format.json {render :nothing => true}
+      end
+  end
 end
