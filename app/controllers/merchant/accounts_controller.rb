@@ -27,9 +27,10 @@ class Merchant::AccountsController <  Merchant::BaseController
     @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first
     @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
     @account.area = @area
-    @account.users << current_merchant_user if current_merchant_user
+    @users = @account.users << current_merchant_user if current_merchant_user
     respond_to do |format|
       if @account.save
+        Emailer.registration_confirmation(@users).deliver
         if current_merchant_user
           format.html { redirect_to merchant_accounts_path()}
         else
