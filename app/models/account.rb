@@ -25,4 +25,10 @@ class Account < ActiveRecord::Base
   def name
     registered_company_name
   end
+
+  def add_default_admin_user
+  #   user = User.create(:email => "adadoo@gullakmaster.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "Abhishek", :last_name => "Dadoo", :mobile_number => "983000000000", :user_key => "abcdef", :is_active => true, :email_verified => true, :mobile_verified => false)
+    user = User.find_by_email("adadoo@gullakmaster.com")
+    self.users << user
+  end
 end
