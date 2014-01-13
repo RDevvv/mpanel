@@ -14,9 +14,7 @@ class HomeController < ApplicationController
         unless session[:new_session] == 1
             session[:new_session] = 1
             agent = request.env['HTTP_USER_AGENT']
-            puts "new_sessionnnnnnnnnnnnn"
             puts referer_agent = request.env['HTTP_REFERER']
-            puts "new_sessionnnnnnnnnnnnn"
             parsed_agent = UserAgent.parse(agent)
             customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
             CustomerSession.create(:referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
@@ -79,7 +77,7 @@ class HomeController < ApplicationController
     def map_listing
         latitude = params["latitude"]
         longitude = params["longitude"]
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
         @outlets_with_ad = Array.new
         @outlets_without_ad = Array.new
         outlets_with_ad_index = 0
