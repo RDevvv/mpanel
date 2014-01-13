@@ -66,19 +66,18 @@ class Outlet < ActiveRecord::Base
   end
 
   def geocoding_address
-    [self.address, self.area.area_name, self.area.city.name, self.area.pincode].compact.join(', ')    
-    # [self.address, self.area.area_name, self.area.city.name, self.area.pincode,self.area.city.state.state_name,self.area.city.state.country.country_name].compact.join(', ')
+    [self.address, self.area.area_name, self.area.city.name].compact.join(', ')
   end
   def full_address
     [self.area.city.name, self.area.name, self.address].join(",")
   end
 
-  def add_uniq_outlet_key  
-    self.outlet_key = rand.to_s[2..7] 
+  def add_uniq_outlet_key
+    self.outlet_key = rand.to_s[2..7]
     if self.valid?
       self.save
     else
-      add_uniq_outlet_key   
+      add_uniq_outlet_key
     end
     
   end
@@ -97,9 +96,9 @@ class Outlet < ActiveRecord::Base
     csv = CSV.parse(csv_text, :headers => true)
     invalid_records = Array.new
     valid_records = Array.new
-    attempts = 0 
+    attempts = 0
     csv.each do |row|
-      begin     
+      begin
         attempts += 1
         i= Outlet.create!(:account_brand_id=> account_brand_id,
         :outlet_type_id=>row[0],
@@ -115,7 +114,7 @@ class Outlet < ActiveRecord::Base
         puts "Exception Occured"
         invalid_records.push(row)
         puts invalid_records
-      end  
+      end
     end
     return valid_records,invalid_records
   end
@@ -142,12 +141,11 @@ class Outlet < ActiveRecord::Base
     if cities.present?
       city = cities.first
     elsif  pincode_areas.present?
-      city = picode_areas.first.city 
+      city = picode_areas.first.city
     elsif areas.present?
       city = areas.first.city
     end
     city
-      
   end
 
   def self.import_record(params)

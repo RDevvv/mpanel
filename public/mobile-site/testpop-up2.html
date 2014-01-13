@@ -1,0 +1,71 @@
+<!doctype html>
+  <html>
+    <head>
+    	<meta charset="utf-8">
+    	  <title>GullakMaster - Outletview</title>
+    	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="HandheldFriendly" content="true" />
+    	  <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css"/>
+    	  <link rel="stylesheet" href="css/mobile-css-styles.css">
+        <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.css" />
+        <!-- jQuery -->
+          <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>-->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <!-- Preloader -->
+    <script type="text/javascript">// <![CDATA[
+    $(window).load(function() { $("#spinner").fadeOut("slow"); })
+    // ]]>
+    </script>
+    <script type="text/javascript">
+        (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+          $('a[rel*=leanModal]').leanModal({ top : 40, closeButton: ".modal_close", display: "none" });    
+        });
+        
+        // onclick handler for a button that does some stuff before opening a leanModal dialog
+    function mySampleFunc()
+    {
+      alert("Thank you for feedback!");
+      $("#basicPopup").click();
+    }
+    </script>        
+
+    </head>
+    <body>
+      <!-- Preloader -->
+      <div id="spinner"></div>
+      <img src="img/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
+      <div id="header">
+        <div class="head-brand">GullakMaster</div>
+      </div>
+
+      <div style="float:left; clear:both;margin:5% 0 0 35%; font-weight:bold; font-size:16px;">
+        <a id="go" rel="leanModal" name="signup" href="#signup">Click for Pop Up</a>
+      </div>
+
+      <div id="signup">
+          <p><!---popup text comes here-->
+            <img src="img/PopUp_BG.png" border="0" />
+          </p>
+          <ul class="pop-up-list">
+            <li><a href="#"><img src="img/PopUp_Email.png" border="0"/></a></li>
+            <li><a href="#"><img src="img/PopUp_FB.png" border="0"/></a></li>
+            <li><a href="#"><img src="img/PopUp_SMS.png" border="0"/></a></li>
+          </ul>
+          <a class="modal_close" href="#"></a>
+      </div>
+
+      <!---<div class="block-div">BLOCK</div>-->
+    </body>
+    </html>

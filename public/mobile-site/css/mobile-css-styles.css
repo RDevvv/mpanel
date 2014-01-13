@@ -947,6 +947,9 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 #signup .txt-fld { position: relative; width: 364px; padding: 14px 20px; border-bottom: 1px solid #EEE; text-align: right; }
 #signup .btn-fld { width: 254px; overflow: hidden; padding: 12px 20px 12px 130px; }
 
+ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:-5px;}
+ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; list-style-type: none;}
+
 #signup .txt-fld label { display: block; float: left; width: 90px; padding-top: 8px; color: #222; font-size: 13px; text-align: left;  }
 #signup .txt-fld input { width: 244px; border: 1px solid #BFBFBF; border-radius: 3px 3px 3px 3px; box-shadow: 0 0 0 #000000, 0 3px 3px #EEEEEE inset;
     font-size: 16px; padding: 5px; }
