@@ -32,7 +32,7 @@ class HomeController < ApplicationController
 
     def outlet_listing
         unless params[:location].nil?
-            location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
+            #location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
             #if location_cache.count == 1
             #    latitude = location_cache.first.latitude
             #    longitude = location_cache.first.longitude
@@ -44,9 +44,12 @@ class HomeController < ApplicationController
                     @location = result.first.data["geometry"]["location"]
                     latitude = @location["lat"]
                     longitude = @location["lng"]
-                    LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
+                    customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
+                    customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
+                    
+                    #LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
 
-                    @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+                    @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
                     @outlets_with_ad = Array.new
                     @outlets_without_ad = Array.new
                     outlets_with_ad_index = 0
@@ -77,7 +80,10 @@ class HomeController < ApplicationController
     def map_listing
         latitude = params["latitude"]
         longitude = params["longitude"]
+        customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
+        customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
         @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+
         @outlets_with_ad = Array.new
         @outlets_without_ad = Array.new
         outlets_with_ad_index = 0

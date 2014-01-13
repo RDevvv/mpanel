@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109114330) do
+ActiveRecord::Schema.define(:version => 20140113164713) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(:version => 20140109114330) do
     t.boolean  "is_verified"
     t.time     "deleted_at"
   end
+
+  create_table "ad_brands", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "brand_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ad_brands", ["ad_id"], :name => "index_ad_brands_on_ad_id"
+  add_index "ad_brands", ["brand_id"], :name => "index_ad_brands_on_brand_id"
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -191,6 +201,8 @@ ActiveRecord::Schema.define(:version => 20140109114330) do
     t.string   "call_type"
     t.string   "digits"
     t.string   "recording_url"
+    t.integer  "session_id"
+    t.integer  "ad_id"
   end
 
   add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
@@ -200,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20140109114330) do
     t.string   "source"
     t.string   "medium"
     t.string   "marketer"
-    t.string   "type"
+    t.string   "campaign_type"
     t.string   "keyword"
     t.string   "pre_expiry_forward_url"
     t.string   "post_expiry_forward_url"
@@ -209,6 +221,7 @@ ActiveRecord::Schema.define(:version => 20140109114330) do
     t.datetime "expires_at"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.integer  "ad_promocode_outlet_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -265,8 +278,6 @@ ActiveRecord::Schema.define(:version => 20140109114330) do
     t.integer  "incentive_count"
     t.boolean  "is_verified"
     t.string   "verification_code"
-    t.float    "latitude"
-    t.float    "longitude"
   end
 
   create_table "facebook_shares", :force => true do |t|
