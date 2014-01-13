@@ -15,7 +15,12 @@ class User < ActiveRecord::Base
   # validates_format_of :email, :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   has_one :avatar, :as => :attachable ,:class_name=>'Attachment'
   after_create :add_admin
-  
+  # after_save :user_confirmation
+
+  def add_account(account)
+    UserAccount.create(:account_id=>account.id, :user_id=>self.id)
+  end  
+
   def add_admin
     self.add_role :admin
   end
@@ -27,5 +32,9 @@ class User < ActiveRecord::Base
   def name
     (self.first_name+ " "+ self.last_name).strip
   end
+
+  # def user_confirmation
+  #   Emailer.registration_confirmation(self).deliver
+  # end
   
 end
