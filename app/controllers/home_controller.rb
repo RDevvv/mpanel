@@ -14,9 +14,7 @@ class HomeController < ApplicationController
         unless session[:new_session] == 1
             session[:new_session] = 1
             agent = request.env['HTTP_USER_AGENT']
-            puts "new_sessionnnnnnnnnnnnn"
             puts referer_agent = request.env['HTTP_REFERER']
-            puts "new_sessionnnnnnnnnnnnn"
             parsed_agent = UserAgent.parse(agent)
             customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
             CustomerSession.create(:referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
@@ -34,7 +32,7 @@ class HomeController < ApplicationController
 
     def outlet_listing
         unless params[:location].nil?
-            location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
+            #location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
             #if location_cache.count == 1
             #    latitude = location_cache.first.latitude
             #    longitude = location_cache.first.longitude
@@ -46,9 +44,11 @@ class HomeController < ApplicationController
                     @location = result.first.data["geometry"]["location"]
                     latitude = @location["lat"]
                     longitude = @location["lng"]
-                    LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
+                    customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
+                    customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
+                    #LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
 
-                    @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+                    @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
                     @outlets_with_ad = Array.new
                     @outlets_without_ad = Array.new
                     outlets_with_ad_index = 0
@@ -79,7 +79,10 @@ class HomeController < ApplicationController
     def map_listing
         latitude = params["latitude"]
         longitude = params["longitude"]
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
+        customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+
         @outlets_with_ad = Array.new
         @outlets_without_ad = Array.new
         outlets_with_ad_index = 0
@@ -110,15 +113,34 @@ class HomeController < ApplicationController
         r = Keyword.search do
             fulltext params[:search]
         end
+        customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
+        outlets = Outlet.new(:latitude => customer_session.latitude, :longitude => customer_session.latitude).nearbys(500000000, :units => :km)
+        unless outlets.empty?
+            nearby_outlets = outlets.map{|o| o.id}.uniq
+        else
+            nearby_outlets = []
+        end
+
+
         unless r.results.first.ads.nil?
-            @ads = r.results.first.ads
+            @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
+            r.results.first.ads.each do |ad|
+                unless ad.outlets.empty?
+                    ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
+                    unless (ad_outlets&nearby_outlets).empty?
+                        @ads.append(Ad.find(ad.id))
+                    end
+                end
+                #binding.pry
+            end
+
         end
     end
 
     def hot_picks
         latitude = 18.97
         longitude = 72.82
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
         @outlets_with_ad = Array.new
         @outlets_without_ad = Array.new
         outlets_with_ad_index = 0

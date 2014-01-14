@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20140111073646) do
     t.time     "deleted_at"
   end
 
+  create_table "ad_brands", :force => true do |t|
+    t.integer  "ad_id"
+    t.integer  "brand_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ad_brands", ["ad_id"], :name => "index_ad_brands_on_ad_id"
+  add_index "ad_brands", ["brand_id"], :name => "index_ad_brands_on_brand_id"
+
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",                     :null => false
@@ -202,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20140111073646) do
     t.string   "source"
     t.string   "medium"
     t.string   "marketer"
-    t.string   "type"
+    t.string   "campaign_type"
     t.string   "keyword"
     t.string   "pre_expiry_forward_url"
     t.string   "post_expiry_forward_url"

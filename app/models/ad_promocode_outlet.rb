@@ -17,9 +17,11 @@ class AdPromocodeOutlet < ActiveRecord::Base
   end
 
   def generate_share_link
-      ad_promocode_outlet = self.ad.ad_promocode_outlets
-      if ad_promocode_outlet.nil?
-      Campaign.generate_url(self)
+      ad = self.ad
+      unless ad.nil?
+          if ad.ad_promocode_outlets.nil?
+              Campaign.generate_url(self)
+          end
       end
   end
 end

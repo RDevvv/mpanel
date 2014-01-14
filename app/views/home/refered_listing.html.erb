@@ -45,7 +45,7 @@
                             });" class="btn source"></a></div>
                     <div align="center" class="brandlogo">
                     <% if brand.attachments.empty? %>
-                        <%= image_tag "assets/categories/#{brand.category.category_name}.png", :class => "img-responsive" %>
+                        <%= image_tag "categories/#{brand.category.category_name}.png", :class => "img-responsive" %>
                     <% else %>
                             <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
                     <% end %>
