@@ -3,8 +3,12 @@ class Merchant::UsersController <  Merchant::BaseController
   load_and_authorize_resource
 
   def index
+    # users = Array.new
     current_user.accounts.each do |account|
-      @users = account.users
+      account.users do |user|
+        @users << user
+        # @users = users
+      end
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -27,7 +31,7 @@ class Merchant::UsersController <  Merchant::BaseController
     @account = Account.find(params[:user][:id])
     respond_to do |format|
       if @user.save
-        Emailer.registration_confirmation(user,current_user).deliver
+        Emailer.registration_confirmation(@user,current_user).deliver
         @user.add_account(@account)
         format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
       else
@@ -42,7 +46,7 @@ class Merchant::UsersController <  Merchant::BaseController
     @account = Account.find(params[:user][:id])
     respond_to do |format|
       if @user.save
-        Emailer.registration_confirmation(user,current_user).deliver
+        Emailer.registration_confirmation(@user,current_user).deliver
         @user.add_account(@account)
         format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
       else
