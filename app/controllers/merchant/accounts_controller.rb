@@ -31,7 +31,7 @@ class Merchant::AccountsController <  Merchant::BaseController
     respond_to do |format|
       if @account.save
         @account.add_default_admin_user
-        Emailer.account_confirmation(@users).deliver
+        Emailer.account_confirmation(@users,@account).deliver
         if current_merchant_user
           format.html { redirect_to merchant_accounts_path()}
         else
