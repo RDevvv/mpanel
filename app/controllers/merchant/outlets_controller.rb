@@ -4,6 +4,9 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	def index
     @outlets = @account_brand.outlets
+    @outlets.each do|o|
+      o.is_outlet_verified
+    end
 		@brands = Brand.all
 		@cities = City.all
     respond_to do |format|

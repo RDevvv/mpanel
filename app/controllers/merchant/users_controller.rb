@@ -4,9 +4,7 @@ class Merchant::UsersController <  Merchant::BaseController
 
   def index
     current_user.accounts.each do |account|
-      account.users do |user|
-        @users << user
-      end
+      @users = account.users
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +22,21 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def create
+    @accounts = current_user.accounts
+    @user = User.new(params[:user])
+    @account = Account.find(params[:user][:id])
+    respond_to do |format|
+      if @user.save
+        Emailer.registration_confirmation(user,current_user).deliver
+        @user.add_account(@account)
+        format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
+      else
+        format.html { render action: "new" }
+      end
+    end
+  end
+
+  def add_user
     @accounts = current_user.accounts
     @user = User.new(params[:user])
     @account = Account.find(params[:user][:id])

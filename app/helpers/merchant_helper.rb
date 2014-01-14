@@ -49,10 +49,9 @@ module MerchantHelper
 
   def display_label_for_verify(verify=false)
     if verify
-      "<span class='label label-success'>Not Verified?</span>".html_safe
-      
-    else
-      "<span class='label label-info'>Verified</span>".html_safe
+      "<span class='label label-info'>Verified</span>".html_safe      
+    else      
+      "<span class='label label-warning'>Not Verified</span>".html_safe
     end
   end
 
