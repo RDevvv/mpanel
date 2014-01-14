@@ -3,13 +3,14 @@ class Merchant::UsersController <  Merchant::BaseController
   load_and_authorize_resource
 
   def index
-    # users = Array.new
     current_user.accounts.each do |account|
       account.users do |user|
-        @users << user
-        # @users = users
+        if user.present?
+          @users << user
+        end
       end
     end
+
     respond_to do |format|
       format.html # index.html.erb
     end
