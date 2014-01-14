@@ -300,8 +300,6 @@ GEM
     sexp_processor (4.4.0)
     sextant (0.2.4)
       rails (>= 3.2)
-    shortener (0.2.0)
-      rails (>= 3.0.7)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -416,7 +414,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   seed_dump
   sextant
-  shortener
   simplecov
   sunspot_rails
   sunspot_solr

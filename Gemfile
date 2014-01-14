@@ -3,54 +3,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg'
-gem 'bootstrap-sass', '~> 2.3.2.2'
-gem 'jquery-rails', "2.1.0"
-gem 'devise'
-gem 'twitter-bootstrap-rails', '2.2.7'
+
+
 gem 'geocoder'
 gem 'useragent'
-gem 'shortener'
 gem 'kaminari'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
-
-
-gem 'therubyracer', :platforms => :ruby
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  # gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-   gem 'compass-rails'
-    gem 'turbo-sprockets-rails3'
-end
-# gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'compass'
 gem 'devise'
-group :development do
-  gem 'sextant'
-  gem 'pry'
-  gem 'mailcatcher'
-  gem 'quiet_assets'
-  gem 'irbtools'
-  gem 'sextant'
-  gem 'rails_best_practices'
-  gem 'seed_dump'
-gem 'railroady'
-end
-
-group :test do
-    gem 'simplecov'
-    gem 'guard-test'
-end
-
-
 gem "cancan"
 gem "rolify"
 gem 'kaminari'
@@ -71,17 +32,33 @@ gem "fog"
 gem 'unf'
 gem 'paper_trail', '~> 2.7.2' 
 gem 'acts_as_paranoid',:git=>"git@github.com:goncalossilva/acts_as_paranoid.git",:branch=>"rails3.2"
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'therubyracer', :platforms => :ruby
+gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'jquery-rails', "2.1.0"
+gem 'twitter-bootstrap-rails', '2.2.7'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+group :assets do
+    gem 'sass-rails',   '~> 3.2.3'
+    gem 'uglifier', '>= 1.0.3'
+    gem 'compass-rails'
+    gem 'turbo-sprockets-rails3'
+end
 
-# To use debugger
-# gem 'debugger'
+group :development do
+    gem 'sextant'
+    gem 'pry'
+    gem 'mailcatcher'
+    gem 'quiet_assets'
+    gem 'irbtools'
+    gem 'sextant'
+    gem 'rails_best_practices'
+    gem 'seed_dump'
+    gem 'railroady'
+end
+
+group :test do
+    gem 'simplecov'
+    gem 'guard-test'
+end
