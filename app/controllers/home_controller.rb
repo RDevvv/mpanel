@@ -46,7 +46,6 @@ class HomeController < ApplicationController
                     longitude = @location["lng"]
                     customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
                     customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
-                    
                     #LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
 
                     @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
@@ -114,15 +113,34 @@ class HomeController < ApplicationController
         r = Keyword.search do
             fulltext params[:search]
         end
+        customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
+        outlets = Outlet.new(:latitude => customer_session.latitude, :longitude => customer_session.latitude).nearbys(500000000, :units => :km)
+        unless outlets.empty?
+            nearby_outlets = outlets.map{|o| o.id}.uniq
+        else
+            nearby_outlets = []
+        end
+
+
         unless r.results.first.ads.nil?
-            @ads = r.results.first.ads
+            @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
+            r.results.first.ads.each do |ad|
+                unless ad.outlets.empty?
+                    ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
+                    unless (ad_outlets&nearby_outlets).empty?
+                        @ads.append(Ad.find(ad.id))
+                    end
+                end
+                #binding.pry
+            end
+
         end
     end
 
     def hot_picks
         latitude = 18.97
         longitude = 72.82
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(500, :units => :km)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
         @outlets_with_ad = Array.new
         @outlets_without_ad = Array.new
         outlets_with_ad_index = 0
