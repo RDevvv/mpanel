@@ -10,6 +10,7 @@ class Merchant::UsersController <  Merchant::BaseController
         end
       end
     end
+    # @users = current_user.get_users
 
     respond_to do |format|
       format.html # index.html.erb

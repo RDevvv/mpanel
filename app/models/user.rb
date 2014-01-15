@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
     (self.first_name+ " "+ self.last_name).strip
   end
 
+  # def get_users
+  #   self.accounts.each do |account|
+  #     account.users do |user|      
+  #       return users << user
+  #     end  
+  #   end  
+  # end
+
   # def user_confirmation
   #   Emailer.registration_confirmation(self).deliver
   # end
