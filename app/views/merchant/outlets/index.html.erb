@@ -17,6 +17,7 @@
             <thead>
               <tr>
                 <th><div>Address</div></th>
+                <th><div>Shop No</div></th>
                 <th><div>Email</div></th>
                 <th width="10%"><div>Status</div></th>
                 <th width="8%"><div>Verified</div></th>
@@ -27,6 +28,7 @@
             <% @outlets.each do |outlet| %>
               <tr>
                 <td><%= outlet.address %></td>
+                <td><%= outlet.shop_no %></td>
                 <td><%= outlet.email_id %></td>
                 <td>
                 <%= form_tag(toggle_active_index_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>

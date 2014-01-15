@@ -9,13 +9,14 @@
           <th width="8%"><div>Outlet Key</div></th>
           <th width="8%"><div>City</div></th>
           <th width="8%"><div>Area</div></th>
+          <th width="8%"><div>Shop Number</div></th>
           <th width="8%"><div>Pincode</div></th>
           <th><div>Address</div></th>
           <th width="10%"><div>Phone Number</div></th>
           <th width="10%"><div>Mobile Number</div></th>
           <th width="8%"><div>Active</div></th>
           <th width="8%"><div>Verified</div></th>
-          <th width="8%"><div>Manage</div></th>
+          <th width="8%">Manage</th>
           </tr>
       </thead>
       <tbody>
@@ -24,6 +25,7 @@
           <td><%= outlet.outlet_key %></td>
           <td><%= !outlet.area.city.city_name.nil? ? outlet.area.city.city_name : " " %></td>
           <td><%= !outlet.area.area_name.nil? ? outlet.area.area_name : " "%></td>
+          <td><%= outlet.shop_no %></td>
           <td><%= !outlet.area.pincode.nil? ? outlet.area.pincode : " " %></td>
           <td><%= outlet.address %></td>
           <td><%= outlet.cleanup_landline %></td>

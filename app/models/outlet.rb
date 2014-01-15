@@ -2,7 +2,7 @@ require 'csv'
 
 class Outlet < ActiveRecord::Base
 
-  attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified
+  attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified, :shop_no
   attr_accessible :latitude, :longitude, :mobile_number, :outlet_key, :phone_number, :deleted_at
 
   has_many :ads,:through=>:ad_promocode_outlets
@@ -69,7 +69,7 @@ class Outlet < ActiveRecord::Base
     [self.address, self.area.area_name, self.area.city.name].compact.join(', ')
   end
   def full_address
-    [self.area.city.name, self.area.name, self.address].join(",")
+    [self.area.city.name, self.area.name,self.shop_no, self.address].join(",")
   end
 
   def add_uniq_outlet_key
@@ -103,11 +103,12 @@ class Outlet < ActiveRecord::Base
         i= Outlet.create!(:account_brand_id=> account_brand_id,
         :outlet_type_id=>row[0],
         :address => row[1],
-        :area_id => row[2],
-        :phone_number => row[3],
-        :mobile_country_id => row[4],
-        :mobile_number => row[5],
-        :email_id=> row[6]
+        :shop_no => row[2],
+        :area_id => row[3],
+        :phone_number => row[4],
+        :mobile_country_id => row[5],
+        :mobile_number => row[6],
+        :email_id=> row[7]
         )
         valid_records.push(row)
       rescue

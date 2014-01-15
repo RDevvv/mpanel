@@ -14,14 +14,15 @@
             
               <thead>
                 <tr>
-                  <th width="10%">City</th>
-                  <th>Address</th>
-                  <th>Area</th>
-                  <th>Pin Code</th>
-                  <th>Mobile</th>
-                  <th>Landline</th>
-                  <th>Email</th>
-                  <th>Manage</th>
+                  <th width="8%"><div>City</div></th>
+                  <th><div>Address</div></th>
+                  <th width="10%"><div>Shop Number</div></th>
+                  <th width="8%"><div>Area</div></th>
+                  <th width="8%"><div>Pincode</div></th>
+                  <th width="10%"><div>Mobile Number</div></th>
+                  <th width="10%"><div>Landline</div></th>
+                  <th width="10%"><div>Email</div></th>
+                  <th width="8%">Manage</th>
                 </tr>
               </thead>
 
@@ -39,6 +40,10 @@
                       </td>  
                       <td>
                         <%= text_field_tag "outlet[address]" ,record[1],:class=>"validate[required,maxSize[200]]","data-prompt-position"=>"topLeft",:style=>"width:95%"%>
+                        <p class="error address_error" ></p>
+                      </td>
+                      <td>
+                        <%= text_field_tag "outlet[shop_no]" ,record[1],:class=>"validate[required","data-prompt-position"=>"topLeft",:style=>"width:95%"%>
                         <p class="error address_error" ></p>
                       </td>
                       <td>
