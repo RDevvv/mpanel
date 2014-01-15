@@ -41,8 +41,4 @@ class User < ActiveRecord::Base
   #   end  
   # end
 
-  # def user_confirmation
-  #   Emailer.registration_confirmation(self).deliver
-  # end
-  
 end
