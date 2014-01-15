@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113164713) do
+ActiveRecord::Schema.define(:version => 20140111073646) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
