@@ -1,9 +1,12 @@
 class Merchant::AccountsController <  Merchant::BaseController
 # Only viewable Gullak Admin
+  load_and_authorize_resource
+  
   before_filter :load_account,:only=>[:add_brands]
   skip_before_filter :authenticate_merchant_user!,:only=>[:new,:create,:verified_account]
+  
   def index
-    @accounts = current_user.accounts
+    @accounts = current_user.accounts.uniq
   end
 
   def new
@@ -24,9 +27,11 @@ class Merchant::AccountsController <  Merchant::BaseController
     @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first
     @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].downcase,:pincode=>params[:pincode]) if @area.blank?
     @account.area = @area
-    @account.users << current_merchant_user if current_merchant_user
+    @users = @account.users << current_merchant_user if current_merchant_user
     respond_to do |format|
       if @account.save
+        @account.add_default_admin_user
+        Emailer.account_confirmation(@users,@account).deliver
         if current_merchant_user
           format.html { redirect_to merchant_accounts_path()}
         else

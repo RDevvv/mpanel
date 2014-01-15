@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="box-content">
-				<%= form_for([@account,@user], :url=>merchant_account_users_path(@current_account,@user),:html=>{:class=>"form-horizontal fill-up validatable"}) do |f| %>
+				<%= form_for(@user, :url=>merchant_add_user_path(@user), :method => "post", :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
 
 				<div class="padded">
 
@@ -28,10 +28,31 @@
 					</div>
 
 					<div class="control-group">
-						<label class="control-label">Username</label>
+						<label class="control-label">Last Name</label>
 						<div class="controls">
 							<%= f.text_field :last_name, :placeholder=>"First Name", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
 						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label">Select Account</label>
+						<div class="controls">
+							<%= f.collection_select :id, @accounts, :id, :registered_company_name %>
+						</div>
+					</div>
+
+					<div class="control-group">
+					  <label class="control-label">Password</label>
+					  <div class="controls">
+					    <%= f.password_field :password, :placeholder=>"Password", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+					  </div>
+					</div>
+
+					<div class="control-group">
+					  <label class="control-label">Password Confirmation</label>
+					  <div class="controls">
+					    <%= f.password_field :password, :placeholder=>"Confirm Password", :class=>"validate[required]", "data-prompt-position"=>"topLeft"%>
+					  </div>
 					</div>
 
 				</div>

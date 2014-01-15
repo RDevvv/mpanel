@@ -4,7 +4,7 @@
       <tr>
         <th><div>Name</div></th>
         <th><div>Promocode</div></th>
-        <th width="14%"><div>Manage</div></th>
+        <th width="14%">Manage</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +17,9 @@
           <%= ad_group.ad_promocodes.size %>
         </td>
         <td>
-          <%= link_to 'Delete', merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,ad_group), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if can? :destroy, ad_group %>
+            <%= link_to 'Delete', merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,ad_group), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%end%>
         </td>
       </tr> 
       <% end %>

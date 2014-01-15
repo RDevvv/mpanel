@@ -10,7 +10,7 @@
         <th><div>Promocode</div></th>
         <th><div>Cap</div></th>
         <th><div>Usage</div></th>
-        <th width="20%"><div>Manage</div></th>
+        <th width="20%">Manage</th>
       </tr>
     </thead>
     <tbody>
@@ -26,9 +26,11 @@
             <%= ad_promocode.usage || 0 %>
           </td>
           <td>
-            <%if ad_promocode.usage.blank? || ad_promocode.usage == 0 %>
-              <%= link_to "Delete",merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad,ad_promocode), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
+            <% if can? :destroy, ad_promocode %>
+              <%if ad_promocode.usage.blank? || ad_promocode.usage == 0 %>
+                <%= link_to "Delete",merchant_account_account_brand_ad_ad_promocode_path(@current_account,@account_brand,@ad,ad_promocode), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            <%end%>
           </td> 
         </tr> 
       <% end %>

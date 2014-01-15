@@ -28,7 +28,7 @@
                 <th width="10%"><div>Mobile Number</div></th>
                 <th width="9%"><div>Status</div></th>
                 <th width="10%"><div>Verified</div></th>
-                <th width="8%"></th>
+                <th width="8%">Manage</th>
               </tr>
             </thead>
             <tbody>
@@ -45,22 +45,30 @@
                 <td>
                   <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
                     <%= check_box_tag :is_active, outlet.is_active?,outlet.is_active?,:disabled=>true%>
-                    <button type="submit" class=" btn-link">
-                      <%= display_label_for_activate(outlet.is_active?) %>
-                    </button>
+                    <% if can? :update, outlet %>
+                      <button type="submit" class=" btn-link">
+                        <%= display_label_for_activate(outlet.is_active?) %>
+                      </button>
+                    <%end%>
                   <%end %>
                 </td>
                 <td>
                   <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
                     <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
-                    <button type="submit" class=" btn-link">
-                      <%= display_label_for_verify(outlet.is_verified?) %>
-                    </button>
+                    <% if can? :update, outlet %>
+                      <button type="submit" class=" btn-link">
+                        <%= display_label_for_verify(outlet.is_verified?) %>
+                      </button>
+                    <%end%>
                   <% end %>  
                 </td>
                 <td>
-                  <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> |
-                  <%= link_to 'Delete', merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% if can? :update, outlet %>
+                    <%= link_to 'Edit', edit_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet) %> |
+                  <% end %>
+                  <% if can? :destroy, outlet %>
+                    <%= link_to 'Delete', merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
                 </td>
               </tr> 
             <% end %>

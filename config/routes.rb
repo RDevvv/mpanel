@@ -1,3 +1,4 @@
+
 Gullak2::Application.routes.draw do
 
   resources :campaigns
@@ -34,6 +35,8 @@ Gullak2::Application.routes.draw do
 
     #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
     get "/",:to=>"merchants#index",:as=>:merchants
+    
+    match "add_user" => "users#add_user"
     devise_for :users ,:module => "devise"
     #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
     #   # get "login" => "devise/sessions#new",:as=>:merchant_login
@@ -41,7 +44,7 @@ Gullak2::Application.routes.draw do
     # devise_scope :user do
     #   get "sign_in", :to => "devise/sessions#new"
     # end
-
+    resources :users 
     resources :accounts do
       collection do
         post "add_brands"
@@ -94,9 +97,7 @@ Gullak2::Application.routes.draw do
         end
       end
       resources :brands
-      resources :users
     end
-
   end  
 
 

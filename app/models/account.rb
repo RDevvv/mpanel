@@ -25,4 +25,14 @@ class Account < ActiveRecord::Base
   def name
     registered_company_name
   end
+
+  def add_default_admin_user
+    if User.find_by_email("merchant@gullakmaster.com").present?
+      user = User.find_by_email("merchant@gullakmaster.com")
+      self.users << user
+    else
+      User.create(:email => "merchant@gullakmaster.com", :password => "gmkg2013", :password_confirmation => "gmkg2013", :first_name => "Abhishek", :last_name => "Dadoo", :mobile_number => "983000000000", :user_key => "abcdef", :is_active => true, :email_verified => true, :mobile_verified => false)
+    end
+  end
+
 end

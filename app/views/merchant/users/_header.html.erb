@@ -5,7 +5,7 @@
       <div class="pull-left header">
         <h3 class="title">
           <i class="icon-user"></i>
-          <%= @current_account.registered_company_name + "'s" %>
+          <%#= @current_account.registered_company_name + "'s" %>
           User
         </h3>
       </div>
@@ -23,16 +23,8 @@
             <span class="breadcrumb-arrow"><span></span></span>
           </a>  
         </div>
-        <div class="breadcrumb-button blue">
-          <a href="<%= merchant_account_path(@current_account)%>">
-            <span class="breadcrumb-label">
-              <i class="icon-account"></i> <%=  @current_account.registered_company_name? && !@current_account.registered_company_name.nil? ? @current_account.registered_company_name: "" %>
-            </span>
-            <span class="breadcrumb-arrow"><span></span></span>
-          </a>
-        </div>
         <div class="breadcrumb-button">
-          <a href="<%= merchant_account_path(@current_account)%>">
+          <a href="<%= merchant_users_path%>">
             <span class="breadcrumb-label">
               <i class="icon-user"></i>
               <% if params[:action] == "index" %>
