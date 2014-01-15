@@ -1,3 +1,18 @@
+function modal_submit(){
+    $('.customer-mobile-number-form').submit(function() {
+        var valuesToSubmit = $(this).serialize();
+        $.ajax({
+            url: "/customers/1/edit", //'/notifications/4',sumbits it to the given url of the form
+            data: valuesToSubmit,
+            method: "POST"
+        }).success(function(json){
+            $('.modal').modal('hide');
+        });
+        return false; // prevents normal behaviour
+    });
+}
+
+
 function track(element) {
     customer_uuid = $.cookie("customer_uuid");
     button_class  = $(element).attr("class").split(" ")[0];
@@ -13,24 +28,23 @@ function track(element) {
         }
 
 
-    $.ajax({
-        url: redirection_url,
-        type: "post",
-        data: {
-            'customer_uuid': customer_uuid,
-            'ad_id': ad_id,
-            'outlet_id': outlet_id,
-            'button_class': button_class,
-            'current_link': current_link
-        }
-    }).done(function () {
-        console.log("done");
-    })
+        $.ajax({
+            url: redirection_url,
+            type: "post",
+            data: {
+                'customer_uuid': customer_uuid,
+                'ad_id': ad_id,
+                'outlet_id': outlet_id,
+                'button_class': button_class,
+                'current_link': current_link
+            }
+        }).done(function () {
+            console.log("done");
+        })
 }
 
 function send_ad(customer_uuid, element)
 {
-console.log("zzz");
     customer_uuid = $.cookie("customer_uuid");
     ad_id         = $(element).closest('div[class="bdiv"]').attr("id");
     outlet_id     = $(element).closest('div[class="bdiv"]').attr("outlet_id");
