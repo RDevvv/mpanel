@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140111073646) do
+ActiveRecord::Schema.define(:version => 20140115093836) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -36,16 +36,6 @@ ActiveRecord::Schema.define(:version => 20140111073646) do
     t.boolean  "is_verified"
     t.time     "deleted_at"
   end
-
-  create_table "ad_brands", :force => true do |t|
-    t.integer  "ad_id"
-    t.integer  "brand_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "ad_brands", ["ad_id"], :name => "index_ad_brands_on_ad_id"
-  add_index "ad_brands", ["brand_id"], :name => "index_ad_brands_on_brand_id"
 
   create_table "ad_groups", :force => true do |t|
     t.string   "name"
@@ -344,6 +334,7 @@ ActiveRecord::Schema.define(:version => 20140111073646) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.time     "deleted_at"
+    t.string   "shop_no"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
