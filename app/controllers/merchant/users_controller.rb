@@ -24,13 +24,9 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def create
-    @accounts = current_user.accounts
     @user = User.new(params[:user])
-    @account = Account.find(params[:user][:id])
     respond_to do |format|
       if @user.save
-        Emailer.registration_confirmation(@user,current_user).deliver
-        @user.add_account(@account)
         format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
       else
         format.html { render action: "new" }
@@ -44,11 +40,17 @@ class Merchant::UsersController <  Merchant::BaseController
     @account = Account.find(params[:user][:id])
     respond_to do |format|
       if @user.save
-        Emailer.registration_confirmation(@user,current_user).deliver
         @user.add_account(@account)
         format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
       else
-        format.html { render action: "new" }
+        if User.find_by_email(@user.email).present?
+          user = User.find_by_email(@user.email)
+          UserAccount.create(:account_id=>@account.id, :user_id=>user.id)
+          Emailer.user_confirmation(user,@account).deliver
+          format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
+        else
+          format.html { render action: "new" }
+        end
       end
     end
   end

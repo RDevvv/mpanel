@@ -7,9 +7,15 @@ class Emailer < ActionMailer::Base
   	mail(:to => emails, :subject => "Account Created")
   end
 
-  def registration_confirmation(user,current_user)
+  def registration_confirmation(user)
     @user = user
-  	mail(:to => @user.email, :cc=> current_user.email, :subject => "Registered")
+  	mail(:to => @user.email, :subject => "Registered")
+  end
+
+  def user_confirmation(user,account)
+    @user = user
+    @account = account
+    mail(:to => @user.email, :subject => "Access Authority")
   end
 
 end
