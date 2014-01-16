@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  is_active: false
+  name: Group1
+  ad_id: 1
+  is_multiple: false
 
 two:
-  name: MyString
-  is_active: false
+  name: Group2
+  ad_id: 1
+  is_multiple: false

@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
+    
 one:
-  country_name: MyString
-  iso_code: MyString
-  phone_country_code: 1
-  currency_id: 1
-  currency_name: MyString
+  country_name: Australia
+  iso_code: AUS
+  phone_country_code: 61
+  currency_id: AUD
+  currency_name: Dollar
 
 two:
-  country_name: MyString
-  iso_code: MyString
-  phone_country_code: 1
-  currency_id: 1
-  currency_name: MyString
+  country_name: Vietnam
+  iso_code: VNM
+  phone_country_code: 84
+  currency_id: VND
+  currency_name: Dong

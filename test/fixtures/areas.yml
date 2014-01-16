@@ -2,10 +2,16 @@
 
 one:
   city_id: 1
-  area_name: MyString
-  pincode: 1
+  area_name: nerul
+  latitude: 19.083959
+  longitude: 73.007027
+  pincode: 400706 
 
 two:
   city_id: 1
-  area_name: MyString
-  pincode: 1
+  area_name: nerul
+  latitude: 19.083959
+  longitude: 73.007027
+  pincode: 400706 
+
+ 

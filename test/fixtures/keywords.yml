@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-#one:
-    #keywords: MyText
+one:
+  keyword: Coffee
+  keyword_alias: cafe
 
-    #two:
-    #keywords: MyText
+two:
+  keyword: Spa
+  keyword_alias: spee

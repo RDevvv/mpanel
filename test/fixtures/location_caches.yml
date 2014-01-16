@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# one:
+#   latitude: 19.083959
+#   longitude: 73.007027
+#   location: mumbai
+
+# two:
+#   latitude: 19.083959
+#   longitude: 73.007027
+#   location: navi mumbai

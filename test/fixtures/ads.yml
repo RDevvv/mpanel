@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  latest_version_id: 1
-  ad_title: MyString
+  account_brand_id: 1
+  ad_title: CCD 20% disounts
   is_monday: false
   is_tuesday: false
   is_wednesday: false
@@ -13,12 +13,13 @@ one:
   start_date: 2013-11-09 16:31:03
   expiry_date: 2013-11-09 16:31:03
   is_active: false
-  sms_text: MyText
+  sms_text: get discount
+  is_exclusive: false
+  deleted_at: 2014-01-16 17:19:14 +0530
 
 two:
-  latest_version_id: 1
-  ad_title: MyString
-  is_monday: false
+  account_brand_id: 1
+  ad_title: CCD 20% disounts
   is_tuesday: false
   is_wednesday: false
   is_thursday: false
@@ -28,4 +29,6 @@ two:
   start_date: 2013-11-09 16:31:03
   expiry_date: 2013-11-09 16:31:03
   is_active: false
-  sms_text: MyText
+  sms_text: get discount
+  is_exclusive: false
+  deleted_at: 2014-01-16 17:19:14 +0530

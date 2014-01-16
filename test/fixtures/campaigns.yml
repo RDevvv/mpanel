@@ -4,22 +4,24 @@ one:
   source: MyString
   medium: MyString
   marketer: MyString
-  type: 
+  campaign_type: 
   keyword: MyString
   pre_expiry_forward_url: MyString
   post_expiry_forward_url: MyString
   short_url: MyString
   unique_key: MyString
   expires_at: 2014-01-04 14:54:44
+  ad_promocode_outlet_id: 1
 
 two:
   source: MyString
   medium: MyString
   marketer: MyString
-  type: 
+  campaign_type: 
   keyword: MyString
   pre_expiry_forward_url: MyString
   post_expiry_forward_url: MyString
   short_url: MyString
   unique_key: MyString
   expires_at: 2014-01-04 14:54:44
+  ad_promocode_outlet_id: 1

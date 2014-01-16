@@ -1,15 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  brand_name: MyString
+  brand_name: CCD
   category_id: 1
-  website_url: MyString
+  website_url: ccd.com
   is_active: false
   is_verified: false
 
 two:
-  brand_name: MyString
-  category_id: 1
-  website_url: MyString
+  brand_name: Aura Spa
+  category_id: 2
+  website_url: aura.spa.com
   is_active: false
   is_verified: false
+

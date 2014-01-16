@@ -1,5 +1,4 @@
 class Merchant::UsersController <  Merchant::BaseController
-  # before_filter :load_account, :only=>[:index]
   load_and_authorize_resource
 
   def index
@@ -14,8 +13,6 @@ class Merchant::UsersController <  Merchant::BaseController
   end
 
   def new
-    # @user = @current_account.users.new 
-    # @users = User.all
     @user = User.new
     @accounts = current_user.accounts
     respond_to do |format|
@@ -40,6 +37,7 @@ class Merchant::UsersController <  Merchant::BaseController
     @account = Account.find(params[:user][:id])
     respond_to do |format|
       if @user.save
+        Emailer.registration_confirmation(@user).deliver
         @user.add_account(@account)
         format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
       else

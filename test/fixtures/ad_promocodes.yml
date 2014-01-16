@@ -1,15 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  set_name: MyString
+  promocode: Promocode1
   ad_id: 1
   cap: 1.5
   usage: 1.5
   is_used: false
-
-two:
-  set_name: MyString
-  ad_id: 1
-  cap: 1.5
-  usage: 1.5
-  is_used: false
+  is_active: false
+  ad_group_id: 1
