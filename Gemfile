@@ -39,6 +39,8 @@ gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'jquery-rails', "2.1.0"
 gem 'twitter-bootstrap-rails', '2.2.7'
 
+gem 'high_voltage'
+
 group :assets do
     gem 'sass-rails',   '~> 3.2.3'
     gem 'uglifier', '>= 1.0.3'
