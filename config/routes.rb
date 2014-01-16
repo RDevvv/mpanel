@@ -10,6 +10,7 @@ Gullak2::Application.routes.draw do
   resources :address_button_selects
   resources :call_button_selects
   resources :customers
+  resources :pages
 
   get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
   get "get_call_click/:id" => "call_button_selects#get_click"
