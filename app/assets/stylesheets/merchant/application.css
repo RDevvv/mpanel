@@ -7126,7 +7126,7 @@ html {
 /* line 15, /home/andrei/core-admin-release/core-admin/source/stylesheets/base.scss */
 body {
   font: normal 12px 'Open Sans', HelveticaNeue, Helvetica, Arial;
-  background: url("../images/bg.png");
+  background: url("/assets/bg.png");
   min-height: 100%;
   color: #707070;
   overflow-x: hidden; }
