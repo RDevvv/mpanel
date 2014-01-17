@@ -112,6 +112,7 @@ Gullak2::Application.routes.draw do
     match 'map_listing' => 'home#map_listing'
     match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
     match 'individual_outlet/(:id)' => 'home#individual_outlet'
+    match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
 
     root :to => "home#index"
   # The priority is based upon order of creation:

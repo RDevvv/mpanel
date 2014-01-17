@@ -2,10 +2,11 @@ function modal_submit(){
     $('.customer-mobile-number-form').submit(function() {
         var valuesToSubmit = $(this).serialize();
         $.ajax({
-            url: "/customers/1/edit", //'/notifications/4',sumbits it to the given url of the form
+            url: "/get_mobile_number/1", //'/notifications/4',sumbits it to the given url of the form
             data: valuesToSubmit,
             method: "POST"
         }).success(function(json){
+            console.log('success');
             $('.modal').modal('hide');
         });
         return false; // prevents normal behaviour
