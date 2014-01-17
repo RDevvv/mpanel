@@ -3,11 +3,12 @@ function modal_submit(){
         var valuesToSubmit = $(this).serialize();
         $.ajax({
             url: "/get_mobile_number/1", //'/notifications/4',sumbits it to the given url of the form
+            dataType: 'text',
             data: valuesToSubmit,
-            method: "POST"
+            method: 'POST'
         }).success(function(json){
-            console.log('success');
             $('.modal').modal('hide');
+            $.pnotify({ title: '', text: 'Thank you for subscribing', closer_hover: false, opacity: .9 });
         });
         return false; // prevents normal behaviour
     });
