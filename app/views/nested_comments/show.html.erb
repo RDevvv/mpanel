@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Parent:</b>
+  <%= @nested_comment.parent_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @nested_comment.comment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_nested_comment_path(@nested_comment) %> |
+<%= link_to 'Back', nested_comments_path %>
