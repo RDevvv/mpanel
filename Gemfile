@@ -54,7 +54,6 @@ group :development do
     gem 'mailcatcher'
     gem 'quiet_assets'
     gem 'irbtools'
-    gem 'sextant'
     gem 'rails_best_practices'
     gem 'seed_dump'
     gem 'railroady'
