@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Source:</b>
+  <%= @lead.source %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @lead.email %>
+</p>
+
+<p>
+  <b>Mobile number:</b>
+  <%= @lead.mobile_number %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @lead.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @lead.last_name %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%= @lead.target %>
+</p>
+
+<p>
+  <b>Company name:</b>
+  <%= @lead.company_name %>
+</p>
+
+<p>
+  <b>Designation:</b>
+  <%= @lead.designation %>
+</p>
+
+<p>
+  <b>Subscribe email updates:</b>
+  <%= @lead.subscribe_email_updates %>
+</p>
+
+
+<%= link_to 'Edit', edit_lead_path(@lead) %> |
+<%= link_to 'Back', leads_path %>
