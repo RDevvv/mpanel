@@ -2,30 +2,28 @@
 
 one:
   account_brand_id: 1
-  outlet_type_id: 1
-  address: MyText
+  address: santacruz
   area_id: 1
-  phone_number: 1
-  mobile_country_id: 1
-  mobile_number: 1
-  email_id: MyString
+  phone_number: 022-1238493
+  mobile_number: 9830303030
+  email_id: adadoo@gmail.com
   is_active: false
   is_verified: false
-  latitude: 1.5
-  longitude: 1.5
-  outlet_key: MyString
+  latitude: 19.083959
+  longitude: 73.007027
+  outlet_key: 341910
+  shop_no: 32
 
 two:
   account_brand_id: 1
-  outlet_type_id: 1
-  address: MyText
+  address: nerul
   area_id: 1
-  phone_number: 1
-  mobile_country_id: 1
-  mobile_number: 1
-  email_id: MyString
+  phone_number: 022-1238493
+  mobile_number: 9830303030
+  email_id: merchant@gmail.com
   is_active: false
   is_verified: false
-  latitude: 1.5
-  longitude: 1.5
-  outlet_key: MyString
+  latitude: 19.083959
+  longitude: 73.007027
+  outlet_key: 341910
+  shop_no: 32

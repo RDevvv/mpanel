@@ -1,9 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  outlet: 
-  customer: 
+  outlet_id: 1
+  customer_id: 1 
+  call_sid: 1321360773.4
+  from: 9830303030
+  to: 9821184922
+  direction: incoming
+  dial_call_duration: 2000-01-01 07:00:00 UTC
+  start_time: 2012-04-19 10:47:26
+  end_time: 2012-04-19 10:47:26
+  call_type: call
+  digits: Mystring
+  recording_url: Mystring
+  session_id: 1
+  ad_id: 1
 
 two:
-  outlet: 
-  customer: 
+  outlet_id: 1
+  customer_id: 1 
+  call_sid: 1321360773.4
+  from: 9830303030
+  to: 9821184922
+  direction: incoming
+  dial_call_duration: 2000-01-01 07:00:00 UTC
+  start_time: 2012-04-19 10:47:26
+  end_time: 2012-04-19 10:47:26
+  call_type: call
+  digits: Mystring
+  recording_url: Mystring
+  session_id: 1
+  ad_id: 1

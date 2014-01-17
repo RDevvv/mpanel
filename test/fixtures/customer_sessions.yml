@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  customer: 
-  browser: MyString
-  platform: MyString
-  browser_version: MyString
-  referer_link: MyString
+  customer_id: 1
+  browser: chrome
+  platform: rails 
+  browser_version: 4.0
+  referer_link: gullamaster.com
+  latitude: 19.083959
+  longitude: 73.007027
 
 two:
-  customer: 
-  browser: MyString
-  platform: MyString
-  browser_version: MyString
-  referer_link: MyString
+  customer_id: 1
+  browser: chrome
+  platform: rails 
+  browser_version: 4.0
+  referer_link: gullamaster.com
+  latitude: 19.083959
+  longitude: 73.007027

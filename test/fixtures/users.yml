@@ -5,7 +5,10 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-    id: 1
-    email: varade.vivek.123@gmail.com
+  id: 1
+  email: varade.vivek.123@gmail.com
+  first_name: vivek
+  last_name: varade
+
 # column: value
 #

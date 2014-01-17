@@ -1,23 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  id: 1
-  address: MyText
+  address: Gollibaar road santacruz west 
   area_id: 1
   currency_id: 1
-  payment_status: MyString
+  payment_status: paid
   account_balance: 1.5
   account_key: 1
   is_active: false
   is_deleted: false
+  registered_company_name: Gullak
+  is_verified: false
+  deleted_at: 2014-01-16 17:19:14 +0530
 
 two:
-  id: 2
-  address: MyText
+  address: Bandra kurla complex 
   area_id: 1
   currency_id: 1
-  payment_status: MyString
+  payment_status: paid
   account_balance: 1.5
   account_key: 1
   is_active: false
   is_deleted: false
+  registered_company_name: Gullak
+  is_verified: false 
+  deleted_at: 2014-01-16 17:19:14 +0530
+
+

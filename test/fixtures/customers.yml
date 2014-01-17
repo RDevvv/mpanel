@@ -1,7 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  uuid: MyString
+  uuid: a1825be5-36b7-40dd-9e06-0bf58920235d
+  mobile_number: 9830303030
+  name: Mr.Bachpan
+  email_id: bachan@gmail.com  
+  date_of_birth: 2013-11-09 16:31:03
+  age: 90
+  gender: Male
+  incentive_count: 2
+  is_verified: false
+  verification_code: c15d484e
 
 two:
-  uuid: MyString
+  uuid: a1825be5-36b7-40dd-9e06-0bf58920235d
+  mobile_number: 9830303030
+  name: Mr.Bachpan
+  email_id: bachan@gmail.com  
+  date_of_birth: 2013-11-09 16:31:03
+  age: 90
+  gender: Male
+  incentive_count: 2
+  is_verified: false
+  verification_code: c15d484e

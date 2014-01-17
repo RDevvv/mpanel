@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  text: MyString
-  customer_id: 
-  ad_promocode_id: 
-
-two:
-  text: MyString
-  customer_id: 
-  ad_promocode_id: 
+  text: Get discounts 
+  is_sent: 1
+  customer_id: 1
+  ad_promocode_id: 1
+  button_click_id: 1
+  ad_promocode_outlet_id: 1
+  ad_promocode_outlet_version_id: 1

@@ -62,7 +62,7 @@ module MerchantHelper
     #   "<span class='label label-success'>Owner</span>".html_safe
     # else
     #   "<span class='label label-info'>User</span>".html_safe
-    end
+   end
   end
 
 end

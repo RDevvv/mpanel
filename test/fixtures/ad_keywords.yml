@@ -3,9 +3,7 @@
 one:
   ad_id: 1
   keyword_id: 1
-  is_deleted: false
-
+    
 two:
   ad_id: 1
   keyword_id: 1
-  is_deleted: false
