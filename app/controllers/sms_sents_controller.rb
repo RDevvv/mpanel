@@ -85,15 +85,21 @@ class SmsSentsController < ApplicationController
       customer = Customer.where(:uuid => params[:customer_uuid]).first
       unless customer.mobile_number.nil?
           ad = Ad.find(params[:ad_id])
-          ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id])
-          @sms_sent = SmsSent.create(:text => "ad.sms_text")
-          puts "if set_sms_data"
-          respond_to do |format|
-              format.json {render :nothing => true}
-          end
-      else
-          puts "else set_sms_data"
-              render :json => {:mobile_number_presence => false, :customer_id => customer.id}
+          outlet = Outlet.find(:params[:outlet_id])
+          ad_promocode = ad.ad_promocodes.first
+          ad_promocode.update_attributes(:usage => (ad_promocode.usage+1))
+          ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id]).first
+          button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).last
+          text = "#{ad.account_brand.brand.brand_name}: #{ad.sms_text} Promocode: #{ad_promocode.promocode}, Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name}"
+          @sms_sent = SmsSent.create(:text => "ad.sms_text", :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.last.id, :button_click_id => button_click.id)
       end
+
+      respond_to do |format|
+          format.json {render :nothing => true}
+      end
+  else
+      puts "else set_sms_data"
+      render :json => {:mobile_number_presence => false, :customer_id => customer.id}
   end
+end
 end
