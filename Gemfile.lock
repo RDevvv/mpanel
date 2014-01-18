@@ -90,6 +90,7 @@ GEM
       compass (>= 0.12.2)
     crumbs (1.0.8)
       rails (>= 3.0.0)
+    curb (0.8.5)
     daemon_controller (1.1.7)
     daemons (1.1.9)
     devise (3.2.2)
@@ -137,6 +138,7 @@ GEM
       test-unit (~> 2.2)
     haml (4.0.4)
       tilt
+    high_voltage (2.1.0)
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
@@ -391,11 +393,13 @@ DEPENDENCIES
   compass
   compass-rails
   crumbs
+  curb
   devise
   exception_notification
   fog
   geocoder
   guard-test
+  high_voltage
   irbtools
   jquery-rails (= 2.1.0)
   kaminari
