@@ -40,7 +40,8 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @commentable = find_commentable
+    @comment = @commentable.comments.build(params[:comment])
 
     respond_to do |format|
       if @comment.save
@@ -80,4 +81,14 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def find_commentable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
+
 end
