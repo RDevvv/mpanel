@@ -9,6 +9,13 @@ class CallForwarding < ActiveRecord::Base
   #validates :to, :numericality => true,:length => {:minimum => 9, :maximum => 11}
   #validates :call_sid, :uniqueness => true,:presence => false
 
+  after_create :get_customer_id
+
+  def get_customer_id
+      customer = Customer.where(:mobile_number =>self.from).first
+      self.update_attributes(:customer_id => customer.id)
+  end
+
   def compare_call_forwarding_number_with_exotel
   	call_forwarding = CallForwarding.last
   	cust_id = call_forwarding.customer_id

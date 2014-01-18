@@ -17,8 +17,7 @@ Gullak2::Application.routes.draw do
   post "get_button_click" => "button_clicks#get_click"
   match "store_call_details" => "call_forwardings#store_call_details"
   get "get_call_forwarding" => "call_forwardings#get_customer_number"
-  get "set_call_forwarding" => "call_forwardings#return_outlet_number"
-  match "get_outlet_number" => "call_forwardings#get_outlet_number"
+  match "get_outlet_number" => "call_forwardings#return_outlet_number"
   match "set_outlet_number" => "call_forwardings#set_outlet_number"
   post "set_sms_data" => "sms_sents#set_sms_data"
 
