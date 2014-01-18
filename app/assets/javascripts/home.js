@@ -64,7 +64,6 @@ function send_ad(customer_uuid, element)
         //string = JSON.parse(data);
         if(data["mobile_number_presence"] == false)
             {
-                //window.location.replace("/customers/"+data["customer_id"]+"/edit")
                 $('.modal').modal('show');
             }
 
