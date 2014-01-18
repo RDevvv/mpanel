@@ -16,6 +16,7 @@ gem "cancan"
 gem "rolify"
 gem 'kaminari'
 gem 'client_side_validations'
+gem 'curb'
 gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
 gem "carrierwave"
 gem "rails_admin"
@@ -54,7 +55,6 @@ group :development do
     gem 'mailcatcher'
     gem 'quiet_assets'
     gem 'irbtools'
-    gem 'sextant'
     gem 'rails_best_practices'
     gem 'seed_dump'
     gem 'railroady'

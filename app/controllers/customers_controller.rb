@@ -103,4 +103,18 @@ class CustomersController < ApplicationController
           redirect_to :verify_mobile_number
       end
   end
+
+  def get_mobile_number
+      @customer = Customer.where(:uuid => params[:customer_uuid]).first
+      @all_customers = Customer.all
+      if @all_customers.map{|c| c.mobile_number}.uniq.include?(params[:mobile_number].to_i)
+          @existing_customer = Customer.where(:mobile_number => params[:mobile_number]).first
+          cookies[:customer_uuid] = @existing_customer.uuid
+      else
+          @customer.update_attributes(:mobile_number => params[:mobile_number]) unless params[:mobile_number].empty?
+      end
+      respond_to do |format|
+          format.json { render :nothing => true}
+      end
+  end
 end
