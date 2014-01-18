@@ -59,7 +59,7 @@
                             <div class="star2"></div>
                     <% end %>
                         <div class="right-box">
-                            <a href="#" onclick="send_ad($.cookie('customer_uuid'), this)">
+                            <a class="ad_request" href="#" onclick="track(this); send_ad($.cookie('customer_uuid'), this)">
                                 <div class="run2"></div>
                                 <div class="runtxt"><%= ad.button_clicks.where(:button_class => "share").count %></div>
                             </div>
@@ -84,7 +84,6 @@
 <%# @brands.each do |brand| %>
     <%# BrandSession.create(:brand_id => brand.id, :customer_session_id => session[:customer_id]) %>
 <%# end %>
-    <a href="#" data-target="#new-meeting" class="btn btn-mature" data-toggle="modal">New meeting</a>
 <%= render :partial => "new_mobile_number_modal" %>
 
 <script type="text/javascript">
