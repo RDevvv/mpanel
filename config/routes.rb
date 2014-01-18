@@ -1,5 +1,9 @@
 Gullak2::Application.routes.draw do
 
+  resources :comments
+  resources :articles
+  resources :nested_comments
+  resources :leads
   resources :campaigns
   resources :incentives
   resources :sms_sents
