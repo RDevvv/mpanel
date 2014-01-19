@@ -31,45 +31,23 @@ class HomeController < ApplicationController
     end
 
     def outlet_listing
-        unless params[:location].nil?
-            #location_cache = LocationCache.where("location = '#{params[:location].downcase}'")
-            #if location_cache.count == 1
-            #    latitude = location_cache.first.latitude
-            #    longitude = location_cache.first.longitude
-            #else
-                result = Geocoder.search(params[:location]+" india")
-                if result.empty?
-                    @outlets = nil
-                else
-                    @location = result.first.data["geometry"]["location"]
-                    latitude = @location["lat"]
-                    longitude = @location["lng"]
-                    customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
-                    customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
-                    #LocationCache.create(:latitude => latitude, :longitude => longitude, :location => params[:location].downcase)
-
-                    @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
-                    @outlets_with_ad = Array.new
-                    @outlets_without_ad = Array.new
-                    outlets_with_ad_index = 0
-                    outlets_without_ad_index = 0
-
-                    @outlets.each do |outlet|
-                        if outlet.ads.empty?
-                            @outlets_without_ad[outlets_without_ad_index] = outlet
-                            outlets_without_ad_index +=1
-                        else
-                            @outlets_with_ad[outlets_with_ad_index] = outlet
-                            outlets_with_ad_index +=1
-                        end
-                    end
-                    @final_outlets = @outlets_without_ad + @outlets_with_ad
-                    #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
-                end
-            #end
+        @outlets = nil
+        if params[:location].nil?
+            latitude = params[:latitude]
+            longitude = params[:longitude]
         else
-            @outlets = nil
+            result = Geocoder.search(params[:location]+" india")
+            unless result.empty?
+                @location = result.first.data["geometry"]["location"]
+                latitude = @location["lat"]
+                longitude = @location["lng"]
+            end
         end
+
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
+        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 
     def brand_listing
@@ -77,27 +55,21 @@ class HomeController < ApplicationController
     end
 
     def map_listing
-        latitude = params["latitude"]
-        longitude = params["longitude"]
-        customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
-        customer_session.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
-
-        @outlets_with_ad = Array.new
-        @outlets_without_ad = Array.new
-        outlets_with_ad_index = 0
-        outlets_without_ad_index = 0
-
-        @outlets.each do |outlet|
-            if outlet.ads.empty?
-                @outlets_without_ad[outlets_without_ad_index] = outlet
-                outlets_without_ad_index +=1
-            else
-                @outlets_with_ad[outlets_with_ad_index] = outlet
-                outlets_with_ad_index +=1
+        if params[:location].nil?
+            latitude = params[:latitude]
+            longitude = params[:longitude]
+        else
+            result = Geocoder.search(params[:location]+" india")
+            unless result.empty?
+                @location = result.first.data["geometry"]["location"]
+                latitude = @location["lat"]
+                longitude = @location["lng"]
             end
         end
-        @final_outlets = @outlets_without_ad + @outlets_with_ad
+
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 

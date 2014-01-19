@@ -40,7 +40,7 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
                 <div class="txt">OR</div>
 
                 <div class="input-group">
-                    <%= form_tag 'outlet_listing', :class => 'form-without-submit' do |f| %>
+                    <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
                         <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
                 <% end %>
                     <div class="input-group-btn">

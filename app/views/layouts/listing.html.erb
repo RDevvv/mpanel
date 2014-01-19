@@ -31,33 +31,37 @@
   </ul>
   <div class="head-brand">GullakMaster</div>
   <ul class="right-icons">
-    <li><a href="#" class="outlet"></a></li>
+  <% if action_name == 'map_listing' %>
+      <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing', :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
+  <% else %>
+      <li><%= link_to "", {:controller => 'home', :action => 'map_listing', :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "loc"%></li>
+  <% end %>
   </ul>
 
   <nav id="menu">
-    <ul>
-      <li class="subcat">Sort by:</li>
-      <li><%= link_to "Distance", :outlet_listing %></li>
-      <li>&nbsp;</li>
-      <li class="subcat">Filter by:</li>
-      <li style="margin-top:10px;">
-        <%= form_tag :outlet_search, :id => 'searchForm' do |f|  %>
-            <fieldset>
+      <ul>
+          <li class="subcat">Sort by:</li>
+          <li><%= link_to "Distance", :outlet_listing %></li>
+          <li>&nbsp;</li>
+          <li class="subcat">Filter by:</li>
+          <li style="margin-top:10px;">
+          <%= form_tag :outlet_search, :id => 'searchForm' do |f|  %>
+              <fieldset>
               <div class="input">
-                <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
+                  <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
               </div>
-            </fieldset>
-        <% end %>
-      </li>
-    </ul>
+          </fieldset>
+      <% end %>
+          </li>
+      </ul>
   </nav>
 </div>
 <%= bootstrap_flash %>
 <%= yield %>
   <script type="text/javascript">
-      $(function() {
-          $('nav#menu').mmenu();
-      });
+$(function() {
+        $('nav#menu').mmenu();
+        });
 
 $(document).ready(function(){$('.alert').fadeOut(2000)});
   </script>

@@ -2,17 +2,17 @@
     <div class="row-fluid">
         <div class="span12">
             <div class="search-div3">
-                <%= form_tag :outlet_listing, :id => 'searchForm' do |f|  %>
+                <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
                     <fieldset>
                     <div class="input">
                         <%= text_field_tag :location, nil,:id => 's', :value => "Search New Location ...", :onFocus =>"this.value=''" %>
                     </div>
-                </fieldset>
-        <div class="auto-locate"><%= image_tag "navigation-icon2.png" %></div>
+                    </fieldset>
+                <% end %>
+                <div class="auto-locate"><%= image_tag "navigation-icon2.png" %></div>
             </div>
         </div>
         <div>
-        <% end %>
             <% @brands = Array.new %>
             <% if @final_outlets.nil? %>
                 No results found
