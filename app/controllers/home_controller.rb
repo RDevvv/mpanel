@@ -123,23 +123,9 @@ class HomeController < ApplicationController
         end
 
         @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
-
-        @outlet_ads = Array.new
-        i = 0
         @outlets.each do |outlet|
             if outlet.is_active?
-                outlet.ads.each do |ad|
-                    @outlet_ads[i][:ad_id] = outlet.id
-                    @outlet_ads[i][:outlet_id] = outlet.outlet_id
-                    @outlet_ads[i][:account_brand_id] = outlet.account_brand_id
-                    @outlet_ads[i][:area_id] = outlet.area_id
-                    @outlet_ads[i][:address] = outlet.address
-                    @outlet_ads[i][:phone_number] = outlet.phone_number
-                    @outlet_ads[i][:mobile_number] = outlet.mobile_number
-                    @outlet_ads[i][:ad_title] = ad.ad_title
-                    @outlet_ads[i][:sms_text] = ad.sms_text
-                    i += 1
-                end
+                #@hot_picks = @outlets.map{|outlet|outlet.ads}.flatten.map{|ad|ad.ad_promocodes.first}.flatten.sort{|ad_promocode|ad_promocode.usage}reverse.map{|ad_promocode|ad_promocode.ad}
             end
         end
         @final_outlets = @ads
