@@ -13,4 +13,20 @@ module HomeHelper
 
         return url
     end
+
+    def get_brand_image(brand)
+        if brand.attachments.empty?
+            image_tag "categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive"
+        else
+            image_tag brand.attachments.first.image, :class => "img-responsive"
+        end
+    end
+
+    def get_brand_title(brand)
+        trailing_string=''
+        unless brand.brand_name.length < 7
+            trailing_string='..'
+        end
+        brand.brand_name[0..6]+trailing_string
+    end
 end

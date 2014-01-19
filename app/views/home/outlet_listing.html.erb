@@ -1,33 +1,16 @@
 <div class="container-location">
     <div class="row-fluid">
-        <div class="span12">
-            <div class="search-div3">
-                <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
-                    <fieldset>
-                    <div class="input">
-                        <%= text_field_tag :location, nil,:id => 's', :value => "Search New Location ...", :onFocus =>"this.value=''" %>
-                    </div>
-                    </fieldset>
-                <% end %>
-                <div class="auto-locate"><%= link_to image_tag("navigation-icon2.png"), '#', :onclick => 'change_location()' %></div>
-            </div>
-        </div>
+        <%= render 'top_location_search_bar' %>
         <div>
-            <% @brands = Array.new %>
             <% if @final_outlets.nil? %>
                 No results found
         <% else %>
                 <% @final_outlets.each do |outlet| %>
-                <% if outlet.is_active == true %>
                 <% outlet.ads.each do |ad| %>
                 <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                 <div class="bbox">
-                    <% brand = outlet.account_brand.brand %>
-                    <div class="brandtitle"><%= brand.brand_name[0..6] %>
-                    <% @brands.push brand %>
-                        <% unless brand.brand_name.length < 7 %>
-                            ..
-                    <% end %>
+                    <div class="brandtitle">
+                        <%= get_brand_title(outlet.account_brand.brand) %>
                     </div>
                     <div class="eye2"><a onclick="track(this); $.pnotify({
                             title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
@@ -36,11 +19,7 @@
                             opacity: .9
                             });" class="description btn source"></a></div>
                     <div align="center" class="brandlogo">
-                        <% if brand.attachments.empty? %>
-                            <%= image_tag "categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
-                    <% else %>
-                            <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
-                    <% end %>
+                        <%= get_brand_image(outlet.account_brand.brand) %>
                     </div>
                     <div class="rch-btns-div">
                         <div class="btn190"><a class="address button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
@@ -69,7 +48,6 @@
             </div>
         <% end %>
         <% end %>
-        <% end %>
             <%#= paginate @final_outlets %>
         <% end %>
         </div>
@@ -80,10 +58,6 @@
         <% image_tag "back_to_top_btn-3.png", :alt => "Back to TOP" %>
     </a>
 </div>
-<%# @brands = @brands.uniq %>
-<%# @brands.each do |brand| %>
-    <%# BrandSession.create(:brand_id => brand.id, :customer_session_id => session[:customer_id]) %>
-<%# end %>
 <%= render :partial => "new_mobile_number_modal" %>
 
 <script type="text/javascript">

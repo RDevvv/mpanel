@@ -194,12 +194,14 @@ class Outlet < ActiveRecord::Base
       outlets_without_ad_index = 0
 
       outlets.each do |outlet|
-          if outlet.ads.empty?
-              @outlets_without_ad[outlets_without_ad_index] = outlet
-              outlets_without_ad_index +=1
-          else
-              @outlets_with_ad[outlets_with_ad_index] = outlet
-              outlets_with_ad_index +=1
+          if outlet.is_active == true
+              if outlet.ads.empty?
+                  @outlets_without_ad[outlets_without_ad_index] = outlet
+                  outlets_without_ad_index +=1
+              else
+                  @outlets_with_ad[outlets_with_ad_index] = outlet
+                  outlets_with_ad_index +=1
+              end
           end
       end
       return (@outlets_with_ad+@outlets_without_ad)
