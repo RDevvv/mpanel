@@ -62,14 +62,16 @@ function send_ad(customer_uuid, element)
         }
     }).success(function (data) {
         //string = JSON.parse(data);
+        console.log(data);
         if(data["mobile_number_presence"] == false)
-            {
-                $('.modal').modal('show');
-            }
+            $('.modal').modal('show');
+        else
+            $.pnotify({
+                title: 'ad sent',
+                text: data["text"],
+                closer_hover: false,
+                opacity: .9
+            });
 
-    }).fail(
-    function(data){
-        console.log("failure");
-    })
-}
+    })}
 
