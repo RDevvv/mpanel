@@ -11,6 +11,8 @@ class Ad < ActiveRecord::Base
   
   has_many :facebook_shares
   has_many :button_clicks
+
+  after_create :brand_name_keyword
   
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
@@ -20,35 +22,51 @@ class Ad < ActiveRecord::Base
   scope :expire_ads,lambda{where("expiry_date is not null and expiry_date < ?",Date.today)}
   scope :active_ads,lambda{where("expiry_date is  null or expiry_date >= ?",Date.today)}
 
+  def brand_name_keyword
+      brand_name = self.account_brand.brand.brand_name
+      keywords = Keyword.where(:keyword => brand_name)
+      if keywords.empty?
+          Keyword.create(:keyword => brand_name).ad_keywords.create(:ad_id => self.id)
+          brand_name.split(" ").each do |word|
+              Keyword.create(:keyword => word).ad_keywords.create(:ad_id => self.id)
+          end
+      else
+          keywords.first.ad_keywords.create(:ad_id => self.id)
+          brand_name.split(" ").each do |word|
+              Keyword.where(:keyword => word).first.ad_keywords.create(:ad_id => self.id)
+          end
+      end
+  end
+
   def toggle_active
-    self.is_active? ?  self.deactivate : self.activate
+      self.is_active? ?  self.deactivate : self.activate
   end
 
   def activate
-    self.is_active = true
-    self.save
+      self.is_active = true
+      self.save
   end
 
   def deactivate
-    self.is_active = false
-    self.save
+      self.is_active = false
+      self.save
   end
 
   def toggle_exclusive
-    self.is_exclusive? ?  self.deactivate_exclusive : self.activate_exclusive
+      self.is_exclusive? ?  self.deactivate_exclusive : self.activate_exclusive
   end
 
   def activate_exclusive
-    self.is_exclusive = true
-    self.save
+      self.is_exclusive = true
+      self.save
   end
 
   def deactivate_exclusive
-    self.is_exclusive = false
-    self.save
+      self.is_exclusive = false
+      self.save
   end
-  
+
   def expired?
-    self.expiry_date.present? && self.expiry_date < Date.today
+      self.expiry_date.present? && self.expiry_date < Date.today
   end
 end
