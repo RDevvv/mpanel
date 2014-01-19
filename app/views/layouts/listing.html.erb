@@ -41,7 +41,8 @@
   <nav id="menu">
       <ul>
           <li class="subcat">Sort by:</li>
-          <li><%= link_to "Distance", :outlet_listing %></li>
+          <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
+          <li><%= link_to "Hot Picks", {:controller => 'home', :action => 'hot_picks', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
           <li>&nbsp;</li>
           <li class="subcat">Filter by:</li>
           <li style="margin-top:10px;">

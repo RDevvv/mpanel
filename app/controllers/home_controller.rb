@@ -110,16 +110,22 @@ class HomeController < ApplicationController
     end
 
     def hot_picks
-        latitude = 18.97
-        longitude = 72.82
+        if params[:location].nil?
+            latitude = params[:latitude]
+            longitude = params[:longitude]
+        else
+            result = Geocoder.search(params[:location]+" india")
+            unless result.empty?
+                @location = result.first.data["geometry"]["location"]
+                latitude = @location["lat"]
+                longitude = @location["lng"]
+            end
+        end
+
         @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
-        @outlets_with_ad = Array.new
-        @outlets_without_ad = Array.new
-        outlets_with_ad_index = 0
-        outlets_without_ad_index = 0
 
         @outlet_ads = Array.new
-        @i = 0
+        i = 0
         @outlets.each do |outlet|
             if outlet.is_active?
                 outlet.ads.each do |ad|
