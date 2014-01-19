@@ -186,4 +186,22 @@ class Outlet < ActiveRecord::Base
       self.update_attributes(:is_verified => false)
     end
   end
+
+  def self.sort_outlet_by_ad_presence(outlets)
+      @outlets_with_ad = Array.new
+      @outlets_without_ad = Array.new
+      outlets_with_ad_index = 0
+      outlets_without_ad_index = 0
+
+      outlets.each do |outlet|
+          if outlet.ads.empty?
+              @outlets_without_ad[outlets_without_ad_index] = outlet
+              outlets_without_ad_index +=1
+          else
+              @outlets_with_ad[outlets_with_ad_index] = outlet
+              outlets_with_ad_index +=1
+          end
+      end
+      return (@outlets_with_ad+@outlets_without_ad)
+  end
 end
