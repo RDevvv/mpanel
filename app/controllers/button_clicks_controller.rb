@@ -4,7 +4,7 @@ class ButtonClicksController < ApplicationController
         customer_session  = CustomerSession.where(:customer_id => customer.id).last
         agent = request.env['HTTP_REFERER']
 
-        ButtonClick.create(:customer_id => customer.id, :button_class => params[:button_class], :previous_link => agent, :current_link => params[:current_link], :ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :session_id => customer_session.id)
+        ButtonClick.create(:customer_id => customer.id, :button_class => params[:button_class], :previous_link => agent, :current_link => params[:current_link], :ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :customer_session_id => customer_session.id)
 
         respond_to do |format|
             format.json {render :nothing => true}

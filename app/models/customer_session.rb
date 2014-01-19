@@ -1,5 +1,6 @@
 class CustomerSession < ActiveRecord::Base
     has_many :brand_sessions
+    has_many :button_clicks
     belongs_to :customer
     geocoded_by :geocoding_address
 
