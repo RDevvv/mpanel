@@ -52,7 +52,6 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
 </div>
 <script type="text/javascript">
 var map_link=document.getElementById("map");
-var error_div=document.getElementById("error");
 function getLocation()
 {
     if (navigator.geolocation)
@@ -62,12 +61,14 @@ function getLocation()
     }
     else
     {
-        error_div.innerHTML="Geolocation is not supported by this browser.";
+        $.pnotify({
+            title: 'Geolocation not supported',
+            text: 'Your browser does not support geolocation', closer_hover: false, opacity: .9 });
     }
 }
 function showPosition(position)
 {
-    console.log("vivek");
+    console.log(position.coords.latitude)
     map_link.href = "/map_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
 }
 getLocation();

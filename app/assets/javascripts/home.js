@@ -29,7 +29,6 @@ function track(element) {
             redirection_url = 'store_call_details.json';
         }
 
-
         $.ajax({
             url: redirection_url,
             type: "post",
@@ -73,5 +72,32 @@ function send_ad(customer_uuid, element)
                 opacity: .9
             });
 
-    })}
+    })
+}
 
+var latitude;
+var longitude;
+function change_location(){
+    q=(document.location.href);
+    domain = document.location.origin;
+    route  = document.location.pathname;
+    user_geolocate();
+    void(open(domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status'));
+}
+
+function user_geolocate(){
+    latitude = 12;
+    longitude = 72;
+    if (navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(showPosition,geo_error);
+}
+
+function showPosition(position){
+    console.log(position.coords.latitude);
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+
+function geo_error(){
+    console.log("couldn't fetch co-ordinates")
+}
