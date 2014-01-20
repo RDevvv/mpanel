@@ -99,32 +99,36 @@ class HomeController < ApplicationController
                 longitude = @location["lng"]
             end
         end
-        latitude = 12.044966080295936
-        longitude = 71.9540293507215
 
         r = Keyword.search do
             fulltext params[:search]
         end
+
         Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        outlets = Outlet.new(:latitude => latitude, :longitude => latitude).nearbys(5000, :units => :km)
-        unless outlets.empty?
-            nearby_outlets = outlets.map{|o| o.id}.uniq
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        unless @outlets.empty?
+            @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else
-            nearby_outlets = []
+            @nearby_outlets = []
         end
-        #binding.pry
 
 
-        unless r.results.first.ads.nil?
+        unless r.results.first.nil?
             @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
+            @new_outlets = Outlet.where(:id => 0)
             r.results.first.ads.each do |ad|
                 unless ad.outlets.empty?
                     ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
-                    unless (ad_outlets&nearby_outlets).empty?
+                    nearby_outlets_with_ad = ad_outlets&@nearby_outlets
+                    unless nearby_outlets_with_ad.empty?
+                        nearby_outlets_with_ad.each do |outlet_id|
+                            @new_outlets.append(@outlets.find(outlet_id))
+                        end
                         @ads.append(Ad.find(ad.id))
                     end
                 end
             end
+        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
         end
     end
 
