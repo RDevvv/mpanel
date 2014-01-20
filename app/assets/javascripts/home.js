@@ -1,3 +1,48 @@
+function map_initializer(locations, user_location){
+    var marker, i;
+    var user_position = new google.maps.LatLng(user_location[0], user_location[1]);
+    var ascii_letter = 64;
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: new google.maps.LatLng(locations[0][0], locations[0][1]),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+        user= new google.maps.Marker({
+            position: user_position,
+            icon: "http://0.0.0.0:3000/assets/user_pin.png",
+            map: map
+        });
+
+    for (i = 0; i < locations.length; i++) {
+        ascii_letter += 1;
+        letter = String.fromCharCode(ascii_letter);
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+            icon: "http://maps.google.com/mapfiles/marker" + letter + ".png",
+            map: map
+        });
+        google.maps.event.addListener(marker, 'click', move_ad_to_top);
+    }
+
+    var populationOptions = {
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        center: user_position,
+        radius: 5000
+    };
+    // Add the circle for this city to the map.
+    cityCircle = new google.maps.Circle(populationOptions);
+}
+
+function move_ad_to_top(){
+    console.log("vivek");
+}
+
 function check_if_mobile_number_exists(){
     if($.cookie("mobile_number") == 'false')
         $('.modal').modal('show');

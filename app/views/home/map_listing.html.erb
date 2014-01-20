@@ -8,28 +8,12 @@
 </head>
 <body>
 
-
 <div class="container-location">
   <div class="row-fluid">
-    <div class="span12">
-      <div class="search-div3">
-            <%= form_tag :map_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
-                <fieldset>
-                <div class="input">
-                    <%= text_field_tag :location, nil,:id => 's', :value => "Search New Location ...", :onFocus =>"this.value=''" %>
-                </div>
-                </fieldset>
-            <% end %>
-            <div class="auto-locate"><%= link_to image_tag("navigation-icon2.png"), '#', :onclick => 'change_location()' %></div>
-      </div>
-      <div id="map" style="width: 100%; height: 209px;"></div>
-    </div>
+    <%= render 'top_location_search_bar' %>
+    <div id="map" style="width: 100%; height: 209px;"></div>
 
     <div class="out-add-div">
-3
-
-      <% @locations = Array.new %>
-      <% @brands = Array.new %>
       <% if @final_outlets.nil? %>
           No results found
       <% else %>
@@ -38,15 +22,11 @@
               <% if outlet.is_active == true %>
                   <% outlet.ads.each do |ad| %>
                       <div class="bsc span12">
-                        <div class="bdiv2" id="<%= ad.id %>">
+                        <div class="bdiv2" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                           <div class="bbox2">
                             <% brand = outlet.account_brand.brand %>
-                            <% @locations += [[brand.brand_name, outlet.latitude, outlet.longitude]] %>
-                            <div class="brandtitle"><%= brand.brand_name[0..6] %>
-                              <% @brands.push brand %>
-                              <% unless brand.brand_name.length < 7 %>
-                                  ..
-                              <% end %>
+                            <div class="brandtitle">
+                                <%= get_brand_title(outlet.account_brand.brand) %>
                             </div>
                             <div class="eye2"><a onclick="track(this); $.pnotify({
                                     title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
@@ -54,20 +34,16 @@
                                     opacity: .9
                                     });" class="description btn source"></a></div>
                             <div align="center" class="brandlogo">
-                              <% if brand.attachments.empty? %>
-                                  <%= image_tag "categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive" %>
-                              <% else %>
-                                  <%= image_tag brand.attachments.first.image, :class => "img-responsive" %>
-                              <% end %>
+                                <%= get_brand_image(outlet.account_brand.brand) %>
                             </div>
                             <div class="rch-btns-div2">
                               <% unless outlet.mobile_number.empty? %>
                                   <div class="btn190">
-                                    <a class="call button_call2" onclick="track(this)" href="tel:+91-<%= outlet.mobile_number %>">CALL</a>
+                                    <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
                                   </div>
                               <% end %>
                             </div>
-                            <div class="distance-div2">Distance: <%= (outlet.distance * 1.6).to_f.round(2) %> km</div>
+                            <div class="distance-div2">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
                             <div class="lower-box">
                                 <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%#= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
                                 <div class="refr2"></div>
@@ -97,41 +73,10 @@
     </div>
   </div>
 </div>
-<% @brands = @brands.uniq %>
 
 
 <%= javascript_tag do %>
-    var locations = <%= @locations.to_json.html_safe %>;
-    locations = jQuery.unique(locations)
+    locations = <%= @final_outlets.map{|o|[o.latitude, o.longitude]}.uniq.to_json.html_safe %>;
+    user_location = <%= [@latitude, @longitude]%>
+    map_initializer(locations, user_location);
 <% end %>
-<script type="text/javascript">
-</script>
-<script type="text/javascript">
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: new google.maps.LatLng(19, 72.86),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    var ascii_letter = 64;
-    for (i = 0; i < locations.length; i++) {
-        ascii_letter += 1;
-        letter = String.fromCharCode(ascii_letter);
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            icon: "http://maps.google.com/mapfiles/marker" + letter + ".png",
-            map: map
-        });
-
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            return function () {
-                infowindow.setContent(locations[i][0]);
-                infowindow.open(map, marker);
-            }
-        })(marker, i));
-    }
-</script>
