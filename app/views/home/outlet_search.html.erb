@@ -6,7 +6,7 @@
       <% else %>
           <% @ads.each do |ad| %>
                   <% ad.outlets.each do |outlet| %>
-              <% if outlet.is_active == true %>
+              <% if nearby_outets.include?(outlet.id) %>
                       <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                         <div class="bbox">
                           <% brand = outlet.account_brand.brand %>
