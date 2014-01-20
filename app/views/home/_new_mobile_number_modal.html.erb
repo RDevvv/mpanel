@@ -5,7 +5,7 @@
             <div class="control-group">
             <label class="control-label"> +91</label>
             <div class="controls">
-                <%= number_field_tag :mobile_number,'', :class => 'datetime_select', :placeholder => "Enter mobile number" %>
+                <%= text_field_tag :mobile_number,'', :class => 'datetime_select', :placeholder => "Enter mobile number" %>
             </div>
         </div>
         <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
