@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
     def check_cookies
         if cookies[:customer_uuid].blank?
-            cookies[:customer_uuid] = Customer.generate_cookie
+            cookies[:customer_uuid] = {:value => Customer.generate_cookie, :expires => 1.year.from_now}
             Customer.create(:uuid => cookies[:customer_uuid])
         end
     end
@@ -16,7 +16,13 @@ class HomeController < ApplicationController
             agent = request.env['HTTP_USER_AGENT']
             puts referer_agent = request.env['HTTP_REFERER']
             parsed_agent = UserAgent.parse(agent)
-            customer_id = Customer.where(:uuid => cookies[:customer_uuid]).first.id
+            customer = Customer.where(:uuid => cookies[:customer_uuid]).first
+            customer_id = customer.id
+            if customer.mobile_number.nil?
+                cookies[:mobile_number] = {:value => false, :expires => 1.year.from_now}
+            else
+                cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
+            end
             CustomerSession.create(:referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
             session[:customer_id] = customer_id
         end
