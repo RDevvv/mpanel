@@ -84,7 +84,8 @@ class CallForwardingsController < ApplicationController
   def get_customer_number
     sid="gullakmaster"
     token="449df2572ff8b57017ceb975d5dc15b93d480e02"
-    @call_forwarding = CallForwarding.create(:call_sid=>params["CallSid"],:from=>params["From"],:to=>params["To"],:direction=>params["Direction"],:dial_call_duration=>params["DialCallDuration"],:start_time=>params["StartTime"],:end_time=>params["EndTime"], :call_type=>params["CallType"],:digits=>params["digits"])
+    from = params[:From][0]=''
+    @call_forwarding = CallForwarding.create(:call_sid=>params["CallSid"],:from=>from,:to=>params["To"],:direction=>params["Direction"],:dial_call_duration=>params["DialCallDuration"],:start_time=>params["StartTime"],:end_time=>params["EndTime"], :call_type=>params["CallType"],:digits=>params["digits"])
     render :text => 'OK', :status => '200'
     #@call_forwarding.compare_call_forwarding_number_with_exotel
   end

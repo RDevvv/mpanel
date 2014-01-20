@@ -1,3 +1,8 @@
+function check_if_mobile_number_exists(){
+    if($.cookie("mobile_number") == 'false')
+        $('.modal').modal('show');
+}
+
 function modal_submit(){
     $('.customer-mobile-number-form').submit(function() {
         var valuesToSubmit = $(this).serialize();
@@ -24,24 +29,22 @@ function track(element) {
     outlet_id     = box_element.attr("outlet_id");
     current_link  = window.location.pathname;
 
-    //if(button_class=='call')
-    //    {
-    //        redirection_url = 'store_call_details.json';
-    //    }
+    if(button_class=='call')
+        check_if_mobile_number_exists();
 
-        $.ajax({
-            url: redirection_url,
-            type: "post",
-            data: {
-                'customer_uuid': customer_uuid,
-                'ad_id': ad_id,
-                'outlet_id': outlet_id,
-                'button_class': button_class,
-                'current_link': current_link
-            }
-        }).done(function () {
-            console.log("done");
-        })
+    $.ajax({
+        url: redirection_url,
+        type: "post",
+        data: {
+            'customer_uuid': customer_uuid,
+            'ad_id': ad_id,
+            'outlet_id': outlet_id,
+            'button_class': button_class,
+            'current_link': current_link
+        }
+    }).done(function () {
+        console.log("done");
+    })
 }
 
 function send_ad(customer_uuid, element)

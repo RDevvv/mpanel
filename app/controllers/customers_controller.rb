@@ -109,7 +109,8 @@ class CustomersController < ApplicationController
       @all_customers = Customer.all
       if @all_customers.map{|c| c.mobile_number}.uniq.include?(params[:mobile_number].to_i)
           @existing_customer = Customer.where(:mobile_number => params[:mobile_number]).first
-          cookies[:customer_uuid] = @existing_customer.uuid
+          cookies[:customer_uuid] = {:value => @existing_customer.uuid, :expires => 1.year.from_now}
+          cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
       else
           @customer.update_attributes(:mobile_number => params[:mobile_number]) unless params[:mobile_number].empty?
       end
