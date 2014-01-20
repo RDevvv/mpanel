@@ -82,16 +82,31 @@ class HomeController < ApplicationController
     end
 
     def outlet_search
+        if params[:location].nil?
+            latitude = params[:latitude]
+            longitude = params[:longitude]
+        else
+            result = Geocoder.search(params[:location]+" india")
+            unless result.empty?
+                @location = result.first.data["geometry"]["location"]
+                latitude = @location["lat"]
+                longitude = @location["lng"]
+            end
+        end
+        latitude = 12.044966080295936
+        longitude = 71.9540293507215
+
         r = Keyword.search do
             fulltext params[:search]
         end
-        customer_session = Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last
-        outlets = Outlet.new(:latitude => customer_session.latitude, :longitude => customer_session.latitude).nearbys(500000000, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
+        outlets = Outlet.new(:latitude => latitude, :longitude => latitude).nearbys(5000, :units => :km)
         unless outlets.empty?
             nearby_outlets = outlets.map{|o| o.id}.uniq
         else
             nearby_outlets = []
         end
+        #binding.pry
 
 
         unless r.results.first.ads.nil?
@@ -103,9 +118,7 @@ class HomeController < ApplicationController
                         @ads.append(Ad.find(ad.id))
                     end
                 end
-                #binding.pry
             end
-
         end
     end
 

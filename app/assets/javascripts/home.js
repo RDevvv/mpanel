@@ -24,10 +24,10 @@ function track(element) {
     outlet_id     = box_element.attr("outlet_id");
     current_link  = window.location.pathname;
 
-    if(button_class=='call')
-        {
-            redirection_url = 'store_call_details.json';
-        }
+    //if(button_class=='call')
+    //    {
+    //        redirection_url = 'store_call_details.json';
+    //    }
 
         $.ajax({
             url: redirection_url,
