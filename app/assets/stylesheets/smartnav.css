@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'corbelregular';
+    src: url('corbel-webfont.eot');
+    src: url('corbel-webfont.eot?#iefix') format('embedded-opentype'),
+         url('corbel-webfont.woff') format('woff'),
+         url('corbel-webfont.ttf') format('truetype'),
+         url('corbel-webfont.svg#corbelregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+ul.smartnav {float:left; height: 35px; font-family: 'corbelregular'; /*margin: 0;  height: 63px;*/
+		  text-align: left; margin:10px 0 0 22px; color:#fff; display: inline; padding: 11px 4px 17px 0; list-style: none;
+
+		  /* margin:29px 0 0 0; background: url(../img/nav-bg.png) repeat-x 0px 4px; border-bottom: solid 8px #8fc314;	  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+		  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15); box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);*/
+		}
+		ul.smartnav li {
+		  font-family: 'corbelregular'; font-weight: normal; text-transform: uppercase;
+		  font-size: 17px; display: inline-block; margin-right: -4px; position: relative; bottom: 25px;
+		  padding: 38px 31px 25px; /*background: #fff; padding: 15px 20px; */
+		  cursor: pointer; -webkit-transition: all 0.2s; -moz-transition: all 0.2s;
+		  -ms-transition: all 0.2s; -o-transition: all 0.2s; transition: all 0.2s;
+		}
+		ul.smartnav li.active {background: rgba(255, 255, 255, 0.1); padding: 35px 31px 25px;}
+		ul.smartnav li p {text-align: left; padding: 5px 10px; color: #000; font-size:12px;}
+		ul.smartnav li a {color: #777777 !important; font-size: 12px !important; margin-left: 0 !important;
+		    padding: 10px 20px !important; text-transform: uppercase; /*border-bottom: 1px solid #DFDFDF !important;*/
+		}
+		ul.smartnav li a:hover {text-decoration: none; color: #212121 !important;}
+		ul.smartnav li.home, ul.smartnav li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
+		ul.smartnav li.home a {position: relative; bottom: 13px;}
+		ul.smartnav li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #fff; /*background: #555;*/}
+		ul.smartnav li ul { 
+		  z-index:10000; margin-top: 50px; left: -25px;
+		  padding: 0; position: absolute; background: none repeat scroll 0 0 #fff;
+    	  /*border-bottom-left-radius: 3px;
+    	  border-bottom-right-radius: 3px;*/
+          box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+          min-width: 200px; text-align: left; display: none; opacity: 0; visibility: hidden;
+		  -webkit-transiton: opacity 0.2s;
+		  -moz-transition: opacity 0.2s;
+		  -ms-transition: opacity 0.2s;
+		  -o-transition: opacity 0.2s;
+		  -transition: opacity 0.2s;
+		}
+ul.smartnav li ul li {width:80%; background: #ffffff; border-bottom: solid 1px #fff; display: block; color: #fff; padding: 10px 20px; display:block;}
+ul.smartnav li ul li a {width:80%; color: #7770777 !important; font-size: 12px !important; font-weight: 600 !important; margin-left: 0 !important; padding: 0 10px !important; /*padding: 5px 20px !important;*/}
+ul.smartnav li ul li:hover {width:80%; background: #F5F5F5; padding: 10px 20px;}
+ul.smartnav li:hover ul {display: block; opacity: 1; visibility: visible;}	
+
+#aToolTip {position: absolute; display: none; z-index: 50000;}
+#aToolTip .aToolTipContent {position:relative; margin:0; padding:0;}
+a.exampleTip {color: #FEC92C; height: 32px; left: 6px;
+    padding: 0 10px 0 0; position: absolute; top: 14px; width: 32px;}
+a.exampleTip:hover{text-decoration: none;}
+.defaultTheme {border:2px solid #444; background:#555; color:#fff; margin:0; padding:6px 12px;    
+    -moz-border-radius: 12px 12px 12px 0;
+    -webkit-border-radius: 12px 12px 12px 0;
+    -khtml-border-radius: 12px 12px 12px 0;
+    border-radius: 12px 12px 12px 0;
+    -moz-box-shadow: 2px 2px 5px #111; /* for Firefox 3.5+ */
+    -webkit-box-shadow: 2px 2px 5px #111; /* for Safari and Chrome */
+    box-shadow: 2px 2px 5px #111; /* for Safari and Chrome */
+}
