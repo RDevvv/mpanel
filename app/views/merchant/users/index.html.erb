@@ -17,11 +17,11 @@
             <thead>
               <tr>
 
-                <th><div>Name</div></th>
+                <th width="10%"><div>Name</div></th>
                 <th width="15%"><div>Email</div></th>
                 <th width="10%"><div>Mobile</div></th>
                 <th width="8%"><div>Role</div></th>
-                <th><div>Brand Access</div></th>
+                <!-- <th><div>Brand Access</div></th> -->
                 <th width="8%"><div>Status</div></th>
                 <th width="8%"><div>Verified</div></th>
                 <th width="8%">Manage</th>
@@ -45,7 +45,7 @@
                     <% end %>
                   </td>
 
-                  <td></td>
+                  <!-- <td></td> -->
 
                   <td><%= check_box_tag :is_active, user.is_active?,user.is_active?,:disabled=>true%></td>
 
