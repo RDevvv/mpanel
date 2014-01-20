@@ -14,7 +14,6 @@ gem 'compass'
 gem 'devise'
 gem "cancan"
 gem "rolify"
-gem 'kaminari'
 gem 'client_side_validations'
 gem 'curb'
 gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
