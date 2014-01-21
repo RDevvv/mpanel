@@ -22,7 +22,12 @@
                         <%= get_brand_image(outlet.account_brand.brand) %>
                     </div>
                     <div class="rch-btns-div">
-                        <div class="btn190"><a class="address button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
+                        <div class="btn190"><a class="address button_map2" onclick="track(this); $.pnotify({
+                            title: 'Address',
+                            text: '<%= h outlet.address %>',
+                            closer_hover: false,
+                            opacity: .9
+                            });" href="#">ADDRESS</a></div>
                         <% unless outlet.mobile_number.empty? %>
                             <div class="btn190">
                             <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
