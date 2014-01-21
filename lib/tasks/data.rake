@@ -121,5 +121,39 @@ namespace :insert do
 	  { :city_name => "Siliguri", :time_zone => "UTC+05:30" }
 	])
 		puts "=================City records inserted.================"
+
+		Category.create([
+	  { :industry_id => 1, :category_name => "Beverages" },
+	  { :industry_id => 1, :category_name => "Books" },
+	  { :industry_id => 1, :category_name => "Cinema" },
+	  { :industry_id => 1, :category_name => "Department Store" },
+	  { :industry_id => 1, :category_name => "Dessert" },
+	  { :industry_id => 1, :category_name => "Fashion Accessories" },
+	  { :industry_id => 1, :category_name => "Financial & Banking" },
+	  { :industry_id => 1, :category_name => "Food" },
+	  { :industry_id => 1, :category_name => "Gaming Zone" },
+	  { :industry_id => 1, :category_name => "Gifts" },
+	  { :industry_id => 1, :category_name => "Health & Beauty" },
+	  { :industry_id => 1, :category_name => "Home & Lifestyle" },
+	  { :industry_id => 1, :category_name => "Hypermarket" },
+	  { :industry_id => 1, :category_name => "Kids Fashion" },
+	  { :industry_id => 1, :category_name => "Ladies Fashion" },
+	  { :industry_id => 1, :category_name => "Mens Fashion" },
+	  { :industry_id => 1, :category_name => "Music & Electronics" },
+	  { :industry_id => 1, :category_name => "Restaurants" },
+	  { :industry_id => 1, :category_name => "Sports Fashion" },
+	  { :industry_id => 1, :category_name => "Travel & Leisure" },
+	  { :industry_id => 1, :category_name => "Youth Fashion" },
+	  { :industry_id => 2, :category_name => "Bank" },
+	  { :industry_id => 2, :category_name => "ATM" },
+	  { :industry_id => 2, :category_name => "Petrol Pump" },
+	  { :industry_id => 2, :category_name => "Medical Store" },
+	  { :industry_id => 2, :category_name => "Post Office" },
+	  { :industry_id => 2, :category_name => "Cosmetics" },
+	  { :industry_id => 2, :category_name => "Spa" },
+	  { :industry_id => 2, :category_name => "Footwear" }
+	])
+
+	puts "=================Category records inserted.================"
   end
 end
