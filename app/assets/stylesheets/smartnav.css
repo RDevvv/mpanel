@@ -29,7 +29,7 @@ ul.smartnav {float:left; height: 35px; font-family: 'corbelregular'; /*margin: 0
 		    padding: 10px 20px !important; text-transform: uppercase; /*border-bottom: 1px solid #DFDFDF !important;*/
 		}
 		ul.smartnav li a:hover {text-decoration: none; color: #212121 !important;}
-		ul.smartnav li.home, ul.smartnav li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
+		ul.smartnav li.home, ul.smartnav li.home:hover {position:relative; bottom:9px; background: url(../assets/desktop/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
 		ul.smartnav li.home a {position: relative; bottom: 13px;}
 		ul.smartnav li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #fff; /*background: #555;*/}
 		ul.smartnav li ul { 
