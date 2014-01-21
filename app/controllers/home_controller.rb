@@ -72,15 +72,13 @@ class HomeController < ApplicationController
                 longitude = @location["lng"]
             end
         end
+        @longitude = longitude
+        @latitude  = latitude
 
         Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
         @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
-    end
-
-    def individual_outlet
-        @outlet_version = OutletVersion.find(params[:id])
     end
 
     def refered_listing
@@ -148,10 +146,10 @@ class HomeController < ApplicationController
         @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
         @outlets.each do |outlet|
             if outlet.is_active?
-                #@hot_picks = @outlets.map{|outlet|outlet.ads}.flatten.map{|ad|ad.ad_promocodes.first}.flatten.sort{|ad_promocode|ad_promocode.usage}reverse.map{|ad_promocode|ad_promocode.ad}
+                @hot_picks = @outlets.map{|outlet|outlet.ads}.flatten.sort{|x,y|y.usage <=> x.usage}.map{|ad|ad.outlets}
             end
         end
-        @final_outlets = @ads
+        @final_outlets = @hot_picks
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 end

@@ -26,6 +26,16 @@ UserAccount.create([
 ])
 
 
+Brand.create([
+  { :brand_name => "Cafe Coffee Day", :category_id => 1, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Amore Gellato", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Cocoberry", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Aroma Thai", :category_id => 11, :website_url => "http://www.aromathai.net/", :is_active => true, :is_verified => true},
+  { :brand_name => "Aura Spa", :category_id => 11, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Croma", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "The Mobile Store", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Love & Latte", :category_id => 1, :website_url => "http://lovenlatte.com/", :is_active => true, :is_verified => true},
+])
 
 City.create([
   { :city_name => "Port Blair", :time_zone => "UTC+05:30" },
@@ -1362,20 +1372,6 @@ AdPromocode.create([
 ])
 
 
-Brand.create([
-  { :brand_name => "Cafe Coffee Day", :category_id => 1, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Amore Gellato", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Cocoberry", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Aroma Thai", :category_id => 11, :website_url => "http://www.aromathai.net/", :is_active => true, :is_verified => true},
-  { :brand_name => "Aura Spa", :category_id => 11, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Croma", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "The Mobile Store", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Love & Latte", :category_id => 1, :website_url => "http://lovenlatte.com/", :is_active => true, :is_verified => true},
-  { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil},
-  { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil},
-  { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil},
-  { :brand_name => "TEst Brand", :category_id => 2, :website_url => nil, :is_active => nil, :is_verified => nil}
-])
 
 logo = Attachment.create(:attachable_type => "Brand", :attachable_id => 1)
 logo.image.store!(File.open("app/assets/images/seeds/CCD.jpg"))

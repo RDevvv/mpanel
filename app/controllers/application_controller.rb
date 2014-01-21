@@ -29,6 +29,8 @@ class ApplicationController < ActionController::Base
         "home_index"
     elsif controller_name == 'home'
         "listing"
+    elsif controller_name == 'campaigns'
+        "home_index"
     elsif controller_name == 'customers'
         "home_index"
     elsif controller_name == 'ads'

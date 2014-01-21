@@ -80,4 +80,14 @@ class CampaignsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def facebook_share
+      if params[:short_url].nil?
+          @ad_promocode_outlet = AdPromocodeOutlet.find(params[:ad_promocode_outlet_id])
+      else
+          @campaign = Campaign.where(:short_url => params[:short_url]).first
+          @ad_promocode_outlet = @campaign.ad_promocode_outlet
+      end
+          @brand = @ad_promocode_outlet.ad.account_brand.brand
+  end
 end
