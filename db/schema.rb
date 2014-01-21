@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140119071640) do
+ActiveRecord::Schema.define(:version => 20140121061712) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -97,20 +97,20 @@ ActiveRecord::Schema.define(:version => 20140119071640) do
   create_table "ads", :force => true do |t|
     t.integer  "account_brand_id"
     t.string   "ad_title"
-    t.boolean  "is_monday"
-    t.boolean  "is_tuesday"
-    t.boolean  "is_wednesday"
-    t.boolean  "is_thursday"
-    t.boolean  "is_friday"
-    t.boolean  "is_saturday"
-    t.boolean  "is_sunday"
+    t.boolean  "is_monday",        :default => false
+    t.boolean  "is_tuesday",       :default => false
+    t.boolean  "is_wednesday",     :default => false
+    t.boolean  "is_thursday",      :default => false
+    t.boolean  "is_friday",        :default => false
+    t.boolean  "is_saturday",      :default => false
+    t.boolean  "is_sunday",        :default => false
     t.date     "start_date"
     t.date     "expiry_date"
-    t.boolean  "is_active"
+    t.boolean  "is_active",        :default => true
     t.text     "sms_text"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.boolean  "is_exclusive"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "is_exclusive",     :default => false
     t.time     "deleted_at"
   end
 

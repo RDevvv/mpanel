@@ -21,7 +21,7 @@
             <div class="control-group">
               <label class="control-label">Category</label>
               <div class="controls">
-              	<%= f.collection_select :category_id, @categories,:id,:category_name%>
+              	<%= f.collection_select :category_id, @categories,:id,:category_name,:class=>"validate[required]"%>
               </div>
             </div>
 
