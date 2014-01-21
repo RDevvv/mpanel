@@ -58,7 +58,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	def import
     @records  = Outlet.show_records(params[:file],@account_brand.id)
-    @cities = City.all
+    @cities = City.order("city_name")
     #@valid_records, @invalid_records = Outlet.import(params[:file],params[:account_brand_id])
   end
 

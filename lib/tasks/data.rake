@@ -49,7 +49,6 @@ namespace :insert do
 	  { :city_name => "Dhanbad", :time_zone => "UTC+05:30" },
 	  { :city_name => "Jamshedpur", :time_zone => "UTC+05:30" },
 	  { :city_name => "Ranchi", :time_zone => "UTC+05:30" },
-	  { :city_name => "Bangalore", :time_zone => "UTC+05:30" },
 	  { :city_name => "Belgaum", :time_zone => "UTC+05:30" },
 	  { :city_name => "Dharwad", :time_zone => "UTC+05:30" },
 	  { :city_name => "Gulbarga", :time_zone => "UTC+05:30" },
