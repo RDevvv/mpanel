@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115093836) do
+ActiveRecord::Schema.define(:version => 20140119071640) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20140115093836) do
     t.string   "promocode"
     t.integer  "ad_id"
     t.float    "cap"
-    t.float    "usage"
+    t.float    "usage",       :default => 0.0
     t.boolean  "is_used",     :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
@@ -124,6 +124,13 @@ ActiveRecord::Schema.define(:version => 20140115093836) do
     t.string   "pincode"
   end
 
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "attachments", :force => true do |t|
     t.integer  "attachable_id"
     t.string   "attachable_type"
@@ -156,11 +163,11 @@ ActiveRecord::Schema.define(:version => 20140115093836) do
     t.integer  "customer_id"
     t.string   "button_class"
     t.integer  "ad_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "current_link"
     t.string   "previous_link"
-    t.string   "session_id"
+    t.string   "customer_session_id"
     t.integer  "outlet_id"
     t.integer  "outlet_version_id"
     t.integer  "ad_version_id"
@@ -229,6 +236,16 @@ ActiveRecord::Schema.define(:version => 20140115093836) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "country_id"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "title"
+    t.string   "body"
+    t.integer  "article_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "countries", :force => true do |t|
@@ -302,6 +319,20 @@ ActiveRecord::Schema.define(:version => 20140115093836) do
     t.string   "keyword_alias"
   end
 
+  create_table "leads", :force => true do |t|
+    t.string   "source"
+    t.string   "email"
+    t.integer  "mobile_number",           :limit => 8
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "target"
+    t.string   "company_name"
+    t.string   "designation"
+    t.boolean  "subscribe_email_updates"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
   create_table "location_caches", :force => true do |t|
     t.float    "longitude"
     t.float    "latitude"
@@ -318,6 +349,13 @@ ActiveRecord::Schema.define(:version => 20140115093836) do
   end
 
   add_index "mobile_verification_codes", ["customer_id"], :name => "index_mobile_verification_codes_on_customer_id"
+
+  create_table "nested_comments", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "comment_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "outlets", :force => true do |t|
     t.integer  "account_brand_id"

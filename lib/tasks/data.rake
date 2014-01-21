@@ -120,6 +120,6 @@ namespace :insert do
 	  { :city_name => "Kolkata", :time_zone => "UTC+05:30" },
 	  { :city_name => "Siliguri", :time_zone => "UTC+05:30" }
 	])
-
+		puts "=================City records inserted.================"
   end
 end
