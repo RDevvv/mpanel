@@ -118,6 +118,8 @@ Gullak2::Application.routes.draw do
     match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
     match 'individual_outlet/(:id)' => 'home#individual_outlet'
     match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
+    match 'deals/:id/:source/:city/:area/:category/:ad_promocode_outlet_id' => 'campaigns#facebook_share'
+    get 'url/:short_url' => 'campaigns#facebook_share'
 
     root :to => "home#index"
   # The priority is based upon order of creation:

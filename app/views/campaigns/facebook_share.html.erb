@@ -1,0 +1,4 @@
+<%= image_tag @brand.attachments.first.image %>
+<% unless @ad_promocode_outlet.campaign.nil? %>
+    <%= @ad_promocode_outlet.campaign.campaign_template %>
+<% end %>

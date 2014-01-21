@@ -31,7 +31,7 @@
                     </div>
                     <div class="distance-div">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
                     <div class="lower-box">
-                        <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link outlet, cookies[:customer_uuid], ad %>" target="_blank">
+                        <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link(outlet, cookies[:customer_uuid], ad) %>" target="_blank">
                             <div class="refr2"></div>
                         </a>
 
