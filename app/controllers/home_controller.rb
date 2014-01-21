@@ -81,10 +81,6 @@ class HomeController < ApplicationController
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 
-    def individual_outlet
-        @outlet_version = OutletVersion.find(params[:id])
-    end
-
     def refered_listing
         #@refered_ad = Outlet.find(params[:id1])
     end
