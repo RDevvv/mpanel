@@ -3,7 +3,7 @@ before_filter :load_account
 
 	def new
 		@brand = @current_account.brands.new
-    @categories = Category.all
+    @categories = Category.order("category_name")
 		respond_to do |format|
       format.html # new.html.erb
     end
