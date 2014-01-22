@@ -26,8 +26,8 @@
                 <th><div>Address</div></th>
                 <th width="10%"><div>Phone Number</div></th>
                 <th width="10%"><div>Mobile Number</div></th>
-                <th width="9%"><div>Status</div></th>
-                <th width="10%"><div>Verified</div></th>
+                <th width="10%"><div>Status</div></th>
+                <th width="8%"><div>Verified</div></th>
                 <th width="8%">Manage</th>
               </tr>
             </thead>
@@ -53,14 +53,14 @@
                   <%end %>
                 </td>
                 <td>
-                  <%= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
+                  <%#= form_tag(toggle_active_merchant_account_account_brand_outlet_path(@current_account,@account_brand,outlet),:style=>"display:inline") do %>
                     <%= check_box_tag :is_verified, outlet.is_verified?,outlet.is_verified?,:disabled=>true%>
-                    <% if can? :update, outlet %>
-                      <button type="submit" class=" btn-link">
+                    <%# if can? :update, outlet %>
+                      <!-- <button type="submit" class=" btn-link"> -->
                         <%= display_label_for_verify(outlet.is_verified?) %>
-                      </button>
-                    <%end%>
-                  <% end %>  
+                      <!-- </button> -->
+                    <%#end%>
+                  <% #end %>  
                 </td>
                 <td>
                   <% if can? :update, outlet %>
