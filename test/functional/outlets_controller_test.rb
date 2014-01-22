@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AccountsControllerTest < ActionController::TestCase
+class OutletsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   setup do
@@ -9,7 +9,6 @@ class AccountsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-      #get :merchant_accounts
   end
 
   test "should get new" do
@@ -18,6 +17,6 @@ class AccountsControllerTest < ActionController::TestCase
   test "should get edit" do
   end
 
-  test "should destroy an account" do
+  test "should destroy an outlet" do
   end
 end

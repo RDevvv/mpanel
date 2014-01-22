@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class NestedCommentsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @user = users(:one)
+    sign_in @user
     @nested_comment = nested_comments(:one)
   end
 
