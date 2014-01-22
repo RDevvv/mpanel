@@ -3,6 +3,9 @@ class City < ActiveRecord::Base
   has_many :areas, :dependent => :destroy
   scope :by_name,lambda {|name| where("city_name ilike ?","%#{name}%")}
   belongs_to :country
+
+  validates :city_name, :uniqueness => true, :presence => true
+
   def name
     city_name
   end
