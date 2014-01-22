@@ -11,7 +11,7 @@ class ButtonClicksControllerTest < ActionController::TestCase
 
     test "should create button_click" do
         assert_difference('ButtonClick.count') do
-            post :create, button_click: { ad_id: @button_click.ad_id, button_class: @button_click.button_class }
+            get :get_click, customer_uuid: 'a1825be5-36b7-40dd-9e06-0bf58920235d' , button_click: { ad_id: @button_click.ad_id, button_class: @button_click.button_class}
         end
 
         assert_redirected_to button_click_path(assigns(:button_click))
