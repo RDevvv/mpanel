@@ -29,7 +29,7 @@ namespace :insert do
 	  { :city_name => "Raipur", :time_zone => "UTC+05:30" },
 	  { :city_name => "Silvassa", :time_zone => "UTC+05:30" },
 	  { :city_name => "Daman", :time_zone => "UTC+05:30" },
-	  { :city_name => "Delhi", :time_zone => "UTC+05:30" },
+	  { :city_name => "New Delhi", :time_zone => "UTC+05:30" },
 	  { :city_name => "Panaji", :time_zone => "UTC+05:30" },
 	  { :city_name => "Ahmedabad", :time_zone => "UTC+05:30" },
 	  { :city_name => "Bhavnagar", :time_zone => "UTC+05:30" },
@@ -48,13 +48,11 @@ namespace :insert do
 	  { :city_name => "Bokaro Steel", :time_zone => "UTC+05:30" },
 	  { :city_name => "Dhanbad", :time_zone => "UTC+05:30" },
 	  { :city_name => "Jamshedpur", :time_zone => "UTC+05:30" },
-	  { :city_name => "Mango", :time_zone => "UTC+05:30" },
 	  { :city_name => "Ranchi", :time_zone => "UTC+05:30" },
-	  { :city_name => "Bangalore", :time_zone => "UTC+05:30" },
 	  { :city_name => "Belgaum", :time_zone => "UTC+05:30" },
 	  { :city_name => "Dharwad", :time_zone => "UTC+05:30" },
 	  { :city_name => "Gulbarga", :time_zone => "UTC+05:30" },
-	  { :city_name => "Hubliﾠ", :time_zone => "UTC+05:30" },
+	  { :city_name => "Hubli", :time_zone => "UTC+05:30" },
 	  { :city_name => "Mysore", :time_zone => "UTC+05:30" },
 	  { :city_name => "Kochi", :time_zone => "UTC+05:30" },
 	  { :city_name => "Kollam", :time_zone => "UTC+05:30" },
@@ -81,10 +79,8 @@ namespace :insert do
 	  { :city_name => "Bhubaneswar", :time_zone => "UTC+05:30" },
 	  { :city_name => "Brahmapur", :time_zone => "UTC+05:30" },
 	  { :city_name => "Cuttack", :time_zone => "UTC+05:30" },
-	  { :city_name => "Puriﾠ", :time_zone => "UTC+05:30" },
+	  { :city_name => "Puri", :time_zone => "UTC+05:30" },
 	  { :city_name => "Raurkela", :time_zone => "UTC+05:30" },
-	  { :city_name => "Town", :time_zone => "UTC+05:30" },
-	  { :city_name => "Town", :time_zone => "UTC+05:30" },
 	  { :city_name => "Ozhukarai", :time_zone => "UTC+05:30" },
 	  { :city_name => "Puducherry", :time_zone => "UTC+05:30" },
 	  { :city_name => "Amritsar", :time_zone => "UTC+05:30" },
@@ -118,9 +114,22 @@ namespace :insert do
 	  { :city_name => "Durgapur", :time_zone => "UTC+05:30" },
 	  { :city_name => "Howrah", :time_zone => "UTC+05:30" },
 	  { :city_name => "Kolkata", :time_zone => "UTC+05:30" },
-	  { :city_name => "Siliguri", :time_zone => "UTC+05:30" }
+	  { :city_name => "Siliguri", :time_zone => "UTC+05:30" },
+	  { :city_name => "Secunderabad", :time_zone => "UTC+05:30" },
+	  { :city_name => "Yamuna", :time_zone => "UTC+05:30" },
+	  { :city_name => "Bengaluru", :time_zone => "UTC+05:30" },
+	  { :city_name => "Calicut", :time_zone => "UTC+05:30" },
+	  { :city_name => "Aurangabad", :time_zone => "UTC+05:30" },
+	  { :city_name => "Kolhapur", :time_zone => "UTC+05:30" },
+	  { :city_name => "Nashik", :time_zone => "UTC+05:30" },
+	  { :city_name => "Sangli", :time_zone => "UTC+05:30" },
+	  { :city_name => "Bhubaneswar", :time_zone => "UTC+05:30" },
+	  { :city_name => "Pathankot", :time_zone => "UTC+05:30" },
+	  { :city_name => "Allahabad", :time_zone => "UTC+05:30" },
+	  { :city_name => "Noida", :time_zone => "UTC+05:30" }
 	])
-		puts "=================City records inserted.================"
+
+	puts "=================City records inserted.================"
 
 		Category.create([
 	  { :industry_id => 1, :category_name => "Beverages" },

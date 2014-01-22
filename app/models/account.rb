@@ -15,7 +15,9 @@ class Account < ActiveRecord::Base
   after_create :add_owner
   
   def add_owner
-    self.users.first.add_role :owner,self
+    if self.users.present?
+      self.users.first.add_role :owner,self
+    end
   end
 
   def owner

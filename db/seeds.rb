@@ -7,34 +7,9 @@ AdminUser.create([
 ])
 
 
-Role.create!([
-  { :name => "owner", :resource_id => 18, :resource_type => "Account" },
-  { :name => "owner", :resource_id => 1, :resource_type => "Account" },
-  { :name => "owner", :resource_id => 20, :resource_type => "Account" }
-])
-
 User.create([
   {:email => "adadoo@gullakmaster.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "Abhishek", :last_name => "Dadoo", :mobile_number => "983000000000", :user_key => "abcdef", :is_active => true, :email_verified => true, :mobile_verified => false},
   {:email => "amardaxini@gmail.com", :password => "adadoo123", :password_confirmation => "adadoo123", :first_name => "amar", :last_name => "Daxini", :mobile_number => nil, :user_key => nil, :is_active => nil, :email_verified => nil, :mobile_verified => nil }
-])
-
-UserAccount.create([
-  { :user_id => 1, :account_id => 1 },
-  { :user_id => 1, :account_id => 2 },
-  { :user_id => 1, :account_id => 3 },
-  { :user_id => 2, :account_id => 4 }
-])
-
-
-Brand.create([
-  { :brand_name => "Cafe Coffee Day", :category_id => 1, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Amore Gellato", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Cocoberry", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Aroma Thai", :category_id => 11, :website_url => "http://www.aromathai.net/", :is_active => true, :is_verified => true},
-  { :brand_name => "Aura Spa", :category_id => 11, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Croma", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "The Mobile Store", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
-  { :brand_name => "Love & Latte", :category_id => 1, :website_url => "http://lovenlatte.com/", :is_active => true, :is_verified => true},
 ])
 
 City.create([
@@ -175,6 +150,42 @@ Area.create([
   { :city_id => 64, :area_name => "Vile Parle West", :pincode => "400049"}
 ])
 
+UserAccount.create([
+  { :user_id => 1, :account_id => 2 },
+  { :user_id => 1, :account_id => 2 },
+  { :user_id => 1, :account_id => 3 },
+  { :user_id => 2, :account_id => 4 }
+])
+
+Account.create([
+  { :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
+  { :address => "219 Maker Chambers", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
+  { :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
+  { :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
+])
+
+Role.create!([
+  # { :name => "owner", :resource_id => 18, :resource_type => "Account" },
+  { :name => "owner", :resource_id => 2, :resource_type => "Account" },
+  { :name => "owner", :resource_id => 2, :resource_type => "Account" },
+  { :name => "owner", :resource_id => 3, :resource_type => "Account" },
+  { :name => "owner", :resource_id => 4, :resource_type => "Account" },
+  # { :name => "owner", :resource_id => 20, :resource_type => "Account" }
+])
+
+Brand.create([
+  { :brand_name => "Cafe Coffee Day", :category_id => 1, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Amore Gellato", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Cocoberry", :category_id => 5, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Aroma Thai", :category_id => 11, :website_url => "http://www.aromathai.net/", :is_active => true, :is_verified => true},
+  { :brand_name => "Aura Spa", :category_id => 11, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Croma", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "The Mobile Store", :category_id => 17, :website_url => nil, :is_active => true, :is_verified => true},
+  { :brand_name => "Love & Latte", :category_id => 1, :website_url => "http://lovenlatte.com/", :is_active => true, :is_verified => true},
+])
+
+
+
 Country.create([
   { :country_name => "Australia", :iso_code => "AUS", :phone_country_code => 61, :currency_id => "AUD", :currency_name => "Dollar" },
   { :country_name => "Bangladesh", :iso_code => "BGD", :phone_country_code => 880, :currency_id => "BDT", :currency_name => "Taka" },
@@ -231,13 +242,6 @@ AccountBrand.create([
   { :brand_id => 8, :account_id => 3}
 ])
 
-
-#Account.create([
-  #{ :address => "Ashiana Building", :area_id => 1, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "abcdef", :is_deleted => false, :registered_company_name => "YZ Company"},
-  #{ :address => "219 Maker Chambers ", :area_id => 2, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "ghijkl", :is_deleted => false, :registered_company_name => "ABC Company"},
-  #{ :address => "303 Ashish Mahal", :area_id => 3, :currency_id => "INR", :payment_status => "Complimentary", :account_balance => 0.0, :account_key => "mnopqr", :is_deleted => false, :registered_company_name => "DCF Company"},
-  #{ :address => "Santacruz", :area_id => nil, :currency_id => nil, :payment_status => nil, :account_balance => nil, :account_key => nil, :is_active => nil, :registered_company_name => "Yogi Software"}
-#])
 
 Ad.create([
   { :account_brand_id => 1, :ad_title => "Get 1% off.", :is_monday => true, :is_tuesday => true, :is_wednesday => true, :is_thursday => true, :is_friday => true, :is_saturday => true, :is_sunday => false, :start_date => "2013-11-01 00:00:00", :expiry_date => "2013-12-31 00:00:00", :is_active => true, :sms_text => "Account: XYZ Company - Brand: CafeCoffeDay - Ad 1"},
@@ -851,7 +855,7 @@ AdPromocode.create([
   { :ad_id => 4, :outlet_id => 10, :ad_promocode_id => 5 },
   { :ad_id => 5, :outlet_id => 8, :ad_promocode_id => 6 },
   { :ad_id => 5, :outlet_id => 11, :ad_promocode_id => 7 },
-  { :ad_id => 6, :outlet_id => 9, :ad_promocode_id => 9 },
+  { :ad_id => 6, :outlet_id => 9, :ad_promocode_id => 9 },C
   { :ad_id => 6, :outlet_id => 12, :ad_promocode_id => 8 },
   { :ad_id => 7, :outlet_id => 13, :ad_promocode_id => 10 },
   { :ad_id => 7, :outlet_id => 16, :ad_promocode_id => 10 },
