@@ -33,16 +33,27 @@
   <ul class="right-icons">
   <% if action_name == 'map_listing' %>
       <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing', :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
-  <% else %>
+  <% elsif action_name == 'outlet_listing' %>
       <li><%= link_to "", {:controller => 'home', :action => 'map_listing', :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "loc"%></li>
+  <% elsif action_name == 'map_search' %>
+      <li><%= link_to "", {:controller => 'home', :action => 'outlet_search', :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "outlet"%></li>
+  <% elsif action_name == 'outlet_search' %>
+      <li><%= link_to "", {:controller => 'home', :action => 'map_search', :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "loc"%></li>
   <% end %>
   </ul>
 
   <nav id="menu">
       <ul>
           <li class="subcat">Sort by:</li>
+  <% if action_name == 'map_listing' %>
           <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
-          <li><%= link_to "Hot Picks", {:controller => 'home', :action => 'hot_picks', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
+  <% elsif action_name == 'outlet_listing' %>
+          <li><%= link_to "Distance", {:controller => 'home', :action => 'map_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
+  <% elsif action_name == 'map_search' %>
+      <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
+  <% elsif action_name == 'outlet_search' %>
+      <li><%= link_to "Distance", {:controller => 'home', :action => 'map_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
+  <% end %>
           <li>&nbsp;</li>
           <li class="subcat">Filter by:</li>
           <li style="margin-top:10px;">
