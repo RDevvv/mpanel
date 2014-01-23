@@ -1,23 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   source: MyString
-  email: MyString
-  mobile_number: MyString
-  first_name: MyString
-  last_name: MyString
+  email: vijaygaikwad1988@gmail.com
+  mobile_number: 9578879878
+  first_name: vijay
+  last_name: gaikwad
   target: MyString
   company_name: MyString
   designation: MyString
   subscribe_email_updates: false
 
 two:
+  id: 2
   source: MyString
-  email: MyString
-  mobile_number: MyString
-  first_name: MyString
-  last_name: MyString
+  email: varade.vivek.123@gmail.com
+  mobile_number: 7898654512
+  first_name: vivek
+  last_name: varade
   target: MyString
-  company_name: MyString
+  company_name: Abc
   designation: MyString
   subscribe_email_updates: false
