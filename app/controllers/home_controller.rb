@@ -16,6 +16,7 @@ class HomeController < ApplicationController
             agent = request.env['HTTP_USER_AGENT']
             puts referer_agent = request.env['HTTP_REFERER']
             parsed_agent = UserAgent.parse(agent)
+            campaign_url = request.env['HTTP_HOST']+request.env['ORIGINAL_FULLPATH']
             customer = Customer.where(:uuid => cookies[:customer_uuid]).first
             customer_id = customer.id
             if customer.mobile_number.nil?
@@ -23,7 +24,7 @@ class HomeController < ApplicationController
             else
                 cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
             end
-            CustomerSession.create(:referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
+            CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
             session[:customer_id] = customer_id
         end
     end
