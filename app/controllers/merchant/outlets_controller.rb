@@ -88,6 +88,9 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = @account_brand.outlets.find(params[:id])
     @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first        
     @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name],:pincode=>params[:pincode]) if @area.blank?
+    if @area.city_id != params[:city_id]
+      @area.update_attributes(:city_id=>params[:city_id])
+    end    
     params[:outlet][:area_id] = @area.id
     respond_to do |format|
       if @outlet.update_attributes(params[:outlet])

@@ -142,7 +142,7 @@ class Outlet < ActiveRecord::Base
     if cities.present?
       city = cities.first
     elsif  pincode_areas.present?
-      city = picode_areas.first.city
+      city = pincode_areas.first.city
     elsif areas.present?
       city = areas.first.city
     end
