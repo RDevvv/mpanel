@@ -6,7 +6,7 @@ class Customer < ActiveRecord::Base
   has_many :button_clicks
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
-  attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified
+  attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates
 
   validates :mobile_number, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
   validates :uuid, :presence => true
