@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
   <title>Google Maps Multiple Markers</title>
@@ -13,7 +11,15 @@
     <%= render 'top_location_search_bar' %>
     <div id="map" style="width: 100%; height: 209px;"></div>
 
+    <div class="controls">  
+        <h3>Filter Controls</h3>
+        <ul>
+            <li class="sort" data-sort="data-outlet" data-order="asc">Ascending</li>
+            <div class="sort" data-sort="data-outlet" data-order="desc">Descending</div>
+        </ul>
+</div></h></div>
     <div class="out-add-div">
+<ul id="Grid">
       <% if @final_outlets.nil? %>
           No results found
       <% else %>
@@ -21,7 +27,7 @@
 
               <% if outlet.is_active == true %>
                   <% outlet.ads.each do |ad| %>
-                      <div class="bsc span12">
+                      <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
                         <div class="bdiv2" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                           <div class="bbox2">
                             <% brand = outlet.account_brand.brand %>
@@ -64,12 +70,13 @@
                           <div class="adloc"><%= outlet.area.area_name %><br/>
                                              <%= outlet.area.city.city_name %> <%= outlet.area.pincode %></div>
                         </div>
-                      </div>
+                      </li>
                   <% end %>
               <% end %>
           <% end %>
           <%#= paginate @final_outlets %>
       <% end %>
+      </ul>
     </div>
   </div>
 </div>
@@ -80,3 +87,39 @@
     user_location = <%= [@latitude, @longitude]%>
     map_initializer(locations, user_location);
 <% end %>
+
+<script type='text/javascript'>
+    $(function(){
+        $('#Grid').mixitup();
+    });
+
+
+$('#Grid').mixitup({
+targetSelector: '.mix',
+filterSelector: '.filter',
+sortSelector: '.sort',
+buttonEvent: 'click',
+effects: ['fade','scale'],
+listEffects: null,
+easing: 'smooth',
+layoutMode: 'grid',
+targetDisplayGrid: 'inline-block',
+targetDisplayList: 'block',
+gridClass: '',
+listClass: '',
+transitionSpeed: 600,
+showOnLoad: 'all',
+sortOnLoad: false,
+multiFilter: false,
+filterLogic: 'or',
+resizeContainer: true,
+minHeight: 0,
+failClass: 'fail',
+perspectiveDistance: '3000',
+perspectiveOrigin: '50% 50%',
+animateGridList: true,
+onMixLoad: null,
+onMixStart: null,
+onMixEnd: null
+});
+</script>

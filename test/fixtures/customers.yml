@@ -1,10 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   uuid: a1825be5-36b7-40dd-9e06-0bf58920235d
   mobile_number: 9830303030
   name: Mr.Bachpan
-  email_id: bachan@gmail.com  
+  email_id: bachan@gmail.com
   date_of_birth: 2013-11-09 16:31:03
   age: 90
   gender: Male
@@ -13,10 +14,11 @@ one:
   verification_code: c15d484e
 
 two:
-  uuid: a1825be5-36b7-40dd-9e06-0bf58920235d
+  id: 2
+  uuid: a1825be5-36b7-40dd-9e06-0bf58920236d
   mobile_number: 9830303030
   name: Mr.Bachpan
-  email_id: bachan@gmail.com  
+  email_id: bachan@gmail.com
   date_of_birth: 2013-11-09 16:31:03
   age: 90
   gender: Male

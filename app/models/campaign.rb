@@ -1,7 +1,6 @@
 class Campaign < ActiveRecord::Base
     belongs_to :ad_promocode_outlet
 
-
     validates :short_url, :uniqueness => true
 
     attr_accessible :campaign_template, :campaign_type, :ad_promocode_outlet_id, :expires_at, :keyword, :marketer, :medium, :post_expiry_forward_url, :pre_expiry_forward_url, :short_url, :source, :type, :unique_key
