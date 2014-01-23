@@ -135,7 +135,12 @@ namespace :insert do
 	  { :city_name => "Bellary", :time_zone => "UTC+05:30" },
 	  { :city_name => "Gorakhpur", :time_zone => "UTC+05:30" },
 	  { :city_name => "Jamnagar", :time_zone => "UTC+05:30" },
-	  { :city_name => "Mangalore", :time_zone => "UTC+05:30" }
+	  { :city_name => "Mangalore", :time_zone => "UTC+05:30" },
+	  { :city_name => "Kakinada", :time_zone => "UTC+05:30" },
+	  { :city_name => "Karimnagar", :time_zone => "UTC+05:30" },
+	  { :city_name => "Tirupati", :time_zone => "UTC+05:30" },
+	  { :city_name => "Gandhinagar", :time_zone => "UTC+05:30" },
+	  { :city_name => "Manipal", :time_zone => "UTC+05:30" }
 	])
 
 	puts "=================City records inserted.================"
