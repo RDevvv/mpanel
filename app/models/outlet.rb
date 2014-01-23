@@ -14,12 +14,15 @@ class Outlet < ActiveRecord::Base
 
   has_paper_trail
   acts_as_paranoid
- #  validates :mobile_number, :format => { :with => /^[7-9]\d{9}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
- #  validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
+  validates :mobile_number, :format => { :with => /^[7-9]\d{9}$/,:message => "Invalid Mobile Number" } ,:allow_nil => true, :allow_blank => true
+  validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	# validates :phone_number,  :format=>{:with =>  /^[0-9]\d{1,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
+  validates :phone_number, :numericality => {:greater_than => 0, :message => " is an invalid Phone Number."},:allow_nil => true, :allow_blank => true
+  validates_uniqueness_of :address, :scope => [:shop_no,:area_id], message: "Record Already Exist.."
  #  validates_uniqueness_of :outlet_key
  #  validates_presence_of  :address
  #  validates_presence_of :account_brand, :area
+
   after_save :geocode,:if => :is_address_changed?
   after_create :add_uniq_outlet_key,:is_outlet_verified
   geocoded_by :geocoding_address
