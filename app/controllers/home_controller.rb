@@ -30,7 +30,6 @@ class HomeController < ApplicationController
 
     def get_referer
         request.env["rack.session"]["referer"].first[:base_url]
-        #binding.pry
     end
 
     def index
@@ -97,6 +96,55 @@ class HomeController < ApplicationController
                 longitude = @location["lng"]
             end
         end
+        @longitude = longitude
+        @latitude  = latitude
+
+        r = Keyword.search do
+            fulltext params[:search]
+        end
+
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
+        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        unless @outlets.empty?
+            @nearby_outlets = @outlets.map{|o| o.id}.uniq
+        else
+            @nearby_outlets = []
+        end
+
+
+        unless r.results.first.nil?
+            @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
+            @new_outlets = Outlet.where(:id => 0)
+            r.results.first.ads.each do |ad|
+                unless ad.outlets.empty?
+                    ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
+                    nearby_outlets_with_ad = ad_outlets&@nearby_outlets
+                    unless nearby_outlets_with_ad.empty?
+                        nearby_outlets_with_ad.each do |outlet_id|
+                            @new_outlets.append(@outlets.find(outlet_id))
+                        end
+                        @ads.append(Ad.find(ad.id))
+                    end
+                end
+            end
+        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
+        end
+    end
+
+    def map_search
+        if params[:location].nil?
+            latitude = params[:latitude]
+            longitude = params[:longitude]
+        else
+            result = Geocoder.search(params[:location]+" india")
+            unless result.empty?
+                @location = result.first.data["geometry"]["location"]
+                latitude = @location["lat"]
+                longitude = @location["lng"]
+            end
+        end
+        @longitude = longitude
+        @latitude  = latitude
 
         r = Keyword.search do
             fulltext params[:search]

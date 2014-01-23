@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   customer_id: 1
   button_class: new
   ad_id: 1
@@ -12,6 +13,7 @@ one:
   ad_version_id: 1
 
 two:
+  id: 2
   customer_id: 1
   button_class: new
   ad_id: 1

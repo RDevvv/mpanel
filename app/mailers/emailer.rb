@@ -1,14 +1,15 @@
 class Emailer < ActionMailer::Base
   default :from => "merchant@gullakmaster.com"
   
-  def account_confirmation(users,account)
-    emails = users.pluck(:email)
+  def account_confirmation(user,account)
+    @user = user
     @account = account
-  	mail(:to => emails, :subject => "Account Created")
+  	mail(:to => @user.email, :subject => "Account Created")
   end
 
-  def registration_confirmation(user)
+  def registration_confirmation(user,account)
     @user = user
+    @account = account
   	mail(:to => @user.email, :subject => "Registered")
   end
 

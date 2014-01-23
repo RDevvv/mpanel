@@ -37,7 +37,7 @@ class Merchant::UsersController <  Merchant::BaseController
     @account = Account.find(params[:user][:id])
     respond_to do |format|
       if @user.save
-        Emailer.registration_confirmation(@user).deliver
+        Emailer.registration_confirmation(@user,@account).deliver
         @user.add_account(@account)
         format.html { redirect_to merchant_users_path,:notice=>"Account is created!.Check your inbox to verify it" }
       else
