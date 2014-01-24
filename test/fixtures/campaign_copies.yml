@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  campaign: 
+  campaign_id: 
   expires_at: 2014-01-21 14:17:02
   is_sent: false
   is_delivered: false
   is_opened: false
-  customer: 
+  customer_id: 
   copy_sent: 1
   use_count: 1
 
 two:
-  campaign: 
+  campaign_id: 
   expires_at: 2014-01-21 14:17:02
   is_sent: false
   is_delivered: false
   is_opened: false
-  customer: 
+  customer_id: 
   copy_sent: 1
   use_count: 1
