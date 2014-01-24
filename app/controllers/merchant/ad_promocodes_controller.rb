@@ -28,20 +28,15 @@ class Merchant::AdPromocodesController <  Merchant::BaseController
     params[:ad_promocode][:outlet_ids] =params[:ad_promocode][:outlet_ids].reject {|x| x.blank?}
     params[:ad_promocode][:outlet_ids] = @account_brand.outlet_ids if params[:ad_promocode][:outlet_ids] &&  params[:ad_promocode][:outlet_ids].include?("All")
     @ad_promocode = @ad.ad_promocodes.new(params[:ad_promocode])
-    
+  
     respond_to do |format|
-      if @ad_promocode.valid?
-        @ad_group =  @ad.ad_groups.create!(:name=>params[:ad_promocode][:set_name])
-
-        @ad_promocode.ad_group = @ad_group
-        if @ad_promocode.save
-          format.html { redirect_to merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group),:notice=>"Promocode Succesfully added"}
-        else
-          format.html { render action: "new" }
-        end  
+      @ad_group = @ad_promocode.add_ad_group(@ad,params[:ad_promocode][:set_name])
+      @ad_promocode.ad_group = @ad_group
+      if @ad_promocode.save
+        format.html { redirect_to merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group),:notice=>"Promocode Succesfully added"}
       else
         format.html { render action: "new" }
-      end
+      end  
     end
   end
 

@@ -11,6 +11,10 @@ class AdPromocode < ActiveRecord::Base
   attr_accessor :set_name
   acts_as_paranoid
   after_create :add_ad
+  
+  def add_ad_group(ad,name)
+    @ad_group = ad.ad_groups.create!(:name=>name)
+  end
 
   def add_ad
     self.ad_id = self.ad_group.ad.id
