@@ -109,7 +109,6 @@ function send_ad(customer_uuid, element)
         }
     }).success(function (data) {
         //string = JSON.parse(data);
-        console.log(data);
         if(data["mobile_number_presence"] == false)
             $('.modal').modal('show');
         else
@@ -133,19 +132,14 @@ function change_location(){
 
     var new_link=document.getElementById("change_location");
     //domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status');
-    console.log(latitude);
 }
 
 function user_geolocate(){
     if (navigator.geolocation)
-        console.log("user_geolocate");
     navigator.geolocation.getCurrentPosition(showPosition,geo_error);
-    console.log("user_geolocate");
 }
 
 function showPosition(position){
-    console.log("showPosition");
-    console.log(position.coords.latitude);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     get_variables = new_link.href.split("?")[1];

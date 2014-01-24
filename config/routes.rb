@@ -108,6 +108,7 @@ Gullak2::Application.routes.draw do
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
     match 'outlet_search' => 'home#outlet_search'
+    match 'map_search' => 'home#map_search'
     match 'verify_mobile_number' => 'customers#verify_mobile_number'
     match 'check_verification_code' => 'customers#check_verification_code'
     match 'hot_picks' => 'home#hot_picks'
