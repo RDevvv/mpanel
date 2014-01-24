@@ -22,7 +22,7 @@ class CampaignsControllerTest < ActionController::TestCase
 
   test "should create campaign" do
     assert_difference('Campaign.count') do
-      post :create, campaign: { expires_at: @campaign.expires_at, keyword: @campaign.keyword, marketer: @campaign.marketer, medium: @campaign.medium, post_expiry_forward_url: @campaign.post_expiry_forward_url, pre_expiry_forward_url: @campaign.pre_expiry_forward_url, short_url: @campaign.short_url, source: @campaign.source, campaign_type: @campaign.campaign_type, unique_key: @campaign.unique_key }
+      post :create, campaign: { expires_at: @campaign.expires_at, keyword: @campaign.keyword, marketer: @campaign.marketer, medium: @campaign.medium, post_expiry_forward_url: @campaign.post_expiry_forward_url, pre_expiry_forward_url: @campaign.pre_expiry_forward_url, short_url: SecureRandom.urlsafe_base64(3), source: @campaign.source, campaign_type: @campaign.campaign_type, unique_key: @campaign.unique_key }
     end
 
     assert_redirected_to campaign_path(assigns(:campaign))
