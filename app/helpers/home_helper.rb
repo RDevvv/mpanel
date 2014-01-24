@@ -1,4 +1,22 @@
 module HomeHelper
+    def generate_title
+        if controller_name == 'home'
+            if action_name == 'map_listing'
+                return "Map View"
+            elsif action_name == 'outlet_listing'
+                return "Outlet View"
+            elsif action_name == 'outlet_search'
+                return "Outlet Search"
+            elsif action_name == 'map_search'
+                return "Map Search"
+            elsif action_name == 'index'
+                return "Home"
+            else
+                return "Deals"
+            end
+        end
+    end
+
     def generate_referer_link(outlet, referer_uuid, ad)
         customer_id = Customer.where(:uuid => referer_uuid).first.id
 
