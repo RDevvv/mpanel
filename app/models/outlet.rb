@@ -189,6 +189,22 @@ class Outlet < ActiveRecord::Base
     end
   end
 
+  def self.get_coordinates(location,longitude,latitude)
+      coordinates = Hash.new
+      if location.blank?
+          coordinates[:latitude] = latitude
+          coordinates[:longitude] = longitude
+      else
+          result = Geocoder.search(location+" india")
+          unless result.empty?
+              @location = result.first.data["geometry"]["location"]
+              coordinates[:latitude] = @location["lat"]
+              coordinates[:longitude] = @location["lng"]
+          end
+      end
+      return coordinates
+  end
+
   def self.sort_outlet_by_ad_presence(outlets)
       @outlets_with_ad = Array.new
       @outlets_without_ad = Array.new

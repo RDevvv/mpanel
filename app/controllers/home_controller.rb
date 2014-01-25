@@ -38,20 +38,10 @@ class HomeController < ApplicationController
 
     def outlet_listing
         @outlets = nil
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
@@ -61,22 +51,10 @@ class HomeController < ApplicationController
     end
 
     def map_listing
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
-        @longitude = longitude
-        @latitude  = latitude
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
@@ -86,26 +64,14 @@ class HomeController < ApplicationController
     end
 
     def outlet_search
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
-        @longitude = longitude
-        @latitude  = latitude
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
         r = Keyword.search do
             fulltext params[:search]
         end
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         unless @outlets.empty?
             @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else
@@ -128,31 +94,19 @@ class HomeController < ApplicationController
                     end
                 end
             end
-        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
+            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
         end
     end
 
     def map_search
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
-        @longitude = longitude
-        @latitude  = latitude
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
         r = Keyword.search do
             fulltext params[:search]
         end
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         unless @outlets.empty?
             @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else
@@ -175,24 +129,14 @@ class HomeController < ApplicationController
                     end
                 end
             end
-        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
+            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
         end
     end
 
     def hot_picks
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @outlets.each do |outlet|
             if outlet.is_active?
                 @hot_picks = @outlets.map{|outlet|outlet.ads}.flatten.sort{|x,y|y.usage <=> x.usage}.map{|ad|ad.outlets}
