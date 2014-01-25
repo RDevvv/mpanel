@@ -20,7 +20,7 @@ class Campaign < ActiveRecord::Base
         campaign_template= "this is a template"
         expires_at = Time.now+100.years
         short_url = SecureRandom.urlsafe_base64(3)
-        Campaign.create(:campaign_template => campaign_template, :short_url => short_url, :ad_promocode_outlet_id => ad_promocode_outlet.id, :expires_at => expires_at, :pre_expiry_forward_url => pre_expiry_forward_url, :campaign_type => 'organic share', :medium => "wall post", :source => "facebook")
+        Campaign.create(:placement => "bottmo_left", :purpose => "lead generation", :campaign_template => campaign_template, :short_url => short_url, :ad_promocode_outlet_id => ad_promocode_outlet.id, :expires_at => expires_at, :pre_expiry_forward_url => pre_expiry_forward_url, :campaign_type => 'organic share', :medium => "wall post", :source => "facebook")
 
         return pre_expiry_forward_url
     end
