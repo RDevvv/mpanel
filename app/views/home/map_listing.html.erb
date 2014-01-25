@@ -84,7 +84,7 @@
 
 <%= javascript_tag do %>
     locations = <%= @final_outlets.map{|o|[o.latitude, o.longitude]}.uniq.to_json.html_safe %>;
-    user_location = <%= [@latitude, @longitude]%>
+    user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
     map_initializer(locations, user_location);
 <% end %>
 

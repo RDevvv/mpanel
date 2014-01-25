@@ -79,7 +79,7 @@
 <% unless @final_outlets.nil? %>
 locations = <%= @final_outlets.map{|o|[o.latitude, o.longitude]}.uniq.to_json.html_safe %>;
 <% end %>
-    user_location = <%= [@latitude, @longitude]%>
+    user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
     map_initializer(locations, user_location);
 <% end %>
 
