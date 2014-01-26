@@ -3,11 +3,11 @@ require 'test_helper'
 class CommentsControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
- # setup do
- #   @user = users(:one)
- #   sign_in @user
- #   @comment = comments(:one)
- # end
+  setup do
+    @user = users(:one)
+    sign_in @user
+    @comment = comments(:one)
+  end
 
  # test "should get index" do
  #   get :index
@@ -43,11 +43,11 @@ class CommentsControllerTest < ActionController::TestCase
  #   assert_redirected_to comment_path(assigns(:comment))
  # end
 
- # test "should destroy comment" do
- #   assert_difference('Comment.count', -1) do
- #     delete :destroy, id: @comment
- #   end
+  test "should destroy comment" do
+    assert_difference('Comment.count', -1) do
+      delete :destroy, id: @comment
+    end
 
- #   assert_redirected_to comments_path
- # end
+    assert_redirected_to comments_path
+  end
 end

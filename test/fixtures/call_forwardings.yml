@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   outlet_id: 1
   customer_id: 1 
-  call_sid: 1321360773.4
+  call_sid: dummy_sid
   from: 9830303030
   to: 9821184922
   direction: incoming
@@ -17,8 +18,9 @@ one:
   ad_id: 1
 
 two:
+  id: 2
   outlet_id: 1
-  customer_id: 1 
+  customer_id: 1
   call_sid: 1321360773.4
   from: 9830303030
   to: 9821184922
