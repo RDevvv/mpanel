@@ -968,5 +968,5 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 /* Map Pins page */
 .pin-add-div {float:left; height:200px; /*border:solid 1px #ccc;*/ }
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
-.pin-box {background: url(../img/map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0 auto;}
+.pin-box {background: url(map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0 auto;}
 /* Map Pins page */
