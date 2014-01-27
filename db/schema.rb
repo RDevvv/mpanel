@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123140125) do
+ActiveRecord::Schema.define(:version => 20140125071622) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -237,6 +237,9 @@ ActiveRecord::Schema.define(:version => 20140123140125) do
     t.datetime "updated_at",              :null => false
     t.integer  "ad_promocode_outlet_id"
     t.string   "campaign_template"
+    t.string   "purpose"
+    t.string   "placement"
+    t.string   "target"
   end
 
   create_table "categories", :force => true do |t|

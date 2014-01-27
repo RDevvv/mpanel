@@ -1,6 +1,6 @@
 class AdPromocode < ActiveRecord::Base
   attr_accessible :ad_id, :cap, :is_used, :usage, :promocode, :outlet_ids, :promocodes, :is_active, :ad_group_id, :deleted_at,:set_name
-  attr_accessor :promocodes
+  attr_accessor :promocodes, :set_name
   belongs_to :ad
   belongs_to :ad_group
   has_many :ad_promocode_outlets,:dependent=>:destroy
@@ -8,7 +8,6 @@ class AdPromocode < ActiveRecord::Base
   validates :promocode, :format => { :with => /\A[a-zA-Z0-9]+\z/,:message => "Invalid Promocode" } 
   before_destroy :can_delete
   after_save :inactive_ad_promocode
-  attr_accessor :set_name
   acts_as_paranoid
   after_create :add_ad
   
