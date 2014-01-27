@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+    test "should get category name" do
+        name = Category.first.name
+        assert_equal "Spa", name
+    end
 end
