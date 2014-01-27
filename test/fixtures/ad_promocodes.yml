@@ -1,11 +1,20 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
   id: 1
   promocode: Promocode1
   ad_id: 1
-  cap: 1.5
-  usage: 1.5
+  cap: 30
+  usage: 0
+  is_used: false
+  is_active: false
+  ad_group_id: 1
+  deleted_at:
+
+two:
+  id: 2
+  promocode: Promocode1
+  ad_id: 1
+  cap: 20
+  usage: 1
   is_used: false
   is_active: false
   ad_group_id: 1
