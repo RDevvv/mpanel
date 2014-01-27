@@ -16,6 +16,7 @@ class HomeController < ApplicationController
             agent = request.env['HTTP_USER_AGENT']
             puts referer_agent = request.env['HTTP_REFERER']
             parsed_agent = UserAgent.parse(agent)
+            campaign_url = request.env['HTTP_HOST']+request.env['ORIGINAL_FULLPATH']
             customer = Customer.where(:uuid => cookies[:customer_uuid]).first
             customer_id = customer.id
             if customer.mobile_number.nil?
@@ -23,14 +24,13 @@ class HomeController < ApplicationController
             else
                 cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
             end
-            CustomerSession.create(:referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
+            CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
             session[:customer_id] = customer_id
         end
     end
 
     def get_referer
         request.env["rack.session"]["referer"].first[:base_url]
-        #binding.pry
     end
 
     def index
@@ -38,20 +38,10 @@ class HomeController < ApplicationController
 
     def outlet_listing
         @outlets = nil
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
@@ -61,22 +51,10 @@ class HomeController < ApplicationController
     end
 
     def map_listing
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
-        @longitude = longitude
-        @latitude  = latitude
+        @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => @location[:latitude], :longitude => @location[:longitude])
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
@@ -86,24 +64,14 @@ class HomeController < ApplicationController
     end
 
     def outlet_search
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
         r = Keyword.search do
             fulltext params[:search]
         end
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => latitude, :longitude => longitude)
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         unless @outlets.empty?
             @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else
@@ -126,24 +94,49 @@ class HomeController < ApplicationController
                     end
                 end
             end
-        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
+            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
+        end
+    end
+
+    def map_search
+        @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+
+        r = Keyword.search do
+            fulltext params[:search]
+        end
+
+        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => @location[:latitude], :longitude => @location[:longitude])
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
+        unless @outlets.empty?
+            @nearby_outlets = @outlets.map{|o| o.id}.uniq
+        else
+            @nearby_outlets = []
+        end
+
+
+        unless r.results.first.nil?
+            @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
+            @new_outlets = Outlet.where(:id => 0)
+            r.results.first.ads.each do |ad|
+                unless ad.outlets.empty?
+                    ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
+                    nearby_outlets_with_ad = ad_outlets&@nearby_outlets
+                    unless nearby_outlets_with_ad.empty?
+                        nearby_outlets_with_ad.each do |outlet_id|
+                            @new_outlets.append(@outlets.find(outlet_id))
+                        end
+                        @ads.append(Ad.find(ad.id))
+                    end
+                end
+            end
+            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
         end
     end
 
     def hot_picks
-        if params[:location].nil?
-            latitude = params[:latitude]
-            longitude = params[:longitude]
-        else
-            result = Geocoder.search(params[:location]+" india")
-            unless result.empty?
-                @location = result.first.data["geometry"]["location"]
-                latitude = @location["lat"]
-                longitude = @location["lng"]
-            end
-        end
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
 
-        @outlets = Outlet.new(:latitude => latitude, :longitude => longitude).nearbys(5, :units => :km)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @outlets.each do |outlet|
             if outlet.is_active?
                 @hot_picks = @outlets.map{|outlet|outlet.ads}.flatten.sort{|x,y|y.usage <=> x.usage}.map{|ad|ad.outlets}

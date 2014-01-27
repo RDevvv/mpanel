@@ -18,7 +18,6 @@ class Outlet < ActiveRecord::Base
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	# validates :phone_number,  :format=>{:with =>  /^[0-9]\d{1,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
   validates :phone_number, :numericality => {:greater_than => 0, :message => " is an invalid Phone Number."},:allow_nil => true, :allow_blank => true
-  validates_uniqueness_of :address, :scope => [:shop_no,:area_id], message: "Record Already Exist.."
  #  validates_uniqueness_of :outlet_key
  #  validates_presence_of  :address
  #  validates_presence_of :account_brand, :area
@@ -188,6 +187,22 @@ class Outlet < ActiveRecord::Base
     else
       self.update_attributes(:is_verified => false)
     end
+  end
+
+  def self.get_coordinates(location,longitude,latitude)
+      coordinates = Hash.new
+      if location.blank?
+          coordinates[:latitude] = latitude
+          coordinates[:longitude] = longitude
+      else
+          result = Geocoder.search(location+" india")
+          unless result.empty?
+              @location = result.first.data["geometry"]["location"]
+              coordinates[:latitude] = @location["lat"]
+              coordinates[:longitude] = @location["lng"]
+          end
+      end
+      return coordinates
   end
 
   def self.sort_outlet_by_ad_presence(outlets)

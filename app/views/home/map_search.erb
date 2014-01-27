@@ -1,0 +1,120 @@
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+  <title>Google Maps Multiple Markers</title>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"
+          type="text/javascript"></script>
+</head>
+<body>
+
+<div class="container-location">
+  <div class="row-fluid">
+    <%= render 'top_location_search_bar' %>
+    <div id="map" style="width: 100%; height: 209px;"></div>
+
+    <div class="out-add-div">
+        <ul id="Grid">
+            <% if @final_outlets.nil? %>
+                No results found
+        <% else %>
+                <% @final_outlets.each do |outlet| %>
+
+                <% if outlet.is_active == true %>
+                <% outlet.ads.each do |ad| %>
+                <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
+            <div class="bdiv2" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
+                <div class="bbox2">
+                    <% brand = outlet.account_brand.brand %>
+                    <div class="brandtitle">
+                        <%= get_brand_title(outlet.account_brand.brand) %>
+                    </div>
+                    <div class="eye2"><a onclick="track(this); $.pnotify({
+                            title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
+                            text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
+                            opacity: .9
+                            });" class="description btn source"></a></div>
+                    <div align="center" class="brandlogo">
+                        <%= get_brand_image(outlet.account_brand.brand) %>
+                    </div>
+                    <div class="rch-btns-div2">
+                        <% unless outlet.mobile_number.empty? %>
+                            <div class="btn190">
+                            <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
+                        </div>
+                    <% end %>
+                    </div>
+                    <div class="distance-div2">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
+                    <div class="lower-box">
+                        <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%#= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
+                            <div class="refr2"></div>
+                        </a>
+                        <% if outlet.ads.first.is_exclusive %>
+                            <div class="star2"></div>
+                    <% end %>
+                        <div class="right-box">
+                            <div class="run2"></div>
+                            <div class="runtxt"><%= ad.ad_promocode_outlets.where(:outlet_id => outlet.id).first.sms_sents.count %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-box">
+                <div class="adtitle1">Address</div>
+                <div class="adaddress"><%= outlet.address %></div>
+                <div class="adloc"><%= outlet.area.area_name %><br/>
+                    <%= outlet.area.city.city_name %> <%= outlet.area.pincode %></div>
+            </div>
+            </li>
+        <% end %>
+        <% end %>
+        <% end %>
+            <%#= paginate @final_outlets %>
+        <% end %>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+<%= javascript_tag do %>
+<% unless @final_outlets.nil? %>
+locations = <%= @final_outlets.map{|o|[o.latitude, o.longitude]}.uniq.to_json.html_safe %>;
+<% end %>
+    user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
+    map_initializer(locations, user_location);
+<% end %>
+
+<script type='text/javascript'>
+$(function(){
+        $('#Grid').mixitup();
+        });
+
+
+$('#Grid').mixitup({
+targetSelector: '.mix',
+filterSelector: '.filter',
+sortSelector: '.sort',
+buttonEvent: 'click',
+effects: ['fade','scale'],
+listEffects: null,
+easing: 'smooth',
+layoutMode: 'grid',
+targetDisplayGrid: 'inline-block',
+targetDisplayList: 'block',
+gridClass: '',
+listClass: '',
+transitionSpeed: 600,
+showOnLoad: 'all',
+sortOnLoad: false,
+multiFilter: false,
+filterLogic: 'or',
+resizeContainer: true,
+minHeight: 0,
+failClass: 'fail',
+perspectiveDistance: '3000',
+perspectiveOrigin: '50% 50%',
+animateGridList: true,
+onMixLoad: null,
+onMixStart: null,
+onMixEnd: null
+});
+</script>

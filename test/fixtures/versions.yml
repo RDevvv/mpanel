@@ -1,0 +1,11 @@
+one:
+  id: 1
+  item_type: Ad
+  item_id: 1
+  event: create
+
+two:
+  id: 2
+  item_type: Outlet
+  item_id: 1
+  event: create

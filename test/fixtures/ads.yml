@@ -16,7 +16,7 @@ one:
   is_active: false
   sms_text: get discount
   is_exclusive: false
-  deleted_at: 2014-01-16 17:19:14 +0530
+  deleted_at:
 
 two:
   id: 2

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140121061712) do
+ActiveRecord::Schema.define(:version => 20140123140125) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
     t.datetime "updated_at",                          :null => false
     t.boolean  "is_exclusive",     :default => false
     t.time     "deleted_at"
+    t.integer  "usage",            :default => 0
   end
 
   create_table "areas", :force => true do |t|
@@ -205,6 +206,22 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
   add_index "call_forwardings", ["customer_id"], :name => "index_call_forwardings_on_customer_id"
   add_index "call_forwardings", ["outlet_id"], :name => "index_call_forwardings_on_outlet_id"
 
+  create_table "campaign_copies", :force => true do |t|
+    t.integer  "campaign_id"
+    t.datetime "expires_at"
+    t.boolean  "is_sent",      :default => false
+    t.boolean  "is_delivered", :default => false
+    t.boolean  "is_opened",    :default => false
+    t.integer  "customer_id"
+    t.integer  "copy_sent"
+    t.integer  "use_count"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "campaign_copies", ["campaign_id"], :name => "index_campaign_copies_on_campaign_id"
+  add_index "campaign_copies", ["customer_id"], :name => "index_campaign_copies_on_customer_id"
+
   create_table "campaigns", :force => true do |t|
     t.string   "source"
     t.string   "medium"
@@ -219,6 +236,7 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.integer  "ad_promocode_outlet_id"
+    t.string   "campaign_template"
   end
 
   create_table "categories", :force => true do |t|
@@ -268,15 +286,16 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
     t.datetime "updated_at",      :null => false
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "campaign_url"
   end
 
   add_index "customer_sessions", ["customer_id"], :name => "index_customer_sessions_on_customer_id"
 
   create_table "customers", :force => true do |t|
     t.string   "uuid"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "mobile_number",     :limit => 8
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+    t.integer  "mobile_number",         :limit => 8
     t.string   "name"
     t.string   "email_id"
     t.datetime "date_of_birth"
@@ -285,6 +304,7 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
     t.integer  "incentive_count"
     t.boolean  "is_verified"
     t.string   "verification_code"
+    t.boolean  "subscribe_crm_updates",              :default => true
   end
 
   create_table "facebook_shares", :force => true do |t|
@@ -423,18 +443,18 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                   :default => "",   :null => false
+    t.string   "encrypted_password",      :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.integer  "sign_in_count",           :default => 0,    :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "mobile_country_id"
@@ -447,6 +467,8 @@ ActiveRecord::Schema.define(:version => 20140121061712) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.boolean  "subscribe_email_updates", :default => true
+    t.boolean  "subscribe_crm_updates",   :default => true
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

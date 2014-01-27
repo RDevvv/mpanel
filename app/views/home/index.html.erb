@@ -57,7 +57,7 @@ function getLocation()
     if (navigator.geolocation)
     {
         console.log("within navigator");
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition, fail);
     }
     else
     {
@@ -65,6 +65,10 @@ function getLocation()
             title: 'Geolocation not supported',
             text: 'Your browser does not support geolocation', closer_hover: false, opacity: .9 });
     }
+}
+
+    function fail()
+{
 }
 function showPosition(position)
 {

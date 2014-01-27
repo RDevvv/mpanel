@@ -3,10 +3,10 @@
 one:
   id: 1
   customer_id: 1
-  button_class: new
+  button_class: call
   ad_id: 1
   current_link: buttonclick.com
-  previous_link: buttonclick.com
+  previous_link: localhost:3000
   customer_session_id: 1
   outlet_id: 1
   outlet_version_id: 1
@@ -15,7 +15,7 @@ one:
 two:
   id: 2
   customer_id: 1
-  button_class: new
+  button_class: address
   ad_id: 1
   current_link: buttonclick.com
   previous_link: buttonclick.com

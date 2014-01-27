@@ -3,7 +3,7 @@ class Campaign < ActiveRecord::Base
 
     validates :short_url, :uniqueness => true
 
-    attr_accessible :campaign_template, :campaign_type, :ad_promocode_outlet_id, :expires_at, :keyword, :marketer, :medium, :post_expiry_forward_url, :pre_expiry_forward_url, :short_url, :source, :type, :unique_key
+    attr_accessible :taget, :placement, :purpose, :campaign_url, :campaign_template, :campaign_type, :ad_promocode_outlet_id, :expires_at, :keyword, :marketer, :medium, :post_expiry_forward_url, :pre_expiry_forward_url, :short_url, :source, :unique_key
 
     def self.generate_url(ad_promocode_outlet)
         outlet = ad_promocode_outlet.outlet
@@ -20,7 +20,7 @@ class Campaign < ActiveRecord::Base
         campaign_template= "this is a template"
         expires_at = Time.now+100.years
         short_url = SecureRandom.urlsafe_base64(3)
-        Campaign.create(:campaign_template => campaign_template, :short_url => short_url, :ad_promocode_outlet_id => ad_promocode_outlet.id, :expires_at => expires_at, :pre_expiry_forward_url => pre_expiry_forward_url, :campaign_type => 'organic share', :medium => "wall post", :source => "facebook")
+        Campaign.create(:marketer => "customer", :target => "customer", :placement => "user_feed", :purpose => "acquisiton", :campaign_template => campaign_template, :short_url => short_url, :ad_promocode_outlet_id => ad_promocode_outlet.id, :expires_at => expires_at, :pre_expiry_forward_url => pre_expiry_forward_url, :campaign_type => 'button_click', :medium => "organic", :source => "facebook")
 
         return pre_expiry_forward_url
     end

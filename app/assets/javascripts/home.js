@@ -109,7 +109,6 @@ function send_ad(customer_uuid, element)
         }
     }).success(function (data) {
         //string = JSON.parse(data);
-        console.log(data);
         if(data["mobile_number_presence"] == false)
             $('.modal').modal('show');
         else
@@ -130,22 +129,44 @@ function change_location(){
     domain = document.location.origin;
     route  = document.location.pathname;
     user_geolocate();
-    void(open(domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status'));
+
+    var new_link=document.getElementById("change_location");
+    //domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status');
 }
 
 function user_geolocate(){
-    latitude = 12;
-    longitude = 72;
     if (navigator.geolocation)
-        navigator.geolocation.getCurrentPosition(showPosition,geo_error);
+    navigator.geolocation.getCurrentPosition(showPosition,geo_error);
 }
 
 function showPosition(position){
-    console.log(position.coords.latitude);
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+    get_variables = new_link.href.split("?")[1];
+    //lat_long =
 }
 
 function geo_error(){
-    console.log("couldn't fetch co-ordinates")
+    console.log("couldn't fetch co-ordinates");
+}
+
+function get_backtotop_button(){
+
+            var pxShow = 80;//height on which the button will show
+            var fadeInTime = 500;//how slow/fast you want the button to show
+            var fadeOutTime = 500;//how slow/fast you want the button to hide
+            var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
+            jQuery(window).scroll(function(){
+                if(jQuery(window).scrollTop() >= pxShow){
+                    jQuery("#backtotop").fadeIn(fadeInTime);
+                }else{
+                    jQuery("#backtotop").fadeOut(fadeOutTime);
+                }
+            });
+            jQuery('#backtotop a').click(function(){
+                jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+                return false;
+            });
+
+
 }
