@@ -280,7 +280,7 @@ background: #7f7f7f;
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye {float:right; border: none; background: url(../img/mobile-sprite.png) no-repeat -165px -41px transparent; width:28px; height: 16px; margin: 1px 2px 0 0;}
 .bbox .eye1 {float:right; border: none; background: url(../png/View_c-01.png) no-repeat transparent; width:22px; height: 20px; margin: 1px 0 0 0; border: none;}
-.bbox .eye2 {float:right; border: none; background: url(../img/glyphicons-halflings.png) no-repeat -95px -121px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
+.bbox .eye2 {float:right; border: none; background: url(../img/glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox .brandlogo {clear:both; width:100%; height: auto; margin: 10px auto;}
 .bbox .brandlogo img{text-align: center; width: 108px; height:108px; /*width: auto; height: auto;*/ border: none;}
 
@@ -306,7 +306,7 @@ background: #7f7f7f;
 .right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star {background: url(../img/mobile-sprite.png) no-repeat -173px -196px transparent; width:18px; height: 17px; text-align: center; margin: 0 auto; border: none;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
-.lower-box .star2 {background: url(../img/glyphicons-halflings.png) no-repeat -145px 0px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px;}
+.lower-box .star2 {background: url(../img/glyphicons-halflings.png) no-repeat -97px -121px transparent; width:18px; height: 18px; /*position: relative;*/ float:left; margin-left: 28%; padding: 0 13px 0 5px;  bottom: 0px;}
 .lower-box .star1 img {}
 /* Test Styles */
 
@@ -969,5 +969,5 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 /* Map Pins page */
 .pin-add-div {float:left; height:200px; /*border:solid 1px #ccc;*/ }
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
-.pin-box {background: url(../img/map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 4px 0 2px 7px; color: #fff; font-size: 16px; font-weight: normal; text-transform: uppercase; margin: 0 auto;}
+.pin-box {background: url(../img/map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0 auto;}
 /* Map Pins page */
