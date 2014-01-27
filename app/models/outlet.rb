@@ -18,6 +18,7 @@ class Outlet < ActiveRecord::Base
   validates :email_id, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "Invalid Email Id" } ,:allow_nil => true, :allow_blank => true
 	# validates :phone_number,  :format=>{:with =>  /^[0-9]\d{1,4}-\d{6,8}$/, :message => "Invalid!,it should be in the format of [Code]-[Number]" },:allow_nil => true, :allow_blank => true
   validates :phone_number, :numericality => {:greater_than => 0, :message => " is an invalid Phone Number."},:allow_nil => true, :allow_blank => true
+  validates_uniqueness_of :address, :scope => [:shop_no,:area_id], message: "Record Already Exist.."
  #  validates_uniqueness_of :outlet_key
  #  validates_presence_of  :address
  #  validates_presence_of :account_brand, :area

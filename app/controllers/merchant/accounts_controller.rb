@@ -99,8 +99,11 @@ class Merchant::AccountsController <  Merchant::BaseController
   end
   
   def add_brands
-   
-    @current_account.brand_ids = @current_account.brand_ids.push(params[:brand_ids].collect(&:to_i)).flatten.compact.uniq
+    if params[:brand_ids].present?
+      @current_account.brand_ids = @current_account.brand_ids.push(params[:brand_ids].collect(&:to_i)).flatten.compact.uniq
+    else
+      @current_account.brand_ids = @current_account.brand_ids
+    end      
     if @current_account.save
       redirect_to merchant_account_path(@current_account)
     else
@@ -110,12 +113,4 @@ class Merchant::AccountsController <  Merchant::BaseController
     end
   end
 
-  # def destroy_brand
-  #   @account_brand = @current_account.account_brands.find(params[:id])
-  #   @account_brand.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to merchant_account_account_brands_path(@current_account) }
-  #   end
-  # end
-  
 end
