@@ -12,6 +12,9 @@ one:
   unique_key: MyString
   expires_at: 2014-01-04 14:54:44
   ad_promocode_outlet_id: 1
+  target: customer
+  placement: user_feed
+  purpose: acquisition
 
 two:
   source: MyString
@@ -25,3 +28,6 @@ two:
   unique_key: MyString
   expires_at: 2014-01-04 14:54:44
   ad_promocode_outlet_id: 1
+  target: customer
+  placement: user_feed
+  purpose: acquisition
