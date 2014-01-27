@@ -11,14 +11,4 @@ class Brand < ActiveRecord::Base
     def name
         self.brand_name
     end
-
-    def sort_by_brands
-        outlets = Array.new
-        self.account_brands.each do |account_brand|
-            account_brand.ads.each do |ad|
-                outlets.push ad.outlets
-            end
-        end
-        outlets = outlets.flatten.uniq
-    end
 end

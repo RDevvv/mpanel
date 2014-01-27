@@ -47,7 +47,7 @@ class HomeController < ApplicationController
     end
 
     def brand_listing
-        @final_outlets = Brand.find(params[:brand_id]).sort_by_brands
+        #@final_outlets = Brand.find(params[:brand_id]).sort_by_brands
     end
 
     def map_listing
