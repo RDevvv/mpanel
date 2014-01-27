@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   industry_id: 1
-  category_name: MyString
+  category_name: Spa
 
 two:
+  id: 2
   industry_id: 1
   category_name: MyString
