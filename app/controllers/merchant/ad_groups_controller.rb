@@ -7,13 +7,6 @@ class Merchant::AdGroupsController <  Merchant::BaseController
     @outlets = @ad_group.outlets.uniq
   end
 
-  def toggle_active
-    @ad_group = @ad.ad_groups.find(params[:id])
-    @ad_group.toggle_active
-
-    redirect_to  merchant_account_account_brand_ad_path(@current_account,@account_brand,@ad)
-  end
-
   def delete_outlet
     @ad_group = @ad.ad_groups.find(params[:id])
     @ad_group.delete_outlet(params[:outlet_id])

@@ -88,7 +88,6 @@ Gullak2::Application.routes.draw do
           end
           resources  :ad_groups,:only=>[:show,:destroy] do
             member do
-              post 'toggle_active'
               get 'delete_outlet'
               get 'more_promocodes'
               get 'more_outlets'
