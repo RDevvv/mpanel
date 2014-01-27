@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CountryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+    test "if country name is being fetched" do
+        name = Country.first.name
+        assert_equal "Australia", name
+
+    end
 end

@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
   id: 1
   city_name: Mumbai
@@ -14,4 +12,4 @@ two:
   time_zone: MyString
   latitude: 19.083959
   longitude: 73.007027
-  country_id: 1
+  country_id: 2
