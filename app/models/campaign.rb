@@ -3,7 +3,7 @@ class Campaign < ActiveRecord::Base
 
     validates :short_url, :uniqueness => true
 
-    attr_accessible :taget, :placement, :purpose, :campaign_url, :campaign_template, :campaign_type, :ad_promocode_outlet_id, :expires_at, :keyword, :marketer, :medium, :post_expiry_forward_url, :pre_expiry_forward_url, :short_url, :source, :unique_key
+    attr_accessible :target, :placement, :purpose, :campaign_url, :campaign_template, :campaign_type, :ad_promocode_outlet_id, :expires_at, :keyword, :marketer, :medium, :post_expiry_forward_url, :pre_expiry_forward_url, :short_url, :source, :unique_key
 
     def self.generate_url(ad_promocode_outlet)
         outlet = ad_promocode_outlet.outlet
