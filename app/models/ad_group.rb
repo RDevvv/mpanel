@@ -8,22 +8,6 @@ class AdGroup < ActiveRecord::Base
 
   acts_as_paranoid
   
-  def toggle_active
-    self.is_active? ?  self.deactivate : self.activate
-  end
-
-  def activate
-    self.is_active = true
-    self.ad_promocodes.update_all(:is_active=>true)
-    self.save
-  end
-
-  def deactivate
-    self.is_active = false
-    self.ad_promocodes.update_all(:is_active=>false)
-    self.save
-  end
-
   def delete_outlet(outlet_id)
     self.ad_promocode_outlets.where(:outlet_id=>outlet_id).destroy_all
   end
