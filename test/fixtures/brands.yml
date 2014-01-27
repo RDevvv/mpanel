@@ -11,7 +11,7 @@ one:
 two:
   id: 2
   brand_name: Aura Spa
-  category_id: 2
+  category_id: 1
   website_url: aura.spa.com
   is_active: false
   is_verified: false
