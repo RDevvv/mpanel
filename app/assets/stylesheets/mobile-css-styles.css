@@ -199,11 +199,11 @@ border:0px solid #7D99CA; -webkit-border-radius: 1px; -moz-border-radius: 1px;bo
 }
 .button_map1{
 border:0px solid #7D99CA; font-size:85%;font-family:trebuchet MS, sans-serif; padding: 5px 12px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #ffffff;
- background: url(PurpleTag-01.png) no-repeat transparent;
+
  
 }
 .button_map1:hover{
-background-image: background: url(PurpleTag-01.png) no-repeat transparent; color: #fff; text-decoration: none;
+ color: #fff; text-decoration: none;
  
 }
 .button_map2{
@@ -240,7 +240,7 @@ background: url(YellowTag-01.png) no-repeat transparent;
 }
 
 .button_call1:hover{
- background-image: background: url(PurpleTag-01.png) no-repeat transparent; color: #fff; text-decoration: none;
+ color: #fff; text-decoration: none;
 }
 .button_call2{
 border:0px solid #7D99CA; font-size:85%;font-family:trebuchet MS, sans-serif; padding: 1px 10px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
@@ -296,7 +296,7 @@ background: #7f7f7f;
 
 
 .lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: 22px; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: 20px;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
+.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: hidden; }
 .lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
