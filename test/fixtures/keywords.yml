@@ -8,3 +8,8 @@ two:
   id: 2
   keyword: Spa
   keyword_alias: spee
+
+two:
+  id: 3
+  keyword: Aura Spa
+  keyword_alias: spee
