@@ -212,7 +212,7 @@ position:relative; right:24px; background:#bfbfbf; cursor: pointer;
  
 }
 .button_map2:hover{
-background-image: position:relative; right:24px; background:#bfbfbf; color: #fff; text-decoration: none; cursor: pointer;
+position:relative; right:24px; background:#bfbfbf; color: #fff; text-decoration: none; cursor: pointer;
 }
 
 .button_call{
@@ -770,7 +770,7 @@ position:relative; right:24px; background:#bfbfbf; cursor: pointer;
  
 }
 .button_map2:hover{
-background-image: position:relative; right:24px; background:#bfbfbf; color: #fff; text-decoration: none; cursor: pointer;
+position:relative; right:24px; background:#bfbfbf; color: #fff; text-decoration: none; cursor: pointer;
 }
 
 .button_call2{
