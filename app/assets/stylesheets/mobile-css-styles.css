@@ -295,7 +295,7 @@ background: #7f7f7f;
 
 
 
-.lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: 22px; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
+.lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: auto; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: hidden; }
@@ -782,7 +782,7 @@ background: #7f7f7f;
  background: #7f7f7f; color: #fff; text-decoration: none;
 }
 
-.lower-box {clear:both; width:100%; border: solid 1px #ccc; height: 22px; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
+.lower-box {clear:both; width:100%; border: solid 1px #ccc; height: auto; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: 20px;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: hidden; }
