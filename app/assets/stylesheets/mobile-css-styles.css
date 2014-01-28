@@ -298,7 +298,7 @@ background: #7f7f7f;
 .lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: auto; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
-.lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: hidden; }
+.lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; }
 .lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
 .right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
 .right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
@@ -785,7 +785,7 @@ background: #7f7f7f;
 .lower-box {clear:both; width:100%; border: solid 1px #ccc; height: auto; background-color: #ffffff; margin:3px 0 10% 0; padding: 3px 1px;}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: 20px;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
-.lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: hidden; }
+.lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; }
 .lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
 .right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
 .right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
