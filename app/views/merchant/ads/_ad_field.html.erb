@@ -36,7 +36,7 @@
     <div class="control-group">
       <label class="control-label">Start Date</label>
       <div class="controls" style="width: 35%;">
-        <%= f.text_field :start_date, :placeholder=>"Start Date", :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"start_date"%>               
+        <%= f.text_field :start_date, :placeholder=>"Start Date", :class=>"date-picker validate[required]", "data-prompt-position"=>"topLeft",:id=>"start_date"%>               
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
     <div class="control-group">
       <label class="control-label">Expiry Date</label>
       <div class="controls" style="width: 35%;">
-        <%= f.text_field :expiry_date, :placeholder=>"Expiry Date", :class=>"date-picker", "data-prompt-position"=>"topLeft",:id=>"end_date"%>               
+        <%= f.text_field :expiry_date, :placeholder=>"Expiry Date", :class=>"date-picker validate[required]", "data-prompt-position"=>"topLeft",:id=>"end_date"%>               
       </div>  
     </div>
   </div>  

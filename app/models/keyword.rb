@@ -7,7 +7,9 @@ class Keyword < ActiveRecord::Base
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
 
+	validates_uniqueness_of :keyword, :message => " Oops...This keyword already exists."
+
   searchable do
-      text :keyword
+    text :keyword
   end
 end
