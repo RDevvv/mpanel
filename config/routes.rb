@@ -18,7 +18,9 @@ Gullak2::Application.routes.draw do
   resources :customers
   resources :pages
 
+  get "get_missed_call" => "missed_calls#get_missed_call"
   get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
+  get "desktop" => "home#combo_view"
   get "get_call_click/:id" => "call_button_selects#get_click"
   post "get_button_click" => "button_clicks#get_click"
   match "store_call_details" => "call_forwardings#store_call_details"
