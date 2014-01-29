@@ -1,6 +1,6 @@
 class MissedCallsController < ApplicationController
     def get_missed_call
-        @missed_call = MissedCall.create(:from => params[:From], :to => params[:To], :call_sid => params[:Call_Sid])
+        @missed_call = MissedCall.create(:call_sid=>params["CallSid"],:from=>params[:From],:to=>params["To"])
         render :json => 'OK', :status => '200'
     end
 end
