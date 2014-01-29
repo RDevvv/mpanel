@@ -21,4 +21,21 @@ class SmsSent < ActiveRecord::Base
         message.ssl_verify_peer = false
         message.post(:From => "GULLAK", :To => number, :Body => message)
     end
+
+
+def send_text_message
+
+ 
+    twilio_sid = "gullakmaster"
+    twilio_token = "449df2572ff8b57017ceb975d5dc15b93d480e02"
+    twilio_phone_number = "08080156677"
+ 
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+ 
+    @twilio_client.account.sms.messages.create(
+      :from => "91#{twilio_phone_number}",
+      :to => 9405514310,
+      :body => "This is an message. It gets sent to "
+    )
+  end
 end

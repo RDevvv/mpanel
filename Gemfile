@@ -19,6 +19,8 @@ gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
 gem "carrierwave"
 gem "rails_admin"
 gem "breadcrumbs_on_rails"
+gem 'twilio-ruby'
+
 
 gem 'capistrano', '~> 3.0.1'
 gem 'capistrano-rails'

@@ -2,7 +2,7 @@
 
 one:
   id: 1
-  brand_name: CCD
+  brand_name: Cafe Coffee Day
   category_id: 1
   website_url: ccd.com
   is_active: false
@@ -12,7 +12,7 @@ two:
   id: 2
   brand_name: Aura Spa
   category_id: 1
-  website_url: aura.spa.com
+  website_url: aura-spa.com
   is_active: false
   is_verified: false
 
