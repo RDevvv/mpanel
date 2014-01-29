@@ -26,9 +26,11 @@ class Ad < ActiveRecord::Base
       brand_name = self.account_brand.brand.brand_name
       keywords = Keyword.where(:keyword => brand_name)
       if keywords.empty?
-          Keyword.create(:keyword => brand_name).ad_keywords.create(:ad_id => self.id)
+          keyword = Keyword.create(:keyword => brand_name)
+          keyword.ad_keywords.create(:ad_id => self.id)
           brand_name.split(" ").each do |word|
-              Keyword.create(:keyword => word).ad_keywords.create(:ad_id => self.id)
+              new_keyword = Keyword.create(:keyword => word)
+              new_keyword.ad_keywords.create(:ad_id => self.id)
           end
       else
           keywords.first.ad_keywords.create(:ad_id => self.id)
