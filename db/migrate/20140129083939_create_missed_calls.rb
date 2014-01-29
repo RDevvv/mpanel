@@ -3,8 +3,8 @@ class CreateMissedCalls < ActiveRecord::Migration
     create_table :missed_calls do |t|
       t.references :campaign
       t.string :call_sid
-      t.integer :from, :limit => 8
-      t.integer :to, :limit => 8
+      t.string :from
+      t.string :to
       t.boolean :is_valid
 
       t.timestamps
