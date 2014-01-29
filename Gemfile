@@ -9,7 +9,6 @@ gem 'geocoder'
 gem 'useragent'
 gem 'kaminari'
 gem 'sunspot_rails'
-gem 'sunspot_solr'
 gem 'compass'
 gem 'devise'
 gem "cancan"

@@ -9,7 +9,4 @@ class Keyword < ActiveRecord::Base
 
 	validates_uniqueness_of :keyword, :message => " Oops...This keyword already exists."
 
-  searchable do
-    text :keyword
-  end
 end
