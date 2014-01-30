@@ -167,6 +167,4 @@ function get_backtotop_button(){
                 jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
                 return false;
             });
-
-
 }

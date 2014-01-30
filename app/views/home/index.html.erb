@@ -34,7 +34,7 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
             <div class="c-loc">
                 <div class="txt">Use Current location</div>
                 <div class="locimg">
-                    <%= link_to image_tag("current_location_big.png"), map_listing_path(:latitude => 19.07741, :longitude => 71.85746), :id => 'map' %>
+                    <%= link_to image_tag("current_location_big.png"), outlet_listing_path(:latitude => 19.07741, :longitude => 71.85746), :id => 'map' %>
                 </div>
                 <div class="error"></div>
                 <div class="txt">OR</div>
@@ -72,8 +72,8 @@ function getLocation()
 }
 function showPosition(position)
 {
-    console.log(position.coords.latitude)
-    map_link.href = "/map_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
+    console.log(position.coords.latitude);
+    map_link.href = "/outlet_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
 }
 getLocation();
 </script>
