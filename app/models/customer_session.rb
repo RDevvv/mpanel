@@ -9,4 +9,15 @@ class CustomerSession < ActiveRecord::Base
     def geocoding_address
         "india"
     end
+
+    def self.update_coordinates(uuid, location)
+        customer = Customer.where(:uuid =>uuid)
+        if customer.blank?
+            customer = Customer.create(:uuid => uuid)
+            customer.customer_sessions.create(:latitude => location[:latitude], :longitude => location[:longitude])
+        else
+            customer.first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+        end
+    end
+
 end

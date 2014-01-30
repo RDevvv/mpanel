@@ -225,4 +225,5 @@ class Outlet < ActiveRecord::Base
       end
       return (@outlets_with_ad+@outlets_without_ad)
   end
+
 end

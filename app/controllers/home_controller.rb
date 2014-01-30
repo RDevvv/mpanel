@@ -14,18 +14,20 @@ class HomeController < ApplicationController
         unless session[:new_session] == 1
             session[:new_session] = 1
             agent = request.env['HTTP_USER_AGENT']
-            puts referer_agent = request.env['HTTP_REFERER']
+            referer_agent = request.env['HTTP_REFERER']
             parsed_agent = UserAgent.parse(agent)
             campaign_url = request.env['HTTP_HOST']+request.env['ORIGINAL_FULLPATH']
             customer = Customer.where(:uuid => cookies[:customer_uuid]).first
-            customer_id = customer.id
-            if customer.mobile_number.nil?
-                cookies[:mobile_number] = {:value => false, :expires => 1.year.from_now}
-            else
-                cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
+            unless customer.blank?
+                customer_id = customer.id
+                if customer.mobile_number.nil?
+                    cookies[:mobile_number] = {:value => false, :expires => 1.year.from_now}
+                else
+                    cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
+                end
+                CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
+                session[:customer_id] = customer_id
             end
-            CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
-            session[:customer_id] = customer_id
         end
     end
 
@@ -39,8 +41,8 @@ class HomeController < ApplicationController
     def outlet_listing
         @outlets = nil
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
         @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
@@ -52,8 +54,8 @@ class HomeController < ApplicationController
 
     def map_listing
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
 
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => @location[:latitude], :longitude => @location[:longitude])
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
@@ -65,24 +67,21 @@ class HomeController < ApplicationController
 
     def outlet_search
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        result = Keyword.search(params[:search])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
 
-        r = Keyword.search do
-            fulltext params[:search]
-        end
-
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
         @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
-        unless @outlets.empty?
+        unless @outlets.blank?
             @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else
             @nearby_outlets = []
         end
 
 
-        unless r.results.first.nil?
+        unless result.blank?
             @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
             @new_outlets = Outlet.where(:id => 0)
-            r.results.first.ads.each do |ad|
+            result.each do |ad|
                 unless ad.outlets.empty?
                     ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
                     nearby_outlets_with_ad = ad_outlets&@nearby_outlets
@@ -100,24 +99,21 @@ class HomeController < ApplicationController
 
     def map_search
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        result = Keyword.search(params[:search])
 
-        r = Keyword.search do
-            fulltext params[:search]
-        end
-
-        Customer.where(:uuid =>cookies[:customer_uuid]).first.customer_sessions.last.update_attributes(:latitude => @location[:latitude], :longitude => @location[:longitude])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
-        unless @outlets.empty?
+        unless @outlets.blank?
             @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else
             @nearby_outlets = []
         end
 
 
-        unless r.results.first.nil?
+        unless result.blank?
             @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
             @new_outlets = Outlet.where(:id => 0)
-            r.results.first.ads.each do |ad|
+            result.each do |ad|
                 unless ad.outlets.empty?
                     ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
                     nearby_outlets_with_ad = ad_outlets&@nearby_outlets
@@ -135,6 +131,7 @@ class HomeController < ApplicationController
 
     def hot_picks
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
 
         @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @outlets.each do |outlet|

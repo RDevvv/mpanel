@@ -32,13 +32,13 @@
   <div class="head-brand">GullakMaster</div>
   <ul class="right-icons">
   <% if action_name == 'map_listing' %>
-      <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing', :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
+      <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
   <% elsif action_name == 'outlet_listing' %>
       <li><%= link_to "", {:controller => 'home', :action => 'map_listing', :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "loc"%></li>
   <% elsif action_name == 'map_search' %>
-      <li><%= link_to "", {:controller => 'home', :action => 'outlet_search', :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "outlet"%></li>
+      <li><%= link_to "", {:controller => 'home', :action => 'outlet_search',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "outlet"%></li>
   <% elsif action_name == 'outlet_search' %>
-      <li><%= link_to "", {:controller => 'home', :action => 'map_search', :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "loc"%></li>
+      <li><%= link_to "", {:controller => 'home', :action => 'map_search',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "loc"%></li>
   <% end %>
   </ul>
 
