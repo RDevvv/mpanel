@@ -10,9 +10,6 @@ set :deploy_via, :remote_cache
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
 
 # Extended Server Syntax
 # ======================
@@ -20,13 +17,14 @@ role :db,  %w{deploy@example.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '54.201.213.231', user: 'ubuntu', roles: %w{web app db}
+server '54.201.14.108', user: 'ubuntu', roles: %w{web app db}
 set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"production"
 set :deploy_to, '/home/ubuntu/apps/gullak2'
 
 set :pty, true
+set :ssh_options, { :forward_agent => true }
 
 set :rvm_type, :user
 set :rvm_ruby_version, '1.9.3'

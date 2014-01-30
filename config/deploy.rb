@@ -18,6 +18,7 @@
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
 
+after :deploy, "deploy:start_solr"
 
 namespace :deploy do
 
