@@ -7,7 +7,6 @@ class AdPromocode < ActiveRecord::Base
   has_many :outlets,:through=>:ad_promocode_outlets
   validates :promocode, :format => { :with => /\A[a-zA-Z0-9]+\z/,:message => "Invalid Promocode" } 
   before_destroy :can_delete
-  after_save :inactive_ad_promocode
   acts_as_paranoid
   after_create :add_ad
   
@@ -23,11 +22,4 @@ class AdPromocode < ActiveRecord::Base
   def can_delete
     (self.usage.blank? || self.usage.to_i == 0) ? true : false
   end
-
-  def inactive_ad_promocode
-    if self.usage != self.cap
-      self.is_active = false
-    end
-  end
-  
 end
