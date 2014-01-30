@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  campaign: 
-  call_sid: MyString
-  from: 1
-  to: 1
+  id: 1
+  campaign_id: 1
+  call_sid: asdfasdf234sadf123sdfaasdf
+  from: 09878676534
+  to:  09878676222
   is_valid: false
 
 two:
-  campaign: 
-  call_sid: MyString
-  from: 1
-  to: 1
+  id: 2
+  campaign_id: 2
+  call_sid: asdqwedf234sadf123sdfaasdf
+  from: 09678676534
+  to: 09878671122
   is_valid: false
