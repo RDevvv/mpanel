@@ -1,5 +1,6 @@
 class Campaign < ActiveRecord::Base
     belongs_to :ad_promocode_outlet
+    has_many :campaign_copies
 
     validates :short_url, :uniqueness => true
 
