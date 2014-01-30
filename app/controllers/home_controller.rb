@@ -145,4 +145,7 @@ class HomeController < ApplicationController
         @final_outlets = @hot_picks
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
+
+    def combo_view
+    end
 end
