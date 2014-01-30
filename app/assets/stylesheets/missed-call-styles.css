@@ -1,0 +1,89 @@
+
+/* Custom font */
+* {margin: 0; padding: 0;}
+@font-face {
+    font-family: 'klavikaregular';
+    src: url('klavika_regular-webfont.eot');
+    src: url('klavika_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_regular-webfont.woff') format('woff'),
+         url('klavika_regular-webfont.ttf') format('truetype'),
+         url('klavika_regular-webfont.svg#klavikaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'klavikabold';
+    src: url('klavika_bold-webfont.eot');
+    src: url('klavika_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_bold-webfont.woff') format('woff'),
+         url('klavika_bold-webfont.ttf') format('truetype'),
+         url('klavika_bold-webfont.svg#klavikabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* Custom font */
+
+html {
+  width: 100%;
+}
+
+body {font-family: 'klavikaregular', Tahoma, Verdana, Segoe, sans-serif; background: #fff; width: 100%;}
+header {width: 100%; height: 115px; margin: 0 auto 0 auto;}
+#wrapper {background-image: url('../assets/page-bg.png'); background-repeat: no-repeat; margin: 0 auto; width: 810px; height: 1001px;}
+.mainheader {width: 731px; height: 100%; margin: 0 auto; padding: 34px 0 0 0;}
+.mainheader .logo {float:left; margin: 0 0 0 5px; border: none;}
+.orangebox {float: right; width: 491px; height: 50px; background:#f7941e; color: #fff; margin: 56px 0 0 0;
+	border-top-left-radius: 15px; border-bottom-right-radius: 15px; -webkit-border-bottom-right-radius: 15px; -moz-border-bottom-right-radius: 15px;
+ }
+.orangebox .txt {float:right; color: #fff; font-size: 24px; margin: 7px 20px 0 0;}
+.maindiv {margin: 0 auto; background: url(map-bg-responsive.png) no-repeat center center #fff; width: 810px; height:1001px; border: solid 1px #ccc;}
+
+.contentbox {width: 706px; height: 339px; clear:both; background:#e6e7e8; border: solid 10px #f7941e; margin: 58px auto 0;}
+.contentbox .box1 {float:left; width: 49%;}
+.contentbox .box2 {float:left; width: 49%;}
+.contentbox .box1 img {float: left; margin: 4% 0 0 10%;}
+.contentbox .box2 .txt1 {margin:20% 0 0 0; text-align: center; font-size: 20px; font-weight: bold; color:#000;}
+.contentbox .box2 .txt1 span {color: #ed1c24;}
+.contentbox .box2 .txt2 {clear: both; text-align: center; margin: 15px 0 0 0; line-height: 28px; font-size: 20px; color:#000;}
+
+.lower-contentbox {width:706px; height: 345px; clear: both; margin: 40px auto 0;}
+.lower-contentbox .title {font-family: 'klavikabold', Tahoma, Verdana, Segoe, sans-serif; width: 100%;text-align: center; font-size: 38px; font-weight: bold; color: #ed1c24;}
+.lower-contentbox .title2 {font-family: 'klavikabold', Tahoma, Verdana, Segoe, sans-serif; width: 100%; text-align: center; font-size: 26px; font-weight: bold; color: #000;}
+
+.terms {clear:both; text-align: center; font-weight: bold; font-size: 18px; margin: 25px 0 0 0;}
+ol.termslinks {clear: both; clear: both; margin: 3px 0 0 0; text-align: center; list-style-type: none;}
+ol.termslinks li {clear: both; font-size: 20px;}
+
+.homelinks {float:right; position: relative; width: 129px; height: 123px; right: 0px; bottom:38px;} 
+.homelinks .home {float: right; margin: 15% 0 0 0;}
+.homelinks .txt {float: right; text-align: center; color: #fff; font-weight: bold; font-size: 14px; margin: 0 2% 0 0;}
+
+ul.sharelinks {float: left; position: relative; top:52px; left: 11%; list-style: none; width: auto;}
+ul.sharelinks li {float: left; margin: 0 5px;}
+a.tw {background: url(../assets/blog-sprite.png) no-repeat -2px -5px transparent; padding: 7px 15px 5px 17px;}
+a.fb {background: url(../assets/blog-sprite.png) no-repeat -2px -92px transparent; padding: 7px 15px 5px 17px;}
+a.gplus {background: url(../assets/blog-sprite.png) no-repeat -2px -137px transparent; padding: 7px 15px 5px 17px;}
+
+footer {clear:both; width: 100%; height: 59px; background: #f7941e;}
+.mainfooter {text-align: center; color:#fff; font-size: 18px; width: 706px; margin: 15px auto 4px auto;}
+
+@media only screen and (min-width: 480px) {
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+
+}
