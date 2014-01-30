@@ -1,0 +1,96 @@
+<!doctype html>
+  <html>
+    <head>
+    	<meta charset="utf-8">
+    
+
+    	<link rel="stylesheet" href="assets/bootstrap.css"  type="text/css"/>
+    	  <link rel="stylesheet" href="assets/smartnav.css">
+    	  <link rel="stylesheet" href="assets/desktop-css-styles.css">
+    	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    	  <script type="text/javascript" src="assets/jquery.ba-hashchange.js"></script>
+    	  <script type="text/javascript" src="assets/left-menu-bar.js"></script>
+          <script src="jquery.color.js"></script>
+          <script src="script.js"></script>
+        <!-- aToolTip js -->
+      <script type="text/javascript" src="assets/jquery.atooltip.js"></script>
+    	  
+    	  <title>GullakMaster - Home</title>
+        <script type="text/javascript">
+          (function(){
+              var field = document.getElementById('s');
+              var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
+
+              field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
+              field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
+          })(); 
+        </script>
+        <script type="text/javascript">
+            $(function(){ 
+                $('a.normalTip').aToolTip();
+            }); 
+        </script>
+    </head>
+    <body>
+ <div id="header2">
+    	  <section id="top-bar">
+            <section class="top-bar1">
+                <div class="subtitle">Deals At Your Fingertips !!!</div>
+                <ul class="social-links">
+                  <li><a href="https://www.facebook.com/GullakMaster" target="_blank"><i class="icon-facebook-rect"></i></a></li>
+                  <li><a href="https://twitter.com/gullakmaster" target="_blank"><i class="icon-twitter" ></i></a></li>
+                </ul>
+            </section>
+          </section>
+          <section id="header-div">
+                <section id="header-container">
+                	<div class="wrapper">
+                            <section id="logo-wrapper" class="one_fourth">
+                                <a href="#"><img src="assets/desktop/logo-white-transp.png" alt="GullakMaster" title="GullakMaster" /></a>
+                            </section><!-- end logo -->
+                            <!--<div class="clearboth"></div>-->
+                        </div>
+                    <ul class="smartnav">
+                    	<li class="home"><a href="mobile-desktop-customized.html">&nbsp;</a></li>
+              			  <li>Blogs
+              			  	<ul>
+                          <li><a href="product-updates.html">Product Updates</a></li>
+              			  	</ul>
+              			  </li>
+              			  <li>
+              			    About Us
+              			    <ul>
+                          <li><a href="traffic-patterns.html">Traffic Patterns</a></li>
+              			      <li><a href="aboutus-team.html">Our Team</a></li>
+              			      <li><a href="careers.html">Careers</a></li>
+              			      <li><a href="terms-of-use.html">Terms of Use</a></li>
+              			      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              			    </ul>
+              			  </li>
+              			  <li>Merchants
+              			  	<ul>
+              			      <li><a href="Sales-form.html">Contact Sales Rep</a></li>
+              			    </ul>
+              			  </li>
+              			  <li>Contact
+                        <ul>
+                          <li><a href="office-locations.html">Office Locations</a></li>
+                          <li><p><a href="#" class="normalTip exampleTip" title="careers@gullakmaster.com">Career Enquiries</a></p></li>
+                          <li><p><a href="#" class="normalTip exampleTip" title="merchant@gullakmaster.com">Merchant Enquiries</a></p></li>
+                          <li><p><a href="#" class="normalTip exampleTip" title="investor@gullakmaster.com">Investor Enquiries</a></p></li>
+                          <li><p><a href="#" class="normalTip exampleTip" title="media@gullakmaster.com">Media Enquiries</a></p></li>
+                           </ul>
+                      </li>
+              			</ul>
+              		</section>
+                  </section>
+       </div>
+
+<%= yield %>
+
+        <div id="footer">
+          <div class="centerfooter">GullakMaster &#169; 2014</div>
+        </div>
+
+    </body>
+    </html
