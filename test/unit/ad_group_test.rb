@@ -7,6 +7,7 @@ class AdGroupTest < ActiveSupport::TestCase
     end
 
     test "if more outlets can be added using add_more_outlets" do
-        #AdGroup.first.add_more_outlets([1])
+        AdGroup.first.add_more_outlets([1])
+        assert_equal 4, AdPromocode.count
     end
 end
