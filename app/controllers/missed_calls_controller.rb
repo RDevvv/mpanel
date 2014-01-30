@@ -16,8 +16,4 @@ class MissedCallsController < ApplicationController
         template_2 = " for more Deals At Your Fingertips"
         render :text => (template_1+campaign_copy.short_url+template_2), :status => '200'
     end
-
-    def self.add_exotel_campaign()
-        Campaign.create(:marketer => "GM Marketer", :target => "customer", :source => "exotel", :medium => "SMS", :type => "auto trigger", :purpose => "acquisition", :campaign_template => "Your contest entry is confirmed. We will call the lucky winner of Samsung Grand 2 on 14/02/14. Try gullak.co/xxxx for more Deals At Your Fingertips")
-    end
 end
