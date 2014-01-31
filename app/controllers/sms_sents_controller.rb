@@ -38,4 +38,5 @@ class SmsSentsController < ApplicationController
             render :json => {:mobile_number_presence => false, :customer_id => customer.id}
         end
     end
+
 end
