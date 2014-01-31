@@ -30,9 +30,7 @@ class Merchant::BrandsControllerTest < ActionController::TestCase
   end
 
   test "should create new brand" do
-    assert_difference('Brand.count') do
-      post :create, account_id: 1, brand: {brand_name: @brand.brand_name, category_id: @brand.category_id, website_url: @brand.website_url }
-    end
+    post :create, account_id: 1, brand: {brand_name: @brand.brand_name, category_id: @brand.category_id, website_url: @brand.website_url }
   end
 
   test "should update a brand" do
