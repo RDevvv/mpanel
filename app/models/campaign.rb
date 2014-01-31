@@ -10,9 +10,7 @@ class Campaign < ActiveRecord::Base
         outlet = ad_promocode_outlet.outlet
         ad = ad_promocode_outlet.ad
 
-        pre_expiry_forward_url = "http://www.gullakmaster.com/"
-        pre_expiry_forward_url += "/deals/organic/"
-        pre_expiry_forward_url += "facebook/"
+        pre_expiry_forward_url = "http://www.gullakmaster.com/deals/organic/facebook/"
         pre_expiry_forward_url += outlet.area.city.city_name.tr(" ","_")+"/"
         pre_expiry_forward_url += outlet.area.area_name.tr(" ", "_")+"/"
         pre_expiry_forward_url += outlet.account_brand.brand.category.category_name.tr(" ","_")+"/"

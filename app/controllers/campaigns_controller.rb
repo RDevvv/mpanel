@@ -90,4 +90,10 @@ class CampaignsController < ApplicationController
       end
           @brand = @ad_promocode_outlet.ad.account_brand.brand
   end
+
+  def campaign_landing
+      campaign = Campaign.where(:short_url => params[:short_url]).first
+      campaign.campaign_copies.create
+      redirect_to campaign.pre_expiry_forward_url
+  end
 end
