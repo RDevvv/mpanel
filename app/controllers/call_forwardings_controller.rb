@@ -27,10 +27,10 @@ class CallForwardingsController < ApplicationController
   end
 
   def return_outlet_number
-      mobile_number = CallForwarding.where(:call_sid=> params[:CallSid]).last.customer.button_clicks.where(:button_class => "call").last.outlet.mobile_number
+      outlet = CallForwarding.where(:call_sid=> params[:CallSid]).last.customer.button_clicks.where(:button_class => "call").last.outlet
 
       respond_to do |format|
-          format.json {render json: mobile_number}
+          format.json {render json: "0#{mobile_number}" }
       end
   end
 
