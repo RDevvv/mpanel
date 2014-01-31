@@ -7,6 +7,7 @@
         <% else %>
                 <% @final_outlets.each do |outlet| %>
                 <% outlet.ads.each do |ad| %>
+                    <% if ad.check_day?.include?(Date.today.wday) %>
                 <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                 <div class="bbox">
                     <div class="brandtitle">
@@ -22,7 +23,12 @@
                         <%= get_brand_image(outlet.account_brand.brand) %>
                     </div>
                     <div class="rch-btns-div">
-                        <div class="btn190"><a class="address button_map2" onclick="track(this)" href="#">ADDRESS</a></div>
+                        <div class="btn190"><a class="address button_map2" onclick="track(this); $.pnotify({
+                            title: 'Address',
+                            text: '<%= h "#{outlet.shop_no} #{outlet.address}" %>',
+                            closer_hover: false,
+                            opacity: .9
+                            });" href="#">ADDRESS</a></div>
                         <% unless outlet.mobile_number.empty? %>
                             <div class="btn190">
                             <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
@@ -46,6 +52,7 @@
                     </div>
                 </div>
             </div>
+        <% end %>
         <% end %>
         <% end %>
             <%#= paginate @final_outlets %>
