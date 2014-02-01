@@ -22,7 +22,11 @@ function map_initializer(locations, user_location){
             icon: "http://maps.google.com/mapfiles/marker" + letter + ".png",
             map: map
         });
-        google.maps.event.addListener(marker, 'click', move_ad_to_top);
+        google.maps.event.addListener(marker, 'click', function(marker){
+             coords = marker["latLng"]["d"].toFixed(5).toString()+marker["latLng"]["e"].toFixed(5).toString();
+             console.log(coords);
+             element = document.getElementById(coords);
+        });
     }
 
     var populationOptions = {
@@ -131,12 +135,27 @@ function change_location(){
     user_geolocate();
 
     var new_link=document.getElementById("change_location");
-    //domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status');
+    console.log(longitude);
+    if(longitude == undefined){
+        console.log("not defined");
+            $.pnotify({
+                title: 'Enable location service',
+                text: "enable",
+                closer_hover: false,
+                opacity: .9
+            });
+    }
+    else
+        {
+            console.log("defined");
+            new_link.href = domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status';
+            console.log(new_link.href);
+        }
 }
 
 function user_geolocate(){
     if (navigator.geolocation)
-    navigator.geolocation.getCurrentPosition(showPosition,geo_error);
+        navigator.geolocation.getCurrentPosition(showPosition,geo_error);
 }
 
 function showPosition(position){
@@ -152,19 +171,19 @@ function geo_error(){
 
 function get_backtotop_button(){
 
-            var pxShow = 80;//height on which the button will show
-            var fadeInTime = 500;//how slow/fast you want the button to show
-            var fadeOutTime = 500;//how slow/fast you want the button to hide
-            var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
-            jQuery(window).scroll(function(){
-                if(jQuery(window).scrollTop() >= pxShow){
-                    jQuery("#backtotop").fadeIn(fadeInTime);
-                }else{
-                    jQuery("#backtotop").fadeOut(fadeOutTime);
-                }
-            });
-            jQuery('#backtotop a').click(function(){
-                jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
-                return false;
-            });
+    var pxShow = 80;//height on which the button will show
+    var fadeInTime = 500;//how slow/fast you want the button to show
+    var fadeOutTime = 500;//how slow/fast you want the button to hide
+    var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
+    jQuery(window).scroll(function(){
+        if(jQuery(window).scrollTop() >= pxShow){
+            jQuery("#backtotop").fadeIn(fadeInTime);
+        }else{
+            jQuery("#backtotop").fadeOut(fadeOutTime);
+        }
+    });
+    jQuery('#backtotop a').click(function(){
+        jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+        return false;
+    });
 }
