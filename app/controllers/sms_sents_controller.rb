@@ -1,4 +1,6 @@
 class SmsSentsController < ApplicationController
+    skip_before_filter  :verify_authenticity_token, :only => [:set_sms_data]
+
     # GET /sms_sents
     # GET /sms_sents.json
     def index
