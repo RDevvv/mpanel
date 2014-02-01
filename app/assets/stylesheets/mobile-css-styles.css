@@ -58,6 +58,8 @@ background: url(bigger-icons.png) no-repeat -359px -189px transparent; /*padding
 .map-btn-lft2 {background: url(bigger-icons.png) no-repeat -57px -274px transparent; width:auto; height:auto; padding:5px 9px 0 0px;}
 .back-btn2 {background: url(glyphicons-halflings-white.png) no-repeat -433px -73px transparent; width:auto; height:auto; padding:2px 9px 0 0px;}
 .back-btn2:hover {border: none; outline: none;}
+ul.right-icons {float:right; /*bottom: 27px; margin:5px 9px 4px; margin:5px 0 4px;*/ right:1px; margin:12px 0 4px; width:auto; height: auto; position: relative;}
+ul.right-icons li {float:left; /*margin:0 3px;*/  margin:0 36px; border-right: none; list-style-type: none;}
 ul.right-icons li a.invfrnd{background: url(glyphicons-halflings-white.png) no-repeat -168px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -481px -274px transparent; padding: 1px 7px 0px 14px; width:auto; height:auto; border: none; visibility: hidden;}
 ul.right-icons li a.srchlink{background: url(glyphicons-halflings-white.png) no-repeat -48px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
@@ -349,6 +351,7 @@ ul.left-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px tra
 ul.left-icons li a.notify{background: url(bigger-icons.png) no-repeat -227px -186px transparent;  cursor: pointer; position: relative; /*border:solid 10px #000;*/ padding: 0 19px 9px 14px; width:auto; height:auto;}
 
 ul.right-icons {float:right; /*bottom: 27px; margin:5px 9px 4px; margin:5px 0 4px;*/ right:1px; margin:12px 0 4px; width:auto; height: auto; position: relative;}
+ul.right-icons li {float:left; /*margin:0 3px;*/  margin:0 36px; border-right: none; list-style-type: none;}
 ul.right-icons li a.invfrnd{background: url(glyphicons-halflings-white.png) no-repeat -168px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -484px -273px transparent; padding: 5px 7px 0 15px; width:auto; height:auto; visibility: hidden; border: none;}
 ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -106px -1001px transparent; /*background: url(bigger-icons.png) no-repeat -311px -146px transparent; padding: 5px 7px 0 15px;*/ position: relative; bottom: 3px; padding:5px 18px 10px 15px; width:auto; height:auto;}
@@ -437,6 +440,7 @@ ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px tr
 ul.left-icons li a.notify{background: url(bigger-icons.png) no-repeat -227px -186px transparent;  cursor: pointer; position: relative; /*border:solid 10px #000;*/ padding: 0 19px 9px 14px; width:auto; height:auto; visibility: hidden;}
 
 ul.right-icons {float:right; /*bottom: 27px; margin:5px 9px 4px; margin:5px 0 4px;*/ right:1px; margin:12px 0 4px; width:auto; height: auto; position: relative;}
+ul.right-icons li {float:left; /*margin:0 3px;*/  margin:0 9px; border-right: none; list-style-type: none;}
 ul.right-icons li a.invfrnd{background: url(glyphicons-halflings-white.png) no-repeat -168px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -484px -273px transparent; padding: 5px 7px 0 15px; width:auto; height:auto; border: none; visibility: hidden;}
 ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -106px -1001px transparent; /*background: url(bigger-icons.png) no-repeat -311px -146px transparent; padding: 5px 7px 0 15px;*/ position: relative; bottom: 3px; padding:5px 18px 10px 15px; width:auto; height:auto;}
@@ -458,7 +462,7 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
   .container {background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
   .container-location {/*border:solid 1px #000;*/background-color:#f7f7f7; clear:both; width: 100%; margin: 0 auto; }
   .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }
-  .head-brand {margin:6px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Courier, Georgia, Times, "Times New Roman", serif; font-weight: bold; font-size: 21px; left: 35%; color: #fff; /*position: absolute; top: 3px;*/}
+  .head-brand {margin:4px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Courier, Georgia, Times, "Times New Roman", serif; font-weight: bold; font-size: 21px; left: 35%; color: #fff; /*position: absolute; top: 3px;*/}
  
   div.input {width:260px; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0;
     background:#fff !important;}
@@ -474,8 +478,9 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
 @media screen and (min-width:992px) {
 
 header, #header {/*display:none;*/}
-.head-brand {margin:6px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Courier, Georgia, Times, "Times New Roman", serif; font-weight: normal; font-size: 100%; left: 46%; color: #fff; /*position: absolute; top: -1px;*/}
-
+.head-brand {margin:4px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Courier, Georgia, Times, "Times New Roman", serif; font-weight: bold; font-size: 21px; left: 46%; color: #fff; /*position: absolute; top: -1px;*/}
+ul.right-icons {float:right; /*bottom: 27px; margin:5px 9px 4px; margin:5px 0 4px;*/ right:1px; margin:12px 0 4px; width:auto; height: auto; position: relative;}
+ul.right-icons li {float:left; /*margin:0 3px;*/  margin:0 9px; border-right: none; list-style-type: none;}
 ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -269px transparent; padding: 11px 15px 0 15px; width:auto; height:auto; border: none;}
 
 .header-new{ margin: 2px auto; height: 109px; width:980px; border-bottom:solid 1px #000; }
