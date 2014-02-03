@@ -1,3 +1,15 @@
+<script type="text/javascript">
+      $(function() {
+          $('a[rel*=leanModal]').leanModal({ top : 40, closeButton: ".modal_close", display: "none" });    
+        });
+        
+        // onclick handler for a button that does some stuff before opening a leanModal dialog
+    function mySampleFunc()
+    {
+      alert("Thank you for feedback!");
+      $("#basicPopup").click();
+    }
+    </script>        
 <div class="container-location">
     <div class="row-fluid">
         <%= render 'top_location_search_bar' %>
@@ -38,7 +50,7 @@
                     <div class="distance-div">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
                     <div class="lower-box">
                         <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link(outlet, cookies[:customer_uuid], ad) %>" target="_blank">
-                            <div class="refr2"></div>
+                            <div class="refr2"><a id="go" rel="leanModal" name="signup" href="#signup">Click</a></div>
                         </a>
 
                         <% unless ad.is_exclusive.nil? %>
@@ -65,6 +77,18 @@
 </div>
 <%= render :partial => "back_to_top" %>
 <%= render :partial => "new_mobile_number_modal" %>
+
+<div id="signup">
+          <p><!---popup text comes here-->
+            <img src="img/PopUp_BG.png" border="0" />
+          </p>
+          <ul class="pop-up-list">
+            <li><a href="#"><img src="assets/PopUp_Email.png" border="0"/></a></li>
+            <li><a href="#"><img src="assets/PopUp_FB.png" border="0"/></a></li>
+            <li><a href="#"><img src="assets/PopUp_SMS.png" border="0"/></a></li>
+          </ul>
+          <a class="modal_close" href="#"></a>
+      </div>
 
 <script type="text/javascript">
 modal_submit();
