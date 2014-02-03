@@ -48,8 +48,13 @@ function move_ad_to_top(){
 }
 
 function check_if_mobile_number_exists(){
-    if($.cookie("mobile_number") == 'false')
-        $('.modal').modal('show');
+    if($.cookie("mobile_number") == 'verified')
+        $('#mobile-number').modal('show');
+}
+
+function verify_mobile_number(){
+        $('#mobile-number').modal('hide');
+        $('#verification').modal('show');
 }
 
 function modal_submit(){
@@ -60,9 +65,41 @@ function modal_submit(){
             dataType: 'text',
             data: valuesToSubmit,
             method: 'POST'
-        }).success(function(json){
-            $('.modal').modal('hide');
-            $.pnotify({ title: '', text: 'Thank you for subscribing', closer_hover: false, opacity: .9 });
+        }).success(function(data){
+            data = JSON.parse(data);
+            if(data["mobile_number"]==true)
+                {
+                    $('#mobile-number').modal('hide');
+                    $('#verification').modal('show');
+                    $.pnotify({ title: '', text: 'Thank you for subscribing, please enter verification code', closer_hover: false, opacity: .9 });
+                }
+                else
+                    {
+                    $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, opacity: .9 });
+                    }
+        });
+        return false; // prevents normal behaviour
+    });
+}
+
+function verification_modal_submit(){
+    $('.customer-verification-code-form').submit(function() {
+        var valuesToSubmit = $(this).serialize();
+        $.ajax({
+            url: "/check_verification_code", //'/notifications/4',sumbits it to the given url of the form
+            dataType: 'text',
+            data: valuesToSubmit,
+            method: 'POST'
+        }).success(function(data){
+            data = JSON.parse(data)
+            if(data["verified"]==true)
+                {
+                    $('#verification').modal('hide');
+                    $.pnotify({ title: '', text: 'Your account is verified', closer_hover: false, opacity: .9 });
+                }
+                else{
+                    $.pnotify({ title: '', text: 'Please enter correct verification code.', closer_hover: false, opacity: .9 });
+                }
         });
         return false; // prevents normal behaviour
     });
@@ -114,7 +151,7 @@ function send_ad(customer_uuid, element)
     }).success(function (data) {
         //string = JSON.parse(data);
         if(data["mobile_number_presence"] == false)
-            $('.modal').modal('show');
+            $('#mobile-number').modal('show');
         else
             $.pnotify({
                 title: 'ad sent',
@@ -123,6 +160,18 @@ function send_ad(customer_uuid, element)
                 opacity: .9
             });
 
+    })
+}
+
+function verify_number(){
+    customer_uuid = $.cookie("customer_uuid");
+    $.ajax({
+        url: 'check_verification_code',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'customer_uuid': customer_uuid
+        }
     })
 }
 
@@ -138,12 +187,12 @@ function change_location(){
     console.log(longitude);
     if(longitude == undefined){
         console.log("not defined");
-            $.pnotify({
-                title: 'Enable location service',
-                text: "enable",
-                closer_hover: false,
-                opacity: .9
-            });
+        $.pnotify({
+            title: 'Enable location service',
+            text: "enable",
+            closer_hover: false,
+            opacity: .9
+        });
     }
     else
         {
