@@ -1,4 +1,4 @@
-<div id="new-meeting" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="mobile-number" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-body">
             <div class="sub-txt2">Get offer codes by SMS!</div>
         <%= form_tag '/customers', :validate => true, :class => 'customer-mobile-number-form form-horizontal' do  %>
@@ -9,7 +9,7 @@
             </div>
         </div>
         <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
-        <%= submit_tag 'submit', :class => 'btn btn-primary' %>
     <% end %>
+    <%= link_to "Already have verification code?", '#', :onClick => "verify_mobile_number()" %>
     </div>
 </div>

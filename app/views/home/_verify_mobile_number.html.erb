@@ -1,0 +1,14 @@
+<div id="verification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+            <div class="sub-txt2">Get offer codes by SMS!</div>
+            <%= form_tag '/check_verification_code.json', :method => 'POST', :validate => true, :class => 'customer-verification-code-form form-horizontal' do  %>
+            <div class="control-group">
+            <label class="control-label"> +91</label>
+            <div class="controls">
+                <%= text_field_tag :verification_code,'', :class => 'datetime_select', :placeholder => "Enter verification code" %>
+            </div>
+        </div>
+        <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
+    <% end %>
+    </div>
+</div>
