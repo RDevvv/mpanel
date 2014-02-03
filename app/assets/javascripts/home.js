@@ -52,6 +52,10 @@ function check_if_mobile_number_exists(){
         $('#mobile-number').modal('show');
 }
 
+function show_share(){
+        $('#popup_share').modal('show');
+}
+
 function verify_mobile_number(){
         $('#mobile-number').modal('hide');
         $('#verification').modal('show');
