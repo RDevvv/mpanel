@@ -145,4 +145,7 @@ class HomeController < ApplicationController
 
     def combo_view
     end
+
+    def admin_panel
+    end
 end

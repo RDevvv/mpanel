@@ -18,6 +18,7 @@ Gullak2::Application.routes.draw do
   resources :customers
   resources :pages
 
+  get "admin_panel" => "home#admin_panel"
   get "u/:short_url" => "campaigns#campaign_landing"
   get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#outlet_listing"
   get "get_missed_call" => "missed_calls#get_missed_call"
