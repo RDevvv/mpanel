@@ -37,11 +37,10 @@
                     </div>
                     <div class="distance-div">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
                     <div class="lower-box">
-                        <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%= generate_referer_link(outlet, cookies[:customer_uuid], ad) %>" target="_blank">
+                        <a class="share" onclick="track(this); show_share();" href="#" >
                             <div class="refr2">
                             </div>
                             </a>
-                            <%= link_to "click", '#', :onClick => "show_share()", :class => "share" %>
 
                             <% unless ad.is_exclusive.nil? %>
                                 <% if ad.is_exclusive ==true %>
@@ -68,18 +67,8 @@
     <%= render :partial => "back_to_top" %>
     <%= render :partial => "new_mobile_number_modal" %>
     <%= render :partial => "verify_mobile_number" %>
+    <%= render :partial => "share_partial" %>
 
-    <div id="popup_share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <p><!---popup text comes here-->
-        <img src="img/PopUp_BG.png" border="0" />
-        </p>
-        <ul class="pop-up-list">
-            <li><a href="#"><img src="assets/PopUp_Email.png" border="0"/></a></li>
-            <li><a href="#"><img src="assets/PopUp_FB.png" border="0"/></a></li>
-            <li><a href="#"><img src="assets/PopUp_SMS.png" border="0"/></a></li>
-        </ul>
-        <a class="modal_close" href="#"></a>
-    </div>
 
 
     <script type="text/javascript">
