@@ -31,7 +31,7 @@ class HomeControllerTest < ActionController::TestCase
     end
 
     test "should get map_search" do
-        get :map_search, :location => "bandra"
+        get :map_search, :location => "bandra", :search => "coffee"
         assert_response :success
     end
 
