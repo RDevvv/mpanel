@@ -5,6 +5,7 @@ gem 'rails', '3.2.14'
 gem 'pg'
 
 
+gem 'turbo-sprockets-rails3'
 gem 'geocoder'
 gem 'useragent'
 gem 'kaminari'
