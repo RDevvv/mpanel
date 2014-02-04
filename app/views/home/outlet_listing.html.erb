@@ -13,12 +13,7 @@
                     <div class="brandtitle">
                         <%= get_brand_title(outlet.account_brand.brand) %>
                     </div>
-                    <div class="eye2"><a onclick="track(this); $.pnotify({
-                            title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
-                            text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
-                            closer_hover: false,
-                            opacity: .9
-                            });" class="description btn source"></a></div>
+                    <div class="eye2"></div>
                     <div align="center" class="brandlogo">
                         <%= get_brand_image(outlet.account_brand.brand) %>
                     </div>
@@ -44,7 +39,12 @@
 
                             <% unless ad.is_exclusive.nil? %>
                                 <% if ad.is_exclusive ==true %>
-                                <div class="star2"></div>
+                                <div class="star2"><a onclick="track(this); $.pnotify({
+                            title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
+                            text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
+                            closer_hover: false,
+                            opacity: .9
+                            });" class="description btn source"></a></div>
                         <% end %>
                         <% end %>
                             <div class="right-box">
