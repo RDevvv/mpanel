@@ -100,6 +100,7 @@ function verification_modal_submit(){
                 {
                     $('#verification').modal('hide');
                     $.pnotify({ title: '', text: 'Your account is verified', closer_hover: false, opacity: .9 });
+                    window.location.reload();
                 }
                 else{
                     $.pnotify({ title: '', text: 'Please enter correct verification code.', closer_hover: false, opacity: .9 });
