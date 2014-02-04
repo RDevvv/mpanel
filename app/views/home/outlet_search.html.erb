@@ -5,8 +5,10 @@
             <% if @final_outlets.nil? %>
                 No results found
         <% else %>
+            <%@j =0%>
                 <% @final_outlets.each do |outlet| %>
                 <% outlet.ads.each do |ad| %>
+                    <% if @ad_ids.include?(ad.id) %>
                     <% if ad.check_day?.include?(Date.today.wday) %>
                 <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                 <div class="bbox">
@@ -52,6 +54,7 @@
                     </div>
                 </div>
             </div>
+        <% end %>
         <% end %>
         <% end %>
         <% end %>
