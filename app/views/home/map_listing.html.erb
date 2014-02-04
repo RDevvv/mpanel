@@ -3,13 +3,15 @@
 <title>Google Maps Multiple Markers</title>
 <script src="http://maps.google.com/maps/api/js?sensor=false"
 type="text/javascript"></script>
+<link href="assets/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="assets/jquery.slimscroll.js"></script> 
 </head>
 <body>
 
 <div class="container-location">
     <div class="row-fluid">
         <%= render 'top_location_search_bar' %>
-        <div id="map" style="width: 100%; height: 209px;"></div>
+        <div id="map" class="map"></div>
 
         <%= javascript_tag do %>
             locations = <%= @unique_outlets = @final_outlets.map{|o|[o.latitude, o.longitude]}.uniq.to_json.html_safe %>;
@@ -88,7 +90,14 @@ type="text/javascript"></script>
 </div>
 
 
-
+<script type="text/javascript">
+    $(function(){
+      $('.out-add-div').slimscroll({
+          height: '300px',
+          width: '100%'
+        });
+    });
+</script>
 <script type='text/javascript'>
 jQuery(document).ready(function(){
 
