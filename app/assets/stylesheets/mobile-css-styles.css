@@ -52,6 +52,7 @@ background: url(bigger-icons.png) no-repeat -359px -189px transparent; /*padding
 .map-btn-div {float:left; margin: 12px 0 0 10px; border: none;}
 .map-btn-lft {background: url(glyphicons-halflings-white.png) no-repeat -26px -72px transparent; width:auto; height:auto; padding:2px 9px 0 0px;}
 .tran-details-tag {background: url(glyphicons-halflings-white.png) no-repeat -23px -47px transparent; width:auto; height:auto; padding:2px 14px 0 0;}
+.map {width: 100%; height: 209px;}
 
 .calls-tag {background: url(glyphicons-halflings-white.png) no-repeat -408px -25px transparent; width:auto; height:auto; padding:2px 14px 0 0;}
 
@@ -77,7 +78,7 @@ border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: sol
 .brand-box .brandlogo img{text-align: center; width: auto; height: auto;}
 .sub-txt {text-align: center; margin:5px 0 3px 0; /*margin:5px 0 20px 0;*/ border-bottom: solid 1px #ccc; padding: 2px 0 10px 0; width: 70%; /*width: 50%;*/}
 .sub-txt2 {text-align: center; margin:5px 0 10px 0; /*margin:5px 0 20px 0;*/ border-bottom: solid 1px #ccc; padding: 2px 0 10px 0; width: 70%; /*width: 50%;*/}
-.out-add-div {float:left; /*border:solid 1px #CCC; width:300px;*/ width: 100%; height:auto; margin: 5px 0;}
+.out-add-div {float:left; width: 100%; height:300px;  margin: 5px 0; /*overflow-x:hidden; overflow-y: auto; border:solid 1px #000;*/}
 
 .add-box{width:135px; float: left; position:relative; text-align: justify; background-color:transparent; color: #000; font-size:80%; /*margin: 13px 2px 2px 10px;*/ margin: 7px 2px 2px 12px; height:auto;}
 .add-box .adtitle {float: left; text-align: left; text-decoration: underline; }
@@ -217,6 +218,30 @@ background: #7f7f7f;
 .click-to-go2 {width: 100%; margin: 15px 0 0 0; background-color: #fff; font-family: 'arial_rounded_mt_boldregular'; font-size: 18px; text-transform: uppercase; color: #f7941d; text-align: center;}
 .error-logo {clear: both; margin: 10px auto 5px auto; text-align: center; border: none;}
 /* Error page Styles */
+
+/* sign up overlay page */
+#signup, #popup_share {
+  width: auto; position: absolute; left:60%;
+  padding-bottom: 2px; 
+  display:none; 
+  background: #FFF; 
+  border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.7); 
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);  
+}
+#signup-header { background: url(hd-bg.png); padding: 18px 18px 14px 18px; border-bottom: 1px solid #CCC; border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-right-radius: 5px; -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; }
+
+#signup-header  h2 { color: #444; font-size: 2em; font-weight: 700; margin-bottom: 3px; text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); }
+#signup p, #signup-header p, #popup_share p { color: #444; font-size: 1.3em; margin: 0; padding: 20px; text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); text-shadow: none; }
+
+#signup .txt-fld, #popup_share .txt-fld { position: relative; width: 364px; padding: 14px 20px; border-bottom: 1px solid #EEE; text-align: right; }
+#signup .btn-fld, #popup_share .btn-fld { width: 254px; overflow: hidden; padding: 12px 20px 12px 130px; }
+
+ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:-5px;}
+ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; list-style-type: none;}
+/* sign up overlay page */
 
  .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}
  .input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -394,17 +419,21 @@ input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidde
   background-position: -40px 0px;}
 
 /* sign up overlay page */
-#signup {width: auto; padding-bottom: 2px; display:none; background: #FFF; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+#signup, #popup_share {
+  width: auto; position: absolute; left: 86%; 
+  padding-bottom: 2px; display:none; background: #FFF; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
     box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);  
 }
 #signup-header { background: url(hd-bg.png); padding: 18px 18px 14px 18px; border-bottom: 1px solid #CCC; border-top-left-radius: 5px; -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-right-radius: 5px; -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; }
 
 #signup-header  h2 { color: #444; font-size: 2em; font-weight: 700; margin-bottom: 3px; text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); }
-#signup p, #signup-header  p { color: #444; font-size: 1.3em; margin: 0; padding: 20px; text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); text-shadow: none; }
+#signup p, #signup-header p, #popup_share p { color: #444; font-size: 1.3em; margin: 0; padding: 20px; text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5); text-shadow: none; }
+
+#signup .txt-fld, #popup_share .txt-fld { position: relative; width: 364px; padding: 14px 20px; border-bottom: 1px solid #EEE; text-align: right; }
+#signup .btn-fld, #popup_share .btn-fld { width: 254px; overflow: hidden; padding: 12px 20px 12px 130px; }
 
 ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:-5px;}
 ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; list-style-type: none;}
-
 /* sign up overlay page */
 
 .block-div {font-size:25px; font-weight:bold; text-align:center; color: #0221df;}
@@ -651,7 +680,7 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 
 
 /* Map Pins page */
-.pin-add-div {float:left; height:200px; /*border:solid 1px #ccc;*/ }
+.pin-add-div {float:left; width:140px; height:189px; margin:5px 0 0 0; border:solid 1px #ccc; }
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url(map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0 auto;}
 /* Map Pins page */
