@@ -4,7 +4,7 @@ Geocoder.configure(
    :timeout      => 3,           # geocoding service timeout (secs)
    :lookup       => :google,     # name of geocoding service (symbol)
    :language     => :en,         # ISO-639 language code
-   :api_key      => "AIzaSyCsVHyiGHPgLJz0682jnAyncLOo_3xNbCw" # API key for geocoding service
+  # :api_key      => gmap_config[:api_key] # API key for geocoding service
 
   # :use_https    => false,       # use HTTPS for lookup requests? (if supported)
   # :http_proxy   => nil,         # HTTP proxy server (user:pass@host:port)
