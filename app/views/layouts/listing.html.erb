@@ -46,13 +46,13 @@
       <ul>
           <li class="subcat">Sort by:</li>
   <% if action_name == 'map_listing' %>
-          <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
-  <% elsif action_name == 'outlet_listing' %>
           <li><%= link_to "Distance", {:controller => 'home', :action => 'map_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
+  <% elsif action_name == 'outlet_listing' %>
+          <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
   <% elsif action_name == 'map_search' %>
-      <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
-  <% elsif action_name == 'outlet_search' %>
       <li><%= link_to "Distance", {:controller => 'home', :action => 'map_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
+  <% elsif action_name == 'outlet_search' %>
+      <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
   <% end %>
           <li>&nbsp;</li>
           <li class="subcat">Filter by:</li>
