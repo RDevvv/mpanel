@@ -1,0 +1,12 @@
+<div class="pin-add-div">
+    <div class="pin-div">
+        <div class="pin-box"><%= (i+65).chr %></div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle1">Address</div>
+        <div class="adaddress"><%= "#{outlet.shop_no} #{outlet.address}" %></div>
+        <div class="adloc"><%= outlet.area.area_name %><br/>
+            <%= outlet.area.city.city_name %> <%= outlet.area.pincode %></div>
+    </div>
+</div>
+
