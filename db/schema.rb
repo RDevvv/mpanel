@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140125071622) do
+ActiveRecord::Schema.define(:version => 20140131090438) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -217,6 +217,8 @@ ActiveRecord::Schema.define(:version => 20140125071622) do
     t.integer  "use_count"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.string   "vendor_id"
+    t.string   "short_url"
   end
 
   add_index "campaign_copies", ["campaign_id"], :name => "index_campaign_copies_on_campaign_id"
@@ -240,6 +242,7 @@ ActiveRecord::Schema.define(:version => 20140125071622) do
     t.string   "purpose"
     t.string   "placement"
     t.string   "target"
+    t.string   "campaign_name"
   end
 
   create_table "categories", :force => true do |t|
@@ -364,6 +367,18 @@ ActiveRecord::Schema.define(:version => 20140125071622) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "missed_calls", :force => true do |t|
+    t.integer  "campaign_id"
+    t.string   "call_sid"
+    t.string   "from"
+    t.string   "to"
+    t.boolean  "is_valid"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "missed_calls", ["campaign_id"], :name => "index_missed_calls_on_campaign_id"
+
   create_table "mobile_verification_codes", :force => true do |t|
     t.string   "verification_code"
     t.integer  "customer_id"
@@ -432,6 +447,7 @@ ActiveRecord::Schema.define(:version => 20140125071622) do
     t.integer  "button_click_id"
     t.integer  "ad_promocode_outlet_id"
     t.integer  "ad_promocode_outlet_version_id"
+    t.string   "vendor_id"
   end
 
   add_index "sms_sents", ["ad_promocode_id"], :name => "index_sms_sents_on_ad_promocode_id"
