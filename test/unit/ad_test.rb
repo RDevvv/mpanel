@@ -63,4 +63,14 @@ class AdTest < ActiveSupport::TestCase
         is_expired = Ad.first.expired?
         assert_equal true, is_expired
     end
+
+    test "if category being checked when category exists" do
+        category_exist = Ad.first.check_category?("Beverages")
+        assert_equal true, category_exist
+    end
+
+    test "if category being checked when category doesn't exists" do
+        category_exist = Ad.first.check_category?("Beveragess")
+        assert_equal false, category_exist
+    end
 end

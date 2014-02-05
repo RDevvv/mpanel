@@ -42,10 +42,33 @@ class HomeController < ApplicationController
         @outlets = nil
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-
         @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
+    end
+
+    def share_listing
+        @outlets = nil
+        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
+        @shared_outlets = Category.where(:category_name => params[:category]).first.brands.map{|b|b.account_brands}.flatten.map{|ab|ab.ads}.flatten.uniq.map{|ad|ad.account_brand}.map{|ab|ab.outlets}.flatten.map{|outlet|outlet.id}
+
+        unless @outlets.blank?
+            @nearby_outlets = @outlets.map{|o| o.id}.uniq
+        else
+            @nearby_outlets = []
+        end
+
+        @new_outlets = Outlet.where(:id => 0)
+        nearby_outlets_with_ad = @shared_outlets&@nearby_outlets
+        unless nearby_outlets_with_ad.empty?
+            nearby_outlets_with_ad.each do |outlet_id|
+                @new_outlets.append(@outlets.find(outlet_id))
+            end
+        end
+        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
+        @final_outlets = @final_outlets.uniq
     end
 
     def brand_listing
