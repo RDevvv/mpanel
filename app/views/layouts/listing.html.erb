@@ -63,7 +63,7 @@
                   <%= hidden_field_tag :location, params[:location] %>
                   <%= hidden_field_tag :latitude, params[:latitude] %>
                   <%= hidden_field_tag :longitude, params[:longitude] %>
-                  <%= text_field_tag :search, nil,:id => 's', :value => "Enter Category...", :onFocus =>"this.value=''" %>
+                  <%= text_field_tag :search, nil,:id => 's', :placeholder => "Enter Category..." %>
               </div>
           </fieldset>
       <% end %>

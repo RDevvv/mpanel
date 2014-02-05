@@ -3,7 +3,7 @@
         <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
             <fieldset>
             <div class="input">
-                <%= text_field_tag :location, nil,:id => 's', :value => "Search New Location ...", :onFocus =>"this.value=''" %>
+                <%= text_field_tag :location, nil,:id => 's', :placeholder => "Search New Location ..." %>
             </div>
             </fieldset>
         <% end %>
