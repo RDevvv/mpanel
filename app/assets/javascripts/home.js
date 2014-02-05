@@ -52,13 +52,26 @@ function check_if_mobile_number_exists(){
         $('#mobile-number').modal('show');
 }
 
-function show_share(){
-        $('#popup_share').modal('show');
+function show_share(facebook_share_link){
+    $('#popup_share').modal('show');
+    parent_element = $(facebook_share_link).parent().parent().parent();
+    $.ajax({
+        url: "/generate_campaign_copy.json",
+        data: {
+            ad_id: parent_element.attr("ad_id"),
+            outlet_id: parent_element.attr("outlet_id")
+        },
+        method: 'POST'
+
+    }).success(function(data){
+        $('.facebook_share').attr('href', 'http://'+document.domain+'/'+data["short_url"]);
+        $('.facebook_share').attr('target', '_blank');
+    })
 }
 
 function verify_mobile_number(){
-        $('#mobile-number').modal('hide');
-        $('#verification').modal('show');
+    $('#mobile-number').modal('hide');
+    $('#verification').modal('show');
 }
 
 function modal_submit(){
@@ -79,7 +92,7 @@ function modal_submit(){
                 }
                 else
                     {
-                    $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, opacity: .9 });
+                        $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, opacity: .9 });
                     }
         });
         return false; // prevents normal behaviour
