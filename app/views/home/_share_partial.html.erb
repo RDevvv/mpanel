@@ -4,9 +4,13 @@
     <%= image_tag "PopUp_BG.png" %>
     </p>
     <ul class="pop-up-list">
-        <li><%= link_to image_tag("PopUp_FB.png"), :map_listing %></li>
-        <li><%= link_to image_tag("PopUp_Email.png"), "mailto:nmurthhy@gullakmaster.com" %></li>
-        <li><%= link_to image_tag("PopUp_SMS.png"), "sms:/+919819654191/;body=/I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! Check it out. http://gullak.co/xxxx/" %></li>
+        <li><%= link_to image_tag("PopUp_FB.png"), ""%></li>
+        <li><%= link_to image_tag("PopUp_Email.png"), "mailto:" %></li>
+        <% if(cookies["mobile_number"]==true||cookies["mobile_number"]=="verified") %>
+            <li><%= link_to image_tag("PopUp_SMS.png"), "sms:/+91#{Customer.where(:uuid => cookies["customer_uuid"]).first.mobile_number}/;body=/I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! Check it out. gullakmaster.com" %></li>
+        <% else %>
+            <li><%= link_to image_tag("PopUp_SMS.png"), "#", :onClick => "$('#mobile-number').modal('show'); $('#popup_share').modal('hide');" %></li>
+        <% end %>
     </ul>
 </div>
 

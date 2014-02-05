@@ -19,8 +19,7 @@ Gullak2::Application.routes.draw do
   resources :pages
 
   get "admin_panel" => "home#admin_panel"
-  get "u/:short_url" => "campaigns#campaign_landing"
-  get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#outlet_listing"
+  get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
   get "get_missed_call" => "missed_calls#get_missed_call"
   get "get_sms_text" => "missed_calls#get_sms_text"
   get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
@@ -126,4 +125,5 @@ Gullak2::Application.routes.draw do
     get 'url/:short_url' => 'campaigns#facebook_share'
 
     root :to => "home#index"
+    get "/:short_url" => "campaigns#campaign_landing"
 end

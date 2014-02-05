@@ -44,12 +44,8 @@ class SmsSent < ActiveRecord::Base
             c.exotel_token = "449df2572ff8b57017ceb975d5dc15b93d480e02"
         end
 
-        response = Exotel::Sms.send(:from => '09223584822', :to => self.get_number, :body => self.get_text)
+        response = Exotel::Sms.send(:from => '09223584822', :to => self.get_number, :body => self.text)
         self.update_attributes(:vendor_id => response.sid)
-    end
-
-    def get_text
-        self.ad_promocode_outlet.ad.sms_text
     end
 
     def get_number

@@ -74,6 +74,14 @@ class Ad < ActiveRecord::Base
         self.expiry_date.present? && self.expiry_date < Date.today
     end
 
+    def check_category?(category)
+        if self.account_brand.brand.category.category_name==category.gsub(" ","_")
+            true
+        else
+            false
+        end
+    end
+
     def check_day?
         days = Array.new
         if self.is_sunday== true
