@@ -12,7 +12,7 @@ class MissedCallsController < ApplicationController
 
     def get_sms_text
         campaign_copy = CampaignCopy.where(:vendor_id => params["CallSid"]).first
-        template_1 = "Your contest entry is confirmed. We will call the lucky winner of Samsung Grand 2 on 14/02/14. Try gullak.co/"
+        template_1 = "Your contest entry is confirmed. We will call the lucky winner of Samsung Grand 2 on 14/02/14. Try http://gullak.co/"
         template_2 = " for more Deals At Your Fingertips"
         render :text => (template_1+campaign_copy.short_url+template_2), :status => '200'
     end
