@@ -64,7 +64,7 @@ function show_share(facebook_share_link){
         method: 'POST'
 
     }).success(function(data){
-        $('.facebook_share').attr('href', 'http://'+document.domain+'/'+data["short_url"]);
+        $('.facebook_share').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=http://'+document.domain+'/'+data["short_url"]);
         $('.facebook_share').attr('target', '_blank');
     })
 }
