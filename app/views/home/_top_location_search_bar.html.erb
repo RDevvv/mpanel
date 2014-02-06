@@ -1,6 +1,7 @@
 <div class="span12">
     <div class="search-div3">
-        <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
+        <% location_search_url = get_location_search_url%>
+        <%= form_tag location_search_url, :method => 'GET', :id => 'searchForm' do |f|  %>
             <fieldset>
             <div class="input">
                 <%= text_field_tag :location, nil,:id => 's', :placeholder => "Search New Location ..." %>
