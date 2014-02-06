@@ -197,7 +197,7 @@ background: #7f7f7f;
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 10px auto;}
-.bbox2 .brandlogo img{text-align: center; width: 108px; height:108px; /*width: auto; height: auto;*/}
+.bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
