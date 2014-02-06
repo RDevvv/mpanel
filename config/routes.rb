@@ -1,114 +1,115 @@
 Gullak2::Application.routes.draw do
 
-  resources :articles do
-    resources :comments
-  end
-  resources :comments
-  resources :nested_comments
-  resources :leads
-  resources :campaigns
-  resources :incentives
-  resources :sms_sents
-  resources :ads
-  resources :call_forwardings
-  resources :customer_sessions
-  resources :button_clicks
-  resources :address_button_selects
-  resources :call_button_selects
-  resources :customers
-  resources :pages
-
-  get "admin_panel" => "home#admin_panel"
-  get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
-  get "get_missed_call" => "missed_calls#get_missed_call"
-  get "get_sms_text" => "missed_calls#get_sms_text"
-  get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
-  get "desktop" => "home#combo_view"
-  get "get_call_click/:id" => "call_button_selects#get_click"
-  post "get_button_click" => "button_clicks#get_click"
-  match "store_call_details" => "call_forwardings#store_call_details"
-  get "get_call_forwarding" => "call_forwardings#get_customer_number"
-  match "get_outlet_number" => "call_forwardings#return_outlet_number"
-  match "set_outlet_number" => "call_forwardings#set_outlet_number"
-  post "set_sms_data" => "sms_sents#set_sms_data"
-  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
-  get "accounts/create"
-
-  mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
-
-  devise_for :admin_users
-
-  namespace :merchant do
-
-    #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
-    get "/",:to=>"merchants#index",:as=>:merchants
-    
-    match "add_user" => "users#add_user"
-    devise_for :users ,:module => "devise"
-    #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
-    #   # get "login" => "devise/sessions#new",:as=>:merchant_login
-    
-    # devise_scope :user do
-    #   get "sign_in", :to => "devise/sessions#new"
-    # end
-
-    resources :users
-    resources :accounts do
-      collection do
-        post "add_brands"
-        get 'populate_areas'
-      end
-      member do
-        get 'verified_account'
-      end
-      resources :account_brands do
-        collection do
-          post "add_brands"
-        end
-        resources :outlets do
-          collection do
-            get 'upload_outlets'
-            get 'download_outlet_template'
-            post 'import'
-            post 'import_record'
-            get 'populate_areas'
-          end
-          member do
-            post 'toggle_active'
-            post 'toggle_verify'
-            post 'toggle_active_index'
-          end
-        end
-        resources :keywords
-        resources :ads do
-          member do
-            post 'toggle_active'
-            post 'toggle_exclusive'
-          end
-          resources :ad_promocodes do
-            collection do
-              post 'add_single_code'
-              post 'add_multiple_code'
-            end
-          end
-          resources  :ad_groups,:only=>[:show,:destroy] do
-            member do
-              get 'delete_outlet'
-              get 'more_promocodes'
-              get 'more_outlets'
-              post 'add_more_promocodes'
-              post 'add_more_outlets'
-              get 'add_all_outlets'
-            end  
-          end
-        end
-      end
-      resources :brands
+    resources :articles do
+        resources :comments
     end
-  end  
+    resources :comments
+    resources :nested_comments
+    resources :leads
+    resources :campaigns
+    resources :incentives
+    resources :sms_sents
+    resources :ads
+    resources :call_forwardings
+    resources :customer_sessions
+    resources :button_clicks
+    resources :address_button_selects
+    resources :call_button_selects
+    resources :customers
+    resources :pages
+
+    get "admin_panel" => "home#admin_panel"
+    get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
+    get "get_missed_call" => "missed_calls#get_missed_call"
+    get "get_sms_text" => "missed_calls#get_sms_text"
+    get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
+    get "desktop" => "home#combo_view"
+    get "get_call_click/:id" => "call_button_selects#get_click"
+    post "get_button_click" => "button_clicks#get_click"
+    match "store_call_details" => "call_forwardings#store_call_details"
+    get "get_call_forwarding" => "call_forwardings#get_customer_number"
+    match "get_outlet_number" => "call_forwardings#return_outlet_number"
+    match "set_outlet_number" => "call_forwardings#set_outlet_number"
+    post "set_sms_data" => "sms_sents#set_sms_data"
+    post "versions/:id/revert" => "versions#revert", :as => "revert_version"
+    get "accounts/create"
+
+    mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
+    mount Resque::Server, at: 'resque'
+
+    devise_for :admin_users
+
+    namespace :merchant do
+
+        #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
+        get "/",:to=>"merchants#index",:as=>:merchants
+
+        match "add_user" => "users#add_user"
+        devise_for :users ,:module => "devise"
+        #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
+        #   # get "login" => "devise/sessions#new",:as=>:merchant_login
+
+        # devise_scope :user do
+        #   get "sign_in", :to => "devise/sessions#new"
+        # end
+
+        resources :users
+        resources :accounts do
+            collection do
+                post "add_brands"
+                get 'populate_areas'
+            end
+            member do
+                get 'verified_account'
+            end
+            resources :account_brands do
+                collection do
+                    post "add_brands"
+                end
+                resources :outlets do
+                    collection do
+                        get 'upload_outlets'
+                        get 'download_outlet_template'
+                        post 'import'
+                        post 'import_record'
+                        get 'populate_areas'
+                    end
+                    member do
+                        post 'toggle_active'
+                        post 'toggle_verify'
+                        post 'toggle_active_index'
+                    end
+                end
+                resources :keywords
+                resources :ads do
+                    member do
+                        post 'toggle_active'
+                        post 'toggle_exclusive'
+                    end
+                    resources :ad_promocodes do
+                        collection do
+                            post 'add_single_code'
+                            post 'add_multiple_code'
+                        end
+                    end
+                    resources  :ad_groups,:only=>[:show,:destroy] do
+                        member do
+                            get 'delete_outlet'
+                            get 'more_promocodes'
+                            get 'more_outlets'
+                            post 'add_more_promocodes'
+                            post 'add_more_outlets'
+                            get 'add_all_outlets'
+                        end  
+                    end
+                end
+            end
+            resources :brands
+        end
+    end  
 
 
-  # MAIN APP ROUTES
+    # MAIN APP ROUTES
     resources :home
     match 'outlet_listing' => 'home#outlet_listing'
     match 'outlet_search' => 'home#outlet_search'
@@ -125,5 +126,5 @@ Gullak2::Application.routes.draw do
     get '/generate_campaign_copy' => 'campaigns#generate_campaign_copy'
 
     root :to => "home#index"
-    get "/:short_url" => "campaigns#campaign_landing"
+     get '/:short_url' => 'campaigns#campaign_landing'
 end
