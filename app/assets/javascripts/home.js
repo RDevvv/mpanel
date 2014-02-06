@@ -237,6 +237,7 @@ function geo_error(){
 }
 
 function get_backtotop_button(){
+        console.log("to top");
 
     var pxShow = 80;//height on which the button will show
     var fadeInTime = 500;//how slow/fast you want the button to show
@@ -244,6 +245,8 @@ function get_backtotop_button(){
     var scrollSpeed = 500;//how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
     jQuery(window).scroll(function(){
         if(jQuery(window).scrollTop() >= pxShow){
+                    console.log("iffff");
+
             jQuery("#backtotop").fadeIn(fadeInTime);
         }else{
             jQuery("#backtotop").fadeOut(fadeOutTime);
@@ -251,6 +254,7 @@ function get_backtotop_button(){
     });
     jQuery('#backtotop a').click(function(){
         jQuery('html, body').animate({scrollTop:0}, scrollSpeed);
+        console.log("to top");
         return false;
     });
 }
