@@ -163,7 +163,7 @@ background: #7f7f7f;
 }
 .distance-div {width:100%; clear:both; margin: 43px 0 0 0; font-size: 11px; text-align: center; color: #959595;}
 
-.distance-div2 {width:100%; clear:both; margin: 19px 0 0 0; font-size: 11px; text-align: center; color: #959595;}
+.distance-div2 {width:100%; clear:both; margin:0; /*margin: 19px 0 0 0;*/ font-size: 11px; text-align: center; color: #959595;}
 
 .ml0{margin-left:0px !important;}
 
