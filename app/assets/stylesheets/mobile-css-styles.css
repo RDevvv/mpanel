@@ -371,7 +371,36 @@ ul.splinks li a.selec {font-weight: bold; font-size: 12px; color: #000; }
 
 /* Landscape phones and down */
 @media (max-width: 320px) {
-.bdiv {border:solid 5px #000;}
+.bdiv{border: 1px solid #ccc; background: #fff; float: left;  height: 216px; margin: 5px 2.7%; /*margin: 5px 0.5%;*/ width: 130px; position:relative;}
+.bdiv1{border: 1px solid #ccc; background: #fff; float: left;  height: 216px; margin: 5px 2.7%; /*margin: 5px 0.5%;*/ width: 130px; position:relative;}
+
+.bdiv2{border: 1px solid #ccc; background: #fff; float: left;  height: 190px; margin: 5px 2.7%; /*margin: 5px 0.5%;*/ width: 130px; position:relative;}
+
+.bbox { float: left;  height: 192px; margin: 0; width: 135px; position:relative;}
+.bbox .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px; /*width:100%; height: auto;*/}
+.bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
+
+.bbox2 { float: left;  height: 165px; margin: 0; width: 135px; position:relative;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
+.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 10px auto;}
+.bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
+
+.lower-box {clear:both; width:92% !important; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
+.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
+.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
+.lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; }
+.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
+.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
+.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
+.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
+.lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
+.lower-box .star1 img {}
 }
 
 @media (max-width: 480px) {
