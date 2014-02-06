@@ -82,7 +82,7 @@ class Ad < ActiveRecord::Base
         end
     end
 
-    def check_day?
+    def check_day
         days = Array.new
         if self.is_sunday== true
             days << 0
