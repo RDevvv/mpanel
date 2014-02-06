@@ -387,7 +387,7 @@ ul.splinks li a.selec {font-weight: bold; font-size: 12px; color: #000; }
 .bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
-.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 10px auto;}
+.bbox2 .brandlogo {clear:both; width:95%; height: auto; margin: 0; border:solid 1px #000; /*margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:92% !important; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
@@ -403,6 +403,8 @@ ul.splinks li a.selec {font-weight: bold; font-size: 12px; color: #000; }
 .lower-box .star1 img {}
 
 .map {width: 100%; height: 160px; /*height: 209px;*/}
+
+ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent; position: relative; top: 2px; right:-30px; padding: 10px 8px 6px 20px; width:auto; height:auto;}
 }
 
 @media (max-width: 480px) {
@@ -420,11 +422,11 @@ ul.right-icons {float:right; /*bottom: 27px; margin:5px 9px 4px; margin:5px 0 4p
 ul.right-icons li {float:left; /*margin:0 3px;*/  margin:0 36px; border-right: none; list-style-type: none;}
 ul.right-icons li a.invfrnd{background: url(glyphicons-halflings-white.png) no-repeat -168px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -484px -273px transparent; padding: 5px 7px 0 15px; width:auto; height:auto; visibility: hidden; border: none;}
-ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -106px -1001px transparent; /*background: url(bigger-icons.png) no-repeat -311px -146px transparent; padding: 5px 7px 0 15px;*/ position: relative; bottom: 3px; padding:5px 18px 10px 15px; width:auto; height:auto;}
+ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -106px -1001px transparent; /*background: url(bigger-icons.png) no-repeat -311px -146px transparent; padding: 5px 7px 0 15px;*/ position: relative; right:-30px; bottom: 3px; padding:5px 18px 10px 15px; width:auto; height:auto;}
 
 ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -269px transparent; padding:11px 15px 0 15px; width:auto; height:auto; border: none;}
 
-ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent; /*background: url(bigger-icons.png) no-repeat -52px -271px transparent; padding: 1px 3px 10px 22px; bottom: 7px;*/ position: relative; top: 2px; padding: 10px 8px 6px 20px; width:auto; height:auto;}
+ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent; /*background: url(bigger-icons.png) no-repeat -52px -271px transparent; padding: 1px 3px 10px 22px; bottom: 7px;*/ position: relative; right:-30px; top: 2px; padding: 10px 8px 6px 20px; width:auto; height:auto;}
 ul.right-icons li a.srchlink{background: url(glyphicons-halflings-white.png) no-repeat -48px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.srchlink2{
 border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: solid 5px #F08B38; border-bottom: solid 0px #fff;
@@ -535,7 +537,7 @@ ul.right-icons li {float:left; /*margin:0 3px;*/  margin:0 9px; border-right: no
 ul.right-icons li a.invfrnd{background: url(glyphicons-halflings-white.png) no-repeat -168px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -484px -273px transparent; padding: 5px 7px 0 15px; width:auto; height:auto; border: none; visibility: hidden;}
 ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -106px -1001px transparent; /*background: url(bigger-icons.png) no-repeat -311px -146px transparent; padding: 5px 7px 0 15px;*/ position: relative; bottom: 3px; padding:5px 18px 10px 15px; width:auto; height:auto;}
-ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent; /*background: url(bigger-icons.png) no-repeat -52px -271px transparent; padding: 1px 3px 10px 22px; bottom: 7px;*/ position: relative; top: 2px; padding: 10px 8px 6px 20px; width:auto; height:auto;}
+ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent;  position: relative; top: 2px; padding: 10px 8px 6px 20px; width:auto; height:auto; /*background: url(bigger-icons.png) no-repeat -52px -271px transparent; padding: 1px 3px 10px 22px; bottom: 7px;*/}
 ul.right-icons li a.srchlink{background: url(glyphicons-halflings-white.png) no-repeat -48px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.srchlink2{
 border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: solid 5px #F08B38; border-bottom: solid 0px #fff;
@@ -736,11 +738,3 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url(map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0 auto;}
 /* Map Pins page */
-
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) 
-and (orientation : portrait) { 
-
-
- }
