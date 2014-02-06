@@ -72,15 +72,20 @@
   </nav>
 </div>
 <%= bootstrap_flash %>
+<%= render :partial => "back_to_top" %>
+<%= render :partial => "new_mobile_number_modal" %>
+<%= render :partial => "verify_mobile_number" %>
+<%= render :partial => "share_partial" %>
+
 <%= yield %>
-  <script type="text/javascript">
-$(function() {
+<script type="text/javascript">
+$(document).ready(function(){
         $('nav#menu').mmenu();
-        });
-
-$(document).ready(function(){$('.alert').fadeOut(2000)});
-  </script>
-
+        modal_submit();
+        verification_modal_submit();
+        get_backtotop_button();
+        })
+</script>
 </body>
 </html>
 
