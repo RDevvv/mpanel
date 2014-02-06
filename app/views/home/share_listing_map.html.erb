@@ -7,7 +7,7 @@
             <% else %>
                 <% @final_outlets.each do |outlet| %>
                 <% outlet.ads.each do |ad| %>
-                    <% if ad.check_day?.include?(Date.today.wday) %>
+                    <% if ad.check_day.include?(Date.today.wday) %>
                 <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                 <div class="bbox">
                     <div class="brandtitle">

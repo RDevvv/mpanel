@@ -20,7 +20,7 @@
 
                 <% if outlet.is_active == true %>
                 <% outlet.ads.each do |ad| %>
-                    <% if ad.check_day?.include?(Date.today.wday) %>
+                    <% if ad.check_day.include?(Date.today.wday) %>
                 <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
             <div class="bdiv2" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
                 <div class="bbox2">

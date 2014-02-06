@@ -7,9 +7,7 @@
             <% else %>
                 <% @final_outlets.each do |outlet| %>
                     <% outlet.ads.each do |ad| %>
-                        <% if ad.check_day?.include?(Date.today.wday) %>
                             <%= render :partial => 'poster', :locals => {:outlet => outlet, :ad => ad} %>
-                        <% end %>
                     <% end %>
                 <% end %>
                 <%#= paginate @final_outlets %>

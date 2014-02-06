@@ -26,7 +26,7 @@ type="text/javascript"></script>
 
                     <% if outlet.is_active == true %>
                     <% outlet.ads.each do |ad| %>
-                    <% if ad.check_day?.include?(Date.today.wday) %>
+                    <% if ad.check_day.include?(Date.today.wday) %>
                     <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
                 <div class="bdiv2" outlet_id="<%= outlet.id %>" ad_id="<%= ad.id %>"id="<%= outlet.latitude.round(5).to_s+outlet.longitude.round(5).to_s %>">
                     <div class="bbox2">

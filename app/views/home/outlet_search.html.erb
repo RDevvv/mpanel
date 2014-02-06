@@ -8,9 +8,7 @@
             <% @final_outlets.each do |outlet| %>
                 <% outlet.ads.each do |ad| %>
                     <% if @ad_ids.include?(ad.id) %>
-                        <% if ad.check_day?.include?(Date.today.wday) %>
                             <%= render :partial => 'poster', :locals => {:outlet => outlet, :ad => ad} %>
-                        <% end %>
                     <% end %>
                 <% end %>
             <% end %>

@@ -6,71 +6,22 @@
                 No results found
             <% else %>
                 <% @final_outlets.each do |outlet| %>
-                <% outlet.ads.each do |ad| %>
-                    <% if ad.check_day?.include?(Date.today.wday) %>
-                <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>">
-                <div class="bbox">
-                    <div class="brandtitle">
-                        <%= get_brand_title(outlet.account_brand.brand) %>
-                    </div>
-                    <div class="eye2"></div>
-                    <div align="center" class="brandlogo">
-                        <%= get_brand_image(outlet.account_brand.brand) %>
-                    </div>
-                    <div class="rch-btns-div">
-                        <div class="btn190"><a class="address button_map2" onclick="track(this); $.pnotify({
-                                title: 'Address',
-                                text: '<%= h "#{outlet.shop_no} #{outlet.address}" %>',
-                                closer_hover: false,
-                                opacity: .9
-                                });" href="#">ADDRESS</a></div>
-                        <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
-                            <div class="btn190">
-                            <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
-                        </div>
+                    <% outlet.ads.each do |ad| %>
+                        <%= render :partial => 'poster', :locals => {:outlet => outlet, :ad => ad} %>
                     <% end %>
-                    </div>
-                    <div class="distance-div">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
-                    <div class="lower-box">
-                        <a class="share" onclick="track(this); show_share();" href="#" >
-                            <div class="refr2">
-                            </div>
-                            </a>
-
-                            <% unless ad.is_exclusive.nil? %>
-                                <% if ad.is_exclusive ==true %>
-                                <div class="star2"><a onclick="track(this); $.pnotify({
-                            title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
-                            text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
-                            closer_hover: false,
-                            opacity: .9
-                            });" class="description btn source"></a></div>
-                        <% end %>
-                        <% end %>
-                            <div class="right-box">
-                                <a class="ad_request" href="#" onclick="track(this); send_ad($.cookie('customer_uuid'), this)">
-                                    <div class="run2"></div>
-                                    <div class="runtxt"><%= ad.usage %></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
-            <% end %>
-            <% end %>
+                <% end %>
                 <%#= paginate @final_outlets %>
             <% end %>
-            </div>
         </div>
     </div>
-    <%= render :partial => "back_to_top" %>
-    <%= render :partial => "new_mobile_number_modal" %>
-    <%= render :partial => "verify_mobile_number" %>
-    <%= render :partial => "share_partial" %>
+</div>
+<%= render :partial => "back_to_top" %>
+<%= render :partial => "new_mobile_number_modal" %>
+<%= render :partial => "verify_mobile_number" %>
+<%= render :partial => "share_partial" %>
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 modal_submit();
 verification_modal_submit();
-    </script>
+</script>

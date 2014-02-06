@@ -1,3 +1,4 @@
+                        <% if ad.check_day.include?(Date.today.wday) %>
 <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>" ad_id="<%= ad.id %>">
     <div class="bbox">
         <div class="brandtitle">
@@ -47,3 +48,4 @@
         </div>
     </div>
 </div>
+                        <% end %>
