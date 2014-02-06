@@ -105,5 +105,10 @@ class Ad < ActiveRecord::Base
         if self.is_saturday== true
             days << 6
         end
+        if days.blank?
+            [100]
+        else
+            days
+        end
     end
 end
