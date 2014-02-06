@@ -119,7 +119,9 @@ class HomeController < ApplicationController
             @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
             @final_outlets = @final_outlets.uniq
         end
-        @ad_ids = result.map{|ad|ad.id}
+        unless result.blank?
+            @ad_ids = result.map{|ad|ad.id}
+        end
         #render "outlet_listing"
     end
 

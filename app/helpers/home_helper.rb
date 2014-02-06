@@ -46,4 +46,12 @@ module HomeHelper
         end
         brand.brand_name[0..6]+trailing_string
     end
+
+    def get_location_search_url
+        if action_name == 'outlet_listing'
+            'outlet_listing'
+        else
+            'map_listing'
+        end
+    end
 end
