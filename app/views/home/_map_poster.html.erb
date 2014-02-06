@@ -1,0 +1,52 @@
+<% if ad.check_day.include?(Date.today.wday) %>
+    <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
+<div class="bdiv2" outlet_id="<%= outlet.id %>" ad_id="<%= ad.id %>"id="<%= outlet.latitude.round(5).to_s+outlet.longitude.round(5).to_s %>">
+    <div class="bbox2">
+        <% brand = outlet.account_brand.brand %>
+        <div class="brandtitle">
+            <%= get_brand_title(outlet.account_brand.brand) %>
+        </div>
+
+            <% if outlet.ads.first.is_exclusive %>
+        <div class="eye2"></div>
+        <% end %>
+        <div align="center" class="brandlogo">
+            <%= get_brand_image(outlet.account_brand.brand) %>
+        </div>
+        <div class="rch-btns-div2">
+            <% unless outlet.mobile_number.empty? %>
+                <div class="btn190">
+                <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
+            </div>
+        <% end %>
+        </div>
+        <div class="distance-div2">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
+        <div class="lower-box">
+            <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%#= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
+                <div class="refr2"></div>
+            </a>
+                <div class="star2"><a onclick="track(this); $.pnotify({
+                title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
+                text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
+                opacity: .9
+                });" class="description btn source"></a></div>
+            <div class="right-box">
+                <div class="run2"></div>
+                <div class="runtxt"><%= ad.ad_promocode_outlets.where(:outlet_id => outlet.id).first.sms_sents.count %></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pin-add-div">
+    <div class="pin-div">
+        <div class="pin-box"><%= (i+65).chr %></div>
+    </div>
+    <div class="add-box">
+        <div class="adtitle1">Address</div>
+        <div class="adaddress"><%= "#{outlet.shop_no} #{outlet.address}" %></div>
+        <div class="adloc"><%= outlet.area.area_name %><br/>
+            <%= outlet.area.city.city_name %> <%= outlet.area.pincode %></div>
+    </div>
+</div>
+</li>
+            <% end %>

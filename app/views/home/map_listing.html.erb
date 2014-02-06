@@ -1,10 +1,4 @@
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<title>Google Maps Multiple Markers</title>
-<script src="http://maps.google.com/maps/api/js?sensor=false"
-type="text/javascript"></script>
-</head>
-<body>
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 
 <div class="container-location">
     <div class="row-fluid">
@@ -26,47 +20,7 @@ type="text/javascript"></script>
 
                     <% if outlet.is_active == true %>
                     <% outlet.ads.each do |ad| %>
-                    <% if ad.check_day.include?(Date.today.wday) %>
-                    <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
-                <div class="bdiv2" outlet_id="<%= outlet.id %>" ad_id="<%= ad.id %>"id="<%= outlet.latitude.round(5).to_s+outlet.longitude.round(5).to_s %>">
-                    <div class="bbox2">
-                        <% brand = outlet.account_brand.brand %>
-                        <div class="brandtitle">
-                            <%= get_brand_title(outlet.account_brand.brand) %>
-                        </div>
-                        <div class="eye2"><a onclick="track(this); $.pnotify({
-                                title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
-                                text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
-                                opacity: .9
-                                });" class="description btn source"></a></div>
-                        <div align="center" class="brandlogo">
-                            <%= get_brand_image(outlet.account_brand.brand) %>
-                        </div>
-                        <div class="rch-btns-div2">
-                            <% unless outlet.mobile_number.empty? %>
-                                <div class="btn190">
-                                <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
-                            </div>
-                        <% end %>
-                        </div>
-                        <div class="distance-div2">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
-                        <div class="lower-box">
-                            <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%#= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
-                                <div class="refr2"></div>
-                            </a>
-                            <% if outlet.ads.first.is_exclusive %>
-                                <div class="star2"></div>
-                        <% end %>
-                            <div class="right-box">
-                                <div class="run2"></div>
-                                <div class="runtxt"><%= ad.ad_promocode_outlets.where(:outlet_id => outlet.id).first.sms_sents.count %></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <%= render :partial => 'map_address', :locals => {:outlet => outlet, :i => i} %>
-                </li>
-            <% end %>
+                    <%= render :partial => 'map_poster', :locals => {:outlet => outlet, :ad => ad, :i => i} %>
             <% end %>
             <% end %>
             <% end %>
