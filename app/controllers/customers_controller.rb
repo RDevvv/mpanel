@@ -117,7 +117,7 @@ class CustomersController < ApplicationController
           @existing_customer = Customer.where(:mobile_number => params[:mobile_number]).first
           cookies[:customer_uuid] = {:value => @existing_customer.uuid, :expires => 1.year.from_now}
           cookies[:mobile_number] = {:value => "not_verified", :expires => 1.year.from_now}
-          @mobile_number = true
+          @mobile_number = 'exist'
       else
           unless params[:mobile_number].empty?
               if @customer.update_attributes(:mobile_number => params[:mobile_number])

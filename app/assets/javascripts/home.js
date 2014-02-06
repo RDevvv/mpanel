@@ -84,15 +84,19 @@ function modal_submit(){
             method: 'POST'
         }).success(function(data){
             data = JSON.parse(data);
-            if(data["mobile_number"]==true)
-                {
-                    $('#mobile-number').modal('hide');
-                    $('#verification').modal('show');
-                }
-                else
-                    {
-                        $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, opacity: .9 });
-                    }
+            if(data["mobile_number"]==1)
+            {
+                $('#mobile-number').modal('hide');
+                $('#verification').modal('show');
+            }
+            else if(data["mobile_number"]=="exist")
+            {
+                $.pnotify({ title: '', text: 'Welcome back', closer_hover: false, opacity: .9 });
+            }
+            else
+            {
+                $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, opacity: .9 });
+            }
         });
         return false; // prevents normal behaviour
     });
@@ -167,7 +171,9 @@ function send_ad(customer_uuid, element)
         }
     }).success(function (data) {
         //string = JSON.parse(data);
-        if(data["mobile_number_presence"] == false)
+        if((data["mobile_number_presence"] == false)&&data["exist_but_not_verified"])
+            $('#verification').modal('show');
+        else if ((data["mobile_number_presence"] == false))
             $('#mobile-number').modal('show');
         else
             $.pnotify({
