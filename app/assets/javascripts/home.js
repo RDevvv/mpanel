@@ -88,7 +88,6 @@ function modal_submit(){
                 {
                     $('#mobile-number').modal('hide');
                     $('#verification').modal('show');
-                    $.pnotify({ title: '', text: 'Thank you for subscribing, please enter verification code', closer_hover: false, opacity: .9 });
                 }
                 else
                     {
