@@ -190,7 +190,7 @@ background: #7f7f7f;
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px; /*width:100%; height: auto;*/}
-.bbox .brandlogo img{text-align: center; width: 108px; height:108px; /*width: auto; height: auto;*/ border: none;}
+.bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: 165px; margin: 0; width: 135px; position:relative;}
 .bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
@@ -371,7 +371,7 @@ ul.splinks li a.selec {font-weight: bold; font-size: 12px; color: #000; }
 
 /* Landscape phones and down */
 @media (max-width: 320px) {
-
+.bdiv {border:solid 5px #000;}
 }
 
 @media (max-width: 480px) {
@@ -562,7 +562,7 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox .brandlogo {clear:both; width:100%; height: auto; margin: 10px auto;}
-.bbox .brandlogo img{text-align: center; /*display: none;*/ width: 85px; height:85px; /*width: auto; height: auto;*/ border: none;}
+.bbox .brandlogo img{text-align: center; width: auto; height: auto;/*display: none;*/  /*width: 85px; height:85px;*/ border: none;}
 
 .rch-btns-div {position: absolute; width: 45px; height: auto; right: -4px; bottom: 18px;}
 .rch-btns-div .btn190{float:left; clear: both; margin: -5px 0 8px;}
@@ -706,3 +706,10 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 .pin-box {background: url(map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: bold; text-transform: uppercase; margin: 0 auto;}
 /* Map Pins page */
 
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : portrait) { 
+
+
+ }
