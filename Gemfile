@@ -4,20 +4,19 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'pg'
 
-
-gem 'turbo-sprockets-rails3'
 gem 'geocoder'
+gem 'resque', :require => 'resque/server'
 gem 'useragent'
 gem 'kaminari'
-gem 'sunspot_rails'
+#gem 'sunspot_rails'
 gem 'compass'
 gem 'devise'
 gem "cancan"
 gem "rolify"
 gem 'client_side_validations'
-gem 'curb'
 gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
 gem "carrierwave"
+gem 'high_voltage'
 gem "rails_admin"
 gem "breadcrumbs_on_rails"
 gem 'exotel'
@@ -41,7 +40,6 @@ gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'jquery-rails', "2.1.0"
 gem 'twitter-bootstrap-rails', '2.2.7'
 
-gem 'high_voltage'
 
 group :assets do
     gem 'sass-rails',   '~> 3.2.3'

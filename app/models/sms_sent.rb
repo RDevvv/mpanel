@@ -39,13 +39,7 @@ class SmsSent < ActiveRecord::Base
     end
 
     def send_message
-        Exotel.configure do |c|
-            c.exotel_sid   = "gullakmaster"
-            c.exotel_token = "449df2572ff8b57017ceb975d5dc15b93d480e02"
-        end
-
-        response = Exotel::Sms.send(:from => '09223584822', :to => self.get_number, :body => self.text)
-        self.update_attributes(:vendor_id => response.sid)
+        Resque.enqueue(ExotelSms,self.id)
     end
 
     def get_number
