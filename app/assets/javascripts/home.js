@@ -130,9 +130,13 @@ function verification_modal_submit(){
 
 
 function track(element) {
+    if($(element).closest('div[class="bdiv"]').length>0)
+        box_element   = $(element).closest('div[class="bdiv"]');
+    else
+        box_element   = $(element).closest('div[class="bdiv2"]');
+
     customer_uuid = $.cookie("customer_uuid");
     button_class  = $(element).attr("class").split(" ")[0];
-    box_element   = $(element).closest('div[class="bdiv"]');
     redirection_url = "get_button_click.json";
     ad_id         = box_element.attr("id");
     outlet_id     = box_element.attr("outlet_id");
@@ -272,6 +276,6 @@ function call_button_verification(){
         console.log("phone_number");
         $('#mobile-number').modal('show');
     }
-    else if($.cookie("mobile_number")==0)
-        $('#verification').modal('show');
+    else
+        console.log("true");
 }
