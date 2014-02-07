@@ -1,9 +1,9 @@
 class Customer < ActiveRecord::Base
   has_many :facebook_shares
-  has_many :customer_sessions
+  has_many :customer_sessions, :dependent => :destroy
   has_many :sms_sents
   has_many :call_forwardings
-  has_many :button_clicks
+  has_many :button_clicks, :dependent => :destroy
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
   attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates
