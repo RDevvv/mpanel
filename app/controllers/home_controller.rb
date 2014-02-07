@@ -79,7 +79,7 @@ class HomeController < ApplicationController
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
 
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
@@ -130,7 +130,7 @@ class HomeController < ApplicationController
         result = Keyword.search(params[:search])
 
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
         unless @outlets.blank?
             @nearby_outlets = @outlets.map{|o| o.id}.uniq
         else

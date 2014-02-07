@@ -55,6 +55,14 @@ module HomeHelper
         end
     end
 
+    def get_keyword_search_url
+        if action_name == 'outlet_listing'
+            'outlet_search'
+        else
+            'map_search'
+        end
+    end
+
     def check_if_verified(uuid)
         customer =Customer.where(:uuid => uuid)
         if customer.blank?
