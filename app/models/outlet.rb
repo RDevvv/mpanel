@@ -233,6 +233,6 @@ class Outlet < ActiveRecord::Base
           shop_no = self.shop_no
       end
 
-      shop_no+" "+self.address+", "+self.area.area_name+", "+self.area.city.city_name
+      shop_no+" "+self.address+", "+self.area.area_name+", "+self.area.city.city_name+", "+self.area.pincode
   end
 end
