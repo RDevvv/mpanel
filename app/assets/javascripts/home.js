@@ -26,8 +26,8 @@ function map_initializer(locations, user_location){
         });
         google.maps.event.addListener(marker, 'click', function(marker){
              coords = marker["latLng"]["d"].toFixed(5).toString()+marker["latLng"]["e"].toFixed(5).toString();
-             console.log(coords);
              element = document.getElementById(coords);
+             $('body').scrollTo(element,{duration: 'slow'});
         });
     }
 
