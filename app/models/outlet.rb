@@ -226,4 +226,13 @@ class Outlet < ActiveRecord::Base
       return (@outlets_with_ad+@outlets_without_ad)
   end
 
+  def get_address
+      if self.shop_no.blank?
+          shop_no = " "
+      else
+          shop_no = self.shop_no
+      end
+
+      shop_no+" "+self.address+", "+self.area.area_name+", "+self.area.city.city_name+", "+self.area.pincode
+  end
 end
