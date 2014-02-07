@@ -13,7 +13,7 @@ module ApplicationHelper
             if ad.attachments.blank?
                 og_image = "http://www.gullakmaster.com/assets/gullak-logo-mcc.png"
             else
-                og_image = "http://www.gullakmaster.com/assets/"+ad.attachments.first.image
+                og_image = "http://www.gullakmaster.com/"+ad.attachments.first.image
             end
         end
         @tags = [og_title, og_image]
