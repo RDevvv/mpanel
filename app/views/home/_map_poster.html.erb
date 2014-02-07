@@ -7,7 +7,7 @@
             <%= get_brand_title(outlet.account_brand.brand) %>
         </div>
 
-            <% if outlet.ads.first.is_exclusive %>
+            <% unless ad.is_exclusive.blank? %>
         <div class="eye2"></div>
         <% end %>
         <div align="center" class="brandlogo">
@@ -25,6 +25,7 @@
             <a class="share" onclick="track(this)" href="https://www.facebook.com/sharer/sharer.php?u=<%#= outlet.ad_promocode_outlets.where(:ad_id => ad.id).first.campaigns.where(:campaign_type => 'organic share').first.short_url %>" target="_blank">
                 <div class="refr2"></div>
             </a>
+            <% unless ad.blank?%>
                 <div class="star2"><a onclick="track(this); $.pnotify({
                 title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
                 text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
@@ -34,6 +35,7 @@
                 <div class="run2"></div>
                 <div class="runtxt"><%= ad.ad_promocode_outlets.where(:outlet_id => outlet.id).first.sms_sents.count %></div>
             </div>
+        <% end %>
         </div>
     </div>
 </div>

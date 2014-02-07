@@ -4,7 +4,9 @@
         <div class="brandtitle">
             <%= get_brand_title(outlet.account_brand.brand) %>
         </div>
+            <% unless ad.is_exclusive.blank? %>
         <div class="eye2"></div>
+        <% end %>
         <div align="center" class="brandlogo">
             <%= get_brand_image(outlet.account_brand.brand) %>
         </div>
@@ -29,23 +31,23 @@
                 <div class="refr2"></div>
             </a>
 
-            <% unless ad.is_exclusive.nil? %>
-                <% if ad.is_exclusive ==true %>
-                <div class="star2"><a onclick="track(this); $.pnotify({
+            <% unless ad.blank?%>
+                <div class="star2">
+                    <a onclick="track(this); $.pnotify({
                     title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
                     text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
                     closer_hover: false,
                     opacity: .9
-                    });" class="description btn source"></a></div>
-        <% end %>
-        <% end %>
-            <div class="right-box">
-                <a class="ad_request" href="#" onclick="track(this); send_ad($.cookie('customer_uuid'), this)">
+                    });" class="description btn source"></a>
+                </div>
+                <div class="right-box">
+                    <a class="ad_request" href="#" onclick="track(this); send_ad($.cookie('customer_uuid'), this)">
                     <div class="run2"></div>
                     <div class="runtxt"><%= ad.usage %></div>
+                    </a>
                 </div>
-            </a>
+            <%end%>
         </div>
     </div>
 </div>
-                        <% end %>
+<% end %>
