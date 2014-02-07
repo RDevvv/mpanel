@@ -262,3 +262,12 @@ function get_backtotop_button(){
         return false;
     });
 }
+function call_button_verification(){
+    console.log($.cookie("mobile_number"));
+    if($.cookie("mobile_number")=='false'){
+        console.log("phone_number");
+        $('#mobile-number').modal('show');
+    }
+    else if($.cookie("mobile_number")==0)
+        $('#verification').modal('show');
+}

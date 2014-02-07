@@ -16,7 +16,11 @@
         <div class="rch-btns-div2">
             <% unless outlet.mobile_number.empty? %>
                 <div class="btn190">
-                <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
+                    <% if check_if_verified(cookies[:customer_uuid])==1 %>
+                        <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
+                    <% else %>
+                        <a class="call button_call2" onclick="call_button_verification()" href="#">CALL</a>
+                    <% end %>
             </div>
         <% end %>
         </div>
