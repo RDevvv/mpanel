@@ -17,5 +17,4 @@
 //= require jquery.mmenu
 //= require jquery.scrollTo
 //= require jquery.cookie
-//= require jquery.mixitup.min
 //= require home

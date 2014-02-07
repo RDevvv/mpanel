@@ -264,6 +264,10 @@ function get_backtotop_button(){
 }
 function call_button_verification(){
     console.log($.cookie("mobile_number"));
+    if($.cookie("mobile_number")=='not_verified'){
+        console.log("phone_number");
+        $('#verification').modal('show');
+    }
     if($.cookie("mobile_number")=='false'){
         console.log("phone_number");
         $('#mobile-number').modal('show');
