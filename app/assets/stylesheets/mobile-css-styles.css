@@ -247,7 +247,7 @@ background: #7f7f7f;
 #signup .txt-fld, #popup_share .txt-fld { position: relative; width: 364px; padding: 14px 20px; border-bottom: 1px solid #EEE; text-align: right; }
 #signup .btn-fld, #popup_share .btn-fld { width: 254px; overflow: hidden; padding: 12px 20px 12px 130px; }
 
-ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:-5px;}
+ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:20px; /*left:-5px;*/}
 ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; list-style-type: none;}
 /* sign up overlay page */
 
@@ -483,7 +483,7 @@ input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidde
 #signup .txt-fld, #popup_share .txt-fld { position: relative; width: 364px; padding: 14px 20px; border-bottom: 1px solid #EEE; text-align: right; }
 #signup .btn-fld, #popup_share .btn-fld { width: 254px; overflow: hidden; padding: 12px 20px 12px 130px; }
 
-ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:-5px;}
+ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left:20px; /*left:-5px;*/}
 ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; list-style-type: none;}
 /* sign up overlay page */
 
