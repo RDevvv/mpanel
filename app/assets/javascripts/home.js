@@ -6,6 +6,7 @@ function map_initializer(locations, user_location){
         zoom: 12,
         center: new google.maps.LatLng(locations[0][0], locations[0][1]),
         mapTypeControl: false,
+        zoomControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
