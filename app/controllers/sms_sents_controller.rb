@@ -45,4 +45,20 @@ class SmsSentsController < ApplicationController
         end
     end
 
+    def sms_share
+        customer = Customer.where(:uuid => params[:customer_uuid]).first
+        unless customer.mobile_number.nil?
+            if customer.is_verified?
+                campaign = Campaign.create(:campaign_name => "sms_share", :marketer => "customer", :target => "customer", :source => "website", :medium => "organic", :campaign_type => "manual")
+                campaign_copy = campaign.campaign_copies.create(:customer_id => customer.id)
+                text = "I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! Check it out. gullakmaster.com http://gullak.co/#{campaign_copy.short_url}"
+
+                ad_promocode_outlet = AdPromocodeOutlet.where(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id]).first
+                sms_sent = customer.sms_sents.create(:ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => 1, :text => text)
+                sms_sent.send_message
+                render :json => {:sms_sent => true, :text => text}
+            end
+        end
+    end
+
 end

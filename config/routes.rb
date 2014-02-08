@@ -124,6 +124,7 @@ Gullak2::Application.routes.draw do
     match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
     match 'deals/:id/:source/:city/:area/:category/:ad_promocode_outlet_id' => 'campaigns#facebook_share'
     get '/generate_campaign_copy' => 'campaigns#generate_campaign_copy'
+    match 'sms_share' => 'sms_sents#sms_share'
 
     root :to => "home#index"
      get '/:short_url' => 'campaigns#campaign_landing'

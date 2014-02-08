@@ -57,6 +57,7 @@ function check_if_mobile_number_exists(){
 function show_share(facebook_share_link){
     $('#popup_share').modal('show');
     parent_element = $(facebook_share_link).parent().parent().parent();
+    window.poster_id = parent_element;
     $.ajax({
         url: "/generate_campaign_copy.json",
         data: {
@@ -281,3 +282,20 @@ function call_button_verification(){
     else
         console.log("true");
 }
+
+function new_sms_share(sms_share_link){
+    parent_element = window.poster_id;
+    console.log(window.poster_id);
+    console.log(parent_element);
+    $.ajax({
+        url: "/sms_share.json",
+        data:{
+            customer_uuid: $.cookie("customer_uuid"),
+            ad_id: parent_element.attr("ad_id"),
+            outlet_id: parent_element.attr("outlet_id")
+        }
+    }).success(function(){
+        $.pnotify({ title: '', text: 'Ad sent', closer_hover: false, opacity: .9 });
+    })
+}
+
