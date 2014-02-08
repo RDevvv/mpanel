@@ -94,6 +94,8 @@ function modal_submit(){
             else if(data["mobile_number"]=="exist")
             {
                 $.pnotify({ title: '', text: 'Welcome back', closer_hover: false, opacity: .9 });
+                $('#mobile-number').modal('hide');
+                window.location.reload();
             }
             else
             {
