@@ -33,7 +33,7 @@ class SmsSentsController < ApplicationController
                 ad_promocode.update_attributes(:usage => (ad_promocode.usage+1))
                 ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id]).first
                 button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).last
-                text = "#{ad.account_brand.brand.brand_name}: #{ad.sms_text} Promocode: #{ad_promocode.promocode}, Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name}"
+                text = "#{ad.account_brand.brand.brand_name}: #{ad.sms_text} Promocode: #{ad_promocode.promocode}, Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name} Thanks, GullakMaster"
                 @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.last.id, :button_click_id => button_click.id)
 
                 render :json => {:mobile_number_presence => true, :text => text}
@@ -51,7 +51,7 @@ class SmsSentsController < ApplicationController
             if customer.is_verified?
                 campaign = Campaign.create(:campaign_name => "sms_share", :marketer => "customer", :target => "customer", :source => "website", :medium => "organic", :campaign_type => "manual")
                 campaign_copy = campaign.campaign_copies.create(:customer_id => customer.id)
-                text = "I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! Check it out. gullakmaster.com http://gullak.co/#{campaign_copy.short_url}"
+                text = "I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! http://gullak.co/#{campaign_copy.short_url} Check it out."
 
                 ad_promocode_outlet = AdPromocodeOutlet.where(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id]).first
                 sms_sent = customer.sms_sents.create(:ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => 1, :text => text)
