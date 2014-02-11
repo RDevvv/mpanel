@@ -33,7 +33,7 @@ class SmsSentsController < ApplicationController
                 ad_promocode.update_attributes(:usage => (ad_promocode.usage+1))
                 ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id]).first
                 button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).last
-                text = "#{ad.account_brand.brand.brand_name}: #{ad.sms_text} Promocode: #{ad_promocode.promocode}, Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name} Thanks, GullakMaster"
+                text = "Offer: #{ad.account_brand.brand.brand_name}: #{ad.sms_text} Promocode: #{ad_promocode.promocode}, Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name} #{outlet.area.pincode} Thanks, GullakMaster"
                 @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.last.id, :button_click_id => button_click.id)
 
                 render :json => {:mobile_number_presence => true, :text => text}
