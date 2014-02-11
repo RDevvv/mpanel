@@ -39,12 +39,13 @@ three:
   id: 3
   account_brand_id: 1
   ad_title: CCD 20% disounts
-  is_tuesday: false
-  is_wednesday: false
-  is_thursday: false
-  is_friday: false
-  is_saturday: false
-  is_sunday: false
+  is_monday: true
+  is_tuesday: true
+  is_wednesday: true
+  is_thursday: true
+  is_friday: true
+  is_saturday: true
+  is_sunday: true
   start_date: 2013-11-09 16:31:03
   expiry_date: 2013-11-09 16:31:03
   is_active: true
