@@ -35,7 +35,7 @@ Gullak2::Application.routes.draw do
     get "accounts/create"
 
     mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
-    mount Resque::Server, at: 'resque'
+    mount ResqueWeb::Engine, at: 'resque'
 
     devise_for :admin_users
 
