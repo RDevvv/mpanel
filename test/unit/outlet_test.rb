@@ -19,9 +19,23 @@ class OutletTest < ActiveSupport::TestCase
     end
 
     test "should check the output of if_address_changed when address is changed" do
-        Outlet.first.update_attributes(:address => SecureRandom.hex)
-        puts Outlet.first.address
-        change = Outlet.first.is_address_changed?
+        Outlet.find(1).update_attributes(:address => SecureRandom.hex)
+        change = Outlet.is_address_changed?
         assert_equal true, change
+    end
+
+    test "should get gecoding address" do
+        geocoding_address = Outlet.first.geocoding_address
+        assert_equal "golibar road, bandra, Mumbai", geocoding_address
+    end
+
+    test "test if get_address is working" do
+        address = Outlet.find(1).get_address
+        assert_equal "32 golibar road, bandra, Mumbai, 400706", address
+    end
+
+    test "if sort_by_brands is working" do
+        #sorted_outlets = Outlet.find(1).sort_by_brands(1)
+        #assert_equal "vivek", sorted_outlets
     end
 end

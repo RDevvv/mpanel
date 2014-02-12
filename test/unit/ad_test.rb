@@ -65,12 +65,16 @@ class AdTest < ActiveSupport::TestCase
     end
 
     test "if category being checked when category exists" do
-        category_exist = Ad.first.check_category?("Beverages")
+        category_exist = Ad.find(1).check_category?("Beverages")
         assert_equal true, category_exist
     end
 
     test "if category being checked when category doesn't exists" do
         category_exist = Ad.first.check_category?("Beveragess")
         assert_equal false, category_exist
+    end
+
+    test "check if check_day functioning" do
+        assert_equal Ad.find(3).check_day, [0,1,2,3,4,5,6]
     end
 end

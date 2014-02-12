@@ -3,9 +3,9 @@
 one:
   id: 1
   account_brand_id: 1
-  address: santacruz
-  area_id: 1
-  phone_number: 022-1238493
+  address: golibar road
+  area_id: 2
+  phone_number: 0221238493
   mobile_number: 9830303030
   email_id: adadoo@gmail.com
   is_active: false
@@ -20,7 +20,7 @@ two:
   account_brand_id: 1
   address: nerul
   area_id: 1
-  phone_number: 022-1238493
+  phone_number: 0221238493
   mobile_number: 9830303030
   email_id: merchant@gmail.com
   is_active: false

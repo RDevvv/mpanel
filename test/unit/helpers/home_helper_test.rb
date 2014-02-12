@@ -19,6 +19,6 @@ class HomeHelperTest < ActionView::TestCase
     end
 
     test "should generate referer link" do
-        assert_equal "http://staging.gullakmaster.com/deals/organic/facebook/Mumbai/nerul/Spa/1/", generate_referer_link(Outlet.first, "a1825be5-36b7-40dd-9e06-0bf58920235d", Ad.first)
+        assert_equal "http://staging.gullakmaster.com/deals/organic/facebook/Mumbai/bandra/Spa/1/", generate_referer_link(Outlet.first, "a1825be5-36b7-40dd-9e06-0bf58920235d", Ad.first)
     end
 end

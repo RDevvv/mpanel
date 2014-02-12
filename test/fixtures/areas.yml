@@ -8,8 +8,8 @@ one:
 
 two:
   id: 2
-  city_id: 2
-  area_name: nerul
+  city_id: 1
+  area_name: bandra
   latitude: 19.083959
   longitude: 73.007027
   pincode: 400706 
