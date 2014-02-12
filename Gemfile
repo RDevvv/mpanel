@@ -6,6 +6,7 @@ gem 'pg'
 
 gem 'geocoder'
 gem 'resque', :require => 'resque/server'
+gem 'delayed_job'
 gem 'useragent'
 gem 'kaminari'
 #gem 'sunspot_rails'
