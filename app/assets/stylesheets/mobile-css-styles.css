@@ -81,8 +81,6 @@ border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: sol
 .sub-txt2 {text-align: center; margin:5px 0 10px 0; /*margin:5px 0 10px 27%; margin:5px 0 10px 0; margin:5px 0 20px 0;*/ border-bottom: solid 1px #ccc; padding: 2px 0 10px 0; width: 100%; /*width: 50%;*/}
 .out-add-div {float:left; width: 100%; height:300px;  margin: 5px 0; /*overflow-x:hidden; overflow-y: auto; border:solid 1px #000;*/}
 
-.pop-up-box-main {width:85% !important; border:solid 1px #000 !important; position:absolute !important; left:82% !important;}
-.verify-pop-up-box {width:85% !important; height:auto !important; border:solid 1px #000 !important; position:absolute !important; left:82% !important;}
 
 .cust-ver {float: left; margin: 0; width: 100%; /*margin: 0 0 0 27%;*/}
 
@@ -201,7 +199,7 @@ background: #7f7f7f;
 .bbox2 .brandlogo {clear:both; width:95%; height: auto; margin: 0;  /*margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
-.lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
+.lower-box {clear:both; /*width:100%;*/ border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; }
@@ -413,7 +411,7 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
 .bbox2 .brandlogo {clear:both; width:95%; height: auto; margin: 0; /*margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
-.lower-box {clear:both; width:92% !important; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
+.lower-box {clear:both; width:124px; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px; /*width:92% !important;*/}
 .lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
 .lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; }
@@ -428,9 +426,6 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
 .map {width: 100%; height: 160px; /*height: 209px;*/}
 
 ul.right-icons li a.loc{background: url(ikons-img.png) no-repeat -385px -50px transparent; position: relative; top: 2px; right:-30px; padding: 10px 8px 6px 20px; width:auto; height:auto;}
-
-.pop-up-box-main {width:100% !important; border:solid 1px #000 !important; position:absolute !important; left:88% !important;}
-.verify-pop-up-box {width:85% !important; height:auto !important; border:solid 1px #000 !important; position:absolute !important; left:82% !important;}
 
 }
 
@@ -465,7 +460,7 @@ border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: sol
 /*border:solid 5px #000;*/ position: absolute; top:0px; right: -20px; height: 30px;
 background: url(bigger-icons.png) no-repeat -359px -189px transparent; /*padding: 0 3px 0px 14px;*/ padding:14px 3px 11px 17px; width:auto; height:auto; /*border: none;*/}
 
-.lower-box {clear:both; width:100%; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px;}
+.lower-box {clear:both; /*width:100%;*/width:134px; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px;}
 
 ul.left-icons li a.srchlink3{
 border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: solid 5px #F08B38; border-bottom: solid 0px #fff;
@@ -513,13 +508,6 @@ ul.pop-up-list {width:277px; height:auto; position: relative; bottom: 20px; left
 ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; list-style-type: none;}
 /* sign up overlay page */
 
-.block-div {font-size:25px; font-weight:bold; text-align:center; color: #0221df;}
-
-#newsletter {width:100%; border: solid 1px #000; padding: 5px 10px;}
-
-.pop-up-box-main {width:100% !important; border:solid 1px #000 !important; position:absolute !important; left:95% !important;}
-.verify-pop-up-box {width:85% !important; height:auto !important; border:solid 1px #000 !important; position:absolute !important; left:82% !important;}
-
 }
 
 @media only screen and (min-width: 480px) {
@@ -538,9 +526,6 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 
 .temp-msg-div {clear: both; width: 100%; height: 300px; text-align: center; border: solid 1px #fff; margin: 10px auto; font-family: Arial, Helvetica, sans-serif; font-size: 25px;}
 .temp-msg-div p {line-height: 30px; margin: 10% 0 0 0;}
-
-.pop-up-box-main {width:25% !important; border:solid 1px #000 !important; position:absolute !important; left:51% !important;}
-.verify-pop-up-box {width:25% !important; height:auto !important; border:solid 1px #000 !important; position:absolute !important; left:51% !important;}
 
 /* Footer */
 
@@ -599,9 +584,6 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
   #go { margin: 0 auto; width: 200px; }
 #lean_overlay {position: fixed; z-index:100; top: 0px; left: 0px; height:100%; width:100%; background: #000; display: none;}
   .modal_close {position: absolute; top: -13px; right: -10px; display: block; width: 30px; height: 28px; z-index: 2; background-image: url(fancybox.png); background-position: -40px 0px;}
-
-.pop-up-box-main {width:25% !important; border:solid 1px #000 !important; position:absolute !important; left:51% !important;}
-.verify-pop-up-box {width:25% !important; height:auto !important; border:solid 1px #000 !important; position:absolute !important; left:51% !important;}
 
 .block-div {display:none;}
 }
@@ -773,3 +755,13 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {float:right; background: url(map-pin.png) no-repeat transparent; width: 29px; height: 41px; text-align: left; padding: 2px 0 2px 7px; color: #fff; font-size: 14px; font-weight: normal; text-transform: uppercase;}
 /* Map Pins page */
+
+
+/* iPhone landscape and iPad portrait */
+@media only screen and (max-device-width: 480px) and (max-device-width: 640px) {
+  .lower-box {clear:both; width:134px; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px;}
+    /*body { 
+       background: red !important 
+       -webkit-text-size-adjust:none; 
+    }*/
+}
