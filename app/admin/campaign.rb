@@ -1,4 +1,4 @@
-ActiveAdmin.register Campaign do
+ActiveAdmin.register Campaign.where("campaign_type != 'button_click' and campaign_type != 'organic share'") do
   index do
     column :id
     column :source
@@ -9,15 +9,7 @@ ActiveAdmin.register Campaign do
     column :pre_expiry_forward_url
     column :post_expiry_forward_url
     column :short_url
-    column :unique_key
     column :expires_at
-    column :created_at
-    column :updated_at
-    column :campaign_template
-    column :purpose
-    column :placement
-    column :target
-    column :campaign_name
     actions :defaults => false do |campaign|
       link_to "View", admin_campaign_path(campaign)
     end
