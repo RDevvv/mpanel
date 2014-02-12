@@ -40,9 +40,15 @@ ActiveAdmin.setup do |config|
   # a namespace block. For example, to change the site title
   # within a namespace:
   #
-  #   config.namespace :admin do |admin|
-  #     admin.site_title = "Custom Admin Title"
-  #   end
+     config.namespace :admin do |admin|
+       admin.build_menu do |menu|
+         if Rails.env == 'production'
+          menu.add :label => "Resque", :url => "http://www.gullakmaster.com/resque"
+         else
+          menu.add :label => "Resque", :url => "http://localhost:3000/resque"
+         end
+        end
+     end
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
