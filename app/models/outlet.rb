@@ -226,6 +226,22 @@ class Outlet < ActiveRecord::Base
       return (@outlets_with_ad+@outlets_without_ad)
   end
 
+  def self.discard_outlets_from_same_brand(outlets)
+      final_outlets = Array.new
+      brands = outlets.map{|o|o.get_brand.brand_name}.uniq.map{|brand|[brand,0]}.flatten
+      brands = Hash[*brands]
+      outlets.each do |outlet|
+          outlet_brand = outlet.get_brand.brand_name
+          brands[outlet_brand] += 1
+          final_outlets.push(outlet) if brands[outlet_brand] == 1
+      end
+      final_outlets
+  end
+
+  def get_brand
+      self.account_brand.brand
+  end
+
   def get_address
       if self.shop_no.blank?
           shop_no = " "
