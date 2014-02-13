@@ -1,4 +1,19 @@
-ActiveAdmin.register Campaign.where("campaign_type != 'button_click' and campaign_type != 'organic share'") do
+ActiveAdmin.register Campaign do
+
+  collection_action :index, :method => :get do
+    # Only get the groups owned by the current user
+    scope = Campaign.where("campaign_type != 'button_click' and campaign_type != 'organic share'").scoped
+
+    @collection = scope.page() if params[:q].blank?
+    @search = scope.metasearch(clean_search_params(params[:q]))
+
+    respond_to do |format|
+      format.html {
+        render "active_admin/resource/index"
+      }
+    end
+  end
+
   index do
     column :id
     column :source
