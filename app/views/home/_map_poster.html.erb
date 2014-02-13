@@ -18,7 +18,7 @@
             <% unless outlet.mobile_number.empty? %>
                 <div class="btn190">
                     <% if check_if_verified(cookies[:customer_uuid])==1 %>
-                        <a class="call button_call2" onclick="track(this)" href="tel:09223584822">CALL</a>
+                        <a class="call button_call2" href="tel:09223584822">CALL</a>
                     <% else %>
                         <a class="call button_call2" onclick="call_button_verification()">CALL</a>
                     <% end %>
@@ -27,11 +27,11 @@
         </div>
         <div class="distance-div3">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
         <div class="lower-box">
-            <a class="share" onclick="track(this); show_share(this);" href="#">
+            <a class="share" onclick="show_share(this);" href="#">
                 <div class="refr2"></div>
             </a>
             <% unless ad.blank?%>
-                <div class="star2"><a onclick="track(this); $.pnotify({
+                <div class="star2"><a onclick="$.pnotify({
                 title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
                 text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
                 opacity: .9

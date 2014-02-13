@@ -126,6 +126,7 @@ Gullak2::Application.routes.draw do
     get '/generate_campaign_copy' => 'campaigns#generate_campaign_copy'
     match 'sms_share' => 'sms_sents#sms_share'
 
-    root :to => "home#index"
+    root :to => "home#index", constraints: {subdomain: 'm'}
+    root :to => redirect('/desktop_index.html')
      get '/:short_url' => 'campaigns#campaign_landing'
 end

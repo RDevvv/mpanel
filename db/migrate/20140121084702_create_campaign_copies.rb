@@ -8,7 +8,7 @@ class CreateCampaignCopies < ActiveRecord::Migration
       t.boolean :is_opened, :default => false
       t.references :customer
       t.integer :copy_sent
-      t.integer :use_count
+      t.integer :use_count, :default => 0
 
       t.timestamps
     end
