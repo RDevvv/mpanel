@@ -18,3 +18,8 @@
 //= require jquery.scrollTo
 //= require jquery.cookie
 //= require home
+//= require geocoding
+//= require tracking
+//= require verification
+//= require back_to_top
+//= require binding_tags
