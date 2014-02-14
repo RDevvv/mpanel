@@ -35,6 +35,7 @@ class CampaignsController < ApplicationController
     def create
         @campaign = Campaign.new(params[:campaign])
 
+        @campaign.save
         respond_with @campaign, :location => campaigns_path
     end
 
@@ -43,6 +44,7 @@ class CampaignsController < ApplicationController
     def update
         @campaign = Campaign.find(params[:id])
 
+        @campaign.update_attributes(params[:campaign])
         respond_with @campaign, :location => campaigns_path
     end
 
