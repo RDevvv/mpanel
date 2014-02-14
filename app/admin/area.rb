@@ -2,8 +2,7 @@ ActiveAdmin.register Area do
   index do
     column :id
     column :area_name
-    column :created_at
-    column :updated_at
+    column :city
     column :latitude
     column :longitude
     column :pincode
