@@ -4,7 +4,11 @@ ActiveAdmin.register Category do
     column :id
     column :category_name
     column :industry do |category|
-      category.industry.industry_name
+      if category.industry.present?
+        category.industry.industry_name
+      else
+        status_tag('Empty')
+      end
     end
     actions :defaults => false do |category|
       link_to "View", admin_category_path(category)
@@ -27,7 +31,11 @@ ActiveAdmin.register Category do
       row :id
       row :category_name
       row :industry do |category|
-        category.industry.industry_name
+        if category.industry.present?
+          category.industry.industry_name
+        else
+          status_tag('Empty')
+        end
       end
       row :created_at
       row :updated_at
