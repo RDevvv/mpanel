@@ -26,7 +26,7 @@ class Customer < ActiveRecord::Base
   end
 
   def generate_verification_code
-    self.update_attributes(:verification_code => SecureRandom.hex(4))
+    self.update_attributes(:verification_code => SecureRandom.random_number(9999))
     text = "Your verification code is : #{self.verification_code} Thanks, GullakMaster"
     self.sms_sents.create(:text => text)
   end
