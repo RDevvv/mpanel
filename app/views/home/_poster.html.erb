@@ -1,59 +1,69 @@
-<% unless ad.expired? %>
-                        <% if ad.check_day.include?(Date.today.wday) %>
-<div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>" ad_id="<%= ad.id %>">
-    <div class="bbox">
-        <div class="brandtitle">
-            <%= get_brand_title(outlet.account_brand.brand) %>
-        </div>
-            <% unless ad.is_exclusive.blank? %>
-        <div class="eye2"></div>
-        <% end %>
-        <div align="center" class="brandlogo">
-            <%= get_brand_image(outlet.account_brand.brand) %>
-        </div>
-        <div class="rch-btns-div">
-            <div class="btn190">
-                <a class="address button_map2" onclick="$.pnotify({
-                    title: 'Address',
-                    text: '<%= h "#{outlet.get_address}" %>',
-                    closer_hover: false,
-                    opacity: .9
-                    });" href="#">ADDRESS</a>
+    <% unless ad.expired? %>
+                            <% if ad.check_day.include?(Date.today.wday) %>
+    <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>" ad_id="<%= ad.id %>">
+        <div class="bbox">
+            <div class="brandtitle">
+                <%= get_brand_title(outlet.account_brand.brand) %>
             </div>
-            <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
+            <div class="rch-btns-div">
                 <div class="btn190">
-                    <% if check_if_verified(cookies[:customer_uuid])==1 %>
-                        <a class="call button_call2" href="tel:09223584822">CALL</a>
-                    <% else %>
-                        <a class="call button_call2" onclick="call_button_verification()" href="#">CALL</a>
-                    <% end %>
+                    <a class="address button_map2" onclick="$.pnotify({
+                        title: 'Address',
+                        text: '<%= h "#{outlet.get_address}" %>',
+                        closer_hover: false,
+                        opacity: .9
+                        });" href="#">ADDRESS</a>
+                </div>
+                <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
+                    <div class="btn190">
+                        <% if check_if_verified(cookies[:customer_uuid])==1 %>
+                            <a class="call button_call2" href="tel:09223584822">CALL</a>
+                        <% else %>
+                            <a class="call button_call2" onclick="call_button_verification()" href="#">CALL</a>
+                        <% end %>
+                </div>
+            <% end %>
             </div>
-        <% end %>
-        </div>
-        <div class="distance-div">Distance: <%= (outlet.distance).to_f.round(2) %> km</div>
-        <div class="lower-box">
-            <a class="share" onclick="show_share(this);" href="#" >
-                <div class="refr2"></div>
-            </a>
+                <% unless ad.is_exclusive.blank? %>
+            <div class="eye2"></div>
+            <% end %>
+                    <div class="distance-div">Dist: <%= (outlet.distance).to_f.round(2) %> km</div>
 
-            <% unless ad.blank?%>
-                <div class="star2">
-                    <a onclick="$.pnotify({
-                    title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
-                    text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
-                    closer_hover: false,
-                    opacity: .9
-                    });" class="description btn source"></a>
-                </div>
-                <div class="right-box">
-                    <a class="ad_request" href="#" onclick="send_ad($.cookie('customer_uuid'), this)">
-                    <div class="run2"></div>
-                    <div class="runtxt"><%= ad.usage %></div>
-                    </a>
-                </div>
-            <%end%>
+            <div align="center" class="brandlogo">
+                <%= get_brand_image(outlet.account_brand.brand) %>
+            </div>
+            <div class="distance-div-below">Ends 13/02</div>
+            
+                
+
+                <% unless ad.blank?%>
+                       </a>
+
+                    <div class="rch-btns-div3">
+                          <div class="btn190"> <a class="button_view" onclick="$.pnotify({
+                        title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
+                        text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
+                        closer_hover: false,
+                        opacity: .9
+                        });" class="description button_view">View</a>
+                        </div>
+                        
+                          <div class="btn190"><a class="ad_request button_offer" href="#" onclick="send_ad($.cookie('customer_uuid'), this)">Get Offer</a></div>
+                            
+                    </div>
+
+                <%end%>
+            <div class="lower-box">
+                <a class="share" onclick="show_share(this);" href="#" >
+                    <div class="refr2"></div>
+                </a>
+ <div class="refr2"></div>
+                         <p>Availed: <%= ad.usage %></p>
+
+                    <!--<div class="distance-div">Distance: xx.x km</div>-->
+                  </div>
+            </div>
         </div>
     </div>
-</div>
-<% end %>
-<% end %>
+    <% end %>
+    <% end %>
