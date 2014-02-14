@@ -1,5 +1,5 @@
 class SmsSent < ActiveRecord::Base
-    belongs_to :customer
+    belongs_to :customer, :dependent => :destroy
     belongs_to :ad_promocode_outlet
 
     attr_accessible :text, :is_sent, :ad_promocode_outlet_id, :ad_promocode_outlet_version_id, :customer_id, :button_click_id, :vendor_id
