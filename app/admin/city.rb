@@ -3,8 +3,6 @@ ActiveAdmin.register City do
     column :id
     column :city_name
     column :time_zone
-    column :created_at
-    column :updated_at
     column :latitude
     column :longitude
     actions :defaults => false do |city|
