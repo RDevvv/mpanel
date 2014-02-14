@@ -136,7 +136,7 @@ a.gplus {background: url(../assets/Emailer_Sprite.png) no-repeat 0 -60px transpa
 
 .homelinks2 {float:right; position: relative; width: 21%; height: 76px; right: -25px; top:117px;} 
 .homelinks2 .home {float: right; margin: 15% 0 0 0;}
-.homelinks2 .txt {float: right; text-align: center; color: #fff; font-weight: normal; font-size: 0.6em; margin: 0 2% 0 0;}
+.homelinks2 .txt {float: right; text-align: center; color: #fff; font-weight: bold; font-size: 0.4em; margin: 0 2% 0 0;}
 .homelinks2 .home img {max-width: 50%; max-height:100%; float:right; margin: 10px 0 0 0;}
 
 footer {clear:both; width: 100%; height: auto; background:#f7941e;}
@@ -240,7 +240,7 @@ header {width: 100%; height: 75px; margin: 0 auto 0 auto;}
 .orangebox {float: right; width: 55%; height: 25%; background:#f7941e; color: #fff; margin: 13% 0 0 0;
     border-top-left-radius: 5px; border-bottom-right-radius: 5px; -webkit-border-bottom-right-radius: 5px; -moz-border-bottom-right-radius: 5px;
  }
-.orangebox .txt {float:right; color: #fff; font-size: 0.9em; margin: 0px 5px 0 0;}
+.orangebox .txt {float:right; color: #fff; font-size: 0.7em; margin: 2px 5px 0 0;}
 
 .contentbox {width: 85%; height: 30%; clear:both; background:#e6e7e8; border: solid 6px #f7941e; margin: 5% auto 0;}
 .contentbox .box1 {float:left; width: 49%; border:solid 1px #000;}
