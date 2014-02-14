@@ -6,7 +6,7 @@
         <div id="map" class="map"></div>
 
         <%= javascript_tag do %>
-            locations = <%= @unique_outlets = @final_outlets.map{|o|[o.latitude, o.longitude]}.uniq.to_json.html_safe %>;
+            locations = <%= @unique_outlets = @final_outlets.map{|o|[o.latitude, o.longitude]}.to_json.html_safe %>;
         user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
     map_initializer(locations, user_location);
     <% end %>
