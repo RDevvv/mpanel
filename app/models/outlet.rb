@@ -251,4 +251,26 @@ class Outlet < ActiveRecord::Base
 
       shop_no+" "+self.address+", "+self.area.area_name+", "+self.area.city.city_name+", "+self.area.pincode
   end
+
+  def self.nearby_outlet_ids(outlets)
+        unless outlets.blank?
+            nearby_outlets = outlets.map{|o| o.id}.uniq
+        else
+            nearby_outlets = []
+        end
+        nearby_outlets
+  end
+
+  def self.sort_by_distance_and_presence(result,outlets)
+        nearby_outlets = Outlet.nearby_outlet_ids(outlets)
+        unless result.blank?
+            new_outlets = Outlet.where(:id => 0)
+            ad_outlets = result.map{|ad|ad.outlets}.flatten.map{|outlet|outlet.id}.uniq
+            nearby_outlets_with_ad = ad_outlets&nearby_outlets
+            nearby_outlets_with_ad.map {|outlet_id| new_outlets.append(outlets.find(outlet_id))} unless nearby_outlets_with_ad.empty?
+            final_outlets = new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
+            ad_ids = result.map{|ad|ad.id}
+        end
+        [final_outlets,ad_ids]
+  end
 end
