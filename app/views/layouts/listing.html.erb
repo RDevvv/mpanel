@@ -42,6 +42,7 @@
     </ul>
     <div class="head-brand">GullakMaster</div>
     <ul class="right-icons">
+        <li><a href="/map_listing?location=bandra" class="shr"></a></li>
         <% if action_name == 'map_listing' %>
             <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
     <% elsif action_name == 'outlet_listing' %>
