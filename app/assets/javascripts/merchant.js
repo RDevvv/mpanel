@@ -1,7 +1,6 @@
 //= require merchant/jquery191
 //= require merchant/jqueryui1102
 //= require merchant/bootstrap/bootstrap
-//= require merchant/jquery_gritter
 //= require merchant/tags_input
 //= require merchant/jquery_uniform
 //= require merchant/jquery.icheck
@@ -16,7 +15,6 @@
 //= require merchant/bootstrap-editable
 //= require merchant/editable/editable_demo
 //= require merchant/ibutton
-//= require merchant/gritter
 //= require merchant/calendar
 //= require merchant/generic
 //= require outlet
