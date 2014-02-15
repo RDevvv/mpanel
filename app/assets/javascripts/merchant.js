@@ -2,13 +2,11 @@
 //= require merchant/jqueryui1102
 //= require merchant/bootstrap/bootstrap
 //= require merchant/jquery_gritter
-//= require merchant/sparkline
 //= require merchant/tags_input
 //= require merchant/jquery_uniform
 //= require merchant/jquery.icheck
 //= require merchant/select2
 //= require merchant/bootstrap-wysihtml5
-//= require merchant/jquery.easy-pie-chart
 //= require merchant/dataTables
 //= require merchant/responsive-tables
 //= require merchant/wizard/bootstrap-wizard
