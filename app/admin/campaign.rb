@@ -32,4 +32,26 @@ ActiveAdmin.register Campaign do
       link_to "update", edit_admin_campaign_path(campaign)
     end
   end
+
+  form do |f|
+    f.inputs do
+      f.input :ad_promocode_outlet, :as => :select, :collection => AdPromocodeOutlet.all.map {|u| [u.id, u.id]}
+      f.input :source
+      f.input :medium
+      f.input :marketer
+      f.input :campaign_type
+      f.input :keyword
+      f.input :pre_expiry_forward_url
+      f.input :post_expiry_forward_url
+      f.input :short_url
+      f.input :unique_key
+      f.input :expires_at
+      f.input :campaign_template
+      f.input :purpose
+      f.input :placement
+      f.input :target
+      f.input :campaign_name
+    end
+  f.actions
+  end
 end
