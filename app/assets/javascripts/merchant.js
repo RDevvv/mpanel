@@ -5,7 +5,6 @@
 //= require merchant/jquery_uniform
 //= require merchant/jquery.icheck
 //= require merchant/select2
-//= require merchant/bootstrap-wysihtml5
 //= require merchant/dataTables
 //= require merchant/responsive-tables
 //= require merchant/wizard/bootstrap-wizard
