@@ -54,4 +54,35 @@ ActiveAdmin.register Campaign do
     end
   f.actions
   end
+
+  show do |campaign|
+    attributes_table do
+      row :ad_promocode_outlet do |campaign|
+        if campaign.ad_promocode_outlet.present?
+          campaign.ad_promocode_outlet_id
+        else
+          status_tag('Empty')
+        end
+      end
+      row :source
+      row :medium
+      row :marketer
+      row :campaign_type
+      row :keyword
+      row :pre_expiry_forward_url
+      row :post_expiry_forward_url
+      row :short_url
+      row :unique_key
+      row :expires_at
+      row :campaign_template
+      row :purpose
+      row :placement
+      row :target
+      row :campaign_name
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
+
 end
