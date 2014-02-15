@@ -23,3 +23,4 @@
 //= require verification
 //= require back_to_top
 //= require binding_tags
+//= require send_ad

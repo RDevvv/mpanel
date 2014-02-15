@@ -80,8 +80,6 @@ function user_geolocate(){
 function showPosition(position){
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    get_variables = new_link.href.split("?")[1];
-    //lat_long =
 }
 
 function geo_error(){
