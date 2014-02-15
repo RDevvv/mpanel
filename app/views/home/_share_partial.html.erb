@@ -5,7 +5,8 @@
     </p>
     <ul class="pop-up-list">
         <li><%= link_to image_tag("PopUp_FB.png"), '', :class => 'facebook_share' %></li>
-        <li><%= link_to image_tag("PopUp_Email.png"), "mailto:" %></li>
+        <li><%= link_to image_tag("PopUp_Email.png"), "mailto:?subject=Deals at your fingertips&body=I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! http://gullak.co/eml Check it out." %></li>
+                
         <% if(cookies["mobile_number"]==true||cookies["mobile_number"]=="verified") %>
             <li><%= link_to image_tag("PopUp_SMS.png"), "#", :onClick => "new_sms_share()" %></li>
         <% elsif(cookies["mobile_number"]==true||cookies["mobile_number"]=="not_verified") %>
