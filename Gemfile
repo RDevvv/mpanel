@@ -18,7 +18,6 @@ gem 'client_side_validations'
 gem "nested_form"#,:git=>"git://github.com/ryanb/nested_form.git"
 gem "carrierwave"
 gem 'high_voltage'
-gem "rails_admin"
 gem "breadcrumbs_on_rails"
 gem 'exotel'
 

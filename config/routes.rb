@@ -34,7 +34,6 @@ Gullak2::Application.routes.draw do
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
 
-    mount RailsAdmin::Engine => '/g_admin', :as => 'rails_admin'
     mount ResqueWeb::Engine, at: 'resque'
 
     devise_for :admin_users
