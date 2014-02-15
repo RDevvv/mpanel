@@ -37,8 +37,6 @@
                 
 
                 <% unless ad.blank?%>
-                       </a>
-
                     <div class="rch-btns-div3">
                           <div class="btn190"> <a class="button_view" onclick="$.pnotify({
                         title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
@@ -57,7 +55,8 @@
                 <a class="share" onclick="show_share(this);" href="#" >
                     <div class="refr2"></div>
                 </a>
-                    <p>Availed: <%= ad.usage %></p>
+                
+                         <p>Availed: <%= ad.usage %></p>
 
                     <!--<div class="distance-div">Distance: xx.x km</div>-->
                   </div>
