@@ -59,17 +59,12 @@ class HomeController < ApplicationController
     end
 
     def share_listing
-        @outlets = nil
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
         @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @shared_outlets = Category.where(:category_name => params[:category].gsub("_"," ")).first.brands.map{|b|b.account_brands}.flatten.map{|ab|ab.ads}.flatten.uniq.map{|ad|ad.account_brand}.map{|ab|ab.outlets}.flatten.map{|outlet|outlet.id}
 
-        unless @outlets.blank?
-            @nearby_outlets = @outlets.map{|o| o.id}.uniq
-        else
-            @nearby_outlets = []
-        end
+        @nearby_outlets = Outlet.nearby_outlet_ids(@outlets)
 
         @new_outlets = Outlet.where(:id => 0)
         nearby_outlets_with_ad = @shared_outlets&@nearby_outlets
@@ -78,16 +73,7 @@ class HomeController < ApplicationController
                 @new_outlets.append(@outlets.find(outlet_id))
             end
         end
-        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
-        @final_outlets = @final_outlets.uniq
-    end
-
-    def brand_listing
-        #@final_outlets = Brand.find(params[:brand_id]).sort_by_brands
-    end
-
-    def refered_listing
-        #@refered_ad = Outlet.find(params[:id1])
+        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
     end
 
     def outlet_search
@@ -95,36 +81,8 @@ class HomeController < ApplicationController
         result = Keyword.search(params[:search])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
 
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
-        unless @outlets.blank?
-            @nearby_outlets = @outlets.map{|o| o.id}.uniq
-        else
-            @nearby_outlets = []
-        end
-
-
-        unless result.blank?
-            @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
-            @new_outlets = Outlet.where(:id => 0)
-            result.each do |ad|
-                unless ad.outlets.empty?
-                    ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
-                    nearby_outlets_with_ad = ad_outlets&@nearby_outlets
-                    unless nearby_outlets_with_ad.empty?
-                        nearby_outlets_with_ad.each do |outlet_id|
-                            @new_outlets.append(@outlets.find(outlet_id))
-                        end
-                        @ads.append(Ad.find(ad.id))
-                    end
-                end
-            end
-            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
-            @final_outlets = @final_outlets.uniq
-        end
-        unless result.blank?
-            @ad_ids = result.map{|ad|ad.id}
-        end
-        #render "outlet_listing"
+        outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
+        @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
     end
 
     def map_search
@@ -132,31 +90,9 @@ class HomeController < ApplicationController
         result = Keyword.search(params[:search])
 
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
-        unless @outlets.blank?
-            @nearby_outlets = @outlets.map{|o| o.id}.uniq
-        else
-            @nearby_outlets = []
-        end
+        outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
 
-
-        unless result.blank?
-            @ads = Ad.where(:id => 0) #cheap way of initializing a ActiveRecord::Relation
-            @new_outlets = Outlet.where(:id => 0)
-            result.each do |ad|
-                unless ad.outlets.empty?
-                    ad_outlets = ad.outlets.map{|outlet| outlet.id}.uniq
-                    nearby_outlets_with_ad = ad_outlets&@nearby_outlets
-                    unless nearby_outlets_with_ad.empty?
-                        nearby_outlets_with_ad.each do |outlet_id|
-                            @new_outlets.append(@outlets.find(outlet_id))
-                        end
-                        @ads.append(Ad.find(ad.id))
-                    end
-                end
-            end
-            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}
-        end
+        @final_outlets,@ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
     end
 
     def hot_picks
@@ -180,11 +116,5 @@ class HomeController < ApplicationController
 
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
         render "outlet_listing"
-    end
-
-    def combo_view
-    end
-
-    def admin_panel
     end
 end

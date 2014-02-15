@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140205133142) do
+ActiveRecord::Schema.define(:version => 20140215061449) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -214,7 +214,7 @@ ActiveRecord::Schema.define(:version => 20140205133142) do
     t.boolean  "is_opened",    :default => false
     t.integer  "customer_id"
     t.integer  "copy_sent"
-    t.integer  "use_count"
+    t.integer  "use_count",    :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.string   "vendor_id"
@@ -442,12 +442,13 @@ ActiveRecord::Schema.define(:version => 20140205133142) do
     t.integer  "is_sent"
     t.integer  "customer_id"
     t.integer  "ad_promocode_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.integer  "button_click_id"
     t.integer  "ad_promocode_outlet_id"
     t.integer  "ad_promocode_outlet_version_id"
     t.string   "vendor_id"
+    t.boolean  "is_ad",                          :default => false
   end
 
   add_index "sms_sents", ["ad_promocode_id"], :name => "index_sms_sents_on_ad_promocode_id"
