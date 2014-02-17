@@ -73,11 +73,11 @@
             <% location_search_url = get_keyword_search_url%>
             <%= form_tag location_search_url, :method => 'GET', :id => 'searchForm' do |f|  %>
                 <fieldset>
-                <div class="input">
+                <div class="input3">
                     <%= hidden_field_tag :location, params[:location] %>
                     <%= hidden_field_tag :latitude, params[:latitude] %>
                     <%= hidden_field_tag :longitude, params[:longitude] %>
-                    <%= text_field_tag :search, nil,:id => 's', :placeholder => "Enter Category..." %>
+                    <%= text_field_tag :search, nil,:id => 's3', :placeholder => "Enter Category..." %>
                 </div>
             </fieldset>
         <% end %>
