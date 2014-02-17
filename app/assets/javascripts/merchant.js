@@ -3,7 +3,6 @@
 //= require merchant/bootstrap/bootstrap
 //= require merchant/tags_input
 //= require merchant/jquery_uniform
-//= require merchant/jquery.icheck
 //= require merchant/select2
 //= require merchant/dataTables
 //= require merchant/responsive-tables
@@ -13,7 +12,6 @@
 //= require merchant/validation/jquery.validationEngine
 //= require merchant/bootstrap-editable
 //= require merchant/editable/editable_demo
-//= require merchant/ibutton
 //= require merchant/calendar
 //= require merchant/generic
 //= require outlet
