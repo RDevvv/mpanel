@@ -39,7 +39,6 @@ class HomeController < ApplicationController
     end
 
     def outlet_listing
-        @outlets = nil
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
         @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
@@ -52,16 +51,19 @@ class HomeController < ApplicationController
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
 
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).where(:is_active => true)
         @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
+        @map_outlets = Array.new
+        @pin_id = 0
+        #@final_data = Outlet.generate_ad_outlet(@final_outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
     end
 
     def share_listing
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km).where(:is_active => true)
         @shared_outlets = Category.where(:category_name => params[:category].gsub("_"," ")).first.brands.map{|b|b.account_brands}.flatten.map{|ab|ab.ads}.flatten.uniq.map{|ad|ad.account_brand}.map{|ab|ab.outlets}.flatten.map{|outlet|outlet.id}
 
         @nearby_outlets = Outlet.nearby_outlet_ids(@outlets)

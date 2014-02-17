@@ -1,5 +1,6 @@
     <% unless ad.expired? %>
     <% if ad.check_day.include?(Date.today.wday) %>
+        <% @map_outlets.push(outlet) %>
         <li class="mix bsc span12" data-outlet="<%= outlet.id %>">
     <div class="bdiv2" outlet_id="<%= outlet.id %>" ad_id="<%= ad.id %>"id="<%= outlet.latitude.round(5).to_s+outlet.longitude.round(5).to_s %>">
         <div class="bbox2">
@@ -45,7 +46,8 @@
     </div>
     <div class="pin-add-div">
         <div class="pin-div">
-            <div class="pin-box"><%= (i+65).chr %></div>
+            <div class="pin-box"><%= (@pin_id+65).chr %></div>
+            <% @pin_id += 1 %>
         </div>
         <div class="add-box">
             <div class="adtitle1">Address</div>

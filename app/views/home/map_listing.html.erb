@@ -5,23 +5,15 @@
         <%= render 'top_location_search_bar' %>
         <div id="map" class="map"></div>
 
-        <%= javascript_tag do %>
-            locations = <%= @unique_outlets = @final_outlets.map{|o|[o.latitude, o.longitude]}.to_json.html_safe %>;
-        user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
-    map_initializer(locations, user_location);
-    <% end %>
 
         <div class="out-add-div">
             <ul id="Grid">
                 <% if @final_outlets.nil? %>
                     No results found
             <% else %>
-                    <% @final_outlets.each_with_index do |outlet, i| %>
-
-                    <% if outlet.is_active == true %>
-                    <% outlet.ads.each do |ad| %>
+                <% @final_outlets.each_with_index do |outlet, i| %>
+                        <% outlet.ads.each do |ad| %>
                     <%= render :partial => 'map_poster', :locals => {:outlet => outlet, :ad => ad, :i => i} %>
-            <% end %>
             <% end %>
             <% end %>
                 <%#= paginate @final_outlets %>
@@ -31,6 +23,11 @@
     </div>
 </div>
 
+        <%= javascript_tag do %>
+            locations = <%= @map_outlets.map{|o|[o.latitude, o.longitude]}.to_json.html_safe %>;
+            user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
+            map_initializer(locations, user_location);
+        <% end %>
 <script type='text/javascript'>
 mobile_number_verification();
 bind_tracking();
