@@ -12,7 +12,7 @@ function map_initializer(locations, user_location){
 
     user= new google.maps.Marker({
         position: user_position,
-        icon: "http://0.0.0.0:3000/assets/user_pin.png",
+        icon: "http://www.gullakmaster.com/assets/user_pin.png",
         map: map
     });
 
