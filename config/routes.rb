@@ -1,5 +1,8 @@
 Gullak2::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
     resources :articles do
         resources :comments
     end
@@ -36,15 +39,18 @@ Gullak2::Application.routes.draw do
 
     mount ResqueWeb::Engine, at: 'resque'
 
-    devise_for :admin_users
+    devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
     namespace :merchant do
 
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
+  ActiveAdmin.routes(self)
         get "/",:to=>"merchants#index",:as=>:merchants
 
         match "add_user" => "users#add_user"
         devise_for :users ,:module => "devise"
+  ActiveAdmin.routes(self)
         #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
         #   # get "login" => "devise/sessions#new",:as=>:merchant_login
 

@@ -31,7 +31,7 @@ gem 'exception_notification'
 gem 'crumbs'
 gem "fog"
 gem 'unf'
-gem 'paper_trail', '~> 2.7.2' 
+gem 'paper_trail', '~> 2.7.2'
 gem 'acts_as_paranoid',:git=>"git@github.com:goncalossilva/acts_as_paranoid.git",:branch=>"rails3.2"
 
 
@@ -40,26 +40,28 @@ gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'jquery-rails', "2.1.0"
 gem 'twitter-bootstrap-rails', '2.2.7'
 
+gem 'activeadmin'
+
 
 group :assets do
-    gem 'sass-rails',   '~> 3.2.3'
-    gem 'uglifier', '>= 1.0.3'
-    gem 'compass-rails'
-    gem 'turbo-sprockets-rails3'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'uglifier', '>= 1.0.3'
+  gem 'compass-rails'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :development do
-    gem 'sextant'
-    gem 'pry'
-    gem 'mailcatcher'
-    gem 'quiet_assets'
-    gem 'irbtools'
-    gem 'rails_best_practices'
-    gem 'seed_dump'
-    gem 'railroady'
+  gem 'sextant'
+  gem 'pry'
+  gem 'mailcatcher'
+  gem 'quiet_assets'
+  gem 'irbtools'
+  gem 'rails_best_practices'
+  gem 'seed_dump'
+  gem 'railroady'
 end
 
 group :test do
-    gem 'simplecov'
-    gem 'guard-test'
+  gem 'simplecov'
+  gem 'guard-test'
 end
