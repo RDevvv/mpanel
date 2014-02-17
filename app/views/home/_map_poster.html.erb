@@ -33,7 +33,7 @@
             <div align="center" class="brandlogo">
                 <%= get_brand_image(outlet.account_brand.brand) %>
             </div>
-                        <div class="distance-div-below">Ends 13/02</div>
+            <div class="distance-div-below">Ends: <%= ad.expiry_date.strftime('%d/%m') %></div>
 
             <div class="lower-box">
                 <a class="share" onclick="show_share(this);" href="#">
