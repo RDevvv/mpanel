@@ -72,14 +72,14 @@ border-top: solid 5px #F08B38; border-left: solid 5px #F08B38; border-right: sol
 /* Sprite image locations */
 .container {/*border:solid 1px #000;*/ clear:both; width: 100% !important; margin: 10px auto 10px auto; }
 .container-home {/*border:solid 1px #000;*/ clear:both; width: 99%; margin: 10px auto 10px auto; }
-.container-location {/*border:solid 1px #000;*/background-color:#f7f7f7; clear:both; width: 100%; margin: 0 auto 10px auto; }
+.container-location {/*border:solid 1px #000; background-color:#f7f7f7;*/background-color:#ffffff; clear:both; width: 100%; margin: 0 auto 10px auto; }
 .brand-box{width:99%; position:relative; background-color: #ffffff; margin: 13px 2px 2px 2px; height:auto;}
 .brand-box .brandtitle{float:left; padding:1px 4px; width: 70%; margin: 3px 0 0 -4px; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .brand-box .brandlogo {clear:both; width:100%; height: 100%; margin: 10px auto;}
 .brand-box .brandlogo img{text-align: center; width: auto; height: auto;}
 .sub-txt {text-align: center; margin:5px 0 3px 0; /*margin:5px 0 20px 0;*/ border-bottom: solid 1px #ccc; padding: 2px 0 10px 0; width: 70%; /*width: 50%;*/}
 .sub-txt2 {text-align: center; margin:5px 0 10px 0; /*margin:5px 0 10px 27%; margin:5px 0 10px 0; margin:5px 0 20px 0;*/ border-bottom: solid 1px #ccc; padding: 2px 0 10px 0; width: 100%; /*width: 50%;*/}
-.out-add-div {float:left; width: 100%; height:300px; background: #fff; margin: 5px 0; /*overflow-x:hidden; overflow-y: auto; border:solid 1px #000;*/}
+.out-add-div {float:left; width: 100%; height:auto; background: #fff; margin: 5px 0; /*height:300px; overflow-x:hidden; overflow-y: auto; border:solid 1px #000;*/}
 
 
 .cust-ver {float: left; margin: 0; width: 100%; /*margin: 0 0 0 27%;*/}
@@ -141,13 +141,7 @@ background: #7f7f7f; cursor:pointer;
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .lower-box {clear:both; /*width:100%;*/ border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible;*/}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
@@ -281,8 +275,8 @@ div.input2 {width:150px; padding:1px 15px 3px !important; border-radius:4px; bor
         box-shadow:0 0 6px #abdcff, inset 0 1px 2px rgba(0,0,0,0.08); color: #000; font-weight: bold;
     }
 
-div.input3 {width:220px; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb;
-    box-shadow:inset 0 1px 2px rgba(0,0,0,0.08); float:left; margin: 0; background:#fff !important;
+div.input3 {width:80%; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb;
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.08); float:left; margin: 0 0 0 5px; background:#fff !important;
 }
 
 div.input3.focus {border:1px solid #9ecbe2; box-shadow:0 0 6px #abdcff, inset 0 1px 2px rgba(0,0,0,0.08); color: #000; font-weight: bold;
@@ -299,6 +293,12 @@ input#s2 {font-family: Arial, Helvetica, sans-serif; color: #cbcbcb !important; 
     text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; text-align: center;}
 
 input#s2:focus {outline:none}
+
+input#s3 {font-family: Arial, Helvetica, sans-serif; color: #cbcbcb !important; font-size: 15px !important;
+    width:90%; border:solid 1px #000; border-radius:0px; background:transparent; height:auto; color:#b4bdc4;
+    text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; text-align: center;}
+
+input#s3:focus {outline:none}
 
 input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidden; background:url(search-icon.png) no-repeat;
     border:0; position:absolute;/*top:13px; right:38px; right:45px; right:67px;*/ top:9px; right:18px; z-index:5;display:none; cursor:pointer;
@@ -353,16 +353,15 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
+
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: 2px;
@@ -381,7 +380,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:29px; /*clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:relative; bottom:7px; /*clear: both; bottom:29px;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -395,7 +394,7 @@ position:relative; right:8px; background:#bfbfbf; cursor: pointer;}
     color: #FFFFFF; display: inline-block; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
     font-weight: normal; padding: 1px 4px; text-decoration: none; text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);}
 
-.button_call3 {float:left; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
+.button_call3 {float:left; position:relative; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none;}
 
@@ -414,11 +413,6 @@ background: #575757;
 .distance-div3 {width:100%; clear:both; margin:41px 0 0 0; font-size: 12px; text-align: center; color: #959595;}
 
 }
-
-/*@media (max-width: 384px) {
-.bdiv{border: 1px solid #ccc; background: #fff; float: left;  height: 216px; margin: 5px 6.5%; width: 130px; position:relative;}
-.lower-box {clear:both; width:90% !important; border-top: solid 1px #ccc; height: auto; margin:0; padding: 3px 5px;}
-}*/
 
 @media (max-width: 480px) {
   footer{display:none;}
@@ -455,16 +449,15 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:12px
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 3px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
+
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff; } 
 
@@ -476,7 +469,7 @@ input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidde
 .right-txt {border-bottom:solid 1px #fff; padding:3px 0 3px 15px; font-weight:bold;}
   .bsc {float:left; clear: both;}
   .container {background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
-  .container-location {/*border:solid 1px #000;*/background-color:#f7f7f7; clear:both; width: 100%; margin: 0 auto; }
+  .container-location {/*border:solid 1px #000; background-color:#f7f7f7;*/background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
   .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }
   .search-div {margin: 10px 0 0 20px; width:auto;}
   div.input {width:210px; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0;
@@ -511,7 +504,7 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:29px; /*clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -525,7 +518,7 @@ position:relative; right:8px; background:#bfbfbf; cursor: pointer;}
     color: #FFFFFF; display: inline-block; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
     font-weight: normal; padding: 1px 4px; text-decoration: none; text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);}
 
-.button_call3 {float:left; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
+.button_call3 {float:left; position:relative; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none;}    
 
@@ -606,16 +599,15 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -39px -751px
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 3px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
+
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff; }
 
@@ -645,7 +637,7 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:18px
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:29px; /*clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -659,7 +651,7 @@ position:relative; right:8px; background:#bfbfbf; cursor: pointer;}
 color: #FFFFFF; display: inline-block; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none; text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);}
 
-.button_call3 {float:left; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
+.button_call3 {float:left; position:relative; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none;}
 
@@ -679,7 +671,7 @@ background: #575757;
 .right-txt {border-bottom:solid 1px #fff; padding:3px 0 3px 15px; font-weight:bold;}
   .bsc {float:left; clear: both;}
   .container {background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
-  .container-location {/*border:solid 1px #000;*/background-color:#f7f7f7; clear:both; width: 100%; margin: 0 auto; }
+  .container-location {/*border:solid 1px #000; background-color:#f7f7f7;*/background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
   .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }
   .head-brand {margin:4px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 40%; color: #fff; /*position: absolute; top: 3px;*/}
  
@@ -726,7 +718,7 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:29px; /*clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -743,22 +735,21 @@ border:0px solid #7D99CA; font-size:85%;font-family:trebuchet MS, sans-serif; pa
 background: #7f7f7f;
 }
 
-.button_call3 {float:left; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
+.button_call3 {float:left; position:relative; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none;}
 
 .lower-box {clear:both; width:96%; border-top:none; border-right: solid 1px #ccc; border-left: solid 1px #ccc; border-bottom: solid 1px #ccc; height:15px; margin:0 0 0 -1px; padding: 3px; /*margin:0 0 10% 0; height: auto;*/}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: 20px;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 3px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star {background: url(mobile-sprite.png) no-repeat -173px -196px transparent; width:18px; height: 17px; text-align: center; margin: 0 auto; border: none;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 24%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
+
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.footerdiv {float:left; margin: 0 0 10px 1px; padding: 0;}
 p.footerightdiv {margin:0 0 2px;}
@@ -890,16 +881,15 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
+
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:0; left: 2px;
@@ -918,7 +908,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:29px; /*clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -932,7 +922,7 @@ position:relative; right:8px; background:#bfbfbf; cursor: pointer;}
 color: #FFFFFF; display: inline-block; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none; text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);}
 
-.button_call3 {float:left; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
+.button_call3 {float:left; position:relative; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none;}
 
@@ -977,16 +967,15 @@ background: #575757;
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
-.lower-box .refr {float: left; margin: 0 0 0 2px; width: 31px; height: auto;background: url(mobile-sprite.png) no-repeat -165px -67px transparent;}
-.lower-box .refr1 {float: left; margin: 0 0 0 2px; width: 47px; height: 24px; }
 .lower-box .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
-.lower-box .right-box{bottom: 13px; float: right; /*position: relative;*/ width:auto;}
-.right-box .run {float: right; position: relative; bottom: 2px; background: url(mobile-sprite.png) no-repeat -170px -9px transparent; width:23px; height: 22px; margin: 0;}
-.right-box .run2 {float: right; position: relative; bottom: 0px; background: url(glyphicons-halflings.png) no-repeat -24px -48px transparent; width:17px; height: 14px; margin: 0;}
-.right-box .runtxt {float:right; font-size: 10px; color: #959595; font-weight: normal; margin: 0px 3px 0 0;}
 .lower-box .star1 {width:18px; height: 17px; position: relative; left: 38%; bottom: 24px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
+
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {/*float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 1px 0 0 2px; width: 14px; height: 11px; visibility: visible; */}
+.lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:0; left: 2px;
@@ -1005,7 +994,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:29px; /*clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
