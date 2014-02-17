@@ -54,7 +54,7 @@
             <div class="adaddress"><%= "#{outlet.shop_no} #{outlet.address}" %></div>
             <div class="adloc"><%= outlet.area.area_name %><br/>
                 <%= outlet.area.city.city_name %> <%= outlet.area.pincode %></div>
-                <% unless outlet.mobile_number.empty? %>
+                <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
                         <% if check_if_verified(cookies[:customer_uuid])==1 %>
                             <a class="call button_call3" href="tel:09223584822">CALL</a>
                         <% else %>
