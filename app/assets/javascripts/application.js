@@ -17,6 +17,7 @@
 //= require jquery.mmenu
 //= require jquery.scrollTo
 //= require jquery.cookie
+//= require oms.min
 //= require home
 //= require geocoding
 //= require tracking
