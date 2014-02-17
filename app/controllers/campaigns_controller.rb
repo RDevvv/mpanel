@@ -96,7 +96,7 @@ class CampaignsController < ApplicationController
       unless campaign.blank?
           campaign = campaign.first
           campaign.campaign_copies.create
-          redirect_to campaign.pre_expiry_forward_url
+          redirect_to campaign.pre_expiry_forward_url+"?short_url="+campaign.short_url
       else
           campaign_copy = CampaignCopy.where(:short_url => params[:short_url]).first
           use_count = campaign_copy.use_count
@@ -104,10 +104,10 @@ class CampaignsController < ApplicationController
               campaign_copy.update_attributes(:use_count => 0)
           end
           CampaignCopy.where(:short_url => params[:short_url]).first.update_attributes(:use_count=> campaign_copy.use_count+1)
-          if campaign_copy.expires_at < Date.today-1
-              redirect_to campaign_copy.campaign.pre_expiry_forward_url
+          if campaign_copy.campaign.expires_at < Date.today-1
+              redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
           else
-              redirect_to campaign_copy.campaign.post_expiry_forward_url
+              redirect_to campaign_copy.campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
           end
       end
   end
