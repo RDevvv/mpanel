@@ -9,12 +9,13 @@ function map_initializer(locations, user_location){
         zoomControl: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-
+    oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied: true});
     user= new google.maps.Marker({
         position: user_position,
         icon: "http://www.gullakmaster.com/assets/user_pin.png",
         map: map
     });
+
 
     for (i = 0; i < locations.length; i++) {
         ascii_letter += 1;
@@ -24,12 +25,15 @@ function map_initializer(locations, user_location){
             icon: "http://maps.google.com/mapfiles/marker" + letter + ".png",
             map: map
         });
-        google.maps.event.addListener(marker, 'click', function(marker){
-            coords = marker["latLng"]["d"].toFixed(5).toString()+marker["latLng"]["e"].toFixed(5).toString();
+        marker.metadata ={id: locations[i][2]};
+        oms.addMarker(marker);
+    }
+
+        oms.addListener('click', function(marker,event){
+            coords = marker["metadata"]["id"];
             element = document.getElementById(coords);
             $('body').scrollTo(element,{duration: 'slow'});
         });
-    }
 
     var populationOptions = {
         strokeColor: '#FF0000',
