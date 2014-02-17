@@ -32,7 +32,7 @@ module HomeHelper
     end
 
     def get_brand_image(brand)
-        if brand.attachments.empty?
+        if brand.attachments.blank?
             image_tag "categories/#{brand.category.category_name.gsub(" ", "_")}.png", :class => "img-responsive"
         else
             image_tag brand.attachments.first.image, :class => "img-responsive"
