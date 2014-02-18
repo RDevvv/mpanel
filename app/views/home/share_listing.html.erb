@@ -3,7 +3,7 @@
         <%= render 'top_location_search_bar' %>
         <div>
             <% if @final_outlets.nil? %>
-                No results found
+                <div class="no-search-results">No results found</div>
             <% else %>
                 <% @final_outlets.each do |outlet| %>
                     <% outlet.ads.each do |ad| %>
