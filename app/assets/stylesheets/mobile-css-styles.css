@@ -386,7 +386,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:7px; /*clear: both; bottom:29px;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:absolute; bottom:26px; margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -409,13 +409,13 @@ border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-seri
 position:relative; left:-2px; background:#7F7F7F; cursor: pointer;}
 
 .button_offer{
-position:relative; left:-2px; width:73px; margin:5px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+position:relative; left:-2px; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
 background: #575757;
 }
 
-.distance-div {position:relative; top:16px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
+.distance-div {position:relative; top:3px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:-10px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
-.distance-div-below2 {position:relative; top:25px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
+.distance-div-below2 {position:relative; top:-5px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595; /*top:25px;*/}
 .distance-div2 {width:100%; clear:both; margin:0; /*margin: 19px 0 0 0;*/ font-size: 11px; text-align: center; color: #959595;}
 .distance-div3 {width:100%; clear:both; margin:41px 0 0 0; font-size: 12px; text-align: center; color: #959595;}
 
@@ -511,7 +511,7 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:absolute; bottom:26px; margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -537,9 +537,9 @@ border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-seri
 position:relative; top:1px; left:-2px; width:auto; margin:0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
 background: #575757;
 }
-.distance-div {position:relative; top:16px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
+.distance-div {position:relative; top:3px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:-10px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
-.distance-div-below2 {position:relative; top:25px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
+.distance-div-below2 {position:relative; top:-5px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595; /*top:25px;*/}
 .distance-div2 {width:100%; clear:both; margin:0; /*margin: 19px 0 0 0;*/ font-size: 11px; text-align: center; color: #959595;}
 .distance-div3 {width:100%; clear:both; margin:41px 0 0 0; font-size: 12px; text-align: center; color: #959595;}
 
@@ -645,7 +645,7 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:18px
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:absolute; bottom:26px; margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -668,13 +668,13 @@ border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-seri
 position:relative; left:-2px; background:#7F7F7F; cursor: pointer;}
 
 .button_offer{
-position:relative; left:-2px; width:auto; margin:5px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #FFFFFF;
+position:relative; left:-2px; width:auto; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #FFFFFF;
 background: #575757;
 }
 
-.distance-div {position:relative; top:16px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
+.distance-div {position:relative; top:3px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:-10px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
-.distance-div-below2 {position:relative; top:25px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
+.distance-div-below2 {position:relative; top:-5px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595; /*top:25px;*/}
 .distance-div2 {width:100%; clear:both; margin:0; /*margin: 19px 0 0 0;*/ font-size: 11px; text-align: center; color: #959595;}
 .distance-div3 {width:100%; clear:both; margin:41px 0 0 0; font-size: 12px; text-align: center; color: #959595;}
 .right-txt {border-bottom:solid 1px #fff; padding:3px 0 3px 15px; font-weight:bold;}
@@ -727,7 +727,7 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:absolute; bottom:26px; margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -917,7 +917,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
 .rch-btns-div2 .btn190{float:left; clear: both; margin: -5px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; bottom:7px; /*bottom:29px; clear: both;*/ margin:3px 0 0 0; width:auto; height:auto;}
+.rch-btns-div3 {float:left; position:absolute; bottom:26px; /*bottom:29px; clear: both; position:relative; bottom:7px;*/ margin:3px 0 0 0; width:auto; height:auto;}
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:32px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -927,7 +927,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;
 position:relative; right:8px; background:#bfbfbf; cursor: pointer;}
 
-.button_call2 {float:right; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 8px 0 0;
+.button_call2 {float:right; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 0 8px 0 0;
 color: #FFFFFF; display: inline-block; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none; text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);}
 
@@ -940,14 +940,14 @@ border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-seri
 position:relative; left:-2px; background:#7F7F7F; cursor: pointer;}
 
 .button_offer{
-position:relative; left:-2px; width:auto; margin:5px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #FFFFFF;
+position:relative; left:-2px; width:auto; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #FFFFFF;
 background: #575757;
 }
 
-.distance-div {position:relative; top:16px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
+.distance-div {position:relative; top:3px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 
 .distance-div-below {position:relative; top:-10px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
-.distance-div-below2 {position:relative; top:25px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
+.distance-div-below2 {position:relative; top:-5px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595; /*top:25px;*/}
 .distance-div2 {width:100%; clear:both; margin:0; /*margin: 19px 0 0 0;*/ font-size: 11px; text-align: center; color: #959595;}
 
 .distance-div3 {width:100%; clear:both; margin:41px 0 0 0; font-size: 12px; text-align: center; color: #959595;}
@@ -1026,7 +1026,7 @@ border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-seri
 position:relative; left:-2px; background:#7F7F7F; cursor: pointer;}
 
 .button_offer{
-position:relative; left:-2px; width:auto; margin:5px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #FFFFFF;
+position:relative; left:-2px; width:auto; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #FFFFFF;
 background: #575757;
 }
 
