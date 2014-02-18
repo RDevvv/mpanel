@@ -19,7 +19,7 @@ class CustomerSession < ActiveRecord::Base
             if customer.first.customer_sessions.blank?
                 customer.first.customer_sessions.create(:latitude => location[:latitude], :longitude => location[:longitude])
             else
-                customer.first.customer_sessions.last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
+                customer.first.customer_sessions.order(:id).last.update_attributes(:latitude => location[:latitude], :longitude => location[:longitude])
             end
         end
     end

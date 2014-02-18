@@ -5,9 +5,11 @@ function mobile_number_verification(){
         if($.cookie("mobile_number") == 'verified'){}
         else if($.cookie("mobile_number") == 'false'){
             $('#mobile-number').modal('show');
+            $('#popup_share').modal('hide');
         }
         else{
             $('#verification').modal('show');
+            $('#popup_share').modal('hide');
         }
     })
 }

@@ -13,8 +13,10 @@ class SmsSent < ActiveRecord::Base
     after_create :send_message
 
     def track_usage
-        ad = self.ad_promocode_outlet.ad
-        ad.update_attributes(:usage => (ad.usage+1))
+        unless self.ad_promocode_outlet.blank?
+            ad = self.ad_promocode_outlet.ad
+            ad.update_attributes(:usage => (ad.usage+1))
+        end
     end
 
     def send_message

@@ -4,7 +4,7 @@
         <%= form_tag location_search_url, :method => 'GET', :id => 'searchForm' do |f|  %>
             <fieldset>
             <div class="input">
-                <%= text_field_tag :location, nil,:id => 's', :placeholder => "Search New Location ..." %>
+                <%= text_field_tag :location, nil,:id => 's', :placeholder => get_nearest_area %>
             </div>
             </fieldset>
         <% end %>

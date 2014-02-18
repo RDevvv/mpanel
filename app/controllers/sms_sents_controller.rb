@@ -32,9 +32,9 @@ class SmsSentsController < ApplicationController
                 ad_promocode = ad.ad_promocodes.first
                 ad_promocode.update_attributes(:usage => (ad_promocode.usage+1))
                 ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id]).first
-                button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).last
+                button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).order(:id).last
                 text = "Offer: #{ad.account_brand.brand.brand_name}: #{ad.sms_text} Promocode: #{ad_promocode.promocode}, Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name} #{outlet.area.pincode} Thanks, GullakMaster"
-                @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.last.id, :button_click_id => button_click.id)
+                @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.order(:id).last.id, :button_click_id => button_click.id)
 
                 render :json => {:mobile_number_presence => true, :text => text}
             else
@@ -47,18 +47,10 @@ class SmsSentsController < ApplicationController
 
     def sms_share
         customer = Customer.where(:uuid => params[:customer_uuid]).first
-        unless customer.mobile_number.nil?
-            if customer.is_verified?
-                campaign = Campaign.create(:campaign_name => "sms_share", :marketer => "customer", :target => "customer", :source => "website", :medium => "organic", :campaign_type => "manual")
-                campaign_copy = campaign.campaign_copies.create(:customer_id => customer.id)
-                text = "I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! http://gullak.co/#{campaign_copy.short_url} Check it out."
-
-                ad_promocode_outlet = AdPromocodeOutlet.where(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id]).first
-                sms_sent = customer.sms_sents.create(:ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => 1, :text => text)
-                sms_sent.send_message
-                render :json => {:sms_sent => true, :text => text}
-            end
-        end
+        text = "I just tried GullakMaster on my phone and it's awesome - it really is Deals At Your Fingertips! http://gullak.co/sms Check it out."
+        sms_sent = customer.sms_sents.create(:ad_promocode_outlet_id => 100000, :ad_promocode_outlet_version_id => 100000, :text => text)
+        sms_sent.send_message
+        render :json => {:sms_sent => true, :text => text}
     end
 
 end
