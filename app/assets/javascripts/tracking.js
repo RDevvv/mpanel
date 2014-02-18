@@ -1,5 +1,4 @@
 function track(element) {
-    console.log("tracking");
     if($(element).closest('div[class="bdiv"]').length>0)
         box_element   = $(element).closest('div[class="bdiv"]');
     else

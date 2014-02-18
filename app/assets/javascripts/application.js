@@ -24,4 +24,5 @@
 //= require verification
 //= require back_to_top
 //= require binding_tags
+//= require facebook_share
 //= require send_ad

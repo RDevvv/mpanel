@@ -122,9 +122,10 @@ Gullak2::Application.routes.draw do
     match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
     match 'deals/:id/:source/:city/:area/:category/:ad_promocode_outlet_id' => 'campaigns#facebook_share'
     get '/generate_campaign_copy' => 'campaigns#generate_campaign_copy'
+    match 'get_campaign_details' => 'campaigns#get_campaign_details'
     match 'sms_share' => 'sms_sents#sms_share'
 
-    root :to => "home#index", constraints: {subdomain: 'm'}
+    root :to => "home#index", constraints: {subdomain: 'm'||'staging'}
     root :to => redirect('/desktop_index.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
