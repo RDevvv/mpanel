@@ -1,27 +1,37 @@
 function send_ad(customer_uuid, element)
 {
-    customer_uuid = $.cookie("customer_uuid");
-    ad_id         = $(element).closest('div[class="bdiv"]').attr("id");
-    outlet_id     = $(element).closest('div[class="bdiv"]').attr("outlet_id");
+    if($.cookie("mobile_number")=='verified'){
+        customer_uuid = $.cookie("customer_uuid");
+        ad_id         = $(element).closest('div[class="bdiv"]').attr("id");
+        outlet_id     = $(element).closest('div[class="bdiv"]').attr("outlet_id");
+        url           = "set_sms_data.json";
+        title         = "Ad sent";
 
-    $.ajax({
-        url: "set_sms_data.json",
-        type: "post",
-        dataType: "json",
-        data: {
-            'customer_uuid': customer_uuid,
-            'ad_id': ad_id,
-            'outlet_id': outlet_id
+        if(typeof(ad_id) == 'undefined'){
+            url = 'sms_share.json';
+            title = '';// ;
         }
-    }).success(function (data) {
-        if($.cookie("mobile_number")=="verified")
-            $.pnotify({
-                title: 'ad sent',
-                text: data["text"],
-                closer_hover: false,
-                opacity: .9
-            });
 
-    })
+        $.ajax({
+            url: url,
+            type: "post",
+            dataType: "json",
+            data: {
+                'customer_uuid': customer_uuid,
+                'ad_id': ad_id,
+                'outlet_id': outlet_id
+            }
+        }).success(function (data) {
+            if(typeof(ad_id) == 'undefined'){
+                data["text"] = 'We have sent you an SMS. Please recommend GullakMaster to your friends.';
+            }
+            if($.cookie("mobile_number")=="verified")
+                $.pnotify({
+                    title: title,
+                    text: data["text"],
+                    closer_hover: false,
+                    opacity: .9
+                });
+        })
+    }
 }
-

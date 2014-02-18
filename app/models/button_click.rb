@@ -13,6 +13,7 @@ class ButtonClick < ActiveRecord::Base
   after_create :add_version_details
 
   def add_version_details
-      self.update_attributes(:ad_version_id => self.ad.versions.last.id, :outlet_version_id => self.outlet.versions.last.id)
+      universal_classes = ['sms_share_link']
+      self.update_attributes(:ad_version_id => self.ad.versions.last.id, :outlet_version_id => self.outlet.versions.last.id) unless universal_classes.include?(self.button_class)
   end
 end
