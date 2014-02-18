@@ -1,3 +1,6 @@
+    <script type="text/javascript">
+        var stack_topleft = {"dir1": "down", "dir2": "left", "push": "top"};
+    </script>
     <% unless ad.expired? %>
                             <% if ad.check_day.include?(Date.today.wday) %>
     <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>" ad_id="<%= ad.id %>">
@@ -11,6 +14,10 @@
                         title: 'Address',
                         text: '<%= h "#{outlet.get_address}" %>',
                         closer_hover: false,
+                        animate_speed: 'fast',
+                        icon: true,
+                        addclass: 'stack-topleft',
+                        stack: stack_topleft,
                         opacity: .9
                         });" href="#">ADDRESS</a>
                 </div>
