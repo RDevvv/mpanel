@@ -16,7 +16,7 @@ function facebook_share(element){
     customer_uuid = $.cookie("customer_uuid");
     button_class  = $(element).attr("class").split(" ")[0];
     redirection_url = "get_button_click.json";
-    ad_id         = box_element.attr("id");
+    ad_id         = box_element.attr("ad_id");
     outlet_id     = box_element.attr("outlet_id");
     current_link  = window.location.pathname;
     $.ajax({
@@ -30,9 +30,11 @@ function facebook_share(element){
     }).success(function(data){
         caption     = "Get amazing offers for "+data["category_name"];
         description = data["brand_name"]+": "+data["ad_title"]+". Check it out!";
+        link        = 'http://www.gullakmaster.com/'+data["short_url"]
+        console.log(data["short_url"])
         FB.ui({
             method: 'feed',
-            link: 'http://www.gullakmaster.com/',
+            link: link,
             caption: caption,
             picture: data["image_url"],
             description: description,
