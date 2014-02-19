@@ -1,6 +1,3 @@
-    <script type="text/javascript">
-        var stack_topleft = {"dir1": "down", "dir2": "left"};
-    </script>
     <% unless ad.expired? %>
     <% if ad.check_day.include?(Date.today.wday) %>
         <% @map_outlets.push(outlet) %>
@@ -22,33 +19,29 @@
                         animate_speed: 'fast',
                         icon: false,
                         addclass: 'stack-topleft',
-                        stack: stack_topleft,
+                        stack: {'dir1': 'down', 'dir2': 'left'},
                         opacity: .9
                         });" class="description button_view">View</a>
                         </div>
                         
-                          <div class="btn190"><a class="ad_request button_offer" href="#" onclick="send_ad($.cookie('customer_uuid'), this)">Get Offer</a></div>
-                            
+                        <div class="btn190"><a class="ad_request button_offer" href="#" onclick="send_ad($.cookie('customer_uuid'), this)">Get Offer</a>
+                        </div>
                     </div>
 
                 <%end%>
-
                 <% unless ad.is_exclusive.blank? %>
             <div class="eye2"></div>
             <% end %>
-                        <div class="distance-div">Dist: <%= (outlet.distance).to_f.round(2) %> km</div>
-
+            <div class="distance-div">Dist: <%= (outlet.distance).to_f.round(2) %> km</div>
             <div align="center" class="brandlogo">
                 <%= get_brand_image(outlet.account_brand.brand) %>
             </div>
             <div class="distance-div-below">Ends: <%= ad.expiry_date.strftime('%d/%m') %></div>
-
             <div class="lower-box2">
                 <a class="share"  href="#">
                     <div class="refr2"></div>
                 </a>
-                                         <p>Availed: <%= ad.usage %></p>
-
+                <p>Availed: <%= ad.usage %></p>
             </div>
         </div>
     </div>
@@ -63,14 +56,14 @@
             <div class="adloc"><%= outlet.area.area_name %><br/>
                 <%= outlet.area.city.city_name %> <%= outlet.area.pincode %></div>
                 <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
-                        <% if check_if_verified(cookies[:customer_uuid])==1 %>
-                            <a class="call button_call3" href="tel:09223584822">CALL</a>
-                        <% else %>
-                            <a class="call button_call3" onclick="call_button_verification()">CALL</a>
-                        <% end %>
+                    <% if check_if_verified(cookies[:customer_uuid])==1 %>
+                        <a class="call button_call3" href="tel:09223584822">CALL</a>
+                    <% else %>
+                        <a class="call button_call3" onclick="call_button_verification()">CALL</a>
+                    <% end %>
                 <% end %>
+            </div>
         </div>
-    </div>
     </li>
                 <% end %>
                 <% end %>
