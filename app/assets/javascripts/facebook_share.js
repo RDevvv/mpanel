@@ -43,7 +43,10 @@ function facebook_share(element){
             caption: caption,
             picture: data["image_url"],
             description: description,
-            properties: {link: "http://gullakmaster.com/"}
+            actions: {
+                name: "GullakMaster",
+                link: "http://gullakmaster.com/"
+            }
         }, function(response){
             console.log(response["post_id"]);
         });
