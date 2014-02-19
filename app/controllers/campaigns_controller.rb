@@ -138,7 +138,7 @@ class CampaignsController < ApplicationController
   end
 
   def update_vendor_id
-      unless params[:marketer].blank?
+      if param[:marketer] == 'Merchant'
           Campaign.where(:medium => 'Email', :marketer => 'Merchant').first.campaign_copies.order(:id).last.update_attributes(:vendor_id => params[:post_id])
       else
           ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => ad.id, :outlet_id => outlet.id).map{|apo|apo.id}
