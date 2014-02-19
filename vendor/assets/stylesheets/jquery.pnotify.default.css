@@ -36,9 +36,13 @@ margin: 0 0 0 35px;
 -moz-border-radius: 0;
 border-radius: 0;
 }
-.ui-pnotify-closer, .ui-pnotify-sticker {
-float: right;
-margin-left: .2em;
+.ui-pnotify-closer {
+position: relative; top:0; left:-180px;
+/*float: right; margin-left: .2em; border:solid 1px #000;*/
+}
+.ui-pnotify-sticker {
+position: relative; top:0; left:45px;
+/*float: right; border:solid 2px #000; margin-left: .2em;*/
 }
 .ui-pnotify-title {
 font-size:14px;
@@ -87,7 +91,7 @@ margin: 0 auto;
 /* Alternate stack initial positioning. */
 .ui-pnotify.stack-topleft, .ui-pnotify.stack-bottomleft {
  /*left: 25px;*/
-left: -50px;
+left: -38px;
 right: auto;
 }
 .ui-pnotify.stack-bottomright, .ui-pnotify.stack-bottomleft {
