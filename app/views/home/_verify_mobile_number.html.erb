@@ -11,5 +11,5 @@
         <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
     <% end %>
     </div>
-    <%= link_to 'Resend verification code', '#', :onClick => 'resend_verification_code()'%>
+    <div class="send-code"><%= link_to 'Resend verification code', '#', :onClick => 'resend_verification_code()'%></div>
 </div>
