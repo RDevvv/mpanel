@@ -29,7 +29,10 @@ function send_ad(customer_uuid, element)
                 $.pnotify({
                     title: title,
                     text: data["text"],
+                    sticker_hover: false,
                     closer_hover: false,
+                    animate_speed: 'fast',
+                    icon: false,
                     opacity: .9
                 });
         })

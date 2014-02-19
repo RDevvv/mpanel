@@ -8,6 +8,8 @@ function resend_verification_code(){
         console.log(data["success"]);
             if(data["success"]==true)
                 $.pnotify({
+                    closer_hover: false,
+                    sticker_hover: false,
                     title: "verification code sent"
                 })
         })

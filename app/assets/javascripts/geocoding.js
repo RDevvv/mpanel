@@ -64,6 +64,9 @@ function change_location(){
         $.pnotify({
             title: 'Enable location service',
             text: "enable",
+            sticker_hover: false,
+            animate_speed: 'fast',
+            icon: false,
             closer_hover: false,
             opacity: .9
         });
