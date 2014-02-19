@@ -36,21 +36,15 @@ margin: 0 0 0 35px;
 -moz-border-radius: 0;
 border-radius: 0;
 }
-.ui-pnotify-closer {
-position: relative; top:0; left:180px; border:solid 1px #000; width:15px; height:15px;
-/*float: right; margin-left: .2em; border:solid 1px #000; left:-180px;*/
-}
-.ui-pnotify-sticker {
-position: relative; top:0; left:180px; border:solid 1px #000;
-/*float: right; border:solid 2px #000; margin-left: .2em;*/
+.ui-pnotify-closer, .ui-pnotify-sticker {
+float: right;
+margin-left: .2em;
 }
 .ui-pnotify-title {
-font-size:14px;
 display: block;
 margin-bottom: .4em;
 }
 .ui-pnotify-text {
-font-size: 12px;
 display: block;
 }
 .ui-pnotify-icon, .ui-pnotify-icon span {
@@ -90,8 +84,7 @@ margin: 0 auto;
 }
 /* Alternate stack initial positioning. */
 .ui-pnotify.stack-topleft, .ui-pnotify.stack-bottomleft {
- /*left: 25px;*/
-left: -28px;
+left: 25px;
 right: auto;
 }
 .ui-pnotify.stack-bottomright, .ui-pnotify.stack-bottomleft {
