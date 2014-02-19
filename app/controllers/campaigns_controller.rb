@@ -138,11 +138,12 @@ class CampaignsController < ApplicationController
   end
 
   def update_vendor_id
-      if param[:marketer] == 'Merchant'
+      if params[:marketer] == 'Merchant'
           Campaign.where(:medium => 'Email', :marketer => 'Merchant').first.campaign_copies.order(:id).last.update_attributes(:vendor_id => params[:post_id])
       else
-          ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => ad.id, :outlet_id => outlet.id).map{|apo|apo.id}
+          ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id]).map{|apo|apo.id}
           campaign_copy = Campaign.where(:ad_promocode_outlet_id => ad_promocode_outlet_ids).first.campaign_copies.order(:id).last.update_attributes(:vendor_id => params[:post_id])
+          binding.pry
       end
       render :json => {:success => true}
   end
