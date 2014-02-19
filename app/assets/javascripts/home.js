@@ -28,6 +28,6 @@ function new_sms_share(sms_share_link){
             outlet_id: parent_element.attr("outlet_id")
         }
     }).success(function(){
-        $.pnotify({ title: '', text: 'Ad sent', closer_hover: false, opacity: .9 });
+        $.pnotify({ title: '', text: 'Ad sent', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
     })
 }

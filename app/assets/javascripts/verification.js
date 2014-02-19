@@ -27,11 +27,11 @@ function verification_modal_submit(){
             if(data["verified"]==true)
                 {
                     $('#verification').modal('hide');
-                    $.pnotify({ title: '', text: 'Your account is verified', closer_hover: false, opacity: .9 });
+                    $.pnotify({ title: '', text: 'Your account is verified', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                     window.location.reload();
                 }
                 else{
-                    $.pnotify({ title: '', text: 'Please enter correct verification code.', closer_hover: false, opacity: .9 });
+                    $.pnotify({ title: '', text: 'Please enter correct verification code.', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                 }
         });
         return false; // prevents normal behaviour
@@ -55,13 +55,13 @@ function modal_submit(){
             }
             else if(data["mobile_number"]=="exist")
             {
-                $.pnotify({ title: '', text: 'Welcome back', closer_hover: false, opacity: .9 });
+                $.pnotify({ title: '', text: 'Welcome back', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                 $('#mobile-number').modal('hide');
                 window.location.reload();
             }
             else
             {
-                $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, opacity: .9 });
+                $.pnotify({ title: '', text: 'Enter a valid mobile number', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
             }
         });
         return false; // prevents normal behaviour
