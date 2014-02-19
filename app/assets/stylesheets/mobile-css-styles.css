@@ -214,7 +214,7 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .btn {background:none; cursor:pointer; border: none; padding: 10px 12px; box-shadow: none;}
 .btn:hover, .btn:focus {background:none; border: none; padding: 10px 12px;}
 .ui-pnotify-history-container {display: none;}
-.ui-pnotify-title {line-height:17px; min-height: 13px; text-align: center; padding:0 0 10px 45px;}
+.ui-pnotify-title {line-height:17px; min-height: 13px; font-size:14px; text-align: center; padding:0 0 10px 26px;}
 /*.ui-pnotify-container {margin: 0 0 0 57px !important;}*/
 .navbar {border-radius: 0; margin-bottom: 0px !important;}
 .navbar-header {float: right !important;}
