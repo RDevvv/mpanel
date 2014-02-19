@@ -22,6 +22,11 @@
                                 title: 'Address',
                                 text: '<%= h "#{outlet.shop_no} #{outlet.address}" %>',
                                 closer_hover: false,
+                                sticker_hover: false,
+                                animate_speed: 'fast',
+                                icon: false,
+                                addclass: 'stack-topleft',
+                                stack: stack_topleft,
                                 opacity: .9
                                 });" href="#">ADDRESS</a></div>
                         <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
