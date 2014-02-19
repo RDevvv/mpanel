@@ -136,4 +136,13 @@ class CampaignsController < ApplicationController
           render :json => {:brand_name =>ad.account_brand.brand.brand_name, :short_url => campaign_copy.short_url, :image_url => image_path, :category_name => category.name, :ad_title => ad.sms_text}
       end
   end
+
+  def update_vendor_id
+      unless params[:marketer].blank?
+          Campaign.where(:medium => 'Email', :marketer => 'Merchant').campaign_copies.order(:id).last.update_attributes(:vendor_id => params[:post_id])
+      else
+          ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => ad.id, :outlet_id => outlet.id).map{|apo|apo.id}
+          campaign_copy = Campaign.where(:ad_promocode_outlet_id => ad_promocode_outlet_ids).first.campaign_copies.update_attributes(:vendor_id => params[:post_id])
+      end
+  end
 end

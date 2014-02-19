@@ -2,7 +2,6 @@ function facebook_share_binding(){
     share_buttons = $('.share');
     $(share_buttons).click(function(){
         facebook_share($(this));
-        console.log($(this));
     });
 }
 
@@ -31,10 +30,12 @@ function facebook_share(element){
         if(button_class = 'top_share'){
             caption     = 'GullakMaster | Deals At Your Fingertips!';
             description = 'Tell GullakMaster your location and they pull together amazing deals from nearby stores right on your phone.You really have to check it out.';
+            marketer    = true;
         }
         else{
             caption     = 'Get amazing offers for '+data["category_name"];
             description = data["brand_name"]+": "+data["ad_title"]+". Check it out!";
+            marketer    = false;
         }
         link        = current_domain+'/'+data["short_url"]
         FB.ui({
@@ -48,7 +49,15 @@ function facebook_share(element){
                 link: "http://gullakmaster.com/"
             }
         }, function(response){
-            console.log(response["post_id"]);
+            $.ajax({
+                url: 'update_vendor_id',
+                data:{
+                    post_id: response["post_id"],
+                    marketer: marketer,
+                    ad_id: ad_id,
+                    outlet_id: outlet_id
+                }
+            })
         });
     })
 }
