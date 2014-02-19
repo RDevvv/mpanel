@@ -114,6 +114,7 @@ Gullak2::Application.routes.draw do
     match 'map_search' => 'home#map_search'
     match 'verify_mobile_number' => 'customers#verify_mobile_number'
     match 'check_verification_code' => 'customers#check_verification_code'
+    match 'resend_verification_code' => 'customers#resend_verification_code'
     match 'hot_picks' => 'home#hot_picks'
     match 'brand_listing/:brand_id' => 'home#brand_listing'
     match 'map_listing' => 'home#map_listing'

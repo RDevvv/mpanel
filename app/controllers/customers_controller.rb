@@ -1,6 +1,4 @@
 class CustomersController < ApplicationController
-  # GET /customers
-  # GET /customers.json
   def index
     @customers = Customer.all
 
@@ -10,8 +8,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1
-  # GET /customers/1.json
   def show
     @customer = Customer.find(params[:id])
 
@@ -21,8 +17,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/new
-  # GET /customers/new.json
   def new
     @customer = Customer.new
 
@@ -32,13 +26,10 @@ class CustomersController < ApplicationController
     end
   end
 
-  # GET /customers/1/edit
   def edit
     @customer = Customer.find(params[:id])
   end
 
-  # POST /customers
-  # POST /customers.json
   def create
     @customer = Customer.new(params[:customer])
 
@@ -53,8 +44,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # PUT /customers/1
-  # PUT /customers/1.json
   def update
     @customer = Customer.find(params[:id])
 
@@ -69,8 +58,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  # DELETE /customers/1
-  # DELETE /customers/1.json
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
@@ -92,11 +79,6 @@ class CustomersController < ApplicationController
 
   def check_verification_code
       @customer = Customer.where(:uuid => cookies[:customer_uuid]).first
-      puts @customer.verification_code
-      puts params[:verification_code]
-     # if @customer.is_verified == true
-     #     @customer.errors.add(:already_verified, "This phone number is already verified")
-     #     @verified = "already"
       if @customer.verification_code == (params[:verification_code])
           cookies[:mobile_number] = {:value => "verified", :expires => 1.year.from_now}
           @customer.update_attributes(:is_verified => true)
@@ -136,5 +118,12 @@ class CustomersController < ApplicationController
       respond_to do |format|
           format.json { render :json => {:mobile_number => @mobile_number}}
       end
+  end
+
+  def resend_verification_code
+      @customer = Customer.where(:uuid => params[:customer_uuid]).first
+      @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster.")
+      @sms_sent.send_message
+      render :json => {:success => true}
   end
 end
