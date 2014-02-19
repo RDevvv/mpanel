@@ -164,6 +164,7 @@ background: #7f7f7f; cursor:pointer;
 .error-logo {clear: both; margin: 10px auto 5px auto; text-align: center; border: none;}
 
 .no-search-results {width:100%; text-align: center; font-family:Arial, Helvetica, sans-serif; color: #000; font-weight: bold; text-transform: uppercase; }
+.send-code {float:left; width:95%; margin:0 0 8px 10px; text-align:center;}
 /* Error page Styles */
 
 #signup, #popup_share {
@@ -351,7 +352,7 @@ background: url(ikons-img.png) no-repeat -552px -609px transparent; padding:15px
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
@@ -448,7 +449,7 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:12px
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
@@ -599,7 +600,7 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -39px -751px
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
@@ -882,7 +883,7 @@ label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
@@ -968,7 +969,7 @@ background: #575757;
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
 .bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
