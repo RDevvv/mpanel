@@ -1,5 +1,4 @@
 function facebook_share_binding(){
-    console.log("aaaaaaaaa");
     share_buttons = $('.share');
     $(share_buttons).click(function(){
         facebook_share($(this));
@@ -25,20 +24,31 @@ function facebook_share(element){
         data: {
             'customer_uuid': customer_uuid,
             'ad_id': ad_id,
+            'button_class': button_class,
             'outlet_id': outlet_id,
         }
     }).success(function(data){
-        caption     = "Get amazing offers for "+data["category_name"];
-        description = data["brand_name"]+": "+data["ad_title"]+". Check it out!";
+        if(button_class = 'top_share'){
+            caption     = 'GullakMaster | Deals At Your Fingertips!';
+            description = 'Tell GullakMaster your location and they pull together amazing deals from nearby stores right on your phone.You really have to check it out.';
+        }
+        else{
+            caption     = 'Get amazing offers for '+data["category_name"];
+            description = data["brand_name"]+": "+data["ad_title"]+". Check it out!";
+        }
         link        = current_domain+'/'+data["short_url"]
-        console.log(link);
         FB.ui({
             method: 'feed',
             link: link,
             caption: caption,
             picture: data["image_url"],
             description: description,
-            properties: {link: "http://gullakmaster.com/"}
-        }, function(response){});
+            actions: {
+                name: "GullakMaster",
+                link: "http://gullakmaster.com/"
+            }
+        }, function(response){
+            console.log(response["post_id"]);
+        });
     })
 }
