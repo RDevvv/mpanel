@@ -684,7 +684,7 @@ background: #575757;
 }
 
 .distance-div {position:relative; top:3px; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
-.distance-div-below {position:relative; top:-10px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
+.distance-div-below {position:relative; top:0px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below2 {position:relative; top:-5px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595; /*top:25px;*/}
 .distance-div2 {width:100%; clear:both; margin:0; /*margin: 19px 0 0 0;*/ font-size: 11px; text-align: center; color: #959595;}
 .distance-div3 {width:100%; clear:both; margin:41px 0 0 0; font-size: 12px; text-align: center; color: #959595;}
