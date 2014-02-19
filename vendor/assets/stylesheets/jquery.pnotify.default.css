@@ -49,6 +49,7 @@ display: block;
 margin-bottom: .4em;
 }
 .ui-pnotify-text {
+font-size:12px;
 display: block;
 }
 .ui-pnotify-icon, .ui-pnotify-icon span {
