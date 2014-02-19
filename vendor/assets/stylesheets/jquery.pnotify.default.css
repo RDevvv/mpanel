@@ -36,9 +36,13 @@ margin: 0 0 0 35px;
 -moz-border-radius: 0;
 border-radius: 0;
 }
-.ui-pnotify-closer, .ui-pnotify-sticker {
-float: right;
-margin-left: .2em;
+.ui-pnotify-closer {
+float: right; padding: 3px; width:15px; height: 15px;
+margin-right: -2em;
+}
+.ui-pnotify-sticker {
+float: left; padding: 3px; width:15px; height: 15px;
+margin-left:-6px;
 }
 .ui-pnotify-title {
 display: block;
