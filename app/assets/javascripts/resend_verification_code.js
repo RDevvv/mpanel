@@ -10,6 +10,7 @@ function resend_verification_code(){
                 $.pnotify({
                     closer_hover: false,
                     sticker_hover: false,
+                    icon: false,
                     title: "verification code sent"
                 })
         })
