@@ -47,7 +47,9 @@
                           <div class="btn190"> <a class="button_view" onclick="$.pnotify({
                         title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
                         text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
+                        sticker_hover: false,
                         closer_hover: false,
+                        icon: false,
                         opacity: .9
                         });" class="description button_view">View</a>
                         </div>
