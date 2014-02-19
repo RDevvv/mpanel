@@ -27,7 +27,7 @@ function facebook_share(element){
             'outlet_id': outlet_id,
         }
     }).success(function(data){
-        if(button_class = 'top_share'){
+        if(button_class == 'top_share'){
             caption     = 'GullakMaster | Deals At Your Fingertips!';
             description = 'Tell GullakMaster your location and they pull together amazing deals from nearby stores right on your phone.You really have to check it out.';
             marketer    = true;
