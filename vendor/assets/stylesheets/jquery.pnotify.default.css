@@ -89,7 +89,7 @@ margin: 0 auto;
 }
 /* Alternate stack initial positioning. */
 .ui-pnotify.stack-topleft, .ui-pnotify.stack-bottomleft {
-left: 25px; 
+left: 0; 
 right: auto;
 /*left: 25px;*/
 }
