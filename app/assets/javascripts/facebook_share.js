@@ -44,6 +44,8 @@ function facebook_share(element){
             picture: data["image_url"],
             description: description,
             properties: {link: "http://gullakmaster.com/"}
-        }, function(response){});
+        }, function(response){
+            console.log(response["post_id"]);
+        });
     })
 }
