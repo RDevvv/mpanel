@@ -144,5 +144,6 @@ class CampaignsController < ApplicationController
           ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => ad.id, :outlet_id => outlet.id).map{|apo|apo.id}
           campaign_copy = Campaign.where(:ad_promocode_outlet_id => ad_promocode_outlet_ids).first.campaign_copies.update_attributes(:vendor_id => params[:post_id])
       end
+      render :json => {:success => true}
   end
 end
