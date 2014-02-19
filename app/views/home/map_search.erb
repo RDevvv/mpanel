@@ -8,7 +8,7 @@
         <div class="out-add-div">
             <ul id="Grid">
                 <% if @final_outlets.nil? %>
-                    No results found
+                    <div class="no-search-results">No results found</div>
             <% else %>
                     <% @final_outlets.each_with_index do |outlet, i| %>
 
