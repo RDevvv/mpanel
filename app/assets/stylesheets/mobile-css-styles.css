@@ -693,6 +693,7 @@ background: #575757;
 @media screen and (min-width:992px) {
 
 header, #header {/*display:none;*/}
+footer {clear:both; width:100%; margin:2px 0 0 0; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .head-brand {margin:4px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 46%; color: #fff; /*position: absolute; top: -1px;*/}
 ul.right-icons {float:right; right:1px; margin:12px 0 4px; width:auto; height: auto; position: relative;}
 ul.right-icons li {float:left; margin:0 9px; border-right: none; list-style: none;}
@@ -762,7 +763,7 @@ ul.footerdiv {float:left; margin: 0 0 10px 1px; padding: 0;}
 p.footerightdiv {margin:0 0 2px;}
 ul.social-likebox{float:left; margin:0 0 0 83px; width:37%;}
 ul.social-likebox li{float:left; list-style:none; margin:0 2px; border:none; display:inline-table;}
-footer{font-family: Corbel, Arial, Helvetica, "Nimbus Sans L", "Liberation Sans", sans-serif; background: url(big_footer_bg.png) repeat-x #fff; clear:both; display: block; height: 193px; /*margin:10px 0 0 0;*/
+
 margin:0; padding-top: 1px; width: 99.9%;}
 .mainfooter{color: #E6E6E6; display: block; height: 163px; /*height: auto;*/
     margin-left: auto; margin-right: auto; margin-top: 15px; /*overflow: auto;*/ width: 980px;}
