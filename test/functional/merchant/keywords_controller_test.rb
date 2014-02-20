@@ -16,5 +16,4 @@ class Merchant::KeywordsControllerTest < ActionController::TestCase
   test "should create new keyword" do
     post :create, account_id: 1, account_brand_id: 1, id: @keyword, keyword: { keyword: @keyword.keyword, keyword_alias:@keyword.keyword_alias }
   end
-
 end

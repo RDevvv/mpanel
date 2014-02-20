@@ -8,12 +8,11 @@ class AdGroupTest < ActiveSupport::TestCase
 
     test "if more outlets can be added using add_more_outlets" do
         AdGroup.first.add_more_outlets([1])
-        assert_equal 4, AdPromocode.count
+        assert_equal 2, AdPromocode.count
     end
 
     test "if 'all' option is selected while adding more outlets" do
         AdGroup.first.add_more_outlets(["All"])
-        p AdPromocode.count
-        assert_equal 4, AdPromocode.count
+        assert_equal 2, AdPromocode.count
     end
 end

@@ -3,7 +3,7 @@
 one:
   id: 1
   brand_name: Cafe Coffee Day
-  category_id: 1
+  category_id: 3
   website_url: ccd.com
   is_active: false
   is_verified: false

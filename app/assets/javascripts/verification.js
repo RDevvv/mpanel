@@ -3,11 +3,13 @@ function mobile_number_verification(){
     all_buttons = binding_tags(binding_tags_for_tracking);
     $(all_buttons).click(function(){
         if($.cookie("mobile_number") == 'verified'){}
-        else if($.cookie("mobile_number") == 'false'){
+        else if(($.cookie("mobile_number") == 'false')||($.cookie('mobile_number') == false)||(typeof($.cookie('mobile_number')) == 'undefined')){
+            console.log('vivek');
             $('#mobile-number').modal('show');
             $('#popup_share').modal('hide');
         }
         else{
+            console.log('else');
             $('#verification').modal('show');
             $('#popup_share').modal('hide');
         }
