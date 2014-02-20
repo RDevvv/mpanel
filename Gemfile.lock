@@ -55,7 +55,12 @@ GEM
     atomic (1.1.14)
     awesome_print (1.2.0)
     bcrypt-ruby (3.1.2)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     binding.repl (0.8.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     boson (1.2.4)
@@ -109,6 +114,7 @@ GEM
       rails (>= 3.0.0)
     daemon_controller (1.1.7)
     daemons (1.1.9)
+    debug_inspector (0.0.2)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -260,6 +266,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-mini-profiler (0.1.31)
+      rack (>= 1.1.3)
     rack-protection (1.5.1)
       rack
     rack-ssl (1.3.3)
@@ -404,6 +412,8 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   acts_as_paranoid!
+  better_errors
+  binding_of_caller
   bootstrap-sass (~> 2.3.2.2)
   breadcrumbs_on_rails
   cancan
@@ -433,6 +443,7 @@ DEPENDENCIES
   pg
   pry
   quiet_assets
+  rack-mini-profiler
   railroady
   rails (= 3.2.14)
   rails_best_practices

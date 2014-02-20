@@ -59,6 +59,9 @@ group :development do
   gem 'rails_best_practices'
   gem 'seed_dump'
   gem 'railroady'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rack-mini-profiler'
 end
 
 group :test do
