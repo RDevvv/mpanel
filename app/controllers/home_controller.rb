@@ -87,6 +87,7 @@ class HomeController < ApplicationController
 
         outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
         @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
+        render 'outlet_listing'
     end
 
     def map_search
@@ -97,6 +98,7 @@ class HomeController < ApplicationController
         outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
 
         @final_outlets,@ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
+        render 'map_listing'
     end
 
     def hot_picks

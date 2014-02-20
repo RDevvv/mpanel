@@ -24,11 +24,13 @@
     </div>
 </div>
 
+<% unless @map_outlets.blank? %>
         <%= javascript_tag do %>
             locations = <%= @map_outlets.map{|o|[o.latitude, o.longitude, o.id]}.to_json.html_safe %>;
             user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
             map_initializer(locations, user_location);
         <% end %>
+<% end %>
 <script type='text/javascript'>
 mobile_number_verification();
 bind_tracking();
