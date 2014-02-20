@@ -9,3 +9,8 @@ two:
   id: 2
   industry_id: 1
   category_name: MyString
+
+two:
+  id: 3
+  industry_id: 1
+  category_name: Beverages

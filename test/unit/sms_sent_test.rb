@@ -2,8 +2,8 @@ require 'test_helper'
 
 class SmsSentTest < ActiveSupport::TestCase
     test "should track the usage of promocodes" do
-        SmsSent.first.track_usage
-        assert_equal 1, Ad.first.usage
+        SmsSent.find(1).track_usage
+        assert_equal 1, Ad.find(1).usage
     end
 
     test "should get customer number" do
