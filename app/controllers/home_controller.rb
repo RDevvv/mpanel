@@ -41,17 +41,18 @@ class HomeController < ApplicationController
     def outlet_listing
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km).includes({:account_brand => [:brand]}, :ads)
         @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
-        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
+        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(10)
     end
 
     def map_listing
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
 
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).where(:is_active => true)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).where(:is_active => true).includes({:account_brand => [:brand]}, :ads)
+
         @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         @map_outlets = Array.new
