@@ -1,9 +1,13 @@
 function send_ad(customer_uuid, element)
 {
+    closest_search_pattern = 'div[class="bdiv"]'
+    if(window.location.pathname.search('map')==1){
+        closest_search_pattern = 'div[class="bdiv2"]'
+    }
     if($.cookie("mobile_number")=='verified'){
         customer_uuid = $.cookie("customer_uuid");
-        ad_id         = $(element).closest('div[class="bdiv"]').attr("id");
-        outlet_id     = $(element).closest('div[class="bdiv"]').attr("outlet_id");
+        ad_id         = $(element).closest(closest_search_pattern).attr("ad_id");
+        outlet_id     = $(element).closest(closest_search_pattern).attr("outlet_id");
         url           = "set_sms_data.json";
         title         = "Ad sent";
 
