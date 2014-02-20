@@ -11,7 +11,7 @@ class CustomerSession < ActiveRecord::Base
     end
 
     def self.update_coordinates(uuid, location)
-        customer = Customer.where(:uuid =>uuid)
+        customer = Customer.includes(:customer_sessions).where(:uuid =>uuid)
         if customer.blank?
             customer = Customer.create(:uuid => uuid)
             customer.customer_sessions.create(:latitude => location[:latitude], :longitude => location[:longitude])

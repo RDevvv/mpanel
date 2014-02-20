@@ -17,7 +17,7 @@ class HomeController < ApplicationController
             referer_agent = request.env['HTTP_REFERER']
             parsed_agent = UserAgent.parse(agent)
             campaign_url = request.env['HTTP_HOST']+request.env['ORIGINAL_FULLPATH']
-            customer = Customer.where(:uuid => cookies[:customer_uuid]).first
+            customer = Customer.includes?(:customer_sessions).where(:uuid => cookies[:customer_uuid]).first
             unless customer.blank?
                 customer_id = customer.id
                 if customer.mobile_number.nil?
@@ -41,7 +41,7 @@ class HomeController < ApplicationController
     def outlet_listing
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km).includes({:account_brand => [:brand]}, :ads)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
         @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(10)
@@ -51,7 +51,8 @@ class HomeController < ApplicationController
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
 
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).where(:is_active => true).includes({:account_brand => [:brand]}, :ads)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
+
 
         @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
         @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
