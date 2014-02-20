@@ -77,9 +77,9 @@
     <ul class="left-icons">
         <li><a href="#menu" class="srchlink3"></a></li>
     </ul>
-    <div class="head-brand">GullakMaster</div>
+    <div class="head-brand"><%= link_to 'GullakMaster', root_path %></div>
     <ul class="right-icons">
-        <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
+         <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
         <% if action_name == 'map_listing' %>
             <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
     <% elsif action_name == 'outlet_listing' %>
@@ -121,6 +121,7 @@
         </ul>
     </nav>
 </div>
+<footer>GullakMaster &copy; 2014</footer>
 <%= bootstrap_flash %>
 <%= render :partial => "back_to_top" %>
 <%= render :partial => "new_mobile_number_modal" %>
