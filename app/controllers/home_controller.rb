@@ -17,7 +17,7 @@ class HomeController < ApplicationController
             referer_agent = request.env['HTTP_REFERER']
             parsed_agent = UserAgent.parse(agent)
             campaign_url = request.env['HTTP_HOST']+request.env['ORIGINAL_FULLPATH']
-            customer = Customer.includes?(:customer_sessions).where(:uuid => cookies[:customer_uuid]).first
+            customer = Customer.includes(:customer_sessions).where(:uuid => cookies[:customer_uuid]).first
             unless customer.blank?
                 customer_id = customer.id
                 if customer.mobile_number.nil?
