@@ -36,11 +36,11 @@ function map_initializer(locations, user_location){
         });
 
     var populationOptions = {
-        strokeColor: '#FF0000',
+        strokeColor: '#008080',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#FF0000',
-        fillOpacity: 0.35,
+        fillColor: '#5F9F9F',
+        fillOpacity: 0.15,
         map: map,
         center: user_position,
         radius: 5000
