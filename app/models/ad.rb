@@ -33,6 +33,8 @@ class Ad < ActiveRecord::Base
                 unless Keyword.exists?(:keyword => word)
                     new_keyword = Keyword.create(:keyword => word)
                     new_keyword.ad_keywords.create(:ad_id => self.id)
+                else
+                    Keyword.where(:keyword => word).first.ad_keywords.create(:ad_id => self.id)
                 end
             end
         else
