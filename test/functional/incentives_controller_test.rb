@@ -25,7 +25,7 @@ class IncentivesControllerTest < ActionController::TestCase
       post :create, incentive: { expiry_date: @incentive.expiry_date, is_active: @incentive.is_active, name: @incentive.name, sms_text: @incentive.sms_text }
     end
 
-    assert_redirected_to incentive_path(assigns(:incentive))
+    assert_redirected_to incentives_path
   end
 
   test "should show incentive" do
@@ -40,7 +40,7 @@ class IncentivesControllerTest < ActionController::TestCase
 
   test "should update incentive" do
     put :update, id: @incentive, incentive: { expiry_date: @incentive.expiry_date, is_active: @incentive.is_active, name: @incentive.name, sms_text: @incentive.sms_text }
-    assert_redirected_to incentive_path(assigns(:incentive))
+    assert_redirected_to incentives_path
   end
 
   test "should destroy incentive" do

@@ -20,13 +20,13 @@ class LeadsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  #test "should create lead" do
-  #  assert_difference('Lead.count') do
-  #    post :create, lead: { company_name: @lead.company_name, designation: @lead.designation, email: 'asdf@gmaill.com', first_name: @lead.first_name, last_name: @lead.last_name, mobile_number: @lead.mobile_number, source: @lead.source, subscribe_email_updates: @lead.subscribe_email_updates, target: @lead.target }
-  #  end
+  test "should create lead" do
+    assert_difference('Lead.count') do
+      post :create, lead: { company_name: @lead.company_name, designation: @lead.designation, email: 'asdf@gmaill.com', first_name: @lead.first_name, last_name: @lead.last_name, mobile_number: @lead.mobile_number, source: @lead.source, subscribe_email_updates: @lead.subscribe_email_updates, target: @lead.target }
+    end
 
-  #  assert_redirected_to lead_path(assigns(:lead))
-  #end
+    assert_redirected_to leads_path
+  end
 
   test "should show lead" do
     get :show, id: @lead
@@ -40,7 +40,7 @@ class LeadsControllerTest < ActionController::TestCase
 
   test "should update lead" do
     put :update, id: @lead, lead: { company_name: @lead.company_name, designation: @lead.designation, email: @lead.email, first_name: @lead.first_name, last_name: @lead.last_name, mobile_number: @lead.mobile_number, source: @lead.source, subscribe_email_updates: @lead.subscribe_email_updates, target: @lead.target }
-    assert_redirected_to lead_path(assigns(:lead))
+    assert_redirected_to leads_path
   end
 
   test "should destroy lead" do

@@ -25,7 +25,7 @@ class ArticlesControllerTest < ActionController::TestCase
       post :create, article: { body: @article.body, title: @article.title }
     end
 
-    assert_redirected_to article_path(assigns(:article))
+    assert_redirected_to articles_path
   end
 
   test "should show article" do
@@ -40,7 +40,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should update article" do
     put :update, id: @article, article: { body: @article.body, title: @article.title }
-    assert_redirected_to article_path(assigns(:article))
+    assert_redirected_to articles_path
   end
 
   test "should destroy article" do

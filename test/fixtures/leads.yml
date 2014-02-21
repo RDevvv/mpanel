@@ -2,14 +2,14 @@
 
 one:
   id: 1
-  source: MyString
+  source: facebook
   email: vijaygaikwad1988@gmail.com
   mobile_number: 9578879878
   first_name: vijay
   last_name: gaikwad
-  target: MyString
-  company_name: MyString
-  designation: MyString
+  target: customer
+  company_name: xyz corp
+  designation: developer
   subscribe_email_updates: false
 
 two:
