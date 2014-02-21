@@ -122,7 +122,7 @@ class CustomersController < ApplicationController
 
   def resend_verification_code
       @customer = Customer.where(:uuid => params[:customer_uuid]).first
-      @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster.")
+      @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster")
       @sms_sent.send_message
       render :json => {:success => true}
   end
