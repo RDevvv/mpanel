@@ -7,7 +7,6 @@ class Lead < ActiveRecord::Base
   validates :source, :presence => true
   validates :designation, :presence => true
   validates :target, :presence => true
-  validates :email, :uniqueness => { :case_sensitive => false }
-  validates :mobile_number, :uniqueness => true, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
+  validates :mobile_number, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
   validates :subscribe_email_updates, :inclusion => {:in => [true, false]}
 end
