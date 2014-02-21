@@ -1,6 +1,6 @@
 function reverse_geocode(){
     geocoder = new google.maps.Geocoder();
-    get_variables = window.location.search.split('&');
+    get_variables = window.location.search.slice(1).split('&');
     for(i=0;i<get_variables.length;i++){
         variable_name = get_variables[i].split('=')[0]
         variable_data = get_variables[i].split('=')[1]
