@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  link: MyString
-  feedback: MyText
-  customers: 
+  email: abcd@gmail.com
+  link: http://gullakmaster.com/outlet_listing?latitude=19.653223&longitude=72.12323
+  feedback: feedback1
+  customer_id: 1
 
 two:
-  email: MyString
-  link: MyString
-  feedback: MyText
-  customers: 
+  email: varade.vivek.123@gmail.com
+  link: http://gullakmaster.com/map_listing?latitude=19.653223&longitude=72.12323
+  feedback: feedback2
+  customer_id: 2

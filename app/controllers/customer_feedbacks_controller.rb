@@ -9,15 +9,16 @@ class CustomerFeedbacksController < ApplicationController
 
     def new
         @customer_feedback = CustomerFeedback.new
-        $http_referer = request.env['HTTP_REFERER']
+        $previous_link = request.env['HTTP_REFERER']
         respond_with @customer_feedback
     end
 
     def create
         @customer_feedback = Customer.where(:uuid => cookies["customer_uuid"]).first.customer_feedbacks.new(params[:customer_feedback])
-        @customer_feedback.link = $http_referer
+        @customer_feedback.link = $previous_link
+        $previous_link = :root if $previous_link.blank?
 
         @customer_feedback.save
-        respond_with @customer_feedback, :location => $http_referer
+        respond_with @customer_feedback, :location => $previous_link
     end
 end
