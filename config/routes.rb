@@ -1,5 +1,8 @@
 Gullak2::Application.routes.draw do
 
+  resources :customer_feedbacks
+
+
     resources :articles do
         resources :comments
     end

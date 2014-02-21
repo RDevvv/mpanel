@@ -1,0 +1,29 @@
+<%- model_class = CustomerFeedback -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:link) %></th>
+      <th><%= model_class.human_attribute_name(:feedback) %></th>
+      <th><%= model_class.human_attribute_name(:customers_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer_feedbacks.each do |customer_feedback| %>
+      <tr>
+        <td><%= link_to customer_feedback.id, customer_feedback_path(customer_feedback) %></td>
+        <td><%= customer_feedback.email %></td>
+        <td><%= customer_feedback.link %></td>
+        <td><%= customer_feedback.feedback %></td>
+        <td><%= customer_feedback.customers_id %></td>
+        <td><%=l customer_feedback.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140215061449) do
+ActiveRecord::Schema.define(:version => 20140221073818) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -296,6 +296,17 @@ ActiveRecord::Schema.define(:version => 20140215061449) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
+
+  create_table "customer_feedbacks", :force => true do |t|
+    t.string   "email"
+    t.string   "link"
+    t.text     "feedback"
+    t.integer  "customers_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "customer_feedbacks", ["customers_id"], :name => "index_customer_feedbacks_on_customers_id"
 
   create_table "customer_sessions", :force => true do |t|
     t.integer  "customer_id"
