@@ -5,7 +5,6 @@ function resend_verification_code(){
             customer_uuid: $.cookie("customer_uuid")
         }
     }).success(function(data){
-        console.log(data["success"]);
             if(data["success"]==true)
                 $.pnotify({
                     closer_hover: false,

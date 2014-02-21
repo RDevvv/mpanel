@@ -29,11 +29,11 @@ function map_initializer(locations, user_location){
         oms.addMarker(marker);
     }
 
-        oms.addListener('click', function(marker,event){
-            coords = marker["metadata"]["id"];
-            element = document.getElementById(coords);
-            $('body').scrollTo(element,{duration: 'slow'});
-        });
+    oms.addListener('click', function(marker,event){
+        coords = marker["metadata"]["id"];
+        element = document.getElementById(coords);
+        $('body').scrollTo(element,{duration: 'slow'});
+    });
 
     var populationOptions = {
         strokeColor: '#008080',
@@ -58,9 +58,7 @@ function change_location(){
     user_geolocate();
 
     var new_link=document.getElementById("change_location");
-    console.log(longitude);
     if(longitude == undefined){
-        console.log("not defined");
         $.pnotify({
             title: 'Enable location service',
             text: "enable",
@@ -73,9 +71,7 @@ function change_location(){
     }
     else
         {
-            console.log("defined");
             new_link.href = domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status';
-            console.log(new_link.href);
         }
 }
 
@@ -90,5 +86,4 @@ function showPosition(position){
 }
 
 function geo_error(){
-    console.log("couldn't fetch co-ordinates");
 }

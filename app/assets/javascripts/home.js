@@ -18,8 +18,6 @@ function show_share(facebook_share_link){
 
 function new_sms_share(sms_share_link){
     parent_element = window.poster_id;
-    console.log(window.poster_id);
-    console.log(parent_element);
     $.ajax({
         url: "/sms_share.json",
         data:{

@@ -25,7 +25,6 @@ function binding_tags(tracking){
         description = $.makeArray(description);
 
         all_buttons = call_buttons.concat(ad_request).concat(description).concat(address).concat(sms_share_link).concat(view_buttons).concat(share_buttons).concat(email_share_link);
-        console.log(view_buttons);
     }
     else{
         all_buttons = call_buttons.concat(ad_request).concat(sms_share_link);

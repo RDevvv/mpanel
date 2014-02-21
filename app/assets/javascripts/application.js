@@ -20,6 +20,7 @@
 //= require oms.min
 //= require home
 //= require geocoding
+//= require reverse_geocode
 //= require tracking
 //= require verification
 //= require back_to_top
