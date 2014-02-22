@@ -107,7 +107,7 @@ class CustomersController < ApplicationController
       else
           unless params[:mobile_number].empty?
               if @customer.update_attributes(:mobile_number => params[:mobile_number])
-                  @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster.")
+                  @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster")
                   @sms_sent.send_message
                   @mobile_number = true
               else
