@@ -8,5 +8,8 @@ ActiveAdmin.register ErrorMessage do
     column :params
     column :target_url
     column :created_at
+    actions :defaults => false do |city|
+      link_to "View", admin_error_message_path(city)
+    end
   end
 end
