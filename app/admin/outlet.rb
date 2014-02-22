@@ -17,6 +17,7 @@ ActiveAdmin.register Outlet do
 
   index do
     column :id
+    column :shop_no
     column :address
     column :phone_number
     column :mobile_number
@@ -25,7 +26,6 @@ ActiveAdmin.register Outlet do
     column :latitude
     column :longitude
     column :outlet_key
-    column :shop_no
     actions :defaults => false do |outlet|
       link_to "View", admin_outlet_path(outlet)
     end
