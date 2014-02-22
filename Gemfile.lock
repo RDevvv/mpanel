@@ -292,6 +292,7 @@ GEM
       i18n
       require_all
       ruby-progressbar
+    rails_exception_handler (2.3.3)
     railties (3.2.14)
       actionpack (= 3.2.14)
       activesupport (= 3.2.14)
@@ -410,7 +411,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin
+  activeadmin (= 0.6.0)
   acts_as_paranoid!
   better_errors
   binding_of_caller
@@ -447,6 +448,7 @@ DEPENDENCIES
   railroady
   rails (= 3.2.14)
   rails_best_practices
+  rails_exception_handler (~> 2)
   resque
   resque-web
   rolify

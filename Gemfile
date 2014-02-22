@@ -33,6 +33,7 @@ gem "fog"
 gem 'unf'
 gem 'paper_trail', '~> 2.7.2'
 gem 'acts_as_paranoid',:git=>"git@github.com:goncalossilva/acts_as_paranoid.git",:branch=>"rails3.2"
+gem 'rails_exception_handler', '~>2'
 
 
 gem 'therubyracer', :platforms => :ruby
@@ -40,7 +41,7 @@ gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'jquery-rails', "2.1.0"
 gem 'twitter-bootstrap-rails', '2.2.7'
 
-gem 'activeadmin'
+gem 'activeadmin', '0.6.0'
 
 
 group :assets do
