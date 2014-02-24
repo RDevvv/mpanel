@@ -1,5 +1,6 @@
 class Merchant::AdsController <  Merchant::BaseController
 	before_filter :load_account, :load_account_and_brand
+    skip_before_filter :authenticate_merchant_user!, :load_account_and_brand,:only=>[:get_ad_details]
 
 	def index
 		@ads = @account_brand.ads.order("expiry_date desc")
@@ -29,6 +30,11 @@ class Merchant::AdsController <  Merchant::BaseController
     @keywords = Keyword.all
     @keyword = Keyword.new    
     @ad_promocodes = @ad.ad_promocodes
+  end
+
+  def get_ad_details
+      @ad = Ad.find(params[:id])
+      render json: {title: @ad.ad_title, sms_text: @ad.sms_text}
   end
 
   def create

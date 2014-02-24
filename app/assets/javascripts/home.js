@@ -29,3 +29,4 @@ function new_sms_share(sms_share_link){
         $.pnotify({ title: '', text: 'Ad sent', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
     })
 }
+

@@ -11,15 +11,7 @@
 
                 <% unless ad.blank?%>
                     <div class="rch-btns-div4">
-                          <div class="btn190"> <a class="button_view" onclick="$.pnotify({
-                        title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
-                        text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
-                        closer_hover: false,
-                        sticker_hover: false,
-                        animate_speed: 'fast',
-                        icon: false,
-                        addclass: 'stack-topleft'
-                        });" class="description button_view">View</a>
+                          <div class="btn190"> <a class="button_view">View</a>
                         </div>
                         
                         <div class="btn190"><a class="ad_request button_offer">Get Offer</a>

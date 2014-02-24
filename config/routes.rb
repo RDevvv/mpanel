@@ -1,12 +1,10 @@
 Gullak2::Application.routes.draw do
 
-  resources :customer_feedbacks
-
 
     resources :articles do
         resources :comments
     end
-    resources :comments
+    resources :customer_feedbacks
     resources :nested_comments
     resources :leads
     resources :campaigns
@@ -21,27 +19,10 @@ Gullak2::Application.routes.draw do
     resources :customers
     resources :pages
 
-    get "admin_panel" => "home#admin_panel"
-    get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
-    get "get_missed_call" => "missed_calls#get_missed_call"
-    get "get_sms_text" => "missed_calls#get_sms_text"
-    get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
-    get "desktop" => "home#combo_view"
-    get "get_call_click/:id" => "call_button_selects#get_click"
-    post "get_button_click" => "button_clicks#get_click"
-    match "store_call_details" => "call_forwardings#store_call_details"
-    get "get_call_forwarding" => "call_forwardings#get_customer_number"
-    match "get_outlet_number" => "call_forwardings#return_outlet_number"
-    match "set_outlet_number" => "call_forwardings#set_outlet_number"
-    post "set_sms_data" => "sms_sents#set_sms_data"
-    post "versions/:id/revert" => "versions#revert", :as => "revert_version"
-    get "accounts/create"
 
     mount ResqueWeb::Engine, at: 'resque'
 
-
     namespace :merchant do
-
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
         get "/",:to=>"merchants#index",:as=>:merchants
 
@@ -49,10 +30,6 @@ Gullak2::Application.routes.draw do
         devise_for :users ,:module => "devise"
         #   # get "signup", :to => "devise/registrations#new",:as=>:merchant_signup
         #   # get "login" => "devise/sessions#new",:as=>:merchant_login
-
-        # devise_scope :user do
-        #   get "sign_in", :to => "devise/sessions#new"
-        # end
 
         resources :users
         resources :accounts do
@@ -107,19 +84,20 @@ Gullak2::Application.routes.draw do
             end
             resources :brands
         end
-    end  
-
+    end
 
     # MAIN APP ROUTES
     resources :home
-    match 'outlet_listing' => 'home#outlet_listing'
-    match 'outlet_search' => 'home#outlet_search'
-    match 'map_search' => 'home#map_search'
+    get 'outlet_listing' => 'home#outlet_listing'
+    get 'outlet_search' => 'home#outlet_search'
+    get 'map_search' => 'home#map_search'
+    get 'hot_picks' => 'home#hot_picks'
+
+    get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
     match 'verify_mobile_number' => 'customers#verify_mobile_number'
     match 'check_verification_code' => 'customers#check_verification_code'
     match 'resend_verification_code' => 'customers#resend_verification_code'
     match 'update_vendor_id' => 'campaigns#update_vendor_id'
-    match 'hot_picks' => 'home#hot_picks'
     match 'brand_listing/:brand_id' => 'home#brand_listing'
     match 'map_listing' => 'home#map_listing'
     match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
@@ -130,9 +108,24 @@ Gullak2::Application.routes.draw do
     match 'get_campaign_details' => 'campaigns#get_campaign_details'
     match 'sms_share' => 'sms_sents#sms_share'
 
+    get "admin_panel" => "home#admin_panel"
+    get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
+    get "get_missed_call" => "missed_calls#get_missed_call"
+    get "get_sms_text" => "missed_calls#get_sms_text"
+    get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
+    get "get_call_click/:id" => "call_button_selects#get_click"
+    post "get_button_click" => "button_clicks#get_click"
+    match "store_call_details" => "call_forwardings#store_call_details"
+    get "get_call_forwarding" => "call_forwardings#get_customer_number"
+    match "get_outlet_number" => "call_forwardings#return_outlet_number"
+    match "set_outlet_number" => "call_forwardings#set_outlet_number"
+    post "set_sms_data" => "sms_sents#set_sms_data"
+    post "versions/:id/revert" => "versions#revert", :as => "revert_version"
+    get "accounts/create"
+
     root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
     root :to => redirect('/desktop_index.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
-     get '/:short_url' => 'campaigns#campaign_landing'
+    get '/:short_url' => 'campaigns#campaign_landing'
 end

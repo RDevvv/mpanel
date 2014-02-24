@@ -38,14 +38,7 @@
             <div class="distance-div-below2">Ends: <%= ad.expiry_date.strftime('%d/%m') %></div>
                 <% unless ad.blank?%>
                     <div class="rch-btns-div3">
-                        <div class="btn190"> <a class="button_view" onclick="$.pnotify({
-                        title: '<%= h ad.ad_title unless outlet.ads.empty? %>',
-                        text: '<%= h ad.sms_text unless outlet.ads.empty? %>',
-                        sticker_hover: false,
-                        closer_hover: false,
-                        icon: false,
-                        opacity: .9
-                        });" class="description button_view">View</a>
+                        <div class="btn190"> <a class="button_view">View</a>
                         </div>
                         <div class="btn190"><a class="ad_request button_offer">Get Offer</a>
                         </div>
