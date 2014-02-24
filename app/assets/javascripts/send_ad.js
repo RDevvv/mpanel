@@ -42,3 +42,11 @@ function send_ad(customer_uuid, element)
         })
     }
 }
+
+function bind_send_ad(){
+    binding_tags_for_tracking = true;
+    ad_request = $('.ad_request');
+    $(ad_request).click(function(){
+        send_ad($.cookie('customer_uuid'),$(this));
+    })
+}

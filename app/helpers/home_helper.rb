@@ -73,15 +73,4 @@ module HomeHelper
             1
         end
     end
-
-    def get_nearest_area
-        customer_session = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.last
-        areas = Area.new(:latitude => customer_session.latitude, :longitude => customer_session.longitude).nearbys(100)
-        if areas.blank?
-            text = "Search New Location ..."
-        else
-            text = areas.first.area_name
-        end
-        text
-    end
 end

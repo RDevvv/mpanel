@@ -22,7 +22,7 @@ class CustomerFeedbacksControllerTest < ActionController::TestCase
 
     test "should create customer_feedback" do
         assert_difference('CustomerFeedback.count') do
-            post :create, customer_feedback: { email: @customer_feedback.email, feedback: @customer_feedback.feedback, link: @customer_feedback.link }
+            post :create, customer_feedback: { email: @customer_feedback.email, feedback: @customer_feedback.feedback, link: '/outlet_listing?location=bandra'}
         end
 
         assert_redirected_to customer_feedback_path(assigns(:customer_feedback))
