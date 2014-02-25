@@ -81,4 +81,12 @@ module HomeHelper
             view = 'outlet_listing'
         end
     end
+
+    def get_opposite_view_class(current_view)
+        if current_view =='outlet_listing'
+            view = 'loc'
+        elsif current_view == 'map_listing'
+            view = 'outlet'
+        end
+    end
 end

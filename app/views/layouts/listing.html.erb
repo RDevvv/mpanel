@@ -21,7 +21,7 @@
 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 
 <%= stylesheet_link_tag "application", :media => "all" %>
-<% unless action_name == 'map_listing' || action_name == 'map_search'%>
+<% unless params[:view] == 'map_listing' || params[:view] == 'map_search'%>
 <%= javascript_include_tag "application" %>
 <% end %>
 <%= favicon_link_tag "favicon.ico" %>
@@ -81,7 +81,7 @@
     <div class="head-brand"><%= link_to 'GullakMaster', root_path %></div>
     <ul class="right-icons">
         <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
-        <li><%= link_to "", {:controller => 'home', :action => action_name, :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search], :view => get_opposite_view(params[:view])}, :class => "loc"%></li>
+        <li><%= link_to "", {:controller => 'home', :action => action_name, :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search], :view => get_opposite_view(params[:view])}, :class => get_opposite_view_class(params[:view])%></li>
     </ul>
 
     <nav id="menu">
