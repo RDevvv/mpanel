@@ -13,7 +13,6 @@ class Ad < ActiveRecord::Base
     has_many :button_clicks
 
     after_create :brand_name_keyword
-    after_create :set_usage
 
     has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
     accepts_nested_attributes_for :attachments ,allow_destroy: true
@@ -43,10 +42,6 @@ class Ad < ActiveRecord::Base
                 Keyword.where(:keyword => word).first.ad_keywords.create(:ad_id => self.id)
             end
         end
-    end
-
-    def set_usage
-        self.update_attributes(:usage => self.outlets.count)
     end
 
     def toggle_active
