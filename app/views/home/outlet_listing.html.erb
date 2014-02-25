@@ -3,7 +3,7 @@
         <%= render 'top_location_search_bar' %>
         <div>
             <% if @poster_data.nil? %>
-                No results found
+                <div class="no-search-results">No results found</div>
             <% else %>
                 <% @poster_data.each do |poster| %>
                             <%= render :partial => 'poster', :locals => {:poster => poster} %>
