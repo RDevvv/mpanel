@@ -89,27 +89,4 @@ class HomeController < ApplicationController
         @pin_id = 0
         render params[:view].to_sym
     end
-
-    def hot_picks
-        @ads = Ad.where(:id => 0)
-        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
-        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
-        @nearby_outlet_ids = @outlets.map{|o|o.id}
-
-        @hot_picks = @outlets.map{|outlet|outlet.ads}.flatten.sort{|x,y|y.usage <=> x.usage}.flatten.uniq
-        @hot_picks_outlet_ids = @hot_picks.map{|ad|ad.outlets}.flatten.uniq.map{|o|o.id}
-
-        @final_outlets = @nearby_outlet_ids&@hot_picks_outlet_ids
-
-        @new_outlets = Outlet.where(:id => 0)
-        @final_outlets.each do |outlet_id|
-            @new_outlets.append(@outlets.find(outlet_id))
-        end
-        @final_outlets = @new_outlets
-
-        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
-        render "outlet_listing"
-    end
 end
