@@ -47,8 +47,12 @@ class HomeController < ApplicationController
             @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
             @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
             @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
+            @poster_data = Outlet.get_poster_data(@final_outlets)
+            unless params[:filter].blank?
+                @poster_data.sort_by!{|poster|poster[params[:filter].to_sym]}
+            end
+            #@poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(4)
         end
-        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(10)
 
         @map_outlets = Array.new
         @pin_id = 0

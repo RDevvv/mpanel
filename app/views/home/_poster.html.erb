@@ -1,57 +1,51 @@
-    <% unless ad.expired? %>
-    <% if ad.check_day.include?(Date.today.wday) %>
-    <div class="bdiv" outlet_id="<%= outlet.id %>" id="<%= ad.id %>" ad_id="<%= ad.id %>">
-        <div class="bbox">
-            <div class="brandtitle">
-                <%= get_brand_title(outlet.account_brand.brand) %>
+<div class="bdiv" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:ad_id] %>" ad_id="<%= poster[:ad_id] %>">
+    <div class="bbox">
+        <div class="brandtitle">
+            <%= get_brand_title(poster[:brand_name]) %>
+        </div>
+        <div class="rch-btns-div">
+            <div class="btn190">
+                <a class="address button_map2" onclick="$.pnotify({
+                    title: 'Address',
+                    text: '<%= h "#{poster[:address]}" %>',
+                    closer_hover: false,
+                    sticker_hover: false,
+                    animate_speed: 'fast',
+                    icon: false,
+                    addclass: 'stack-topleft'
+                    });" >ADDRESS</a>
             </div>
-            <div class="rch-btns-div">
+            <% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
                 <div class="btn190">
-                    <a class="address button_map2" onclick="$.pnotify({
-                        title: 'Address',
-                        text: '<%= h "#{outlet.get_address}" %>',
-                        closer_hover: false,
-                        sticker_hover: false,
-                        animate_speed: 'fast',
-                        icon: false,
-                        addclass: 'stack-topleft'
-                        });" >ADDRESS</a>
-                </div>
-                <% unless outlet.mobile_number.blank? and outlet.phone_number.blank? %>
-                <div class="btn190">
-                    <% if check_if_verified(cookies[:customer_uuid])==1 %>
-                        <a class="call button_call2" href="tel:09223584822">CALL</a>
-                        <% else %>
-                        <a class="call button_call2" onclick="call_button_verification()" >CALL</a>
-                    <% end %>
-                </div>
+                <% if check_if_verified(cookies[:customer_uuid])==1 %>
+                    <a class="call button_call2" href="tel:09223584822">CALL</a>
+            <% else %>
+                    <a class="call button_call2" onclick="call_button_verification()" >CALL</a>
             <% end %>
             </div>
-                <% unless ad.is_exclusive.blank? %>
+        <% end %>
+        </div>
+        <% unless poster[:ad_is_exclusive].blank? %>
             <div class="eye2"></div>
-            <% end %>
-                    <div class="distance-div">Dist: <%= (outlet.distance).to_f.round(2) %> km</div>
+    <% end %>
+        <div class="distance-div">Dist: <%= poster[:distance].to_f.round(2) %> km</div>
 
-            <div align="center" class="brandlogo">
-                <%= get_brand_image(outlet.account_brand.brand) %>
+        <div align="center" class="brandlogo">
+            <%= get_brand_image(poster[:brand]) %>
+        </div>
+        <div class="distance-div-below2">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
+            <div class="rch-btns-div3">
+            <div class="btn190"> <a class="button_view">View</a>
             </div>
-            <div class="distance-div-below2">Ends: <%= ad.expiry_date.strftime('%d/%m') %></div>
-                <% unless ad.blank?%>
-                    <div class="rch-btns-div3">
-                        <div class="btn190"> <a class="button_view">View</a>
-                        </div>
-                        <div class="btn190"><a class="ad_request button_offer">Get Offer</a>
-                        </div>
-                    </div>
-
-                <%end%>
-            <div class="lower-box">
-                <a class="share" >
-                    <div class="refr2"></div>
-                </a>
-                <p>Availed: <%= ad.usage %></p>
+            <div class="btn190"><a class="ad_request button_offer">Get Offer</a>
             </div>
         </div>
+
+        <div class="lower-box">
+            <a class="share" >
+                <div class="refr2"></div>
+            </a>
+            <p>Availed: <%= poster[:ad_usage] %></p>
+        </div>
     </div>
-    <% end %>
-    <% end %>
+</div>

@@ -273,4 +273,15 @@ class Outlet < ActiveRecord::Base
         end
         [final_outlets,ad_ids]
   end
+
+  def self.get_poster_data(outlets)
+      result = Array.new
+      outlets.select{|o|o.ads.blank? == false}.each do |outlet|
+          ads = outlet.ads.select{|ad|ad.expired? == false}.select{|ad|ad.check_day.include?(Date.today.wday)}
+          ads.each do |ad|
+              result += [:ad_id => ad.id, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :address => outlet.get_address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
+          end
+      end
+      result
+  end
 end
