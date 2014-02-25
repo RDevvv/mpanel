@@ -21,7 +21,7 @@
 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 
 <%= stylesheet_link_tag "application", :media => "all" %>
-<% unless action_name == 'map_listing' || action_name == 'map_search'%>
+<% unless params[:view] == 'map_listing' || params[:view] == 'map_search'%>
 <%= javascript_include_tag "application" %>
 <% end %>
 <%= favicon_link_tag "favicon.ico" %>
@@ -80,30 +80,16 @@
     </ul>
     <div class="head-brand"><%= link_to 'GullakMaster', root_path %></div>
     <ul class="right-icons">
-         <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
-        <% if action_name == 'map_listing' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
-    <% elsif action_name == 'outlet_listing' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'map_listing', :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "loc"%></li>
-    <% elsif action_name == 'map_search' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'outlet_search',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "outlet"%></li>
-    <% elsif action_name == 'outlet_search' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'map_search',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "loc"%></li>
-    <% end %>
+        <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
+        <li><%= link_to "", {:controller => 'home', :action => action_name, :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search], :view => get_opposite_view(params[:view])}, :class => get_opposite_view_class(params[:view])%></li>
     </ul>
 
     <nav id="menu">
         <ul>
             <li class="subcat">Sort by:</li>
-            <% if action_name == 'map_listing' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'map_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
-        <% elsif action_name == 'outlet_listing' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
-        <% elsif action_name == 'map_search' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'map_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
-        <% elsif action_name == 'outlet_search' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
-        <% end %>
+            <li><%= link_to "Distance", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'distance', :view => params[:view]} %></li>
+            <li><%= link_to "Expiry date", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_expiry_date', :view => params[:view]} %></li>
+            <li><%= link_to "Hot picks", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_usage', :view => params[:view]} %></li>
             <li>&nbsp;</li>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
@@ -114,11 +100,19 @@
                     <%= hidden_field_tag :location, params[:location] %>
                     <%= hidden_field_tag :latitude, params[:latitude] %>
                     <%= hidden_field_tag :longitude, params[:longitude] %>
+                    <%= hidden_field_tag :view, params[:view] %>
                     <%= text_field_tag :search, nil,:id => 's3', :placeholder => "Enter Category..." %>
                 </div>
             </fieldset>
         <% end %>
             </li>
+
+            <li><%= link_to "Fashion Accessories", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Fashion Accessories', :filter => 'ad_usage', :view => params[:view]} %></li>
+            <li><%= link_to "Music & Electronics", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Music & Electronics', :filter => 'ad_usage', :view => params[:view]} %></li>
+            <li><%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Food', :filter => 'ad_usage', :view => params[:view]} %></li>
+            <li><%= link_to "Mobile", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Mobile', :filter => 'ad_usage', :view => params[:view]} %></li>
+            <li><%= link_to "Footwear", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Footwear', :filter => 'ad_usage', :view => params[:view]} %></li>
+
             <li style="float:left; margin:36% 0 0 3%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
         </ul>
     </nav>
@@ -142,6 +136,7 @@ $(document).ready(function(){
         bind_send_ad();
         bind_tracking();
         reverse_geocode();
+        bind_display_ad();
         })
 </script>
 </body>

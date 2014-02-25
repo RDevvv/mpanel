@@ -13,7 +13,7 @@ function reverse_geocode(){
             get_location = variable_data;
     }
     if(typeof(longitude)=='undefined')
-        $('#s').attr('placeholder',get_location);
+        $('#s').attr('placeholder',get_location.replace('+',' '));
     else{
         var latlng = new google.maps.LatLng(latitude, longitude);
         geocoder.geocode({'latLng': latlng}, function(results, status) {

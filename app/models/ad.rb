@@ -13,7 +13,7 @@ class Ad < ActiveRecord::Base
     has_many :button_clicks
 
     after_create :brand_name_keyword
-    after_create :set_usage
+    after_create :category_name_keyword
 
     has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
     accepts_nested_attributes_for :attachments ,allow_destroy: true
@@ -45,8 +45,26 @@ class Ad < ActiveRecord::Base
         end
     end
 
-    def set_usage
-        self.update_attributes(:usage => self.outlets.count)
+    def category_name_keyword
+        category_name = self.account_brand.brand.category.category_name
+        keywords = Keyword.where(:keyword => category_name)
+        if keywords.empty?
+            keyword = Keyword.create(:keyword => category_name)
+            keyword.ad_keywords.create(:ad_id => self.id)
+            category_name.split(" ").each do |word|
+                unless Keyword.exists?(:keyword => word)
+                    new_keyword = Keyword.create(:keyword => word)
+                    new_keyword.ad_keywords.create(:ad_id => self.id)
+                else
+                    Keyword.where(:keyword => word).first.ad_keywords.create(:ad_id => self.id)
+                end
+            end
+        else
+            keywords.first.ad_keywords.create(:ad_id => self.id)
+            category_name.split(" ").each do |word|
+                Keyword.where(:keyword => word).first.ad_keywords.create(:ad_id => self.id)
+            end
+        end
     end
 
     def toggle_active

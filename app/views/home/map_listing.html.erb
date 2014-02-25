@@ -9,14 +9,12 @@
 
         <div class="out-add-div">
             <ul id="Grid">
-                <% if @final_outlets.nil? %>
-                    <div class="no-search-results">No results found</div>
+            <% if @final_outlets.nil? %>
+                <div class="no-search-results">No results found</div>
             <% else %>
-                <% @final_outlets.each_with_index do |outlet, i| %>
-                        <% outlet.ads.each do |ad| %>
-                    <%= render :partial => 'map_poster', :locals => {:outlet => outlet, :ad => ad, :i => i} %>
-            <% end %>
-            <% end %>
+                <% @poster_data.each do |poster| %>
+                  <%= render :partial => 'map_poster', :locals => {:poster => poster} %>
+                <% end %>
                 <%#= paginate @final_outlets %>
             <% end %>
             </ul>
@@ -25,9 +23,9 @@
 </div>
 
 <% unless @map_outlets.blank? %>
-        <%= javascript_tag do %>
-            locations = <%= @map_outlets.map{|o|[o.latitude, o.longitude, o.id]}.to_json.html_safe %>;
-            user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
-            map_initializer(locations, user_location);
-        <% end %>
+    <%= javascript_tag do %>
+        locations = <%= @map_outlets.to_json.html_safe %>;
+        user_location = <%= [@location[:latitude].to_f, @location[:longitude].to_f]%>
+        map_initializer(locations, user_location);
+    <% end %>
 <% end %>

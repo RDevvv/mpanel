@@ -22,9 +22,8 @@ class CustomerFeedbacksControllerTest < ActionController::TestCase
 
     test "should create customer_feedback" do
         assert_difference('CustomerFeedback.count') do
+            @request.cookies['customer_uuid'] = Customer.find(1).uuid
             post :create, customer_feedback: { email: @customer_feedback.email, feedback: @customer_feedback.feedback, link: '/outlet_listing?location=bandra'}
         end
-
-        assert_redirected_to customer_feedback_path(assigns(:customer_feedback))
     end
 end

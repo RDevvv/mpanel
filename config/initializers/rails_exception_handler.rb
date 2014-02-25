@@ -1,5 +1,5 @@
 RailsExceptionHandler.configure do |config|
-   config.environments = [:development, :production]                # Defaults to [:production]
+   config.environments = [:production]                # Defaults to [:production]
   # config.fallback_layout = 'home'                                         # Defaults to 'application'
   # config.after_initialize do
   #   # This block will be called after the initialization is done.

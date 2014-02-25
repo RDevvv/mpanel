@@ -2,15 +2,13 @@
     <div class="row-fluid">
         <%= render 'top_location_search_bar' %>
         <div>
-            <% if @final_outlets.nil? %>
-                No results found
+            <% if @poster_data.nil? %>
+                <div class="no-search-results">No results found</div>
             <% else %>
-                <% @final_outlets.each do |outlet| %>
-                    <% outlet.ads.each do |ad| %>
-                            <%= render :partial => 'poster', :locals => {:outlet => outlet, :ad => ad} %>
-                    <% end %>
+                <% @poster_data.each do |poster| %>
+                            <%= render :partial => 'poster', :locals => {:poster => poster} %>
                 <% end %>
-                <%#= paginate @final_outlets %>
+                <%#= paginate @poster_data %>
             <% end %>
         </div>
     </div>
