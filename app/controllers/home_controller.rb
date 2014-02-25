@@ -41,9 +41,13 @@ class HomeController < ApplicationController
     def outlet_listing
         location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
-        @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
-        @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
+        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
+
+        unless @outlets.nil?
+            @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
+            @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
+            @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
+        end
         #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(10)
     end
 
@@ -51,11 +55,14 @@ class HomeController < ApplicationController
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
 
-        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
 
+        unless @outlets.nil?
+            @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
+            @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
+            @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
+        end
 
-        @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
-        @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         @map_outlets = Array.new
         @pin_id = 0
         #@final_data = Outlet.generate_ad_outlet(@final_outlets)
