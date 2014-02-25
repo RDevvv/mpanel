@@ -16,14 +16,8 @@
                     });" >ADDRESS</a>
             </div>
             <% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
-                <div class="btn190">
-                <% if check_if_verified(cookies[:customer_uuid])==1 %>
-                    <a class="call button_call2" href="tel:09223584822">CALL</a>
-            <% else %>
-                    <a class="call button_call2" onclick="call_button_verification()" >CALL</a>
-            <% end %>
-            </div>
         <% end %>
+        <%= render :partial => 'call_button', :locals => {:poster => poster}%>
         </div>
         <% unless poster[:ad_is_exclusive].blank? %>
             <div class="eye2"></div>

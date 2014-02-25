@@ -37,13 +37,7 @@
             <div class="adaddress"><%= "#{poster[:shop_no]} #{poster[:address]}" %></div>
             <div class="adloc"><%= poster[:area_name] %><br/>
                 <%= poster[:city_name] %> <%= poster[:pincode] %></div>
-                <% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
-                    <% if check_if_verified(cookies[:customer_uuid])==1 %>
-                        <a class="call button_call3" href="tel:09223584822">CALL</a>
-                    <% else %>
-                        <a class="call button_call3" onclick="call_button_verification()">CALL</a>
-                    <% end %>
-                <% end %>
+                <%= render :partial => 'call_button', :locals => {:poster => poster}%>
             </div>
         </div>
     </li>
