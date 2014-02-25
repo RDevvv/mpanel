@@ -80,30 +80,14 @@
     </ul>
     <div class="head-brand"><%= link_to 'GullakMaster', root_path %></div>
     <ul class="right-icons">
-         <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
-        <% if action_name == 'map_listing' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'outlet_listing',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "outlet"%></li>
-    <% elsif action_name == 'outlet_listing' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'map_listing', :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude]}, :class => "loc"%></li>
-    <% elsif action_name == 'map_search' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'outlet_search',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "outlet"%></li>
-    <% elsif action_name == 'outlet_search' %>
-            <li><%= link_to "", {:controller => 'home', :action => 'map_search',:location => params[:location],  :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search]}, :class => "loc"%></li>
-    <% end %>
+        <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
+        <li><%= link_to "", {:controller => 'home', :action => action_name, :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search], :view => get_opposite_view(params[:view])}, :class => "loc"%></li>
     </ul>
 
     <nav id="menu">
         <ul>
             <li class="subcat">Sort by:</li>
-            <% if action_name == 'map_listing' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'map_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
-        <% elsif action_name == 'outlet_listing' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_listing', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude]} %></li>
-        <% elsif action_name == 'map_search' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'map_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
-        <% elsif action_name == 'outlet_search' %>
-                <li><%= link_to "Distance", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search]} %></li>
-        <% end %>
+            <li><%= link_to "Distance", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :view => get_opposite_view(params[:view])} %></li>
             <li>&nbsp;</li>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
@@ -114,6 +98,7 @@
                     <%= hidden_field_tag :location, params[:location] %>
                     <%= hidden_field_tag :latitude, params[:latitude] %>
                     <%= hidden_field_tag :longitude, params[:longitude] %>
+                    <%= hidden_field_tag :view, params[:view] %>
                     <%= text_field_tag :search, nil,:id => 's3', :placeholder => "Enter Category..." %>
                 </div>
             </fieldset>

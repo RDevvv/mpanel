@@ -39,22 +39,8 @@ class HomeController < ApplicationController
     end
 
     def outlet_listing
-        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
-        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
-
-        unless @outlets.nil?
-            @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
-            @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
-            @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
-        end
-        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(10)
-    end
-
-    def map_listing
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
-
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
 
         unless @outlets.nil?
@@ -62,11 +48,12 @@ class HomeController < ApplicationController
             @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
             @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
         end
+        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(10)
 
         @map_outlets = Array.new
         @pin_id = 0
-        #@final_data = Outlet.generate_ad_outlet(@final_outlets)
-        #@final_outlets = Kaminari.paginate_array(@final_outlets).page(params[:page]).per(5)
+        render params[:view].to_sym
+
     end
 
     def share_listing
@@ -88,24 +75,15 @@ class HomeController < ApplicationController
     end
 
     def outlet_search
-        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
-        result = Keyword.search(params[:search])
-        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-
-        outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km)
-        @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
-        render 'outlet_listing'
-    end
-
-    def map_search
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         result = Keyword.search(params[:search])
-
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
-        outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).limit(20)
 
-        @final_outlets,@ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
-        render 'map_listing'
+        outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
+        @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
+        @map_outlets = Array.new
+        @pin_id = 0
+        render params[:view].to_sym
     end
 
     def hot_picks
