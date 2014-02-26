@@ -32,7 +32,6 @@ function verification_modal_submit(){
                 {
                     $('#verification').modal('hide');
                     $.pnotify({ title: '', text: 'Your account is verified', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
-                    window.location.reload();
                 }
                 else{
                     $.pnotify({ title: '', text: 'Please enter correct verification code.', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
@@ -68,7 +67,6 @@ function modal_submit(){
                             console.log('elseeeeeeeeeeeeeeeeeee');
                             $.pnotify({ title: '', text: 'Welcome back', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                             $('#mobile-number').modal('hide');
-                            window.location.reload();
                         }
                     }
                     else
