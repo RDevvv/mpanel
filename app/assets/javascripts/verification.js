@@ -31,10 +31,10 @@ function verification_modal_submit(){
             if(data["verified"]==true)
                 {
                     $('#verification').modal('hide');
-                    $.pnotify({ title: '', text: 'Your account is verified', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
+                    $.pnotify({ title: 'Your account is verified', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                 }
                 else{
-                    $.pnotify({ title: '', text: 'Please enter correct verification code.', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
+                    $.pnotify({ title: 'Please enter correct verification code.', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                 }
         });
         return false; // prevents normal behaviour
@@ -59,13 +59,11 @@ function modal_submit(){
                 else if(data["mobile_number"]=="exist")
                     {
                         if($.cookie('mobile_number')=='not_verified'){
-                            console.log('iffffffffffff');
                             $('#verification').modal('show');
                             $('#mobile-number').modal('hide');
                         }
                         else{
-                            console.log('elseeeeeeeeeeeeeeeeeee');
-                            $.pnotify({ title: '', text: 'Welcome back', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
+                            $.pnotify({ title: 'Welcome back', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                             $('#mobile-number').modal('hide');
                         }
                     }
