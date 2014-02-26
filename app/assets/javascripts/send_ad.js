@@ -9,7 +9,7 @@ function send_ad(customer_uuid, element)
         ad_id         = $(element).closest(closest_search_pattern).attr("ad_id");
         outlet_id     = $(element).closest(closest_search_pattern).attr("outlet_id");
         url           = "set_sms_data.json";
-        title         = "Ad sent";
+        title         = "Offer sent by SMS";
 
         if(typeof(ad_id) == 'undefined'){
             url = 'sms_share.json';
