@@ -5,12 +5,12 @@
             <div class="brandtitle">
                 <%= get_brand_title(poster[:brand_name]) %>
             </div>
+                <% unless poster[:ad_id] ==0 %>
                     <div class="rch-btns-div4">
-                          <div class="btn190"> <a class="button_view">View</a>
-                        </div>
-                        <div class="btn190"><a class="ad_request button_offer">Get Offer</a>
-                        </div>
+                        <div class="btn190"> <a class="button_view">View</a></div>
+                        <div class="btn190"><a class="ad_request button_offer">Get Offer</a></div>
                     </div>
+                <% end %>
                 <% unless poster[:ad_is_exclusive].blank? %>
             <div class="eye2"></div>
             <% end %>
@@ -18,7 +18,11 @@
             <div align="center" class="brandlogo">
                 <%= get_brand_image(poster[:brand]) %>
             </div>
+            <% if poster[:ad_expiry_date] == 0%>
+            <div class="distance-div-below">Ends: -</div>
+            <% else %>
             <div class="distance-div-below">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
+            <% end %>
             <div class="lower-box2">
                 <a class="share" >
                     <div class="refr2"></div>

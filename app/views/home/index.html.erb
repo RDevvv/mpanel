@@ -28,24 +28,50 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
     <div class="row-fluid">
         <div class="span12">
             <div class="logo"><%= link_to image_tag "gullak-logo-main.jpg", :style =>"border=0;" %></div>
-            <div class="sub-txt">Deals at your fingertips</div>
+            <div class="sub-txt">Deals at your fingertips !</div>
         </div>
         <div class="span12">
             <div class="c-loc">
-                <div class="txt">Use Current location</div>
-                <div class="locimg">
-                    <%= link_to image_tag("current_location_big.png"), outlet_listing_path(:latitude => 19.07741, :longitude => 71.85746), :id => 'map' %>
-                </div>
-                <div class="error"></div>
-                <div class="txt">OR</div>
-
                 <div class="input-group">
                     <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
+                        <%= hidden_field_tag :view, 'outlet_listing', :class => "form-control", :placeholder => "Enter Location" %>
                         <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
                 <% end %>
                     <div class="input-group-btn">
+
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="span12">
+            <div class="lower-txt-below">e.g. Andheri Mumbai OR GK 2 Delhi..</div>
+        </div>
+        <div class="span12">
+            <div class="sub-txt-below"></div>
+            <button id="button" class="btn btn-show-deals">Show All Deals</button>
+        </div>
+        <div class="span12">
+            <div class="sub-txt-below"></div>
+        </div>
+        <div class="span12">
+            <div class="hp-cat-ttl">Select a Category</div>
+            <div class="hp-cat-txt-acc">
+                <a class="filldiv" href="#">Accessories</a>
+            </div>
+            <div class="hp-cat-txt-app">
+                <a class="filldiv" href="#">Apparels</a>
+            </div>
+            <div class="hp-cat-txt-ele">
+                <a class="filldiv" href="#">Electronics</a>
+            </div>
+            <div class="hp-cat-txt-food">
+                <a class="filldiv" href="#">Food</a>
+            </div>
+            <div class="hp-cat-txt-mobile">
+                <a class="filldiv" href="#">Mobile</a>
+            </div>
+            <div class="hp-cat-txt-shoes">
+                <a class="filldiv" href="#">Shoes</a>
             </div>
         </div>
     </div>
