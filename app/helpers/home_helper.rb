@@ -41,10 +41,10 @@ module HomeHelper
 
     def get_brand_title(brand_name)
         trailing_string=''
-        unless brand_name.length < 7
+        unless brand_name.length < 12
             trailing_string='..'
         end
-        brand_name[0..6]+trailing_string
+        brand_name[0..11]+trailing_string
     end
 
     def get_location_search_url
