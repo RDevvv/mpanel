@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140222044651) do
+ActiveRecord::Schema.define(:version => 20140226161350) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -250,14 +250,15 @@ ActiveRecord::Schema.define(:version => 20140222044651) do
     t.string   "short_url"
     t.string   "unique_key"
     t.datetime "expires_at"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "ad_promocode_outlet_id"
     t.string   "campaign_template"
     t.string   "purpose"
     t.string   "placement"
     t.string   "target"
     t.string   "campaign_name"
+    t.integer  "use_count",               :default => 0
   end
 
   create_table "categories", :force => true do |t|
