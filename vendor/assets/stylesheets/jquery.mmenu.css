@@ -152,6 +152,7 @@ html.mm-blocking #mm-blocker {
 
     li.subcat {font-weight:bold;}
     li.subcat a {border-bottom: none;}
+    .example-text {float:left; color:#ccc; font-size:10px; margin:0 0 0 10px; text-transform:none;}
 
       .mm-list > li.subcat > a,
     .mm-list > li.subcat > span {
