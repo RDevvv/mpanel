@@ -34,7 +34,8 @@ class Merchant::AdsController <  Merchant::BaseController
 
   def get_ad_details
       @ad = Ad.find(params[:id])
-      render json: {title: @ad.ad_title, sms_text: @ad.sms_text}
+      brand_name = @ad.account_brand.brand.brand_name
+      render json: {title: @ad.ad_title, sms_text: @ad.sms_text, brand_name: brand_name}
   end
 
   def create

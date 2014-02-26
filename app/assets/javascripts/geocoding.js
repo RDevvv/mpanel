@@ -60,7 +60,8 @@ function change_location(){
     var new_link=document.getElementById("change_location");
     if(longitude == undefined){
         $.pnotify({
-            title: 'Enable location service',
+            title: 'Location not identified',
+            text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
             sticker_hover: false,
             animate_speed: 'fast',
             icon: false,

@@ -33,7 +33,7 @@ class SmsSentsController < ApplicationController
                 ad_promocode.update_attributes(:usage => (ad_promocode.usage+1))
                 ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id]).first
                 button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).order(:id).last
-                text = "Offer: #{ad.account_brand.brand.brand_name} #{ad.sms_text} Promocode: #{ad_promocode.promocode} Address: #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name} #{outlet.area.pincode} Thanks, GullakMaster"
+                text = "<b>Offer:</b> #{ad.account_brand.brand.brand_name} #{ad.sms_text} <br /><b>Promocode:</b> #{ad_promocode.promocode} <br /><b>Address:</b> #{outlet.address}, #{outlet.area.area_name}, #{outlet.area.city.city_name} #{outlet.area.pincode} Thanks, GullakMaster"
                 p text
                 @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.order(:id).last.id, :button_click_id => button_click.id)
 

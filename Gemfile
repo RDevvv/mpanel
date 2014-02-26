@@ -24,7 +24,6 @@ gem 'exotel'
 
 gem 'capistrano', '~> 3.0.1'
 gem 'capistrano-rails'
-gem 'capistrano-rvm', '~> 0.0.3'
 gem 'capistrano-bundler'
 gem 'passenger'
 gem 'exception_notification'
