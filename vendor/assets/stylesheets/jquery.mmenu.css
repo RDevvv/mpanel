@@ -132,7 +132,7 @@ html.mm-blocking #mm-blocker {
 
 .mm-list {
   font: inherit;
-  font-size: 13px; font-weight: bold; text-transform: uppercase; }
+  font-size: 13px; font-weight: normal; text-transform: uppercase; }
   .mm-list a,
   .mm-list a:hover {
     text-decoration: none; }
@@ -140,7 +140,7 @@ html.mm-blocking #mm-blocker {
     position: relative; }
     .mm-list > li > a,
     .mm-list > li > span {
-      background: url(../img/arrw-right-2.png) no-repeat right center transparent;
+      background: url(arrw-right-2.png) no-repeat right center transparent;
       text-overflow: ellipsis; width:97%; border-bottom: solid 1px #6a6a6a;
       white-space: nowrap;
       overflow: hidden;
@@ -150,9 +150,12 @@ html.mm-blocking #mm-blocker {
       padding: 10px 10px 10px 20px;
       margin: 0; }
 
+    li.subcat {font-weight:bold;}
+    li.subcat a {border-bottom: none;}
+
       .mm-list > li.subcat > a,
     .mm-list > li.subcat > span {
-      text-overflow: ellipsis; border-bottom: solid 1px #fff;
+      text-overflow: ellipsis; /*border-bottom: solid 1px #fff;*/
       white-space: nowrap;
       overflow: hidden;
       color: inherit;
