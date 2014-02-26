@@ -103,7 +103,7 @@
                     <%= hidden_field_tag :view, params[:view] %>
                     <%= text_field_tag :search, nil,:id => 's3', :placeholder => "Enter Category..." %>
                 </div>
-                <div style="float:left; color:#ccc; font-size:10px; margin:0 0 0 10px; text-transform:none;">e.g: coffee, bags, shirts, eyewear</div>
+                <div class="example-text">e.g: coffee, bags, shirts, eyewear</div>
             </fieldset>
         <% end %>
             </li>
@@ -115,7 +115,7 @@
             <li><%= link_to "Mobile", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Mobile', :filter => 'ad_usage', :view => params[:view]} %></li>
             <li><%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Shoes', :filter => 'ad_usage', :view => params[:view]} %></li>
 
-            <li class="subcat" style="float:left; margin:7% 0 0 -7%; border-bottom:none;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
+            <li class="subcat" style="float:left; margin:7% 0 0 -7%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
         </ul>
     </nav>
 </div>
