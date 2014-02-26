@@ -54,7 +54,7 @@ class HomeController < ApplicationController
             else
                 @poster_data.sort_by!{|poster|poster[params[:filter].to_sym]}
             end
-            #@poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(4)
+            @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16)
         end
 
         @map_outlets = Array.new

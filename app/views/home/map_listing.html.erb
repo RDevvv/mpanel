@@ -15,7 +15,7 @@
                 <% @poster_data.each do |poster| %>
                   <%= render :partial => 'map_poster', :locals => {:poster => poster} %>
                 <% end %>
-                <%#= paginate @final_outlets %>
+                <%= paginate @poster_data %>
             <% end %>
             </ul>
         </div>
