@@ -4,10 +4,14 @@
         <%= form_tag location_search_url, :method => 'GET', :id => 'searchForm' do |f|  %>
             <fieldset>
             <div class="input">
+                <%= hidden_field_tag :view, action_name %>
                 <%= text_field_tag :location, nil,:id => 's', :placeholder => "" %>
+                <script type='text/javascript'>
+                    reverse_geocode();
+                </script>
             </div>
-            </fieldset>
-        <% end %>
+        </fieldset>
+    <% end %>
         <div class="auto-locate"><%= link_to image_tag("navigation-icon2.png"), '#', :onclick => 'change_location()', :id => 'change_location' %></div>
     </div>
 </div>

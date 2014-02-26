@@ -13,7 +13,7 @@ function reverse_geocode(){
             get_location = variable_data;
     }
     if(typeof(longitude)=='undefined')
-        $('#s').attr('placeholder',get_location.replace('+',' '));
+        $('#s').attr('value',get_location.replace('+',' '));
     else{
         var latlng = new google.maps.LatLng(latitude, longitude);
         geocoder.geocode({'latLng': latlng}, function(results, status) {
@@ -25,7 +25,7 @@ function reverse_geocode(){
                 }
             }
             if (status == google.maps.GeocoderStatus.OK) {
-                $('#s').attr('placeholder',final_result);
+                $('#s').attr('value',final_result);
             }
         });
     }
