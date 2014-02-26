@@ -274,7 +274,7 @@ a.small-link {float:left; clear:both; color: #0095F4; font-size: 13px; font-weig
 #wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#494949; font-size:12px; width: 861px;  /*width: 977px; border:solid 1px #000;*/}
 ul.cpoints {float:left; clear:both; width:100%; height:auto; font-size:12px;}
 ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
-    background: url(assets/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
+    background: url(/assets/desktop/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
 .clear-div {clear:both; margin:2px 0;}    
 /* Careers page */
 
