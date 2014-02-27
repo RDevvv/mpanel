@@ -124,7 +124,7 @@ Gullak2::Application.routes.draw do
     get "accounts/create"
 
     root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
-    root :to => redirect('/desktop_index.html')
+    root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     get '/:short_url' => 'campaigns#campaign_landing'
