@@ -181,7 +181,7 @@ h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margi
 
 
 /* About Us page */
-#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#6d6d6d; font-size:12px; width: 861px;  /*width: 977px; border:solid 1px #000;*/}
+#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#6d6d6d; font-size:12px; width: 861px; text-align: left;}
 .about-us-wrp {clear:both; width:961px; height:auto; margin:0 auto; }
 .about-us-wrp-cmp {clear:both; width:931px; height:auto; margin:0 auto; } 
 .tm-box-wrp {float:left; clear:both; width:861px; height:auto; margin:10px 0 10px 68px; /*width:100%; height:308px; margin:10px 0 10px 0;*/ }
@@ -271,7 +271,7 @@ ul.pop-up-list li {border: medium none; float: left; list-style-type: none; marg
 a.small-link {float:left; clear:both; color: #0095F4; font-size: 13px; font-weight: bold; text-decoration:underline;}
 
 /* Careers page */
-#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#494949; font-size:12px; width: 861px;  /*width: 977px; border:solid 1px #000;*/}
+#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#494949; font-size:12px; width: 861px; text-align: left;  /*width: 977px; border:solid 1px #000;*/}
 ul.cpoints {float:left; clear:both; width:100%; height:auto; font-size:12px;}
 ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
     background: url(/assets/desktop/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
@@ -331,62 +331,14 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 /* Tablet */
 @media screen and (max-width: 1024px) {
 
-/*#logo {
-	width: 100%;
-	text-align: center;
-}
-
-#nav {
-	width:100%;
-	text-align:center;
-	margin:10px 0;
-}
-
-.navigation{
-	width: 100%;
-	float: center;
-	list-style: none;
-	margin: 0;
-	padding:0; color:#000;
-}
-
-.navigation li{
-	float: left;
-	width:25%;
-	padding:0;
-}
-
-.slide{
-	background-attachment: fixed;
-	width:100%;
-	position: relative;
-	padding:150px 0;
-}
-
-#decorative {
-	display:none;
-}
-
-#content {
-	text-align:center;
-	width:100%;
-}
-
-#slide1 h1 {line-height: 1em;}
-#slide1 h2 {line-height: 1em;}
-#slide2 h1 {line-height: 1em;}
-#slide2 h2 {line-height: 1em;}
-#slide3 h1 {line-height: 1em;}
-#slide3 h2 {line-height: 1em;}
-#slide4 h1 {line-height: 1em;}
-#slide4 h2 {line-height: 1em;}*/
-
 /* Navigation */
 
 .menu {position:fixed; top:30px; width:100%; height:auto; background-color:#ffffff; z-index:100;}
 #logo {text-align: center; margin: 10px 0;}
+
 #nav {text-align: right; margin: 30px 0 0 0;}
-ul.navigation{float: right; list-style: none; margin:5% 10% 0 0; position: relative; /*margin: 0; */}
+
+ul.navigation{float: right; list-style: none; margin:5% 20% 0 0; position: relative; /*margin: 0; */}
 ul.navigation li{float: left; padding:0 0 0 30px; font-size:0.9em;}
 ul.navigation li:hover{
   cursor:pointer;
@@ -535,7 +487,7 @@ h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margi
 
 
 /* About Us page */
-#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#6d6d6d; font-size:12px; width: 861px;  /*width: 977px; border:solid 1px #000;*/}
+#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#6d6d6d; font-size:12px; width: 861px; text-align: left; /*width: 977px; border:solid 1px #000;*/}
 .about-us-wrp {clear:both; width:961px; height:auto; margin:0 auto; }
 .about-us-wrp-cmp {clear:both; width:931px; height:auto; margin:0 auto; } 
 .tm-box-wrp {float:left; clear:both; width:861px; height:auto; margin:10px 0 10px 68px; /*width:100%; height:308px; margin:10px 0 10px 0;*/ }
@@ -625,7 +577,7 @@ ul.pop-up-list li {border: medium none; float: left; list-style-type: none; marg
 a.small-link {float:left; clear:both; color: #0095F4; font-size: 13px; font-weight: bold; text-decoration:underline;}
 
 /* Careers page */
-#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#494949; font-size:12px; width: 861px;  /*width: 977px; border:solid 1px #000;*/}
+#wrapper-div {background-color: #FFFFFF; text-align: left; font-family: 'Open Sans', sans-serif; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#494949; font-size:12px; width: 861px; text-align: left;}
 ul.cpoints {float:left; clear:both; width:100%; height:auto; font-size:12px;}
 ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
     background: url(/assets/desktop/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
@@ -644,7 +596,7 @@ ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: lef
 /* Privacy Policy */
 
 .wrapper_terms {display: block; height: auto; margin: 0 auto 2px; padding: 3px; font-size:14px; text-align: left; width: 650px;}
-h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margin-top: 20px;}
+h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margin-top: 20px; text-align: left;}
 .head {color: #0095F4; font-size: 18px; font-weight: bold; line-height: 20px; margin: 0;}
 .subhead {color: #4E4E4E; font-size: 18px; font-weight: bold; line-height: 20px;}
 ul.bulleted {
