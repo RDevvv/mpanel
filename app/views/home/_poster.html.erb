@@ -28,11 +28,14 @@
             <%= get_brand_image(poster[:brand]) %>
         </div>
             <% if poster[:ad_expiry_date] == 0%>
-                <div class="distance-div-below2">Ends: -</div>
             <% else %>
                 <div class="distance-div-below2">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
             <% end %>
-                <% unless poster[:ad_id] ==0 %>
+            <% if poster[:ad_id] ==0 %>
+            <div class="rch-btns-div3">
+                <div class="btn190"><a class="ad_request button_offer">No Offer</a></div>
+            </div>
+            <% else %>
             <div class="rch-btns-div3">
                 <div class="btn190"> <a class="button_view">View</a></div>
                 <div class="btn190"><a class="ad_request button_offer">Get Offer</a></div>
@@ -43,7 +46,9 @@
             <a class="share" >
                 <div class="refr2"></div>
             </a>
-            <p>Availed: <%= poster[:ad_usage] %></p>
+            <% unless poster[:ad_usage] == -1 %>
+                <p>Availed: <%= poster[:ad_usage] %></p>
+            <% end %>
         </div>
     </div>
 </div>
