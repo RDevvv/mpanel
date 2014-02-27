@@ -43,9 +43,9 @@ ActiveAdmin.setup do |config|
      config.namespace :admin do |admin|
        admin.build_menu do |menu|
          if Rails.env == 'production'
-          menu.add :label => "Resque", :url => "http://www.gullakmaster.com/resque"
+          menu.add :label => "Resque", :parent => "System", :url => "http://www.gullakmaster.com/resque"
          else
-          menu.add :label => "Resque", :url => "http://localhost:3000/resque"
+          menu.add :label => "Resque", :parent => "System", :url => "http://localhost:3000/resque"
          end
         end
      end

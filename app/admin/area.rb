@@ -1,4 +1,5 @@
 ActiveAdmin.register Area do
+  menu :parent => "Master Tables"
   index do
     column :id
     column :area_name

@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-
+  menu :parent => "Master Tables"
   index do
     column :id
     column :category_name

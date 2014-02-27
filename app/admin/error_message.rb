@@ -1,4 +1,5 @@
 ActiveAdmin.register ErrorMessage do
+  menu :parent => "System"
     config.clear_sidebar_sections!
   index do
     column :id
