@@ -148,6 +148,16 @@ background: #7f7f7f; cursor:pointer;}
 
 /* Error page Styles */
 .error-box {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #fff; background: url(broken-glass-bg.png) no-repeat #fff;}
+
+.error-box-404 {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(404_por.png) no-repeat #fff;}
+.error-box-422 {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(422_por.png) no-repeat #fff;}
+.error-box-500 {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(500_por.png) no-repeat #fff;}
+
+.error-box-404 .session-id, .error-box-422 .session-id, .error-box-500 .session-id {float: right; text-align: right; color:#fff; font-size: 8px; margin: 0 3px 0 0;}
+
+.error-box-404 .home-div, .error-box-422 .home-div, .error-box-500 .home-div {position: relative; text-align: right; border:solid 1px #fff; top:460px; right:5px;}
+.error-box-404 .home, .error-box-422 .home, .error-box-500 .home {position: absolute; bottom: 10px; right: 5px; background: url(ikons-img.png) no-repeat -164px -709px transparent; padding:2px 10px;}
+
 .error-box2 {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #ccc; background: url(broken-glass-bg2.png) no-repeat #f7941d;}
 .error-number {border:solid 2px #fff; width: 56px; height: auto; padding: 10px 0; text-align: center; margin: 224px auto 0 auto; padding:10px 0 0 0; font-size:33px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; color: #fff;}
 .error-number2 {border:solid 2px #fff; width: 56px; height: auto; padding: 10px 0; text-align: center; margin: 224px auto 0 auto; padding:10px 0 0 0; font-size:33px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; color: #fff;}
@@ -409,7 +419,7 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:11px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
 
-.btn190 a, .btn190 a:link, .btn190 a:visited {color:#fff; text-decoration:none;}
+.btn190 a, .btn190 a:link, .btn190 a:visited {color:#fff; text-decoration:none; cursor: pointer;}
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .button_map2{
@@ -432,6 +442,11 @@ position:relative; left:-2px; background:#7F7F7F; cursor: pointer;}
 .button_offer{
 position:relative; left:-2px; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
 background: #575757;
+}
+
+.button_no_offer{
+position:relative; left:0; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #000;
+background: #FFFFFF;
 }
 
 .pin-add-div {float:left; width:140px; height:192px; margin:5px 0 0 0; padding:2px 0; border:solid 1px #ccc; /*height:208px;*/}
