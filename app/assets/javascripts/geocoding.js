@@ -75,7 +75,8 @@ function showPosition(position){
     new_link.href = domain+route+'?longitude='+user_longitude+'&latitude='+user_latitude+'&view='+view,'_self','resizable,location,menubar,toolbar,scrollbars,status';
 }
 
-function geo_error(){
+function geo_error(error){
+    console.log(error)
     $.pnotify({
         title: 'Location not identified',
         text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
