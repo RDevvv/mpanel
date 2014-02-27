@@ -348,6 +348,8 @@ textarea.feedback {background-color: #FFFFFF; text-align: left; resize:none; bac
 }
 /* Feedback box styles */
 
+
+
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
 .head-brand {margin:6px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 100%; position: absolute; top: 0px; left: 40%; color: #fff; }
