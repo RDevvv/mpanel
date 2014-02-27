@@ -1,5 +1,6 @@
 class CustomerFeedbacksController < ApplicationController
-    respond_to :html
+    respond_to :html, :json
+    skip_before_filter :verify_authenticity_token, :only => [:create]
 
     def index
         @customer_feedbacks = CustomerFeedback.all
@@ -14,7 +15,12 @@ class CustomerFeedbacksController < ApplicationController
     end
 
     def create
-        @customer_feedback = Customer.where(:uuid => cookies["customer_uuid"]).first.customer_feedbacks.new(params[:customer_feedback])
+        @customer = Customer.where(:uuid => cookies["customer_uuid"]).first
+        if @customer.blank?
+            @customer_feedback = CustomerFeedback.new(params[:customer_feedback])
+        else
+            @customer_feedback = @customer.customer_feedbacks.new(params[:customer_feedback])
+        end
         @customer_feedback.link = $previous_link
         $previous_link = :root if $previous_link.blank?
 

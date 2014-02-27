@@ -1,4 +1,5 @@
 ActiveAdmin.register ErrorMessage do
+  menu :parent => "System"
     config.clear_sidebar_sections!
   index do
     column :id
@@ -8,8 +9,11 @@ ActiveAdmin.register ErrorMessage do
     column :params
     column :target_url
     column :created_at
-    actions :defaults => false do |city|
-      link_to "View", admin_error_message_path(city)
+    actions :defaults => false do |error_message|
+      link_to "View", admin_error_message_path(error_message)
+    end
+    actions :defaults => false do |error_message|
+      link_to "Delete", admin_error_message_path(error_message), :method => :delete, :data => {:confirm => "Are you sure?"}
     end
   end
 end

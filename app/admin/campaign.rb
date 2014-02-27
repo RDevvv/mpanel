@@ -1,4 +1,5 @@
 ActiveAdmin.register Campaign do
+  menu :parent => "Campaigns"
 
   collection_action :index, :method => :get do
     # Only get the groups owned by the current user

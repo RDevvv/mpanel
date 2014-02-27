@@ -1,5 +1,5 @@
 ActiveAdmin.register Outlet do
-  menu :label => "Nongeocoded Outlets"
+  menu :label => "Nongeocoded Outlets", :parent => "Geocoding"
 
   collection_action :index, :method => :get do
     # Only get the groups owned by the current user

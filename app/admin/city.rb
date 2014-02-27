@@ -1,4 +1,5 @@
 ActiveAdmin.register City do
+  menu :parent => "Master Tables"
   index do
     column :id
     column :city_name
