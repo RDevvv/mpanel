@@ -50,7 +50,6 @@ class SmsSentsController < ApplicationController
         customer = Customer.where(:uuid => params[:customer_uuid]).first
         text = "GullakMaster has awesome Deals At Your Fingertips! http://gullak.co/sms Check it out."
         sms_sent = customer.sms_sents.create(:ad_promocode_outlet_id => 100000, :ad_promocode_outlet_version_id => 100000, :text => text)
-        sms_sent.send_message
         render :json => {:sms_sent => true, :text => text}
     end
 
