@@ -59,11 +59,6 @@
           });
           
           // onclick handler for a button that does some stuff before opening a leanModal dialog
-            function mySampleFunc()
-            {
-                alert("Thank you for feedback!");
-                $("#basicPopup").click();
-            }
     </script> 
     <!-- <script type="text/javascript" src="assets/scripts.min.js"></script> -->
     <script type="text/javascript" src="assets/bpop.js"></script>
@@ -560,19 +555,37 @@
                 <form action="">
                   <div class="txt-fld">
                     <label for="">Email</label>
-                    <input id="" name="" type="text" />
+                    <input id="email" name="" type="text" />
                   </div>
                   <div class="txt-fld">
                     <label for="">Please enter your feedback</label>
-                    <textarea id="message" placeholder="Please enter your comments here"></textarea>
+                    <textarea id="body" placeholder="Please enter your comments here"></textarea>
                   </div>
                   <div class="btn-fld">
-                    <button type="submit" class="sbmt-btn" onclick='mySampleFunc();'>Submit</button>
+                    <button type="submit" class="sbmt-btn" onclick='submit_feedback();'>Submit</button>
                 </div>
                 </form>
     </div>
-
-
-
+<script type='text/Javascript'>
+function submit_feedback(){
+    current_link  = window.location.pathname;
+    email = $('#email').attr('value');
+    feedback = $('#body').attr('value');
+    $.ajax({
+            url: 'customer_feedbacks.json',
+            type: 'post',
+            data: {
+                customer_feedback: {'link': current_link,
+                                    'email': email,
+                                    'feedback': feedback
+                }
+            }
+            }).success(function(data){
+                window.location.reload();
+                }).error(function(data){
+                    alert('Please enter a valid email ID and feedback');
+                    })
+}
+</script>
 </body>
 </html>
