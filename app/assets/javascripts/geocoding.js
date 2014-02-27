@@ -49,41 +49,32 @@ function map_initializer(locations, user_location){
     cityCircle = new google.maps.Circle(populationOptions);
 }
 
-var latitude;
-var longitude;
+var user_latitude=0;
+var user_longitude=0;
 function change_location(){
     q=(document.location.href);
     domain = document.location.origin;
     route  = document.location.pathname;
-    user_geolocate();
-
-    var new_link=document.getElementById("change_location");
-    if(longitude == undefined){
-        $.pnotify({
-            title: 'Location not identified',
-            text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
-            sticker_hover: false,
-            animate_speed: 'fast',
-            icon: false,
-            closer_hover: false,
-            opacity: .9
-        });
-    }
-    else
-        {
-            new_link.href = domain+route+'?longitude='+longitude+'&latitude='+latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status';
-        }
-}
-
-function user_geolocate(){
     if (navigator.geolocation)
-        navigator.geolocation.getCurrentPosition(showPosition,geo_error);
+        navigator.geolocation.getCurrentPosition(showPosition,geo_error,{timeout: 3000, enableHighAccuracy: true, maximumAge: 0});
 }
 
 function showPosition(position){
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
+    var new_link=document.getElementById("change_location");
+    console.log(position);
+    user_latitude = position.coords.latitude;
+    user_longitude = position.coords.longitude;
+    new_link.href = domain+route+'?longitude='+user_longitude+'&latitude='+user_latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status';
 }
 
 function geo_error(){
+    $.pnotify({
+        title: 'Location not identified',
+        text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
+        sticker_hover: false,
+        animate_speed: 'fast',
+        icon: false,
+        closer_hover: false,
+        opacity: .9
+    });
 }

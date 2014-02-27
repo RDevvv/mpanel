@@ -56,22 +56,22 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
         <div class="span12">
             <div class="hp-cat-ttl">Select a Category</div>
             <div class="hp-cat-txt-acc">
-                <a class="filldiv" href="#">Accessories</a>
+                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_search', :search => 'Accessories', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-app">
-                <a class="filldiv" href="#">Apparels</a>
+                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :search => 'Apparels', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-ele">
-                <a class="filldiv" href="#">Electronics</a>
+                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :search => 'Electronics', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-food">
-                <a class="filldiv" href="#">Food</a>
+                <%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :search => 'Food', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-mobile">
-                <a class="filldiv" href="#">Mobile</a>
+                <%= link_to "Mobile", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-shoes">
-                <a class="filldiv" href="#">Shoes</a>
+                <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :search => 'Shoes', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
                 <% @poster_data.each do |poster| %>
                             <%= render :partial => 'poster', :locals => {:poster => poster} %>
                 <% end %>
-                <%#= paginate @poster_data %>
+                <%= paginate @poster_data %>
             <% end %>
         </div>
     </div>
