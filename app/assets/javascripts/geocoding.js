@@ -64,10 +64,19 @@ function showPosition(position){
     console.log(position);
     user_latitude = position.coords.latitude;
     user_longitude = position.coords.longitude;
-    new_link.href = domain+route+'?longitude='+user_longitude+'&latitude='+user_latitude,'_self','resizable,location,menubar,toolbar,scrollbars,status';
+    get_variables = window.location.search.slice(1).split('&');
+    for(i=0;i<get_variables.length;i++){
+        variable_name = get_variables[i].split('=')[0]
+        variable_data = get_variables[i].split('=')[1]
+
+        if(variable_name=='view')
+            view = variable_data;
+    }
+    new_link.href = domain+route+'?longitude='+user_longitude+'&latitude='+user_latitude+'&view='+view,'_self','resizable,location,menubar,toolbar,scrollbars,status';
 }
 
-function geo_error(){
+function geo_error(error){
+    console.log(error)
     $.pnotify({
         title: 'Location not identified',
         text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
