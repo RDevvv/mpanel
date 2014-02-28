@@ -6,7 +6,7 @@
             <div class="control-group">
             <div class="controls">
                 <%= text_field_tag :verification_code,'', :class => 'datetime_select', :placeholder => "Enter verification code" %>
-                <%= submit_tag 'Submit', :class => '' %>
+                <%= submit_tag 'Submit', :class => 'btn-blue' %>
             </div>
         </div>
         <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
