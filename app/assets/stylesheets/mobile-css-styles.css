@@ -444,8 +444,8 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 .button_map2{
 border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;
@@ -470,7 +470,7 @@ background: #575757;
 }
 
 .button_no_offer{
-position:relative; left:0; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #000;
+position:relative; left:0; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal;
 background: #fff;
 }
 
@@ -586,8 +586,8 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 .button_map2 {
 border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;
@@ -659,8 +659,8 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -37px -751px
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 /* Footer */
 
@@ -740,8 +740,8 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:18px
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 .button_map2{
 border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;
@@ -835,8 +835,8 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 .distance-div {width:100%; clear:both; margin: 10px 0 0 0; font-size: 11px; text-align: center; color: #959595;}
 
@@ -1005,8 +1005,8 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .btn190 a:hover {color:#fff; text-decoration: underline;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 .button_map2{
 border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;
@@ -1031,7 +1031,7 @@ background: #575757;
 }
 
 .button_no_offer{
-position:relative; left:0; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; color: #000;
+position:relative; left:0; width:73px; margin:2px 0 0 0; border:0px solid #7D99CA; font-size:11px; font-family:Arial, Helvetica, sans-serif; padding: 1px 3px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal;
 background: #fff;
 }
 .subcat2 {float:left; margin:36% 0 0 3%;}
@@ -1099,8 +1099,8 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
 
 .rch-btns-div3 .btn191{float:left; clear: both; margin: 0; text-transform: uppercase;}
-.btn191 a, .btn191 a:link, .btn191 a:visited {color:#000; text-decoration:none;}
-.btn191 a:hover {color:#000; text-decoration: none;}
+.btn191 a, .btn191 a:link, .btn191 a:visited {color:#ddd; text-decoration:none;}
+.btn191 a:hover {color:#ddd; text-decoration: none;}
 
 .button_map2{
 border:0px solid #7D99CA; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; display:inline-block;text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;
