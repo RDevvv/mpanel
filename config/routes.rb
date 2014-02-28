@@ -124,6 +124,7 @@ Gullak2::Application.routes.draw do
     get "accounts/create"
 
     get 'no_results' => 'home#no_results'
+    match 'auth/facebook/callback' => 'customers#facebook_data'
     root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
     root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
