@@ -15,6 +15,15 @@ ActiveAdmin.register Outlet do
     end
   end
 
+  action_item only:[:index] do
+    button_to "Geocode new outlets", "/admin/outlets/geocodes", :method => :post, :confirm => "Want to geocode outlets?"
+  end
+
+  collection_action :geocodes, :method => :post do
+    system "rake geocode:all RAILS_ENV=production CLASS=Outlet"
+    redirect_to admin_outlets_path, :notice => "Geocoding Outlets....................."
+  end
+
   index do
     column :id
     column :shop_no
