@@ -152,11 +152,14 @@ background: #7f7f7f; cursor:pointer;}
 .error-box-404 {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(404_por.png) no-repeat #fff;}
 .error-box-422 {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(422_por.png) no-repeat #fff;}
 .error-box-500 {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(500_por.png) no-repeat #fff;}
-
-.error-box-404 .session-id, .error-box-422 .session-id, .error-box-500 .session-id {float: right; text-align: right; color:#fff; font-size: 8px; margin: 0 3px 0 0;}
+.error-box-no-results {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(NoOffers_por.png) no-repeat #fff;}
+.error-box-location-error {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(Location_por.png) no-repeat #fff;}
+.error-box-general-error {clear:both; position: relative; width: 310px; height: 480px; margin: 10px auto; border: solid 1px #fff; background: url(GenError_por.png) no-repeat #fff;}
+.error-box-404 .session-id, .error-box-422 .session-id, .error-box-500 .session-id, .error-box-no-results .session-id, .error-box-location-error .session-id, .error-box-general-error .session-id{float: right; text-align: right; color:#fff; font-size: 8px; margin: 0 3px 0 0;}
 
 .error-box-404 .home-div, .error-box-422 .home-div, .error-box-500 .home-div {position: relative; text-align: right; border:solid 1px #fff; top:460px; right:5px;}
-.error-box-404 .home, .error-box-422 .home, .error-box-500 .home {position: absolute; bottom: 10px; right: 5px; background: url(ikons-img.png) no-repeat -164px -709px transparent; padding:2px 10px;}
+.error-box-404 .home, .error-box-422 .home, .error-box-500 .home {position: absolute; bottom: 10px; right: 5px; background: url(ikons-img.png) no-repeat -164px -709px transparent;  padding:2px 10px;}
+.error-box-general-error .home {position: absolute; bottom: 25px; right: 5px; background: url(ikons-img.png) no-repeat -164px -709px transparent;  padding:2px 10px;}
 
 .error-box2 {clear:both; width: 318px; height: 460px; margin: 10px auto; border: solid 1px #ccc; background: url(broken-glass-bg2.png) no-repeat #f7941d;}
 .error-number {border:solid 2px #fff; width: 56px; height: auto; padding: 10px 0; text-align: center; margin: 224px auto 0 auto; padding:10px 0 0 0; font-size:33px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; color: #fff;}
