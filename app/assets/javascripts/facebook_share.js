@@ -1,10 +1,18 @@
 function facebook_share_binding(){
     share_buttons = $('.share');
     $(share_buttons).click(function(){
-        facebook_share($(this));
+        check_facebook_authentication($(this));
     });
 }
 
+function check_facebook_authentication(element){
+    if($.cookie('facebook_auth')== 'true'){
+        facebook_share(element);
+    }
+    else{
+        window.open('/auth/facebook');
+    }
+}
 function facebook_share(element){
     if($(element).closest('div[class="bdiv"]').length>0)
         box_element   = $(element).closest('div[class="bdiv"]');
