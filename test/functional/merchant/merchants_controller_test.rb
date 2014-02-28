@@ -8,8 +8,7 @@ class Merchant::MerchantsControllerTest < ActionController::TestCase
         sign_in @user
     end
 
-   # test "should get index" do
-   #     get :index
-   #     assert_response :success
-   # end
+    test "should get index" do
+        get :index
+    end
 end
