@@ -6,7 +6,7 @@
                 <%= hidden_field_tag :view, action_name %>
                 <%= text_field_tag :location, nil,:id => 's', :placeholder => "" %>
                 <script type='text/javascript'>
-                    reverse_geocode();
+                    reverse_geocode($('#s'));
                 </script>
             </div>
         </fieldset>
