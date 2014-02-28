@@ -28,50 +28,24 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
     <div class="row-fluid">
         <div class="span12">
             <div class="logo"><%= link_to image_tag "gullak-logo-main.jpg", :style =>"border=0;" %></div>
-            <div class="sub-txt">Deals at your fingertips !</div>
+            <div class="sub-txt">Deals at your fingertips</div>
         </div>
         <div class="span12">
             <div class="c-loc">
+                <div class="txt">Use Current location</div>
+                <div class="locimg">
+                    <%= link_to image_tag("current_location_big.png"), outlet_listing_path(:latitude => 19.07741, :longitude => 71.85746), :id => 'map' %>
+                </div>
+                <div class="error"></div>
+                <div class="txt">OR</div>
+
                 <div class="input-group">
                     <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
-                        <%= hidden_field_tag :view, 'outlet_listing', :class => "form-control", :placeholder => "Enter Location" %>
                         <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
                 <% end %>
                     <div class="input-group-btn">
-
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="span12">
-            <div class="lower-txt-below">e.g. Andheri Mumbai OR GK 2 Delhi..</div>
-        </div>
-        <div class="span12">
-            <div class="sub-txt-below"></div>
-            <button id="button" class="btn btn-show-deals">Show All Deals</button>
-        </div>
-        <div class="span12">
-            <div class="sub-txt-below"></div>
-        </div>
-        <div class="span12">
-            <div class="hp-cat-ttl">Select a Category</div>
-            <div class="hp-cat-txt-acc">
-                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_search', :search => 'Accessories', :view => 'outlet_listing'}, :class => 'filldiv' %>
-            </div>
-            <div class="hp-cat-txt-app">
-                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :search => 'Apparels', :view => 'outlet_listing'}, :class => 'filldiv' %>
-            </div>
-            <div class="hp-cat-txt-ele">
-                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :search => 'Electronics', :view => 'outlet_listing'}, :class => 'filldiv' %>
-            </div>
-            <div class="hp-cat-txt-food">
-                <%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :search => 'Food', :view => 'outlet_listing'}, :class => 'filldiv' %>
-            </div>
-            <div class="hp-cat-txt-mobile">
-                <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing'}, :class => 'filldiv' %>
-            </div>
-            <div class="hp-cat-txt-shoes">
-                <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :search => 'Shoes', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
         </div>
     </div>
@@ -83,55 +57,24 @@ function getLocation()
     if (navigator.geolocation)
     {
         console.log("within navigator");
-        navigator.geolocation.getCurrentPosition(showPosition, fail, {timeout: 3000, maximumAge: 0});
+        navigator.geolocation.getCurrentPosition(showPosition, fail);
+    }
+    else
+    {
+        $.pnotify({
+            title: 'Geolocation not supported',
+            text: 'Your browser does not support geolocation', closer_hover: false, opacity: .9 });
     }
 }
 
-    function fail(msg)
+    function fail()
 {
-    if(msg.code == 1){
-    $('#location').attr('placeholder', 'Enter your location ...');
-    $.pnotify({
-        title: 'Location service is turned off',
-        text: 'Location services are disabled.',
-        sticker_hover: false,
-        animate_speed: 'fast',
-        icon: false,
-        closer_hover: false,
-        opacity: .9
-    });
-    }
-    else if(msg.code == 2){
-    $('#location').attr('placeholder', 'Enter your location ...');
-    $.pnotify({
-        title: 'Location not identified',
-        sticker_hover: false,
-        animate_speed: 'fast',
-        icon: false,
-        closer_hover: false,
-        opacity: .9
-    });
-    }
-    else{
-    $('#location').attr('placeholder', 'Enter your location ...');
-    }
 }
-
 function showPosition(position)
 {
     console.log(position.coords.latitude);
     map_link.href = "/outlet_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
-    reverse_geocode($('#location'));
 }
-function update_category_urls(){
-    $('#location').bind({
-        keydown: function(){
-        value =$('#location').attr('value')
-        links = $('.filldiv')
-        }
-})
-}
-
 getLocation();
 </script>
 </body>
