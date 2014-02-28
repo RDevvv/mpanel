@@ -6,16 +6,16 @@ function reverse_geocode(){
         variable_data = get_variables[i].split('=')[1]
 
         if(variable_name=='longitude')
-            longitude = variable_data;
+            user_longitude = variable_data;
         if(variable_name=='latitude')
-            latitude = variable_data;
+            user_latitude = variable_data;
         if(variable_name=='location')
             get_location = variable_data;
     }
-    if(typeof(longitude)=='undefined')
+    if(typeof(user_longitude)=='undefined'||user_longitude ==0)
         $('#s').attr('value',get_location.replace('+',' '));
     else{
-        var latlng = new google.maps.LatLng(latitude, longitude);
+        var latlng = new google.maps.LatLng(latitude, user_longitude);
         geocoder.geocode({'latLng': latlng}, function(results, status) {
             result = results[0]['address_components'];
             for(i=0;i<result.length;i++){
