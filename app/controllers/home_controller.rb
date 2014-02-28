@@ -59,7 +59,33 @@ class HomeController < ApplicationController
 
         @map_outlets = Array.new
         @pin_id = 0
-        render params[:view].to_sym
+        if @poster_data.blank?
+            render 'no_results'
+        else
+            render params[:view].to_sym
+        end
+    end
+
+    def outlet_search
+        @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        result = Keyword.search(params[:search])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
+
+        unless @outlets.nil?
+            @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
+            @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,@outlets)
+            @final_outlets = Outlet.discard_outlets_from_same_brand(@final_outlets)
+            @poster_data = Outlet.get_poster_data(@final_outlets)
+            @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16)
+        end
+        @map_outlets = Array.new
+        @pin_id = 0
+        if @poster_data.blank?
+            render 'no_results'
+        else
+            render params[:view].to_sym
+        end
     end
 
     def share_listing
@@ -80,15 +106,7 @@ class HomeController < ApplicationController
         @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
     end
 
-    def outlet_search
-        @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
-        result = Keyword.search(params[:search])
-        CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
-
-        outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
-        @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,outlets)
-        @map_outlets = Array.new
-        @pin_id = 0
-        render params[:view].to_sym
+    def no_results
+        @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.first.id
     end
 end

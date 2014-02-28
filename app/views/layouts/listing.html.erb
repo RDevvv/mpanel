@@ -92,8 +92,7 @@
             <li>&nbsp;</li>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
-            <% location_search_url = get_keyword_search_url%>
-            <%= form_tag location_search_url, :method => 'GET', :id => 'searchForm' do |f|  %>
+            <%= form_tag :outlet_search, :method => 'GET', :id => 'searchForm' do |f|  %>
                 <fieldset>
                 <div class="input3">
                     <%= hidden_field_tag :location, params[:location] %>
@@ -111,7 +110,7 @@
             <li><%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Apparels', :filter => 'ad_usage', :view => params[:view]} %></li>
             <li><%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Electronics', :filter => 'ad_usage', :view => params[:view]} %></li>
             <li><%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Food', :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li><%= link_to "Mobile", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Mobile', :filter => 'ad_usage', :view => params[:view]} %></li>
+            <li><%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Mobile', :filter => 'ad_usage', :view => params[:view]} %></li>
             <li><%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Shoes', :filter => 'ad_usage', :view => params[:view]} %></li>
 
             <li class="subcat" style="float:left; margin:7% 0 0 -7%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>

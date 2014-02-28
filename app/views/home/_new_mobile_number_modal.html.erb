@@ -7,10 +7,10 @@
             <label class="control-label"> +91</label>
             <div class="controls">
                 <%= text_field_tag :mobile_number,'', :class => 'datetime_select', :placeholder => "Enter mobile number" %>
+                <%= submit_tag 'Submit', :class => 'datetime_select' %>
             </div>
         </div>
         <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
     <% end %>
-    <div class="send-code"><%= link_to "Already have verification code?", '#', :onClick => "already_have_verification_code()"  %></div>
     </div>
 </div>

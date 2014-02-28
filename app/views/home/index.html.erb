@@ -68,7 +68,7 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
                 <%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :search => 'Food', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-mobile">
-                <%= link_to "Mobile", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing'}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-shoes">
                 <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :search => 'Shoes', :view => 'outlet_listing'}, :class => 'filldiv' %>
@@ -83,24 +83,55 @@ function getLocation()
     if (navigator.geolocation)
     {
         console.log("within navigator");
-        navigator.geolocation.getCurrentPosition(showPosition, fail);
-    }
-    else
-    {
-        $.pnotify({
-            title: 'Geolocation not supported',
-            text: 'Your browser does not support geolocation', closer_hover: false, opacity: .9 });
+        navigator.geolocation.getCurrentPosition(showPosition, fail, {timeout: 3000, maximumAge: 0});
     }
 }
 
-    function fail()
+    function fail(msg)
 {
+    if(msg.code == 1){
+    $('#location').attr('placeholder', 'Enter your location ...');
+    $.pnotify({
+        title: 'Location service is turned off',
+        text: 'Location services are disabled.',
+        sticker_hover: false,
+        animate_speed: 'fast',
+        icon: false,
+        closer_hover: false,
+        opacity: .9
+    });
+    }
+    else if(msg.code == 2){
+    $('#location').attr('placeholder', 'Enter your location ...');
+    $.pnotify({
+        title: 'Location not identified',
+        sticker_hover: false,
+        animate_speed: 'fast',
+        icon: false,
+        closer_hover: false,
+        opacity: .9
+    });
+    }
+    else{
+    $('#location').attr('placeholder', 'Enter your location ...');
+    }
 }
+
 function showPosition(position)
 {
     console.log(position.coords.latitude);
     map_link.href = "/outlet_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
+    reverse_geocode($('#location'));
 }
+function update_category_urls(){
+    $('#location').bind({
+        keydown: function(){
+        value =$('#location').attr('value')
+        links = $('.filldiv')
+        }
+})
+}
+
 getLocation();
 </script>
 </body>

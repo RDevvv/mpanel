@@ -1,4 +1,4 @@
-function reverse_geocode(){
+function reverse_geocode(html_element){
     geocoder = new google.maps.Geocoder();
     get_variables = window.location.search.slice(1).split('&');
     for(i=0;i<get_variables.length;i++){
@@ -6,17 +6,21 @@ function reverse_geocode(){
         variable_data = get_variables[i].split('=')[1]
 
         if(variable_name=='longitude')
-            longitude = variable_data;
+            user_longitude = variable_data;
         if(variable_name=='latitude')
-            latitude = variable_data;
+            user_latitude = variable_data;
         if(variable_name=='location')
             get_location = variable_data;
     }
-    if(typeof(longitude)=='undefined')
-        $('#s').attr('value',get_location.replace('+',' '));
+    if(typeof(user_longitude)=='undefined'||user_longitude ==0)
+        html_element.attr('value',get_location.replace('+',' '));
     else{
-        var latlng = new google.maps.LatLng(latitude, longitude);
+        console.log(user_latitude,user_longitude);
+        var latlng = new google.maps.LatLng(user_latitude, user_longitude);
         geocoder.geocode({'latLng': latlng}, function(results, status) {
+            if(status=='ZERO_RESULTS')
+                html_element.attr('value','Search New Location ...');
+            else{
             result = results[0]['address_components'];
             for(i=0;i<result.length;i++){
                 sub_result = result[i];
@@ -25,7 +29,9 @@ function reverse_geocode(){
                 }
             }
             if (status == google.maps.GeocoderStatus.OK) {
-                $('#s').attr('value',final_result);
+
+                html_element.attr('value',final_result);
+            }
             }
         });
     }

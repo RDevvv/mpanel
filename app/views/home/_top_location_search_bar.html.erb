@@ -1,18 +1,17 @@
 <div class="span12">
     <div class="search-div3">
-        <% location_search_url = get_location_search_url%>
-        <%= form_tag location_search_url, :method => 'GET', :id => 'searchForm' do |f|  %>
+        <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
             <fieldset>
             <div class="input">
                 <%= hidden_field_tag :view, action_name %>
                 <%= text_field_tag :location, nil,:id => 's', :placeholder => "" %>
                 <script type='text/javascript'>
-                    reverse_geocode();
+                    reverse_geocode($('#s'));
                 </script>
             </div>
         </fieldset>
+        <%= submit_tag 'Go', :id =>'submitbutton', :class => "btn btn-submit2" %>
     <% end %>
-        <button id="submitbutton" name="submitbutton" class="btn btn-submit2">Go</button>
     </div>
 </div>
 

@@ -3,5 +3,7 @@ class AdKeyword < ActiveRecord::Base
   belongs_to :ad
   belongs_to :keyword
 
+  validates :ad_id, :uniqueness => {:scope => :keyword_id}
+
   acts_as_paranoid
 end
