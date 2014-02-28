@@ -123,6 +123,7 @@ Gullak2::Application.routes.draw do
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
 
+    get 'no_results' => 'home#no_results'
     root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
     root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config

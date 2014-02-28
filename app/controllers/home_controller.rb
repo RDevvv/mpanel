@@ -59,7 +59,11 @@ class HomeController < ApplicationController
 
         @map_outlets = Array.new
         @pin_id = 0
-        render params[:view].to_sym
+        if @poster_data.blank?
+            render 'no_results'
+        else
+            render params[:view].to_sym
+        end
     end
 
     def outlet_search
@@ -77,7 +81,11 @@ class HomeController < ApplicationController
         end
         @map_outlets = Array.new
         @pin_id = 0
-        render params[:view].to_sym
+        if @poster_data.blank?
+            render 'no_results'
+        else
+            render params[:view].to_sym
+        end
     end
 
     def share_listing
@@ -98,4 +106,7 @@ class HomeController < ApplicationController
         @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
     end
 
+    def no_results
+        @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.first.id
+    end
 end
