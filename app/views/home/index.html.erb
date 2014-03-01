@@ -56,22 +56,22 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
         <div class="span12">
             <div class="hp-cat-ttl">Select a Category</div>
             <div class="hp-cat-txt-acc">
-                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_search', :search => 'Accessories', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_search', :search => 'Accessories', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-app">
-                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :search => 'Apparels', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :search => 'Apparels', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-ele">
-                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :search => 'Electronics', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :search => 'Electronics', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-food">
-                <%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :search => 'Food', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :search => 'Food', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-mobile">
-                <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
             </div>
             <div class="hp-cat-txt-shoes">
-                <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :search => 'Shoes', :view => 'outlet_listing'}, :class => 'filldiv' %>
+                <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :search => 'Shoes', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
             </div>
         </div>
     </div>
@@ -80,45 +80,30 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
 var map_link=document.getElementById("map");
 function getLocation()
 {
-    if (navigator.geolocation)
-    {
-        console.log("within navigator");
-        navigator.geolocation.getCurrentPosition(showPosition, fail, {timeout: 3000, maximumAge: 0});
-        console.log("within navigator");
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition, fail, {timeout: 2000, maximumAge: 0});
     }
 }
-
-    function fail(msg)
-{
+    function fail(msg){
     $.ajax({
             url: 'location_from_ip'
             }).success(
                 function(data){
-                if(data!=""||data!='undefined'){
+                if(data!=''||data!='undefined'){
                 $('#location').attr('placeholder', data['city']);
+                update_location(data['city'])
                 }
                 else{
                     if(msg.code == 1){
                     $('#location').attr('placeholder', 'Enter your location ...');
                     $.pnotify({
-                        title: 'Location service is turned off',
-                        text: 'Location services are disabled.',
-                        sticker_hover: false,
-                        animate_speed: 'fast',
-                        icon: false,
-                        closer_hover: false,
-                        opacity: .9
+                        title: 'Location service is turned off', text: 'Location services are disabled.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
                     });
                     }
                     else if(msg.code == 2){
                     $('#location').attr('placeholder', 'Enter your location ...');
                     $.pnotify({
-                        title: 'Location not identified',
-                        sticker_hover: false,
-                        animate_speed: 'fast',
-                        icon: false,
-                        closer_hover: false,
-                        opacity: .9
+                        title: 'Location not identified', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
                     });
                     }
                     else{
@@ -129,21 +114,22 @@ function getLocation()
 
 }
 
-function showPosition(position)
-{
+function showPosition(position){
     console.log(position.coords.latitude);
     map_link.href = "/outlet_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
     reverse_geocode($('#location'));
-}
-function update_category_urls(){
-    $('#location').bind({
-        keydown: function(){
-        value =$('#location').attr('value')
-        links = $('.filldiv')
-        }
-})
+    update_location($('#location').value);
 }
 
+function update_category_urls(){
+    $('#location').bind({
+        keyup: function(){
+        value =$('#location').attr('value')
+        update_location(value);
+        }
+    })
+}
+update_category_urls();
 getLocation();
 </script>
 </body>
