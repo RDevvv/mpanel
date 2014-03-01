@@ -4,6 +4,7 @@ function reverse_geocode(html_element){
     for(i=0;i<get_variables.length;i++){
         variable_name = get_variables[i].split('=')[0]
         variable_data = get_variables[i].split('=')[1]
+        get_location  = '';
 
         if(variable_name=='longitude')
             user_longitude = variable_data;
