@@ -29,10 +29,12 @@
             <div class="distance-div-below">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
             <% end %>
             <div class="lower-box2">
-                <a class="share" >
+                <!--<a class="share" >
                     <div class="refr2"></div>
-                </a>
-            <% unless poster[:ad_usage] == -1 %>
+                </a>-->
+            <% if poster[:ad_usage] == -1 %>
+                <%= link_to 'Report an Offer', "mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: #{poster[:brand_name]} %0A Offer Details: %0A Expiry Date: %0A Address: #{poster[:address]}", :class => 'report-offer' %>
+            <% else %>
                 <p>Availed: <%= poster[:ad_usage] %></p>
             <% end %>
             </div>
