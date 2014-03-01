@@ -320,6 +320,12 @@ a.exampleTip:hover{text-decoration: none;}
 }
 /* Custom tooltip */
 
+/* Homepage slideshow */
+.rslides {
+  margin: 0 auto 40px;
+  }
+/* Homepage slideshow */
+
 /* Footer */
 #footer {width:861px; color:#000; clear:both; margin:5px auto 0 auto;  font-size:12px; padding:5px 0; border-top:solid 1px #cecece; /*width:977px;*/}
 .copy-div {text-align: center; font-size: 12px; color: #6e6e6e;}
