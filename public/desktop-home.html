@@ -53,14 +53,19 @@
     <script type="text/javascript" src="assets/bootstrap.js"></script>
     <script type="text/javascript" src="assets/jquery.leanModal.min.js"></script>
     <script type="text/javascript" src="assets/iosbugfix.js"></script>
-    
     <script type="text/javascript">
         $(function() {
             $('a[rel*=leanModal]').leanModal({ top : 100, closeButton: ".modal_close", display: "none" });      
           });
           
           // onclick handler for a button that does some stuff before opening a leanModal dialog
+            function mySampleFunc()
+            {
+                alert("Thank you for feedback!");
+                $("#basicPopup").click();
+            }
     </script> 
+    
     <!-- <script type="text/javascript" src="assets/scripts.min.js"></script> -->
     <script type="text/javascript" src="assets/bpop.js"></script>
     <script type="text/javascript" src="assets/jquery.atooltip.js"></script>
@@ -71,6 +76,7 @@
     </script> 
 	<!-- <link rel="stylesheet" href="css/style.min.css" type="text/css" media="screen"> -->
 	<!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Add fancyBox main JS and CSS files -->
     <script type="text/javascript" src="assets/jquery.fancybox.js?v=2.1.5"></script>
     <link rel="stylesheet" type="text/css" href="assets/jquery.fancybox.css?v=2.1.5" media="screen" />
     <script type="text/javascript">
@@ -78,7 +84,18 @@
             $('.fancybox').fancybox();
         });
     </script>
-    
+
+    <link rel="stylesheet" href="assets/responsiveslides.css" type="text/css" media="screen">
+    <script src="assets/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+          $("#slider1").responsiveSlides({
+            maxwidth: 800,
+            speed: 800
+          });      
+
+        });
+      </script>   
 </head>
 
 <body>
@@ -135,7 +152,7 @@
 
 	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
 		<div class="container clearfix">
-            <ul class="rslides" id="slider1">
+            <ul id="slider1" class="rslides">
               <li><img src="assets/Slider_customers.jpg" alt=""></li>
               <li><img src="assets/Slider_merchants.jpg" alt=""></li>
             </ul>
@@ -586,19 +603,6 @@ function submit_feedback(){
 }
 </script>
 
-<link rel="stylesheet" href="assets/responsiveslides.css">
-    <script src="assets/responsiveslides.min.js"></script>
-    <script>
-    // You can also use "$(window).load(function() {"
-    $(function () {
 
-      // Slideshow 1
-      $("#slider1").responsiveSlides({
-        maxwidth: 800,
-        speed: 800
-      });      
-
-    });
-  </script>
 </body>
 </html>
