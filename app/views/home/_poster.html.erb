@@ -49,7 +49,7 @@
                 <div class="refr2"></div>
             </a>-->
             <% if poster[:ad_usage] == -1 %>
-                <%= link_to 'Report an Offer', "mailto:?subject=Report an Offer", :class => 'report-offer' %>
+                <%= link_to 'Report an Offer', "mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: #{poster[:brand_name]} %0A Offer Details: %0A Expiry Date: %0A Address: #{poster[:address]}", :class => 'report-offer' %>
             <% else %>
                 <p>Availed: <%= poster[:ad_usage] %></p>
             <% end %>
