@@ -90,25 +90,17 @@ Gullak2::Application.routes.draw do
     resources :home
     get 'outlet_listing' => 'home#outlet_listing'
     get 'outlet_search' => 'home#outlet_search'
-    get 'map_search' => 'home#map_search'
-    get 'hot_picks' => 'home#hot_picks'
 
     get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
     match 'verify_mobile_number' => 'customers#verify_mobile_number'
     match 'check_verification_code' => 'customers#check_verification_code'
     match 'resend_verification_code' => 'customers#resend_verification_code'
     match 'update_vendor_id' => 'campaigns#update_vendor_id'
-    match 'brand_listing/:brand_id' => 'home#brand_listing'
-    match 'map_listing' => 'home#map_listing'
-    match 'refered_listing/deals/:city/:area_name/:category_name/:refere_id' => 'home#refered_listing'
-    match 'individual_outlet/(:id)' => 'home#individual_outlet'
     match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
-    match 'deals/:id/:source/:city/:area/:category/:ad_promocode_outlet_id' => 'campaigns#facebook_share'
-    get '/generate_campaign_copy' => 'campaigns#generate_campaign_copy'
+    get 'generate_campaign_copy' => 'campaigns#generate_campaign_copy'
     match 'get_campaign_details' => 'campaigns#get_campaign_details'
     match 'sms_share' => 'sms_sents#sms_share'
 
-    get "admin_panel" => "home#admin_panel"
     get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
     get "get_missed_call" => "missed_calls#get_missed_call"
     get "get_sms_text" => "missed_calls#get_sms_text"
