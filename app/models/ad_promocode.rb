@@ -5,7 +5,7 @@ class AdPromocode < ActiveRecord::Base
   belongs_to :ad_group
   has_many :ad_promocode_outlets,:dependent=>:destroy
   has_many :outlets,:through=>:ad_promocode_outlets
-  validates :promocode, :format => { :with => /\A[a-zA-Z0-9]+\z/,:message => "Invalid Promocode" } 
+  validates :promocode, :format => { :with => /\A[a-zA-Z0-9\-\/\*\:\;\@]+\z/,:message => "Invalid Promocode" }
   before_destroy :can_delete
   acts_as_paranoid
   after_create :add_ad
