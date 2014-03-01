@@ -129,4 +129,10 @@ class CustomersController < ApplicationController
   def facebook_data
       cookies[:facebook_auth] = {:value => true, :expires => 1.year.from_now}
   end
+
+  def location_from_ip
+      result = Net::HTTP.get('freegeoip.net',"/json/#{request.remote_ip}")
+      city = JSON.parse(result)['city']
+      render :json => {:city => city}
+  end
 end
