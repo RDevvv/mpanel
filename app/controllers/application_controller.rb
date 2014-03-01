@@ -27,17 +27,11 @@ class ApplicationController < ActionController::Base
         "merchant"
     elsif controller_name == 'home' && action_name == 'index'
         "home_index"
-    elsif controller_name == 'home' && action_name == 'combo_view'
-        "desktop"
     elsif controller_name == 'home' && action_name == 'admin_panel'
         "admin"
     elsif controller_name == 'home'
         "listing"
-    elsif controller_name == 'campaigns'
-        "home_index"
-    elsif controller_name == 'customers'
-        "home_index"
-    elsif controller_name == 'ads'
+    elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads'
         "home_index"
     else
         "application"

@@ -5,13 +5,12 @@
             <div class="input">
                 <%= hidden_field_tag :view, action_name %>
                 <%= text_field_tag :location, nil,:id => 's', :placeholder => "" %>
-                <script type='text/javascript'>
-                    reverse_geocode($('#s'));
-                </script>
+                    <script type='text/javascript'>
+                        reverse_geocode($('#s'));
+                    </script>
             </div>
-        </fieldset>
+            </fieldset>
         <%= submit_tag 'Go', :id =>'submitbutton', :class => "btn btn-submit2" %>
-    <% end %>
+        <% end %>
     </div>
 </div>
-
