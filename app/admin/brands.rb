@@ -1,5 +1,5 @@
 ActiveAdmin.register Brand do
-  menu :label => "Redundant Geocoding", :parent => "Geocoding"
+  menu false
 
   index do
     column :id do |brand|

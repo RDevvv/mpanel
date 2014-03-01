@@ -59,7 +59,9 @@ class HomeController < ApplicationController
 
         @map_outlets = Array.new
         @pin_id = 0
-        if @poster_data.blank?
+        if @location.blank?
+            render 'location_not_found'
+        elsif @poster_data.blank?
             render 'no_results'
         else
             render params[:view].to_sym
@@ -81,7 +83,9 @@ class HomeController < ApplicationController
         end
         @map_outlets = Array.new
         @pin_id = 0
-        if @poster_data.blank?
+        if @location.blank?
+            render 'location_not_found'
+        elsif @poster_data.blank?
             render 'no_results'
         else
             render params[:view].to_sym
@@ -107,6 +111,10 @@ class HomeController < ApplicationController
     end
 
     def no_results
+        @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.first.id
+    end
+
+    def location_not_found
         @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.first.id
     end
 end
