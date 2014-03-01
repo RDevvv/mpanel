@@ -29,3 +29,5 @@
 //= require resend_verification_code
 //= require send_ad
 //= require view_ad
+//= require query-string
+//= require update_location
