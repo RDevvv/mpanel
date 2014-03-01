@@ -53,14 +53,19 @@
     <script type="text/javascript" src="assets/bootstrap.js"></script>
     <script type="text/javascript" src="assets/jquery.leanModal.min.js"></script>
     <script type="text/javascript" src="assets/iosbugfix.js"></script>
-    
     <script type="text/javascript">
         $(function() {
             $('a[rel*=leanModal]').leanModal({ top : 100, closeButton: ".modal_close", display: "none" });      
           });
           
           // onclick handler for a button that does some stuff before opening a leanModal dialog
+            function mySampleFunc()
+            {
+                alert("Thank you for feedback!");
+                $("#basicPopup").click();
+            }
     </script> 
+    
     <!-- <script type="text/javascript" src="assets/scripts.min.js"></script> -->
     <script type="text/javascript" src="assets/bpop.js"></script>
     <script type="text/javascript" src="assets/jquery.atooltip.js"></script>
@@ -71,6 +76,26 @@
     </script> 
 	<!-- <link rel="stylesheet" href="css/style.min.css" type="text/css" media="screen"> -->
 	<!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Add fancyBox main JS and CSS files -->
+    <script type="text/javascript" src="assets/jquery.fancybox.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="assets/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.fancybox').fancybox();
+        });
+    </script>
+
+    <link rel="stylesheet" href="assets/responsiveslides.css" type="text/css" media="screen">
+    <script src="assets/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+          $("#slider1").responsiveSlides({
+            maxwidth: 800,
+            speed: 800
+          });      
+
+        });
+      </script>   
 </head>
 
 <body>
@@ -112,10 +137,10 @@
                         <span class="linkalign">Contact</span>
                         <ul>
                           <li data-slide="7"><a href="#">Office Locations</a></li>
-                          <li><a href="#" class="normalTip exampleTip" title="careers@gullakmaster.com">Career Enquiries</a></li>
-                          <li><a href="#" class="normalTip exampleTip" title="merchant@gullakmaster.com">Merchant Enquiries</a></li>
-                          <li><a href="#" class="normalTip exampleTip" title="investor@gullakmaster.com">Investor Enquiries</a></li>
-                          <li><a href="#" class="normalTip exampleTip" title="media@gullakmaster.com">Media Enquiries</a></li>
+                          <li><a href="mailto:careers@gullakmaster.com" class="normalTip exampleTip" title="careers@gullakmaster.com">Career Enquiries</a></li>
+                          <li><a href="mailto:merchant@gullakmaster.com" class="normalTip exampleTip" title="merchant@gullakmaster.com">Merchant Enquiries</a></li>
+                          <li><a href="mailto:investor@gullakmaster.com" class="normalTip exampleTip" title="investor@gullakmaster.com">Investor Enquiries</a></li>
+                          <li><a href="mailto:media@gullakmaster.com" class="normalTip exampleTip" title="media@gullakmaster.com">Media Enquiries</a></li>
                         </ul>
                     </li>
 				</ul>
@@ -127,17 +152,11 @@
 
 	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
 		<div class="container clearfix">
-            <div align="center"><img src="assets/desktop/homepage-rightimage.png" border="0" /></div>
-			<!--<div id="content" class="grid_7">
-				<h1>Top Slide</h1>
-				<h2>Get ready to make magic!</h2>
-				<p>Remember that this is a BETA version. This is my first framework so if you see any issue please <a href="mailto:jalxob@gmail.com">let me know it</a>. </p>
-				<p>Don't forget to follow me!</p>
-				<p><a href="https://twitter.com/Jalxob" target="_blank"><img src="assets/desktop/twitter.png"></a> <a href="http://dribbble.com/jalxob" target="_blank"><img src="assets/desktop/dribbble.png"></a></p>
-			</div>
-			<div id="decorative" class="grid_5 omega">
-				<img src="assets/desktop/decorative.png">
-			</div>-->
+            <ul id="slider1" class="rslides">
+              <li><img src="assets/Slider_customers.jpg" alt=""></li>
+              <li><img src="assets/Slider_merchants.jpg" alt=""></li>
+            </ul>
+            <!--<div align="center"><img src="assets/desktop/homepage-rightimage.png" border="0" /></div>-->
 		</div>
 	</div>
 
@@ -170,7 +189,7 @@
                 <ul class="team-members">
                     <li>
                         <div class="tm-div">
-                            <div class="mem-pict"><a id="go" rel="leanModal" name="signup" href="#ad"><img src="assets/desktop/ad-pic.jpg" border="0" alt="Abhishek Dadoo" title="Abhishek Dadoo" /></a></div>
+                            <div class="mem-pict"><a href="#ad"><img src="assets/desktop/ad-pic.jpg" border="0" alt="Abhishek Dadoo" title="Abhishek Dadoo" /></a></div>
                             <div class="orng-box">
                                 <div class="title">abhishek dadoo</div>
                                 <div class="nickname">(Mr. ProveIt)</div>
@@ -180,7 +199,7 @@
                     </li>
                     <li>
                         <div class="tm-div">
-                            <div class="mem-pict"><a id="go" rel="leanModal" name="signup" href="#kg"><img src="assets/desktop/kg-pic.jpg" border="0" alt="Kaustubh Gupte" title="Kaustubh Gupte" /></a></div>
+                            <div class="mem-pict"><a href="#kg"><img src="assets/desktop/kg-pic.jpg" border="0" alt="Kaustubh Gupte" title="Kaustubh Gupte" /></a></div>
                             <div class="orng-box">
                                 <div class="title">kaustubh gupte</div>
                                 <div class="nickname">(Biggest Bhukkad)</div>
@@ -190,7 +209,7 @@
                     </li>
                     <li>
                         <div class="tm-div">
-                            <div class="mem-pict"><a id="go" rel="leanModal" name="signup" href="#nvm"><img src="assets/desktop/nvm-pic.jpg" border="0" alt="Narrendra Murthhy" title="Narrendra Murthhy" /></a></div>
+                            <div class="mem-pict"><a href="#nvm"><img src="assets/desktop/nvm-pic.jpg" border="0" alt="Narrendra Murthhy" title="Narrendra Murthhy" /></a></div>
                             <div class="orng-box">
                                 <div class="title">narrendra murthhy</div>
                                 <div class="nickname">(Sir Krodhit Panchi)</div>
@@ -200,7 +219,7 @@
                     </li>
                     <li>
                         <div class="tm-div">
-                            <div class="mem-pict"><a id="go" rel="leanModal" name="signup" href="#rh"><img src="assets/desktop/rh-pic.jpg" border="0" alt="Ritesh Haldankar" title="Ritesh Haldankar" /></a></div>
+                            <div class="mem-pict"><a href="#rh"><img src="assets/desktop/rh-pic.jpg" border="0" alt="Ritesh Haldankar" title="Ritesh Haldankar" /></a></div>
                             <div class="orng-box">
                                 <div class="title">ritesh haldankar</div>
                                 <div class="nickname">(The Giraffe Man)</div>
@@ -225,7 +244,7 @@
                     <li>
                         <div class="tm-div">
                             <div class="mem-pict">
-                                <a id="go" rel="leanModal" name="signup" href="#gd">
+                                <a href="#gd">
                                 <img border="0" title="" src="assets/desktop/Vivek01-01.jpg" alt="Vivek Varade"></a></div>
                             <div class="orng-box">
                                 <div class="title">vivek varade</div>
@@ -289,7 +308,6 @@
                             </p>
                         </div>
                     </div>
-                    <a class="modal_close" href="#"></a>
                     </div>
                     <div id="kg">
                         <div class="prf-div-pop">
@@ -309,7 +327,6 @@
                                 </p>
                             </div>
                         </div>
-                        <a class="modal_close" href="#"></a>
                     </div>
                     <div id="nvm">
                         <div class="prf-div-pop">
@@ -329,7 +346,6 @@
                                 </p>
                             </div>
                         </div>
-                        <a class="modal_close" href="#"></a>
                     </div>
                     <div id="rh">
                         <div class="prf-div-pop">
@@ -349,7 +365,6 @@
                                 </p>
                             </div>
                         </div>
-                        <a class="modal_close" href="#"></a>
                     </div>
                     <div id="gd">
                         <div class='prf-div-pop'>
@@ -369,7 +384,6 @@
                                     Vivek proves to be an asset for our company as the ‘Agile methodology’ of development used by him, would speed up the pace of development for the web application. Vivek, when not in the serious work mode, will most likely be found developing and playing strategy games like the ‘Age of Empires’, and is soon coming up with his very own creation, ‘Dwarven Defenders’ – of course another strategy game. His calm and passionate nature towards application development is what makes him brilliant at his work.
                                 </p>
                             </div>
-                        <a class="modal_close" href="#"></a>
                     </div>
                     <div id="vv">
                       <div class="prf-div-pop">
@@ -538,8 +552,8 @@
                     <p><img src="assets/desktop/PopUp_BG.png" alt="Tell your friends how awesome GullakMaster is" title="Tell your friends how awesome GullakMaster is" border="0" />
                               </p>
                               <ul class="pop-up-list">
-                                <li><a href="#"><img src="assets/desktop/PopUp_FB.png" border="0"/></a></li>
-                                <li><a href="#"><img src="assets/desktop/PopUp_Email.png" border="0"/></a></li>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.gullakmaster.com/"><img src="assets/desktop/PopUp_FB.png" border="0"/></a></li>
+                                <li><a href="mailto:?subject=GullaMaster - Deals At Your Fingertips&body=Tell GullakMaster your location and they pull together amazing deals from nearby stores right on your phone. You really have to check it out http://gullak.co/eml"><img src="assets/desktop/PopUp_Email.png" border="0"/></a></li>
                               </ul>
                 </div>
             </li>
@@ -588,5 +602,7 @@ function submit_feedback(){
                     })
 }
 </script>
+
+
 </body>
 </html>
