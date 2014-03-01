@@ -17,6 +17,9 @@ function binding_tags(tracking){
     share_buttons = $('.share');
     share_buttons = $.makeArray(share_buttons);
 
+    report_offer = $('.report-offer');
+    report_offer = $.makeArray(report_offer);
+
     if(tracking == true){
         address = $('.address');
         address = $.makeArray(address);
@@ -24,7 +27,7 @@ function binding_tags(tracking){
         description = $('.description');
         description = $.makeArray(description);
 
-        all_buttons = call_buttons.concat(ad_request).concat(description).concat(address).concat(sms_share_link).concat(view_buttons).concat(share_buttons).concat(email_share_link);
+        all_buttons = call_buttons.concat(ad_request).concat(description).concat(address).concat(sms_share_link).concat(view_buttons).concat(share_buttons).concat(email_share_link).concat(report_offer);
     }
     else{
         all_buttons = call_buttons.concat(ad_request).concat(sms_share_link);
