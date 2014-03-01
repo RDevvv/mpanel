@@ -3,7 +3,7 @@
         <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
             <fieldset>
             <div class="input">
-                <%= hidden_field_tag :view, action_name %>
+                <%= hidden_field_tag :view, params[:view]%>
                 <%= text_field_tag :location, nil,:id => 's', :placeholder => "" %>
                     <script type='text/javascript'>
                         reverse_geocode($('#s'));
