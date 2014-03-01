@@ -123,6 +123,7 @@ Gullak2::Application.routes.draw do
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
 
+    get 'location_from_ip' => 'customers#location_from_ip'
     get 'no_results' => 'home#no_results'
     match 'auth/facebook/callback' => 'customers#facebook_data'
     root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
