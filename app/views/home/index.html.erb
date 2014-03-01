@@ -90,7 +90,7 @@ function getLocation()
             }).success(
                 function(data){
                 if(data!=''||data!='undefined'){
-                $('#location').attr('placeholder', data['city']);
+                $('#location').attr('value', data['city']);
                 update_location(data['city'])
                 }
                 else{
