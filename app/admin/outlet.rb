@@ -21,7 +21,7 @@ ActiveAdmin.register Outlet do
 
   collection_action :geocodes, :method => :post do
     system "rake geocode:all RAILS_ENV=production CLASS=Outlet"
-    redirect_to admin_outlets_path, :notice => "Geocoding Outlets....................."
+    redirect_to admin_outlets_path
   end
 
   index do
