@@ -73,13 +73,13 @@ ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -481px 
 .cust-ver {float: left; margin: 0; width: 100%;}
 
 .hp-cat-ttl {float:left; text-align: left; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc; background: #f1f1f1; width: 100%; height:15px; padding: 2px 0 7px 15%; font-size: 12px; font-weight: bold; color: #000; text-transform: uppercase;}
-.hp-cat-txt-acc {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:15px; background: url(category-sprite.png) no-repeat 33px -48px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-app {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:15px; background: url(category-sprite.png) no-repeat 33px -149px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-ele {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:15px; background: url(category-sprite.png) no-repeat 33px -81px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-food {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:15px; background: url(category-sprite.png) no-repeat 33px -15px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-mobile {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:15px; background: url(category-sprite.png) no-repeat 33px -182px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-shoes {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:15px; background: url(category-sprite.png) no-repeat 33px -115px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-a.filldiv {position: absolute; display: block; width: 100%; height:100%; text-decoration:none; color: #000; }
+.hp-cat-txt-acc {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -46px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-app {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -145px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-ele {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -78px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-food {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -12px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-mobile {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -178px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-shoes {float:left; position: relative; text-align: left; border-bottom: solid 1px #ccc; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -112px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+a.filldiv {position: absolute; display: block; width: 100%; height:74%; text-decoration:none; color: #000; text-transform: uppercase; padding: 3px 0 0 10px;}
 .lower-txt-below {float:left; clear:both; width:100%; font-size:10px; color:#ddd; text-align:center;}
 
 .btn-show-deals { 
