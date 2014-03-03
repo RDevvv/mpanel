@@ -55,8 +55,6 @@ class ApplicationController < ActionController::Base
 
   def render_404(exception)
     @not_found_path = exception.message
-    puts"--------------------#{@not_found_path = exception.message}"
-    puts"--------------------#{@not_found_path = params[:not_found]}"
     respond_to do |format|
       format.html { render template: 'error_messages/error_404', layout: 'layouts/home_index', status: 404 }
       format.all { render nothing: true, status: 404 }
@@ -65,6 +63,7 @@ class ApplicationController < ActionController::Base
 
   def render_500(exception)
     logger.info exception.backtrace.join("\n")
+    @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.first.id
     respond_to do |format|
       format.html { render template: 'error_messages/error_500', layout: 'layouts/home_index', status: 500 }
       format.all { render nothing: true, status: 500}
