@@ -93,21 +93,36 @@ class HomeController < ApplicationController
     end
 
     def share_listing
-        location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
-        CustomerSession.update_coordinates(cookies[:customer_uuid], location)
-        @outlets = Outlet.new(:latitude => location[:latitude], :longitude => location[:longitude]).nearbys(5, :units => :km).where(:is_active => true)
-        @shared_outlets = Category.where(:category_name => params[:category].gsub("_"," ")).first.brands.map{|b|b.account_brands}.flatten.map{|ab|ab.ads}.flatten.uniq.map{|ad|ad.account_brand}.map{|ab|ab.outlets}.flatten.map{|outlet|outlet.id}
+        @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
+        CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
+        @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
 
-        @nearby_outlets = Outlet.nearby_outlet_ids(@outlets)
-
-        @new_outlets = Outlet.where(:id => 0)
-        nearby_outlets_with_ad = @shared_outlets&@nearby_outlets
-        unless nearby_outlets_with_ad.empty?
-            nearby_outlets_with_ad.each do |outlet_id|
-                @new_outlets.append(@outlets.find(outlet_id))
+        unless @outlets.nil?
+            @shared_outlets = Category.where(:category_name => params[:category].gsub("_"," ")).first.brands.map{|b|b.account_brands}.flatten.map{|ab|ab.ads}.flatten.uniq.map{|ad|ad.account_brand}.map{|ab|ab.outlets}.flatten.map{|outlet|outlet.id}
+            @outlets = @outlets.where(:is_active => true)
+            @nearby_outlets = Outlet.nearby_outlet_ids(@outlets)
+            @new_outlets = Outlet.where(:id => 0)
+            nearby_outlets_with_ad = @shared_outlets&@nearby_outlets
+            unless nearby_outlets_with_ad.empty?
+                nearby_outlets_with_ad.each do |outlet_id|
+                    @new_outlets.append(@outlets.find(outlet_id))
+                end
             end
+            @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
+            @poster_data = Outlet.get_poster_data(@final_outlets)
+            @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16)
         end
-        @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
+
+        @map_outlets = Array.new
+        @pin_id = 0
+        if @location.blank?
+            render 'location_not_found'
+        elsif @poster_data.blank?
+            render 'no_results'
+        else
+            params[:view] = 'outlet_listing' if params[:view].blank?
+            render params[:view].to_sym
+        end
     end
 
     def no_results

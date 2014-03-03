@@ -27,7 +27,7 @@
         <div align="center" class="brandlogo">
             <%= get_brand_image(poster[:brand]) %>
         </div>
-            <% if poster[:ad_expiry_date] == 0%>
+        <% if poster[:ad_expiry_date] > Date.today+50.years%>
             <% else %>
                 <div class="distance-div-below2">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
             <% end %>
