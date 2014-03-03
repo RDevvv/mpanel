@@ -36,7 +36,7 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
                     <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
                         <%= hidden_field_tag :view, 'outlet_listing', :class => "form-control", :placeholder => "Enter Location" %>
                         <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
-                <% end %>
+
                     <div class="input-group-btn">
 
                     </div>
@@ -53,6 +53,7 @@ $(window).load(function() { $("#spinner").fadeOut("slow"); })
         <div class="span12">
             <div class="sub-txt-below"></div>
         </div>
+                <% end %>
         <div class="span12">
             <div class="hp-cat-ttl">Select a Category</div>
             <div class="hp-cat-txt-acc">
@@ -90,7 +91,7 @@ function getLocation()
             }).success(
                 function(data){
                 if(data!=''||data!='undefined'){
-                $('#location').attr('placeholder', data['city']);
+                $('#location').attr('value', data['city']);
                 update_location(data['city'])
                 }
                 else{
