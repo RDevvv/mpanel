@@ -40,7 +40,17 @@
 
 .clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}* html .clearfix,*:first-child+html .clearfix{zoom:1}
 
+/* Tablet Nexus 7 and 7 inch tablets */
+@media screen and (max-width: 603px) {
+.container{
+	width: 100%; max-width: 600px; margin: auto;}
+}
 
+/* Tablet Nexus 7 and 7 inch tablets */
+@media screen and (max-width: 768px) {
+.container{
+	width: 100%; max-width: 720px; margin: auto;}
+}
 
 
 /* Mobile */
