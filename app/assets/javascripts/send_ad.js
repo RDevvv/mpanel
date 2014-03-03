@@ -1,7 +1,7 @@
 function send_ad(customer_uuid, element)
 {
     closest_search_pattern = 'div[class="bdiv"]'
-    if(window.location.pathname.search('map')==1){
+    if(window.location.href.search('map')>1){
         closest_search_pattern = 'div[class="bdiv2"]'
     }
     if($.cookie("mobile_number")=='verified'){

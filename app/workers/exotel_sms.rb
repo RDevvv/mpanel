@@ -7,7 +7,8 @@ class ExotelSms
         end
 
         sms_sent = SmsSent.find(sms_sent_id)
-        response = Exotel::Sms.send(:from => '09223584822', :to => sms_sent.get_number, :body => sms_sent.text)
+        sms_text = sms_sent.text.gsub('<b>','').gsub('</b>','').gsub('<br />','')
+        response = Exotel::Sms.send(:from => '09223584822', :to => sms_sent.get_number, :body => sms_text)
         sms_sent.update_attributes(:vendor_id => response.sid)
     end
 end
