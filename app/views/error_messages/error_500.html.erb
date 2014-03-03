@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>We're sorry, but something went wrong (500)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <link rel="stylesheet" href="assets/bootstrap.css"  type="text/css"/>
+  <link rel="stylesheet" href="assets/mobile-css-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <!-- Preloader -->
+  <script type="text/javascript">// <![CDATA[
+  $(window).load(function() { $("#spinner").fadeOut("slow"); })
+  // ]]>
+  </script>
+  <script type="text/javascript">
+      (function() {
+          if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+              var msViewportStyle = document.createElement("style");
+              msViewportStyle.appendChild(
+                      document.createTextNode("@-ms-viewport{width:auto!important}")
+              );
+              document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+          }
+      })();
+  </script>
+</head>
+
+<body>
+<!-- This file lives in public/500.html
+<div class="dialog">
+  <h1>We're sorry, but something went wrong.</h1>
+</div>-->
+<!-- Preloader -->
+<div id="spinner"></div>
+<img src="assets/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
+
+<div class="container">
+  <div class="error-box-500">
+    <div class="session-id">session id</div>
+    <div class="home-div">
+      <%= link_to raw("&nbsp;"), root_path, :class => "home" %>
+    </div>
+    <!--<div class="error-number">500</div>
+ <div class="error-line">
+   <p>We're sorry</p>
+   <p>but something went wrong.</p>
+ </div>
+ <div class="click-to-go"><a href="javascript:history.back()">CLICK HERE TO GO BACK</a></div>
+ <div class="error-logo"><a href="javascript:history.back()"><img src="assets/gm-small-logo.png"></a></div>-->
+  </div>
+</div>
+</body>
+</html>

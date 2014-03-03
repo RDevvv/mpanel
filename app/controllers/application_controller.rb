@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
         "admin"
     elsif controller_name == 'home'
         "listing"
-    elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads'
+    elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads' || controller_name == 'error_messages'
         "home_index"
     else
         "application"
@@ -42,4 +42,33 @@ class ApplicationController < ActionController::Base
     flash[:error] = "Access denied."
     redirect_to root_url
   end
+
+  if Rails.env.production?
+    unless Rails.application.config.consider_all_requests_local
+      rescue_from Exception, with: :render_500
+      rescue_from ActionController::RoutingError, with: :render_404
+      rescue_from ActionController::UnknownController, with: :render_404
+      rescue_from ActionController::UnknownAction, with: :render_404
+      rescue_from ActiveRecord::RecordNotFound, with: :render_404
+    end
+  end
+
+  def render_404(exception)
+    @not_found_path = exception.message
+    puts"--------------------#{@not_found_path = exception.message}"
+    puts"--------------------#{@not_found_path = params[:not_found]}"
+    respond_to do |format|
+      format.html { render template: 'error_messages/error_404', layout: 'layouts/home_index', status: 404 }
+      format.all { render nothing: true, status: 404 }
+    end
+  end
+
+  def render_500(exception)
+    logger.info exception.backtrace.join("\n")
+    respond_to do |format|
+      format.html { render template: 'error_messages/error_500', layout: 'layouts/home_index', status: 500 }
+      format.all { render nothing: true, status: 500}
+    end
+  end
+
 end

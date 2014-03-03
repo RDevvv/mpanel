@@ -125,4 +125,8 @@ Gullak2::Application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     get '/:short_url' => 'campaigns#campaign_landing'
+
+    unless Rails.application.config.consider_all_requests_local
+      match '*not_found', to: 'error_messages#error_404'
+    end
 end
