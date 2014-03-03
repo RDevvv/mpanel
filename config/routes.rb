@@ -120,6 +120,7 @@ Gullak2::Application.routes.draw do
     get 'location_not_found' => 'home#location_not_found'
     match 'auth/facebook/callback' => 'customers#facebook_data'
     root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
+    root :to => "home#index", constraints: {domain: 'gullak.co'}
     root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
