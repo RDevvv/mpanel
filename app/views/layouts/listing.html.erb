@@ -85,6 +85,7 @@
 
     <nav id="menu">
         <ul>
+            <li class="subcat" style="margin:0 0 0 -8%;"><a href="#">Report An Offer</a></li>
             <li class="subcat">Sort by:</li>
             <li><%= link_to "Distance", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'distance', :view => params[:view]} %></li>
             <li><%= link_to "Expiry date", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_expiry_date', :view => params[:view]} %></li>
@@ -113,7 +114,7 @@
             <li><%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Mobile', :filter => 'ad_usage', :view => params[:view]} %></li>
             <li><%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Shoes', :filter => 'ad_usage', :view => params[:view]} %></li>
 
-            <li class="subcat" style="float:left; margin:7% 0 0 -7%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
+            <li class="subcat" style="float:left; margin:7% 0 0 -8%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
         </ul>
     </nav>
 </div>
