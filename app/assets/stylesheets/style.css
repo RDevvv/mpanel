@@ -221,7 +221,7 @@ ul.team-members li {float:left; width:143px; height:auto; margin:1px 0 0 0; line
 .whn-srch a, .whn-srch a:visited, .whn-srch a:active {color:#f08d1e; font-weight:bold; text-decoration:none;}
 .whn-srch a:hover {text-decoration:underline;}
 
-.feedback-div{background-repeat: no-repeat; height: auto; position: fixed; right: 0; top: 150px; width: auto;}
+.feedback-div{background-repeat: no-repeat; height: auto; position: fixed; right: 0; top: 230px; width: auto; /*top: 150px;*/}
 .feedback-div ul li{list-style:none;}
 
 .tellfrnd-div{background-repeat: no-repeat; height: auto; position: fixed; right: 0; top: 301px; width: auto;}
@@ -286,6 +286,11 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 }
 
 /* About Us page */
+
+/* Page error */
+.page-error {width:600px; height: 600px; border:solid 1px #ccc; margin: 5px auto; text-align: center; color: #000; text-decoration: none;}
+.page-error img {border: none; outline:none;}
+/* Page error */
 
 /* Privacy Policy */
 
