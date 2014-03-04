@@ -217,7 +217,7 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .top-share {background-image: url(Share_72.jpg); background-repeat: no-repeat;
     background-repeat: no-repeat; background-position: center; background-size: cover;
     margin: 0 auto; width: 300px; height: 450px;}
-.top-share-box {float:left; margin:300px 0 0 0; width:200px; height:100px;}
+.top-share-box {float:left; margin:300px 0 0 10px; width:200px; height:100px;}
 .top-share-box form input[type=text] {background:none; border:none; text-align: center; width:186px; font-size: 16px; font-weight: bold; color: #fff;}
 .top-share-box .or {clear:both; text-align:center; position: relative; bottom: 8px; color: #fff; font-size:14px; margin: 0;}
 .top-share-box .fb1 {clear: both; margin: 4px 0 0 0 0; text-align: center; border: none; text-decoration: none;}
