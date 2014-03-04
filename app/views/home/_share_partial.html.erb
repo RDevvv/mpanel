@@ -1,12 +1,23 @@
 <div id="popup_share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
-    <p><!---popup text comes here-->
-    <%= image_tag "PopUp_BG.png" %>
-    </p>
-    <ul class="pop-up-list">
-        <li><%= link_to image_tag('PopUp_FB.png'), '#', :class => 'top_share share' %></li>
-        <li><%= link_to image_tag('PopUp_Email.png'), "mailto:?subject=GullaMaster - Deals At Your Fingertips&body=Tell GullakMaster your location and they pull together amazing deals from nearby stores right on your phone. You really have to check it out http://gullak.co/eml", :class => 'email_share' %></li>
-        <li><%= link_to image_tag('PopUp_SMS.png'), '#', :class => 'sms_share_link', :onClick => 'send_ad()' %></li>
-    </ul>
+    <div class="top-share">
+    	<div class="top-share-box">
+    		<form>
+				<input onclick="this.select()" type="text" class value="http://gullak.co/abcd">
+			</form>
+			<div class="or">or</div>
+			<div class="fb1">
+			  <a href="#"><img src="assets/share-btn.png" border="0" /></a>
+			</div>
+    	</div>
+    </div>
 </div>
-
+<script type="text/javascript">
+  $("input[type=text]").live('click', function() {
+    $(this).select();
+  this.setSelectionRange(0, 9999);
+	});
+</script>
+<style type="text/css">
+#signup, #popup_share {background: none;}
+</style>
