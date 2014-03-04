@@ -47,9 +47,12 @@ ul.navigation li.active{
 	font-weight:bold;
 }
 ul.navigation li p {text-align: left; padding: 5px 10px; color: #000; font-size:12px;}
-		ul.navigation li a {color: #777777 !important; font-size: 12px !important; margin-left: 0 !important;
-		    padding: 10px 20px !important; text-transform: uppercase; /*border-bottom: 1px solid #DFDFDF !important;*/
-		}
+ul.navigation li a {color: #777777 !important; font-size: 12px !important; margin-left: 0 !important;
+	padding: 10px 20px !important; text-transform: uppercase; /*border-bottom: 1px solid #DFDFDF !important;*/
+}
+ul.navigation li div {color: #777777 !important; font-size: 12px !important; margin-left: 0 !important;
+  padding: 10px 27px !important; text-transform: uppercase;
+}
 		ul.navigation li a:hover {text-decoration: none; color: #212121 !important;}
 		ul.navigation li.home, ul.navigation li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
 		ul.navigation li.home a {position: relative; bottom: 13px;}
@@ -66,7 +69,7 @@ ul.navigation li p {text-align: left; padding: 5px 10px; color: #000; font-size:
 		  -transition: opacity 0.2s;
 		}
 ul.navigation li ul li {width:80%; background: #ffffff; border-bottom: solid 1px #fff; display: block; color: #fff; padding: 10px 20px; display:block;}
-ul.navigation li ul li a {width:80%; color: #7770777 !important; font-size: 12px !important; font-weight: 600 !important; margin-left: 0 !important; padding: 0 10px !important; /*padding: 5px 20px !important;*/}
+ul.navigation li ul li a, ul.navigation li ul li div {width:90%; color: #7770777 !important; font-size: 12px !important; font-weight: 600 !important; margin-left: 0 !important; padding: 0 10px !important; /*padding: 5px 20px !important;*/}
 ul.navigation li ul li:hover {width:80%; background: #F5F5F5; padding: 10px 20px;}
 ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 .linkalign {padding-top:10px; vertical-align:middle;}	
