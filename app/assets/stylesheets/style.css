@@ -643,6 +643,60 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 }
 
 
+/* Tablet Nexus7 and 7 inch tablets */
+@media screen and (max-width: 603px) {
+.top-bar1 {width:590px; height: 95%; margin: 0 auto;}
+
+#wrapper-div {background-color: #FFFFFF; border:solid 3px #000; font-family: 'Open Sans', sans-serif; text-align: left; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#6d6d6d; font-size:12px; width: 590px;}
+.about-us-wrp {clear:both; width:590px; height:auto; margin:0 auto; }
+.about-us-wrp-cmp {clear:both; width:590px; height:auto; margin:0 auto; } 
+.tm-box-wrp {float:left; clear:both; width:500px; height:auto; margin:10px 0 10px 10px;}
+
+/* Footer */
+#footer {width:603px; color:#000; clear:both; margin:5px auto 0 auto;  font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
+.copy-div {text-align: center; font-size: 12px; color: #6e6e6e;}
+ul.footerlinksmain {float:right; width:180px; height:auto; position: relative; left: 20px; bottom:30px;}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain li:last-child {border-right:none;}
+ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:visited, ul.footerlinksmain li a:active {text-decoration: none; color:#6e6e6e;}
+.copyinfo {float:left; text-align: left; color: #6e6e6e;}
+/* Footer */
+ul.cpoints {float:left; clear:both; width:100%; height:auto; font-size:12px;}
+ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
+    background: url(/assets/desktop/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
+.clear-div {clear:both; margin:2px 0;} 
+
+ul.navigation{float: right; list-style: none; margin:5% 7% 0 0; position: relative; /*margin: 0; */}
+}
+
+/* iPad portrait mode */
+@media screen and (max-width: 768px) {
+.top-bar1 {width:760px; height: 95%; margin: 0 auto;}
+
+#wrapper-div {background-color: #FFFFFF; font-family: 'Open Sans', sans-serif; text-align: left; clear: both; height: auto; margin: 0 auto; padding: 3px; color:#6d6d6d; font-size:12px; width: 750px;}
+.about-us-wrp {clear:both; width:750px; height:auto; margin:0 auto; }
+.about-us-wrp-cmp {clear:both; width:750px; height:auto; margin:0 auto; } 
+.tm-box-wrp {float:left; clear:both; width:750px; height:auto; margin:10px 0 10px 10px;}
+
+/* Footer */
+#footer {width:768px; color:#000; clear:both; margin:5px auto 0 auto;  font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
+.copy-div {text-align: center; font-size: 12px; color: #6e6e6e;}
+ul.footerlinksmain {float:right; width:180px; height:auto; position: relative; left: 20px; bottom:30px;}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain li:last-child {border-right:none;}
+ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:visited, ul.footerlinksmain li a:active {text-decoration: none; color:#6e6e6e;}
+.copyinfo {float:left; text-align: left; color: #6e6e6e;}
+/* Footer */
+
+ul.cpoints {float:left; clear:both; width:100%; height:auto; font-size:12px;}
+ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
+    background: url(/assets/desktop/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
+.clear-div {clear:both; margin:2px 0;} 
+
+ul.navigation{float: right; list-style: none; margin:5% 7% 0 0; position: relative; /*margin: 0; */}
+
+}
+
 
 
 /* Mobile */

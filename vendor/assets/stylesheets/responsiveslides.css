@@ -31,3 +31,42 @@
   width: auto;
   border: 0;
   }
+
+
+/* Tablet Nexus7 and 7 inch tablets */
+@media screen and (max-width: 603px) {
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 85%;
+  padding: 0;
+  margin: 0 auto;
+  }
+.rslides img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  width: 500px !important;
+  border: 0;
+  }
+}
+
+/* iPad portrait mode */
+@media screen and (max-width: 768px) {
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0 0;
+  }
+.rslides img {
+  display: block;
+  height: auto;
+  margin: 0 0 0 5%;
+  width: 650px;
+  border: 0;
+  }
+}
