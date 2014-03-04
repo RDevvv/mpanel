@@ -18,8 +18,6 @@
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
 
-after :deploy, "deploy:start_solr"
-
 namespace :deploy do
 
     desc 'Restart application'
@@ -27,13 +25,6 @@ namespace :deploy do
         on roles(:app), in: :sequence, wait: 5 do
             # Your restart mechanism here, for example:
             execute :touch, release_path.join('tmp/restart.txt')
-        end
-    end
-
-    desc 'run solr'
-    task :start_solr do
-        on roles(:web), in: :groups, limit: 3, wait: 30 do
-            execute "cd /home/ubuntu/apps/gullak2/current && rake sunspot:solr:stop && rake sunspot:solr:start"
         end
     end
 
