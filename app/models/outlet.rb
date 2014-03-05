@@ -24,7 +24,7 @@ class Outlet < ActiveRecord::Base
  #  validates_presence_of :account_brand, :area
 
   after_save :geocode,:if => :is_address_changed?
-  before_save :is_outlet_verified
+  after_save :is_outlet_verified
 
   after_create :add_uniq_outlet_key
 
