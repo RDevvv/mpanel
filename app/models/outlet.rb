@@ -24,10 +24,21 @@ class Outlet < ActiveRecord::Base
  #  validates_presence_of :account_brand, :area
 
   after_save :geocode,:if => :is_address_changed?
-  after_create :add_uniq_outlet_key,:is_outlet_verified
+  before_save :is_outlet_verified
+
+  after_create :add_uniq_outlet_key
+
   geocoded_by :geocoding_address
-  
+
   scope :active_outlets ,lambda { where("is_active = ?",true)}
+
+  def is_outlet_verified
+    if self.latitude.present? && self.longitude.present?
+      self.update_column(:is_verified,true)
+    else
+      self.update_column(:is_verified,false)
+    end
+  end
 
   def toggle_active
     self.is_active? ?  self.deactivate : self.activate
@@ -180,14 +191,6 @@ class Outlet < ActiveRecord::Base
       end
     end
     outlets = outlets.flatten.uniq
-  end
-
-  def is_outlet_verified
-    if self.latitude.present? && self.longitude.present?
-      self.update_attributes(:is_verified => true)
-    else
-      self.update_attributes(:is_verified => false)
-    end
   end
 
   def self.get_coordinates(location,longitude,latitude)
