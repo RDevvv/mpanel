@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226161350) do
+ActiveRecord::Schema.define(:version => 20140227121304) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -155,6 +155,15 @@ ActiveRecord::Schema.define(:version => 20140226161350) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "authentications", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "uid"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "authentications", ["customer_id"], :name => "index_authentications_on_customer_id"
+
   create_table "brand_sessions", :force => true do |t|
     t.integer  "brand_id"
     t.integer  "customer_session_id"
@@ -229,7 +238,7 @@ ActiveRecord::Schema.define(:version => 20140226161350) do
     t.boolean  "is_opened",    :default => false
     t.integer  "customer_id"
     t.integer  "copy_sent"
-    t.integer  "use_count"
+    t.integer  "use_count",    :default => 0
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.string   "vendor_id"
@@ -302,13 +311,12 @@ ActiveRecord::Schema.define(:version => 20140226161350) do
     t.string   "email"
     t.string   "link"
     t.text     "feedback"
-    t.integer  "customers_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
     t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
-  add_index "customer_feedbacks", ["customers_id"], :name => "index_customer_feedbacks_on_customers_id"
+  add_index "customer_feedbacks", ["customer_id"], :name => "index_customer_feedbacks_on_customer_id"
 
   create_table "customer_sessions", :force => true do |t|
     t.integer  "customer_id"
