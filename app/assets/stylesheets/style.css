@@ -2,32 +2,13 @@
 
 html, body {-webkit-text-size-adjust: 100%;}
 
-body {
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 1em;
-	color: #8a8683;
-	background-color:#ffffff;
-	overflow-x:hidden;
-}
-img {
-	max-width: 100%;
-}
-a:link {
-	color: #f68f67;
-	text-decoration: none;
-}
-a:hover {
-	color: #bde2df;
-	text-decoration: none;
-}
-a:visited {
-	color: #f68f67;
-	text-decoration: none;
-}
-menu, ol, ul {
-	padding: 0;
-}
+body {font-family: 'Open Sans', sans-serif; font-weight: 400;	font-size: 1em;	color: #8a8683;
+	background-color:#ffffff;	overflow-x:hidden;}
+img {max-width: 100%;}
+a:link {color: #f68f67;	text-decoration: none;}
+a:hover {color: #bde2df; text-decoration: none;}
+a:visited {color: #f68f67; text-decoration: none;}
+menu, ol, ul {padding: 0;}
 
 /* Navigation */
 
@@ -36,30 +17,20 @@ menu, ol, ul {
 #nav {text-align: right; margin: 30px 0 0 0;}
 ul.navigation{float: right; list-style: none; margin:5% 10% 0 0; position: relative; /*margin: 0; */}
 ul.navigation li{float: left;	padding:0 0 0 30px;	font-size:0.9em;}
-ul.navigation li:hover{
-	cursor:pointer;
-	color: #a9d3d0;
-}
+ul.navigation li:hover{cursor:pointer; color: #a9d3d0;}
 
-ul.navigation li.active{
-	cursor:pointer;
-	color: #f68f67;
-	font-weight:bold;
-}
+ul.navigation li.active{cursor:pointer; color: #f68f67;	font-weight:bold;}
 ul.navigation li p {text-align: left; padding: 5px 10px; color: #000; font-size:12px;}
 ul.navigation li a {color: #777777 !important; font-size: 12px !important; margin-left: 0 !important;
 	padding: 10px 20px !important; text-transform: uppercase; /*border-bottom: 1px solid #DFDFDF !important;*/
 }
 ul.navigation li div {color: #777777 !important; font-size: 12px !important; margin-left: 0 !important;
-  padding: 10px 27px !important; text-transform: uppercase;
-}
-		ul.navigation li a:hover {text-decoration: none; color: #212121 !important;}
-		ul.navigation li.home, ul.navigation li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
-		ul.navigation li.home a {position: relative; bottom: 13px;}
-		ul.navigation li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #a9d3d0; /*background: #555;*/}
-		ul.navigation li ul { 
-		  z-index:10000; margin-top: 0;
-		  padding: 0; position: absolute; margin-left:-15px; background: none repeat scroll 0 0 #fff;
+  padding: 10px 27px !important; text-transform: uppercase;}
+ul.navigation li a:hover {text-decoration: none; color: #212121 !important;}
+ul.navigation li.home, ul.navigation li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
+ul.navigation li.home a {position: relative; bottom: 13px;}
+ul.navigation li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #a9d3d0; /*background: #555;*/}
+ul.navigation li ul {z-index:10000; margin-top: 0; padding: 0; position: absolute; margin-left:-15px; background: none repeat scroll 0 0 #fff;
           box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
           width: 200px; text-align: left; display: none; opacity: 0; visibility: hidden;
 		  -webkit-transiton: opacity 0.2s;
@@ -93,38 +64,6 @@ ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 }
 .top-bar1 {width:980px; height: 95%; margin: 0 auto;}
 /* Top header styles */
-
-/* Font icon sets */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
- 
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
- 
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
-     
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
- 
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
- 
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
- 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
 
 
 
@@ -181,7 +120,7 @@ h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margi
 #slide7 h2 {font-size: 2em;	line-height: 0px; padding-bottom:20px; font-weight: 400;}
 .head {color: #494949; font-size: 15px; font-weight: bold; line-height: 20px; margin: 0;}
 .subhead {color: #4E4E4E; font-size: 18px; font-weight: bold; line-height: 20px;}
-.office_locations {border-bottom: 0 dashed #666666; height: auto; margin: 20px 0; padding-bottom: 20px;}
+.office_locations {float:left; border-bottom: 0 dashed #666666; height: auto; padding-bottom: 20px;}
 .address {margin:0 auto; overflow-x: hidden; width: 800px; /*width: 250px;*/}
 
 
@@ -409,39 +348,6 @@ ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 .top-bar1 {width:980px; height: 95%; margin: 0 auto;}
 /* Top header styles */
 
-/* Font icon sets */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
- 
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  /* opacity: .8; */
- 
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
-     
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
- 
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  margin-left: .2em;
- 
-  /* you can be more comfortable with increased icons size */
-  /* font-size: 120%; */
- 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
-
-
 
 /* General Slides */ 
 
@@ -496,7 +402,7 @@ h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margi
 #slide7 h2 {font-size: 2em; line-height: 0px; padding-bottom:20px; font-weight: 400;}
 .head {color: #494949; font-size: 15px; font-weight: bold; line-height: 20px; margin: 0;}
 .subhead {color: #4E4E4E; font-size: 18px; font-weight: bold; line-height: 20px;}
-.office_locations {border-bottom: 0 dashed #666666; height: auto; margin: 20px 0; padding-bottom: 20px;}
+.office_locations {float:left; border-bottom: 0 dashed #666666; height: auto; padding-bottom: 20px;}
 .address {margin:0 auto; overflow-x: hidden; width: 800px; /*width: 250px;*/}
 
 
