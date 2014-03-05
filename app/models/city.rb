@@ -9,7 +9,10 @@ class City < ActiveRecord::Base
   def name
     city_name
   end
-  # def country
-  #   state.country
-  # end
+
+  geocoded_by :geocoding_address
+
+  def geocoding_address
+      self.city_name+' ,'+self.country.country_name
+  end
 end
