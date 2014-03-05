@@ -136,4 +136,13 @@ class Ad < ActiveRecord::Base
             days
         end
     end
+
+    def promocode_available?
+        promocodes = self.ad_promocodes.select{|promocode|(promocode.is_active)&(promocode.cap>promocode.usage)}
+        if promocodes.blank?
+            return false
+        else
+            return true
+        end
+    end
 end
