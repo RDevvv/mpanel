@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Deals At Your Fingertips!</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-  <meta property="og:url" content="http://www.gullakmaster.com/">
-  <meta property="og:title" content="GullakMaster">
-  <meta property="og:image" content="http://www.gullakmaster.com/assets/gullak-logo-main.jpg">
-  <meta property="og:description" content="Deals at your fingertips">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>GullakMaster - <%= generate_title %></title>
+  <meta name="title" content="Deals At Your Fingertips!"/>
+    <meta name="description" content="Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!"/>
+    <meta name="keywords" content="deals, offers, discounts" />
+
+    <!-- Facebook -->
+    <meta property="og:title" content="Deals At Your Fingertips!" >
+    <meta property="og:site_name" content = "GullakMaster"
+    <meta property="og:url" content="http://m.gullakmaster.com">
+    <meta property="og:description" content="Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!" >
+    <meta property="og:image" content="http://gullakmaster.com/assets/desktop/Screenshots_1200x600.jpg" >
+
+    <!--Google+ -->
+    <meta itemprop="name" content="Deals At Your Fingertips!">
+    <meta itemprop="description" content="Shopping just got better. Identify yoShopping just got better.ur location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!">
+    <meta itemprop="image" content="http://gullakmaster.com/assets/desktop/Screenshots_1200x600.jpg">
+
+    <!-- Twitter-->
+    <meta name="twitter:card" content="summary_large_image" >
+    <meta name="twitter:site" content="@GullakMaster">
+    <meta name="twitter:title" content="Deals At Your Fingertips!" >
+    <meta name="twitter:image:src" content="http://gullakmaster.com/assets/desktop/Screenshots_1200x600.jpg" >
+    <meta name="twitter:description" content="Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!" >
+    <!-- Generic -->
+    <meta content='noodp,noydir' name='robots'>
   <%= csrf_meta_tags %>
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -23,7 +43,6 @@
 
   ga('create', 'UA-47902288-1', 'gullakmaster.com');
   ga('send', 'pageview');
-
 </script>
 
   <%= stylesheet_link_tag "application", :media => "all" %>
@@ -51,6 +70,13 @@
           field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
       })(); 
     </script>
+
+    <!-- Preloader -->
+    <script type="text/javascript">// <![CDATA[
+    $(window).load(function() { $("#spinner").fadeOut("slow"); })
+    // ]]>
+    </script>
+    <!-- Preloader -->
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
