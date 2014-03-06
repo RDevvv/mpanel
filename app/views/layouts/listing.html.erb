@@ -85,7 +85,7 @@
 
     <nav id="menu">
         <ul>
-            <li class="subcat" style="margin:0 0 0 -8%;"><a href="#">Report An Offer</a></li>
+            <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
             <li class="subcat">Sort by:</li>
             <li><%= link_to "Distance", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'distance', :view => params[:view]} %></li>
             <li><%= link_to "Expiry date", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_expiry_date', :view => params[:view]} %></li>
