@@ -88,7 +88,7 @@
     </ul>
     <div class="head-brand"><%= link_to 'GullakMaster', root_path %></div>
     <ul class="right-icons">
-        <li><a href="#" class="shr" onclick="$('#popup_share').modal('show')"></a></li>
+        <li><a href="#" class="new_top_share shr" onclick="$('#popup_share').modal('show'); update_top_share_url($(this))"></a></li>
         <li><%= link_to "", {:controller => 'home', :action => action_name, :location => params[:location], :longitude => params[:longitude], :latitude => params[:latitude], :search => params[:search], :view => get_opposite_view(params[:view])}, :class => get_opposite_view_class(params[:view])%></li>
     </ul>
 

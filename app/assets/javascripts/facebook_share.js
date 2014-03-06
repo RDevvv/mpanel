@@ -3,6 +3,9 @@ function facebook_share_binding(){
     $(share_buttons).click(function(){
         check_facebook_authentication($(this));
     });
+    $('.top_share').click(function(){
+        check_facebook_authentication($(this));
+    });
 }
 
 function check_facebook_authentication(element){
@@ -67,5 +70,22 @@ function facebook_share(element){
                 }
             })
         });
+    })
+}
+
+function update_top_share_url(element){
+    customer_uuid   = $.cookie("customer_uuid");
+    button_class    = $(element).attr("class").split(" ")[0];
+    redirection_url = "get_button_click.json";
+    current_domain  = window.location.origin;
+    $.ajax({
+        url: 'get_campaign_details.json',
+        type: 'post',
+        data: {
+            'customer_uuid': customer_uuid,
+            'button_class': button_class,
+        }
+    }).success(function(data){
+        $('#top_share_link').attr('value',current_domain+'/'+data['short_url'])
     })
 }

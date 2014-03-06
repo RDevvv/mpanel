@@ -104,10 +104,14 @@ class CampaignsController < ApplicationController
               campaign_copy.update_attributes(:use_count => 0)
           end
           CampaignCopy.where(:short_url => params[:short_url]).first.update_attributes(:use_count=> campaign_copy.use_count+1)
-          if campaign_copy.campaign.expires_at > Date.today-1
-              redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
+          if campaign_copy.campaign.expires_at.nil?
+                  redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
           else
-              redirect_to campaign_copy.campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
+              if campaign_copy.campaign.expires_at > Date.today-1
+                  redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
+              else
+                  redirect_to campaign_copy.campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
+              end
           end
       end
   end
@@ -122,7 +126,7 @@ class CampaignsController < ApplicationController
 
   def get_campaign_details
       customer = Customer.where(:uuid => params[:customer_uuid]).first
-      if params[:button_class] == 'top_share'
+      if params[:button_class] == 'top_share'||params[:button_class] == 'new_top_share'
           campaign_copy = Campaign.where(:medium => 'Email', :marketer => 'Merchant').first.campaign_copies.create(:customer_id => customer.id)
           image_path = 'www.gullakmaster.com/assets/categories/Gullak_Master_Top.jpg'
           render :json => {:short_url => campaign_copy.short_url, :image_url => image_path}
