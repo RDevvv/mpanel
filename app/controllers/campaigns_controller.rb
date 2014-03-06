@@ -124,7 +124,7 @@ class CampaignsController < ApplicationController
       customer = Customer.where(:uuid => params[:customer_uuid]).first
       if params[:button_class] == 'top_share'
           campaign_copy = Campaign.where(:medium => 'Email', :marketer => 'Merchant').first.campaign_copies.create(:customer_id => customer.id)
-          image_path = 'www.gullakmaster.com/assets/gullak-logo.jpg'
+          image_path = 'www.gullakmaster.com/assets/categories/Gullak_Master_Top.jpg'
           render :json => {:short_url => campaign_copy.short_url, :image_url => image_path}
       else
           ad = Ad.find(params[:ad_id])
@@ -132,7 +132,7 @@ class CampaignsController < ApplicationController
           ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => ad.id, :outlet_id => outlet.id).map{|apo|apo.id}
           campaign_copy = Campaign.where(:ad_promocode_outlet_id => ad_promocode_outlet_ids).first.campaign_copies.create(:customer_id => customer.id)
           category = ad.account_brand.brand.category
-          image_path = "www.gullakmaster.com/assets/categories/"+category.name.gsub(" ","_")+".png"
+          image_path = "www.gullakmaster.com/assets/categories/"+category.name.gsub(" ","_")+"_big.png"
           render :json => {:brand_name =>ad.account_brand.brand.brand_name, :short_url => campaign_copy.short_url, :image_url => image_path, :category_name => category.name, :ad_title => ad.sms_text}
       end
   end
