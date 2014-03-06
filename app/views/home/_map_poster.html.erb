@@ -48,8 +48,11 @@
             <% @pin_id += 1 %>
         </div>
         <div class="add-box">
-            <div class="adtitle1">Address</div>
-            <div class="adaddress"><%= "#{poster[:shop_no]} #{poster[:address]}" %></div>
+            <div class="adtitle1"><b>Address:</b></div>
+            <div class="adaddress">
+                <%= poster[:shop_no] %>
+                <%= poster[:address] %>
+            </div>
             <div class="adloc"><%= poster[:area_name] %><br/>
                 <%= poster[:city_name] %> <%= poster[:pincode] %></div>
             </div>

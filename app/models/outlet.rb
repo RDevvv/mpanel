@@ -287,7 +287,7 @@ class Outlet < ActiveRecord::Base
           else
               ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
               ads.each do |ad|
-                  outlets_with_ads += [:ad_id => ad.id, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :address => outlet.get_address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
+                  outlets_with_ads += [:ad_id => ad.id, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
               end
           end
       end
