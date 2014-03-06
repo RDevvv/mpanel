@@ -36,8 +36,8 @@ function facebook_share(element){
         }
     }).success(function(data){
         if(button_class == 'top_share'){
-            caption     = 'Get amazing offers at the click of a button';
-            description = 'Tell GullakMaster your location and they pull together amazing deals from nearby stores right on your phone.You really have to check it out.';
+            caption     = 'Deals At Your Fingertips!';
+            description = "Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!";
             marketer    = true;
         }
         else{
@@ -54,7 +54,7 @@ function facebook_share(element){
             description: description,
             actions: {
                 name: "GullakMaster",
-                link: "http://gullakmaster.com/"
+                link: link
             }
         }, function(response){
             $.ajax({
