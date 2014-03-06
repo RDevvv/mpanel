@@ -74,12 +74,12 @@ class HomeController < ApplicationController
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
 
-        unless @outlets.nil?
+        unless @outlets.blank?
             @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
             @final_outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,@outlets)
-            @final_outlets = Outlet.discard_outlets_from_same_brand(@final_outlets)
-            @poster_data = Outlet.get_poster_data(@final_outlets)
-            @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16)
+            @final_outlets = Outlet.discard_outlets_from_same_brand(@final_outlets) unless @final_outlets.blank?
+            @poster_data = Outlet.get_poster_data(@final_outlets) unless @final_outlets.blank?
+            @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16) unless @poster_data.blank?
         end
         @map_outlets = Array.new
         @pin_id = 0
