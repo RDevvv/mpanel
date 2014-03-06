@@ -110,8 +110,26 @@ function getLocation()
                     $('#location').attr('placeholder', 'Enter your location ...');
                     }
                 }
+            disable_submit();
                 })
 
+}
+
+function disable_submit(){
+    if ($('#location').attr('value') ==""){
+        $('#button').attr('disabled',true);
+    }
+}
+
+function enable_submit(){
+    $('#location').keypress(function(){
+            if($('#location').attr('value')==""){
+                $('#button').attr('disabled',true)
+                }
+                else{
+                $('#button').attr('disabled',false)
+                }
+            })
 }
 
 function showPosition(position){
@@ -131,6 +149,7 @@ function update_category_urls(){
 }
 update_category_urls();
 getLocation();
+enable_submit();
 </script>
 </body>
 </html>
