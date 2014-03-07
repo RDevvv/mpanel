@@ -1,22 +1,22 @@
+var get_location  = '';
 function reverse_geocode(html_element){
     geocoder = new google.maps.Geocoder();
     get_variables = window.location.search.slice(1).split('&');
     for(i=0;i<get_variables.length;i++){
         variable_name = get_variables[i].split('=')[0]
         variable_data = get_variables[i].split('=')[1]
-        get_location  = '';
 
         if(variable_name=='longitude')
             user_longitude = variable_data;
         if(variable_name=='latitude')
             user_latitude = variable_data;
-        if(variable_name=='location')
-            get_location = variable_data;
+        if(variable_name=='location'){
+            get_location = variable_data.replace('+',' ');
+        }
     }
-    if(typeof(user_longitude)=='undefined'||user_longitude ==0)
-        html_element.attr('value',get_location.replace('+',' '));
+    if((typeof(user_longitude)=='undefined')||user_longitude ==0)
+        html_element.attr('value',get_location);
     else{
-        console.log(user_latitude,user_longitude);
         var latlng = new google.maps.LatLng(user_latitude, user_longitude);
         geocoder.geocode({'latLng': latlng}, function(results, status) {
             if(status=='ZERO_RESULTS')
