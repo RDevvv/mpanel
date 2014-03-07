@@ -2,7 +2,7 @@
   <html>
     <head>
       <meta charset="utf-8">
-        <title>GullakMaster - Outletview - Edit Details</title>
+        <title>&lt;Brandname&gt; - &lt;Areaname&gt;</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <meta name="HandheldFriendly" content="true" />
         <link rel="stylesheet" href="assets/bootstrap.min.css"  type="text/css"/>
@@ -10,9 +10,9 @@
         <link type="text/css" rel="stylesheet" href="assets/jquery.mmenu.css" />
         <!-- jQuery -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-
-        
-
+          <style type="text/css">
+          body {margin:0; padding:0;}
+          </style>
           <script src="js/jquery.color.js"></script>
           <script src="js/script.js"></script>
           <script type="text/javascript" src="js/jquery.pnotify.min.js"></script>
@@ -147,6 +147,15 @@
       <!-- Preloader -->
       <div id="spinner"></div>
       <img src="assets/ajax-load.gif" id="loading-indicator" class="dn" />
+      <div id="header">
+        <ul class="left-icons">
+          <li><a class="phn">&nbsp;</a></li>
+        </ul>
+        <div class="head-brand">&lt;Brand name&gt;</div>
+        <ul class="right-icons">
+          <li><a href="#" class="deal">&nbsp;</a></li>
+        </ul>
+      </div>
         <div class="container-location">
             <div class="row-fluid">
                 
@@ -165,12 +174,12 @@
                     <form class="fill-up">
                       <ul class="padded separate-sections">
                       <li class="input">
-                        <label class="label-style" for="textinput">Address</label>
-                        <textarea rows="3" placeholder=""></textarea>
-                      </li>
-                      <li class="input">
                         <label class="label-style" for="textinput">Shop #:</label>
                         <input class="fill" type="text" placeholder=""/>
+                      </li>
+                      <li class="input">
+                        <label class="label-style" for="textinput">Address</label>
+                        <textarea rows="3" placeholder=""></textarea>
                       </li>
                       <li class="input">
                         <label class="label-style" for="textinput">Area</label>
@@ -206,12 +215,12 @@
                       </li>
                       <li class="input">
                         <div class="btn-group">
-                          <button class="btn btn-blue1" type="submit">Save</button>
+                          <button class="btn btn-blue1" type="submit">ReMap</button>
                         </div>
                       </li>
                       <li class="input">
                         <div class="btn-group">
-                          <button class="btn btn-blue1" type="submit">ReMap</button>
+                          <button class="btn btn-blue1" type="submit">Save</button>
                         </div>
                       </li>
                     </ul>

@@ -2,16 +2,16 @@
   <html>
     <head>
     	<meta charset="utf-8">
-    	  <title>&lt;Brandname&gt; - Call log</title>
+    	  <title>&lt;Brandname&gt; - Offers sent log</title>
     	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <meta name="HandheldFriendly" content="true" />
     	  <link rel="stylesheet" href="assets/bootstrap.min.css"  type="text/css"/>
-    	  <link rel="stylesheet" href="assets/mobile-css-styles.css">
+        <link rel="stylesheet" href="assets/mobile-css-styles.css">
         <link type="text/css" rel="stylesheet" href="assets/jquery.mmenu.css" />
           <!-- jQuery -->
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 
-          <script type="text/javascript" src="assets/jquery.mmenu.js"></script>
+          <script type="text/javascript" src="js/jquery.mmenu.js"></script>
           <script type="text/javascript">
             $(function() {
               $('nav#menu').mmenu();
@@ -156,11 +156,11 @@
       <img src="img/ajax-load.gif" id="loading-indicator" class="dn" />
     	<div id="header">
         <ul class="left-icons">
-          <li><a class="back-5">&nbsp;</a></li>
+          <li><a class="back-5" href="outletview-view.html">&nbsp;</a></li>
         </ul>
-        <div class="head-brand">Call Log</div>
+        <div class="head-brand">Offers Sent Log</div>
         <ul class="right-icons">
-          <li><a href="#" class="deal">&nbsp;</a></li>
+          <li><a href="#" class="phn">&nbsp;</a></li>
         </ul>
       </div>
 
@@ -183,8 +183,8 @@
                       <tr>
                         <td>Time</td>
                         <td>Phone #</td>
-                        <td>Duration</td>
-                        <td>Call Log</td>
+                        <td>Details</td>
+                        <td style="width: 40px">Redeem</td>
                       </tr>
                       </thead>
 
@@ -192,36 +192,52 @@
                       <tr class="status-info">
                         <td>11:00 AM</td>
                         <td><a href="#">XXXXXX-4567</a></td>
-                        <td>99m 60s</td>
                         <td>
-                          <a href="#" class="calls-tag">&nbsp;</a>
+                          <a href="#" class="tran-details-tag">&nbsp;</a>
+                        </td>
+                        <td>
+                          <div class="icheckbox_flat-aero checked" style="position: relative;">
+                            <input type="checkbox" class="icheck" id="icheck2">
+                          </div>
                         </td>
                       </tr>
 
                       <tr class="status-success">
                         <td>1:27 PM</td>
                         <td><a href="#">XXXXXX-4567</a></td>
-                        <td>99m 60s</td>
                         <td>
-                          <a href="#" class="calls-tag">&nbsp;</a>
+                          <a href="#" class="tran-details-tag">&nbsp;</a>
+                        </td>
+                        <td>
+                          <div class="icheckbox_flat-aero checked" style="position: relative;">
+                            <input type="checkbox" class="icheck" id="icheck2">
+                          </div>
                         </td>
                       </tr>
 
                       <tr class="status-info">
                         <td>1:49 AM</td>
                         <td><a href="#">XXXXXX-4567</a></td>
-                        <td>99m 60s</td>
                         <td>
-                          <a href="#" class="calls-tag">&nbsp;</a>
+                          <a href="#" class="tran-details-tag">&nbsp;</a>
+                        </td>
+                        <td>
+                          <div class="icheckbox_flat-aero checked" style="position: relative;">
+                            <input type="checkbox" class="icheck" id="icheck2">
+                          </div>
                         </td>
                       </tr>
 
                       <tr class="status-info">
                         <td>2:04 AM</td>
                         <td><a href="#">XXXXXX-4567</a></td>
-                        <td>99m 60s</td>
                         <td>
-                          <a href="#" class="calls-tag">&nbsp;</a>
+                          <a href="#" class="tran-details-tag">&nbsp;</a>
+                        </td>
+                        <td>
+                          <div class="icheckbox_flat-aero checked" style="position: relative;">
+                            <input type="checkbox" class="icheck" id="icheck2">
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -234,6 +250,6 @@
               <img src="assets/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
            </a>
         </div>
-        <script type="text/javascript" src="assets/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
     </body>    
 </html>
