@@ -22,6 +22,7 @@ gem "breadcrumbs_on_rails"
 gem 'exotel'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'jbuilder'
 
 
 gem 'capistrano', '~> 3.0.1'

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+    respond_to :html, :json
+
     before_filter :check_cookies
     before_filter :record_session
     before_filter :get_referer, :only => [:index]
