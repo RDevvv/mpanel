@@ -46,7 +46,7 @@ class HomeController < ApplicationController
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
 
         unless @outlets.nil?
-            @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, :ads, {:area => [:city]})
+            @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, {:ads => [:ad_promocodes]}, {:area => [:city]})
             @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
             @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
             @poster_data = Outlet.get_poster_data(@final_outlets)
