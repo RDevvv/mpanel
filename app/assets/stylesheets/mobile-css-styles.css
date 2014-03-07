@@ -152,6 +152,11 @@ background: #7f7f7f; cursor:pointer;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 .lower-box .star1 img {}
 
+.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
+.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
+.lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
+.lower-box2 .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px; cursor:pointer;}
+
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 /* Test Styles */
 
@@ -413,10 +418,10 @@ footer {clear:both; width:100%; margin:2px 0 0 0; font-family:Arial, Helvetica, 
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
-.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
+.bbox2 .brandlogo {clear:both; width:108px; height:108px; margin: 0; /*width: 100%; height: auto; margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
@@ -431,6 +436,7 @@ footer {clear:both; width:100%; margin:2px 0 0 0; font-family:Arial, Helvetica, 
 .lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
 .lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
+.lower-box2 .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.left-icons li a.srchlink3{
@@ -529,10 +535,10 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:12px
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
-.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
+.bbox2 .brandlogo {clear:both; width:108px; height:108px; margin: 0; /*width:100%; height : auto; margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
@@ -547,6 +553,7 @@ background: url(ikons-img.png) no-repeat -412px -457px transparent; padding:12px
 .lower-box2 {clear:both; position: relative; top:7px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
 .lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
+.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff; } 
@@ -706,10 +713,10 @@ footer {clear:both; width:100%; margin:2px 0 0 0; font-family:Arial, Helvetica, 
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
-.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
+.bbox2 .brandlogo {clear:both; width:108px; height:108px; margin: 0; /*width:100%; height: auto; margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
@@ -725,6 +732,7 @@ footer {clear:both; width:100%; margin:2px 0 0 0; font-family:Arial, Helvetica, 
 .lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
 .lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
+.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff;}
@@ -893,6 +901,7 @@ font-weight: normal; padding: 1px 4px; text-decoration: none;}
 .lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
 .lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible; }
+.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.footerdiv {float:left; margin: 0 0 10px 1px; padding: 0;}
@@ -1028,7 +1037,7 @@ table-normal {
 footer {clear:both; width:100%; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .bdiv{border: 1px solid #ccc; background: #fff; float: left;  height: auto; margin: 5px 5.8%; width: 135px; position:relative;}
 .bdiv1{border: 1px solid #ccc; background: #fff; float: left;  height: 216px; margin: 5px 2.7%; width: 130px; position:relative;}
-.bdiv2{border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.7%; height: 192px; width: 135px; position:relative;}
+.bdiv2{border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.7%; height: 218px; width: 135px; position:relative;}
 
 .bbox { float: left;  height:auto; margin: 0; width: 135px; position:relative;}
 .bbox .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
@@ -1038,10 +1047,10 @@ footer {clear:both; width:100%; font-family:Arial, Helvetica, sans-serif; font-s
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
-.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
+.bbox2 .brandlogo {clear:both; width:108px; height:108px;  margin: 0; /* width:100%; height: auto; margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
@@ -1057,6 +1066,7 @@ footer {clear:both; width:100%; font-family:Arial, Helvetica, sans-serif; font-s
 .lower-box2 {clear:both; position: relative; top:7px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
 .lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
+.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.left-icons li a.srchlink3{
@@ -1141,10 +1151,10 @@ background: #fff;
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
-.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:70%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
+.bbox2 .brandtitle{float:left; padding:1px 4px; width: 70%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox2 .eye2 {float:right; border: none; background: url(glyphicons-halflings.png) no-repeat -145px 0px transparent; width:21px; height: 16px; margin: 5px 0 0 0; border: none;}
-.bbox2 .brandlogo {clear:both; width:100%; height: auto; margin: 0; /*margin: 10px auto;*/}
+.bbox2 .brandlogo {clear:both; width:108px; height:108px; margin: 0; /*width:100%; height: auto; margin: 10px auto;*/}
 .bbox2 .brandlogo img{text-align: center; width: auto; height: auto; /* width: 108px; height:108px;*/}
 
 .lower-box {clear:both; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
@@ -1160,6 +1170,7 @@ background: #fff;
 .lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
 .lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
 .lower-box2 .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
+.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 ul.left-icons li a.srchlink3{
