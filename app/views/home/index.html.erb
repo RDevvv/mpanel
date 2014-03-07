@@ -64,10 +64,14 @@ var map_link=document.getElementById("map");
 function getLocation()
 {
     if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(showPosition, fail, {timeout: 2000, maximumAge: 0});
+        navigator.geolocation.getCurrentPosition(showPosition, fail, {maximumAge: 0});
     }
 }
     function fail(msg){
+
+}
+
+function ip_geocode(){
     $.ajax({
             url: 'location_from_ip'
             }).success(
@@ -95,7 +99,6 @@ function getLocation()
                 }
             disable_submit();
                 })
-
 }
 
 function disable_submit(){
@@ -105,7 +108,8 @@ function disable_submit(){
 }
 
 function enable_submit(){
-    $('#location').keypress(function(){
+    $('#location').keyup(function(){
+            console.log('vivek');
             if($('#location').attr('value')==""){
                 $('#button').attr('disabled',true)
                 }
@@ -132,6 +136,7 @@ function update_category_urls(){
 }
 update_category_urls();
 getLocation();
+ip_geocode();
 enable_submit();
 </script>
 </body>

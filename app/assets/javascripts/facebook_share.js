@@ -44,8 +44,8 @@ function facebook_share(element){
             marketer    = true;
         }
         else{
-            caption     = 'Get amazing offers for '+data["category_name"];
-            description = data["brand_name"]+": "+data["ad_title"]+". Check it out!";
+            caption     = data['category_name']+' - Deals At Your Fingertips!';
+            description = 'Shopping just got better. Identify your location to GullakMaster and discover nearby deals for '+data['category_name']+' Currently '+data["brand_name"]+" has the following deal going on: "+data["ad_title"]+". You can view offer details, get the offer sent to you by SMS, locate the store on a map, or even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!";
             marketer    = false;
         }
         link        = current_domain+'/'+data["short_url"]
@@ -86,6 +86,6 @@ function update_top_share_url(element){
             'button_class': button_class,
         }
     }).success(function(data){
-        $('#top_share_link').attr('value',current_domain+'/'+data['short_url'])
+        $('#top_share_link').attr('value','gullak.co/'+data['short_url'])
     })
 }

@@ -40,7 +40,7 @@ module HomeHelper
         unless brand_name.length < 12
             trailing_string='..'
         end
-        brand_name[0..11]+trailing_string
+        brand_name[0..10]+trailing_string
     end
 
     def get_location_search_url
