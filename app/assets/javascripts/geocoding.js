@@ -56,7 +56,7 @@ function change_location(){
     domain = document.location.origin;
     route  = document.location.pathname;
     if (navigator.geolocation)
-        navigator.geolocation.getCurrentPosition(showPosition,geo_error,{timeout: 3000, enableHighAccuracy: true, maximumAge: 0});
+        navigator.geolocation.getCurrentPosition(showPosition,geo_error,{enableHighAccuracy: true, maximumAge: 0});
 }
 
 function showPosition(position){
