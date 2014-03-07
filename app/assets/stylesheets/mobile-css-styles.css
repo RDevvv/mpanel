@@ -105,8 +105,9 @@ a.filldiv {position: absolute; display: block; width: 100%; height:74%; text-dec
 
 .add-box{width:97%; float: left; position:relative; text-align: justify; background-color:transparent; color: #000; font-size:80%; margin: 2px 2px 2px 3px; height:auto;}
 .add-box .adtitle {float: left; text-align: left; text-decoration: underline; }
+.add-box .adtitle1 {float: left; text-align: left; text-decoration: underline; font-weight:bold;}
 .add-box .adaddress {float: left; text-align: left; word-wrap:break-word; width: 100%; display: block; clear: both; margin: 1px 0 0 0; line-height: 14px; }
-.add-box .adloc {float: left; text-align: left; width: 100%; display: block; clear: both; font-weight: bold; margin: 5px 0 0 0; line-height: 15px;}
+.add-box .adloc {float: left; text-align: left; width: 100%; display: block; clear: both; font-weight:normal; margin: 5px 0 0 0; line-height: 15px;}
 .rch-btns-div {position: absolute; width: 45px; height: auto; right: -4px; bottom: 24px;}
 .rch-btns-div .btn190{float:left; clear: both; margin: -5px 0 8px;}
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
