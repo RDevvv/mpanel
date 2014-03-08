@@ -31,3 +31,4 @@
 //= require view_ad
 //= require query-string
 //= require update_location
+//= require disable_button
