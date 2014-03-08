@@ -1,0 +1,26 @@
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        new Highcharts.Chart({
+            chart: { renderTo: 'sms_chart', type: 'column' },
+            title: { text: 'SMS by day' },
+            xAxis: { type: 'datetime' },
+            yAxis: {
+                title: { text: 'SMS'}
+            },
+            tooltip: {
+                formatter: function () {
+                    return Highcharts.dateFormat("%B %e %Y", this.x) + ': ' +
+                            'SMS-' + Highcharts.numberFormat(this.y, 0);
+                }
+            },
+            series: [{
+                pointInterval: <%= 1.day * 1000 %>,
+                pointStart: <%= 30.days.ago.at_midnight.to_i * 1000 %>,
+                data: <%= @sms %>
+            }]
+        });
+    });
+</script>
+
+<div id="sms_chart" style="width: 800px; height: 700px;"></div>
