@@ -104,7 +104,7 @@ class CampaignsController < ApplicationController
               campaign_copy.update_attributes(:use_count => 0)
           end
           CampaignCopy.where(:short_url => params[:short_url]).first.update_attributes(:use_count=> campaign_copy.use_count+1)
-          if campaign_copy.campaign.expires_at.nil?
+          if campaign_copy.campaign.expires_at.blank?
                   redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
           else
               if campaign_copy.campaign.expires_at > Date.today-1
