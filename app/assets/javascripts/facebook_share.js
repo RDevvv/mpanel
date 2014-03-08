@@ -1,10 +1,10 @@
 function facebook_share_binding(){
     share_buttons = $('.share');
     $(share_buttons).click(function(){
-        check_facebook_authentication($(this));
+        facebook_share($(this));
     });
     $('.top_share').click(function(){
-        check_facebook_authentication($(this));
+        facebook_share($(this));
     });
 }
 

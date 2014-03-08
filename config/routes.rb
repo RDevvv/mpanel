@@ -121,7 +121,8 @@ Gullak2::Application.routes.draw do
     get 'no_results' => 'home#no_results'
     get 'location_not_found' => 'home#location_not_found'
     match 'auth/facebook/callback' => 'customers#facebook_data'
-    root :to => "home#index", constraints: {subdomain: 'm'||'m.staging'}
+    root :to => "home#index", constraints: {subdomain: 'm'}
+    root :to => "home#index", constraints: {subdomain: 'm.staging'}
     root :to => "merchant#index", constraints: {subdomain: 'admin'}
     root :to => "home#index", constraints: {domain: 'gullak.co'}
     root :to => redirect('/desktop-home.html')
