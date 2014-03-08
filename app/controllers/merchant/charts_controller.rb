@@ -12,6 +12,10 @@ class Merchant::ChartsController <  Merchant::BaseController
     end
   end
 
+  def chart_index
+
+  end
+
 end
 
 

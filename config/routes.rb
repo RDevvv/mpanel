@@ -115,6 +115,7 @@ Gullak2::Application.routes.draw do
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
     match "sms_chart" => "merchant/charts#sms_chart"
+    match "chart_index" => "merchant/charts#chart_index"
 
     get 'location_from_ip' => 'customers#location_from_ip'
     get 'no_results' => 'home#no_results'
