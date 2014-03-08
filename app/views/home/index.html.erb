@@ -69,6 +69,7 @@ function getLocation()
     }
 }
     function fail(msg){
+        ip_geocode();
 
 }
 
@@ -80,8 +81,6 @@ function ip_geocode(){
                 if(data!=''||data!='undefined'){
                 $('#location').attr('value', data['city']);
                 update_location(data['city'])
-                }
-                else{
                     if(msg.code == 1){
                     $('#location').attr('placeholder', 'Enter your location ...');
                     $.pnotify({
@@ -121,7 +120,6 @@ function enable_submit(){
 }
 
 function showPosition(position){
-    $('#location').attr('placeholder',position.coords.latitude+', '+position.coords.longitude);
     google_api_call($('#location'), position.coords.latitude, position.coords.longitude);
     update_location($('#location').value);
 }
