@@ -30,9 +30,10 @@ function send_ad(customer_uuid, element)
                 data["text"] = 'We have sent you an SMS. Please recommend GullakMaster to your friends.';
             }
             if($.cookie("mobile_number")=="verified")
+                    formatted_text = data["text"].replace('Thanks, GullakMaster','');
                 $.pnotify({
-                    title: title,
-                    text: data["text"],
+                    title: data['brand_name']+' - Offer sent',
+                    text: formatted_text,
                     sticker_hover: false,
                     closer_hover: false,
                     animate_speed: 'fast',
