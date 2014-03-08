@@ -252,7 +252,7 @@ class Outlet < ActiveRecord::Base
           shop_no = self.shop_no
       end
 
-      shop_no+" "+self.address+", "+self.area.area_name+", "+self.area.city.city_name+", "+self.area.pincode
+      shop_no+" "+self.address+"<br /> "+self.area.area_name+"<br /> "+self.area.city.city_name+", "+self.area.pincode
   end
 
   def self.nearby_outlet_ids(outlets)
@@ -283,7 +283,7 @@ class Outlet < ActiveRecord::Base
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
           if (outlet.ads.empty? && outlet.ads.map{|ad|ad.promocode_available?.include?(true)})||(outlet.ads.map{|ad|ad.expired?}.include?(true))
-              outlets_without_ads += [:ad_id => 0, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :address => outlet.get_address, :poster_address => outlet.get_address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
+              outlets_without_ads += [:ad_id => 0, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
           else
               ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
               ads.each do |ad|
