@@ -109,17 +109,6 @@ function disable_submit(){
     }
 }
 
-function enable_submit(){
-    $('#location').keyup(function(){
-            if($('#location').attr('value')==""){
-                $('#button').attr('disabled',true)
-                }
-                else{
-                $('#button').attr('disabled',false)
-                }
-            })
-}
-
 function showPosition(position){
     google_api_call($('#location'), position.coords.latitude, position.coords.longitude);
     update_location($('#location').value);
