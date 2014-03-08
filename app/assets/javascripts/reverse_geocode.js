@@ -1,6 +1,5 @@
 var get_location  = '';
 function reverse_geocode(html_element){
-    geocoder = new google.maps.Geocoder();
     get_variables = window.location.search.slice(1).split('&');
     for(i=0;i<get_variables.length;i++){
         variable_name = get_variables[i].split('=')[0]
@@ -17,6 +16,13 @@ function reverse_geocode(html_element){
     if((typeof(user_longitude)=='undefined')||user_longitude ==0)
         html_element.attr('value',get_location);
     else{
+        google_api_call(html_element, user_latitude,user_longitude);
+    }
+}
+
+function google_api_call(html_element, user_latitude,user_longitude){
+
+    geocoder = new google.maps.Geocoder();
         var latlng = new google.maps.LatLng(user_latitude, user_longitude);
         geocoder.geocode({'latLng': latlng}, function(results, status) {
             if(status=='ZERO_RESULTS')
@@ -30,11 +36,8 @@ function reverse_geocode(html_element){
                 }
             }
             if (status == google.maps.GeocoderStatus.OK) {
-
                 html_element.attr('value',final_result);
             }
             }
         });
-    }
 }
-

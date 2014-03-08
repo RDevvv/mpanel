@@ -24,6 +24,8 @@ class HomeController < ApplicationController
                 customer_id = customer.id
                 if customer.mobile_number.nil?
                     cookies[:mobile_number] = {:value => false, :expires => 1.year.from_now}
+                elsif customer.is_verified == true
+                    cookies[:mobile_number] = {:value => 'verified', :expires => 1.year.from_now}
                 else
                     cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
                 end

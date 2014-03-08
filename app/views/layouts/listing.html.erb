@@ -71,6 +71,7 @@
         FB.init({
           appId      : '206827969522380',
           status     : true,
+          cookie     : true,
           xfbml      : true
         });
       };
@@ -149,6 +150,7 @@ $(document).ready(function(){
         bind_tracking();
         bind_send_ad();
         bind_display_ad();
+        enable_submit($('#s'),$('#submitbutton'));
         })
 </script>
 </body>

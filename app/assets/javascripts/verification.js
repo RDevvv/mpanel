@@ -31,10 +31,10 @@ function verification_modal_submit(){
             if(data["verified"]==true)
                 {
                     $('#verification').modal('hide');
-                    $.pnotify({ title: 'Your account is verified', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
+                    $.pnotify({ title: 'Your account is verified', text: '', closer_hover: false, sticker_hover: false, icon: false});
                 }
                 else{
-                    $.pnotify({ title: 'Please enter correct verification code.', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
+                    $.pnotify({ title: 'Please enter correct verification code.', text: '', closer_hover: false, sticker_hover: false, icon: false});
                 }
         });
         return false; // prevents normal behaviour

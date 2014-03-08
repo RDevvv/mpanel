@@ -1,10 +1,10 @@
 function facebook_share_binding(){
     share_buttons = $('.share');
     $(share_buttons).click(function(){
-        check_facebook_authentication($(this));
+        facebook_share($(this));
     });
     $('.top_share').click(function(){
-        check_facebook_authentication($(this));
+        facebook_share($(this));
     });
 }
 
@@ -39,13 +39,15 @@ function facebook_share(element){
         }
     }).success(function(data){
         if(button_class == 'top_share'){
+            name  	= 'GullakMaster';
             caption     = 'Deals At Your Fingertips!';
             description = "Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!";
             marketer    = true;
         }
         else{
+            name  	= 'GullakMaster';
             caption     = data['category_name']+' - Deals At Your Fingertips!';
-            description = 'Shopping just got better. Identify your location to GullakMaster and discover nearby deals for '+data['category_name']+' Currently '+data["brand_name"]+" has the following deal going on: "+data["ad_title"]+". You can view offer details, get the offer sent to you by SMS, locate the store on a map, or even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!";
+            description = 'Discover nearby deals for '+data['category_name']+' Currently '+data["brand_name"]+" has the following deal: "+data["ad_title"]+". Save time, energy, and money at the click of a button. Happy shopping you'al!";
             marketer    = false;
         }
         link        = current_domain+'/'+data["short_url"]
