@@ -69,35 +69,37 @@ function getLocation()
     }
 }
     function fail(msg){
-        ip_geocode();
+        ip_geocode(msg);
 
 }
 
-function ip_geocode(){
+function ip_geocode(msg){
     $.ajax({
             url: 'location_from_ip'
             }).success(
                 function(data){
                 if(data!=''||data!='undefined'){
+                disable_submit();
+                }
+                else{
                 $('#location').attr('value', data['city']);
                 update_location(data['city'])
+                }
                     if(msg.code == 1){
                     $('#location').attr('placeholder', 'Enter your location ...');
                     $.pnotify({
-                        title: 'Location service is turned off', text: 'Location services are disabled.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
+                        text: 'Please type an accurate location in the box below.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
                     });
                     }
                     else if(msg.code == 2){
                     $('#location').attr('placeholder', 'Enter your location ...');
                     $.pnotify({
-                        title: 'Location not identified', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
+                        text: 'We were unable to determine your location. Please type an accurate location in the box below.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
                     });
                     }
                     else{
                     $('#location').attr('placeholder', 'Enter your location ...');
                     }
-                }
-            disable_submit();
                 })
 }
 
@@ -109,7 +111,6 @@ function disable_submit(){
 
 function enable_submit(){
     $('#location').keyup(function(){
-            console.log('vivek');
             if($('#location').attr('value')==""){
                 $('#button').attr('disabled',true)
                 }
