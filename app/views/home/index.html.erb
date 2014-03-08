@@ -59,8 +59,9 @@
         </div>
     </div>
 </div>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" style=""></script>
 <script type="text/javascript">
-var map_link=document.getElementById("map");
+
 function getLocation()
 {
     if (navigator.geolocation){
@@ -120,9 +121,8 @@ function enable_submit(){
 }
 
 function showPosition(position){
-    console.log(position.coords.latitude);
-    map_link.href = "/outlet_listing?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
-    reverse_geocode($('#location'));
+    $('#location').attr('placeholder',position.coords.latitude+', '+position.coords.longitude);
+    google_api_call($('#location'), position.coords.latitude, position.coords.longitude);
     update_location($('#location').value);
 }
 
@@ -136,7 +136,6 @@ function update_category_urls(){
 }
 update_category_urls();
 getLocation();
-ip_geocode();
 enable_submit();
 </script>
 </body>
