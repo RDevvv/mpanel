@@ -1,0 +1,6 @@
+<%= form_tag do %>
+    <%= select_tag(:chart_type, options_for_select([['sms_chart', 1]], selected: :option )) %>
+    <%= select_month(Date.today) %>
+    <%= select_year(Date.today, :start_year => 8.years.ago.to_date.year, :end_year => Date.today.year) %>
+    <%= submit_tag "Submit" %>
+<% end %>
