@@ -32,6 +32,7 @@ function verification_modal_submit(){
                 {
                     $('#verification').modal('hide');
                     $.pnotify({ title: 'Your account is verified', text: '', closer_hover: false, sticker_hover: false, icon: false});
+                    call_button();
                 }
                 else{
                     $.pnotify({ title: 'Please enter correct verification code.', text: '', closer_hover: false, sticker_hover: false, icon: false});
@@ -65,6 +66,7 @@ function modal_submit(){
                         else{
                             $.pnotify({ title: 'Welcome back', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                             $('#mobile-number').modal('hide');
+                            call_button();
                         }
                     }
                     else
