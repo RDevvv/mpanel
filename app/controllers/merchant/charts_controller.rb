@@ -16,6 +16,10 @@ class Merchant::ChartsController <  Merchant::BaseController
 
   end
 
+  def call_chart
+    @button_click = ButtonClick.where(:button_class => "call")
+  end
+
 end
 
 
