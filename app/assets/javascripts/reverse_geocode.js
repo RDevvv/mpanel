@@ -10,7 +10,9 @@ function reverse_geocode(html_element){
         if(variable_name=='latitude')
             user_latitude = variable_data;
         if(variable_name=='location'){
-            get_location = variable_data.replace('+',' ');
+            get_location = variable_data.split('+').join(' ');
+            get_location = get_location.toLowerCase();
+            get_location = decodeURIComponent(get_location);
         }
     }
     if((typeof(user_longitude)=='undefined')||user_longitude ==0)

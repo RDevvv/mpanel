@@ -194,17 +194,19 @@ class Outlet < ActiveRecord::Base
   end
 
   def self.get_coordinates(location,longitude,latitude)
-      coordinates = Hash.new
-      if location.blank?
-          coordinates[:latitude] = latitude
-          coordinates[:longitude] = longitude
-      else
+      latitude = latitude.to_f
+      longitude = longitude.to_f
+      coordinates = {:latitude => nil, :longitude => nil}
+      if (latitude.blank?||longitude.blank?||(latitude==0&&longitude==0))&(location.blank?!=true)
           result = Geocoder.search(location+" india")
           unless result.empty?
               @location = result.first.data["geometry"]["location"]
               coordinates[:latitude] = @location["lat"]
               coordinates[:longitude] = @location["lng"]
           end
+      else
+          coordinates[:latitude] = latitude
+          coordinates[:longitude] = longitude
       end
       return coordinates
   end
@@ -256,25 +258,25 @@ class Outlet < ActiveRecord::Base
   end
 
   def self.nearby_outlet_ids(outlets)
-        unless outlets.blank?
-            nearby_outlets = outlets.map{|o| o.id}.uniq
-        else
-            nearby_outlets = []
-        end
-        nearby_outlets
+      unless outlets.blank?
+          nearby_outlets = outlets.map{|o| o.id}.uniq
+      else
+          nearby_outlets = []
+      end
+      nearby_outlets
   end
 
   def self.sort_by_distance_and_presence(result,outlets)
-        nearby_outlets = Outlet.nearby_outlet_ids(outlets)
-        unless result.blank?
-            new_outlets = Outlet.where(:id => 0)
-            ad_outlets = result.map{|ad|ad.outlets}.flatten.map{|outlet|outlet.id}.uniq
-            nearby_outlets_with_ad = ad_outlets&nearby_outlets
-            nearby_outlets_with_ad.map {|outlet_id| new_outlets.append(outlets.find(outlet_id))} unless nearby_outlets_with_ad.empty?
-            final_outlets = new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
-            ad_ids = result.map{|ad|ad.id}
-        end
-        [final_outlets,ad_ids]
+      nearby_outlets = Outlet.nearby_outlet_ids(outlets)
+      unless result.blank?
+          new_outlets = Outlet.where(:id => 0)
+          ad_outlets = result.map{|ad|ad.outlets}.flatten.map{|outlet|outlet.id}.uniq
+          nearby_outlets_with_ad = ad_outlets&nearby_outlets
+          nearby_outlets_with_ad.map {|outlet_id| new_outlets.append(outlets.find(outlet_id))} unless nearby_outlets_with_ad.empty?
+          final_outlets = new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
+          ad_ids = result.map{|ad|ad.id}
+      end
+      [final_outlets,ad_ids]
   end
 
   def self.get_poster_data(outlets)
