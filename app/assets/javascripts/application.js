@@ -32,3 +32,4 @@
 //= require query-string
 //= require update_location
 //= require disable_button
+//= require highcharts

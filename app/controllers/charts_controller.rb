@@ -1,4 +1,4 @@
-class Merchant::ChartsController <  Merchant::BaseController
+class ChartsController < ApplicationController
 
   def sms_chart
     @sms = SmsSent.all
@@ -17,7 +17,12 @@ class Merchant::ChartsController <  Merchant::BaseController
   end
 
   def call_chart
-    @button_click = ButtonClick.where(:button_class => "call")
+    @call_button_click = ButtonClick.where(:button_class => "call")
+    @call_button_click = []
+    call = ButtonClick.where(:button_class => "call").group('Date(created_at)').count
+    (30.days.ago.to_date..Date.today).each do |day|
+      @call_button_click.push(call[day.strftime] || 0)
+    end
   end
 
 end

@@ -33,6 +33,8 @@ class ApplicationController < ActionController::Base
         "listing"
     elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads' || controller_name == 'error_messages'
         "home_index"
+    elsif controller_name == 'charts'
+        "admin"
     else
         "application"
     end

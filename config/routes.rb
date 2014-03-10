@@ -114,8 +114,9 @@ Gullak2::Application.routes.draw do
     post "set_sms_data" => "sms_sents#set_sms_data"
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
-    match "sms_chart" => "merchant/charts#sms_chart"
-    match "chart_index" => "merchant/charts#chart_index"
+    match "sms_chart" => "charts#sms_chart"
+    match "chart_index" => "charts#chart_index"
+    match "call_chart" => "charts#call_chart"
 
     get 'location_from_ip' => 'customers#location_from_ip'
     get 'error_404' => 'error_messages#error_404'
