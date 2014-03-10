@@ -128,7 +128,7 @@ Gullak2::Application.routes.draw do
     root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
-    get '/:short_url' => 'campaigns#campaign_landing'
+    get '/:short_url' => 'campaigns#campaign_landing', constraints: {domain: 'gullak.co'}
 
     unless Rails.application.config.consider_all_requests_local
       match '*not_found', to: 'error_messages#error_404'
