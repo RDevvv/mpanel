@@ -79,7 +79,7 @@
 function getLocation()
 {
     if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(showPosition, fail, {maximumAge: 0});
+        navigator.geolocation.getCurrentPosition(showPosition_index, fail, {maximumAge: 0});
     }
 }
     function fail(msg){
@@ -123,8 +123,10 @@ function disable_submit(){
     }
 }
 
-function showPosition(position){
+function showPosition_index(position){
     google_api_call($('#location'), position.coords.latitude, position.coords.longitude);
+    $('#latitude').attr('value',position.coords.latitude);
+    $('#longitude').attr('value',position.coords.longitude);
     update_location($('#location').value);
 }
 

@@ -64,8 +64,6 @@ function showPosition(position){
     console.log(position);
     user_latitude = position.coords.latitude;
     user_longitude = position.coords.longitude;
-    $('#latitude').attr('value',user_latitude);
-    $('#longitude').attr('value',user_longitude);
 
     get_variables = window.location.search.slice(1).split('&');
     for(i=0;i<get_variables.length;i++){
