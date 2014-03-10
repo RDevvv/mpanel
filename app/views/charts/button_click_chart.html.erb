@@ -1,0 +1,27 @@
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        new Highcharts.Chart({
+            chart: { renderTo: 'button_click_chart', type: 'column' },
+            title: { text: '<%= params[:chart_type].capitalize %> by day' },
+            xAxis: { type: 'datetime' },
+            yAxis: {
+                title: { text: '<%= params[:chart_type].capitalize %>'}
+            },
+            tooltip: {
+                formatter: function () {
+                    return Highcharts.dateFormat("%B %e %Y", this.x) + ': ' +
+                            '<%= params[:chart_type].capitalize %>:-' + Highcharts.numberFormat(this.y, 0);
+                }
+            },
+            series: [{
+                pointInterval: <%= 1.day * 1000  %>,
+                pointStart: <%= (Date.new(params[:date][:year].to_i, params[:date][:month].to_i)).at_midnight.to_i * 1000  %>,
+                data: <%= @button_click %>
+            }]
+        });
+    });
+</script>
+
+
+<div id="button_click_chart" style="width: 1000px; height: 700px;"></div>

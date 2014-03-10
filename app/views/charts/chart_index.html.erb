@@ -1,6 +1,6 @@
-<%= form_tag(sms_chart_path, :method => "get") do %>
-    <%= select_tag(:chart_type, options_for_select([['sms_chart', 1]], selected: :option )) %>
+<%= form_tag(button_click_chart_path, :method => "get") do %>
+    <%= select_tag(:chart_type, options_for_select([['Call', 'call'], ['Address', 'address'], ['View', 'description']], selected: :option )) %>
     <%= select_month(Date.today) %>
-    <%= select_year(Date.today, :start_year => 8.years.ago.to_date.year, :end_year => Date.today.year) %>
+    <%= select_year(Date.today, :start_year => 2013, :end_year => Date.today.year) %>
     <%= submit_tag "Submit" %>
 <% end %>

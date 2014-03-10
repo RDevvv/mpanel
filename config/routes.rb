@@ -116,7 +116,7 @@ Gullak2::Application.routes.draw do
     get "accounts/create"
     match "sms_chart" => "charts#sms_chart"
     match "chart_index" => "charts#chart_index"
-    match "call_chart" => "charts#call_chart"
+    match "button_click_chart" => "charts#button_click_chart"
 
     get 'location_from_ip' => 'customers#location_from_ip'
     get 'error_404' => 'error_messages#error_404'
