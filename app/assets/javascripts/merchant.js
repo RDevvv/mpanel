@@ -7,6 +7,7 @@
 //= require merchant/tags_input
 //= require merchant/jquery_uniform
 //= require merchant/jquery.icheck
+//= require merchant/select2
 //= require merchant/d3
 //= require merchant/xcharts
 //= require merchant/bootstrap-wysihtml5
