@@ -1,0 +1,33 @@
+<VirtualHost *:80>
+    ServerName staging.gullakmaster.com
+    DocumentRoot /home/ubuntu/Gullak-2/public
+    <Directory /home/ubuntu/Gullak-2/public/>
+        AllowOverride All
+
+        RewriteEngine On
+        RewriteCond %{HTTP_USER_AGENT} (android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://m.staging.gullakmaster.com/$1 [L,R=301]
+
+    </Directory>
+</VirtualHost>
+
+
+
+
+
+
+<VirtualHost *:80>
+    ServerName m.staging.gullakmaster.com
+    DocumentRoot /home/ubuntu/Gullak-2/public
+    <Directory /home/ubuntu/Gullak-2/public/>
+        AllowOverride All
+
+        RewriteEngine On
+
+        RewriteCond %{HTTP_USER_AGENT} !(android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://staging.gullakmaster.com/$1 [L,R=301]
+
+    </Directory>
+</VirtualHost>
+
+
