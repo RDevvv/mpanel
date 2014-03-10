@@ -6,7 +6,7 @@
         <div class="rch-btns-div">
             <div class="btn190">
                 <a class="address button_map2" onclick="$.pnotify({
-                    title: '<%= poster[:brand_name]%> - Address',
+                    title: '<%= poster[:brand_name].gsub("'",'&rsquo;')%> - Address',
                     text: '<%= h "#{poster[:poster_address]}" %>',
                     closer_hover: false,
                     sticker_hover: false,
