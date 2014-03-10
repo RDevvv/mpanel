@@ -118,6 +118,7 @@ Gullak2::Application.routes.draw do
     match "chart_index" => "merchant/charts#chart_index"
 
     get 'location_from_ip' => 'customers#location_from_ip'
+    get 'error_404' => 'error_messages#error_404'
     get 'no_results' => 'home#no_results'
     get 'location_not_found' => 'home#location_not_found'
     match 'auth/facebook/callback' => 'customers#facebook_data'
@@ -128,7 +129,7 @@ Gullak2::Application.routes.draw do
     root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
-    get '/:short_url' => 'campaigns#campaign_landing'
+    get '/:short_url' => 'campaigns#campaign_landing'#, constraints: {domain: 'gullak.co'}
 
     unless Rails.application.config.consider_all_requests_local
       match '*not_found', to: 'error_messages#error_404'
