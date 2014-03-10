@@ -43,7 +43,7 @@ ul.navigation li ul li {width:80%; background: #ffffff; border-bottom: solid 1px
 ul.navigation li ul li a, ul.navigation li ul li div {width:90%; color: #7770777 !important; font-size: 12px !important; font-weight: 600 !important; margin-left: 0 !important; padding: 0 10px !important; /*padding: 5px 20px !important;*/}
 ul.navigation li ul li:hover {width:80%; background: #F5F5F5; padding: 10px 20px;}
 ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
-.linkalign {padding-top:10px; vertical-align:middle;}	
+.linkalign {padding-top:10px; vertical-align:middle; text-transform: uppercase; font-weight: bold;}	
 
 /* Top header styles */
 #header2 {position:fixed; top:0; height:30px; display: block; width:100%; margin: 0 auto; background:#000; font-size:11px; color:#fff; z-index:2000; /*width:800px;*/}
@@ -79,7 +79,7 @@ ul.social-links li a {vertical-align: middle;}
 
 /* Slide 1 */ 
 
-#slide1{background-color:#ffffff; height:200px;}
+#slide1{background-color:#ffffff; height:130px;}
 #slide1 h1 {font-size: 3.8em; letter-spacing: -3px;	line-height: 0px; color:#8a8683; font-weight: 700;}
 #slide1 h2 {font-size: 2em;	color: #8a8683;	line-height: 0px; padding-bottom:20px; font-weight: 400;}
 
@@ -105,7 +105,7 @@ ul.social-links li a {vertical-align: middle;}
 
 /* Slide 5 */
 h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margin: 20px 0 20px 0px;}
-#slide5{color:#ffffff; height: 500px;}
+#slide5{color:#ffffff; height: 430px;}
 #slide5 h1 {font-size: 3.8em; letter-spacing: -3px;	line-height: 0px; color:#ffffff; font-weight: 700;}
 #slide5 h2 {font-size: 2em;	color: #ffffff;	line-height: 0px; padding-bottom:20px; font-weight: 400;}
 
@@ -237,7 +237,7 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 /* Privacy Policy */
 
 .wrapper_terms {display: block; height: auto; margin: 0 auto 2px; padding: 3px; font-size:14px; text-align: left; width: 650px;}
-h4 {color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margin-top: 20px;}
+h4 {text-transform: uppercase; color: #FFCF06; font-size: 24px; font-weight: bold; line-height: 30px; margin-top: 20px;}
 .head {color: #0095F4; font-size: 18px; font-weight: bold; line-height: 20px; margin: 0;}
 .subhead {color: #4E4E4E; font-size: 18px; font-weight: bold; line-height: 20px;}
 ul.bulleted {
