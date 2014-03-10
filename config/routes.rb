@@ -89,6 +89,7 @@ Gullak2::Application.routes.draw do
     # MAIN APP ROUTES
     resources :home
     get 'outlet_listing' => 'home#outlet_listing'
+    get 'abcdef12345' => 'home#outlet_listing'
     get 'outlet_search' => 'home#outlet_search'
 
     get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
