@@ -1,0 +1,82 @@
+<VirtualHost *:80>
+    ServerName www.gullakmaster.com
+    DocumentRoot /home/ubuntu/Gullak-2/public
+    <Directory /home/ubuntu/Gullak-2/public/>
+        AllowOverride All
+
+        RewriteEngine On
+        RewriteRule ^.*deals|outlet_listing|outlet_search.*$ http://www.gullakmaster.com/page-error.html [R=301,L]
+        RewriteCond %{HTTP_USER_AGENT} (android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://m.gullakmaster.com/$1 [L,R=301]
+
+    </Directory>
+</VirtualHost>
+
+
+
+
+
+<VirtualHost *:80>
+    ServerName gullakmaster.com
+    DocumentRoot /home/ubuntu/Gullak-2/public
+    <Directory /home/ubuntu/Gullak-2/public/>
+        AllowOverride All
+
+        RewriteEngine On
+        RewriteRule ^.*deals|outlet_listing|outlet_search.*$ http://www.gullakmaster.com/page-error.html [R=301,L]
+        RewriteCond %{HTTP_USER_AGENT} (android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://m.gullakmaster.com/$1 [L,R=301]
+
+    </Directory>
+</VirtualHost>
+
+
+
+
+
+<VirtualHost *:80>
+    ServerName m.gullakmaster.com
+    DocumentRoot /home/ubuntu/Gullak-2/public
+    <Directory /home/ubuntu/Gullak-2/public/>
+        AllowOverride All
+
+        RewriteEngine On
+
+        RewriteCond %{HTTP_USER_AGENT} !(android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://www.gullakmaster.com/$1 [L,R=301]
+
+    </Directory>
+</VirtualHost>
+
+
+
+
+
+
+<VirtualHost *:80>
+    ServerName gullak.co
+    DocumentRoot /home/ubuntu/Gullak-2/public
+    <Directory /home/ubuntu/Gullak-2/public/>
+        AllowOverride All
+
+        RewriteEngine On
+
+        RewriteCond %{HTTP_USER_AGENT} (android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://m.gullakmaster.com/$1 [L,R=301]
+
+        RewriteCond %{HTTP_USER_AGENT} !(android(.*)mobile|^opera(.*)android|iphone|windows\ phone|googlebot-mobile|webos|palmos|BB|Blackberry) [NC]
+        RewriteRule ^(.*)$ http://www.gullakmaster.com/$1 [L,R=301]
+
+    </Directory>
+</VirtualHost>
+
+
+
+
+
+
+
+
+
+
+
