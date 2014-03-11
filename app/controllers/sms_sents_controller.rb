@@ -54,4 +54,8 @@ class SmsSentsController < ApplicationController
         render :json => {:sms_sent => true, :text => text}
     end
 
+    def outletview_offers_log
+
+    end
+
 end

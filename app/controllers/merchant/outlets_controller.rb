@@ -1,6 +1,7 @@
 class Merchant::OutletsController <  Merchant::BaseController
   before_filter  :load_account
-	before_filter  :load_account_and_brand
+	before_filter  :load_account_and_brand, :except => [:outlet_key, :outletview_edit]
+  skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
 
 	def index
     @outlets = @account_brand.outlets
@@ -136,6 +137,14 @@ class Merchant::OutletsController <  Merchant::BaseController
     redirect_to merchant_account_account_brand_ad_ad_group_path(@current_account,@account_brand,@ad,@ad_group)
   end
 
+  def outlet_key
+
+  end
+
+  def outletview_edit
+    @outlet = Outlet.where(:outlet_key => params[:outlet_key])
+  end
+
 	protected
   
   def set_error_for_outlet_record(params)
@@ -147,6 +156,6 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	def load_account_and_brand
 		@account_brand = @current_account.account_brands.find(params[:account_brand_id])
-	end
+  end
 
 end

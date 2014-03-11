@@ -48,4 +48,9 @@ class CallForwardingsController < ApplicationController
           format.json {render :nothing => true}
       end
   end
+
+  def outletview_call_log
+
+  end
+
 end

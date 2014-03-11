@@ -118,6 +118,10 @@ Gullak2::Application.routes.draw do
     match "sms_chart" => "charts#sms_chart"
     match "chart_index" => "charts#chart_index"
     match "button_click_chart" => "charts#button_click_chart"
+    match "outlet_key" => "merchant/outlets#outlet_key"
+    match "outletview_edit" => "merchant/outlets#outletview_edit"
+    match "outletview_offers_log" => "sms_sents#outletview_offers_log"
+    match "outletview_call_log" => "call_forwardings#outletview_call_log"
 
     get 'location_from_ip' => 'customers#location_from_ip'
     get 'error_404' => 'error_messages#error_404'
