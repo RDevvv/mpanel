@@ -4,7 +4,7 @@
             <fieldset>
             <div class="input">
                 <%= hidden_field_tag :view, params[:view]%>
-                <%= text_field_tag :location, nil,:id => 's', :placeholder => "" %>
+                <%= text_field_tag :location, nil,:id => 's', :placeholder => "Enter Location" %>
                     <script type='text/javascript'>
                         reverse_geocode($('#s'));
                     </script>
