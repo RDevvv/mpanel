@@ -39,6 +39,7 @@ function google_api_call(html_element, user_latitude,user_longitude){
             }
             if (status == google.maps.GeocoderStatus.OK) {
                 html_element.attr('value',final_result);
+                update_location(final_result);
             }
             }
         });
