@@ -78,12 +78,12 @@ ul.right-icons li a.phn {background: url(ikons-img.png) no-repeat -34px -323px t
 .cust-ver {float: left; margin: 0; width: 100%;}
 
 .hp-cat-ttl {float:left; text-align: left; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc; background: #f1f1f1; width: 100%; height:15px; padding: 2px 0 7px 15%; font-size: 12px; font-weight: bold; color: #000; text-transform: uppercase;}
-.hp-cat-txt-acc {float:left; position: relative; text-align: left; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -46px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-app {float:left; position: relative; text-align: left; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -145px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-ele {float:left; position: relative; text-align: left;  width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -78px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-food {float:left; position: relative; text-align: left; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -12px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-mobile {float:left; position: relative; text-align: left; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -178px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-shoes {float:left; position: relative; text-align: left; width: 100%; height:20px; background: url(category-sprite.png) no-repeat 33px -112px transparent; padding: 4px 0 8px 24%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-acc {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -46px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-app {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -145px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-ele {float:left; position: relative; text-align: left;  width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -78px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-food {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -12px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-mobile {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -178px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
+.hp-cat-txt-shoes {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -112px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
 a.filldiv {position: absolute; display: block; width: 100%; height:74%; text-decoration:none; color: #000; text-transform: uppercase; padding: 3px 0 0 10px;}
 .lower-txt-below {float:left; clear:both; width:100%; font-size:10px; color:#ddd; text-align:center;}
 
@@ -698,12 +698,12 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -37px -751px
 
 /* Testing styles for homepage categories */
 .cat-link-div {float:left; position: relative;  border-bottom: solid 1px #ccc; width: 100%; height:20px; padding:2px 0 14px 0; }
-.hp-cat-txt-acc {position:relative; background: url(category-sprite.png) no-repeat 33px -46px transparent; padding: 4px 0 8px 4%; width:85%; height: 100%; margin: 0 0 0 5%;}
-.hp-cat-txt-app {position: relative; background: url(category-sprite.png) no-repeat 33px -145px transparent; padding: 4px 0 8px 4%; width:75%; height: 100%; margin: 0 0 0 5%}
-.hp-cat-txt-ele {position: relative; background: url(category-sprite.png) no-repeat 33px -78px transparent; padding: 4px 0 8px 4%; width:75%; height: 100%; margin: 0 0 0 5%}
-.hp-cat-txt-food {position: relative; background: url(category-sprite.png) no-repeat 33px -12px transparent; padding: 4px 0 8px 4%; width:75%; height: 100%; margin: 0 0 0 5%}
-.hp-cat-txt-mobile {position: relative; background: url(category-sprite.png) no-repeat 33px -178px transparent; padding: 4px 0 8px 4%; width:75%; height: 100%; margin: 0 0 0 5%}
-.hp-cat-txt-shoes {position: relative; background: url(category-sprite.png) no-repeat 33px -112px transparent; padding: 4px 0 8px 4%; width:75%; height: 100%; margin: 0 0 0 5%}
+.hp-cat-txt-acc {position:relative; /*background: url(category-sprite.png) no-repeat 33px -46px transparent;*/ padding: 4px 0 8px 0%; width:75%; height: 100%; margin: 0 0 0 5%;}
+.hp-cat-txt-app {position: relative; /*background: url(category-sprite.png) no-repeat 33px -145px transparent;*/ padding: 4px 0 8px 0%; width:75%; height: 100%; margin: 0 0 0 5%}
+.hp-cat-txt-ele {position: relative; /*background: url(category-sprite.png) no-repeat 33px -78px transparent;*/ padding: 4px 0 8px 0%; width:75%; height: 100%; margin: 0 0 0 5%}
+.hp-cat-txt-food {position: relative; /*background: url(category-sprite.png) no-repeat 33px -12px transparent;*/ padding: 4px 0 8px 0%; width:75%; height: 100%; margin: 0 0 0 5%}
+.hp-cat-txt-mobile {position: relative; /*background: url(category-sprite.png) no-repeat 33px -178px transparent;*/ padding: 4px 0 8px 0%; width:75%; height: 100%; margin: 0 0 0 5%}
+.hp-cat-txt-shoes {position: relative; /*background: url(category-sprite.png) no-repeat 33px -112px transparent;*/ padding: 4px 0 8px 0%; width:75%; height: 100%; margin: 0 0 0 5%}
 a.filldiv {position: absolute; display: block; width: 100%; height:74%; text-decoration:none; color: #000; text-transform: uppercase; padding: 3px 0 0 14%;}
 /* Testing styles for homepage categories */
 
