@@ -1,7 +1,7 @@
 class Merchant::OutletsController <  Merchant::BaseController
   before_filter  :load_account
-	before_filter  :load_account_and_brand, :except => [:outlet_key, :outletview_edit]
-  skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
+	before_filter  :load_account_and_brand#, :except => [:outlet_key, :outletview_edit]
+  #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
 
 	def index
     @outlets = @account_brand.outlets
@@ -87,8 +87,8 @@ class Merchant::OutletsController <  Merchant::BaseController
 
 	def update
     @outlet = @account_brand.outlets.find(params[:id])
-    @area = Area.by_area_name(params[:area_name]).by_pincode(params[:pincode]).first        
-    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name],:pincode=>params[:pincode]) if @area.blank?
+    @area = Area.by_area_name(params[:area_name].squish.titlecase).by_pincode(params[:pincode]).first
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].squish.titlecase,:pincode=>params[:pincode]) if @area.blank?
     if @area.city_id != params[:city_id]
       @area.update_attributes(:city_id=>params[:city_id])
     end    
@@ -142,7 +142,9 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def outletview_edit
-    @outlet = Outlet.where(:outlet_key => params[:outlet_key])
+    @outlet = Outlet.where(:outlet_key => params[:outlet_key]).first
+    @cities = City.order("city_name")
+    @areas =[]
   end
 
 	protected

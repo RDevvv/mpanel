@@ -168,63 +168,66 @@
                 <div id="map-canvas"></div>
             </div>
             <div class="row-fluid">
+              <%= form_for(@outlet, :url=>merchant_account_account_brand_outlet_path(@current_account,@account_brand,@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
                 <div class="span12">
                   <div class="span6">
-                    <div class="lat-dist">Latitude: <%= @outlet.first.latitude %></div>
+                    <div class="lat-dist">Latitude: <%= f.text_field :latitude %></div>
                     <form class="fill-up">
                       <ul class="padded separate-sections">
                       <li class="input">
                         <label class="label-style" for="textinput">Shop #:</label>
                         <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.shop_no  %>
+                          <%= f.text_field :shop_no  %>
                         </div>
                       </li>
                       <li class="input">
                         <label class="label-style" for="textinput">Address</label>
-                        <textarea rows="3" placeholder=""><%= @outlet.first.address %></textarea>
+                        <div class="fill">
+                            <%= f.text_field :address %>
+                        </div>
                       </li>
                       <li class="input">
                         <label class="label-style" for="textinput">Area</label>
                         <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.area.area_name  %>
+                          <%= text_field_tag :area_name,@outlet.area.try(:area_name), :value => @outlet.area.area_name   %>
                         </div>
                       </li>
                       <li class="input">
                         <label class="label-style" for="textinput">City</label>
                         <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.area.city.city_name  %>
+                          <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name,@outlet.area.try(:city_id)), :value => @outlet.area.city.city_name  %>
                         </div>
                       </li>
-                      <li class="input">
-                        <label class="label-style" for="textinput">Pin</label>
-                        <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.area.pincode  %>
-                        </div>
-                      </li>
+                        <li class="input">
+                          <label class="label-style" for="textinput">Pin</label>
+                          <div class="fill">
+                            <%= text_field_tag "pincode",@outlet.area.try(:pincode), :value => @outlet.area.pincode  %>
+                          </div>
+                        </li>
                     </ul>
                   </form>
                   </div>
 
                   <div class="span6">
-                    <div class="lat-dist">Longitude: <%= @outlet.first.longitude %></div>
-                    <form class="fill-up">
+                    <div class="lat-dist">Longitude: <%= f.text_field :longitude %></div>
                       <ul class="padded separate-sections">
+
                       <li class="input">
                         <label class="label-style" for="textinput">Mobile Number</label>
                         <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.mobile_number  %>
+                          <%= f.text_field :mobile_number %>
                         </div>
                       </li>
                       <li class="input">
                         <label class="label-style" for="textinput">Landline Number</label>
                         <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.phone_number  %>
+                          <%= f.text_field :phone_number %>
                         </div>
                       </li>
                       <li class="input">
                         <label class="label-style" for="textinput">Email</label>
                         <div class="fill">
-                          <%= text_field_tag "outlet", @outlet.first.email_id  %>
+                          <%= f.text_field :email_id %>
                         </div>
                       </li>
                       <li class="input">
@@ -238,9 +241,9 @@
                         </div>
                       </li>
                     </ul>
-                  </form>
                   </div>
                 </div>
+              <%end%>
             </div>
         </div>
         <div id="backtotop">
