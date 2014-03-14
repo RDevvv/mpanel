@@ -4,8 +4,8 @@
       <meta charset="utf-8">
         <title>GullakMaster - Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-        <link rel="stylesheet" href="assets/bootstrap.css"  type="text/css"/>
-        <link rel="stylesheet" href="assets/mobile-css-styles.css">
+        <%= stylesheet_link_tag "bootstrap.css"  %>
+        <%= stylesheet_link_tag "mobile-css-styles.css" %>
         <!-- jQuery -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <!-- jQuery Plugin -->
@@ -32,12 +32,12 @@
     <body>
       <!-- Preloader -->
       <div id="spinner"></div>
-      <img src="assets/ajax-loader.gif" id="loading-indicator" style="display:none" />
+      <%= image_tag("ajax-loader.gif", :id=> "loading-indicator", :style=> "display:none") %>
 
       <div align="center" class="container-home">
         <div class="row-fluid">
           <div class="span12">
-            <div class="logo"><a href="#"><img src="assets/gullak-logo-main.jpg" border="0" /></a></div>
+            <div class="logo"><a href="#"><%= image_tag("gullak-logo-main.jpg", :border=> 0) %></a></div>
             <div class="sub-txt2">View Outlet Details</div>
           </div>
 
@@ -46,7 +46,7 @@
               <span class="input-group-addon"></span>
               <div class="form-control">
                 <%= form_tag(outletview_edit_merchant_account_account_brand_outlets_path, :method => "post") do %>
-                    <%= text_field_tag(:outlet_key, value = nil, options = {:size => "200", :placeholder => "Enter 8 digit key..."}) %>
+                    <%= text_field_tag(:outlet_key, value = nil, options = {:size => "200", :placeholder => "Enter 6 digit key..."}) %>
                 <% end %>
               </div>
             </div>

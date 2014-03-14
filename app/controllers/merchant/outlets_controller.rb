@@ -138,10 +138,11 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def outlet_key
-
+    render layout: "home_index"
   end
 
   def outletview_edit
+    render layout: "home_index"
     @outlet = Outlet.where(:outlet_key => params[:outlet_key]).first
     @cities = City.order("city_name")
     @areas =[]
