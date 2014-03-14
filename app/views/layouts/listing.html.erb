@@ -98,12 +98,6 @@
 
     <nav id="menu">
         <ul>
-            <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
-            <li class="subcat">Sort by:</li>
-            <li><%= link_to "Distance", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'distance', :view => params[:view]} %></li>
-            <li><%= link_to "Expiry date", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_expiry_date', :view => params[:view]} %></li>
-            <li><%= link_to "Hot picks", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li>&nbsp;</li>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
             <%= form_tag :outlet_search, :method => 'GET', :id => 'searchForm' do |f|  %>
@@ -117,17 +111,17 @@
                 </div>
                 <div class="example-text">e.g: coffee, bags, shirts, eyewear</div>
             </fieldset>
-        <% end %>
+            <% end %>
             </li>
-
-            <li><%= link_to "Accessories", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Accessories', :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li><%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Apparels', :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li><%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Electronics', :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li><%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Food', :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li><%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Mobile', :filter => 'ad_usage', :view => params[:view]} %></li>
-            <li><%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => 'Shoes', :filter => 'ad_usage', :view => params[:view]} %></li>
-
-            <li class="subcat" style="float:left; margin:7% 0 0 -8%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
+            <li>&nbsp;</li>
+            <li class="subcat">Sort by:</li>
+            <li><%= link_to "Distance", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'distance', :view => params[:view]} %></li>
+            <li><%= link_to "Expiry date", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_expiry_date', :view => params[:view]} %></li>
+            <li><%= link_to "Hot picks", {:controller => 'home', :action => action_name, :location => params[:location], :latitude => params[:latitude], :longitude => params[:longitude], :search => params[:search], :filter => 'ad_usage', :view => params[:view]} %></li>
+            <li>&nbsp;</li>
+            
+            <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+            <li class="subcat" style="float:left; margin:-3% 0 0 -8%;"><%= link_to 'Provide Feedback', :new_customer_feedback%></li>
         </ul>
     </nav>
 </div>

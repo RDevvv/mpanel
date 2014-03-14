@@ -3,7 +3,7 @@ function map_initializer(locations, user_location){
     var user_position = new google.maps.LatLng(user_location[0], user_location[1]);
     var ascii_letter = 64;
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+        zoom: 13,
         center: new google.maps.LatLng(locations[0][0], locations[0][1]),
         mapTypeControl: false,
         zoomControl: false,
@@ -43,7 +43,7 @@ function map_initializer(locations, user_location){
         fillOpacity: 0.15,
         map: map,
         center: user_position,
-        radius: 5000
+        radius: 3000
     };
     // Add the circle for this city to the map.
     cityCircle = new google.maps.Circle(populationOptions);
