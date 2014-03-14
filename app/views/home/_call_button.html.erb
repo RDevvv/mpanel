@@ -1,10 +1,10 @@
 <% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
-    <div class="btn190">
     <% if check_if_verified(cookies[:customer_uuid])==1 %>
-        <a class="call button_call2" href="tel:09223584822">CALL</a>
+        <a class="call button_call2" href="tel:09223584822">&nbsp;</a>
     <% else %>
-        <a class="call button_call2" href='#' >CALL</a>
+        <a class="call button_call2" href='#' >&nbsp;</a>
     <% end %>
-    </div>
+<% else %>
+	<a class="button_call_grey" href='#' >&nbsp;</a>
 <% end %>
 
