@@ -2,7 +2,7 @@ function track(element) {
     if($(element).closest('div[class="bdiv"]').length>0)
         box_element   = $(element).closest('div[class="bdiv"]');
     else
-        box_element   = $(element).closest('div[class="bdiv2"]');
+        box_element   = $(element).closest('div[class="bdiv"]');
 
     customer_uuid = $.cookie("customer_uuid");
     button_class  = $(element).attr("class").split(" ")[0];
