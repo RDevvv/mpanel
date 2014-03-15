@@ -2,7 +2,7 @@ function send_ad(customer_uuid, element)
 {
     closest_search_pattern = 'div[class="bdiv"]'
     if(window.location.href.search('map')>1){
-        closest_search_pattern = 'div[class="bdiv2"]'
+        closest_search_pattern = 'div[class="bdiv"]'
     }
     if($.cookie("mobile_number")=='verified'){
         customer_uuid = $.cookie("customer_uuid");
@@ -38,6 +38,7 @@ function send_ad(customer_uuid, element)
                     closer_hover: false,
                     animate_speed: 'fast',
                     icon: false,
+                    addclass: 'stack-topleft',
                     opacity: .9
                 });
         })
