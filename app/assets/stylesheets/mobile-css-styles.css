@@ -383,7 +383,7 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(ikons-img.png) no-repeat -15px -985px transparent; width:87px; height: 17px; margin: 2px -7px 0 0; border: none;}
-.bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px;}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 100%; height:100%;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
@@ -539,7 +539,7 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(ikons-img.png) no-repeat -15px -985px transparent; width:87px; height: 17px; margin: 2px -7px 0 0; border: none;}
-.bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px; /*width:100%; height: auto;*/}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 100%; height:100%;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
@@ -681,7 +681,7 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(ikons-img.png) no-repeat -15px -985px transparent; width:87px; height: 17px; margin: 2px -7px 0 0; border: none;}
-.bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px; /*width:100%; height: auto;*/}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 100%; height:100%;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
@@ -807,7 +807,7 @@ footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-f
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(ikons-img.png) no-repeat -15px -985px transparent; width:87px; height: 17px; margin: 2px -7px 0 0; border: none;}
-.bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px; /*width:100%; height: auto;*/}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 100%; height:100%;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
@@ -938,7 +938,7 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(ikons-img.png) no-repeat -15px -985px transparent; width:87px; height: 17px; margin: 2px -7px 0 0; border: none;}
-.bbox .brandlogo {clear:both; width:100%; height: auto; margin: 10px auto;}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 100%; height:100%;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto;/*display: none;*/  /*width: 85px; height:85px;*/ border: none;}
 
 .rch-btns-div {float:right; width:auto; height: 48px; position: absolute; right: 6px; top:26px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
@@ -1115,7 +1115,7 @@ footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-f
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .catitle{float:left; width: 102%; margin: 0; font-weight:bold; font-size:90%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 .bbox .eye2 {float:right; border: none; background: url(ikons-img.png) no-repeat -15px -985px transparent; width:87px; height: 17px; margin: 2px -7px 0 0; border: none;}
-.bbox .brandlogo {clear:both; margin: 10px auto; width: 108px; height:108px; border:solid 1px #000; /*width:100%; height: auto;*/}
+.bbox .brandlogo {clear:both; margin: 10px auto; width: 100%; height:100%;}
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .bbox2 { float: left;  height: auto; margin: 0; width: 135px; position:relative;}
