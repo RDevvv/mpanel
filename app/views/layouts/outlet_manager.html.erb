@@ -1,92 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Deals At Your Fingertips!</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <meta name="title" content="Deals At Your Fingertips!"/>
-  <meta name="description" content="Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!"/>
-  <meta name="keywords" content="deals, offers, discounts" />
-
-  <!-- Facebook -->
-  <meta property="og:title" content="Deals At Your Fingertips!" >
-  <meta property="og:site_name" content = "GullakMaster"
-  <meta property="og:url" content="http://m.gullakmaster.com">
-  <meta property="og:description" content="Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!" >
-  <meta property="og:image" content="http://gullakmaster.com/assets/desktop/Screenshots_1200x600.jpg" >
-
-  <!--Google+ -->
-  <meta itemprop="name" content="Deals At Your Fingertips!">
-  <meta itemprop="description" content="Shopping just got better. Identify yoShopping just got better.ur location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!">
-  <meta itemprop="image" content="http://gullakmaster.com/assets/desktop/Screenshots_1200x600.jpg">
-
-  <!-- Twitter-->
-  <meta name="twitter:card" content="summary_large_image" >
-  <meta name="twitter:site" content="@GullakMaster">
-  <meta name="twitter:title" content="Deals At Your Fingertips!" >
-  <meta name="twitter:image:src" content="http://gullakmaster.com/assets/desktop/Screenshots_1200x600.jpg" >
-  <meta name="twitter:description" content="Shopping just got better. Identify your location to GullakMaster and discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... You can locate the stores on a map and even call the store directly. Save time, energy, and money at the click of a button. Happy shopping you'al!" >
-  <!-- Generic -->
-  <meta content='noodp,noydir' name='robots'>
-  <%= csrf_meta_tags %>
-
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-  <meta name="google-site-verification" content="6KCSb-J4p66lptPejAKOvmofL_BWU2s_qk9m6ugFvK8" />
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-47902288-1', 'gullakmaster.com');
-      ga('send', 'pageview');
-  </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
   <%= stylesheet_link_tag "outlet_manager", :media => "all" %>
   <%= javascript_include_tag "outlet_manager" %>
-  <%= favicon_link_tag "favicon.ico" %>
-
-  <script type="text/javascript">
-      (function() {
-          if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
-              var msViewportStyle = document.createElement("style");
-              msViewportStyle.appendChild(
-                      document.createTextNode("@-ms-viewport{width:auto!important}")
-              );
-              document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-          }
-      })();
-  </script>
-
-  <!-- Preloader -->
-  <script type="text/javascript">// <![CDATA[
-  $(window).load(function() { $("#spinner").fadeOut("slow"); })
-  // ]]>
-  </script>
-  <!-- Preloader -->
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
-  <!-- jQuery Plugin -->
-<%#= javascript_include_tag :defaults %>
-  <style type="text/css">
-      html, body {width: 100%; overflow-x: hidden;}
-  </style>
 
 </head>
 <body>
-<!-- Preloader -->
-<%= bootstrap_flash %>
+
 <%= yield %>
-<script type="text/javascript">
-    $(function() {
-        $('nav#menu').mmenu();
-    });
-</script>
 
 </body>
 </html>
