@@ -1,7 +1,7 @@
 function display_ad(element){
     closest_search_pattern = 'div[class="bdiv"]'
     if(window.location.href.search('map')>1){
-        closest_search_pattern = 'div[class="bdiv"]'
+        closest_search_pattern = 'div[class="pin-add-div"]'
     }
     customer_uuid = $.cookie("customer_uuid");
     ad_id         = $(element).closest(closest_search_pattern).attr("ad_id");
@@ -10,10 +10,10 @@ function display_ad(element){
     $.ajax({
         url: '/ad_details/'+ad_id+'.json'
     }).success(function show_ad(data){
-        $.pnotify({ title: data['brand_name']+" - "+data['title'], text: data['sms_text'], 
+        $.pnotify({ title: data['brand_name']+" - "+data['title'], text: data['sms_text'],
         closer_hover: false,
         sticker_hover: false,
-        animate_speed: 'fast', 
+        animate_speed: 'fast',
         icon: false,
         addclass: 'stack-topleft',
         opacity: .9
