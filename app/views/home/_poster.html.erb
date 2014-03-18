@@ -1,59 +1,67 @@
-<div class="bdiv" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:ad_id] %>" ad_id="<%= poster[:ad_id] %>">
-    <div class="bbox">
-        <div class="brandtitle">
-            <%= get_brand_title(poster[:brand_name]) %>
-        </div>
-        
-        <div class="distance-div"><%= poster[:distance].to_f.round(2) %> km</div>
-        <% if poster[:ad_expiry_date] > Date.today+50.years%>
-            <% else %>
-                <div class="distance-div-below2">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
-            <% end %>
-            <% unless poster[:ad_is_exclusive].blank? %>
-            <div class="eye2"></div>
-            <% end %>
-            <div align="center" class="brandlogo">
-                <%= get_brand_image(poster[:brand]) %>
-            </div>
-        
-            
-            <div class="rch-btns-div3">
-                <ul>
-                <% if poster[:ad_id] ==0 %>
-                    <li> <div class="button_no_offer">&nbsp;</div> </li>
-                <% else %>
-                    <li> <a class="button_view">&nbsp;</a></li>
+        <li class="mix bsc span12" data-outlet="<%= poster[:outlet_id] %>">
+            <div class="bdiv" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>">
+                <div class="bbox">
+                    <div class="brandtitle">
+                        <%= get_brand_title(poster[:brand_name]) %>
+                    </div>
+                
+                <% unless poster[:ad_is_exclusive].blank? %>
+                    <div class="eye2"></div>
                 <% end %>
-                <li><% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
-                <% end %>
-                <%= render :partial => 'call_button', :locals => {:poster => poster}%>
-                </li>
-                <li>
-                <a class="address button_map2" onclick="$.pnotify({
-                    title: '<%= poster[:brand_name].gsub("'",'&rsquo;')%> - Address',
-                    text: '<%= h "#{poster[:poster_address]}" %>',
-                    closer_hover: false,
-                    sticker_hover: false,
-                    animate_speed: 'fast',
-                    icon: false,
-                    addclass: 'stack-topleft',
-                    opacity: .9
-                    });" >&nbsp;</a>
-                </li>
-                </ul>
-            </div>
-        <div class="lower-box">
-            <% if poster[:ad_usage] == -1 %>
-                <div class="report-offer"><%= link_to 'Report an Offer', "mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brareport-offernd: #{poster[:brand_name]} %0A Offer Details: %0A Expiry Date: %0A Address: #{poster[:poster_address]}" %>
+                
+                <div align="center" class="brandlogo">
+                    <%= get_brand_image(poster[:brand]) %>
                 </div>
-            <% else %>
-            <div class="like"><a class="ad_request button_offer">&nbsp;</a></div>
-            <a class="share" >
-                <div class="refr2"></div>
-                <!--<div class="refr2txt">Share</div>-->
-            </a>
-                <p><%= poster[:ad_usage] %></p>
-            <% end %>
+                
+                    
+                    <hr style="width:100%; margin:2px 0;">
+                    <div class="lower-box">
+                    <% if poster[:ad_usage] == -1 %>
+                        <div class="report-offer"><%= link_to 'Report an Offer', "mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brareport-offernd: #{poster[:brand_name]} %0A Offer Details: %0A Expiry Date: %0A Address: #{poster[:poster_address]}" %>
+                        </div>
+                    <% else %>
+                    <div class="like"><a class="ad_request button_offer">&nbsp;</a></div>
+                    <a class="share" >
+                        <div class="refr2"></div>
+                        <!--<div class="refr2txt">Share</div>-->
+                    </a>
+                        <p><%= poster[:ad_usage] %></p>
+                    <% end %>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+        <div class="pin-add-div" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>">
+
+            <div class="rch-btns-div4">
+                        <ul>
+                        <li class="lft"><% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
+                        <% end %>
+                        <%= render :partial => 'call_button', :locals => {:poster => poster}%>
+                        </li>
+                        <% if poster[:ad_id] ==0 %>
+                            <li class="rht"> <div class="button_no_offer">&nbsp;</div> </li>
+                        <% else %>
+                            <li class="rht"> <a class="button_view">&nbsp;</a></li>
+                        <% end %>
+                        </ul>
+            </div>
+
+
+            <div class="distance-div"><%= poster[:distance].to_f.round(2) %> km</div>
+                <% if poster[:ad_expiry_date] > Date.today+50.years%>
+                    <% else %>
+                        <div class="distance-div-below2">Ends: <%= poster[:ad_expiry_date].strftime('%d/%m') %></div>
+                    <% end %>
+            
+            <div class="add-box">
+                <div class="adtitle1"><b>Address:</b></div>
+                <div class="adaddress">
+                    <%= poster[:shop_no] %>
+                    <%= poster[:address] %>
+                </div>
+                <div class="adloc"><%= poster[:area_name] %><br/>
+                    <%= poster[:city_name] %> <%= poster[:pincode] %></div>
+                </div>
+            </div>
+        </li>
