@@ -218,12 +218,12 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 /*  Location homepage styles  */
 
 /* Search Box styles */
-.search-div3 {margin:5px 0 5px 3px; width:100%;}
+.search-div3 {float:left; margin:5px 0 5px 3px; width:100%;}
 
 
 /* Second Search styleset */
 #searchForm {width:auto;}
-#searchForm fieldset {width:240px; position:relative; display:block;}
+#searchForm fieldset {/*width:240px;*/ width:100%; position:relative; display:block;}
 
 div.input {width:290px; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db;
     border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08); float:left; margin: 0 0 0 16px;
@@ -680,7 +680,7 @@ ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: -3px;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
 
-.bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; /*height: 216px;*/ margin: 5px 3%; width: 135px; position:relative;}
+.bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; margin: 5px 1.5%; width: 135px; position:relative;}
 .bdiv2 {border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.7%; height: 197px; /*margin: 5px 0.5%;*/ width: 135px; position:relative;}
 
 .bbox { float: left; height:auto; margin: 0; width: 135px; position:relative;}
@@ -790,7 +790,7 @@ position:relative; left:1px; display:inline-block; width:25px; height:24px; back
 .like {float:left; margin:0;}
 
 
-.pin-add-div {float:left; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
+.pin-add-div {float:right; width:140px; height:auto; padding:2px 0; margin:5px 2.6%;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px; padding: 0 2px 0 1px; text-align: center; width: 24px;}
@@ -909,12 +909,12 @@ position:relative; background: url(ikons-img.png) no-repeat -58px -945px transpa
   .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }
   .head-brand {margin:4px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 40%; color: #fff; /*position: absolute; top: 3px;*/}
  
-.pin-add-div {float:left; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
+.pin-add-div {float:right; width:140px; height:auto; margin:5px 0 0 0; padding:2px 0; /*margin:5px 0 0 0; float:left;*/}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px; padding: 0 2px 0 1px; text-align: center; width: 24px;}
 
-div.input {width:395px; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0; background:#fff !important;}
+div.input {/*width:395px;*/ width:90%; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0; background:#fff !important;}
   .tl-1 {text-align: left !important;}
 
   #go { margin: 0 auto; width: 200px; }
