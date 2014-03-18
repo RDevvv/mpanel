@@ -21,16 +21,10 @@ html {
 body {font-family: Tahoma, Arial, Helvetica, sans-serif;}
 /*body > div { -webkit-transition: all 1s ease-in-out; }*/
 header, #header {width:100%; background-color:#f08b38; height: 42px; margin:0 auto;}
-header .logo {float:left; margin:15px 0 0 10px; border:none;}
-header .btn-div {float:right; margin: 92px 10px 0 0; border: none;}
-header .back-btn {float: left; margin: 11px 0 0 10px; border: none;}
 
-.head {float:left; margin: 8px 0 0 10px; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 100%; color: #fff;}
-.head-brand {margin:6px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 100%; position: absolute; top: 3px; left: 35%; color: #fff; } /*text-align: center;  color: #fff;}
 /* Sprite image locations */
 
 /* Sprite image locations */
-.right-txt {border-bottom:solid 1px #fff; padding:3px 0 3px 15px; font-weight:bold;}
 
 ul.left-icons {float:left; position: relative; margin:5px 9px 4px; width:auto; height: auto;}
 ul.left-icons li {float:left;  margin:0 39px; border-right: none; list-style: none;}
@@ -309,6 +303,9 @@ ul.right-icons li {float:left; margin:0 4px 0 3px; border-right: none; list-styl
 ul.right-icons li a.shr {background: url(ikons-img.png) no-repeat -499px -748px transparent; padding: 12px 8px 6px 20px; width:auto; height:auto;}
 ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px transparent;  padding: 13px 8px 6px 20px; width:auto; height:auto;}
 
+.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 21px; left: 36%; color: #fff;} 
+.head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
+
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:11px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
 
@@ -412,7 +409,7 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
-.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff; } 
+.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 21px; left: 36%; color: #fff; } 
 .head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
 
 input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidden; background:url(search-icon.png) no-repeat;
@@ -570,7 +567,7 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
-.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff; } 
+.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 21px; left: 36%; color: #fff; } 
 .head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
 
 input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidden; background:url(search-icon.png) no-repeat;
@@ -714,9 +711,6 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
-.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff; } 
-.head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
-
 input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidden; background:url(search-icon.png) no-repeat;
     border:0; position:absolute; top:9px; right:32px; z-index:5; display:none; cursor:pointer;
 }
@@ -727,9 +721,12 @@ input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidde
   .container-location {/*border:solid 1px #000; background-color:#f7f7f7;*/background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
   .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }
   .search-div {margin: 10px 0 0 20px; width:auto;}
-  div.input {width:235px; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0;
-    background:#fff !important;
-  }
+
+#searchForm {width:auto;}
+#searchForm fieldset {width:100%; position:relative; display:block;}
+  
+div.input {width:73%; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0;
+    background:#fff !important;}
 .tl-1 {text-align: left !important;}
 
 #go { margin: 0 auto; width: 200px; }
@@ -774,7 +771,7 @@ background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; w
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
 
 .button_view{
-background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0; width:24px; height:24px;
+background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0 3px 0 0; width:24px; height:24px;
 display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 
 .button_offer{
@@ -789,6 +786,8 @@ position:relative; left:1px; display:inline-block; width:25px; height:24px; back
 
 .like {float:left; margin:0;}
 
+.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 21px; left: 36%; color: #fff; } 
+.head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
 
 .pin-add-div {float:right; width:140px; height:auto; padding:2px 0; margin:5px 2.6%;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
@@ -808,7 +807,8 @@ position:relative; left:1px; display:inline-block; width:25px; height:24px; back
 @media screen and (orientation:landscape) {
    /* Landscape styles here */
 footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
-.bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; margin: 5px 2.2%; width: 135px; position:relative;}
+.bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; margin: 5px 0 5px 20%; width: 135px; position:relative;}
+/*.bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; margin: 5px 2.2%; width: 135px; position:relative;}*/
 .bdiv2 {border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.2%; height: 218px; /*margin: 5px 0.5%;*/ width: 135px; position:relative;}
 
 .bbox { float: left; height:auto; margin: 0; width: 135px; position:relative;}
@@ -842,7 +842,7 @@ footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-f
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
-.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 36%; color: #fff;}
+.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 21px; left: 36%; color: #fff;}
 .head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
 
 ul.left-icons {float:left; position: relative; margin:6px 9px 4px; width:auto; height: auto; /*border:solid 1px #000;*/}
@@ -906,10 +906,9 @@ position:relative; background: url(ikons-img.png) no-repeat -58px -945px transpa
   .bsc {float:left; clear: both;}
   .container {background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
   .container-location {/*border:solid 1px #000; background-color:#f7f7f7;*/background-color:#ffffff; clear:both; width: 100%; margin: 0 auto; }
-  .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }
-  .head-brand {margin:4px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 40%; color: #fff; /*position: absolute; top: 3px;*/}
+  .container-search {/*border:solid 1px #000;*/background-color:#fff; clear:both; width: 100%; margin: 0 auto; }  
  
-.pin-add-div {float:right; width:140px; height:auto; margin:5px 0 0 0; padding:2px 0; /*margin:5px 0 0 0; float:left;*/}
+.pin-add-div {float:right; width:140px; height:auto; margin:5px 20% 0 0; padding:2px 0; /*margin:5px 0 0 0; margin:5px 0 0 0; float:left;*/}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px; padding: 0 2px 0 1px; text-align: center; width: 24px;}
@@ -1159,7 +1158,7 @@ height: 30px; position: absolute; top:5px; left: -3px;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
 
 .map {width: 100%; height: 220px; /*height: 209px;*/}
-.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 45%; color: #fff; } 
+.head-brand {margin:3px 0 0 0; padding:8px 0 0 0; font-family:'pittorifamosiregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: normal; font-size: 16px; left: 45%; color: #fff; } 
 .head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {color: #ffffff; text-decoration: none;}
 
 ul.right-icons {float:right; /*right:1px;*/  margin:15px 0 4px 0; width:auto; height: auto; position: relative;}
