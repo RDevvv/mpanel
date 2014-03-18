@@ -31,4 +31,6 @@
 .pagination ul li {float:left; display:inline;}
 .pagination ul li.page {display:inline;}
 
+body.active_admin form input[type=submit] {float:right; margin:-31px 114px 0 0;}
+
 //body.active_admin form input[type=submit]{float:right; margin:0 3px;}
