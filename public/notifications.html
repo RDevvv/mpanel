@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+  <head>
+   <meta charset="utf-8">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+	<link href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css" />
+	<link href="/assets/jquery.pnotify.default.css?body=1" media="all" rel="stylesheet" type="text/css" />
+	<link href="/assets/jquery.pnotify.default.icons.css?body=1" media="all" rel="stylesheet" type="text/css" />
+	<link href="/assets/mobile-css-styles.css?body=1" media="all" rel="stylesheet" type="text/css" />
+	<link href="/assets/jquery.mmenu.css?body=1" media="all" rel="stylesheet" type="text/css" />
+
+	<script src="/assets/jquery.pnotify.min.js?body=1" type="text/javascript"></script>
+	<script src="/assets/jquery.mmenu.js?body=1" type="text/javascript"></script>
+    <title>Notifications</title>
+    </head>
+<body>
+<div id="header">
+    <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
+    <ul class="left-icons">
+        <li><a href="#menu" class="srchlink3"></a></li>
+        <li><a href="#" class="notification"></a></li>
+    </ul>
+    <div class="head-brand"><a href="/">GullakMaster</a></div>
+    <ul class="right-icons">
+        <li><a href="#" class="new_top_share shr" onclick="$('#popup_share').modal('show'); update_top_share_url($(this))"></a></li>
+        <li><a href="/outlet_listing?latitude=0&amp;location=bandra&amp;longitude=0&amp;view=map_listing" class="loc"></a></li>
+    </ul>
+
+    <nav id="menu">
+        <ul>
+            <li class="subcat">Filter by:</li>
+            <li style="margin-top:10px;">
+            <form accept-charset="UTF-8" action="/outlet_search" id="searchForm" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                <fieldset>
+                <div class="input3">
+                    <input id="location" name="location" type="hidden" value="bandra" />
+                    <input id="latitude" name="latitude" type="hidden" value="0" />
+                    <input id="longitude" name="longitude" type="hidden" value="0" />
+                    <input id="view" name="view" type="hidden" value="outlet_listing" />
+                    <input id="s3" name="search" placeholder="Enter Category..." type="text" />
+                </div>
+                <div class="example-text">e.g: coffee, bags, shirts, eyewear</div>
+            </fieldset>
+</form>            </li>
+            <li>&nbsp;</li>
+            <li class="subcat">Sort by:</li>
+            <li><a href="/outlet_listing?filter=distance&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;view=outlet_listing">Distance</a></li>
+            <li><a href="/outlet_listing?filter=ad_expiry_date&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;view=outlet_listing">Expiry date</a></li>
+            <li><a href="/outlet_listing?filter=ad_usage&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;view=outlet_listing">Hot picks</a></li>
+            <li>&nbsp;</li>
+            
+            <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+            <li class="subcat" style="float:left; margin:-3% 0 0 -8%;"><a href="/customer_feedbacks/new">Provide Feedback</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container-location">
+    <div class="row-fluid">
+        <div class="span12">
+
+        </div>
+        <div class="span12">
+          <li class="mix bsc span12" data-outlet="6815">
+            <div class="bdiv" outlet_id="6815" id="6815" ad_id="186">
+                <div class="bbox">
+                    <div class="brandtitle">
+                        KFC
+                    </div>
+                    <div class="eye2">&nbsp;</div>
+                
+                    <div align="center" class="brandlogo">
+                        <img alt="Kfc" class="img-responsive" src="/uploads/attachment/image/81/KFC.jpg" />
+                    </div>
+                    <div class="notification_strip"></div>
+                    <hr style="width:100%; margin:2px 0;">
+                    <div class="lower-box">
+                        <div class="like"><a class="ad_request button_offer">&nbsp;</a></div>
+                        <a class="share" >
+                            <div class="refr2"></div>
+                        </a>
+                        <p>179</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-add-div" outlet_id="6815" id="6815" ad_id="186">
+                <div class="rch-btns-div4">
+                  <ul>
+                    <li><div class="pin-box">&nbsp;</div></li>
+                    <li> <a class="button_call_grey" href='#' >&nbsp;</a></li>
+                    <li> <a class="button_view_address">&nbsp;</a></li>
+                  </ul>
+                </div>
+
+                <div class="distance-div">0.0 km</div>
+                <div class="distance-div-below2">Ends: 31/03</div>
+            
+                <div class="add-box">
+                    <div class="adtitle1"><b>Offer details:</b></div>
+                    <div class="adaddress">
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </div>
+                    <div class="promo">Promocode:</div>
+                    <div class="promocode">xxxxxxxxxxx</div>
+                    </div>
+                </div>
+            </li>
+        </div>
+
+        <div class="span12">
+          <li class="mix bsc span12" data-outlet="6815">
+            <div class="bdiv" outlet_id="6815" id="6815" ad_id="186">
+                <div class="bbox">
+                    <div class="brandtitle">
+                        KFC
+                    </div>
+                    <div class="eye2">&nbsp;</div>
+                
+                    <div align="center" class="brandlogo">
+                        <img alt="Kfc" class="img-responsive" src="/uploads/attachment/image/81/KFC.jpg" />
+                    </div>
+                    <div class="liked_offer_strip"></div>
+                    <hr style="width:100%; margin:2px 0; clear:both;">
+                    <div class="lower-box">
+                        <div class="like"><a class="ad_request button_liked_offer">&nbsp;</a></div>
+                        <a class="share" >
+                            <div class="refr2"></div>
+                        </a>
+                        <p>179</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-add-div" outlet_id="6815" id="6815" ad_id="186">
+                <div class="rch-btns-div4">
+                  <ul>
+                    <li><div class="pin-box">&nbsp;</div></li>
+                    <li> <a class="button_call_grey" href='#' >&nbsp;</a></li>
+                    <li> <a class="button_view_address">&nbsp;</a></li>
+                  </ul>
+                </div>
+
+                <div class="distance-div">0.0 km</div>
+                <div class="distance-div-below2">Ends: 31/03</div>
+            
+                <div class="add-box">
+                    <div class="adtitle1"><b>Offer details:</b></div>
+                    <div class="adaddress">
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </div>
+                    <div class="promo">Promocode:</div>
+                    <div class="promocode">xxxxxxxxxxx</div>
+                    </div>
+                </div>
+            </li>
+        </div>
+
+        <div class="span12">
+          <li class="mix bsc span12" data-outlet="6815">
+            <div class="bdiv" outlet_id="6815" id="6815" ad_id="186">
+                <div class="bbox">
+                    <div class="brandtitle">
+                        KFC
+                    </div>
+                    <div class="eye2">&nbsp;</div>
+                
+                    <div align="center" class="brandlogo">
+                        <img alt="Kfc" class="img-responsive" src="/uploads/attachment/image/81/KFC.jpg" />
+                    </div>
+                    <div class="notification_strip"></div>
+                    <hr style="width:100%; margin:2px 0;">
+                    <div class="lower-box">
+                        <div class="like"><a class="ad_request button_offer">&nbsp;</a></div>
+                        <a class="share" >
+                            <div class="refr2"></div>
+                        </a>
+                        <p>179</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-add-div" outlet_id="6815" id="6815" ad_id="186">
+                <div class="rch-btns-div4">
+                  <ul>
+                    <li><div class="pin-box">&nbsp;</div></li>
+                    <li> <a class="button_call_grey" href='#' >&nbsp;</a></li>
+                    <li> <a class="button_view_address">&nbsp;</a></li>
+                  </ul>
+                </div>
+
+                <div class="distance-div">0.0 km</div>
+                <div class="distance-div-below2">Ends: 31/03</div>
+            
+                <div class="add-box">
+                    <div class="adtitle1"><b>Offer details:</b></div>
+                    <div class="adaddress">
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </div>
+                    <div class="promo">Promocode:</div>
+                    <div class="promocode">xxxxxxxxxxx</div>
+                    </div>
+                </div>
+            </li>
+        </div>
+
+        <div class="span12">
+          <li class="mix bsc span12" data-outlet="6815">
+            <div class="bdiv" outlet_id="6815" id="6815" ad_id="186">
+                <div class="bbox">
+                    <div class="brandtitle">
+                        KFC
+                    </div>
+                    <div class="eye2">&nbsp;</div>
+                
+                    <div align="center" class="brandlogo">
+                        <img alt="Kfc" class="img-responsive" src="/uploads/attachment/image/81/KFC.jpg" />
+                    </div>
+                    <div class="notification_strip"></div>
+                    <hr style="width:100%; margin:2px 0;">
+                    <div class="lower-box">
+                        <div class="like"><a class="ad_request button_offer">&nbsp;</a></div>
+                        <a class="share" >
+                            <div class="refr2"></div>
+                        </a>
+                        <p>179</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin-add-div" outlet_id="6815" id="6815" ad_id="186">
+                <div class="rch-btns-div4">
+                  <ul>
+                    <li><div class="pin-box">&nbsp;</div></li>
+                    <li> <a class="button_call_grey" href='#' >&nbsp;</a></li>
+                    <li> <a class="button_view_address">&nbsp;</a></li>
+                  </ul>
+                </div>
+
+                <div class="distance-div">0.0 km</div>
+                <div class="distance-div-below2">Ends: 31/03</div>
+            
+                <div class="add-box">
+                    <div class="adtitle1"><b>Offer details:</b></div>
+                    <div class="adaddress">
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </div>
+                    <div class="promo">Promocode:</div>
+                    <div class="promocode">xxxxxxxxxxx</div>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>
+
+</div>
+<footer>GullakMaster &copy; 2014</footer>
+
+<div id="backtotop">
+    <a href="#">
+        <img alt="Back to TOP" src="/assets/back_to_top_btn-3.png" />
+    </a>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+        $('nav#menu').mmenu();
+        modal_submit();
+        verification_modal_submit();
+        get_backtotop_button();
+        mobile_number_verification();
+        facebook_share_binding();
+        bind_tracking();
+        bind_send_ad();
+        bind_display_ad();
+        enable_submit($('#s'),$('#submitbutton'));
+        })
+</script>
+</body>
+    </html>

@@ -94,6 +94,8 @@ a.filldiv {position: absolute; display: block; width: 100%; height:74%; text-dec
 .add-box .adtitle1 {float: left; text-align: left; text-decoration: underline; font-weight:bold;}
 .add-box .adaddress {float: left; text-align: left; word-wrap:break-word; width: 100%; display: block; clear: both; margin: 1px 0 0 0; line-height: 14px; }
 .add-box .adloc {float: left; text-align: left; width: 100%; display: block; clear: both; font-weight:normal; margin: 5px 0 0 0; line-height: 15px;}
+.add-box .promo {float: left; text-align: left; width: 100%; display: block; clear: both; font-weight:bold; margin: 5px 0 0 0; line-height: 15px;}
+.add-box .promocode {float: left; clear:both; text-align: left; width: 100%; display: block; clear: both; font-weight:normal; margin: 5px 0 0 0; line-height: 4px;}
 .rch-btns-div {position: absolute; width: 45px; height: auto; right: -4px; bottom: 24px;}
 .rch-btns-div .btn190{float:left; clear: both; margin: -5px 0 8px;}
 .rch-btns-div2 {position: absolute; width: 45px; height: auto; right: -4px; bottom: 17px;}
@@ -299,6 +301,10 @@ ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: -3px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
 
+ul.left-icons li a.notification{
+height: 30px; position: absolute; top:3px; left: 43px; z-index: 1000;
+background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 11px 14px 18px; width:auto; height:auto;}
+
 .map {width: 100%; height: 220px; /*height: 209px;*/}
 
 ul.right-icons {float:right; width:auto; height: auto; position: relative; bottom: 15px;}
@@ -325,11 +331,16 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
+
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px;}
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
@@ -339,10 +350,17 @@ background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0; wi
 display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}  
 
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block; }
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
+
+.button_liked_offer{
+position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
+
+.liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
+
+.notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
 
@@ -377,6 +395,10 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -14px -743px
 ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: -3px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
+
+ul.left-icons li a.notification{
+height: 30px; position: absolute; top:3px; left: 43px; z-index: 1000;
+background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 11px 14px 18px; width:auto; height:auto;}
 
 .bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; /*height: 216px;*/ margin: 5px 3%; width: 135px; position:relative;}
 .bdiv2 {border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.7%; height: 197px; /*margin: 5px 0.5%;*/ width: 135px; position:relative;}
@@ -464,11 +486,16 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
+
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px;}
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
@@ -478,10 +505,17 @@ background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0; wi
 display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}  
 
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block; }
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
+
+.button_liked_offer{
+position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
+
+.liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
+
+.notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
  
@@ -489,7 +523,7 @@ position:relative; left:1px; display:inline-block; width:24px; height:24px; back
 
 .like {float:left; margin:0;}
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block; }
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
 
 
 .pin-add-div {float:left; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
@@ -535,6 +569,10 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -14px -743px
 ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: -3px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
+
+ul.left-icons li a.notification{
+height: 30px; position: absolute; top:3px; left: 43px; z-index: 1000;
+background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 11px 14px 18px; width:auto; height:auto;}
 
 .bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; /*height: 216px;*/ margin: 5px 3%; width: 135px; position:relative;}
 .bdiv2 {border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.7%; height: 197px; /*margin: 5px 0.5%;*/ width: 135px; position:relative;}
@@ -622,11 +660,16 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
+
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px;}
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
@@ -636,10 +679,17 @@ background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0; wi
 display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}  
 
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block; }
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
+
+.button_liked_offer{
+position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
+
+.liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
+
+.notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
  
@@ -647,7 +697,7 @@ position:relative; left:1px; display:inline-block; width:24px; height:24px; back
 
 .like {float:left; margin:0;}
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block; }
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
 
 
 .pin-add-div {float:left; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
@@ -679,6 +729,10 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -14px -743px
 ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: -3px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
+
+ul.left-icons li a.notification{
+height: 30px; position: absolute; top:3px; left: 43px; z-index: 1000;
+background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 11px 14px 18px; width:auto; height:auto;}
 
 .bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; margin: 5px 1.5%; width: 135px; position:relative;}
 .bdiv2 {border: 1px solid #ccc; background: #fff; float: left; margin: 5px 2.7%; height: 197px; /*margin: 5px 0.5%;*/ width: 135px; position:relative;}
@@ -764,11 +818,16 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
+
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px;}
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
@@ -778,10 +837,17 @@ background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0 3px
 display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block;}
+
+.button_liked_offer{
+position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:25px; height:24px; background: url(ikons-img.png) no-repeat -227px -945px transparent; margin:0;}
+
+.liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
+
+.notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
  
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
 
@@ -862,6 +928,10 @@ ul.left-icons li a.srchlink3{
 height: 30px; position: absolute; top:5px; left: -3px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px 11px 10px 18px; width:auto; height:auto;}
 
+ul.left-icons li a.notification{
+height: 30px; position: absolute; top:3px; left: 43px; z-index: 1000;
+background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 11px 14px 18px; width:auto; height:auto;}
+
 .rch-btns-div {float:right; width:auto; height: 48px; position: absolute; right: 6px; top:26px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div .btn190{float:right; clear: both; margin: -5px 0 8px;}
 
@@ -874,6 +944,8 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
@@ -882,6 +954,9 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
+
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
 
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px; text-decoration: none;}
 .button_call_grey {float:left; display: inline-block; margin:0; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px; text-decoration: none;}
@@ -897,7 +972,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 
 .like {float:left; margin:0;}
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; top:-1px; left:0px; width:24px; height: 24px; margin:0 0 0 2px; display:inline-block; text-decoration: none;}
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; top:-1px; left:0px; width:24px; height: 24px; margin:0 0 0 0; display:inline-block; text-decoration: none;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -967,6 +1042,8 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
@@ -978,12 +1055,21 @@ ul.right-icons li a.compass{background: url(bigger-icons.png) no-repeat -135px -
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
 
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer; }
+
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px;}
 
-.button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_call_grey:hover {text-decoration: none;}
+.button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_call_grey:hover, .button_view_address:hover {text-decoration: none;}
 
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
 
+.button_liked_offer{
+position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+
+.liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
+
+.notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
 .button_call3 {float:left; position:relative; bottom:21px; left:94px; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
@@ -1179,13 +1265,13 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -14px -743px
 .rch-btns-div3 {float:left; position:relative; width:100%; bottom:3px; margin:3px 0 0 0; border-bottom: solid 1px #ccc;}
 .rch-btns-div3 ul {float:left; width:100%; margin:0 0 7px 0;}
 .rch-btns-div3 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-/*.rch-btns-div3 .btn191{float:left; margin: 0 0 0 10px;}
-.rch-btns-div3 .btn192{float:right; margin: 0 10px 0 0;}*/
 .rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
+.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 
@@ -1197,6 +1283,9 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -14px -743px
 .button_map2 {float:left;
 background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; /*border:0px solid #7D99CA; background:#bfbfbf; font-size:11px;font-family:Arial, Helvetica, sans-serif; padding: 2px; text-decoration:none; text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:normal; color: #ffffff;*/
  cursor: pointer;}
+
+.button_view_address {float:left;
+background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px;}
 
@@ -1213,7 +1302,14 @@ background: url(ikons-img.png) no-repeat -16px -945px transparent; padding:0; wi
 display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 
 .button_offer{
-position:relative; background: url(ikons-img.png) no-repeat -58px -945px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+
+.button_liked_offer{
+position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+
+.liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
+
+.notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
