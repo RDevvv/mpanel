@@ -1,8 +1,5 @@
 function display_ad(element){
-    closest_search_pattern = 'div[class="bdiv"]'
-    if(window.location.href.search('map')>1){
-        closest_search_pattern = 'div[class="pin-add-div"]'
-    }
+    closest_search_pattern = 'div[class="pin-add-div"]';
     customer_uuid = $.cookie("customer_uuid");
     ad_id         = $(element).closest(closest_search_pattern).attr("ad_id");
     outlet_id     = $(element).closest(closest_search_pattern).attr("outlet_id");
