@@ -35,14 +35,17 @@
 
             <div class="rch-btns-div4">
                         <ul>
-                        <li class="lft"><% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
+                        <li>
+                        <div class="pin-box">&nbsp;</div>
+                        </li>
+                        <li><% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
                         <% end %>
                         <%= render :partial => 'call_button', :locals => {:poster => poster}%>
                         </li>
                         <% if poster[:ad_id] ==0 %>
-                            <li class="rht"> <div class="button_no_offer">&nbsp;</div> </li>
+                            <li> <div class="button_no_offer">&nbsp;</div> </li>
                         <% else %>
-                            <li class="rht"> <a class="button_view">&nbsp;</a></li>
+                            <li> <a class="button_view">&nbsp;</a></li>
                         <% end %>
                         </ul>
             </div>
