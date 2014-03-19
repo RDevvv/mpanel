@@ -353,7 +353,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
 
 .button_liked_offer{
-position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -435px -982px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
@@ -370,7 +370,7 @@ position:relative; left:1px; display:inline-block; width:24px; height:24px; back
 .pin-add-div {float:left; width:140px; height:auto; margin:5px 0 0 0; padding:2px 0;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
-    font-weight: bold; height: 24px; margin: 0 0 0 1px; padding:0 2px 0 1px; text-align: center; width: 24px;}
+    font-weight: bold; height: 24px; margin: 0 0 0 1px; color:#06097D; padding:0 2px 0 1px; text-align: center; width: 24px;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -508,7 +508,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
 
 .button_liked_offer{
-position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -435px -982px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
@@ -529,7 +529,7 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 .pin-add-div {float:left; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
-    font-weight: bold; height: 24px; margin: 0 0 0 1px; text-align: center; width: 24px;}
+    font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; text-align: center; width: 24px;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -682,7 +682,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block; }
 
 .button_liked_offer{
-position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -435px -982px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
@@ -703,7 +703,7 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 .pin-add-div {float:left; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
-    font-weight: bold; height: 24px; margin: 0 0 0 1px; padding: 0 2px 0 1px; text-align: center; width: 24px;}
+    font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -840,7 +840,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 0; display:inline-block;}
 
 .button_liked_offer{
-position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -435px -982px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:25px; height:24px; background: url(ikons-img.png) no-repeat -227px -945px transparent; margin:0;}
@@ -861,7 +861,7 @@ position:relative; left:1px; display:inline-block; width:25px; height:24px; back
 .pin-add-div {float:right; width:140px; height:auto; padding:2px 0; margin:5px 2.6%;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
-    font-weight: bold; height: 24px; margin: 0 0 0 1px; padding: 0 2px 0 1px; text-align: center; width: 24px;}
+    font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -989,7 +989,8 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 .pin-add-div {float:right; width:140px; height:auto; margin:5px 20% 0 0; padding:2px 0; /*margin:5px 0 0 0; margin:5px 0 0 0; float:left;*/}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
-    font-weight: bold; height: 24px; margin: 0 0 0 1px; padding: 0 2px 0 1px; text-align: center; width: 24px;}
+    font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
+
 
 div.input {/*width:395px;*/ width:82%; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0; background:#fff !important;}
   .tl-1 {text-align: left !important;}
@@ -1065,7 +1066,7 @@ background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; w
 .button_call_grey {float:left; display: inline-block; margin: 0 3px 0 3px; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px;}
 
 .button_liked_offer{
-position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -435px -982px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
 
@@ -1305,7 +1306,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 position:relative; background: url(ikons-img.png) no-repeat -477px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .button_liked_offer{
-position:relative; background: url(ikons-img.png) no-repeat -435px -981px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
+position:relative; background: url(ikons-img.png) no-repeat -435px -982px transparent; padding:0; left:0px; width:26px; height: 24px; margin:1px 0 0 2px; display:inline-block;}
 
 .liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
 
