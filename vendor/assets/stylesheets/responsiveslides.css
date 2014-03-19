@@ -52,7 +52,6 @@
   }
 }
 
-/* iPad portrait mode */
 @media screen and (max-width: 768px) {
 .rslides {
   position: relative;
