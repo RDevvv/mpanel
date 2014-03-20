@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GullakMaster - Outlet View</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta content='GullakMaster | Deals At Your Fingertips!' name='title'>
+<meta content='Tell us your location and we will pull together the nearest deals right on your phone. No printouts, No costs, No hassles. Check it out.' name='description'>
+<meta content='Deals, Offers, Discounts' name='Keywords'>
+<!-- Facebook -->
+<meta property="og:title" content="GullakMaster | Deals at your Fingertips" >
+<meta property="og:url" content="http://www.gullakmaster.com/">
+<meta property="og:image" content="http://www.gullakmaster.com/assets/gullak-logo-mcc.png" >
+<meta property="og:image:type" content="image/png" />
+<meta property="og:description" content="Tell us your location and we will pull together the nearest deals right on your phone. No printouts, No costs, No hassles. Check it out." >
+<meta property="fb:admins" content="206827969522380" />
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="lDjKlZPjnsaVz0+JOuT2YgvHiu7O829jMAzdDaKzU+I=" name="csrf-token" />
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+
+<link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/jquery.pnotify.default.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/jquery.pnotify.default.icons.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/mobile-css-styles.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/jquery.mmenu.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery Plugin -->
+
+    <script type="text/javascript">
+        (function() {
+      if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+          document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+      }
+    })();
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" style=""></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47902288-1', 'gullakmaster.com');
+  ga('send', 'pageview');
+
+</script>
+<style type="text/css">
+  html, body {width: 100%; overflow-x: hidden;}
+</style>
+</head>
+<body>
+
+
+<!-- Preloader -->
+<div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '206827969522380',
+          status     : true,
+          cookie     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+<div id="header">
+    <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
+    <ul class="left-icons">
+        <li><a href="#menu" class="srchlink3"></a></li>
+    </ul>
+    <div class="head-brand"><a href="/">GullakMaster</a></div>
+    <ul class="right-icons">
+        <li><a href="#" class="new_top_share shr" onclick="$('#popup_share').modal('show'); update_top_share_url($(this))"></a></li>
+        <li><a href="/outlet_listing?latitude=0&amp;location=bandra&amp;longitude=0&amp;view=outlet_listing" class="outlet"></a></li>
+    </ul>
+
+    <nav id="menu">
+        <ul>
+            <li class="subcat">Filter by:</li>
+            <li style="margin-top:10px;">
+            <form accept-charset="UTF-8" action="/outlet_search" id="searchForm" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                <fieldset>
+                <div class="input3">
+                    <input id="location" name="location" type="hidden" value="bandra" />
+                    <input id="latitude" name="latitude" type="hidden" value="0" />
+                    <input id="longitude" name="longitude" type="hidden" value="0" />
+                    <input id="view" name="view" type="hidden" value="map_listing" />
+                    <input id="s3" name="search" placeholder="Enter Category..." type="text" />
+                </div>
+                <div class="example-text">e.g: coffee, bags, shirts, eyewear</div>
+            </fieldset>
+</form>            </li>
+            <li>&nbsp;</li>
+            <li class="subcat">Sort by:</li>
+            <li><a href="/outlet_listing?filter=distance&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;view=map_listing">Distance</a></li>
+            <li><a href="/outlet_listing?filter=ad_expiry_date&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;view=map_listing">Expiry date</a></li>
+            <li><a href="/outlet_listing?filter=ad_usage&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;view=map_listing">Hot picks</a></li>
+            <li>&nbsp;</li>
+            
+            <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+            <li class="subcat" style="float:left; margin:-3% 0 0 -8%;"><a href="/customer_feedbacks/new">Provide Feedback</a></li>
+        </ul>
+    </nav>
+</div>
+<footer>GullakMaster &copy; 2014</footer>
+
+<div id="backtotop">
+    <a href="#">
+        <img alt="Back to TOP" src="/assets/back_to_top_btn-3.png" />
+    </a>
+</div>
+
+<div id="mobile-number" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <div class="modal-body">
+            <div class="sub-txt2">We need to verify your mobile number</div>
+        <form accept-charset="UTF-8" action="/customers" class="customer-mobile-number-form form-horizontal" data-validate="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="lDjKlZPjnsaVz0+JOuT2YgvHiu7O829jMAzdDaKzU+I=" /></div>
+            <div class="control-group">
+            <label class="control-label"> +91</label>
+            <div class="controls">
+                <input class="datetime_select" id="mobile_number" name="mobile_number" placeholder="Enter mobile number" type="text" value="" />
+                <input class="datetime_select btn-blue" name="commit" type="submit" value="Submit" />
+            </div>
+        </div>
+        <input id="customer_uuid" name="customer_uuid" type="hidden" value="1b359df2-dd1e-4584-8a83-7f48f17945b2" />
+</form>    </div>
+</div>
+
+<div id="verification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <div style="width:100%; overflow-x:hidden; margin:0; padding:0;" class="modal-body">
+            <div class="sub-txt2">Verification code sent by SMS</div>
+            <form accept-charset="UTF-8" action="/check_verification_code.json" class="customer-verification-code-form cust-ver form-horizontal" data-validate="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="lDjKlZPjnsaVz0+JOuT2YgvHiu7O829jMAzdDaKzU+I=" /></div>
+            <div class="control-group">
+            <div class="controls">
+                <input class="datetime_select" id="verification_code" name="verification_code" placeholder="Enter verification code" type="text" value="" />
+                <input class="btn-blue" name="commit" type="submit" value="Submit" />
+            </div>
+        </div>
+        <input id="customer_uuid" name="customer_uuid" type="hidden" value="1b359df2-dd1e-4584-8a83-7f48f17945b2" />
+</form>    </div>
+    <div class="send-code"><a href="#" onClick="resend_verification_code()">Resend verification code</a></div>
+</div>
+
+<div id="popup_share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <div class="top-share">
+    	<div class="top-share-box">
+    		<form>
+				<input onclick="this.select()" id='top_share_link'  type="text" value="http://gullak.co/abcd">
+			</form>
+			<div class="or">or</div>
+			<div class="fb1">
+			  <a class='top_share' href="#"><img src="assets/share-btn.png" border="0" /></a>
+			</div>
+    	</div>
+    </div>
+</div>
+<script type="text/javascript">
+  $("input[type=text]").live('click', function() {
+    $(this).select();
+  this.setSelectionRange(0, 9999);
+	});
+</script>
+<style type="text/css">
+#signup, #popup_share {background: none;}
+</style>
+
+
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-transition.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-alert.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-modal.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-tab.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-popover.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-button.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-collapse.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-carousel.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1" type="text/javascript"></script>
+<script src="/assets/twitter/bootstrap.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery.pnotify.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery.mmenu.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery.scrollTo.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery.cookie.js?body=1" type="text/javascript"></script>
+<script src="/assets/oms.min.js?body=1" type="text/javascript"></script>
+<script src="/assets/home.js?body=1" type="text/javascript"></script>
+<script src="/assets/geocoding.js?body=1" type="text/javascript"></script>
+<script src="/assets/reverse_geocode.js?body=1" type="text/javascript"></script>
+<script src="/assets/tracking.js?body=1" type="text/javascript"></script>
+<script src="/assets/verification.js?body=1" type="text/javascript"></script>
+<script src="/assets/back_to_top.js?body=1" type="text/javascript"></script>
+<script src="/assets/binding_tags.js?body=1" type="text/javascript"></script>
+<script src="/assets/facebook_share.js?body=1" type="text/javascript"></script>
+<script src="/assets/resend_verification_code.js?body=1" type="text/javascript"></script>
+<script src="/assets/send_ad.js?body=1" type="text/javascript"></script>
+<script src="/assets/view_ad.js?body=1" type="text/javascript"></script>
+<script src="/assets/query-string.js?body=1" type="text/javascript"></script>
+<script src="/assets/update_location.js?body=1" type="text/javascript"></script>
+<script src="/assets/disable_button.js?body=1" type="text/javascript"></script>
+<script src="/assets/call_button.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+
+<div class="container-location">
+    <div class="row-fluid">
+        <div class="span12">
+    <div class="search-div3">
+        <form accept-charset="UTF-8" action="/outlet_listing" id="searchForm" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+            <fieldset>
+            <div class="input">
+                <input id="view" name="view" type="hidden" value="map_listing" />
+                <input id="s" name="location" placeholder="Enter Location" type="text" />
+                    <script type='text/javascript'>
+                        reverse_geocode($('#s'));
+                    </script>
+            </div>
+            </fieldset>
+        <input class="btn btn-submit2" id="submitbutton" name="commit" type="submit" value="Go" />
+</form>    </div>
+</div>
+
+        <div id="map" class="map"></div>
+
+        <div class="out-add-div">
+            <ul id="Grid">
+
+                          <li class="mix bsc span12" data-outlet="4585">
+            <div class="bdiv" outlet_id="4585" id="4585" ad_id="165">
+                <div class="bbox">
+                    <div class="brandtitle">
+                        Dominos
+                    </div>
+                
+                    <div class="eye2"></div>
+                
+                <div align="center" class="brandlogo">
+                    <img alt="Domino_s" class="img-responsive" src="/uploads/attachment/image/65/Domino_s.jpg" />
+                </div>
+                
+                    
+                    <hr style="width:100%; margin:2px 0;">
+                    <div class="lower-box">
+                    <div class="like"><a class="ad_request button_offer">&nbsp;</a></div>
+                    <a class="share" >
+                        <div class="refr2"></div>
+                        <!--<div class="refr2txt">Share</div>-->
+                    </a>
+                        <p>366</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pin-add-div" outlet_id="4585" id="4585" ad_id="165">
+            <div class="pin-initiate-meeting">Initiate meeting</div>
+            <div class="rch-btns-div4">
+              <ul>
+                <li class="lft"><a class="call button_call2" href='#' >&nbsp;</a></li>
+                <li class="rht"><a href="#"><img src="assets/users.png" border="0" /></a></li>
+                        </ul>
+            </div>
+
+
+            <div class="distance-div">0.0 km</div>
+                        <div class="distance-div-below2">Ends: 31/03</div>
+            
+            <div class="add-box">
+                <div class="adtitle1"><b>Offer details:</b></div>
+                    <div class="adaddress">
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    </div>
+                    <div class="promo">Promocode:</div>
+                    <div class="promocode">xxxxxxxxxxx<br/></div>
+                <div class="adtitle1"><b>Address:</b></div>
+                <div class="adaddress">
+                    Shop No.1, Ground Floor
+                    Mangal Bhavan,Plot 614, 14TH Road
+                </div>
+                <div class="adloc">Bandra West <br/>
+                    Mumbai 400052</div>
+                </div>
+            </div>
+        </li>
+    </div>
+</div>
+
+    <script type="text/javascript">
+//<![CDATA[
+
+        locations = [[19.055229,72.830829,6815],[19.055229,72.830829,4585],[19.055229,72.830829,7112],[19.0510694,72.8292087,5204],[19.0534256,72.8359566,280],[19.0505891,72.8267856,592],[19.066605,72.8247932,1567],[19.0693612,72.8277626,346],[19.070726,72.836127,6671],[19.0163212,72.8401243,4236],[19.055229,72.830829,2236],[19.055229,72.830829,3449],[19.055229,72.830829,1016],[19.055229,72.830829,7336],[19.055229,72.830829,3539],[19.055229,72.830829,4668]];
+        user_location = [19.055229, 72.830829]
+        map_initializer(locations, user_location);
+
+//]]>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+        $('nav#menu').mmenu();
+        modal_submit();
+        verification_modal_submit();
+        get_backtotop_button();
+        mobile_number_verification();
+        facebook_share_binding();
+        bind_tracking();
+        bind_send_ad();
+        bind_display_ad();
+        enable_submit($('#s'),$('#submitbutton'));
+        })
+</script>
+</body>
+</html>
+
