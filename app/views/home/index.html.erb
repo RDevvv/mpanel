@@ -32,7 +32,7 @@
         </div>
         <div class="span12">
             <div class="sub-txt-below"></div>
-            <button id="button" class="btn btn-blue1">Show All Deals</button>
+            <button id="button" class="btn btn-blue1" onclick='JavaScript:return number_validation();'>Show All Deals</button>
         </div>
         <!--<div class="span12">
             <div class="sub-txt-nobrdr">OR</div>
@@ -138,9 +138,29 @@ function update_category_urls(){
         }
     })
 }
-update_category_urls();
-getLocation();
-enable_submit($('#location'),$('#button'));
+
+function number_validation(){
+    if($.cookie("mobile_number") != 'verified'){
+        $('#mobile-number').modal('show');
+        console.log('iffffffffffffffffff');
+        return false;
+    }
+    else{
+        console.log('elseeeeeeeeeeeeeee');
+        return true;
+    }
+}
+
+$(document).ready(function(){
+    update_category_urls();
+    getLocation();
+    enable_submit($('#location'),$('#button'));
+    modal_submit();
+    verification_modal_submit();
+    mobile_number_verification();
+    })
 </script>
+<%= render :partial => "new_mobile_number_modal" %>
+<%= render :partial => "verify_mobile_number" %>
 </body>
 </html>
