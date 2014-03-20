@@ -9,7 +9,7 @@ function track(element) {
     redirection_url = "get_button_click.json";
     ad_id         = box_element.attr("id");
     outlet_id     = box_element.attr("outlet_id");
-    current_link  = window.location.pathname;
+    current_link  = window.location.href;
 
     $.ajax({
         url: redirection_url,
