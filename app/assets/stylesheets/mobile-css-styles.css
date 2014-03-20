@@ -362,6 +362,8 @@ position:relative; left:1px; display:inline-block; width:24px; height:24px; back
 
 .notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
+.notification_date {float:right; text-align:right; font-size:10px; font-weight:normal; color:#959595; margin:3px 5px 0 0;}
+
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
 
 .like {float:left; margin:0;}
@@ -516,6 +518,8 @@ position:relative; left:1px; display:inline-block; width:24px; height:24px; back
 .liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
 
 .notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
+
+.notification_date {float:right; text-align:right; font-size:10px; font-weight:normal; color:#959595; margin:3px 5px 0 0;}
 
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
  
@@ -691,6 +695,8 @@ position:relative; left:1px; display:inline-block; width:24px; height:24px; back
 
 .notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
 
+.notification_date {float:right; text-align:right; font-size:10px; font-weight:normal; color:#959595; margin:3px 5px 0 0;}
+
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
  
 .adloc a, .adloc a:link, .adloc a:active, .adloc a:visited, .adloc a:hover {color: #FFFFFF; text-decoration: none;} 
@@ -849,6 +855,8 @@ position:relative; left:1px; display:inline-block; width:25px; height:24px; back
 
 .notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
  
+.notification_date {float:right; text-align:right; font-size:10px; font-weight:normal; color:#959595; margin:3px 5px 0 0;}
+
 .button_call2:hover, .button_call_grey:hover, .button_map2:hover, .button_view:hover, .button_call_grey:hover, .button_offer:hover {text-decoration: none;}
 
 .adloc a, .adloc a:link, .adloc a:active, .adloc a:visited, .adloc a:hover {color: #FFFFFF; text-decoration: none;} 
@@ -1071,6 +1079,8 @@ position:relative; background: url(ikons-img.png) no-repeat -435px -982px transp
 .liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
 
 .notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
+
+.notification_date {float:right; text-align:right; font-size:10px; font-weight:normal; color:#959595; margin:3px 5px 0 0;}
 
 .button_call3 {float:left; position:relative; bottom:21px; left:94px; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
@@ -1311,6 +1321,8 @@ position:relative; background: url(ikons-img.png) no-repeat -435px -982px transp
 .liked_offer_strip {position:relative; background: url(ikons-img.png) no-repeat -118px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block;}
 
 .notification_strip {position:relative; background: url(ikons-img.png) no-repeat -223px -985px transparent; padding:0; top:5px; left:-10px; width:86px; height: 17px; margin:1px 0 0 2px; display:inline-block; cursor:pointer;}
+
+.notification_date {float:right; text-align:right; font-size:10px; font-weight:normal; color:#959595; margin:3px 5px 0 0;}
 
 .button_no_offer{
 position:relative; left:1px; display:inline-block; width:24px; height:24px; background: url(ikons-img.png) no-repeat -228px -945px transparent; margin:0;}
