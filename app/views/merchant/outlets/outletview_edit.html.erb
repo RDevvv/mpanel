@@ -42,8 +42,14 @@
               var marker = new google.maps.Marker({
                   position: new google.maps.LatLng(<%= @outlet.latitude %>, <%= @outlet.longitude %>),
                   map: map,
-                  title: 'Hello World!'
+		  draggable: true,
+                  title: 'Drag Me'
               });
+	      
+	        google.maps.event.addListener(marker, 'dragend', function(event){
+      			document.getElementById("latbox").value = this.getPosition().lat();
+    			document.getElementById("lngbox").value = this.getPosition().lng();
+		 });
           }
           google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -77,10 +83,10 @@
               <div class="row-fluid">
                 <div class="span12">
                   <div class="span6">
-                    <div class="lat-dist">Latitude: <%= @outlet.latitude %></div>
+                    <div class="lat-dist">Latitude: <%= f.text_field :latitude, :id => "latbox" %></div>
                     <div class="fill-up">
                       <ul class="padded separate-sections">
-                      <li class="input">
+		      <li class="input">
                         <label class="label-style" for="textinput">Shop #:</label>
                         <div class="fill">
                           <%= f.text_field :shop_no  %>
@@ -115,7 +121,7 @@
                   </div>
 
                   <div class="span6">
-                    <div class="lat-dist">Longitude: <%= @outlet.longitude %></div>
+                    <div class="lat-dist">Longitude: <%= f.text_field :longitude, :id => "lngbox" %></div>
                     <div class="fill-up">
                     <ul class="padded separate-sections">
                       <li class="input">
