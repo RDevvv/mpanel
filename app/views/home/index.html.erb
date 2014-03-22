@@ -17,10 +17,11 @@
             <div class="c-loc">
                 <div class="input-group">
                     <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
+                        <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
+                        <%= hidden_field_tag :search, 'all' %>
                         <%= hidden_field_tag :latitude, '0' %>
                         <%= hidden_field_tag :longitude, '0' %>
                         <%= hidden_field_tag :view, 'outlet_listing', :class => "form-control", :placeholder => "Enter Location" %>
-                        <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
                     <div class="input-group-btn">
 
                     </div>
@@ -42,32 +43,32 @@
             <div class="hp-cat-ttl">Select a Category</div>
             <div class="cat-link-div">
               <div class="hp-cat-txt-acc">
-                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_search', :search => 'Accessories', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
+                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_listing', :search => 'Accessories', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
               </div>
             </div>
             <div class="cat-link-div">
               <div class="hp-cat-txt-app">
-                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_search', :search => 'Apparels', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
+                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_listing', :search => 'Apparels', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
               </div>
             </div>
             <div class="cat-link-div">
               <div class="hp-cat-txt-ele">
-                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_search', :search => 'Electronics', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
+                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_listing', :search => 'Electronics', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
               </div>
             </div>
             <div class="cat-link-div">
               <div class="hp-cat-txt-food">
-                <%= link_to "Food", {:controller => 'home', :action => 'outlet_search', :search => 'Food', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
+                <%= link_to "Food", {:controller => 'home', :action => 'outlet_listing', :search => 'Food', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
               </div>
             </div>
             <div class="cat-link-div">                
                 <div class="hp-cat-txt-mobile">
-                    <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_search', :search => 'Mobile', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
+                    <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_listing', :search => 'Mobile', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
                 </div>
             </div>
             <div class="cat-link-div">
                 <div class="hp-cat-txt-shoes">
-                    <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_search', :search => 'Shoes', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
+                    <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_listing', :search => 'Shoes', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
                 </div>
             </div>
         </div>-->
