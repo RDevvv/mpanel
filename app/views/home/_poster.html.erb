@@ -20,20 +20,22 @@
         <div class="pin-add-div" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>">
 
             <div class="rch-btns-div4">
-                        <ul>
-                        <li>
-                        <div class="pin-box">&nbsp;</div>
-                        </li>
-                        <li><% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
-                        <% end %>
-                        <%= render :partial => 'call_button', :locals => {:poster => poster}%>
-                        </li>
+                <ul>
+                  <li>
+                    <!--<div class="pin-box">&nbsp;</div>-->
+                    <a class="pin-box" href="#">&nbsp;</a>
+                  </li>
+                  <li>
+                    <% unless poster[:mobile_number].blank? and poster[:phone_number].blank? %>
+                      <% end %>
+                      <%= render :partial => 'call_button', :locals => {:poster => poster}%>
+                  </li>
                         <% if poster[:ad_id] ==0 %>
                             <li> <div class="button_no_offer">&nbsp;</div> </li>
                         <% else %>
                             <li> <a class="button_view">&nbsp;</a></li>
                         <% end %>
-                        </ul>
+                </ul>
             </div>
 
 
