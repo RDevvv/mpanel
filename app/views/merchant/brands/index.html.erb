@@ -41,7 +41,7 @@
                 </td>
                 <td>
                   <% if can? :update, brand %>
-                    <% link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %> |
+                    <%= link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %> |
                   <% end %>
                   <% if can? :destroy, brand %>
                     <%= link_to 'Delete', merchant_account_brand_path(@current_account,brand), method: :delete, data: { confirm: 'Are you sure?' } %>
