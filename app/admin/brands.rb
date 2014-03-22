@@ -21,12 +21,10 @@ ActiveAdmin.register Brand do
        			f.input :brand_name
 			f.input :website_url
 			f.input :category, :as => :select, :collection => Category.all.map {|c| [c.category_name, c.id]}
-        	end
-		f.inputs "Attachments" do
-      			f.has_many :attachments do |s|
+       			f.has_many :attachments do |s|
         			s.input :image, :as => :file
       			end
-    		end
+		end
   		f.actions
   	end
 
