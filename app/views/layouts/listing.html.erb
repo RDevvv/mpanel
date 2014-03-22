@@ -100,7 +100,7 @@
         <ul>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
-            <%= form_tag :outlet_search, :method => 'GET', :id => 'searchForm' do |f|  %>
+            <%= form_tag :outlet_listing, :method => 'GET', :id => 'searchForm' do |f|  %>
                 <fieldset>
                 <div class="input3">
                     <%= hidden_field_tag :location, params[:location] %>
