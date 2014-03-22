@@ -94,7 +94,6 @@ Gullak2::Application.routes.draw do
     resources :home
     get 'outlet_listing' => 'home#outlet_listing'
     get 'abcdef12345' => 'home#outlet_listing'
-    get 'outlet_search' => 'home#outlet_search'
 
     get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
     match 'verify_mobile_number' => 'customers#verify_mobile_number'
@@ -124,6 +123,7 @@ Gullak2::Application.routes.draw do
     match "button_click_chart" => "charts#button_click_chart"
     match "outletview_offers_log" => "sms_sents#outletview_offers_log"
     match "outletview_call_log" => "call_forwardings#outletview_call_log"
+    post 'create_ad_likes' => 'ad_likes#create'
 
     get 'location_from_ip' => 'customers#location_from_ip'
     get 'error_404' => 'error_messages#error_404'

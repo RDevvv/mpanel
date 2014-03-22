@@ -17,6 +17,7 @@ doc/*
 /config/database.yml
 /public/assets
 /public/uploads
+/public/*.gz
 
 # Ignore test coverage files
 /coverage
