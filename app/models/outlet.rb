@@ -279,17 +279,22 @@ class Outlet < ActiveRecord::Base
       [final_outlets,ad_ids]
   end
 
-  def self.get_poster_data(outlets)
+  def self.get_poster_data(outlets, customer_uuid)
       outlets_with_ads = Array.new
       outlets_without_ads = Array.new
+      customer = Customer.where(:uuid => customer_uuid).first
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
           if (outlet.ads.empty? && outlet.ads.map{|ad|ad.promocode_available?.include?(true)})||(outlet.ads.map{|ad|ad.expired?}.include?(true))
-              outlets_without_ads += [:ad_id => 0, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
+              outlets_without_ads += [:is_unlocked => false, :ad_id => 0, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
           else
               ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
               ads.each do |ad|
-                  outlets_with_ads += [:ad_id => ad.id, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
+                  is_unlocked_row = AdLike.where(:ad_id => ad.id, :outlet_id => outlet.id, :customer_id => customer.id)
+                  unless is_unlocked_row.blank?
+                      is_unlocked = is_unlocked_row.first.is_unlocked
+                  end
+                  outlets_with_ads += [:is_unlocked => is_unlocked, :ad_id => ad.id, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
               end
           end
       end
