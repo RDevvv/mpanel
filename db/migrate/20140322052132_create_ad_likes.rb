@@ -1,7 +1,7 @@
 class CreateAdLikes < ActiveRecord::Migration
   def change
     create_table :ad_likes do |t|
-      t.boolean :is_unlocked, defaults => false
+      t.boolean :is_unlocked, :default => false
       t.references :customer
       t.references :ad
       t.references :outlet
