@@ -56,7 +56,7 @@ class HomeController < ApplicationController
             end
             @outlets = Outlet.discard_outlets_from_same_brand(@outlets)
             @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
-            @poster_data = Outlet.get_poster_data(@final_outlets)
+            @poster_data = Outlet.get_poster_data(@final_outlets, cookies[:customer_uuid])
             if params[:filter].blank?
             elsif params[:filter] == 'ad_usage'
                 @poster_data.sort_by!{|poster|poster[params[:filter].to_sym]}.reverse!
@@ -94,7 +94,7 @@ class HomeController < ApplicationController
                 end
             end
             @final_outlets = @new_outlets.sort {|x,y| x.distance <=> y.distance}.uniq
-            @poster_data = Outlet.get_poster_data(@final_outlets)
+            @poster_data = Outlet.get_poster_data(@final_outlets, cookies[:customer_uuid])
             @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16)
         end
 

@@ -41,6 +41,8 @@ function send_ad(customer_uuid, element)
                     addclass: 'stack-topleft',
                     opacity: .9
                 });
+                $(element).attr('class','button_liked_offer');
+                $(element).unbind('click');
         })
     }
 }

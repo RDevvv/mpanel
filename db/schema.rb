@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227121304) do
+ActiveRecord::Schema.define(:version => 20140322052132) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -68,6 +68,19 @@ ActiveRecord::Schema.define(:version => 20140227121304) do
     t.datetime "updated_at", :null => false
     t.time     "deleted_at"
   end
+
+  create_table "ad_likes", :force => true do |t|
+    t.boolean  "is_unlocked"
+    t.integer  "customer_id"
+    t.integer  "ad_id"
+    t.integer  "outlet_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "ad_likes", ["ad_id"], :name => "index_ad_likes_on_ad_id"
+  add_index "ad_likes", ["customer_id"], :name => "index_ad_likes_on_customer_id"
+  add_index "ad_likes", ["outlet_id"], :name => "index_ad_likes_on_outlet_id"
 
   create_table "ad_promocode_outlets", :force => true do |t|
     t.integer  "ad_id"
@@ -238,7 +251,7 @@ ActiveRecord::Schema.define(:version => 20140227121304) do
     t.boolean  "is_opened",    :default => false
     t.integer  "customer_id"
     t.integer  "copy_sent"
-    t.integer  "use_count",    :default => 0
+    t.integer  "use_count"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.string   "vendor_id"
@@ -489,7 +502,7 @@ ActiveRecord::Schema.define(:version => 20140227121304) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "sms_sents", :force => true do |t|
-    t.string   "text"
+    t.text     "text"
     t.integer  "is_sent"
     t.integer  "customer_id"
     t.integer  "ad_promocode_id"

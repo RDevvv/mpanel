@@ -27,6 +27,7 @@ class SmsSentsController < ApplicationController
         customer = Customer.where(:uuid => params[:customer_uuid]).first
         unless customer.mobile_number.nil?
             if customer.is_verified?
+                AdLike.create(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :customer_id => customer.id, :is_unlocked => true)
                 ad = Ad.find(params[:ad_id])
                 outlet = Outlet.find(params[:outlet_id])
                 brand_name = ad.account_brand.brand.brand_name

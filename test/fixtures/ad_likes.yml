@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  is_unlocked: false
+  customer: 
+  ad: 
+  outlet: 
+
+two:
+  is_unlocked: false
+  customer: 
+  ad: 
+  outlet: 
