@@ -38,11 +38,10 @@
           <script type="text/javascript">
             $(document).ready(function(){
                     $('nav#menu').mmenu();
-                    modal_submit();
                     verification_modal_submit();
                     get_backtotop_button();
                     })
-            </script>
+          </script>
 
           <script type="text/javascript" src="/assets/jquery.pnotify.min.js"></script>
         <link href="/assets/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css" />
@@ -71,15 +70,7 @@
       }
     })();
     </script>
-    <script type="text/javascript">
-      (function(){
-          var field = document.getElementById('s');
-          var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
-
-          field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
-          field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
-      })(); 
-    </script>
+    
     <script type="text/javascript">
         jQuery(document).ready(function(){
             var pxShow = 80;//height on which the button will show
@@ -119,63 +110,40 @@
       <div id="spinner"></div>
       <img src="/assets/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
     	<div id="header">
-        <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
         <ul class="left-icons">
-          
           <li><a href="#menu" class="srchlink3"></a></li>
-          <!--<li><a class="notify"></a></li>-->
         </ul>
     	  <div class="head-brand">GullakMaster</div>
         <ul class="right-icons">
-          <!--<li><a href="#" class="invfrnd2"></a></li>-->
-          <li><a href="#" class="loc">&nbsp;</a></li>
+          <li><a onclick="$('#popup_share').modal('show'); update_top_share_url($(this))" class="new_top_share shr" href="#"></a></li>
+          <li><a class="loc" href="mapview.html"></a></li>
         </ul>
-
         <nav id="menu">
-          <ul>
-
-            <li class="subcat">Sort by:</li>
-
-            
-
-            <li><a href="#">Distance</a></li>
-            <li><a href="#">Hot Picks</a></li>
-            <li><a href="#">Personalize</a></li>
-
-            <li>&nbsp;</li>
-
-            <li class="subcat">Filter by:</li>
-
-            <li style="margin-top:10px;">
-                <form id="searchForm">
+            <ul>
+                <li class="subcat">Filter by:</li>
+                <li style="margin-top:10px;">
+                    <form id="searchForm">
                       <fieldset>
-                          <div class="input">
-                              <input type="search" name="s" id="s" value="Enter Category..." />
-                          </div>
-                          <input type="submit" id="searchSubmit" value="" />
+                        <div class="input">
+                          <input type="search" name="s" id="s" value="Enter Category..." />
+                        </div>
+                        <input type="submit" id="searchSubmit" value="" />
+                        <div class="example-text">e.g: coffee, bags, shirts, eyewear</div>
                       </fieldset>
-                  </form>
-            </li>
-
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Amore</a></li>
-            <li><a href="#">Maple</a></li>
-
-            <li>&nbsp;</li>
-
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Amore</a></li>
-            <li><a href="#">Maple</a></li>
-
-            <li>&nbsp;</li>
-
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Amore</a></li>
-            <li><a href="#">Maple</a></li>
-
-            <li>&nbsp;</li>
-          </ul> 
+                    </form>
+                </li>
+                <li>&nbsp;</li>
+                <li class="subcat">Sort by:</li>
+                <li><a href="/outlet_listing?filter=distance&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;search=all&amp;view=map_listing">Distance</a></li>
+                <li><a href="/outlet_listing?filter=ad_expiry_date&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;search=all&amp;view=map_listing">Expiry date</a></li>
+                <li><a href="/outlet_listing?filter=ad_usage&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;search=all&amp;view=map_listing">Hot picks</a></li>
+                <li>&nbsp;</li>
+                
+                <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&amp;body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+                <li class="subcat" style="float:left; margin:-3% 0 0 -8%;"><a href="/customer_feedbacks/new">Provide Feedback</a></li>
+            </ul>
         </nav>
+        
 
     	</div>
 
