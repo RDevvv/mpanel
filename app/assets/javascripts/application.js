@@ -33,3 +33,6 @@
 //= require update_location
 //= require disable_button
 //= require call_button
+//= require angular
+//= require angular-route
+//= require app
