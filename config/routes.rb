@@ -130,7 +130,8 @@ Gullak2::Application.routes.draw do
     get 'no_results' => 'home#no_results'
     get 'location_not_found' => 'home#location_not_found'
     match 'auth/facebook/callback' => 'customers#facebook_data'
-    root :to => "home#index", constraints: {subdomain: 'm'}
+    match 'a' => 'home#index'
+    root :to => "home#index"#, constraints: {subdomain: 'm'}
     root :to => "home#index", constraints: {subdomain: 'm.staging'}
     root :to => "merchant#index", constraints: {subdomain: 'admin'}
     root :to => "home#index", constraints: {domain: 'gullak.co'}
