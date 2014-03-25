@@ -1,6 +1,6 @@
 class Merchant::OutletsController <  Merchant::BaseController
   before_filter  :load_account
-	before_filter  :load_account_and_brand#, :except => [:outlet_key, :outletview_edit]
+	before_filter  :load_account_and_brand, :except => [:select_outlet]
   #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
 
 	def index
@@ -145,6 +145,10 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet = Outlet.where(:outlet_key => params[:outlet_key]).first
     @cities = City.order("city_name")
     @areas =[]
+    render layout: "outlet_manager"
+  end
+
+  def select_outlet
     render layout: "outlet_manager"
   end
 

@@ -32,6 +32,7 @@ Gullak2::Application.routes.draw do
         #   # get "login" => "devise/sessions#new",:as=>:merchant_login
 
         resources :users
+        match 'select_outlet' => 'outlets#select_outlet'
         resources :accounts do
             collection do
                 post "add_brands"
