@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end  
 
   def add_admin
-    self.add_role :admin
+    self.add_role :outlet_manager
   end
 
   def user_name
