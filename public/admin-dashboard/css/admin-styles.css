@@ -1,0 +1,60 @@
+body.active_admin {background: none repeat scroll 0 0 #FFFFFF; color: #323537; font-family: Helvetica,Arial,sans-serif;
+    font-size: 72%; line-height: 150%; margin: 0; padding: 0;}
+body.active_admin #wrapper {display: table; width: 100%;}
+body.active_admin html, body.active_admin body, body.active_admin div, body.active_admin span, body.active_admin applet, body.active_admin object, body.active_admin iframe, body.active_admin h1, body.active_admin h2, body.active_admin h3, body.active_admin h4, body.active_admin h5, body.active_admin {
+    border: 0 none; font-family: inherit; font-size: 100%; font-style: inherit; font-weight: inherit;
+    margin: 0; outline: 0 none; padding: 0; vertical-align: baseline;}
+body.active_admin #header {background: -moz-linear-gradient(-90deg, #6A7176, #4D5256) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #44484B; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37); height: 20px;
+    overflow: visible; padding: 9px 30px 29px; /*padding: 9px 30px;*/ position: inherit; text-shadow: 0 1px 0 #000000; z-index: 900;}
+body.active_admin #header h1 {color: #CDCDCD; display: inline-block; float: left; font-size: 1.3em;
+    font-weight: normal; margin-bottom: 0; margin-right: 20px; padding-top: 3px;}
+body.active_admin h1 {font-size: 3em; line-height: 1; margin-bottom: 0.5em;}
+body.active_admin h1, body.active_admin h2, body.active_admin h3, body.active_admin h4, body.active_admin h5, body.active_admin h6{color: #5E6469; font-weight: normal;}
+body.active_admin #header ul.tabs {display: inline-block; height: 100%; margin: 0; padding: 0;}
+body.active_admin #header .header-item {float: left; height: 20px; position: relative; top: 2px;}
+body.active_admin ul {list-style-type: disc;}
+body.active_admin ul, body.active_admin ol {margin: 0 1.5em 1.5em 0; padding-left: 1.5em;}
+body.active_admin ol, body.active_admin ul {list-style: none outside none;}
+body.active_admin #header ul.tabs > li {display: inline-block; font-size: 1em; margin-right: 4px; position: relative;}
+body.active_admin #header ul.tabs > li a {border-radius: 10px; padding: 6px 10px 4px; position: relative; text-decoration: none;}
+body.active_admin #header ul.tabs > li.current > a {background: none repeat scroll 0 0 #7B8389; color: #FFFFFF;}
+body.active_admin #header ul.tabs > li.has_nested > a {background: url("/assets/active_admin/nested_menu_arrow.gif") no-repeat scroll 89% 50% rgba(0, 0, 0, 0);
+    padding-right: 20px; z-index: 1050;}
+body.active_admin #header ul.tabs>li.has_nested:hover>a{-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;border-top-right-radius:10px;border-top-left-radius:10px;-moz-border-radius-topright:10px;-moz-border-radius-topleft:10px;-webkit-border-top-right-radius:10px;-webkit-border-top-left-radius:10px;border-bottom:5px solid #7b8389;background:#7b8389 url("/assets/active_admin/nested_menu_arrow_dark.gif") no-repeat 89% 50%}    
+body.active_admin #header a, body.active_admin #header a:link {color: #CDCDCD;}
+body.active_admin #header a, body.active_admin #header a:link {color: #CDCDCD;}
+body.active_admin a, body.active_admin a:link, body.active_admin a:visited {color: #38678B; text-decoration: underline;}
+body.active_admin a, body.active_admin a:link, body.active_admin a:visited {color: #38678B; text-decoration: underline;}
+
+body.active_admin #header #utility_nav {color: #AAAAAA; display: inline-block; float: right; margin: 0; padding: 0;}
+body.active_admin #header #utility_nav li {display: inline;}
+body.active_admin #header #utility_nav a {text-decoration: none;}
+body.active_admin #header #utility_nav a:hover{color:#fff}
+
+body.active_admin #title_bar:before, body.active_admin #title_bar:after {content: " "; display: table;}
+body.active_admin #title_bar:after {clear: both;}
+body.active_admin #title_bar:before, body.active_admin #title_bar:after {content: " "; display: table;}
+body.active_admin #title_bar {-moz-border-bottom-colors: none; -moz-border-left-colors: none;
+    -moz-border-right-colors: none; -moz-border-top-colors: none; -moz-box-sizing: border-box;
+    background: -moz-linear-gradient(-90deg, #EFEFEF, #DFE1E2) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #E6E6E6 #D4D4D4 #EEEEEE; border-image: none; border-style: solid; border-width: 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.37); color: #5E6469; display: table; font-size: 1em; font-weight: bold; line-height: 18px;
+    margin: 0 0 15px; padding: 10px 30px; position: relative; text-shadow: 0 1px 0 #FFFFFF; width: 100%; z-index: 800;}
+body.active_admin #title_bar #titlebar_left, body.active_admin #title_bar #titlebar_right {display: table-cell; height: 50px; vertical-align: middle;}
+body.active_admin #title_bar h2 {font-size: 2.6em; font-weight: bold; margin: 0; padding: 0;}
+body.active_admin h2 {font-size: 2em; margin-bottom: 0.75em;}
+body.active_admin #title_bar #titlebar_right {text-align: right;}    
+body.active_admin #active_admin_content {margin: 0; padding: 25px 30px;}
+body.active_admin #active_admin_content #main_content_wrapper {float: left; width: 100%;}
+body.active_admin #active_admin_content.without_sidebar #main_content_wrapper #main_content {margin-right:0;}
+body.active_admin .blank_slate_container {clear: both; text-align: center;}
+body.active_admin .blank_slate_container .blank_slate {border: 1px dashed #DADADA; border-radius: 3px; color: #AAAAAA;
+    display: inline-block; font-size: 1.2em; font-weight: bold; padding: 14px 25px; text-align: center;}
+body.active_admin .blank_slate_container .blank_slate small {display: block; font-size: 0.9em; font-weight: normal;}
+body.active_admin #header ul.tabs > li ul {background: none repeat scroll 0 0 #7B8389; border-radius: 0 10px 10px;
+    box-shadow: 0 1px 3px #444444; display: none; float: left; list-style: none outside none;
+    margin-top: 5px; padding: 3px 0 5px; position: absolute; width: 175px; z-index: 1010;}
+body.active_admin #header ul.tabs > li ul li {margin: 0;}
+body.active_admin #header ul.tabs > li ul li a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0); display: block;}
+body.active_admin #footer {clear: both; font-size: 0.8em; padding: 30px;}

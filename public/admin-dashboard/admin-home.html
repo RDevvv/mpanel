@@ -1,0 +1,73 @@
+<!doctype html>
+  <html>
+    <head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="css/admin-styles.css" rel="stylesheet" type="text/css"/>
+    <script src="js/active_admin.js" type="text/javascript"></script>
+    </head>
+    <body class="index admin_dashboard active_admin logged_in admin_namespace">
+    <div id="wrapper">
+      <div class="header" id="header">
+        <h1 class="site_title" id="site_title">Gullak2</h1>
+        <ul class="header-item tabs" id="tabs">
+          <li class="current" id="dashboard"><a href="/admin/dashboard">Dashboard</a></li>
+          <li id="brands"><a href="/admin/brands">Brands</a></li>
+          <li class="has_nested" id="campaigns">
+<a href="#">Campaigns</a>            <ul>
+              <li id="campaigns"><a href="/admin/campaigns">Campaigns</a></li>
+            </ul>
+          </li>
+          <li class="has_nested" id="geocoding">
+<a href="#">Geocoding</a>            <ul>
+              <li id="outlets"><a href="/admin/outlets">Nongeocoded Outlets</a></li>
+            </ul>
+          </li>
+          <li class="has_nested" id="master_tables">
+<a href="#">Master Tables</a>            <ul>
+              <li id="admin_users"><a href="/admin/admin_users">Admin Users</a></li>
+              <li id="areas"><a href="/admin/areas">Areas</a></li>
+              <li id="categories"><a href="/admin/categories">Categories</a></li>
+              <li id="cities"><a href="/admin/cities">Cities</a></li>
+            </ul>
+          </li>
+          <li class="has_nested" id="system">
+<a href="#">System</a>            <ul>
+              <li id="database_errors"><a href="http://localhost:3000/admin/error_messages?error_type=StatementInvalid">Database errors</a></li>
+              <li id="error_messages"><a href="/admin/error_messages">Error Messages</a></li>
+              <li id="resque"><a href="http://localhost:3000/resque">Resque</a></li>
+              <li id="routing_errors"><a href="http://localhost:3000/admin/error_messages?error_type=RoutingError">Routing errors</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="header-item tabs" id="utility_nav">
+          <li id="current_user"><a href="#">admin@gmail.com</a></li>
+          <li id="logout"><a href="/admin/logout" data-method="get">Logout</a></li>
+        </ul>
+      </div>
+      <div class="title_bar" id="title_bar">
+        <div id="titlebar_left">
+          <h2 id="page_title">Dashboard</h2>
+        </div>
+        <div id="titlebar_right"></div>
+      </div>
+      <div id="active_admin_content" class="without_sidebar">
+        <div id="main_content_wrapper">
+          <div id="main_content">
+            <div class="blank_slate_container" id="dashboard_default_message">
+              <span class="blank_slate">
+                <span>Welcome to Active Admin. This is the default dashboard page.</span>
+                <small>To add dashboard sections, checkout &#x27;app/admin/dashboard.rb&#x27;</small>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer" id="footer">
+        <p>Powered by <a href="http://www.activeadmin.info">Active Admin</a> 0.6.0</p>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </body>
+    </html>
