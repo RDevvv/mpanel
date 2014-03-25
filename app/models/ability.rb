@@ -20,7 +20,9 @@ class Ability
 			    	can :create, Account
 			   	end  
 				end
-			end
+      end
+    elsif user.has_role?(:outlet_manager)
+      can :select_outlet, Outlet
 	 	else 		
 	  	can :read,:all
 	  end
