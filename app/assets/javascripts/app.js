@@ -2,11 +2,11 @@ var app = angular.module('app', ['ngRoute']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/outlet_view', {
-        templateUrl: '/templates/outletview.html',
+        templateUrl: '/templates/outlet_view.html',
         controller: 'ListingController'
     })
     .when('/map_view',{
-        templateUrl: '/templates/poster.html',
+        templateUrl: '/templates/map_view.html',
         controller: 'ListingController'
     })
     .when('/',{
