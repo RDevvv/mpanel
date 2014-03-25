@@ -245,7 +245,7 @@ textarea.feedback {background-color: #FFFFFF; text-align: left; resize:none; bac
 /* Landscape phones and down */
 @media (max-width: 320px) {
 /*body { overflow-x: hidden; }*/
-footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; margin-top: -3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
+footer {clear: both; margin: 10px 0 0 0; height: 3em; margin-top: -3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #93cddd; color: #fff; text-align: center; text-transform: uppercase;}
 
 .lower-box {clear:both; width:96%; height:15px; margin:0 0 0 -1px; padding: 3px;}
@@ -323,7 +323,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 }
 
 @media (max-width: 480px) {
-footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
+footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .navbar-header {float: right !important;}
 ul.left-icons {float:left; position: relative; margin:6px 9px 4px; width:auto; height: auto;}
 ul.left-icons li {float:left;  margin:0 36px; border-right: none; list-style: none;}
@@ -462,7 +462,7 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -37px -751px
 
 @media only screen and (min-width: 533px) {
     /* styles go here */
-footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
+footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .navbar-header {float: right !important;}
 ul.left-icons {float:left; position: relative; margin:6px 9px 4px; width:auto; height: auto;}
 ul.left-icons li {float:left;  margin:0 36px; border-right: none; list-style: none;}
@@ -585,7 +585,7 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 
 @media only screen and (max-width: 533px) {
     /* styles go here */
-footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
+footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .navbar-header {float: right !important;}
 ul.left-icons {float:left; position: relative; margin:6px 9px 4px; width:auto; height: auto;}
 ul.left-icons li {float:left;  margin:0 36px; border-right: none; list-style: none;}
@@ -716,7 +716,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 /* Landscape */
 @media screen and (orientation:landscape) {
    /* Landscape styles here */
-footer {clear: both; position: relative; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
+footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .bdiv{border: 1px solid #ccc; background: #fff; float: left; height: auto; margin: 5px 0 5px 20%; width: 135px; position:relative;}
 
 .bbox { float: left; height:auto; margin: 0; width: 135px; position:relative;}
@@ -818,6 +818,9 @@ div.input {/*width:395px;*/ width:82%; padding:1px 15px 3px !important; border-r
 .modal_close {position: absolute; top: -13px; right: -10px; display: block; width: 30px; height: 28px; z-index: 2; background-image: url(fancybox.png);
   background-position: -40px 0px;}
 .padded {padding: 15px; list-style-type: none;}
+.lat-dist {font-size:12px; color:#9e9e9e; float:left; clear:both; margin:10px 0 10px 14px;}
+.outlet-edit-link {float:right; margin:6px 7px 0 0;}
+.outlet-edit-link a, .outlet-edit-link a:link, .outlet-edit-link a:hover, .outlet-edit-link a:active {color:#9e9e9e; font-weight: bold; font-size: 12px; text-decoration: none;}
 .form-vertical .form-actions {padding:19px 0px 20px;}
 form.fill-up .radio, form.fill-up .checkbox {padding-left: 0;}
 textarea.fill, input.fill[type="text"], input.fill[type="password"], input.fill[type="datetime"], input.fill[type="datetime-local"], input.fill[type="date"], input.fill[type="month"], input.fill[type="time"], input.fill[type="week"], input.fill[type="number"], input.fill[type="email"], input.fill[type="url"], input.fill[type="search"], input.fill[type="tel"], input.fill[type="color"], .uneditable-input {
@@ -826,7 +829,7 @@ textarea.fill, input.fill[type="text"], input.fill[type="password"], input.fill[
   display: inline-block; background: #fdfdfd; height: 26px; }
 textarea.fill:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
     -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border: 1px solid #68A6CE; }
-label.label-style {font-weight: normal; color: #5F5F5F; font-size: 12px;}
+label.label-style {clear:both; font-weight: normal; color: #5F5F5F; font-size: 12px;}
 .btn-group:first-child {margin: 0;}
 .btn.btn-blue {border: 1px solid #337ca1; color: #fff; text-shadow:none; padding: 6px 20px; -webkit-box-shadow: inset 0 1px 2px #6eb0d1; -moz-box-shadow: inset 0 1px 2px #6eb0d1;
     box-shadow: inset 0 1px 2px #6eb0d1; background: #3d94c0; background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViYTVjYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNkOTRjMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
