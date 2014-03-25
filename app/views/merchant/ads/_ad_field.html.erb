@@ -75,6 +75,8 @@
   </div>
 </div>
 
+<%= f.fields_for :attachments %>
+<%= f.link_to_add "Add a image", :attachments %>
 
 <%= content_for :javascript  do %>
 <script type="text/javascript">

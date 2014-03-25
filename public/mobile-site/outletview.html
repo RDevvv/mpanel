@@ -28,24 +28,25 @@
     	  <title>GullakMaster - Outletview</title>
     	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <meta name="HandheldFriendly" content="true" />
-    	  <link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>
-    	  <link rel="stylesheet" href="css/mobile-css-styles.css">
-        <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.css" />
+    	  <link rel="stylesheet" href="/assets/bootstrap.css"  type="text/css"/>
+    	  <link rel="stylesheet" href="/assets/mobile-css-styles.css">
+        <link type="text/css" rel="stylesheet" href="/assets/jquery.mmenu.css" />
         <!-- jQuery -->
           <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>-->
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-
-          <script type="text/javascript" src="js/jquery.mmenu.js"></script>
+          <script type="text/javascript" src="/assets/jquery.mmenu.js"></script>
           <script type="text/javascript">
-            $(function() {
-              $('nav#menu').mmenu();
-            });
+            $(document).ready(function(){
+                    $('nav#menu').mmenu();
+                    verification_modal_submit();
+                    get_backtotop_button();
+                    })
           </script>
 
-          <script type="text/javascript" src="js/jquery.pnotify.min.js"></script>
-        <link href="css/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css" />
+          <script type="text/javascript" src="/assets/jquery.pnotify.min.js"></script>
+        <link href="/assets/jquery.pnotify.default.css" media="all" rel="stylesheet" type="text/css" />
         <!-- Include this file if you are using Pines Icons. -->
-        <link href="css/jquery.pnotify.default.icons.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="/assets/jquery.pnotify.default.icons.css" media="all" rel="stylesheet" type="text/css" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -69,15 +70,7 @@
       }
     })();
     </script>
-    <script type="text/javascript">
-      (function(){
-          var field = document.getElementById('s');
-          var placeholdertext = "Search box"; // << change this to whatever you want the placeholder text to be
-
-          field.setAttribute("onblur", "if(value=='') { value = '" + placeholdertext + "'")
-          field.setAttribute("onfocus", "if(value=='" + placeholdertext + "') { value = '' }")
-      })(); 
-    </script>
+    
     <script type="text/javascript">
         jQuery(document).ready(function(){
             var pxShow = 80;//height on which the button will show
@@ -97,7 +90,7 @@
             });
         });
     </script>
-    <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery.leanModal.min.js"></script>
     <script type="text/javascript">
       $(function() {
           $('a[rel*=leanModal]').leanModal({ top : 100, closeButton: ".modal_close", display: "none" });    
@@ -115,448 +108,239 @@
     <body>
       <!-- Preloader -->
       <div id="spinner"></div>
-      <img src="img/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
+      <img src="/assets/ajax-loader-123.gif" id="loading-indicator" style="display:none" />
     	<div id="header">
-        <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
         <ul class="left-icons">
-          
           <li><a href="#menu" class="srchlink3"></a></li>
-          <!--<li><a class="notify"></a></li>-->
         </ul>
     	  <div class="head-brand">GullakMaster</div>
         <ul class="right-icons">
-          <!--<li><a href="#" class="invfrnd2"></a></li>-->
-          <li><a href="#" class="loc">&nbsp;</a></li>
+          <li><a onclick="$('#popup_share').modal('show'); update_top_share_url($(this))" class="new_top_share shr" href="#"></a></li>
+          <li><a class="loc" href="mapview.html"></a></li>
         </ul>
-
         <nav id="menu">
-          <ul>
-
-            <li class="subcat">Sort by:</li>
-
-            
-
-            <li><a href="#">Distance</a></li>
-            <li><a href="#">Hot Picks</a></li>
-            <li><a href="#">Personalize</a></li>
-
-            <li>&nbsp;</li>
-
-            <li class="subcat">Filter by:</li>
-
-            <li style="margin-top:10px;">
-                <form id="searchForm">
+            <ul>
+                <li class="subcat">Filter by:</li>
+                <li style="margin-top:10px;">
+                    <form id="searchForm">
                       <fieldset>
-                          <div class="input">
-                              <input type="search" name="s" id="s" value="Enter Category..." />
-                          </div>
-                          <input type="submit" id="searchSubmit" value="" />
+                        <div class="input">
+                          <input type="search" name="s" id="s" value="Enter Category..." />
+                        </div>
+                        <input type="submit" id="searchSubmit" value="" />
+                        <div class="example-text">e.g: coffee, bags, shirts, eyewear</div>
                       </fieldset>
-                  </form>
-            </li>
-
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Amore</a></li>
-            <li><a href="#">Maple</a></li>
-
-            <li>&nbsp;</li>
-
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Amore</a></li>
-            <li><a href="#">Maple</a></li>
-
-            <li>&nbsp;</li>
-
-            <li><a href="#">Aura</a></li>
-            <li><a href="#">Amore</a></li>
-            <li><a href="#">Maple</a></li>
-
-            <li>&nbsp;</li>
-          </ul> 
+                    </form>
+                </li>
+                <li>&nbsp;</li>
+                <li class="subcat">Sort by:</li>
+                <li><a href="/outlet_listing?filter=distance&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;search=all&amp;view=map_listing">Distance</a></li>
+                <li><a href="/outlet_listing?filter=ad_expiry_date&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;search=all&amp;view=map_listing">Expiry date</a></li>
+                <li><a href="/outlet_listing?filter=ad_usage&amp;latitude=0&amp;location=bandra&amp;longitude=0&amp;search=all&amp;view=map_listing">Hot picks</a></li>
+                <li>&nbsp;</li>
+                
+                <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&amp;body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+                <li class="subcat" style="float:left; margin:-3% 0 0 -8%;"><a href="/customer_feedbacks/new">Provide Feedback</a></li>
+            </ul>
         </nav>
+        
 
     	</div>
 
     	<div class="container-location">
-    		<div class="row-fluid">
-    				<div class="span12">
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/maple-medium.png" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
+    		<div class="row-fluid"><!--row-fluid-->
+          <div class="span12"><!--span 12-->
+            <div class="search-div3">
+              <form accept-charset="UTF-8" action="/outlet_listing" id="searchForm" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                <fieldset>
+                  <div class="input">
+                    <input id="view" name="view" type="hidden" value="outlet_listing" />
+                    <input id="s" name="location" placeholder="Enter Location" type="text" />
                   </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/amoregelato.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/aromathai.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/auraspaworld.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/CCD.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/Cocoberry.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/Croma.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/Hokey_Pokey.jpg" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/love&latte.jpg" bord.jpger="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="bdiv">
-                  <div class="bbox">
-                    <div class="brandtitle">maple</div>
-                    <div class="eye2"><a onclick="$.pnotify({
-                            title: 'Offer',
-                            text: 'The offer text would get displayed here.',
-                            opacity: .9
-                        });" class="btn source"></a></div>
-                    <div align="center" class="brandlogo"><img class="img-responsive" src="img/maple-medium.png" border="0" /> </div>
-                    <div class="rch-btns-div">
-                      <div class="btn190"><a class="button_map2" href="mapview.html">ADDRESS</a></div>
-                      <div class="btn190"><a class="button_call2" href="tel:+91-9819654191">CALL</a></div>
-                    </div>
-                    <div class="distance-div">Distance: xx.x km</div>
-                  </div>
-                  <div class="lower-box">
-                    <div class="refr2"></div>
-                    <div class="star2"></div>
-                    <div class="right-box">
-                      <a href="#">
-                        <div class="run2"></div>
-                        <div class="runtxt">20.3K</div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-    				</div>
-    		</div>
-    	</div>
-      <footer>
-        <div class="mainfooter">
-        <div class="footer_div1">
-        <div class="footer_about_us">
-        <div class="footer_title">
-        <a href="#">About Us</a>
-        </div>
-        </div>
-            <ul class="footerdiv">
-              <li>
-                <a href="/company">Company</a>
-              </li>
-              <li>
-                <a href="/team">Team</a>
-              </li>
-              <li>
-                <a href="/careers">Careers</a>
-              </li>
-              <li>
-                <a href="/terms_of_use">Terms of Use</a>
-              </li>
-              <li>
-                <a href="/privacy_policy">Privacy Policy</a>
-              </li>
-            </ul>
+                </fieldset>
+                <input class="btn btn-submit2" id="submitbutton" name="commit" type="submit" value="Go" />
+              </form>    
             </div>
-            <div class="footer_div2">
-            <div class="footer_about_us">
-            <div class="footer_title">
-            <a href="/marketing_managers">Merchants</a>
+          </div><!--span 12-->
+          <div><!--div with no style containing the main boxes-->
+            <div class="mix bsc span12">
+              <div class="bdiv"> <!--bdiv-->
+                <div class="bbox">
+                  <div class="brandtitle">maple</div>
+                  <div align="center" class="brandlogo">
+                    <img class="img-responsive" src="/assets/maple-medium.png" border="0" />
+                  </div>
+                  <div class="lower-box">
+                    <div class="like"><a href='#', class='ad_request button_offer'>&nbsp;</a></div>
+                    <a class="share" >
+                      <div class="refr2"></div>
+                    </a>
+                    <p>179</p>
+                  </div>
+                  </div>
+                </div>
+                <div class="pin-add-div">
+                  <div class="rch-btns-div4">
+                    <ul>
+                      <li><a class="pin-box" href="#">&nbsp;</a></li>
+                      <li><a class="button_call_grey" href='#' >&nbsp;</a></li>
+                      <li><a class="button_view">&nbsp;</a></li>
+                    </ul>
+                  </div>
+                  <div class="distance-div">0.0 km</div>
+                  <div class="distance-div-below2">Ends: 31/03</div>
+                  <div class="add-box">
+                    <div class="adtitle1"><b>Address:</b></div>
+                    <div class="adaddress">
+                        Hill Road, Opposite Globus Shopping Mall
+                        Hill Road, Opposite Globus Shopping Mall
+                    </div>
+                    <div class="adloc">Bandra West<br/>
+                        Mumbai 400050</div>
+                    </div>
+                  </div>
+                </div>
+              </div><!--bdiv-->
             </div>
+          </div><!--div with no style containing the main boxes-->
+        </div><!--row-fluid-->
+        <div class="row-fluid"><!--row-fluid-->
+          <div><!--div with no style containing the main boxes-->
+            <div class="mix bsc span12">
+              <div class="bdiv"> <!--bdiv-->
+                <div class="bbox">
+                  <div class="brandtitle">maple</div>
+                  <div class="eye2"></div>
+                  <div align="center" class="brandlogo">
+                    <img class="img-responsive" src="/assets/maple-medium.png" border="0" />
+                  </div>
+                  <div class="lower-box">
+                    <div class="like"><a href='#', class='ad_request button_offer'>&nbsp;</a></div>
+                    <a class="share" >
+                      <div class="refr2"></div>
+                    </a>
+                    <p>179</p>
+                  </div>
+                  </div>
+                </div>
+                <div class="pin-add-div">
+                  <div class="rch-btns-div4">
+                    <ul>
+                      <li><a class="pin-box" href="#">&nbsp;</a></li>
+                      <li><a class="button_call_grey" href='#' >&nbsp;</a></li>
+                      <li><a class="button_view">&nbsp;</a></li>
+                    </ul>
+                  </div>
+                  <div class="distance-div">0.0 km</div>
+                  <div class="distance-div-below2">Ends: 31/03</div>
+                  <div class="add-box">
+                    <div class="adtitle1"><b>Address:</b></div>
+                    <div class="adaddress">
+                        Hill Road, Opposite Globus Shopping Mall
+                        Hill Road, Opposite Globus Shopping Mall
+                    </div>
+                    <div class="adloc">Bandra West<br/>
+                        Mumbai 400050</div>
+                    </div>
+                  </div>
+                </div>
+              </div><!--bdiv-->
             </div>
-              <ul class="footerdiv">
-                <li></li>
-                <li>
-                  <a href="/marketing_managers#location_based">Location targeting</a>
-                </li>
-                <li>
-                  <a href="/marketing_managers#context_based">Context marketing</a>
-                </li>
-                <li>
-                  <a href="/marketing_managers#mobile_targeting">Mobile advertising</a>
-                </li>
-                <li>
-                  <a target="_blank" href="mailto:merchant@gullakmaster.com">merchant@gullakmaster.com</a>
-                </li>
-              </ul>
-        </div>
-        <div class="footer_div3">
-        <div style="text-align:right; background-position:right bottom" class="footer_about_us">
-        <div class="footer_title">
-        <a href="/contact_us">Contact Us</a>
-        </div>
-        </div>
-        <p class="footerightdiv"></p>
-        <p class="footerightdiv">
-        <a href="/contact_us">Office locations</a>
-        </p>
-        <p class="footerightdiv">
-        Enquiry :
-        <a target="_blank" href="mailto:info@gullakmaster.com">info@gullakmaster.com</a>
-        </p>
-        <p class="footerightdiv">
-        Press :
-        <a target="_blank" href="mailto:media@gullakmaster.com">media@gullakmaster.com</a>
-        </p>
-        <p class="phone_no">+91 22 22843186</p>
-        <ul class="social-likebox">
-        <li>
-        <iframe scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:46px; height:21px;" src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FGullakMaster&amp;send=false&amp;layout=button_count&amp;width=163&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21" allowtransparency="true"></iframe>
-        </li>
-        <li>
-        <iframe scrolling="no" frameborder="0" id="twitter-widget-0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1387492107.html#_=1387790228989&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=gullakmaster&amp;show_count=false&amp;show_screen_name=false&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 60px; height: 20px;"></iframe>
-        </li>
-        </ul>
-        <p>GullakMaster &copy; 2013</p>
-        <p></p>
-        </div>
-        </div>
-
-        <div id="signup">
-      
-          
-          <p>Dynamic Text</p>
-          <p>popup text comes here</p>
-          <a class="modal_close" href="#"></a>
-        
-        
-        </div>
-
-      </footer>
+          </div><!--div with no style containing the main boxes-->
+        </div><!--row-fluid-->
+        <div class="row-fluid"><!--row-fluid-->
+          <div><!--div with no style containing the main boxes-->
+            <div class="mix bsc span12">
+              <div class="bdiv"> <!--bdiv-->
+                <div class="bbox">
+                  <div class="brandtitle">maple</div>
+                  <div align="center" class="brandlogo">
+                    <img class="img-responsive" src="/assets/maple-medium.png" border="0" />
+                  </div>
+                  <div class="lower-box">
+                    <div class="like"><a href='#', class='ad_request button_offer'>&nbsp;</a></div>
+                    <a class="share" >
+                      <div class="refr2"></div>
+                    </a>
+                    <p>179</p>
+                  </div>
+                  </div>
+                </div>
+                <div class="pin-add-div">
+                  <div class="rch-btns-div4">
+                    <ul>
+                      <li><a class="pin-box" href="#">&nbsp;</a></li>
+                      <li><a class="button_call_grey" href='#' >&nbsp;</a></li>
+                      <li><a class="button_view">&nbsp;</a></li>
+                    </ul>
+                  </div>
+                  <div class="distance-div">0.0 km</div>
+                  <div class="distance-div-below2">Ends: 31/03</div>
+                  <div class="add-box">
+                    <div class="adtitle1"><b>Address:</b></div>
+                    <div class="adaddress">
+                        Hill Road, Opposite Globus Shopping Mall
+                        Hill Road, Opposite Globus Shopping Mall
+                    </div>
+                    <div class="adloc">Bandra West<br/>
+                        Mumbai 400050</div>
+                    </div>
+                  </div>
+                </div>
+              </div><!--bdiv-->
+            </div>
+          </div><!--div with no style containing the main boxes-->
+        </div><!--row-fluid-->
+        <div class="row-fluid"><!--row-fluid-->
+          <div><!--div with no style containing the main boxes-->
+            <div class="mix bsc span12">
+              <div class="bdiv"> <!--bdiv-->
+                <div class="bbox">
+                  <div class="brandtitle">maple</div>
+                  <div class="eye2"></div>
+                  <div align="center" class="brandlogo">
+                    <img class="img-responsive" src="/assets/maple-medium.png" border="0" />
+                  </div>
+                  <div class="lower-box">
+                    <div class="like"><a href='#', class='ad_request button_offer'>&nbsp;</a></div>
+                    <a class="share" >
+                      <div class="refr2"></div>
+                    </a>
+                    <p>179</p>
+                  </div>
+                  </div>
+                </div>
+                <div class="pin-add-div">
+                  <div class="rch-btns-div4">
+                    <ul>
+                      <li><a class="pin-box" href="#">&nbsp;</a></li>
+                      <li><a class="button_call_grey" href='#' >&nbsp;</a></li>
+                      <li><a class="button_view">&nbsp;</a></li>
+                    </ul>
+                  </div>
+                  <div class="distance-div">0.0 km</div>
+                  <div class="distance-div-below2">Ends: 31/03</div>
+                  <div class="add-box">
+                    <div class="adtitle1"><b>Address:</b></div>
+                    <div class="adaddress">
+                        Hill Road, Opposite Globus Shopping Mall
+                        Hill Road, Opposite Globus Shopping Mall
+                    </div>
+                    <div class="adloc">Bandra West<br/>
+                        Mumbai 400050</div>
+                    </div>
+                  </div>
+                </div>
+              </div><!--bdiv-->
+            </div>
+          </div><!--div with no style containing the main boxes-->
+        </div><!--row-fluid-->
+      </div>
       <div id="backtotop">
         <a href="#">
-          <img src="img/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
+          <img src="/assets/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
         </a>
       </div>
-      <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script type="text/javascript" src="/assets/bootstrap.js"></script>
     </body>
     </html>
