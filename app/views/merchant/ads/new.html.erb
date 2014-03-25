@@ -7,7 +7,7 @@
         <span class="title"><i class="icon-account"></i> Ad </span>
       </div>
       <div class="box-content">
-        <%= form_for([@current_account,@account_brand,@ad], :url=>merchant_account_account_brand_ads_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+        <%= nested_form_for([@current_account,@account_brand,@ad], :url=>merchant_account_account_brand_ads_path(@current_account,@account_brand,@ad), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
           <div class="padded">
             
             <%= render :partial=>"ad_field",:locals=>{:f=>f} %>
