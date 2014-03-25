@@ -33,6 +33,7 @@ Gullak2::Application.routes.draw do
 
         resources :users
         match 'select_outlet' => 'outlets#select_outlet'
+        match "outletview_edit" => 'outlets#outletview_edit'
         resources :accounts do
             collection do
                 post "add_brands"
@@ -49,7 +50,6 @@ Gullak2::Application.routes.draw do
 
                   collection do
                     match "outlet_key"
-                    match "outletview_edit"
 
                     get 'upload_outlets'
                         get 'download_outlet_template'

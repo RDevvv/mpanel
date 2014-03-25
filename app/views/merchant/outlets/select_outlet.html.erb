@@ -15,39 +15,25 @@
           	<div class="sub-txt2"><strong>Select your Outlet</strong></div>
           </div>
           <div class="span12">
-          	<form role="form">
+          	<div role="form">
+              <%= form_tag(merchant_outletview_edit_path, :method => "post") do %>
           	  <div class="cb">
-  	          	<select class="form-control">
-        				    <option value="one">City</option>
-        				    <option value="two">City1</option>
-        				    <option value="three">City2</option>
-        				    <option value="four">City3</option>
-        				    <option value="five">City4</option>
-        				</select>
-			        </div>
-      				<div class="cb">
-      					<select class="form-control">
-      					    <option value="one">Area</option>
-      					    <option value="two">Area1</option>
-      					    <option value="three">Area2</option>
-      					    <option value="four">Area3</option>
-      					    <option value="five">Area4</option>
-      					</select>
-      				</div>
-      				<div class="cb">
-      					<select class="form-control">
-      					    <option value="one">Address</option>
-      					    <option value="two">Address1</option>
-      					    <option value="three">Address2</option>
-      					</select>
-      				</div>
+                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name)  %>
+			  </div>
+      		  <div class="cb">
+                <%= select_tag :area_id, options_from_collection_for_select(@areas,:id,:area_name)  %>
+      		  </div>
+      		  <div class="cb">
+                <%= select_tag :outlet, options_from_collection_for_select(@outlet,:id,:address) %>
+      		  </div>
               <div class="cb">
                 <input type="submit" class="btn btn-blue2" value="Go"/>
               </div>
               <!--<div style="clear:both; margin:-10px 0 0 0;"><input type="submit" class="btn btn-blue1" value="Go"/></div>-->
-			      </form>
+			<% end %>
           </div>
+        </div>
         </div>
       </div>
     </body>
-    </html>
+  </html>
