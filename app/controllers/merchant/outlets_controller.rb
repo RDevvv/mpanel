@@ -1,6 +1,6 @@
 class Merchant::OutletsController <  Merchant::BaseController
   before_filter  :load_account
-	before_filter  :load_account_and_brand, :except => [:select_outlet, :outletview_edit, :get_area, :get_address]
+	before_filter  :load_account_and_brand, :except => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
   #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
 
 	def index
@@ -159,6 +159,26 @@ class Merchant::OutletsController <  Merchant::BaseController
 
   def get_address
     @outlet = Outlet.where(:area_id => params[:area_id]).all if params[:area_id]
+  end
+
+  def outlet_update
+    @outlet = Outlet.where(:id => params[:outlet][:id]).first
+    @area = Area.by_area_name(params[:area_name].squish.titlecase).by_pincode(params[:pincode]).first
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].squish.titlecase,:pincode=>params[:pincode]) if @area.blank?
+    if @area.city_id != params[:city_id]
+      @area.update_attributes(:city_id=>params[:city_id])
+    end
+    params[:outlet][:area_id] = @area.id
+    respond_to do |format|
+      if @outlet.update_attributes(params[:outlet])
+        format.js { redirect_to merchant_select_outlet_path,:notice=>"Outlet Succesfully Updated" }
+      else
+        @cities = City.order("city_name")
+        @brands = Brand.all
+
+        format.html { render action: "edit" }
+      end
+    end
   end
 
 	protected
