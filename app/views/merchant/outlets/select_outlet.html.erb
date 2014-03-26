@@ -24,6 +24,9 @@
               <div class="cb" id="area">
                 <%= render :partial => "area" %>
               </div>
+              <div class="cb" id="address">
+                <%= render :partial => "address" %>
+              </div>
               <div class="cb">
                 <input type="submit" class="btn btn-blue2" value="Go"/>
               </div>
@@ -46,6 +49,24 @@
             }
             jQuery.ajax({
                 url: "/merchant/get_area",
+                type: 'GET',
+                dataType: 'script',
+                data: data
+            });
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        $("#area").bind('change',function() {
+            var area = $("#area :selected").val()
+            //alert(product); //to test
+            var data = {
+                area_id: $("#area :selected").val()
+            }
+            jQuery.ajax({
+                url: "/merchant/get_address",
                 type: 'GET',
                 dataType: 'script',
                 data: data

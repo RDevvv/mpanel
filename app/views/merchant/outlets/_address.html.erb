@@ -1,0 +1,3 @@
+<% options = []
+   options = options_from_collection_for_select(@address, "id", "address") if @address.present? %>
+<%= select_tag "Select address", options %>

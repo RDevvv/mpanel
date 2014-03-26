@@ -35,6 +35,7 @@ Gullak2::Application.routes.draw do
         match 'select_outlet' => 'outlets#select_outlet'
         match "outletview_edit" => 'outlets#outletview_edit'
         match 'get_area' => 'outlets#get_area'
+        match 'get_address' => 'outlets#get_address'
         resources :accounts do
             collection do
                 post "add_brands"
