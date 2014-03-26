@@ -17,15 +17,13 @@
           <div class="span12">
           	<div role="form">
               <%= form_tag(merchant_outletview_edit_path, :method => "post") do %>
-          	  <div class="cb">
+
+          	  <div class="cb" id="city">
                 <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name)  %>
 			  </div>
-      		  <div class="cb">
-                <%= select_tag :area_id, options_from_collection_for_select(@areas,:id,:area_name)  %>
-      		  </div>
-      		  <div class="cb">
-                <%= select_tag :outlet, options_from_collection_for_select(@outlet,:id,:address) %>
-      		  </div>
+              <div class="cb" id="area">
+                <%= render :partial => "area" %>
+              </div>
               <div class="cb">
                 <input type="submit" class="btn btn-blue2" value="Go"/>
               </div>
@@ -37,3 +35,21 @@
       </div>
     </body>
   </html>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        $("#city").bind('change',function() {
+            var city = $("#city :selected").val()
+            //alert(product); //to test
+            var data = {
+                city_id: $("#city :selected").val()
+            }
+            jQuery.ajax({
+                url: "/merchant/get_area",
+                type: 'GET',
+                dataType: 'script',
+                data: data
+            });
+        })
+    });
+</script>
