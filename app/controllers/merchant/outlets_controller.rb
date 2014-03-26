@@ -142,7 +142,7 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def outletview_edit
-    @outlet = Outlet.where(:outlet_key => params[:outlet_key]).first
+    @outlet = Outlet.where(:id => params[:outlet_id]).first
     @cities = City.order("city_name")
     @areas =[]
     render layout: "outlet_manager"
@@ -158,7 +158,7 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def get_address
-    @address = Outlet.where(:area_id => params[:area_id]).all if params[:area_id]
+    @outlet = Outlet.where(:area_id => params[:area_id]).all if params[:area_id]
   end
 
 	protected

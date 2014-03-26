@@ -1,3 +1,3 @@
 <% options = []
-   options = options_from_collection_for_select(@address, "id", "address") if @address.present? %>
-<%= select_tag "Select address", options %>
+   options = options_from_collection_for_select(@outlet, "id", "address") if @outlet.present? %>
+<%= select_tag :outlet_id, options %>
