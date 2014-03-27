@@ -81,7 +81,7 @@
             </div>
 
                </div>
-            <%= form_for(@outlet, :url=>merchant_outlet_update_path(@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+            <%= form_for(@outlet, :url=>merchant_path(@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
             <%= f.hidden_field :id, :value => @outlet.id %>
               <div class="row-fluid">
                 <div class="span12">

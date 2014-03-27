@@ -142,9 +142,15 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def outletview_edit
-    @outlet = Outlet.where(:id => params[:outlet_id]).first
-    @cities = City.order("city_name")
-    @areas =[]
+    if params[:outlet_id]
+      @outlet = Outlet.where(:id => params[:outlet_id]).first
+      @cities = City.order("city_name")
+      @areas =[]
+    else
+      @outlet = Outlet.where(:id => params[:outlet][:id])
+      @cities = City.order("city_name")
+      @areas =[]
+    end
     render layout: "outlet_manager"
   end
 
@@ -169,15 +175,10 @@ class Merchant::OutletsController <  Merchant::BaseController
       @area.update_attributes(:city_id=>params[:city_id])
     end
     params[:outlet][:area_id] = @area.id
+    @outlet.update_attributes(params[:outlet])
+    @cities = City.all
     respond_to do |format|
-      if @outlet.update_attributes(params[:outlet])
-        format.js { redirect_to merchant_select_outlet_path,:notice=>"Outlet Succesfully Updated" }
-      else
-        @cities = City.order("city_name")
-        @brands = Brand.all
-
-        format.html { render action: "edit" }
-      end
+       format.html {render 'outletview_edit'}
     end
   end
 

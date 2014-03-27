@@ -22,7 +22,7 @@ class Ability
 				end
       end
     elsif user.has_role?(:outlet_manager)
-      can :select_outlet, Outlet
+      can [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update], Outlet
 	 	else 		
 	  	can :read,:all
 	  end
