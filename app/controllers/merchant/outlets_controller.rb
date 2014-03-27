@@ -3,6 +3,8 @@ class Merchant::OutletsController <  Merchant::BaseController
 	before_filter  :load_account_and_brand, :except => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
   #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
 
+  layout "outlet_manager", :only => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
+
 	def index
     @outlets = @account_brand.outlets
     @outlets.each do|outlet|
@@ -138,25 +140,16 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def outlet_key
-    render layout: "outlet_manager"
   end
 
   def outletview_edit
-    if params[:outlet_id]
       @outlet = Outlet.where(:id => params[:outlet_id]).first
       @cities = City.order("city_name")
       @areas =[]
-    else
-      @outlet = Outlet.where(:id => params[:outlet][:id])
-      @cities = City.order("city_name")
-      @areas =[]
-    end
-    render layout: "outlet_manager"
-  end
+   end
 
   def select_outlet
     @cities = City.order("city_name")
-    render layout: "outlet_manager"
   end
 
   def get_area
@@ -178,7 +171,7 @@ class Merchant::OutletsController <  Merchant::BaseController
     @outlet.update_attributes(params[:outlet])
     @cities = City.all
     respond_to do |format|
-       format.html {render 'outletview_edit'}
+       format.html {render 'outletview_edit', :notice=>"Outlet Succesfully Updated" }
     end
   end
 
