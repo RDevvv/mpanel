@@ -19,7 +19,7 @@
               <%= form_tag(merchant_outletview_edit_path, :method => "post") do %>
 
           	  <div class="cb" id="city">
-                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name)  %>
+                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name), :prompt => 'Select a City'  %>
 			  </div>
               <div class="cb" id="area">
                 <%= render :partial => "area" %>
