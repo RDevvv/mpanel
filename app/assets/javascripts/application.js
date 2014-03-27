@@ -35,4 +35,5 @@
 //= require call_button
 //= require angular
 //= require angular-route
+//= require angular-cookies
 //= require app

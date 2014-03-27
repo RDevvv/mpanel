@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute', 'ngCookies']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/outlet_view', {
@@ -15,25 +15,53 @@ app.config(function($routeProvider){
     .otherwise({redirectTo: '/templates/home.html'})
 });
 
-app.controller('ListingController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', function($scope, $http, $routeParams, $cookies){
     $http({
         method: 'GET',
         url: 'outlet_listing.json',
         params :{location: $routeParams['location'], view: $routeParams['view'], search: $routeParams['search'], filter: $routeParams['filter'] }
     })
-        .then(function(response){
-    $scope.posters = response.data;
+    .then(function(response){
+        console.log($cookies.mobile_number);
+        $scope.posters = response.data;
     });
+
+    $scope.verified = function(){
+        if($cookies.mobile_number=='verified')
+            return true;
+    }
+
+    $scope.unlock = function (brand_name,ad_id, outlet_id) {
+        $http({
+            method: 'POST',
+            url   : 'set_sms_data.json',
+            params: {
+                customer_uuid: $cookies.customer_uuid,
+                ad_id: ad_id,
+                outlet_id: outlet_id
+            }
+        })
+        $.pnotify({
+            title: brand_name+' - Offer sent',
+            text: 'text',
+            sticker_hover: false,
+            closer_hover: false,
+            animate_speed: 'fast',
+            icon: false,
+            addclass: 'stack-topleft',
+            opacity: .9
+        });
+    }
 
     $scope.view_ad = function(brand_name, title, sms_text){
         $.pnotify({ title: brand_name+' - '+title, text: sms_text,
-        closer_hover: false,
-        sticker_hover: false,
-        animate_speed: 'fast',
-        icon: false,
-        addclass: 'stack-topleft',
-        opacity: .9
-    });
+                  closer_hover: false,
+                  sticker_hover: false,
+                  animate_speed: 'fast',
+                  icon: false,
+                  addclass: 'stack-topleft',
+                  opacity: .9
+        });
     }
 
     $scope.tracking = function(ad_id,outlet_id,button_class, current_link){
