@@ -19,7 +19,7 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', function
     $http({
         method: 'GET',
         url: 'outlet_listing.json',
-        params :{location: $routeParams['location'], view: $routeParams['view'], search: $routeParams['search'] }
+        params :{location: $routeParams['location'], view: $routeParams['view'], search: $routeParams['search'], filter: $routeParams['filter'] }
     })
         .then(function(response){
     $scope.posters = response.data;
@@ -34,5 +34,20 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', function
         addclass: 'stack-topleft',
         opacity: .9
     });
+    }
+
+    $scope.tracking = function(ad_id,outlet_id,button_class, current_link){
+        $http({
+            method: 'POST',
+            url: 'get_button_click.json',
+            params: {
+                customer_uuid: '0cbac1e3-7792-49a5-b185-da3a75ac94d0',
+                ad_id: ad_id,
+                outlet_id: outlet_id,
+                button_class: button_class,
+                current_link: current_link
+            }
+        })
+
     }
 }])

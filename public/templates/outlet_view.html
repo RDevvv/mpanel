@@ -56,7 +56,7 @@
                 <li> <div class="button_no_offer">&nbsp;</div> </li>
             </div>
             <div ng-if='poster.ad_id!=0' %>
-                <li> <a class="button_view" ng-click='view_ad(poster.brand_name, poster.ad_title, poster.sms_text)'>&nbsp;</a></li>
+                <li> <a class="button_view" ng-click='view_ad(poster.brand_name, poster.ad_title, poster.sms_text); tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a></li>
             </div>
         </ul>
     </div>
