@@ -157,7 +157,12 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def get_address
-    @outlet = Outlet.where(:area_id => params[:area_id]).all if params[:area_id]
+    @user_brand = UserBrand.where(:user_id => current_user.id)
+    @brand = @user_brand.first.brand
+    @account_brand = @brand.account_brands
+    @outlet1 = @account_brand.first.outlets
+    @outlet = @outlet1.where(:area_id => params[:area_id]).all if params[:area_id]
+    #@outlet = Outlet.where(:area_id => params[:area_id]).all if params[:area_id]
   end
 
   def outlet_update
