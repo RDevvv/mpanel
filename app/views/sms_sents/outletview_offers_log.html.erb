@@ -54,7 +54,11 @@
                             <td><%= sms.created_at %></td>
                             <td><%= sms.customer.mobile_number %></td>
                             <td><%= sms.text %></td>
-                            <td></td>
+                            <td>
+                              <div class="icheckbox_flat-aero checked" style="position: relative;">
+                                <input type="checkbox" class="icheck" id="icheck2">
+                              </div>
+                            </td>
                           </tr>
                       <% end %>
                     </tbody>
