@@ -13,7 +13,7 @@
         </ul>
         <div class="head-brand">&lt;Brand&gt;</div>
         <ul class="right-icons">
-          <li><%= link_to raw("&nbsp;"), root_path, :class => "deal" %></li>
+          <li><%= link_to raw("&nbsp;"), outletview_offers_log_path(:id => @outlet_id), :class => "deal" %></li>
         </ul>
 
   <% if merchant_user_signed_in? %>
