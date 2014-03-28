@@ -18,7 +18,7 @@ app.config(function($routeProvider){
 app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', function($scope, $http, $routeParams, $cookies){
     $http({
         method: 'GET',
-        url: 'outlet_listing.json',
+        url: 'http://www.gullakmaster.com/outlet_listing.json',
         params :{location: $routeParams['location'], view: $routeParams['view'], search: $routeParams['search'], filter: $routeParams['filter'] }
     })
     .then(function(response){

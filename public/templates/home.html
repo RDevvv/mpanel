@@ -1,12 +1,68 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-</head>
-<body>
-<!-- Preloader -->
+<div align="center" class="container-home">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="logo"><a href='/'><img src='assets/gullak-logo-main.jpg' style="border=0;" /></a></div>
+            <div class="sub-txt">Deals At Your Fingertips !</div>
+        </div>
+        <div class="span12">
+            <div class="c-loc">
+                <div class="input-group">
+                    <form 'outlet_listing', method ='GET' class = 'form-without-submit' >
+                        <input type='text' class = 'form-control' placeholder ='Enter Location' ng-model='search.location'>
+                        <input type='hidden' name='search' value='all' >
+                        <input type='hidden' name='latitude' value='0' ng-model='search.latitude'>
+                        <input type='hidden' name='longitude' value='0' ng-model='search.latitude'>
+                        <input type='hidden' name='view' value='outlet_listing' >
+                    <div class="input-group-btn">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span12">
+            <div class="lower-txt-below">e.g. Andheri Mumbai OR GK 2 Delhi..</div>
+        </div>
+        <div class="span12">
+            <div class="sub-txt-below"></div>
+            <a href='#/outlet_view?view=outlet_listing&search=all&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' id="button" class="btn btn-blue1">Show All Deals</a>
+        </div>
+        </form>
+        <div class="span12">
+            <div class="sub-txt-nobrdr">OR</div>
+        </div>
+        <div class="span12">
+            <div class="hp-cat-ttl">Select a Category</div>
+            <div class="cat-link-div">
+              <div class="hp-cat-txt-acc">
+                  <a href='#/outlet_view?view=outlet_listing&search=accessories&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' class='filldiv'>Accessories</a>
+              </div>
+            </div>
+            <div class="cat-link-div">
+              <div class="hp-cat-txt-app">
+                  <a href='#/outlet_view?view=outlet_listing&search=apparels&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' class='filldiv'>Apparels</a>
+              </div>
+            </div>
+            <div class="cat-link-div">
+              <div class="hp-cat-txt-ele">
+                  <a href='#/outlet_view?view=outlet_listing&search=electronics&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' class='filldiv'>Electronics</a>
+              </div>
+            </div>
+            <div class="cat-link-div">
+              <div class="hp-cat-txt-food">
+                  <a href='#/outlet_view?view=outlet_listing&search=food&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' class='filldiv'>Food</a>
+              </div>
+            </div>
+            <div class="cat-link-div">
+                <div class="hp-cat-txt-mobile">
+                  <a href='#/outlet_view?view=outlet_listing&search=mobile&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' class='filldiv'>Mobile</a>
+                </div>
+            </div>
+            <div class="cat-link-div">
+                <div class="hp-cat-txt-shoes">
+                  <a href='#/outlet_view?view=outlet_listing&search=shoes&location={{search.location}}&latitude={{search.latitude}}&longitude={{search.longitude}}' class='filldiv'>Shoes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" style=""></script>
-<%= render :partial => "new_mobile_number_modal" %>
-<%= render :partial => "verify_mobile_number" %>
-</body>
-</html>
