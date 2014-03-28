@@ -1,4 +1,5 @@
 class CallForwardingsController < ApplicationController
+  layout "outlet_manager", :only => [:outletview_call_log]
   def index
     @call_forwardings = CallForwarding.all
 
@@ -50,7 +51,7 @@ class CallForwardingsController < ApplicationController
   end
 
   def outletview_call_log
-
+    @call_forwardings = CallForwarding.where(:outlet_id => params[:id]).all
   end
 
 end

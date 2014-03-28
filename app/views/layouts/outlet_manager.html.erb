@@ -7,7 +7,24 @@
 
 </head>
 <body>
+<div id="header">
+        <ul class="left-icons">
+          <li><%= link_to raw("&nbsp;"), outletview_call_log_path(:id => @outlet_id), :class => "phn" %></li>
+        </ul>
+        <div class="head-brand">&lt;Brand&gt;</div>
+        <ul class="right-icons">
+          <li><%= link_to raw("&nbsp;"), root_path, :class => "deal" %></li>
+        </ul>
 
+  <% if merchant_user_signed_in? %>
+      <li class="dropdown <%=  %> collapse_nav_mob">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_merchant_user.email %> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <%= link_to '<i class="icon-off"></i> Logout'.html_safe, destroy_merchant_user_session_path, :method=>'delete' %>
+        </ul>
+      </li>
+  <% end %>
+</div>
 <%= yield %>
 
 </body>
