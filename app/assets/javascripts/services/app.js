@@ -18,7 +18,7 @@ app.config(function($routeProvider){
 app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', function($scope, $http, $routeParams, $cookies){
     $http({
         method: 'GET',
-        url: 'http://staging.gullakmaster.com/outlet_listing.json',
+        url: 'outlet_listing.json',
         params :{location: $routeParams['location'], view: $routeParams['view'], search: $routeParams['search'], filter: $routeParams['filter'] }
     })
     .then(function(response){
@@ -29,6 +29,12 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
     $scope.verified = function(){
         if($cookies.mobile_number=='verified')
             return true;
+    }
+
+    $scope.listing_form = function(){
+        console.log('vivek');
+        $routeParams['location'] = 'vivek';
+        console.log($routeParams['location']);
     }
 
     $scope.unlock = function (brand_name,ad_id, outlet_id) {

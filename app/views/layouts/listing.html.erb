@@ -130,7 +130,26 @@
 <%= render :partial => "share_partial" %>
 
 <%= yield %>
-<div id='view' ng-view>
+<div class="container-location">
+    <div class="row-fluid">
+<div class="span12">
+    <div class="search-div3">
+        <form ng-submit='listing_form()' ng-controller='ListingController' method='get' id='searchForm'>
+            <fieldset>
+            <div class="input">
+                <input type='text' name='location' id='s' placeholder ='Enter Location'>
+                    <script type='text/javascript'>
+                        reverse_geocode($('#s'));
+                    </script>
+            </div>
+            </fieldset>
+        <input type='submit' value='Go' name='Go' id ='submitbutton' class = "btn btn-submit2" >
+        </form>
+    </div>
+</div>
+        <div id='view' ng-view>
+        </div>
+    </div>
 </div>
 <footer>GullakMaster &copy; 2014</footer>
 <script type="text/javascript">
