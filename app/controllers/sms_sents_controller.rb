@@ -1,5 +1,6 @@
 class SmsSentsController < ApplicationController
     skip_before_filter  :verify_authenticity_token, :only => [:set_sms_data]
+    layout "outlet_manager", :only => [:outletview_offers_log]
 
     # GET /sms_sents
     # GET /sms_sents.json
@@ -56,7 +57,8 @@ class SmsSentsController < ApplicationController
     end
 
     def outletview_offers_log
-
+      @ad_promocode_outlet = AdPromocodeOutlet.where(:outlet_id => params[:id])
+      @sms_sents = @ad_promocode_outlet.first.sms_sents
     end
 
 end

@@ -146,6 +146,7 @@ class Merchant::OutletsController <  Merchant::BaseController
       @outlet = Outlet.where(:id => params[:outlet_id]).first
       @cities = City.order("city_name")
       @areas =[]
+      @outlet_id = @outlet.id
    end
 
   def select_outlet
