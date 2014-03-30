@@ -26,6 +26,7 @@ gem 'jbuilder'
 
 
 gem 'capistrano', '~> 3.0.1'
+gem 'capistrano-db-tasks', require: false
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'passenger'
