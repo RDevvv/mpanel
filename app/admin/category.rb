@@ -18,10 +18,13 @@ ActiveAdmin.register Category do
     end
   end
 
-  form do |f|
+  form(:html => { :multipart => true }) do |f|
     f.inputs  do
       f.input :category_name, :as => :string
       f.input :industry, :as => :select, :collection => Industry.all.map {|u| [u.industry_name, u.id]}
+      f.has_many :attachments do |s|
+        s.input :image, :as => :file
+      end
     end
     f.actions
   end
