@@ -3,6 +3,7 @@ class Area < ActiveRecord::Base
   has_many :accounts, :dependent => :destroy
   has_many :outlets, :dependent => :destroy
   belongs_to :city
+  has_many :malls
   geocoded_by :area_address  # can also be an IP address
 	after_validation :geocode , :if => :address_changed?
   validates_presence_of :area_name
