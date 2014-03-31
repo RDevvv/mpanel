@@ -9,6 +9,7 @@ class Brand < ActiveRecord::Base
   validates :brand_name, :uniqueness => true, :presence => true
   has_many :user_brands, :dependent => :destroy
   has_many :users, :through => :user_brands
+  has_one :customer_brand_score
 
   def name
     self.brand_name
