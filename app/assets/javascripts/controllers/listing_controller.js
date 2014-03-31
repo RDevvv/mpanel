@@ -1,11 +1,6 @@
-app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', function($scope, $http, $routeParams, $cookies){
-    $http({
-        method: 'GET',
-        url: 'outlet_listing.json',
-        params :{location: $routeParams['location'], view: $routeParams['view'], search: $routeParams['search'], filter: $routeParams['filter'] }
-    })
-    .then(function(response){
-        $scope.posters = response.data;
+app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', 'getOutlet', function($scope, $http, $routeParams, $cookies, getOutlet){
+    getOutlet.fetch_outlets(function(response_data){
+        $scope.posters = response_data;
     });
 
     $scope.verified = function(){
@@ -14,9 +9,7 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
     }
 
     $scope.listing_form = function(){
-        console.log('vivek');
         $routeParams['location'] = 'vivek';
-        console.log($routeParams['location']);
     }
 
     $scope.unlock = function (brand_name,ad_id, outlet_id) {
@@ -57,7 +50,7 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
             method: 'POST',
             url: 'get_button_click.json',
             params: {
-                customer_uuid: '0cbac1e3-7792-49a5-b185-da3a75ac94d0',
+                customer_uuid: $cookies.customer_uuid,
                 ad_id: ad_id,
                 outlet_id: outlet_id,
                 button_class: button_class,
