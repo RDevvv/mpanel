@@ -20,8 +20,6 @@ Gullak2::Application.routes.draw do
     resources :pages
 
 
-    mount ResqueWeb::Engine, at: 'resque'
-
     namespace :merchant do
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
         get "/",:to=>"merchants#index",:as=>:merchants
@@ -141,6 +139,9 @@ Gullak2::Application.routes.draw do
     root :to => redirect('/desktop-home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
+    authenticate :admin_user do
+      mount ResqueWeb::Engine, at: '/admin/resque'
+    end
     get '/:short_url' => 'campaigns#campaign_landing'#, constraints: {domain: 'gullak.co'}
 
     unless Rails.application.config.consider_all_requests_local
