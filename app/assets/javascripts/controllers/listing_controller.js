@@ -1,4 +1,4 @@
-app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', 'getOutlet', function($scope, $http, $routeParams, $cookies, getOutlet){
+app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', 'getOutlet', '$location', function($scope, $http, $routeParams, $cookies, getOutlet, $location){
     getOutlet.fetch_outlets(function(response_data){
         $scope.posters = response_data;
     });
@@ -9,7 +9,16 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
     }
 
     $scope.listing_form = function(){
-        $routeParams['location'] = 'vivek';
+        $location.search('search','all');
+        $location.search('location',$scope.topsearch);
+    }
+
+    $scope.category_form = function(){
+        $location.search('search',$scope.category);
+    }
+
+    $scope.distance_filter = function(filter){
+        $location.search('filter',filter);
     }
 
     $scope.unlock = function (brand_name,ad_id, outlet_id) {
