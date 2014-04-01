@@ -145,4 +145,15 @@ class Ad < ActiveRecord::Base
             return true
         end
     end
+
+    def self.get_image(ad,outlet)
+        if ad==0
+            return outlet.account_brand.brand.attachments.first.image.url unless outlet.account_brand.brand.attachments.blank?
+            return outlet.account_brand.brand.category.attachments.first.image.url unless outlet.account_brand.brand.category.attachments.blank?
+        else
+            return ad.attachments.first.image.url unless ad.attachments.blank?
+            return ad.account_brand.brand.attachments.first.image.url unless ad.account_brand.brand.attachments.blank?
+            return ad.account_brand.brand.category.attachments.first.image.url unless ad.account_brand.brand.category.attachments.blank?
+        end
+    end
 end
