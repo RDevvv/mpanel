@@ -1,22 +1,18 @@
 <div id="popup_share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
     <div class="top-share">
-    	<div class="top-share-box">
-    		<form>
-				<input onclick="this.select()" id='top_share_link'  type="text" value="http://gullak.co/abcd">
-			</form>
-			<div class="or">or</div>
-			<div class="fb1">
-			  <a class='top_share' href="#"><img src="assets/share-btn.png" border="0" /></a>
-			</div>
-    	</div>
+        <div class="top-share-box">
+            <form>
+                <input onclick="this.select()" id='top_share_link'  type="text" value="http://gullak.co/abcd">
+            </form>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
-  $("input[type=text]").live('click', function() {
-    $(this).select();
-  this.setSelectionRange(0, 9999);
-	});
+$("input[type=text]").live('click', function() {
+        $(this).select();
+        this.setSelectionRange(0, 9999);
+        });
 </script>
 <style type="text/css">
 #signup, #popup_share {background: none;}

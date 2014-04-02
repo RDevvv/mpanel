@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='app'>
 <head>
   <title>Deals At Your Fingertips!</title>
   <meta charset="utf-8">
@@ -82,6 +82,8 @@
 <!-- Preloader -->
 <%= bootstrap_flash %>
 <%= yield %>
+<div id='view' ng-view>
+</div>
 <script type="text/javascript">
     $(function() {
         $('nav#menu').mmenu();

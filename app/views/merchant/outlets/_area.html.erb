@@ -1,0 +1,3 @@
+<% options = []
+   options = options_from_collection_for_select(@area, "id", "area_name") if @area.present? %>
+<%= select_tag :area_id, options %>

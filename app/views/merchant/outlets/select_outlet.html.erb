@@ -1,0 +1,76 @@
+<!doctype html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+        <title>GullakMaster - Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <!-- jQuery -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    </head>
+    <body>
+      <div align="center" class="container-home">
+        <div class="row-fluid">
+          <div class="span12">
+          	<div class="logo"><a href="#"><%= image_tag("gullak-logo-main.jpg", :border=> "0") %></a></div>
+          	<div class="sub-txt2"><strong>Select your Outlet</strong></div>
+          </div>
+          <div class="span12">
+          	<div role="form">
+              <%= form_tag(merchant_outletview_edit_path, :method => "post") do %>
+
+          	  <div class="cb" id="city">
+                <%= select_tag :city_id, options_from_collection_for_select(@cities,:id,:city_name), :prompt => 'Select a City'  %>
+			  </div>
+              <div class="cb" id="area">
+                <%= render :partial => "area" %>
+              </div>
+              <div class="cb" id="address">
+                <%= render :partial => "address" %>
+              </div>
+              <div class="cb">
+                <input type="submit" class="btn btn-blue2" value="Go"/>
+              </div>
+              <!--<div style="clear:both; margin:-10px 0 0 0;"><input type="submit" class="btn btn-blue1" value="Go"/></div>-->
+			<% end %>
+          </div>
+        </div>
+        </div>
+      </div>
+    </body>
+  </html>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        $("#city").bind('change',function() {
+            var city = $("#city :selected").val()
+            //alert(product); //to test
+            var data = {
+                city_id: $("#city :selected").val()
+            }
+            jQuery.ajax({
+                url: "/merchant/get_area",
+                type: 'GET',
+                dataType: 'script',
+                data: data
+            });
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        $("#area").bind('change',function() {
+            var area = $("#area :selected").val()
+            //alert(product); //to test
+            var data = {
+                area_id: $("#area :selected").val()
+            }
+            jQuery.ajax({
+                url: "/merchant/get_address",
+                type: 'GET',
+                dataType: 'script',
+                data: data
+            });
+        })
+    });
+</script>

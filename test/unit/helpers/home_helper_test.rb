@@ -11,11 +11,11 @@ class HomeHelperTest < ActionView::TestCase
     end
 
     test "should get brand title which is smaller than 7 characters" do
-        assert_equal "Cafe Co..", get_brand_title(Brand.first)
+        assert_equal "Cafe Coffee Day", get_brand_title(Brand.find(1).brand_name)
     end
 
     test "should get brand title which is bigger than 7 characters" do
-        assert_equal "Aura Sp..", get_brand_title(Brand.last)
+        assert_equal "Aura Spa Spa Spa..", get_brand_title(Brand.find(3).brand_name)
     end
 
     test "should generate referer link" do

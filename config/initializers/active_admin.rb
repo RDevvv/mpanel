@@ -43,11 +43,11 @@ ActiveAdmin.setup do |config|
      config.namespace :admin do |admin|
        admin.build_menu do |menu|
          if Rails.env == 'production'
-          menu.add :label => "Resque", :parent => "System", :url => "http://www.gullakmaster.com/resque"
+          menu.add :label => "Resque", :parent => "System", :url => '/admin/resque'
           menu.add :label => 'Routing errors', :parent => 'System', :url => 'http://www.gullakmaster.com/admin/error_messages?error_type=RoutingError'
           menu.add :label => 'Database errors', :parent => 'System', :url => 'http://www.gullakmaster.com/admin/error_messages?error_type=StatementInvalid'
          else
-          menu.add :label => "Resque", :parent => "System", :url => "http://localhost:3000/resque"
+          menu.add :label => "Resque", :parent => "System", :url => '/admin/resque'
           menu.add :label => 'Routing errors', :parent => 'System', :url => 'http://localhost:3000/admin/error_messages?error_type=RoutingError'
           menu.add :label => 'Database errors', :parent => 'System', :url => 'http://localhost:3000/admin/error_messages?error_type=StatementInvalid'
          end

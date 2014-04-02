@@ -5,6 +5,7 @@
         <title>&lt;Brandname&gt; - &lt;Areaname&gt;</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <meta name="HandheldFriendly" content="true" />
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
           <style type="text/css">
           body {margin:0; padding:0;}
           </style>
@@ -32,15 +33,17 @@
 
       <script type="text/javascript">
           function initialize() {
+              var lat = document.getElementById('latbox').value;
+              var lng = document.getElementById('lngbox').value;
               var mapOptions = {
-                  center: new google.maps.LatLng(<%= @outlet.latitude %>, <%= @outlet.longitude %>),
+                  center: new google.maps.LatLng(lat, lng),
                   zoom: 8
               };
               var map = new google.maps.Map(document.getElementById("map-canvas"),
                       mapOptions);
 
               var marker = new google.maps.Marker({
-                  position: new google.maps.LatLng(<%= @outlet.latitude %>, <%= @outlet.longitude %>),
+                  position: new google.maps.LatLng(lat, lng),
                   map: map,
 		  draggable: true,
                   title: 'Drag Me'
@@ -58,8 +61,7 @@
     </head>
     <body>
       <!-- Preloader -->
-      <div id="spinner"></div>
-      <%= image_tag("ajax-loader.gif", :id => "loading-indicator", :class => "dn") %>
+      <!--<div id="spinner"></div>
       <div id="header">
         <ul class="left-icons">
           <li><a class="phn">&nbsp;</a></li>
@@ -68,7 +70,7 @@
         <ul class="right-icons">
           <li><a href="#" class="deal">&nbsp;</a></li>
         </ul>
-      </div>
+      </div> -->
         <div class="container-location">
             <div class="row-fluid">
 
@@ -79,14 +81,15 @@
             </div>
 
                </div>
-            <%= form_for(@outlet, :url=>merchant_account_account_brand_outlet_path(@current_account,@account_brand,@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+            <%= form_for(@outlet, :url=>merchant_path(@outlet), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+            <%= f.hidden_field :id, :value => @outlet.id %>
               <div class="row-fluid">
                 <div class="span12">
                   <div class="span6">
                     <div class="lat-dist">Latitude: <%= f.text_field :latitude, :id => "latbox" %></div>
                     <div class="fill-up">
                       <ul class="padded separate-sections">
-		      <li class="input">
+		              <li class="input">
                         <label class="label-style" for="textinput">Shop #:</label>
                         <div class="fill">
                           <%= f.text_field :shop_no  %>
@@ -140,11 +143,6 @@
                         <label class="label-style" for="textinput">Email</label>
                         <div class="fill">
                           <%= f.text_field :email_id %>
-                        </div>
-                      </li>
-                      <li class="input">
-                        <div class="btn-group">
-                          <button class="btn btn-blue1" type="submit">ReMap</button>
                         </div>
                       </li>
                       <li class="input">

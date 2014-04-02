@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AuthenticationTest < ActiveSupport::TestCase
+class CustomerBrandScoreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

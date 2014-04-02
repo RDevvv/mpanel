@@ -1,7 +1,9 @@
 class Merchant::OutletsController <  Merchant::BaseController
   before_filter  :load_account
-	before_filter  :load_account_and_brand#, :except => [:outlet_key, :outletview_edit]
+	before_filter  :load_account_and_brand, :except => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
   #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
+
+  layout "outlet_manager", :only => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
 
 	def index
     @outlets = @account_brand.outlets
@@ -138,14 +140,45 @@ class Merchant::OutletsController <  Merchant::BaseController
   end
 
   def outlet_key
-    render layout: "outlet_manager"
   end
 
   def outletview_edit
-    @outlet = Outlet.where(:outlet_key => params[:outlet_key]).first
+      @outlet = Outlet.where(:id => params[:outlet_id]).first
+      @cities = City.order("city_name")
+      @areas =[]
+      @outlet_id = @outlet.id
+   end
+
+  def select_outlet
     @cities = City.order("city_name")
-    @areas =[]
-    render layout: "outlet_manager"
+  end
+
+  def get_area
+    @area = Area.where(:city_id => params[:city_id]).all if params[:city_id]
+  end
+
+  def get_address
+    @user_brand = UserBrand.where(:user_id => current_user.id)
+    @brand = @user_brand.first.brand
+    @account_brand = @brand.account_brands
+    @outlet1 = @account_brand.first.outlets
+    @outlet = @outlet1.where(:area_id => params[:area_id]).all if params[:area_id]
+    #@outlet = Outlet.where(:area_id => params[:area_id]).all if params[:area_id]
+  end
+
+  def outlet_update
+    @outlet = Outlet.where(:id => params[:outlet][:id]).first
+    @area = Area.by_area_name(params[:area_name].squish.titlecase).by_pincode(params[:pincode]).first
+    @area = Area.create!(:city_id=>params[:city_id], :area_name=>params[:area_name].squish.titlecase,:pincode=>params[:pincode]) if @area.blank?
+    if @area.city_id != params[:city_id]
+      @area.update_attributes(:city_id=>params[:city_id])
+    end
+    params[:outlet][:area_id] = @area.id
+    @outlet.update_attributes(params[:outlet])
+    @cities = City.all
+    respond_to do |format|
+       format.html {render 'outletview_edit', :notice=>"Outlet Succesfully Updated" }
+    end
   end
 
 	protected
