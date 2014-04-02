@@ -31,7 +31,7 @@ class OutletTest < ActiveSupport::TestCase
 
     test "test if get_address is working" do
         address = Outlet.find(1).get_address
-        assert_equal "32 golibar road, bandra, Mumbai, 400706", address
+        assert_equal "32 golibar road<br /> bandra<br /> Mumbai, 400706", address
     end
 
     test "if sort_by_brands is working" do

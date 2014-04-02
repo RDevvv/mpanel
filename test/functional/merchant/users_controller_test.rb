@@ -7,6 +7,7 @@ class Merchant::UsersControllerTest < ActionController::TestCase
     @user = users(:one)
     sign_in @user
     @user = users(:one)
+    @accounts = Account.all
   end
 
   test "should get index" do

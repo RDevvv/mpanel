@@ -49,27 +49,28 @@ gem 'activeadmin', '0.6.0'
 gem 'whenever', :require => false
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'compass-rails'
-  gem 'turbo-sprockets-rails3'
+    gem 'sass-rails',   '~> 3.2.3'
+    gem 'uglifier', '>= 1.0.3'
+    gem 'compass-rails'
+    gem 'turbo-sprockets-rails3'
 end
 
 group :development do
-  gem 'sextant'
-  gem 'pry'
-  gem 'mailcatcher'
-  gem 'quiet_assets'
-  gem 'irbtools'
-  gem 'rails_best_practices'
-  gem 'seed_dump'
-  gem 'railroady'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  #gem 'rack-mini-profiler'
+    gem 'ruby-prof'
+    gem 'sextant'
+    gem 'pry'
+    gem 'mailcatcher'
+    gem 'quiet_assets'
+    gem 'irbtools'
+    gem 'rails_best_practices'
+    gem 'seed_dump'
+    gem 'railroady'
+    gem 'better_errors'
+    gem 'binding_of_caller'
+    #gem 'rack-mini-profiler'
 end
 
 group :test do
-  gem 'simplecov'
-  gem 'guard-test'
+    gem 'simplecov'
+    gem 'guard-test'
 end

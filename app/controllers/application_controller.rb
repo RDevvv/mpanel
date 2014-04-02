@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     if devise_controller? && devise_mapping.name == :merchant_user
         "merchant"
     elsif controller_name == 'home' && action_name == 'index'
-        "home_index"
+        "listing"
     elsif controller_name == 'home' && action_name == 'admin_panel'
         "admin"
     elsif controller_name == 'home'

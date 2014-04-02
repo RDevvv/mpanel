@@ -1,0 +1,35 @@
+<div align="center" class="container-home">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="logo"><%= link_to image_tag "gullak-logo-main.jpg", :style =>"border=0;" %></div>
+            <div class="sub-txt">Deals At Your Fingertips !</div>
+        </div>
+        <div class="span12">
+            <div class="c-loc">
+                <div class="input-group">
+                    <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
+                        <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
+                        <%= hidden_field_tag :search, 'all' %>
+                        <%= hidden_field_tag :latitude, '0' %>
+                        <%= hidden_field_tag :longitude, '0' %>
+                        <%= hidden_field_tag :view, 'outlet_listing', :class => "form-control", :placeholder => "Enter Location" %>
+                    <div class="input-group-btn">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span12">
+            <div class="lower-txt-below">e.g. Andheri Mumbai OR GK 2 Delhi..</div>
+        </div>
+        <div class="span12">
+            <div class="sub-txt-below"></div>
+            <button id="button" class="btn btn-blue1" onclick='JavaScript:return number_validation();'>Show All Deals</button>
+        </div>
+        <!--<div class="span12">
+            <div class="sub-txt-nobrdr">OR</div>
+        </div>-->
+                <% end %>
+                <%= render :partial => 'bottom_links' %>
+    </div>
+</div>
