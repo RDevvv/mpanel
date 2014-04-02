@@ -17,6 +17,14 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
         $location.search('search',$scope.category);
     }
 
+    $scope.map_view_link = function(){
+        if($location.path()=='/outlet_view')
+            new_location = 'map_view';
+        else
+            new_location = 'outlet_view';
+        $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
+    }
+
     $scope.distance_filter = function(filter){
         $location.search('filter',filter);
     }
