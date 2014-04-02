@@ -46,7 +46,7 @@ gem 'jquery-rails', "2.1.0"
 gem 'twitter-bootstrap-rails', '2.2.7'
 
 gem 'activeadmin', '0.6.0'
-
+gem 'whenever', :require => false
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
