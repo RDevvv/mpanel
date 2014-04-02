@@ -5,161 +5,92 @@
 </head>
 <body>
 <!-- Preloader -->
-<div id="spinner"></div>
-<%= image_tag "ajax-loader.gif", :id => "loading-indicator", :style => "display:none;" %>
-<div align="center" class="container-home">
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="logo"><%= link_to image_tag "gullak-logo-main.jpg", :style =>"border=0;" %></div>
-            <div class="sub-txt">Deals At Your Fingertips !</div>
-        </div>
-        <div class="span12">
-            <div class="c-loc">
-                <div class="input-group">
-                    <%= form_tag 'outlet_listing', :method => 'GET', :class => 'form-without-submit' do |f| %>
-                        <%= text_field_tag :location, '', :class => "form-control", :placeholder => "Enter Location" %>
-                        <%= hidden_field_tag :search, 'all' %>
-                        <%= hidden_field_tag :latitude, '0' %>
-                        <%= hidden_field_tag :longitude, '0' %>
-                        <%= hidden_field_tag :view, 'outlet_listing', :class => "form-control", :placeholder => "Enter Location" %>
-                    <div class="input-group-btn">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="span12">
-            <div class="lower-txt-below">e.g. Andheri Mumbai OR GK 2 Delhi..</div>
-        </div>
-        <div class="span12">
-            <div class="sub-txt-below"></div>
-            <button id="button" class="btn btn-blue1" onclick='JavaScript:return number_validation();'>Show All Deals</button>
-        </div>
-        <!--<div class="span12">
-            <div class="sub-txt-nobrdr">OR</div>
-        </div>-->
-                <% end %>
-        <!--<div class="span12">
-            <div class="hp-cat-ttl">Select a Category</div>
-            <div class="cat-link-div">
-              <div class="hp-cat-txt-acc">
-                <%= link_to "Accessories", {:controller => 'home', :action => 'outlet_listing', :search => 'Accessories', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
-              </div>
-            </div>
-            <div class="cat-link-div">
-              <div class="hp-cat-txt-app">
-                <%= link_to "Apparels", {:controller => 'home', :action => 'outlet_listing', :search => 'Apparels', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
-              </div>
-            </div>
-            <div class="cat-link-div">
-              <div class="hp-cat-txt-ele">
-                <%= link_to "Electronics", {:controller => 'home', :action => 'outlet_listing', :search => 'Electronics', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
-              </div>
-            </div>
-            <div class="cat-link-div">
-              <div class="hp-cat-txt-food">
-                <%= link_to "Food", {:controller => 'home', :action => 'outlet_listing', :search => 'Food', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
-              </div>
-            </div>
-            <div class="cat-link-div">                
-                <div class="hp-cat-txt-mobile">
-                    <%= link_to "Mobiles", {:controller => 'home', :action => 'outlet_listing', :search => 'Mobile', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
-                </div>
-            </div>
-            <div class="cat-link-div">
-                <div class="hp-cat-txt-shoes">
-                    <%= link_to "Shoes", {:controller => 'home', :action => 'outlet_listing', :search => 'Shoes', :view => 'outlet_listing', :location => ''}, :class => 'filldiv' %>
-                </div>
-            </div>
-        </div>-->
-    </div>
-</div>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" style=""></script>
 <script type="text/javascript">
 
-function getLocation()
-{
-    if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(showPosition_index, fail, {maximumAge: 0});
-    }
-}
-    function fail(msg){
-        ip_geocode(msg);
-
-}
-
-function ip_geocode(msg){
-    $.ajax({
-            url: 'location_from_ip'
-            }).success(
-                function(data){
-                if(data!=''||data!='undefined'){
-                disable_submit();
-                }
-                else{
-                $('#location').attr('value', data['city']);
-                update_location(data['city'])
-                }
-                    if(msg.code == 1){
-                    $('#location').attr('placeholder', 'Enter your location ...');
-                    $.pnotify({
-                        text: 'Please type an accurate location in the box below.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
-                    });
-                    }
-                    else if(msg.code == 2){
-                    $('#location').attr('placeholder', 'Enter your location ...');
-                    $.pnotify({
-                        text: 'We were unable to determine your location. Please type an accurate location in the box below.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
-                    });
-                    }
-                    else{
-                    $('#location').attr('placeholder', 'Enter your location ...');
-                    }
-                })
-}
-
-function disable_submit(){
-    if ($('#location').attr('value') ==""){
-        $('#button').attr('disabled',true);
-    }
-}
-
-function showPosition_index(position){
-    google_api_call($('#location'), position.coords.latitude, position.coords.longitude);
-    $('#latitude').attr('value',position.coords.latitude);
-    $('#longitude').attr('value',position.coords.longitude);
-    update_location($('#location').value);
-}
-
-function update_category_urls(){
-    $('#location').bind({
-        keyup: function(){
-        value =$('#location').attr('value')
-        update_location(value);
-        }
-    })
-}
-
-function number_validation(){
-    if($.cookie("mobile_number") != 'verified'){
-        $('#mobile-number').modal('show');
-        console.log('iffffffffffffffffff');
-        return false;
-    }
-    else{
-        console.log('elseeeeeeeeeeeeeee');
-        return true;
-    }
-}
-
-$(document).ready(function(){
-    update_category_urls();
-    getLocation();
-    enable_submit($('#location'),$('#button'));
-    modal_submit();
-    verification_modal_submit();
-    mobile_number_verification();
-    })
+//function getLocation()
+//{
+//    if (navigator.geolocation){
+//        navigator.geolocation.getCurrentPosition(showPosition_index, fail, {maximumAge: 0});
+//    }
+//}
+//    function fail(msg){
+//        ip_geocode(msg);
+//
+//}
+//
+//function ip_geocode(msg){
+//    $.ajax({
+//            url: 'location_from_ip'
+//            }).success(
+//                function(data){
+//                if(data!=''||data!='undefined'){
+//                disable_submit();
+//                }
+//                else{
+//                $('#location').attr('value', data['city']);
+//                update_location(data['city'])
+//                }
+//                    if(msg.code == 1){
+//                    $('#location').attr('placeholder', 'Enter your location ...');
+//                    $.pnotify({
+//                        text: 'Please type an accurate location in the box below.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
+//                    });
+//                    }
+//                    else if(msg.code == 2){
+//                    $('#location').attr('placeholder', 'Enter your location ...');
+//                    $.pnotify({
+//                        text: 'We were unable to determine your location. Please type an accurate location in the box below.', sticker_hover: false, animate_speed: 'fast', icon: false, closer_hover: false, opacity: .9
+//                    });
+//                    }
+//                    else{
+//                    $('#location').attr('placeholder', 'Enter your location ...');
+//                    }
+//                })
+//}
+//
+//function disable_submit(){
+//    if ($('#location').attr('value') ==""){
+//        $('#button').attr('disabled',true);
+//    }
+//}
+//
+//function showPosition_index(position){
+//    google_api_call($('#location'), position.coords.latitude, position.coords.longitude);
+//    $('#latitude').attr('value',position.coords.latitude);
+//    $('#longitude').attr('value',position.coords.longitude);
+//    update_location($('#location').value);
+//}
+//
+//function update_category_urls(){
+//    $('#location').bind({
+//        keyup: function(){
+//        value =$('#location').attr('value')
+//        update_location(value);
+//        }
+//    })
+//}
+//
+//function number_validation(){
+//    if($.cookie("mobile_number") != 'verified'){
+//        $('#mobile-number').modal('show');
+//        console.log('iffffffffffffffffff');
+//        return false;
+//    }
+//    else{
+//        console.log('elseeeeeeeeeeeeeee');
+//        return true;
+//    }
+//}
+//
+//$(document).ready(function(){
+//    update_category_urls();
+//    getLocation();
+//    enable_submit($('#location'),$('#button'));
+//    modal_submit();
+//    verification_modal_submit();
+//    mobile_number_verification();
+//    })
 </script>
 <%= render :partial => "new_mobile_number_modal" %>
 <%= render :partial => "verify_mobile_number" %>
