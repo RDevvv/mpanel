@@ -43,6 +43,7 @@ set :bundle_flags, '--deployment'
 set :bundle_without, %w{development test}.join(' ')
 set :bundle_binstubs, -> { shared_path.join('bin') }
 set :bundle_roles, :all
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # set :sidekiq_role, :sidekiq
 # role :sidekiq, 'worker-1.acmecorp.com', 'worker-2.acmecorp.com'
 # you can set custom ssh options
