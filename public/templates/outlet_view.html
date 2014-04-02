@@ -6,7 +6,7 @@
         </div>
         <div class="eye2"></div>
         <div align="center" class="brandlogo">
-            {{poster.brand_image}}<img href='{{"localhost:3000/assets"+poster.brand_image}}'>
+            <img src='{{poster.brand_image}}'>
         </div>
         <hr style="width:100%; margin:2px 0;">
         <div class="lower-box">
@@ -60,7 +60,7 @@
     </div>
 
 
-    <div class="distance-div">{{poster.distance}} km</div>
+    <div class="distance-div">{{poster.distance | number:2}} km</div>
     <div ng-if="date('poster.ad_expiry_date') > Date('01-01-2050')">
     </div>
     <div ng-if="date('poster.ad_expiry_date') < Date('01-01-2050')">

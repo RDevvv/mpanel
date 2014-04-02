@@ -100,7 +100,6 @@ Gullak2::Application.routes.draw do
     get 'abcdef12345' => 'home#outlet_listing'
 
     get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
-    match 'verify_mobile_number' => 'customers#verify_mobile_number'
     match 'check_verification_code' => 'customers#check_verification_code'
     match 'resend_verification_code' => 'customers#resend_verification_code'
     match 'update_vendor_id' => 'campaigns#update_vendor_id'

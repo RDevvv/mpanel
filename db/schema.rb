@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140327110333) do
+ActiveRecord::Schema.define(:version => 20140330085939) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -418,6 +418,15 @@ ActiveRecord::Schema.define(:version => 20140327110333) do
     t.float    "longitude"
     t.float    "latitude"
     t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "malls", :force => true do |t|
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "area_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
