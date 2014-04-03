@@ -41,8 +41,8 @@ end
 
 
 
-role :resque_worker, "app_domain"
-role :resque_scheduler, "app_domain"
+role :resque_worker, "app"
+role :resque_scheduler, "app"
 
 set :workers, { "sms_queue" => 1 }
 
