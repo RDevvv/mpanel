@@ -29,6 +29,7 @@ gem 'capistrano', '~> 3.0.1'
 gem 'capistrano-db-tasks', require: false
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
+gem "capistrano-resque", github: "sshingler/capistrano-resque", require: false
 gem 'passenger'
 gem 'exception_notification'
 gem 'crumbs'
