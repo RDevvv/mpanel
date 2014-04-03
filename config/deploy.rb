@@ -52,7 +52,7 @@ end
 
 namespace :deploy do
   desc "Restart Resque Workers"
-  task :restart_workers, :roles => :db do
+  task :restart_workers do
     run_remote_rake "resque:restart_workers"
   end
 end
