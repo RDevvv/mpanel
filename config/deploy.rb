@@ -39,11 +39,3 @@ namespace :deploy do
     after :finishing, 'deploy:cleanup'
 end
 
-after "deploy:restart", "deploy:restart_workers"
-
-namespace :deploy do
-  desc "Restart Resque Workers"
-  task :restart_workers do
-    "resque:restart_workers"
-  end
-end
