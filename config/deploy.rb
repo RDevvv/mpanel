@@ -39,7 +39,7 @@ namespace :deploy do
     after :finishing, 'deploy:cleanup'
 end
 
-after "deploy:symlink", "deploy:restart_workers"
+after "deploy", "deploy:restart_workers"
 
 
 def run_remote_rake(rake_cmd)
