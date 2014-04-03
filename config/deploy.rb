@@ -39,3 +39,12 @@ namespace :deploy do
     after :finishing, 'deploy:cleanup'
 end
 
+after "deploy:restart", "resque:restart"
+
+role :resque_worker, "app_domain"
+role :resque_scheduler, "app_domain"
+
+set :workers, { "sms_queue" => 1 }
+
+# Uncomment this line if your workers need access to the Rails environment:
+set :resque_environment_task, true
