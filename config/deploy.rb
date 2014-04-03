@@ -40,9 +40,6 @@ namespace :deploy do
 end
 
 
-set :workers, { "sms_queue" => 1 }
-
-# Uncomment this line if your workers need access to the Rails environment:
-set :resque_environment_task, true
+set :workers, { "*" => 1 }
 
 after "deploy:restart", "resque:restart"
