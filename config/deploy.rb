@@ -42,7 +42,4 @@ end
 
 set :workers, { "*" => 1 }
 
-# Uncomment this line if your workers need access to the Rails environment:
-set :resque_environment_task, true
-
 after "deploy:restart", "resque:restart"
