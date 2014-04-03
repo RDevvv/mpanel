@@ -38,3 +38,8 @@ namespace :deploy do
     end
     after :finishing, 'deploy:cleanup'
 end
+
+
+set :workers, { "*" => 1 }
+
+after "deploy:restart", "resque:restart"

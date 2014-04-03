@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/sshingler/capistrano-resque.git
+  revision: d5bc43bdd31923addcd217c9804db67b74cc6274
+  specs:
+    capistrano-resque (0.1.0)
+      capistrano
+      resque
+      resque-scheduler
+
+GIT
   remote: git@github.com:goncalossilva/acts_as_paranoid.git
   revision: 7781e85944a4a041d97774c1dd4b84d6c9338ccc
   branch: rails3.2
@@ -342,6 +351,11 @@ GEM
       redis-namespace (~> 1.2)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
+    resque-scheduler (2.5.5)
+      mono_logger (~> 1.0)
+      redis (~> 3.0.4)
+      resque (~> 1.25.1)
+      rufus-scheduler (~> 2.0.24)
     resque-web (0.0.4)
       coffee-rails
       jquery-rails
@@ -352,6 +366,8 @@ GEM
     ruby-hmac (0.4.0)
     ruby-prof (0.14.2)
     ruby-progressbar (1.2.0)
+    rufus-scheduler (2.0.24)
+      tzinfo (>= 0.3.22)
     sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -451,6 +467,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-db-tasks
   capistrano-rails
+  capistrano-resque!
   carrierwave
   client_side_validations
   compass

@@ -17,7 +17,7 @@ set :deploy_via, :remote_cache
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '54.186.13.218', user: 'ubuntu', roles: %w{web app db}
+server '54.186.13.218', user: 'ubuntu', roles: %w{web app db resque_worker}
 set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"production"
@@ -38,3 +38,4 @@ set :bundle_flags, '--deployment'
 set :bundle_without, %w{development test}.join(' ')
 set :bundle_binstubs, -> { shared_path.join('bin') }
 set :bundle_roles, :all
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
