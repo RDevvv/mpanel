@@ -1,7 +1,6 @@
 app.factory('getOutlet',['$routeParams', '$http', function($routeParams, $http){
     return{
         fetch_outlets: function(succeedcb){
-            console.log($routeParams['location'])
             if($routeParams['location']!='undefined'){
             $http({
                 method: 'GET',

@@ -61,7 +61,6 @@ function change_location(){
 
 function showPosition(position){
     var new_link=document.getElementById("change_location");
-    console.log(position);
     user_latitude = position.coords.latitude;
     user_longitude = position.coords.longitude;
 
@@ -77,7 +76,6 @@ function showPosition(position){
 }
 
 function geo_error(error){
-    console.log(error)
     $.pnotify({
         title: 'Location not identified',
         text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
