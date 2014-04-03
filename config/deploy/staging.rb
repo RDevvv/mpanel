@@ -17,7 +17,7 @@ set :deploy_via, :remote_cache
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '54.200.102.217', user: 'ubuntu', roles: %w{web app db resque_worker}
+server '54.200.102.217', user: 'ubuntu', roles: %w{web app db}
 set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"production"
