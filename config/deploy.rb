@@ -39,9 +39,14 @@ namespace :deploy do
     after :finishing, 'deploy:cleanup'
 end
 
+namespace :resque do
+
+  desc "Restart resque worker"
+  task :restart do
+    run "cd #{deploy_to}/current/; kill -QUIT $(cat ./tmp/pids/resque.pid)"
+    run "cd #{deploy_to}/current/; RAILS_ENV=production PIDFILE=./tmp/pids/resque.pid BACKGROUND=yes QUEUE=* bundle exec rake resque:work"
+  end
+
+end
+
 after "deploy:restart", "resque:restart"
-
-set :workers, { "sms_queue" => 1 }
-
-# Uncomment this line if your workers need access to the Rails environment:
-set :resque_environment_task, true
