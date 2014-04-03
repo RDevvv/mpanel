@@ -41,7 +41,7 @@ end
 
 after "deploy:restart", "deploy:restart_workers"
 
-def run_remote_rake(rake_cmd)
+def rake(rake_cmd)
   rake_args = ENV['RAKE_ARGS'].to_s.split(',')
 
   cmd = "cd #{fetch(:latest_release)} && bundle exec #{fetch(:rake, "rake")} RAILS_ENV=#{fetch(:rails_env, "production")} #{rake_cmd}"
@@ -53,6 +53,6 @@ end
 namespace :deploy do
   desc "Restart Resque Workers"
   task :restart_workers do
-    run_remote_rake "resque:restart_workers"
+    rake "resque:restart_workers"
   end
 end
