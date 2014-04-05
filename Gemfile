@@ -23,6 +23,7 @@ gem 'exotel'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jbuilder'
+gem 'asset_sync'
 
 
 gem 'capistrano', '~> 3.0.1'
