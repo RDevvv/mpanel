@@ -38,7 +38,6 @@ function facebook_share(element){
             'outlet_id': outlet_id,
         }
     }).success(function(data){
-        console.log(data['image_url'])
         if(button_class == 'top_share'){
             caption     = 'Deals At Your Fingertips!';
             description = "Discover nearby deals on Accessories, Apparel, Electronics, Food, Mobiles, Shoes... Save time, energy, and money at the click of a button. Happy shopping you'al!";

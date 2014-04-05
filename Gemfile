@@ -1,5 +1,5 @@
 ruby "1.9.3"
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg'
@@ -23,6 +23,7 @@ gem 'exotel'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jbuilder'
+gem 'asset_sync'
 
 
 gem 'capistrano', '~> 3.0.1'

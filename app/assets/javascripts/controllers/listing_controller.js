@@ -26,6 +26,7 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
     }
 
     $scope.distance_filter = function(filter){
+        angular.element('nav#menu').trigger('close');
         $location.search('filter',filter);
     }
 

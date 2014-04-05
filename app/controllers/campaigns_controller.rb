@@ -92,29 +92,18 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_landing
-      campaign = Campaign.where(:short_url => params[:short_url])
-      unless campaign.blank?
-          campaign = campaign.first
-          campaign.campaign_copies.create
-          redirect_to campaign.pre_expiry_forward_url+"?short_url="+campaign.short_url
+      campaign_copy = CampaignCopy.where(:short_url => params[:short_url]).first
+      if(campaign_copy).blank?
+          redirect_to :error_404
       else
-          unless(campaign_copy = CampaignCopy.where(:short_url => params[:short_url]).first).blank?
-              use_count = campaign_copy.use_count
-              if use_count.blank?
-                  campaign_copy.update_attributes(:use_count => 0)
-              end
-              CampaignCopy.where(:short_url => params[:short_url]).first.update_attributes(:use_count=> campaign_copy.use_count+1)
-              if campaign_copy.campaign.expires_at.blank?
-                  redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
-              else
-                  if campaign_copy.campaign.expires_at > Date.today-1
-                      redirect_to campaign_copy.campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
-                  else
-                      redirect_to campaign_copy.campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
-                  end
-              end
+          campaign = campaign_copy.campaign
+          campaign_copy.update_attributes(:use_count=> campaign_copy.use_count+1)
+          if(campaign.expires_at+campaign.expires_in.hours+330.minutes < Time.now)
+              redirect_to campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
+          elsif(campaign_copy.campaign.expires_at.blank?)||(campaign.expires_at > Date.today-1)
+              redirect_to campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
           else
-              redirect_to :error_404
+              redirect_to campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
           end
       end
   end
@@ -150,7 +139,6 @@ class CampaignsController < ApplicationController
       else
           ad_promocode_outlet_ids = AdPromocodeOutlet.where(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id]).map{|apo|apo.id}
           campaign_copy = Campaign.where(:ad_promocode_outlet_id => ad_promocode_outlet_ids).first.campaign_copies.order(:id).last.update_attributes(:vendor_id => params[:post_id])
-          binding.pry
       end
       render :json => {:success => true}
   end

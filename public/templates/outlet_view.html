@@ -1,12 +1,12 @@
-<li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="<%= poster[:outlet_id] %>">
-<div class="bdiv" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>" ng-controller='ListingController'>
+<li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="{{poster.outlet_id}}">
+<div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" ng-controller='ListingController'>
     <div class="bbox">
         <div class="brandtitle">
             {{poster.brand_name}}
         </div>
         <div class="eye2"></div>
         <div align="center" class="brandlogo">
-            <img src='{{poster.brand_image}}'>
+            <img src={{poster.brand_image}}>
         </div>
         <hr style="width:100%; margin:2px 0;">
         <div class="lower-box">
