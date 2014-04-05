@@ -9,4 +9,8 @@ class BrowsingTest < ActionDispatch::PerformanceTest
   def test_homepage
     get '/'
   end
+
+  def test_outlet_listing
+      get '/#/outlet_view?search=all&location=bandra&latitude=undefined&longitude=undefined&view=outlet_listing'
+  end
 end
