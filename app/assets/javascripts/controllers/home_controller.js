@@ -11,6 +11,7 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
         }
     }
 
+
     $scope.show_top_menu = function(){
         angular.element('#header').removeClass('hide');
         angular.element('#top_search').removeClass('hide');

@@ -21,7 +21,9 @@
 //= require query-string
 //= require angular
 //= require angular-route
+//= require underscore-min
 //= require angular-cookies
+//= require angular-google-maps.min
 //= require_directory ./mobile_site
 //= require_directory ./services
 //= require_directory ./controllers

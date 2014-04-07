@@ -19,11 +19,14 @@ Gullak2::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  if ENV['RAILS_GROUPS'] == 'assets'
+      config.assets.js_compressor = Uglifier.new(mangle: false)
+  end
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
   # Specifies the header that your server uses for sending files
-   config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+  config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
@@ -39,7 +42,7 @@ Gullak2::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   config.action_controller.asset_host = "d3qgzzn4q9bivw.cloudfront.net"

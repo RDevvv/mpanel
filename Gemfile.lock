@@ -127,6 +127,7 @@ GEM
       rails (>= 3.0.0)
     daemon_controller (1.1.7)
     daemons (1.1.9)
+    dalli (2.7.0)
     debug_inspector (0.0.2)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
@@ -477,6 +478,7 @@ DEPENDENCIES
   compass
   compass-rails
   crumbs
+  dalli
   devise
   exception_notification
   exotel

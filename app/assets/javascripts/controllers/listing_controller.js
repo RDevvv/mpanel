@@ -1,4 +1,4 @@
-app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookies', 'getOutlet', '$location', function($scope, $http, $routeParams, $cookies, getOutlet, $location){
+app.controller('ListingController', function($scope, $http, $routeParams, $cookies, getOutlet, $location){
     getOutlet.fetch_outlets(function(response_data){
         $scope.posters = response_data;
     });
@@ -23,6 +23,19 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
         else
             new_location = 'outlet_view';
         $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
+    }
+
+    $scope.map = {
+        icon: 'http://localhost:3000/assets/favicon.ico',
+        center2: {
+            latitude: 12.1,
+            longitude: 78.1
+        },
+        center: {
+            latitude: 12,
+            longitude: 78
+        },
+        zoom:8
     }
 
     $scope.distance_filter = function(filter){
@@ -77,5 +90,5 @@ app.controller('ListingController', ['$scope', '$http', '$routeParams', '$cookie
         })
 
     }
-}])
+})
 
