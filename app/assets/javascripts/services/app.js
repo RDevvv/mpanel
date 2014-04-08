@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngCookies']);
+var app = angular.module('app', ['ngRoute', 'ngCookies','google-maps', 'infinite-scroll']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/outlet_view', {

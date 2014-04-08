@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     before_filter :check_cookies
     before_filter :record_session
     before_filter :get_referer, :only => [:index]
+    caches_action :outlet_listing, :cache_path => Proc.new {|c|c.params}
 
     def set_headers
         response.headers['Access-Control-Allow-Origin'] = '*'

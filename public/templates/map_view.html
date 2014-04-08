@@ -1,7 +1,22 @@
-<div id='map' class='map'></div>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" style=""></script>
-<script>
-map_initializer([[1,1,1]],[1,2]);</script>
+<div class="row-fluid">
+    <div class="google-map gmap"
+        center="map.center"
+        zoom="map.zoom"
+        draggable="true"
+        dragging="map.dragging"
+        bounds="map.bounds"
+        events="map.events"
+        options="map.options"
+        pan="true"
+        control="map.control"
+        >
+        <div ng-repeat='poster in posters'>
+            <marker coords='{latitude: poster.latitude, longitude: poster.longitude}' icon='map.icon'></marker>
+        </div>
+
+    </div>
+</div>
+
 <li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="<%= poster[:outlet_id] %>">
 <div class="bdiv" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>" ng-controller='ListingController'>
     <div class="bbox">
@@ -47,7 +62,7 @@ map_initializer([[1,1,1]],[1,2]);</script>
             <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
                 befo{{$cookies.mobile_number}}re
                 <div ng-if="$cookies.mobile_number=='verified'" >
-            aaaaaaaaa
+                    aaaaaaaaa
                     <a class="call button_call2" href="tel:09223584822">&nbsp;</a>
                 </div>
             </div>
