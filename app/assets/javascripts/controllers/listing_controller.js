@@ -25,6 +25,28 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
     }
 
+    $scope.fetch_posters = function(){
+        $scope.page++;
+        if($scope.no_more_results == false){
+            $http({
+                method: 'GET',
+                url   : 'outlet_listing.json',
+                params: {
+                    page: $scope.page,
+                    search: 'all',
+                    view: 'outlet_listing',
+                    location: 'bandra'
+                }
+            }).success(function(data){
+                if(typeof(data.length)=='undefined')
+                    $scope.no_more_results = true;
+                for(i=0;i<data.length;i++){
+                    $scope.posters.push(data[i]);
+                }
+            })
+        }
+    }
+
     $scope.map = {
         icon: 'http://localhost:3000/assets/favicon.ico',
         center2: {
@@ -37,6 +59,9 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         },
         zoom:8
     }
+
+    $scope.page = 1;
+    $scope.no_more_results = false;
 
     $scope.distance_filter = function(filter){
         angular.element('nav#menu').trigger('close');

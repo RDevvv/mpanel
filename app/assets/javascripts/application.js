@@ -14,13 +14,13 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.pnotify.min
-//= require jquery.mmenu
+//= require jquery.mmenu.min
 //= require jquery.scrollTo
 //= require jquery.cookie
 //= require oms.min
-//= require query-string
 //= require angular
 //= require angular-route
+//= require ng-infinite-scroll.min
 //= require underscore-min
 //= require angular-cookies
 //= require angular-google-maps.min
