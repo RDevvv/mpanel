@@ -9,6 +9,10 @@ app.config(function($routeProvider){
         templateUrl: '/templates/map_view.html',
         controller: 'ListingController'
     })
+    .when('/ad_outlet',{
+        templateUrl: '/templates/ad_outlet.html',
+        controller: 'ListingController'
+    })
     .when('/',{
         templateUrl: '/templates/home.html'
     })
