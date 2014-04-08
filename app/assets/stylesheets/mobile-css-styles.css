@@ -934,9 +934,6 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
 /* table styles */
 
 
-
-
-
-.angular-google-map-container { height: 400px; }
+.angular-google-map-container { height: 250px; }
 
 
