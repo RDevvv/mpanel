@@ -68,6 +68,14 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.search('filter',filter);
     }
 
+    $scope.view_button = function(){
+        console.log($location.path());
+        if($location.path()=='/outlet_view')
+            return 'loc';
+        else
+            return 'outlet';
+    }
+
     $scope.unlock = function (brand_name,ad_id, outlet_id) {
         $http({
             method: 'POST',
