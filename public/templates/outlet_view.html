@@ -1,4 +1,4 @@
-<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='posters.disabled'>
+<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='disabled'>
 <li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="{{poster.outlet_id}}" >
 <div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" ng-controller='ListingController'>
     <div class="bbox">
@@ -79,7 +79,7 @@
     </div>
 </div>
 </li>
-<div ng-show='posters.disabled'>
-    Loading data
+<div ng-show='disabled'>
+    Loading data ....................................
 </div>
 </div>

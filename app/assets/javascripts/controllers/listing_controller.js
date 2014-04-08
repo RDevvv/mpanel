@@ -27,6 +27,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
 
     $scope.fetch_posters = function(){
         $scope.page++;
+        $scope.disabled = true;
         if($scope.no_more_results == false){
             $http({
                 method: 'GET',
@@ -43,6 +44,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 for(i=0;i<data.length;i++){
                     $scope.posters.push(data[i]);
                 }
+                $scope.disabled =false;
             })
         }
     }
@@ -62,6 +64,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
 
     $scope.page = 1;
     $scope.no_more_results = false;
+    $scope.disabled = false;
 
     $scope.distance_filter = function(filter){
         angular.element('nav#menu').trigger('close');
@@ -69,7 +72,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.view_button = function(){
-        console.log($location.path());
         if($location.path()=='/outlet_view')
             return 'loc';
         else
