@@ -78,7 +78,18 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             return 'outlet';
     }
 
-    $scope.unlock = function (brand_name,ad_id, outlet_id) {
+    $scope.unlock = function (brand_name,ad_id, outlet_id, sms_text) {
+        $.pnotify({
+            title: brand_name+' - Offer sent',
+            text: sms_text,
+            sticker_hover: false,
+            closer_hover: false,
+            animate_speed: 'fast',
+            icon: false,
+            addclass: 'stack-topleft',
+            opacity: .9
+        });
+        $scope.change_icon = false;
         $http({
             method: 'POST',
             url   : 'set_sms_data.json',
@@ -88,17 +99,10 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 outlet_id: outlet_id
             }
         })
-        $.pnotify({
-            title: brand_name+' - Offer sent',
-            text: 'text',
-            sticker_hover: false,
-            closer_hover: false,
-            animate_speed: 'fast',
-            icon: false,
-            addclass: 'stack-topleft',
-            opacity: .9
-        });
     }
+
+
+    $scope.change_icon =true; //= function(element){
 
     $scope.view_ad = function(brand_name, title, sms_text){
         $.pnotify({ title: brand_name+' - '+title, text: sms_text,
@@ -123,7 +127,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 current_link: current_link
             }
         })
-
     }
 })
 
