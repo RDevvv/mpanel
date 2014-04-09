@@ -94,16 +94,7 @@ ul.team {float:left; width: 650px; margin: 0;}
 ul.team li {float: left; clear: both; margin: 5px 0; list-style: none;}
 div.teampic {float:left; width:auto; height: auto;}
 .fl {float: left;}
-/*.orng-box {background-color: #F08D1E; clear: both;font-size: 10px; height: 45px; text-align: center; width: 137px;}
-.orng-box .nickname {color: #FFFFFF; padding: 1px 0 0;}
-.orng-box .desig {color: #000000; font-weight: bold; padding: 5px 0 0;}*/
 div.teamemname {float: right; font-size: 21px; font-weight:bold; margin: 90px 0 0 82px; text-transform: uppercase;}
-
-/*ul.team-members {float:left; clear:both; width:auto; height:auto; margin:0 0 10px 0; list-style-type:none;}
-ul.team-members li {float:left; width:143px; height:auto; margin:1px 0 0 0; line-height: 15px;}
-.tm-div {float:left; width:142px; height:auto;}
-.tm-div .mem-pict {float:left; margin:1px 0 11px 0; border:none;}
-.tm-div .orng-box {clear:both; width:137px; height:60px; background-color:#f08d1e; font-size:11px; text-align:center;}*/
 
 ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none;}
 ul.team-members li:first-child {margin:3px 0;}
@@ -137,7 +128,7 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 #slide1, #slide2, #slide3, #slide4, #slide6, #slide7 {border-bottom:1px solid #E2E2E2;}
 /* Slide 1 */ 
 
-#slide1{background-color:#ffffff; width:650px; height:auto; font-size:1.1em; padding: 0 0 15px; /*height:768px;*/ float:left;}
+#slide1{background-color:#ffffff; width:650px; height:auto; font-size:1.1em; padding: 0 0 15px; float:left;}
 
 /* Slide 2 */ 
 
@@ -176,7 +167,7 @@ ul.navigation li:hover{cursor:pointer; color: #a9d3d0;}
 ul.navigation li:last-child {border-right:none;}
 ul.navigation li p {text-align: left; padding: 5px 10px; color: #000; font-size:12px;}
 ul.navigation li a:hover {text-decoration: none; color: #be1e2d;}
-ul.navigation li.home, ul.navigation li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
+ul.navigation li.home, ul.navigation li.home:hover {position:relative; bottom:9px; background: url(ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
 ul.navigation li.home a {position: relative; bottom: 13px;}
 ul.navigation li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #be1e2d;}
 ul.navigation li:visited {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #be1e2d;}
@@ -211,7 +202,7 @@ ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 #wrapper-div .post a {font-family: arial,helvetica,sans-serif; font-weight: bold; text-transform: uppercase; font-size: 0.9em;}
 ul.cpoints {float:left; clear:both; width:100%; height:auto; margin: 5px 0 0 0;}
 ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
-    background: url(../images/tm-dot-pic.png) no-repeat 1px center; list-style: none;}
+    background: url(tm-dot-pic.png) no-repeat 1px center; list-style: none;}
 /* Careers Styles */
 
 /* Footer */
