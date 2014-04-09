@@ -196,7 +196,7 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 
 /* Backtotop */
 #backtotop {bottom: -60px; display: none; position: fixed; right: 60px;}
-#backtotop a {border: 0 none; display: block; text-decoration: none;}
+#backtotop a {border: 0 none; display: block; height: 155px; text-decoration: none;}
 /* Backtotop */
 
 /* Comments */
