@@ -1,29 +1,29 @@
 @font-face {
     font-family: 'CheltenhamLTRegular';
-    src: url('../fonts/itc-cheltenham-lt-book.eot');
-    src: url('../fonts/itc-cheltenham-lt-book.eot') format('embedded-opentype'),
-         url('../fonts/itc-cheltenham-lt-book.woff') format('woff'),
-         url('../fonts/itc-cheltenham-lt-book.ttf') format('truetype'),
-         url('../fonts/itc-cheltenham-lt-book.svg#CheltenhamLTRegular') format('svg');
+    src: url('itc-cheltenham-lt-book.eot');
+    src: url('itc-cheltenham-lt-book.eot') format('embedded-opentype'),
+         url('itc-cheltenham-lt-book.woff') format('woff'),
+         url('itc-cheltenham-lt-book.ttf') format('truetype'),
+         url('itc-cheltenham-lt-book.svg#CheltenhamLTRegular') format('svg');
 }
 @font-face {
     font-family: 'casperregular';
-    src: url('../fonts/casper-webfont.eot');
-    src: url('../fonts/casper-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/casper-webfont.woff') format('woff'),
-         url('../fonts/casper-webfont.ttf') format('truetype'),
-         url('../fonts/casper-webfont.svg#casperregular') format('svg');
+    src: url('casper-webfont.eot');
+    src: url('casper-webfont.eot?#iefix') format('embedded-opentype'),
+         url('casper-webfont.woff') format('woff'),
+         url('casper-webfont.ttf') format('truetype'),
+         url('casper-webfont.svg#casperregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'casper_boldregular';
-    src: url('../fonts/casper_bold-webfont.eot');
-    src: url('../fonts/casper_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/casper_bold-webfont.woff') format('woff'),
-         url('../fonts/casper_bold-webfont.ttf') format('truetype'),
-         url('../fonts/casper_bold-webfont.svg#casper_boldregular') format('svg');
+    src: url('casper_bold-webfont.eot');
+    src: url('casper_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('casper_bold-webfont.woff') format('woff'),
+         url('casper_bold-webfont.ttf') format('truetype'),
+         url('casper_bold-webfont.svg#casper_boldregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -125,7 +125,7 @@ body.blog-universal .w592 {margin-left: -120px;}
 .blog-main .entry-content .sharetool a {text-decoration: none;}
 .blog-main .sharetool a {text-decoration: none;}
 .sharetools .sharetool a {color: #999999; display: block; height: 23px; margin: 3px 0; padding-left: 5px; text-transform: uppercase;}
-.sharetools .sharetool.email-sharetool .icon {background: url("/assets/blogs/20140312-140119/images/sprite/sprite-no-repeat.png") no-repeat scroll -325px 0 rgba(0, 0, 0, 0); height: 16px; width: 16px;}
+.sharetools .sharetool.email-sharetool .icon {background: url() no-repeat scroll -325px 0 rgba(0, 0, 0, 0); height: 16px; width: 16px;}
 .blog-main .sharetool .icon {padding-left: 0;}
 .type-size-small .story.theme-main .story-body-text {
     font-family: georgia,"times new roman",times,serif; font-size: 1rem; font-weight: 400; line-height: 1.4375rem;}
@@ -160,7 +160,7 @@ body.blog-universal .w592 {margin-left: -120px;}
 .aColumn .no-top {border-top:none;}
 .ccount {width:auto;}
 .ccount a {color: #326891; text-decoration: none; font-size: 0.9em;}
-.ccount .icon {background: url(../images/comments-img.png) no-repeat 8px 4px transparent; position: relative; padding: 0 14px 1px 14px; width:13px; height: 12px;}
+.ccount .icon {background: url(comments-img.png) no-repeat 8px 4px transparent; position: relative; padding: 0 14px 1px 14px; width:13px; height: 12px;}
 /* Blog Homepage */
 
 /* Nav */
@@ -187,16 +187,16 @@ ul.sharelinks li:last-child {border-bottom: none;}
 ul.sharelinks li a {float:left; width:100%; text-decoration: none;}
 ul.sharelinks li a:hover {background-color: #F7F7F5;}
 span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",times,serif; font-size: 0.8em; text-transform: uppercase; color: #999999; text-decoration: none;}
-.email-icon {background: url(../images/email-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.fb-icon {background: url(../images/fb-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.tw-icon {background: url(../images/tw-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.li-icon {background: url(../images/LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.gplus-icon {background: url(../images/gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.email-icon {background: url(email-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.fb-icon {background: url(fb-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.tw-icon {background: url(tw-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.li-icon {background: url(LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.gplus-icon {background: url(gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
 /* Share icons */
 
 /* Backtotop */
 #backtotop {bottom: -60px; display: none; position: fixed; right: 60px;}
-#backtotop a {border: 0 none; display: block; height: 155px; text-decoration: none; width: 31px;}
+#backtotop a {border: 0 none; display: block; text-decoration: none;}
 /* Backtotop */
 
 /* Comments */
@@ -269,11 +269,11 @@ ul.sharelinks li:last-child {border-bottom: none;}
 ul.sharelinks li a {float:left; width:100%; text-decoration: none;}
 ul.sharelinks li a:hover {background-color: #F7F7F5;}
 span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",times,serif; font-size: 0.8em; text-transform: uppercase; color: #999999; text-decoration: none;}
-.email-icon {background: url(../images/email-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.fb-icon {background: url(../images/fb-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.tw-icon {background: url(../images/tw-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.li-icon {background: url(../images/LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
-.gplus-icon {background: url(../images/gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.email-icon {background: url(email-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.fb-icon {background: url(fb-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.tw-icon {background: url(tw-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.li-icon {background: url(LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+.gplus-icon {background: url(gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
 /* Share icons */
 
 #footer {width:95%; color:#000; clear:both; margin:0 auto; position: relative; bottom:10px; font-family:sans-serif; font-size:0.8em; padding:5px 0; border-top:solid 1px #cecece;}   
