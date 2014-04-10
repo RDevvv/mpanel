@@ -35,7 +35,7 @@
     <nav class="miniNav">
       <ul>
         <li><a href="/home.html">Home</a></li>
-        <li><a href="blog.html">All Posts</a></li>
+        <li><a href="/articles">All Posts</a></li>
         <li><a href="#">Retailer's Corner</a></li>
         <li><a href="#">Customer Insight</a></li>
         <li><a href="#">Product Update</a></li>
@@ -50,23 +50,23 @@
             <% @articles.each do |article| %>
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
-                <a href="is_indian_retailer_ready_for_tierII_tierIII.html"><%= image_tag("blogs/retail-corner/1-Is-retailer-ready-thumb.jpg", :height => "127", :width => "190", :alt=>"Is organized retail ready for Tier II & Tier III cities in India?", :title=>"Is organized retail ready for Tier II & Tier III?") %></a>
-                <span class="caption">72% of organized retail stores in India are in Tier I cities</span>
+                <%= link_to image_tag("blogs/retail-corner/1-Is-retailer-ready-thumb.jpg", :height => "127", :width => "190", :alt=> article.image_alt_text, :title=> article.image_alt_text), article %>
+                <span class="caption"><%= article.image_title %></span>
               </div>
               <header class="postHeader">
                 <div class="postMetaHeader">
-                  <span class="kicker">Retailer's Corner</span>
+                  <span class="kicker"><%= article.blog_category %></span>
                   <!-- date published -->
-                  <time title="Mar 26, 7:00 am" datetime="2014-03-26T11:00:27+00:00">Apr 04, 2014, 3:35 pm</time>
+                  <time><%= article.created_at %></time>
                   <!--<span class="ccount"><i class="icon"></i><a href="blog-detail.html" class="ccount">12</a></span>-->
                 </div>
                 <h3 class="entry-title">
-                  <a title="" href="is_indian_retailer_ready_for_tierII_tierIII.html">Is organized retail ready for Tier II & Tier III cities in India?</a>
+                  <%= link_to article.page_title, article %>
                 </h3>
-                <address class="byline author vcard">By <a title="" class="url fn" href="http://www.linkedin.com/in/adadoo">ABHISHEK DADOO</a> </address>
+                <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url %></a> </address>
               </header>
               <div class="entry-content2">
-                <p>There is a buzz about evolving shopping trends in Tier II and Tier III cities in India and every organized retailer seems to agree. But, are they ready? <a class="more-link" href="is_indian_retailer_ready_for_tierII_tierIII.html">Read&nbsp;more…</a></p>
+                <p><%= article.blog_title %> <a class="more-link"><%= link_to 'Read more…', article %></a></p>
               </div>
             </article>
             <% end %>
