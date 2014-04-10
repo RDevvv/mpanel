@@ -1,29 +1,9 @@
 app.controller('ListingController', function($scope, $http, $routeParams, $cookies, getOutlet, $location){
-    getOutlet.fetch_outlets(function(response_data){
-        $scope.posters = response_data;
-    });
-
     $scope.verified = function(){
         if($cookies.mobile_number=='verified')
             return true;
     }
 
-    $scope.listing_form = function(){
-        $location.search('search','all');
-        $location.search('location',$scope.topsearch);
-    }
-
-    $scope.category_form = function(){
-        $location.search('search',$scope.category);
-    }
-
-    $scope.map_view_link = function(){
-        if($location.path()=='/outlet_view')
-            new_location = 'map_view';
-        else
-            new_location = 'outlet_view';
-        $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
-    }
 
     $scope.fetch_posters = function(){
         $scope.page++;
@@ -41,6 +21,9 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             }).success(function(data){
                 if(typeof(data.length)=='undefined')
                     $scope.no_more_results = true;
+                if(typeof($scope.posters)=='undefined'){
+                    $scope.posters = [];
+                }
                 for(i=0;i<data.length;i++){
                     $scope.posters.push(data[i]);
                 }
@@ -49,20 +32,18 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         }
     }
 
-    $scope.map = {
-        icon: 'http://localhost:3000/assets/favicon.ico',
-        center2: {
-            latitude: 12.1,
-            longitude: 78.1
-        },
-        center: {
-            latitude: 12,
-            longitude: 78
-        },
-        zoom:8
+    $scope.center = function(){
+        var center = {latitude: 12, longitude: 72};
+        return center;
     }
 
-    $scope.page = 1;
+    $scope.map = {
+        icon: 'http://localhost:3000/assets/favicon.ico',
+        center: $scope.center(),
+        zoom:10
+    }
+
+    $scope.page = 0;
     $scope.no_more_results = false;
     $scope.disabled = false;
 
@@ -71,12 +52,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.search('filter',filter);
     }
 
-    $scope.view_button = function(){
-        if($location.path()=='/outlet_view')
-            return 'loc';
-        else
-            return 'outlet';
-    }
 
     $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text) {
         $.pnotify({

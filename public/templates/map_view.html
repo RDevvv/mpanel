@@ -1,11 +1,11 @@
 <div class="row-fluid">
     <div class="google-map"
         center="map.center"
+        draggable='true'
         zoom="map.zoom"
         bounds="map.bounds"
         >
         <div ng-repeat='poster in posters'>
-            {{map.icon}}
             <marker coords='{latitude: poster.latitude, longitude: poster.longitude}' icon='map.icon'></marker>
         </div>
 
@@ -20,7 +20,7 @@
         </div>
         <div class="eye2"></div>
         <div align="center" class="brandlogo">
-            <img src='{{poster.brand_image}}'>
+            <img ng-src='{{poster.brand_image}}'>
         </div>
         <hr style="width:100%; margin:2px 0;">
         <div class="lower-box">
