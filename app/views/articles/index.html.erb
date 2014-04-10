@@ -1,17 +1,3 @@
-<section id="blog">
-  <div id="post">
-
-    <% @articles.each do |article| %>
-          <h4><%= link_to article.title, article %></h4><br>
-          <div class="date"><%= l article.created_at %></div><br>
-          <%= article.body %>
-    <% end %>
-  </div>
-<div id="footer">
-  <div class="centerfooter">GullakMaster &#169; 2014</div>
-</div>
-</section>
-
 <!doctype html>
 <html>
 <head>
@@ -61,6 +47,7 @@
       <div id="content" class="hfeed">
         <section class="posts">
           <div class="content">
+            <% @articles.each do |article| %>
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
                 <a href="is_indian_retailer_ready_for_tierII_tierIII.html"><%= image_tag("blogs/retail-corner/1-Is-retailer-ready-thumb.jpg", :height => "127", :width => "190", :alt=>"Is organized retail ready for Tier II & Tier III cities in India?", :title=>"Is organized retail ready for Tier II & Tier III?") %></a>
@@ -82,6 +69,7 @@
                 <p>There is a buzz about evolving shopping trends in Tier II and Tier III cities in India and every organized retailer seems to agree. But, are they ready? <a class="more-link" href="is_indian_retailer_ready_for_tierII_tierIII.html">Read&nbsp;more…</a></p>
               </div>
             </article>
+            <% end %>
           </div>
         </section>
       </div>
