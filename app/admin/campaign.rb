@@ -22,9 +22,6 @@ ActiveAdmin.register Campaign do
     column :marketer
     column :campaign_type
     column :keyword
-    column :pre_expiry_forward_url
-    column :post_expiry_forward_url
-    column :short_url
     column :expires_at
     actions :defaults => false do |campaign|
       link_to "View", admin_campaign_path(campaign)
@@ -42,10 +39,6 @@ ActiveAdmin.register Campaign do
       f.input :marketer
       f.input :campaign_type
       f.input :keyword
-      f.input :pre_expiry_forward_url
-      f.input :post_expiry_forward_url
-      f.input :short_url
-      f.input :unique_key
       f.input :expires_at
       f.input :campaign_template
       f.input :purpose
@@ -70,10 +63,6 @@ ActiveAdmin.register Campaign do
       row :marketer
       row :campaign_type
       row :keyword
-      row :pre_expiry_forward_url
-      row :post_expiry_forward_url
-      row :short_url
-      row :unique_key
       row :expires_at
       row :campaign_template
       row :purpose

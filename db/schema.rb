@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140330085939) do
+ActiveRecord::Schema.define(:version => 20140409073948) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -258,20 +258,17 @@ ActiveRecord::Schema.define(:version => 20140330085939) do
     t.string   "marketer"
     t.string   "campaign_type"
     t.string   "keyword"
-    t.string   "pre_expiry_forward_url"
-    t.string   "post_expiry_forward_url"
-    t.string   "short_url"
-    t.string   "unique_key"
     t.datetime "expires_at"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "ad_promocode_outlet_id"
     t.string   "campaign_template"
     t.string   "purpose"
     t.string   "placement"
     t.string   "target"
     t.string   "campaign_name"
-    t.integer  "use_count",               :default => 0
+    t.integer  "use_count",              :default => 0
+    t.datetime "expires_in"
   end
 
   create_table "categories", :force => true do |t|
@@ -309,6 +306,20 @@ ActiveRecord::Schema.define(:version => 20140330085939) do
     t.string   "currency_name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "customer_brand_scores", :force => true do |t|
+    t.integer  "customer_id"
+    t.integer  "brand_id"
+    t.integer  "category_like"
+    t.integer  "brand_like"
+    t.integer  "view_count"
+    t.integer  "call_count"
+    t.integer  "unlock_count"
+    t.integer  "share_count"
+    t.integer  "score"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "customer_feedbacks", :force => true do |t|
@@ -430,6 +441,19 @@ ActiveRecord::Schema.define(:version => 20140330085939) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "misc_sms", :force => true do |t|
+    t.text     "text"
+    t.integer  "is_sent"
+    t.integer  "customer_id"
+    t.integer  "button_click_id"
+    t.string   "vendor_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "misc_sms", ["button_click_id"], :name => "index_misc_sms_on_button_click_id"
+  add_index "misc_sms", ["customer_id"], :name => "index_misc_sms_on_customer_id"
 
   create_table "missed_calls", :force => true do |t|
     t.integer  "campaign_id"
