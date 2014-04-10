@@ -101,13 +101,11 @@ div.teampic {float:left; width:auto; height: auto;}
 .orng-box .desig {color: #000000; font-weight: bold; padding: 5px 0 0;}*/
 div.teamemname {float: right; font-size: 21px; font-weight:bold; margin: 90px 0 0 82px; text-transform: uppercase;}
 
-
-
 ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none;}
 ul.team-members li {float:left; width:33%; height:auto; margin:3px 0 3px 0; line-height: 15px; /*margin:3px 7px 3px 30px;*/}
-.tm-div {float:left; width:136px; height:auto; /*height:260px;*/ }
-.tm-div .mem-pict {float:left; margin:0 0 0 0; border:none;}
-.tm-div .orng-box {clear:both; width:100%; height:60px; background-color:#D95578; font-size:0.7em; text-align:center;}
+.tm-div {float:left; width: 100%; max-width:136px; height:auto;}
+.tm-div .mem-pict {float:left; width:100%; margin:0 0 0 0; border:none;}
+.tm-div .orng-box {clear:both; width:100%; height:auto; background-color:#D95578; font-size:0.7em; text-align:center;}
 .orng-box .title {text-transform:uppercase; font-weight:bold; padding:5px 0 0 0; color:#FFF; /*padding:9px 0 0 0;*/}
 .orng-box .nickname {padding:1px 0 0 0; color:#FFF;}
 .orng-box .desig {padding:5px 0 0 0; font-weight:normal; color:#fff;}
@@ -201,9 +199,9 @@ ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 /* Navigation */
 
 /* Contact Us styles */
-.con-container {float:left; width:650px; font-family: Tahoma,"times new roman",times,serif; color: #333333; margin: 0;}
-.con-container .ofc-box {float:left; border-right: 1px solid #ccc; float: left; padding: 0% 3% 0 0; width: auto;}
-.con-container .emailids {float:left; padding: 0% 0 0 3%; width: 400px;}
+.con-container {float:left; width:100%; font-family: Tahoma,"times new roman",times,serif; color: #333333; margin: 0;}
+.con-container .ofc-box {float:left;  width: 31%;}
+.con-container .emailids {float:left; border-left: 1px solid #ccc; padding: 0% 0 0 3%; width: 65%;}
 .ofc-box .head {color: #0095F4; font-weight: bold; line-height: 20px; margin: 0;}
 .ofc-box p {text-align: left; line-height: 1.5em;}
 .emailids .entry{float:left; clear: both; margin: 2px 0; text-align: left;}
@@ -261,3 +259,38 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 #slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:none;}
 }  
 /* Tablet Nexus7 and 7 inch tablets */
+
+/* iPad portrait mode*/
+@media only screen and (max-device-width : 603px) {
+
+}  
+/* Tablet Nexus7 and 7 inch tablets */
+@media (max-width: 480px) and (orientation : portrait) {
+body {font-size: 0.9em;}
+.twit-container {display: none;}
+.main-div-contr {width: 95%;}
+.left-contr {float:left; width:100%;}
+#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:none;}
+.tm-div {float:left; width: 100%; /*max-width:136px;*/ height:auto;}
+.tm-div .mem-pict {float:left; width:100%; margin:0; border:none;}
+.mem-pict img {max-width: 80%; max-height: auto; }
+.tm-div .orng-box {clear:both; max-width:80%; height:auto; background-color:#D95578; font-size:0.7em; line-height: 1.3em; text-align:center;}
+.orng-box .title {text-transform:uppercase; font-weight:bold; font-size: 0.8em; padding:5px 0 0 0; color:#FFF;}
+.orng-box .nickname {padding:1px 0 0 0; color:#FFF; font-size: 9px;}
+.orng-box .desig {padding:5px 0 0 0; font-weight:normal; color:#fff; font-size: 9px;}
+#footer {width:100%; color:#000; clear:both; margin:10px auto; position: relative; font-size:0.6em; padding:5px 0; border-top:solid 1px #cecece;}
+.copy-div {float:left; color: #6e6e6e;}
+ul.footerlinksmain {float:right; position: relative; left: -3px; bottom: 11px; width:auto; height:auto; font-size:9px}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 1px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain li:last-child {border-right:none;}
+.con-container .ofc-box {font-size: 0.85em;}
+.con-container .emailids {font-size: 0.85em;}
+}
+
+@media (max-width: 603px) and (orientation : landscape){
+body {border:solid 3px #000; color: orange;}
+.twit-container {display: none;}
+.main-div-contr {width: 95%;}
+.left-contr {float:left; width:100%;}
+#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:none;}
+}
