@@ -45,8 +45,14 @@ html, body {max-width: 100%; overflow-x: hidden;}
 #logo {display: block; margin-right: 15px;}
 
 /* Main Blog Container */
-.blog-main {margin: 0 auto; width: 1000px; height: auto; padding: 1px;}
-.aCol, .aColumn {float: left; margin: 0 0 24px; overflow: visible; padding: 0 30px 0 0; position: relative; width: 630px; border-right:1px solid #E2E2E2; /*width:99%;*/  }
+.blog-main {margin: 0 auto; width: 950px; height: auto; padding: 1px;}
+.aCol, .aColumn {float: left; margin: 0 0 24px; width:65%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:1px solid #E2E2E2; /*  width:99%; width: 630px*/  }
+.aColumn2 {float: left; margin: 0 0 24px; width:65%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:1px solid #E2E2E2; /*  width:99%; width: 630px*/  }
+
+/* Twitter roll */
+.twit-container {float: left; position: relative; margin: 0 0 0 2%;  /*right: 11.5%;*/ top: 0px; width:28%;}
+/* Twitter roll */
+
 body.single .hfeed {border-bottom: 0 none; margin: 0;}   
 body.single .hfeed .post {padding-top: 0;}
 .blog-main .post {overflow: hidden;} 
@@ -176,11 +182,11 @@ body.blog-universal .w592 {margin-left: -120px;}
 /* Nav */
 
 /*Main text container */
-.cont-right {float:right; width:480px;}
+.cont-right {float:right; width:73%;}
 /*Main text container */
 
 /* Share icons */
-.shareboxdiv {float:left; width:115px; height:130px;}
+.shareboxdiv {float:left; width:25%; height:auto; margin: 0 0 0 1%;}
 ul.sharelinks {float: left; width: 100%; margin: 0; padding: 0;}
 ul.sharelinks li {float:left; clear: both; width: 90%; list-style-type:none; margin: 4px 0; padding: 2px 0; border-bottom: 1px solid #E2E2E2;}
 ul.sharelinks li:last-child {border-bottom: none;}
@@ -211,9 +217,7 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 .comment-author .datetime {clear: none; float: none; line-height: 2.375em; margin-top: 1.25em;}
 /* Comments */
 
-/* Twitter roll */
-.twit-container {float: right; position: relative; right: 11.5%; top: 0px; width: 330px;}
-/* Twitter roll */
+
 
 /* Footer */
 #footer {width:990px; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-family:sans-serif; font-size:13px; padding:5px 0; border-top:solid 1px #cecece;}
@@ -234,8 +238,9 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 body {font-family: Tahoma,"times new roman",times,serif;}
 .blog-main {margin: 0 auto; width: 95%; height: auto; padding: 1px;}
 .aCol, .aColumn {float: left; margin: 0; overflow: visible; padding: 0 15px 0 0; position: relative; width: 100%; border-right: none;}
+.aColumn2 {float: left; margin: 0 0 24px; width:100%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:none;  }
 .aCol .entry, .aColumn .entry {padding: 0; border-bottom: none;}
-.blog-main .entry-title {float:left; width:65%; margin: 10px 0 10px 10px; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.1em; font-weight: bold;
+.blog-main .entry-title {float:left; width:65%; margin: 10px 0 10px 10px; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.3em; font-weight: bold;
     line-height: 1.3em;}
 .blog-main .entry-title2 {margin: 10px 0 10px 10px;}   
 .blog-main .postMetaHeader {margin-bottom: 0; line-height:0.875rem;}    
@@ -253,16 +258,16 @@ body {font-family: Tahoma,"times new roman",times,serif;}
 .entry-content {float:left; width:100%; margin: 0;}
 .entry-content p {font-size: 1em;}
 .entry-content2 {float:left; width:65%; margin: 0 0 0 10px;}
-.entry-content2 p {font-size: 1em;}
+.entry-content2 p {font-size: 1.1em;}
 .author {float:left; width:65%; margin: 0 0 0 10px; color: #808080; display: inline-block;
-         font-family: 'casperregular', Georgia,"times new roman",times,serif; font-size: 0.7em; font-weight: 700;}
+         font-family: 'casperregular', Georgia,"times new roman",times,serif; font-size: 0.9em; font-weight: 700;}
 .blog-main .post {overflow: hidden;} 
 .blog-main .postMetaHeader {float:left; width:65%;line-height: 0.875rem; margin:3px 0 0 10px;}  
 .w592 {width: 100%;}
-.cont-right {float:right; width:75%;}
+.cont-right {float:right; width:77%; margin: 0 1% 0 0;}
 
 /* Share icons */
-.shareboxdiv {float:left; width:20%; height:130px;}
+.shareboxdiv {float:left; width:20%; height:auto; margin: 0 0 0 1.5%; }
 ul.sharelinks {float: left; width: 100%; margin: 0; padding: 0;}
 ul.sharelinks li {float:left; clear: both; width: 90%; list-style-type:none; margin: 4px 0; padding: 2px 0; border-bottom: 1px solid #E2E2E2;}
 ul.sharelinks li:last-child {border-bottom: none;}
@@ -278,7 +283,7 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 
 #footer {width:95%; color:#000; clear:both; margin:0 auto; position: relative; bottom:10px; font-family:sans-serif; font-size:0.8em; padding:5px 0; border-top:solid 1px #cecece;}   
 .copy-div {text-align: center; color: #6e6e6e;}
-ul.footerlinksmain {float:right; width:auto; height:auto; margin:0 2.3% 0 0; position: relative; bottom:14px;}
+ul.footerlinksmain {float:right; width:auto; height:auto; margin:0 2.3% 0 0; position: relative; bottom:20px;}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 4px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;}
 ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:visited, ul.footerlinksmain li a:active {text-decoration: none; color:#6e6e6e;}
@@ -288,10 +293,8 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 /* iPad portrait mode, Tablet Nexus7 and 7 inch tablets */
 
 /* targets iPad Landscape */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+@media all and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
 body {font-family: Tahoma,"times new roman",times,serif;}
-.blog-main {margin: 0 auto; width: 95%; height: auto; padding: 1px;}
-.twit-container {float: right; position: relative; right: 3%; top: 0px; width: 300px;}
 .blog-main .entry-title2 {float:left; width:100%; margin: 10px 0 10px 0; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.4em; font-weight: bold;
     line-height: 1.3em;}  
 }    

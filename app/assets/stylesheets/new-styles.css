@@ -1,3 +1,5 @@
+
+* {margin: 0; padding: 0;} 
 html, body {-webkit-text-size-adjust: 100%; font-size:14px;}
 html, body {max-width: 100%; overflow-x: hidden;}
 @font-face {
@@ -66,7 +68,7 @@ ul.social-links li a {vertical-align: middle;}
     color: #000000; font-size: 11px; font-weight: bold; margin: 0 4px; padding: 4px; text-transform: uppercase;}
 .miniNav ul li a:hover {text-decoration: none; color: #be1e2d;}    
 .miniNav ul li:last-child {border-right:none;}
-#nav {border-bottom:1px solid #CCCCCC; margin: 0 0 10px 0;}    
+#nav {/*border-bottom:1px solid #CCCCCC;*/ border-bottom:1px solid #CCCCCC; height: 37px; margin: 0 auto 10px auto;}    
 /* Nav */
 
 menu, ol, ul {padding:0;}
@@ -74,7 +76,7 @@ p, pre {margin: 0;}
 
 /* Main Container */
 .main-container {margin: 0 auto; width: 975px; height: auto; padding: 1px;}
-#blogs-masthead {border-bottom: 1px solid #CCCCCC; height: 71px; /*height: 110px;*/margin-bottom: 2px; margin-top: 0; padding-bottom: 10px; position: relative;}
+#blogs-masthead {width: 100%; border-bottom: 1px solid #CCCCCC; height: 71px; /*height: 110px;*/margin-bottom: 2px; margin-top: 0; padding-bottom: 10px; position: relative;}
 #blogs-masthead .element1 {float: none; height: auto; position: absolute; width: auto; z-index: 1; top:25px;}
 #blogs-masthead .element1 #logo a img {}
 #logo {display: block;}
@@ -99,18 +101,13 @@ div.teampic {float:left; width:auto; height: auto;}
 .orng-box .desig {color: #000000; font-weight: bold; padding: 5px 0 0;}*/
 div.teamemname {float: right; font-size: 21px; font-weight:bold; margin: 90px 0 0 82px; text-transform: uppercase;}
 
-/*ul.team-members {float:left; clear:both; width:auto; height:auto; margin:0 0 10px 0; list-style-type:none;}
-ul.team-members li {float:left; width:143px; height:auto; margin:1px 0 0 0; line-height: 15px;}
-.tm-div {float:left; width:142px; height:auto;}
-.tm-div .mem-pict {float:left; margin:1px 0 11px 0; border:none;}
-.tm-div .orng-box {clear:both; width:137px; height:60px; background-color:#f08d1e; font-size:11px; text-align:center;}*/
+
 
 ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none;}
-ul.team-members li:first-child {margin:3px 0;}
-ul.team-members li {float:left; width:143px; height:auto; margin:3px 1% 3px 12%; line-height: 15px; /*margin:3px 7px 3px 30px;*/}
-.tm-div {float:left; width:142px; height:auto; /*height:260px;*/ }
-.tm-div .mem-pict {float:left; margin:1px 0 0 0; border:none;}
-.tm-div .orng-box {clear:both; width:137px; height:60px; background-color:#D95578; font-size:0.7em; text-align:center;}
+ul.team-members li {float:left; width:33%; height:auto; margin:3px 0 3px 0; line-height: 15px; /*margin:3px 7px 3px 30px;*/}
+.tm-div {float:left; width:136px; height:auto; /*height:260px;*/ }
+.tm-div .mem-pict {float:left; margin:0 0 0 0; border:none;}
+.tm-div .orng-box {clear:both; width:100%; height:60px; background-color:#D95578; font-size:0.7em; text-align:center;}
 .orng-box .title {text-transform:uppercase; font-weight:bold; padding:5px 0 0 0; color:#FFF; /*padding:9px 0 0 0;*/}
 .orng-box .nickname {padding:1px 0 0 0; color:#FFF;}
 .orng-box .desig {padding:5px 0 0 0; font-weight:normal; color:#fff;}
@@ -130,32 +127,39 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 .modal_close {position: absolute; top: -13px; right: -10px; display: block; width: 30px; height: 28px; z-index: 2; background-image: url(fancybox.png);
   background-position: -40px 0px;
 }
+
+/* Main div container */
+.main-div-contr {width:950px; margin:0 auto;}
+.left-contr {float:left; width:65%;}
+.right-contr {float:left; width:32%; margin:0 0 0 2%;}
+/* Main div container */
+
 /* Team page */
-#slide-container {width:992px; margin:0 auto;}
-#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:1px solid #E2E2E2;}
+#slide-container {width:100%; margin:0 auto;}
+#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {width: 100%; border-right:1px solid #E2E2E2;}
 
 #slide1, #slide2, #slide3, #slide4, #slide6, #slide7 {border-bottom:1px solid #E2E2E2;}
 /* Slide 1 */ 
 
-#slide1{background-color:#ffffff; width:650px; height:auto; font-size:1.1em; padding: 0 0 15px; /*height:768px;*/ float:left;}
+#slide1{background-color:#ffffff; height:auto; font-size:1.1em; padding: 0 0 15px; /*height:768px;*/ float:left;}
 
 /* Slide 2 */ 
 
-#slide2{background-color:#f68f67; color:#ffffff; width:650px; height:auto; font-size:1.1em; float:left;}
+#slide2{background-color:#f68f67; color:#ffffff; height:auto; font-size:1.1em; float:left;}
 
 /* Slide 3 */ 
 
-#slide3{width:650px; height:auto; float:left;}
+#slide3{ height:auto; float:left;}
 #test{background-color:#bde2df; color:#ffffff; text-align:center; font-size: 2em; font-weight: 400;}
 
 /* Slide 4 */
 
-#slide4{background-color:#ffffff; color:#000; font-size:1.1em; width:650px; height:auto; padding: 0 0 15px; float:left;}
+#slide4{background-color:#ffffff; color:#000; font-size:1.1em; height:auto; padding: 0 0 15px; float:left;}
 
 
 /* Slide 5 */
 h4 {font-family: 'CheltenhamLTRegular',georgia,times,serif; color: #000000; font-weight: bold; font-size:1.6em; line-height: 30px; margin:0 auto; margin: 20px 0 20px 0px;}
-#slide5{background-color:#ffffff; color:#000; width:650px; height:auto; float:left; font-size: 1.1em;}
+#slide5{background-color:#ffffff; color:#000; height:auto; float:left; font-size: 1.1em;}
 
 /* Slide 6 */
 #slide6{color:#ffffff; height: 500px;}
@@ -207,7 +211,7 @@ ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 /* Contact Us styles */
 
 /* Careers Styles */
-#wrapper-div {width: 620px; line-height: 1.42857; background-color: #FFFFFF; float:left; font-family: Tahoma,"times new roman",times,serif; text-align: left; clear: both; height: auto; color:#333333; padding: 0 30px 0 0;}
+#wrapper-div {width:100%; line-height: 1.42857; background-color: #FFFFFF; float:left; font-family: Tahoma,"times new roman",times,serif; text-align: left; clear: both; height: auto; color:#333333;}
 #wrapper-div .post a {font-family: arial,helvetica,sans-serif; font-weight: bold; text-transform: uppercase; font-size: 0.9em;}
 ul.cpoints {float:left; clear:both; width:100%; height:auto; margin: 5px 0 0 0;}
 ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
@@ -215,7 +219,7 @@ ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: lef
 /* Careers Styles */
 
 /* Footer */
-#footer {width:990px; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
+#footer {width:100%; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
 .copy-div {text-align: center; color: #6e6e6e;}
 ul.footerlinksmain {float:right; width:190px; height:auto; position: relative; left: 20px; bottom:30px;}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 4px; border-right:solid 1px #ddd; list-style: none;}
@@ -237,7 +241,7 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 /* Error page */
 
 /* Twitter roll */
-.twit-container {float: right; position: absolute; right: 11.5%; top: 128px; width: 330px;}
+.twit-container {float:left; width: 100%; margin: 0 0 0 1%;}
 /* Twitter roll */
 
 /* Backtotop */
@@ -245,48 +249,15 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 #backtotop a {border: 0 none; display: block; height: 155px; text-decoration: none; width: 31px;}
 /* Backtotop */
 
-/* iPad portrait mode, Tablet Nexus7 and 7 inch tablets */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-#blogs-masthead {border-bottom: 1px solid #CCCCCC; width:95%; height: 71px; /*height: 110px;*/margin-bottom: 2px; margin-top: 0; margin-left: auto; margin-right: auto; padding-bottom: 10px;}
-#nav {border-bottom:1px solid #CCCCCC; width:990px; margin: 0 auto 10px;} 
-ul.navigation{margin:0 auto; list-style: none; margin:10px 0 10px 0;}
-.top-bar1 {width:95%; height: 95%; border:solid 2px #000; margin: 0 auto;}
-#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:none;}
-#slide-container {width:95%; margin:0 auto;}
-#slide1{background-color:#ffffff; width:95%; height:auto; font-size:1.1em; padding: 0 0 15px; /*height:768px;*/ float:left;}
-#slide2{background-color:#f68f67; color:#ffffff; width:95%; height:auto; font-size:1.1em; float:left;}
-#slide3{width:95%; height:auto; float:left;}
-#slide4{background-color:#ffffff; color:#000; font-size:1.1em; width:95%; height:auto; padding: 0 0 15px; float:left;}
-#slide5{background-color:#ffffff; color:#000; width:95%; height:auto; float:left; font-size: 1.1em;}
+.image-contr {float:left; border:none; width:100%;}
+.image-contr img {max-width:98%; max-height:auto; float:left; display: block;}
+.imagedesc {clear:both; padding:10px 0 0 0; text-align:justify; font-family:Tahoma,times new roman,times,serif; font-size:1em; width:98%;}
 
-ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none;}
-ul.team-members li:first-child {margin:3px 0;}
-ul.team-members li {float:left; width:143px; height:auto; margin:3px 5% 3px 4%; line-height: 15px;}
-
-#wrapper-div {width: 95%; line-height: 1.42857; background-color: #FFFFFF; float:left; font-family: Tahoma,"times new roman",times,serif; text-align: left; clear: both; height: auto; color:#333333; padding: 0 30px 0 0;}
-
+/* iPad portrait mode*/
+@media only screen and (min-device-width : 481px) and (max-device-width : 1024px) and (orientation : portrait) {
 .twit-container {display: none;}
-#footer {width:95%; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
+.main-div-contr {width: 95%;}
+.left-contr {float:left; width:100%;}
+#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:none;}
 }  
-/* iPad portrait mode, Tablet Nexus7 and 7 inch tablets */
-
-/* targets iPad Landscape */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-#blogs-masthead {border-bottom: 1px solid #CCCCCC; width:95%; height: 71px; /*height: 110px;*/margin-bottom: 2px; margin-top: 0; margin-left: auto; margin-right: auto; padding-bottom: 10px;}
-#nav {/*border-bottom:1px solid #CCCCCC;*/ width:990px; margin: 0 auto; border:solid 1px #000;} 
-ul.navigation{float:left; /*margin:0 auto;*/ list-style: none; margin:10px 0 10px 0;}
-.top-bar1 {width:95%; height: 95%; border:solid 2px #000; margin: 0 auto;}
-#slide-container {width:95%; margin:0 auto;}
-
-#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {border-right:1px solid #E2E2E2;}
-
-#slide1{background-color:#ffffff; width:620px; height:auto; font-size:1.1em; padding: 0 0 15px; /*height:768px;*/ float:left;}
-#slide2{background-color:#f68f67; color:#ffffff; width:620px; height:auto; font-size:1.1em; float:left;}
-#slide3{width:620px; height:auto; float:left;}
-#slide4{background-color:#ffffff; color:#000; font-size:1.1em; width:620px; height:auto; padding: 0 0 15px; float:left;}
-#slide5{background-color:#ffffff; color:#000; width:620px; height:auto; float:left; font-size: 1.1em;}
-#wrapper-div {width: 95%; line-height: 1.42857; background-color: #FFFFFF; float:left; font-family: Tahoma,"times new roman",times,serif; text-align: left; clear: both; height: auto; color:#333333; padding: 0 30px 0 0;}
-.twit-container {float: right; position: absolute; right: 3%; top: 131px; width: 280px;}
-#footer {width:95%; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
-}
-/* targets iPad Landscape */
+/* Tablet Nexus7 and 7 inch tablets */
