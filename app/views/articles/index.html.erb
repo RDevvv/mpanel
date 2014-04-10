@@ -30,11 +30,13 @@
           $(".twitter-timeline").contents().find(".e-entry-title").css("font-family","tahoma");
           $(".twitter-timeline").contents().find(".tweet").css("font-family","tahoma");
           $(".twitter-timeline").contents().find(".e-entry-title").css("font-size","12px");
-          $(".twitter-timeline").contents().find(".tweet").css("font-size","10px");
+          //$(".twitter-timeline").contents().find(".tweet").css("font-size","10px");
           $(".twitter-timeline").contents().find(".summary").css("font-family","tahoma");
       }, 1000);
   </script>
 </head>
+
+
 <body>
 <div class="blog-main">
   <header class="wrap" id="blogs-masthead">
@@ -54,8 +56,8 @@
       </ul>
     </nav>
   </div>
-  <div class="aColumn" id="aCol">
-    <div class="aColumn">
+  <div id="aCol">
+    <div class="aColumn2">
       <div id="content" class="hfeed">
         <section class="posts">
           <div class="content">
@@ -85,13 +87,14 @@
       </div>
     </div>
   </div>
+  <div class="twit-container">
+    <a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>
+  </div>
 </div>
-<div class="twit-container">
-  <a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>
-</div>
+
 <div id="backtotop">
   <a href="#">
-    <%= image_tag("back_to_top_btn-3.png", :border => 0, :alt => "Back to TOP") %>
+    <img src="/assets/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
   </a>
 </div>
 <div id="footer">
