@@ -1,28 +1,3 @@
 
 
-<h1>Comments</h1>
-
-<% @comments.each do |comment| %>
-    <tr>
-      <td><%= comment.title %></td>
-      <td><%= comment.body %></td>
-    </tr>
-<% end %>
-
-
-<h2>New Comment</h2>
-<%= form_for [@commentable, @comment] do |f| %>
-    <ol class="formList">
-      <div class="field">
-        <%= f.label :title %><br />
-        <%= f.text_field :title %>
-      </div>
-        <div class="field">
-        <%= f.label :body %><br />
-        <%= f.text_area :body, :rows => 5 %>
-       </div>
-      <ul><%= f.submit "Add comment" %></ul>
-    </ol>
-<% end %>
-
 
