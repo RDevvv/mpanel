@@ -75,16 +75,6 @@ class HomeController < ApplicationController
             end
             @poster_data = Kaminari.paginate_array(@poster_data).page(params[:page]).per(16)
         end
-
-        @map_outlets = Array.new
-        @pin_id = 0
-        if @location.blank?
-            render 'location_not_found'
-        elsif @poster_data.blank?
-            render 'no_results'
-        else
-            render params[:view].to_sym
-        end
     end
 
     def share_listing

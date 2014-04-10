@@ -29,7 +29,7 @@ class CustomersController < ApplicationController
           unless params[:mobile_number].empty?
               if @customer.update_attributes(:mobile_number => params[:mobile_number])
                   cookies[:mobile_number] = {:value => "not_verified", :expires => 1.year.from_now}
-                  @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster")
+                  @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
                   @mobile_number = true
               else
                   @mobile_number = false
@@ -43,7 +43,7 @@ class CustomersController < ApplicationController
 
   def resend_verification_code
       @customer = Customer.where(:uuid => params[:customer_uuid]).first
-      @sms_sent = @customer.sms_sents.create(:ad_promocode_outlet_id => 1, :ad_promocode_outlet_version_id => 1, :text => "Your verification code is #{@customer.verification_code} Thanks, GullakMaster")
+      @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
       render :json => {:success => true}
   end
 

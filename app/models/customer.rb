@@ -5,6 +5,7 @@ class Customer < ActiveRecord::Base
   has_many :call_forwardings
   has_many :button_clicks, :dependent => :destroy
   has_many :customer_feedbacks
+  has_many :misc_smss
   has_one :customer_brand_score
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
