@@ -35,6 +35,8 @@ class ApplicationController < ActionController::Base
         "home_index"
     elsif controller_name == 'charts'
         "admin"
+    elsif controller_name == 'articles'
+        "blog"
     else
         "application"
     end
