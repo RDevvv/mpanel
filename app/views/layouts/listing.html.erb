@@ -46,14 +46,13 @@
 </script>
 
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
- (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
- m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
- })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-47902288-1', 'gullakmaster.com');
-ga('send', 'pageview');
-
+  ga('create', 'UA-49715139-2', 'shoffr.com');
+  ga('send', 'pageview');
 </script>
 <style type="text/css">
 html, body {width: 100%; overflow-x: hidden;}
@@ -88,7 +87,7 @@ xfbml      : true
     </ul>
     <div class="head-brand"><%= link_to 'shoffr', root_path %></div>
     <ul class="right-icons">
-        <li><a href='' class="new_top_share shr" onclick="$('#popup_share').modal('show'); update_top_share_url($(this))"></a></li>
+        <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController' ngg="update_top_share_url($(this))"></a></li>
         <li><a href='' ng-class='view_button()' ng-click='map_view_link()' ng-controller='ListingController'></a></li>
     </ul>
 
