@@ -26,4 +26,5 @@
 //= require angular-google-maps.min
 //= require_directory ./mobile_site
 //= require_directory ./services
+//= require_directory ./filters
 //= require_directory ./controllers

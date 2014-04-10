@@ -46,11 +46,12 @@
 </div>
 
 <div class="pin-add-div" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>">
+
     <div class="rch-btns-div4">
         <ul>
             <li>
             <!--<div class="pin-box">&nbsp;</div>-->
-            <a class="pin-box" href="#">{{$index|convert_to_character}}</a>
+            <a class="pin-box" href="#">&nbsp;</a>
             </li>
             <li>
             <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
