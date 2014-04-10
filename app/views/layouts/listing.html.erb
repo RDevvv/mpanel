@@ -88,14 +88,14 @@ xfbml      : true
     <div class="head-brand"><%= link_to 'shoffr', root_path %></div>
     <ul class="right-icons">
         <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController' ngg="update_top_share_url($(this))"></a></li>
-        <li><a href='' ng-class='view_button()' ng-click='map_view_link()' ng-controller='ListingController'></a></li>
+        <li><a href='' ng-class='view_button()' ng-click='map_view_link()' ng-controller='HomeController'></a></li>
     </ul>
 
     <nav id="menu">
         <ul>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
-            <form ng-submit='category_form()' ng-controller='ListingController' method='get' id='categoryForm'>
+            <form ng-submit='category_form()' ng-controller='HomeController' method='get' id='categoryForm'>
                 <fieldset>
                     <div class="input">
                         <input type='text' name='search' id='s3' placeholder ='Enter Location' ng-model='category'>
@@ -126,7 +126,7 @@ xfbml      : true
     <div class="row-fluid">
         <div class="span12" id='top_search'>
             <div class="search-div3">
-                <form ng-submit='listing_form()' ng-controller='ListingController' method='get' id='searchForm'>
+                <form ng-submit='listing_form()' ng-controller='HomeController' method='get' id='searchForm'>
                     <fieldset>
                         <div class="input">
                             <input type='text' name='location' id='s' placeholder ='Enter Location' ng-model='topsearch'>
