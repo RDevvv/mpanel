@@ -140,7 +140,7 @@ Gullak2::Application.routes.draw do
     root :to => "home#index", constraints: {subdomain: 'm.staging'}
     root :to => "merchant#index", constraints: {subdomain: 'admin'}
     root :to => "home#index", constraints: {domain: 'gullak.co'}
-    root :to => redirect('/desktop-home.html')
+    root :to => redirect('/home.html')
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     authenticate :admin_user do
