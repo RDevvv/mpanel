@@ -198,6 +198,8 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 .tw-icon {background: url(tw-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
 .li-icon {background: url(LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
 .gplus-icon {background: url(gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 18px 0 8px;}
+
+.sharebox {display: none;}
 /* Share icons */
 
 /* Backtotop */
@@ -292,10 +294,79 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 }    
 /* iPad portrait mode, Tablet Nexus7 and 7 inch tablets */
 
+/* Tablet Nexus7 and 7 inch tablets */
+@media (max-width: 480px) and (orientation : portrait) {
+html, body {max-width: 100%; overflow-x: hidden;}    
+.twit-container {display: none;}
+.blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
+.aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:100%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:1px solid #E2E2E2;}
+
+.w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 0;}
+.w190, .w592 {width: 100%;}
+.w190 img {clear:both; width: 97%; max-width: 100%; max-height: auto;}
+.w592 img {clear:both; width: 97%; max-width: 100%; max-height: auto;}
+.w190 .caption {float:left; clear:both; line-height: 1.3em; margin: 5px 2px; width:85%;}
+.entry-content2 p {float: left; clear: both; width: 100%;}
+.entry-content p {float: left; clear: both; text-align: justify; font-size: 1em; width: 100%;}
+.author {float:left; clear:both; color: #808080; display: inline-block; font-family: 'casperregular', Georgia,"times new roman",times,serif;
+  font-size: 0.9em; font-weight: 700; margin: 0 0 1% 1%;}
+.kicker {float:left; margin:0 0 0 1%;}
+#footer {width:100%; color:#000; clear:both; margin:10px auto; position: relative; font-size:0.6em; padding:2px 0; border-top:solid 1px #cecece;}
+.copy-div {float:left; color: #6e6e6e; margin:0 0 0 3px;}
+ul.footerlinksmain {float:right; position: relative; left: -3px; height: 10px; top:5px; width:auto; height:auto; font-size:8px}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 4px; line-height: 10px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain li:last-child {border-right:none;}
+.con-container .ofc-box {font-size: 0.85em;}
+.con-container .emailids {font-size: 0.85em;}    
+#backtotop {display: none; position: fixed; bottom:-10px;  right:0;}
+#backtotop a {border: 0 none; display: block; text-decoration: none;}
+#backtotop a img {max-width: 60%; max-height: 60%;}
+
+.blog-main .entry-title2 {float:left; width:95%; margin: 0 0 0 1%; border:solid 0px #000; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.2em; font-weight: bold;
+    line-height: 1.3em;} 
+.cont-right {float:left; width:98%; margin:0 1%; font-size: 0.9em;}
+
+.shareboxdiv {display: none;}
+
+.sharebox{float:left; display: block; clear: both; width:100%; height:auto; margin: 0; }
+ul.sharenow {float: left; width: 100%; margin: 0; padding: 0;}
+ul.sharenow li {float:left; display: inline; width: auto; list-style-type:none; padding:0 2%; border-right: 1px solid #E2E2E2;}
+ul.sharenow li:last-child {float:left; clear:both; border-right: none;}
+ul.sharenow li a {float:left; width:100%; text-decoration: none;}
+ul.sharenow li a:hover {background-color: #F7F7F5;}
+span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",times,serif; font-size: 0.8em; text-transform: uppercase; color: #999999; text-decoration: none;}
+.email-icon {background: url(email-16x16.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
+.fb-icon {background: url(fb-16x16.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
+.tw-icon {background: url(tw-16x16.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
+.li-icon {background: url(LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
+.gplus-icon {background: url(gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
+
+}
+
 /* targets iPad Landscape */
-@media all and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+@media (max-width: 603px) and (orientation : landscape){
 body {font-family: Tahoma,"times new roman",times,serif;}
-.blog-main .entry-title2 {float:left; width:100%; margin: 10px 0 10px 0; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.4em; font-weight: bold;
-    line-height: 1.3em;}  
+.blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
+.blog-main .entry-title {position:relative; font-family: 'CheltenhamLTRegular',georgia,times,serif; width:95%; font-size: 1.3em; font-weight: bold;
+    line-height: 1.2em;} 
+.w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 5px;}
+.w190 {width: 35%;}
+.w592 {width:100%;}
+.w190 img {clear:both; width: 97%; max-width: 100%; max-height: auto;}
+.w592 img {clear:both; width: 97%; max-width: 100%; max-height: auto;}
+.w190 .caption {float:left; clear:both; line-height: 1.3em; margin: 5px 2px; width:98%;}
+.aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:99%; overflow: visible; padding:0; position: relative; border-right:none;}
+.shareboxdiv {float:left; width:19%; height:auto; margin: 0 0 0 1.5%;}
+.cont-right {float:left; width:75%; margin: 0 0 0 1%;}
+.entry-content p {float: left; text-align: justify; font-size: 1em; width: 100%;}
+.twit-container {display: none;}
+#footer {width:100%; color:#000; clear:both; margin:10px auto; position: relative; font-size:0.6em; padding:2px 0; border-top:solid 1px #cecece;}
+.copy-div {float:left; color: #6e6e6e;}
+ul.footerlinksmain {float:right; position: relative; left: -3px; height: 10px; bottom: 0; width:auto; height:auto; font-size:9px}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain li:last-child {border-right:none;} 
+#backtotop {right:-10px; display: none; bottom: -30px; display: none; position: fixed;}
+#backtotop a {border: 0 none; display: none; text-decoration: none;}
+#backtotop a img {max-width: 50%; max-height: 50%;}    
 }    
 /* targets iPad Landscape */
