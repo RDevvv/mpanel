@@ -50,7 +50,9 @@
             <% @articles.each do |article| %>
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
-                <%= link_to image_tag("blogs/retail-corner/1-Is-retailer-ready-thumb.jpg", :height => "127", :width => "190", :alt=> article.image_alt_text, :title=> article.image_alt_text), article %>
+                <% if article.attachments.present? %>
+                    <%= link_to image_tag(article.attachments.order(:id).first.image, :height => "127", :width => "190", :alt=> article.image_alt_text, :title=> article.image_alt_text), article %>
+                <% end %>
                 <span class="caption"><%= article.summary_image_caption %></span>
               </div>
               <header class="postHeader">

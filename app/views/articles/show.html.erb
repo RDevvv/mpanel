@@ -50,8 +50,10 @@
           <address class="byline author vcard">By <a title="" class="url fn" href="http://www.linkedin.com/in/adadoo"><%= @article.author %></a> </address></header>
         <div class="entry-content">
           <div class="w592">
-            <%= image_tag("blogs/retail-corner/1-Is-retailer-ready-thumb.jpg", :height => "394", :width => "592", :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
-            <span class="caption2"><%= @article.summary_image_caption %> | <%= @article.summary_image %> | <%= @article.image_caption %></span></div>
+            <% if @article.attachments.present? %>
+                <%= image_tag(@article.attachments.order(:id).last.image, :height => "394", :width => "592", :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
+            <% end %>
+            <span class="caption2"><%= @article.image_caption %> | <%= @article.summary_image_caption %></span></div>
           <div class="shareboxdiv">
             <ul class="sharelinks">
               <li>
