@@ -51,22 +51,22 @@
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
                 <%= link_to image_tag("blogs/retail-corner/1-Is-retailer-ready-thumb.jpg", :height => "127", :width => "190", :alt=> article.image_alt_text, :title=> article.image_alt_text), article %>
-                <span class="caption"><%= article.image_title %></span>
+                <span class="caption"><%= article.summary_image_caption %></span>
               </div>
               <header class="postHeader">
                 <div class="postMetaHeader">
                   <span class="kicker"><%= article.blog_category %></span>
                   <!-- date published -->
-                  <time><%= article.created_at %></time>
+                  <time><%= article.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
                   <!--<span class="ccount"><i class="icon"></i><a href="blog-detail.html" class="ccount">12</a></span>-->
                 </div>
                 <h3 class="entry-title">
-                  <%= link_to article.page_title, article %>
+                  <%= link_to article.blog_title, article %>
                 </h3>
                 <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url %></a> </address>
               </header>
               <div class="entry-content2">
-                <p><%= article.blog_title %> <a class="more-link"><%= link_to 'Read more…', article %></a></p>
+                <p><%=h truncate(article.blog_body, :length => 80) %> <a class="more-link"><%= link_to 'Read more…', article %></a></p>
               </div>
             </article>
             <% end %>
