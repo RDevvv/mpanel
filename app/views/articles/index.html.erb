@@ -15,7 +15,7 @@
   <!-- Facebook -->
   <meta property="og:title" content="Shoffr Blog -  Indian retail & customers insights" >
   <meta property="og:site_name" content = "Shoffr">
-  <meta property="og:url" content="http://www.shoffr.com/blog.html">
+  <meta property="og:url" content="http://www.shoffr.com/articles/">
   <meta property="og:description" content="Shoffr blog reports on insights and analysis from the Indian retail industry, customer behaviour, mobile marketing, and Shoffr product updates." >
   <meta property="og:image" content="http://shoffr.com/assets/social-media/shoffr_social_media_logo.png" >
 
@@ -61,8 +61,8 @@
         <li><a href="/home.html">Home</a></li>
         <li><a href="/articles">All Posts</a></li>
         <li><a href="#">Retailer's Corner</a></li>
-        <li><a href="#">Customer Insight</a></li>
-        <li><a href="#">Product Update</a></li>
+        <li><a href="#" title="Coming Soon">Customer Insight</a></li>
+        <li><a href="#" title="Coming Soon">Product Update</a></li>
       </ul>
     </nav>
   </div>
@@ -75,7 +75,7 @@
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
                 <% if article.attachments.present? %>
-                    <%= link_to image_tag(article.attachments.order(:id).first.image, :height => "127", :width => "190", :alt=> article.image_alt_text, :title=> article.image_alt_text), article %>
+                    <%= link_to image_tag(article.attachments.order(:id).first.image, :alt=> article.image_alt_text, :title=> article.image_alt_text), article %>
                 <% end %>
                 <span class="caption"><%= article.summary_image_caption %></span>
               </div>
