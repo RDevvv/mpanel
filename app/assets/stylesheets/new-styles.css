@@ -290,7 +290,7 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .error-image {width:100%; height:auto;}
 .error-image img {max-width: 100%; max-height: auto;}
 
-.prf-div-pop {margin:0 auto 2px auto; width:100%; height:auto; border: solid 1px #000;}
+.prf-div-pop {margin:0 auto 2px auto; width:100%; height:auto;}
 .prf-div-pop .prof-div-lft {float:left; width:13%; height:95%; margin:0;}
 .prof-div-lft .pic {margin:0 auto; border:none;}
 .prof-div-lft .pic img { max-width: 50%; max-height: 50%;}
@@ -299,7 +299,7 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .prof-div-lft .title {clear:both; color:#000; font-size:0.5em;}
 .prof-div-lft .l-in {width:100%; clear:both; border:none; padding:2px 0 5px 0;}
 .prof-div-lft .l-in img {max-width: 50%; max-height: 50%;}
-.prf-div-pop .prof-div-rht {float:left; width:65%; color:#333333; height:auto; border: solid 1px #000; margin:0; font-family: Tahoma,"times new roman",times,serif; font-size:0.6em;}
+.prf-div-pop .prof-div-rht {float:left; width:25%; color:#333333; height:auto; margin:0; font-family: Tahoma,"times new roman",times,serif; font-size:0.6em;}
 .prof-div-rht p {text-align:justify; color:#000; margin:0px 0 10px 0; width: 100%;}
 }
 
@@ -323,6 +323,18 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 ul.footerlinksmain {float:right; position: relative; left: -3px; height: 10px; bottom: 10px; width:auto; height:auto; font-size:9px}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;} 
+
+.prf-div-pop {margin:0 auto 2px auto; width:100%; height:auto;}
+.prf-div-pop .prof-div-lft {width:15%; height:95%; margin:0;}
+.prof-div-lft .pic {margin:0 auto; border:none;}
+.prof-div-lft .pic img { max-width: 50%; max-height: 50%;}
+.prof-div-lft .name { clear:both; text-transform:uppercase; color:#be1e2d; font-size:0.4em; font-weight:bold;}
+.prof-div-lft .nick {clear:both; color:#767676; font-size:0.5em;}
+.prof-div-lft .title {clear:both; color:#000; font-size:0.5em;}
+.prof-div-lft .l-in {width:100%; clear:both; border:none; padding:2px 0 5px 0;}
+.prof-div-lft .l-in img {max-width: 50%; max-height: 50%;}
+.prf-div-pop .prof-div-rht {float:left; width:45%; color:#333333; height:auto; margin:0; font-family: Tahoma,"times new roman",times,serif; font-size:0.6em;}
+.prof-div-rht p {text-align:justify; color:#000; margin:0px 0 10px 0; width: 100%;}
 
 #backtotop {display:none; position:fixed; bottom:-25%; right:20px;}
 #backtotop a {display: block; text-decoration: none;}
