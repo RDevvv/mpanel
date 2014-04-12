@@ -14,7 +14,7 @@
   <!-- Facebook -->
   <meta property="og:title" content="<%= @article.blog_title %>" >
   <meta property="og:site_name" content = "Shoffr" >
-  <meta property="og:url" content="http://www.shoffr.com/articles/<%= @article.id %>">
+  <meta property="og:url" content="http://www.shoffr.com/articles/<%= @article.blog_url.gsub(/ /, '') %>">
   <meta property="og:description" content="<%= @article.blog_excerpt %>" >
   <% if @article.attachments.present? %>
   <meta property="og:image" content="<%= @article.attachments.order(:id).last.image %>" >
@@ -80,7 +80,7 @@
             <% if @article.attachments.present? %>
                 <%= image_tag(@article.attachments.order(:id).last.image, :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
             <% end %>
-            <span class="caption2"><%= @article.image_caption %> | <%= @article.summary_image_caption %></span>
+            <span class="caption2"><%= @article.image_caption %></span>
           </div>
           <div class="shareboxdiv">
             <ul class="sharelinks">
@@ -143,7 +143,7 @@
 </div>
 <div class="twit-container">
 
-  <%= @article.twitter_blockquote %> 
+  <blockquote class="twitter-tweet" lang="en"><p>&quot;Silence is the ultimate weapon of power.&quot; -Charles De Gaulle <a href="http://t.co/M5dL0y4T5p">http://t.co/M5dL0y4T5p</a></p>&mdash; 40Billion (@40billion) <a href="https://twitter.com/40billion/statuses/454933499992997888">April 12, 2014</a></blockquote>
 
 </div>
 <div id="backtotop">
