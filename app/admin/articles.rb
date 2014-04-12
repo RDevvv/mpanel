@@ -13,6 +13,7 @@ ActiveAdmin.register Article do
     column :author
     column :author_linkedin_url
     column :social_share_caption
+    column :twitter_blockquote
     column :image_title
     column :image_alt_text
     column :image_caption
@@ -31,6 +32,7 @@ ActiveAdmin.register Article do
       f.input :author
       f.input :author_linkedin_url
       f.input :social_share_caption
+      f.input :twitter_blockquote
       f.input :blog_body
       f.input :image_title
       f.input :image_alt_text
