@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140410074008) do
+ActiveRecord::Schema.define(:version => 20140412060046) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20140410074008) do
     t.string   "author"
     t.string   "author_linkedin_url"
     t.string   "social_share_caption"
+    t.string   "twitter_blockquote"
   end
 
   create_table "attachments", :force => true do |t|
