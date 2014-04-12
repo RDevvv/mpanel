@@ -7,8 +7,8 @@
         <div class="span12">
             <div class="c-loc">
                 <div class="input-group">
-                    <form 'outlet_listing', method ='GET' class = 'form-without-submit' >
-                        <input type='text' class = 'form-control' placeholder ='Enter Location' ng-model='search.location'>
+                    <form 'outlet_listing', method ='GET' class = 'form-without-submit' ng-controller='GeocodingController' ng-init='change_location()'>
+                        <input type='text' id='search-text' class = 'form-control' placeholder ='Enter Location' ng-model='ssearch.location'>
                         <input type='hidden' name='search' value='all' >
                         <input type='hidden' name='latitude' value='0' ng-model='search.latitude'>
                         <input type='hidden' name='longitude' value='0' ng-model='search.latitude'>
@@ -29,4 +29,3 @@
         </form>
     </div>
 </div>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true" style=""></script>

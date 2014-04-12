@@ -4,7 +4,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             return true;
     }
 
-
     $scope.fetch_posters = function(){
         $scope.page++;
         $scope.disabled = true;
@@ -14,9 +13,10 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 url   : 'outlet_listing.json',
                 params: {
                     page: $scope.page,
-                    search: 'all',
+                    search: $routeParams['search'],
+                    filter: $routeParams['filter'],
                     view: 'outlet_listing',
-                    location: 'bandra'
+                    location: $routeParams['location']
                 }
             }).success(function(data){
                 if(typeof(data.length)=='undefined')
@@ -27,20 +27,27 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 for(i=0;i<data.length;i++){
                     $scope.posters.push(data[i]);
                 }
+                $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
+                $scope.map.user_location = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
                 $scope.disabled =false;
             })
         }
     }
 
-    $scope.center = function(){
-        var center = {latitude: 12, longitude: 72};
-        return center;
+    $scope.map = {
+        user_icon: 'http://localhost:3000/assets/user_pin.png',
+        icon: 'http://maps.google.com/mapfiles/markerA.png',
+        center: {latitude: 12.8, longitude: 72.8},
+        user_location: {latitude: 12.8, longitude: 72.8},
+        marker_index: 0,
+        zoom:13
     }
 
-    $scope.map = {
-        icon: 'http://localhost:3000/assets/favicon.ico',
-        center: $scope.center(),
-        zoom:10
+    $scope.generate_markers = function(){
+        $scope.map.marker_index++;
+        //var link = 'http://maps.google.com/mapfiles/marker'+String.fromCharCode($scope.map.marker_index+65)+'.png';
+        //console.log($scope.map.marker_index);
+        //return link;
     }
 
     $scope.page = 0;
