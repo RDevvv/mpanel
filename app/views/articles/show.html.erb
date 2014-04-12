@@ -72,6 +72,7 @@
             <!-- date published -->
             <time><%= @article.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
             <button data-skip-to-para-id="" class="button comments-button  theme-kicker"></button>
+          </div>
           <h1 class="entry-title2"><%= @article.blog_title %></h1>
           <address class="byline author vcard">By <a title="" class="url fn" ><%= link_to @article.author, @article.author_linkedin_url %></a> </address>
         <div class="entry-content">
@@ -79,7 +80,8 @@
             <% if @article.attachments.present? %>
                 <%= image_tag(@article.attachments.order(:id).last.image, :height => "394", :width => "592", :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
             <% end %>
-            <span class="caption2"><%= @article.image_caption %> | <%= @article.summary_image_caption %></span></div>
+            <span class="caption2"><%= @article.image_caption %> | <%= @article.summary_image_caption %></span>
+          </div>
           <div class="shareboxdiv">
             <ul class="sharelinks">
               <li>
@@ -112,14 +114,14 @@
           </div>-->
 
         </div>
-
+       </header>
       </article>
     </div> <!-- end content -->
   </div>
 </div>
 <div class="twit-container">
   <!--<a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>-->
-  <blockquote class="twitter-tweet" lang="en"><p><%= @article.twitter_blockquote %> <a href="http://t.co/m3lcEuNyo8">http://t.co/m3lcEuNyo8</a></p>&mdash; Shoffr (@_shoffr) <a href="https://twitter.com/_shoffr/statuses/453413944120446976"><%= @article.created_at %></a></blockquote>
+  <blockquote class="twitter-tweet" lang="en"><p><%= @article.twitter_blockquote %> <a href="http://t.co/m3lcEuNyo8">http://t.co/m3lcEuNyo8</a></p>&mdash; Shoffr (@_shoffr) <a href="https://twitter.com/_shoffr/statuses/453413944120446976"></a></blockquote>
 </div>
 <div id="backtotop">
   <a href="#">
