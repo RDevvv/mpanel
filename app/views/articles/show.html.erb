@@ -47,7 +47,7 @@
             <time><%= @article.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
             <button data-skip-to-para-id="" class="button comments-button  theme-kicker"></button>
           <h1 class="entry-title2"><%= @article.blog_title %></h1>
-          <address class="byline author vcard">By <a title="" class="url fn" href="http://www.linkedin.com/in/adadoo"><%= @article.author %></a> </address></header>
+          <address class="byline author vcard">By <a title="" class="url fn" ><%= link_to @article.author, @article.author_linkedin_url %></a> </address>
         <div class="entry-content">
           <div class="w592">
             <% if @article.attachments.present? %>
