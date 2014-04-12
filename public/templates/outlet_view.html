@@ -7,7 +7,7 @@
         </div>
         <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
         <div align="center" class="brandlogo">
-            <img src={{poster.brand_image}}>
+            <img ng-src={{poster.brand_image}}>
         </div>
         <hr style="width:100%; margin:2px 0;">
         <div class="lower-box">
@@ -33,7 +33,6 @@
 </div>
 
 <div class="pin-add-div" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>">
-
     <div class="rch-btns-div4">
         <ul>
             <li>
