@@ -11,6 +11,30 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
         }
     }
 
+    $scope.listing_form = function(){
+        $location.search('search','all');
+        $location.search('location',$scope.topsearch);
+    }
+
+    $scope.category_form = function(){
+        $location.search('search',$scope.category);
+    }
+
+    $scope.view_button = function(){
+        if($location.path()=='/outlet_view')
+            return 'loc';
+        else
+            return 'outlet';
+    }
+
+    $scope.map_view_link = function(){
+        if($location.path()=='/outlet_view')
+            new_location = 'map_view';
+        else
+            new_location = 'outlet_view';
+        $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
+    }
+
 
     $scope.show_top_menu = function(){
         angular.element('#header').removeClass('hide');

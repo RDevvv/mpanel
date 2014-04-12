@@ -11,10 +11,11 @@ app.config(function($routeProvider){
     })
     .when('/ad_outlet',{
         templateUrl: '/templates/ad_outlet.html',
-        controller: 'ListingController'
+        controller: 'SingleOutletController'
     })
     .when('/',{
-        templateUrl: '/templates/home.html'
+        templateUrl: '/templates/home.html',
+        controller: 'GeocodingController'
     })
     .otherwise({redirectTo: '/templates/home.html'})
 });

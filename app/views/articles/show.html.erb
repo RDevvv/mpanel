@@ -14,7 +14,7 @@
   <!-- Facebook -->
   <meta property="og:title" content="<%= @article.blog_title %>" >
   <meta property="og:site_name" content = "Shoffr" >
-  <meta property="og:url" content="httt://www.shoffr.com/articles/<%= @article.id %>">
+  <meta property="og:url" content="http://www.shoffr.com/articles/<%= @article.id %>">
   <meta property="og:description" content="<%= @article.blog_excerpt %>" >
   <% if @article.attachments.present? %>
   <meta property="og:image" content="<%= @article.attachments.order(:id).last.image %>" >
@@ -78,7 +78,7 @@
         <div class="entry-content">
           <div class="w592">
             <% if @article.attachments.present? %>
-                <%= image_tag(@article.attachments.order(:id).last.image, :height => "394", :width => "592", :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
+                <%= image_tag(@article.attachments.order(:id).last.image, :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
             <% end %>
             <span class="caption2"><%= @article.image_caption %> | <%= @article.summary_image_caption %></span>
           </div>
@@ -107,6 +107,28 @@
             <p class="story-body-text"><%= @article.blog_body %></p>
           </div>
 
+          <div class="sharebox">
+             <ul class="sharenow">
+              <li>
+                <a href="mailto:?subject=<%= @article.social_share_caption %>&body=I thought you might find this article interesting.%20http://shoffr.com/xxxx"><i class="email-icon"></i><span class="sharelink-text">e-mail</span></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/share?text=<%= @article.social_share_caption %>%20&url=http://shoffr.com/xxx"><i class="tw-icon"></i><span class="sharelink-text">twitter</span></a>
+              </li>
+              <li>
+                <a href="http://www.linkedin.com/cws/share?url=http://shoffr.com/xxxx"><i class="li-icon"></i><span class="sharelink-text">LinkedIn</span></a>
+              </li>
+              <li>
+                <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://shoffr.com/xxx"><i class="fb-icon"></i><span class="sharelink-text">facebook</span></a>
+              </li>
+
+              <li>
+                <a href="https://plus.google.com/share?url=http://shoffr.com/xxx" onclick="javascript:window.open(this.href,
+                        '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="gplus-icon"></i><span class="sharelink-text">google +</span></a>
+              </li>
+             </ul>
+          </div>
+
           <!--<div id="discussion">
             <ol class="commentlist">
 
@@ -120,8 +142,9 @@
   </div>
 </div>
 <div class="twit-container">
-  <!--<a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>-->
-  <blockquote class="twitter-tweet" lang="en"><p><%= @article.twitter_blockquote %> <a href="http://t.co/m3lcEuNyo8">http://t.co/m3lcEuNyo8</a></p>&mdash; Shoffr (@_shoffr) <a href="https://twitter.com/_shoffr/statuses/453413944120446976"></a></blockquote>
+
+  <%= @article.twitter_blockquote %> 
+
 </div>
 <div id="backtotop">
   <a href="#">
