@@ -1,6 +1,30 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title><%= @article.page_title %></title>
+  <link href="/assets/bootstrap.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/blog-styles.css" rel="stylesheet" type="text/css"/>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
+  <title><%= @article.blog_title %></title>
+  <meta name="title" content="<%= @article.page_title %>"/>
+  <meta name="description" content="<%= @article.blog_title %>"/>
+  <meta name="keywords" content="<%= @article.blog_keywords %>"/>
+
+  <!-- Facebook -->
+  <meta property="og:title" content="<%= @article.page_title %>" >
+  <meta property="og:site_name" content = "Shoffr" >
+  <meta property="og:url" content="<%= @article.attachments.first.image %>">
+  <meta property="og:description" content="<%= @article.blog_title %>" >
+  <meta property="og:image" content="<%= @article.attachments.first.image %>" >
+
+  <!-- Twitter-->
+  <meta name="twitter:card" content="summary_large_image" >
+  <meta name="twitter:site" content="@_shoffr">
+  <meta name="twitter:title" content="<%= @article.page_title %>" >
+  <meta name="twitter:image:src" content="<%= @article.attachments.first.image %>" >
+  <meta name="twitter:description" content="<%= @article.blog_title %>" >
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
