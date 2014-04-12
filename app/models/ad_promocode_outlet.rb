@@ -8,16 +8,10 @@ class AdPromocodeOutlet < ActiveRecord::Base
     has_paper_trail
     acts_as_paranoid
 
-    after_create :generate_share_link
     after_create :add_ad
 
     def add_ad
         self.ad_id = self.ad_promocode.ad.id
         self.save
     end
-
-    def generate_share_link
-        Campaign.generate_url(self)
-    end
-
 end

@@ -1,4 +1,4 @@
-app.factory('getOutlet',['$routeParams', '$http', function($routeParams, $http){
+app.factory('getOutlet', function($routeParams, $http){
     return{
         fetch_outlets: function(succeedcb){
             if($routeParams['location']!='undefined'){
@@ -11,4 +11,4 @@ app.factory('getOutlet',['$routeParams', '$http', function($routeParams, $http){
             }
         }
     };
-}])
+})

@@ -78,7 +78,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             return 'outlet';
     }
 
-    $scope.unlock = function (brand_name,ad_id, outlet_id, sms_text) {
+    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text) {
         $.pnotify({
             title: brand_name+' - Offer sent',
             text: sms_text,
@@ -96,7 +96,8 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             params: {
                 customer_uuid: $cookies.customer_uuid,
                 ad_id: ad_id,
-                outlet_id: outlet_id
+                outlet_id: outlet_id,
+                misc_sms: false
             }
         })
     }
