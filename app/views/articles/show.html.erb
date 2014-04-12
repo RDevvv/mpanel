@@ -80,7 +80,7 @@
             <% if @article.attachments.present? %>
                 <%= image_tag(@article.attachments.order(:id).last.image, :alt=> @article.image_alt_text, :title=> @article.image_alt_text) %>
             <% end %>
-            <span class="caption2"><%= @article.image_caption %> | <%= @article.summary_image_caption %></span>
+            <span class="caption2"><%= @article.image_caption %></span>
           </div>
           <div class="shareboxdiv">
             <ul class="sharelinks">
