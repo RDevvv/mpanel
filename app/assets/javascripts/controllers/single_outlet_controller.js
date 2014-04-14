@@ -8,6 +8,7 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         }
     })
     .success(function(response){
+        console.log(response);
         $scope.posters = response.outlet;
     })
 

@@ -1,5 +1,5 @@
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='disabled'>
-<div class="row-fluid" ng-if='0' >
+<div class="row-fluid">
     <div class="google-map"
         center="map.center"
         draggable='true'
@@ -9,7 +9,7 @@
         <div ng-repeat='poster in posters'>
             <marker coords='{latitude: poster.latitude, longitude: poster.longitude}' icon='generate_markers()'></marker>
         </div>
-        <marker coords='map.user_location' icon='map.user_icon'></marker>
+        <marker coords='map.center' icon='map.user_icon'></marker>
     </div>
 </div>
 
@@ -51,7 +51,7 @@
             <ul>
                 <li>
                 <!--<div class="pin-box">&nbsp;</div>-->
-                <a class="pin-box" ng-href="#/ad_outlet?id={{poster.outlet_id}}&customer_latitude={{map.user_location.latitude}}&customer_longitude={{map.user_location.longitude}}">{{$index|convert_to_character}}</a>
+                <a class="pin-box" ng-href="#/ad_outlet?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}">{{$index|convert_to_character}}</a>
                 </li>
                 <li>
                 <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
