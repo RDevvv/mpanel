@@ -119,13 +119,37 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.show_modal = function(){
-        console.log($cookies['mobile_number']);
         if($cookies['mobile_number']=='not_verified'||$cookies['mobile_number']=='true'){
             angular.element('#verification').modal('show');
         }
         else if($cookies['mobile_number']=='false'){
             angular.element('#mobile-number').modal('show');
         }
+    }
+
+    $scope.poster_share = function(outlet_id){
+        if($cookies['mobile_number']=='verified'){
+            $.pnotify({ title: ' ', text: 'You will receive a SMS from Shoffr shortly. Kindly share the link with your friends',
+                      closer_hover: false,
+                      sticker_hover: false,
+                      animate_speed: 'fast',
+                      icon: false,
+                      addclass: 'stack-topleft',
+                      opacity: .9
+            });
+            $http({
+                method: 'POST',
+                url   : 'set_sms_data.json',
+                params: {
+                    customer_uuid: $cookies.customer_uuid,
+                    outlet_id: outlet_id,
+                    poster_share: true,
+                    misc_sms: true
+                }
+            })
+        }
+        else
+            angular.element('#popup_share').modal('show');
     }
 })
 
