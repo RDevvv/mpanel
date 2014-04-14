@@ -117,9 +117,7 @@ class Merchant::OutletsController <  Merchant::BaseController
 	end
 
   def show
-    @outlet = Outlet.find(params[:id])
-    @area = @outlet.area
-    @city = @area.city
+    @outlet = Outlet.get_poster_data(Outlet.where(:id =>params[:id]),cookies[:customer_uuid])
   end
 
   def toggle_active

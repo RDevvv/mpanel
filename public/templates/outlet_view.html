@@ -44,6 +44,9 @@
                 <div ng-if="verified()" >
                     <a class="call button_call2" href="tel:09223584822" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a>
                 </div>
+                <div ng-if="verified()==false" >
+                    <a class="call button_call2" ng-href="{{}}" ng-click='show_modal(); tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a>
+                </div>
             </div>
             <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >
                 <a class="button_call_grey" href='#' >&nbsp;</a>

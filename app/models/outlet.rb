@@ -285,8 +285,14 @@ class Outlet < ActiveRecord::Base
       customer = Customer.where(:uuid => customer_uuid).first
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
+          if defined?(outlet.distance)
+              distance = outlet.distance
+          else
+              distance =0
+          end
+
           if (outlet.ads.empty? && outlet.ads.map{|ad|ad.promocode_available?.include?(true)})||(outlet.ads.map{|ad|ad.expired?}.include?(true))
-              outlets_without_ads += [:brand_image => Ad.get_image(0,outlet), :is_unlocked => false, :ad_id => 0, :ad_title => nil, :sms_text => nil, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
+              outlets_without_ads += [:brand_image => Ad.get_image(0,outlet), :is_unlocked => false, :ad_id => 0, :ad_title => nil, :sms_text => nil, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
           else
               ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
               ads.each do |ad|
@@ -294,7 +300,7 @@ class Outlet < ActiveRecord::Base
                   unless is_unlocked_row.blank?
                       is_unlocked = is_unlocked_row.first.is_unlocked
                   end
-                  outlets_with_ads += [:brand_image => Ad.get_image(ad,outlet), :is_unlocked => is_unlocked, :ad_id => ad.id, :ad_title => ad.ad_title, :sms_text => ad.sms_text, :outlet_id => outlet.id, :distance => outlet.distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
+                  outlets_with_ads += [:brand_image => Ad.get_image(ad,outlet), :is_unlocked => is_unlocked, :ad_id => ad.id, :ad_title => ad.ad_title, :sms_text => ad.sms_text, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
               end
           end
       end
