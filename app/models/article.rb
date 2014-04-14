@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
   validates_presence_of :author_linkedin_url
   validates_presence_of :social_share_caption
   validates_presence_of :twitter_blockquote
-  validates_presence_of :blog_body
+
   validates_presence_of :image_title
   validates_presence_of :image_alt_text
   validates_presence_of :image_caption
@@ -29,4 +29,10 @@ class Article < ActiveRecord::Base
   validates_length_of :image_title, :maximum => 20, :allow_blank => false
   validates_length_of :blog_excerpt, :maximum => 150, :allow_blank => false
   validates_length_of :social_share_caption, :maximum => 115, :allow_blank => false
+
+  before_save :escape_blog_body
+
+  def escape_blog_body
+    self.blog_body = CGI.escapeHTML self.blog_body
+  end
 end

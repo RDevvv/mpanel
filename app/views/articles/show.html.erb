@@ -14,7 +14,7 @@
   <!-- Facebook -->
   <meta property="og:title" content="<%= @article.blog_title %>" >
   <meta property="og:site_name" content = "Shoffr" >
-  <meta property="og:url" content="http://www.shoffr.com/articles/<%= @article.blog_url.gsub(/ /, '') %>">
+  <meta property="og:url" content="http://staging.shoffr.com/articles/<%= @article.id %><%= @article.blog_url.gsub(/ /, '') %>">
   <meta property="og:description" content="<%= @article.blog_excerpt %>" >
   <% if @article.attachments.present? %>
   <meta property="og:image" content="<%= @article.attachments.order(:id).last.image %>" >
@@ -104,7 +104,7 @@
             </ul>
           </div>
           <div class="cont-right">
-            <p class="story-body-text"><%= @article.blog_body %></p>
+            <p class="story-body-text"><%= CGI.unescapeHTML (@article.blog_body) %></p>
           </div>
 
           <div class="sharebox">
