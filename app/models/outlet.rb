@@ -2,6 +2,7 @@ require 'csv'
 
 class Outlet < ActiveRecord::Base
 
+    attr_accessor :new_distance
   attr_accessible :account_brand_id, :address, :area_id, :email_id, :is_active, :is_verified, :shop_no
   attr_accessible :latitude, :longitude, :mobile_number, :outlet_key, :phone_number, :deleted_at
 
@@ -285,10 +286,10 @@ class Outlet < ActiveRecord::Base
       customer = Customer.where(:uuid => customer_uuid).first
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
-          if defined?(outlet.distance)
-              distance = outlet.distance
-          else
+          if defined?(outlet.new_distance)
               distance =0
+          else
+              distance = outlet.distance
           end
 
           if (outlet.ads.empty? && outlet.ads.map{|ad|ad.promocode_available?.include?(true)})||(outlet.ads.map{|ad|ad.expired?}.include?(true))
