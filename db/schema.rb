@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140412060046) do
+ActiveRecord::Schema.define(:version => 20140415081220) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -151,6 +151,16 @@ ActiveRecord::Schema.define(:version => 20140412060046) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "pincode"
+  end
+
+  create_table "article_comments", :force => true do |t|
+    t.string   "name"
+    t.string   "comment"
+    t.string   "email"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "articles", :force => true do |t|
