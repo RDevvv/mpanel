@@ -317,12 +317,12 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 
 /* Tablet Nexus7 and 7 inch tablets */
 @media (max-width: 480px) and (orientation : portrait) {
-html, body {max-width: 100%; overflow-x: hidden;}    
+html, body {max-width: 98%; height:100%; overflow-x: hidden;}    
 .twit-container {display: none;}
 .twit-container-detail {display: none;}
 .blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
 #aCol {float: left; width: 100%;}
-.aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:100%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:1px solid #E2E2E2;}
+.aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:98%; overflow: visible; padding: 0 1% 0 1%; position: relative; border-right:1px solid #E2E2E2;}
 
 .w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 0;}
 .w190, .w592 {width: 100%;}
