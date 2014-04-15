@@ -20,10 +20,10 @@
                     <div class="like"><div class="button_liked_offer" ></div></div>
                 </div>
                 <div ng-if='poster.is_unlocked != true' %>
-                    <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text); tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a></div>
+                    <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text)'>&nbsp;</a></div>
                 </div>
                 <a class="share" >
-                    <div class="refr2" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'></div>
+                    <div class="refr2" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id); poster_share(poster.outlet_id)'></div>
                     <!--<div class="refr2txt">Share</div>-->
                 </a>
                 <p>{{poster.ad_usage}}</p>
@@ -37,12 +37,15 @@
         <ul>
             <li>
             <!--<div class="pin-box">&nbsp;</div>-->
-            <a class="pin-box" href="#">&nbsp;</a>
+            <a class="pin-box" ng-href="#/ad_outlet?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}">{{$index|convert_to_character}}</a>
             </li>
             <li>
             <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
                 <div ng-if="verified()" >
                     <a class="call button_call2" href="tel:09223584822" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a>
+                </div>
+                <div ng-if="verified()==false" >
+                    <a class="call button_call2" ng-href="{{}}" ng-click='show_modal(); tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a>
                 </div>
             </div>
             <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >

@@ -1,9 +1,5 @@
 app.controller('GeocodingController',function($scope){
 
-    $scope.ssearch = {
-        location: null
-    };
-
     var user_latitude=0;
     var user_longitude=0;
     $scope.change_location = function(){
@@ -12,6 +8,7 @@ app.controller('GeocodingController',function($scope){
     }
 
     $scope.showPosition = function(position){
+        $.pnotify({title: 'vivek'});
         var new_link=document.getElementById("change_location");
         user_latitude = position.coords.latitude;
         user_longitude = position.coords.longitude;
@@ -29,8 +26,7 @@ app.controller('GeocodingController',function($scope){
                 sub_result = result[i];
                 if(sub_result['types'][0]=='sublocality'){
                     final_result = sub_result['long_name'];
-                    $scope.ssearch.location = final_result;
-                    $('#search-text').attr('value',$scope.ssearch.location);
+                    $('#search-text').attr('value',final_result);
                 }
             }
             if (status == google.maps.GeocoderStatus.OK) {

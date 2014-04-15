@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140412060046) do
+ActiveRecord::Schema.define(:version => 20140414115151) do
 
   create_table "account_brands", :force => true do |t|
     t.integer  "brand_id"
@@ -262,16 +262,18 @@ ActiveRecord::Schema.define(:version => 20140412060046) do
   create_table "campaign_copies", :force => true do |t|
     t.integer  "campaign_id"
     t.datetime "expires_at"
-    t.boolean  "is_sent",      :default => false
-    t.boolean  "is_delivered", :default => false
-    t.boolean  "is_opened",    :default => false
+    t.boolean  "is_sent",                 :default => false
+    t.boolean  "is_delivered",            :default => false
+    t.boolean  "is_opened",               :default => false
     t.integer  "customer_id"
     t.integer  "copy_sent"
-    t.integer  "use_count"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.integer  "use_count",               :default => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.string   "vendor_id"
     t.string   "short_url"
+    t.string   "pre_expiry_forward_url"
+    t.string   "post_expiry_forward_url"
   end
 
   add_index "campaign_copies", ["campaign_id"], :name => "index_campaign_copies_on_campaign_id"
