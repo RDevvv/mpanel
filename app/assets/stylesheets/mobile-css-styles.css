@@ -936,4 +936,18 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
 
 .angular-google-map-container { height: 250px; }
 
+/* Angular animation styles */
+.animate-enter {
+  -webkit-transition: 5s linear all; /* Chrome */
+  transition: 5s linear all;
+  opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+  opacity: 1;
+}
+
+.loading-style {position:relative; top:10px; left:10px; font-weight:bold; font-size:11px; background:#000; padding:5px; color:#fff; border-radius:5px;}
+/* Angular animation styles */
+
 
