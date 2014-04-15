@@ -132,6 +132,7 @@ Gullak2::Application.routes.draw do
     get 'no_results' => 'home#no_results'
     get 'location_not_found' => 'home#location_not_found'
     match 'auth/facebook/callback' => 'customers#facebook_data'
+    match '/articles/:id:blog_url' => 'articles#show'
 
     if Rails.env.development?
     root :to => "home#index"
