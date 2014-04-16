@@ -243,6 +243,11 @@
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
+                    },
+                    complete:function(){
+                        $('#comment-form').each(function(){
+                            this.reset();   //Here form fields will be cleared.
+                        });
                     }
                 });
         e.preventDefault();	//STOP default action
