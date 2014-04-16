@@ -20,11 +20,11 @@ class ArticleCommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @article_comment = @commentable.article_comments.build(params[:article_comment])
-
+    @article = @commentable
     respond_to do |format|
       if @article_comment.save
-        format.html { redirect_to @article_comment, notice: 'Comment was successfully created.' }
-        format.json { render json: @article_comment, status: :created, location: @article_comment }
+        format.html { redirect_to @article, notice: 'Comment was successfully created.' }
+        format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
         format.json { render json: @article_comment.errors, status: :unprocessable_entity }
