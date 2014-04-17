@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
 
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
-  has_many :comments, :as => :commentable
+  has_many :article_comments, :as => :commentable
 
   validates_presence_of :page_title
   validates_presence_of :blog_title

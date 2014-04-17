@@ -130,70 +130,58 @@
           </div>
 
           <div id="discussion">
-    <div class="section-heading">3 comments</div>
+    <div class="section-heading"><%= @article_comments.count %>comments</div>
+    <div id="update-container">
+    <% @article_comments.each do |comment| %>
     <ul class="commentlist">
      <li>
          <div class="comment-wrapper">
-           <div class="name1">Naren
-             <span class="dte">13/04/2013</span>
-             <span class="time">4 hrs ago</span>
+           <div class="name1"><%= comment.name %>
+             <span class="dte"><%= comment.created_at.strftime("%e %b %Y %H:%m:%S%p") %></span>
+             <span class="time"><%=time_ago_in_words(comment.created_at)%> ago</span>
            </div>
-           <div class="comment">This is a comment. This is a comment. This is a comment. This is a comment.This is a comment.</div>
+           <div class="comment"><%= comment.comment %></div>
          </div>
      </li>
-       <li>
-         <div class="comment-wrapper">
-           <div class="name1">Kaustubh
-             <span class="dte">12/04/2013</span>
-             <span class="time">1 day ago</span>
-           </div>
-           <div class="comment">This is a comment. This is a comment. </div>
-         </div>
-     </li>
-       <li>
-         <div class="comment-wrapper">
-           <div class="name1">Abhishek
-             <span class="dte">11/04/2013</span>
-             <span class="time">2 days ago</span>
-           </div>
-           <div class="comment">This is a comment. This is a comment. </div>
-         </div>
-     </li>
+     <hr>
     </ul>
+    <% end %>
+    </div>
     <div class="leave-comment">
       <div class="section-heading">leave a comment</div>
-      <form class="form-horizontal" id="comment-form" method='post' action=''>
+      <%= form_for [@commentable, @article_comment], :remote => true, :'data-update-target' => 'update-container', :html=>{:class => "form-horizontal", :id => "comment-form"} do |f| %>
         <fieldset>
           <div class="control-group">
              <label class="control-label">Name</label>
             <div class="controls">
-             <input type="text" class="input-large" value="">
+              <%= f.text_field :name, :class => "input-large" %>
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label">Email</label>
             <div class="controls">
-            <input type="text" class="input-large" value="">
+              <%= f.text_field :email, :class => "input-large" %>
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label">Comment</label>
             <div class="controls">
-            <textarea class="form-control" rows="3"></textarea>
+              <%= f.text_area :comment, :rows => 5, :class=>"form-control" %>
             </div>
           </div>
 
           <div class="control-group">
             <label class="control-label"></label>
             <div class="controls">
-            <button type="submit" class="btn btn-custom" onclick="" >Submit</button>
+              <%= f.submit "Add Comment", :class => "btn btn-custom" %>
             </div>
           </div>
         </fieldset>
-      </form>
+      <% end %>
     </div>
+
   </div>
 
         </div>
@@ -239,6 +227,35 @@
             return false;
         });
     });
+</script>
+
+
+<script type="text/javascript">
+    $("#comment-form").submit(function(e)
+    {
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+        $.ajax(
+                {
+                    url : formURL,
+                    type: "POST",
+                    data : postData,
+                    success:function(data, textStatus, jqXHR)
+                    {
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                    },
+                    complete:function(){
+                        $('#comment-form').each(function(){
+                            this.reset();   //Here form fields will be cleared.
+                        });
+                    }
+                });
+        e.preventDefault();	//STOP default action
+    });
+
+    $("#comment-form").submit(); //SUBMIT FORM
 </script>
 
 </body>

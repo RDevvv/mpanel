@@ -1,8 +1,7 @@
 Gullak2::Application.routes.draw do
 
-
     resources :articles do
-        resources :comments
+        resources :article_comments
     end
     resources :customer_feedbacks
     resources :nested_comments

@@ -9,7 +9,9 @@ class ArticlesController < ApplicationController
 
     def show
         @article = Article.find(params[:id])
-
+        @commentable = @article
+        @article_comments = @commentable.article_comments
+        @article_comment = ArticleComment.new
         respond_with @article
     end
 
