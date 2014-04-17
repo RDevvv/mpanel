@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+<head>
+<title>Shoffr</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta content='GullakMaster | Deals At Your Fingertips!' name='title'>
+<meta content='Tell us your location and we will pull together the nearest deals right on your phone. No printouts, No costs, No hassles. Check it out.' name='description'>
+<meta content='Deals, Offers, Discounts' name='Keywords'>
+<!-- Facebook -->
+<meta property="og:title" content="GullakMaster | Deals at your Fingertips" >
+<meta property="og:url" content="http://www.gullakmaster.com/">
+<meta property="og:image" content="http://www.gullakmaster.com/assets/gullak-logo-mcc.png" >
+<meta property="og:image:type" content="image/png" />
+<meta property="og:description" content="Tell us your location and we will pull together the nearest deals right on your phone. No printouts, No costs, No hassles. Check it out." >
+<meta property="fb:admins" content="206827969522380" />
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+
+<link rel='stylesheet' type='text/css' href='assets/application.css'>
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="assets/application.js" type="text/javascript"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<!-- jQuery Plugin -->
+
+<script type="text/javascript">
+(function() {
+ if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+ var msViewportStyle = document.createElement("style");
+ msViewportStyle.appendChild(
+     document.createTextNode("@-ms-viewport{width:auto!important}")
+     );
+ document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+ }
+ })();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49715139-2', 'shoffr.com');
+  ga('send', 'pageview');
+</script>
+<style type="text/css">
+html, body {width: 100%; overflow-x: hidden;}
+</style>
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+appId      : '206827969522380',
+status     : true,
+cookie     : true,
+xfbml      : true
+});
+};
+
+(function(d, s, id){
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) {return;}
+ js = d.createElement(s); js.id = id;
+ js.src = "//connect.facebook.net/en_US/all.js";
+ fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="header">
+    <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
+    <ul class="left-icons">
+        <li><a href="#menu" class="srchlink3"></a></li>
+    </ul>
+    <div class="head-brand"><a href='/'>shoffr</a></div>
+    <ul class="right-icons">
+        <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController' ngg="update_top_share_url($(this))"></a></li>
+        <li><a href='' ng-class='view_button()' ng-click='map_view_link()' ng-controller='HomeController'></a></li>
+    </ul>
+
+    <nav id="menu">
+        <ul>
+            <li class="subcat">Filter by:</li>
+            <li style="margin-top:10px;">
+            <form ng-submit='category_form()' ng-controller='HomeController' method='get' id='categoryForm'>
+                <fieldset>
+                    <div class="input">
+                        <input type='text' name='search' id='s3' placeholder ='Enter Location' ng-model='category'>
+                    </div>
+                </fieldset>
+            </form>
+            </li>
+            <li>&nbsp;</li>
+            <li class="subcat">Sort by:</li>
+            <li><a href='' ng-click="distance_filter('distance')" ng-controller='ListingController'>Distance</a></li>
+            <li><a href='' ng-click="distance_filter('ad_expiry_date')" ng-controller='ListingController'>Expiry Date</a></li>
+            <li><a href='' ng-click="distance_filter('ad_usage')" ng-controller='ListingController'>Hotpicks</a></li>
+            <li>&nbsp;</li>
+
+            <li class="subcat" style="margin:0 0 0 -8%;"><a href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+            <li class="subcat" style="float:left; margin:-3% 0 0 -8%;"><a href='/customer_feedbacks/new'>Provide Feedback</a></li>
+        </ul>
+    </nav>
+</div>
+<div id="backtotop">
+    <a href="#">
+        <img alt="Back to TOP" src="/assets/back_to_top_btn-3.png">
+    </a>
+</div>
+
+<div id="mobile-number" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <div class="modal-body">
+            <div class="sub-txt2">We need to verify your mobile number</div>
+        <form accept-charset="UTF-8" action="/customers" class="customer-mobile-number-form form-horizontal ng-pristine ng-valid" data-validate="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="dyrZ0TQXFIkIopjpTl/EOF2sjrGGz/yZl7Evi6XfDP8="></div>
+            <div class="control-group">
+            <label class="control-label"> +91</label>
+            <div class="controls">
+                <input class="datetime_select" id="mobile_number" name="mobile_number" placeholder="Enter mobile number" type="text" value="">
+                <input class="datetime_select btn-blue" name="commit" type="submit" value="Submit">
+            </div>
+        </div>
+        <input id="customer_uuid" name="customer_uuid" type="hidden" value="ab1f02f0-b1a6-44ed-a3e1-390171eb97c8">
+</form>    </div>
+</div>
+
+
+<div id="verification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <div style="width:100%; overflow-x:hidden; margin:0; padding:0;" class="modal-body">
+            <div class="sub-txt2">Verification code sent by SMS</div>
+            <form accept-charset="UTF-8" action="/check_verification_code.json" class="customer-verification-code-form cust-ver form-horizontal ng-pristine ng-valid" data-validate="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="dyrZ0TQXFIkIopjpTl/EOF2sjrGGz/yZl7Evi6XfDP8="></div>
+            <div class="control-group">
+            <div class="controls">
+                <input class="datetime_select" id="verification_code" name="verification_code" placeholder="Enter verification code" type="text" value="">
+                <input class="btn-blue" name="commit" type="submit" value="Submit">
+            </div>
+        </div>
+        <input id="customer_uuid" name="customer_uuid" type="hidden" value="ab1f02f0-b1a6-44ed-a3e1-390171eb97c8">
+</form>    </div>
+    <div class="send-code"><a href="#" onclick="resend_verification_code()">Resend verification code</a></div>
+</div>
+
+
+<div id="popup_share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <div class="top-share">
+        <div class="top-share-box">
+            <form class="ng-pristine ng-valid">
+                <input onclick="this.select()" id="top_share_link" type="text" value="http://gullak.co/abcd">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+$("input[type=text]").live('click', function() {
+        $(this).select();
+        this.setSelectionRange(0, 9999);
+        });
+</script>
+<style type="text/css">
+#signup, #popup_share {background: none;}
+</style>
+
+
+
+<div class="container-location">
+    <div class="row-fluid">
+        <div class="span12" id='top_search'>
+            <div class="search-div3">
+                <form ng-submit='listing_form()' ng-controller='HomeController' method='get' id='searchForm'>
+                    <fieldset>
+                        <div class="input">
+                            <input type='text' name='location' id='s' placeholder ='Enter Location' ng-model='topsearch'>
+                            <script type='text/javascript'>
+reverse_geocode($('#s'));
+                            </script>
+                        </div>
+                    </fieldset>
+                    <input type='submit' value='Go' name='Go' id ='submitbutton' class = "btn btn-submit2" >
+                </form>
+            </div>
+        </div>
+        <div id='view' ng-view>
+        </div>
+    </div>
+</div>
+<footer>GullakMaster &copy; 2014</footer>
+<script type="text/javascript">
+$(document).ready(function(){
+        $('nav#menu').mmenu();
+        modal_submit();
+        verification_modal_submit();
+        get_backtotop_button();
+        mobile_number_verification();
+        facebook_share_binding();
+        bind_tracking();
+        bind_send_ad();
+        bind_display_ad();
+        enable_submit($('#s'),$('#submitbutton'));
+        })
+</script>
+</body>
+</html>
+
+

@@ -2,6 +2,8 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     $scope.verified = function(){
         if($cookies.mobile_number=='verified')
             return true;
+        else
+            return false;
     }
 
     $scope.fetch_posters = function(){
@@ -19,6 +21,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     location: $routeParams['location']
                 }
             }).success(function(data){
+                $scope.show_top_menu();
                 if(typeof(data.length)=='undefined')
                     $scope.no_more_results = true;
                 if(typeof($scope.posters)=='undefined'){
@@ -28,17 +31,20 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     $scope.posters.push(data[i]);
                 }
                 $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
-                $scope.map.user_location = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
                 $scope.disabled =false;
             })
         }
+    }
+
+    $scope.show_top_menu = function(){
+        angular.element('#header').removeClass('hide');
+        angular.element('#top_search').removeClass('hide');
     }
 
     $scope.map = {
         user_icon: 'http://localhost:3000/assets/user_pin.png',
         icon: 'http://maps.google.com/mapfiles/markerA.png',
         center: {latitude: 12.8, longitude: 72.8},
-        user_location: {latitude: 12.8, longitude: 72.8},
         marker_index: 0,
         zoom:13
     }
@@ -110,6 +116,40 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 current_link: current_link
             }
         })
+    }
+
+    $scope.show_modal = function(){
+        if($cookies['mobile_number']=='not_verified'||$cookies['mobile_number']=='true'){
+            angular.element('#verification').modal('show');
+        }
+        else if($cookies['mobile_number']=='false'){
+            angular.element('#mobile-number').modal('show');
+        }
+    }
+
+    $scope.poster_share = function(outlet_id){
+        if($cookies['mobile_number']=='verified'){
+            $.pnotify({ title: ' ', text: 'You will receive a SMS from Shoffr shortly. Kindly share the link with your friends',
+                      closer_hover: false,
+                      sticker_hover: false,
+                      animate_speed: 'fast',
+                      icon: false,
+                      addclass: 'stack-topleft',
+                      opacity: .9
+            });
+            $http({
+                method: 'POST',
+                url   : 'set_sms_data.json',
+                params: {
+                    customer_uuid: $cookies.customer_uuid,
+                    outlet_id: outlet_id,
+                    poster_share: true,
+                    misc_sms: true
+                }
+            })
+        }
+        else
+            angular.element('#popup_share').modal('show');
     }
 })
 

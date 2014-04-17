@@ -16,12 +16,14 @@ class CampaignsController < ApplicationController
       else
           campaign = campaign_copy.campaign
           campaign_copy.update_attributes(:use_count=> campaign_copy.use_count+1)
-          if(campaign.expires_at+campaign.expires_in.hours+330.minutes < Time.now)
-              redirect_to campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
+          if campaign.expires_in!= nil
+              if(campaign.expires_at+campaign.expires_in.hours+330.minutes < Time.now)
+                  redirect_to campaign_copy.post_expiry_forward_url+"&short_url="+campaign_copy.short_url
+              end
           elsif(campaign_copy.campaign.expires_at.blank?)||(campaign.expires_at > Date.today-1)
-              redirect_to campaign.pre_expiry_forward_url+"?short_url="+campaign_copy.short_url
+              redirect_to campaign_copy.pre_expiry_forward_url+"&short_url="+campaign_copy.short_url
           else
-              redirect_to campaign.post_expiry_forward_url+"?short_url="+campaign_copy.short_url
+              redirect_to campaign_copy.post_expiry_forward_url+"&short_url="+campaign_copy.short_url
           end
       end
   end

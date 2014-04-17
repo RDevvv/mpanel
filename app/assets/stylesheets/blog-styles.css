@@ -77,10 +77,10 @@ body.single .hfeed .post {padding-top: 0;}
 .blog-main .kicker {font-size: 0.6875rem; line-height: 0.875rem; text-transform: uppercase;}
 .kicker {color: #000000; font-family: "nyt-cheltenham",georgia,"times new roman",times,serif;
     font-size: 0.75rem; font-weight: 300; letter-spacing: 0.075em; line-height: 1rem; text-transform: uppercase;}
-    .kicker {color: #ABB41E; font-weight: bold;}
+.kicker {color: #ABB41E; font-weight: bold; padding-top: 2px;}
 .blog-main .kicker a, .blog-main .sectionHeader a {color: #000000;}
 .blog-main .kicker a {font-weight: 700;}   
-.blog-main .postMetaHeaderCommentCount, .blog-main .postMetaHeader .kicker + time {padding-left: 8px;}
+.blog-main .postMetaHeaderCommentCount, .blog-main .postMetaHeader .kicker + time {padding-left: 5px;}
 .blog-main .postMetaHeader time + span, .blog-main .postMetaHeader span + time {border-left: 1px solid #CCCCCC;}
 .blog-main .postMetaHeader time {color: #808080;}
 .blog-main .postMetaHeader time {text-transform: uppercase;}
@@ -284,7 +284,7 @@ body {font-family: Tahoma,"times new roman",times,serif;}
 .blog-main .post {overflow: hidden;} 
 .blog-main .postMetaHeader {float:left; width:65%;line-height: 0.875rem; margin:3px 0 0 10px;}  
 .w592 {width: 100%;}
-.cont-right {float:right; width:77%; margin: 0 1% 0 0;}
+.cont-right {float:right; width:75%; margin: 0 1% 0 0;}
 
 /* Share icons */
 .shareboxdiv {float:left; width:20%; height:auto; margin: 0 0 0 1.5%; }
@@ -317,12 +317,12 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 
 /* Tablet Nexus7 and 7 inch tablets */
 @media (max-width: 480px) and (orientation : portrait) {
-html, body {max-width: 100%; overflow-x: hidden;}    
+html, body {max-width: 98%; height:100%; overflow-x: hidden;}    
 .twit-container {display: none;}
 .twit-container-detail {display: none;}
 .blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
 #aCol {float: left; width: 100%;}
-.aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:100%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:1px solid #E2E2E2;}
+.aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:98%; overflow: visible; padding: 0 1% 0 1%; position: relative; border-right:1px solid #E2E2E2;}
 
 .w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 0;}
 .w190, .w592 {width: 100%;}
@@ -378,6 +378,7 @@ body {font-family: Tahoma,"times new roman",times,serif;}
 .w190 img {clear:both; width: 97%; max-width: 100%; max-height: auto;}
 .w592 img {clear:both; width: 97%; max-width: 100%; max-height: auto;}
 .w190 .caption {float:left; clear:both; line-height: 1.3em; margin: 5px 2px; width:98%;}
+.w592 .caption2 {color: #666666; font-size:0.7em; position: relative; left:10px; line-height: 1.3em;}
 #aCol {float: left; width: 100%;}
 .aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:99%; overflow: visible; padding:0; position: relative; border-right:none;}
 .shareboxdiv {float:left; width:19%; height:auto; margin: 0 0 0 1.5%;}
