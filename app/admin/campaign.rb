@@ -75,4 +75,21 @@ ActiveAdmin.register Campaign do
     active_admin_comments
   end
 
+  form(:html => { :multipart => true }) do |f|
+    f.inputs do
+      f.input :ad_promocode_outlet, :as => :select, :collection => AdPromocodeOutlet.all.map {|ad| [ad.id, ad.id]}
+      f.input :source, :as => :select, :collection => [["Social Media","Social Media"],["Google","Google"], ["Mobile Web","Mobile Web"],["Blog","Blog"],["Mobile App","Mobile App"]]
+      f.input :medium, :as => :select, :collection => [["CPC","CPC"],["CPM","CPM"],["SMS","SMS"],["Email","Email"],["Wall","Wall"],["In App","In App"],["Native Client",["Native Client"]]]
+      f.input :marketer, :as => :select, :collection => [["Customer","Customer"],["Business","Business"],["Shoffr","Shoffr"]]
+      f.input :campaign_type, :as => :select, :collection => [["1T1 Button Click","1T1 Button Click"],["1T1 Auto Trigger","1T1 Auto Trigger"],["1TM Manual","1TM Manual"],["1TM Direct Share","1TM Direct Share"]]
+      f.input :keyword
+      f.input :expires_at
+      f.input :campaign_template
+      f.input :purpose, :as => :select, :collection => [["Retention","Retention"],["Acquisition","Acquisition"],["Lead Generation","Lead Generation"]]
+      f.input :placement, :as => :select, :collection => [["Right Hand Side","Right Hand Side"],["User Feed","User Feed"]]
+      f.input :target, :as => :select, :collection => [["Customer","Customer"],["Business","Business"]]
+      f.input :campaign_name
+    end
+  end
+
 end
