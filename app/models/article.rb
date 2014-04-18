@@ -31,8 +31,18 @@ class Article < ActiveRecord::Base
   validates_length_of :social_share_caption, :maximum => 115, :allow_blank => false
 
   before_save :escape_blog_body
+  after_create :create_1st_campaign
+  after_create :create_2nd_campaign
 
   def escape_blog_body
     self.blog_body = CGI.escapeHTML self.blog_body
+  end
+
+  def create_1st_campaign
+    Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Blog", :medium => "Native Client", :placement =>  "User Feed", :marketer => "Business", :campaign_type => "1T1 Button Click", :purpose => "Acquisition", :target => "Business")
+  end
+
+  def create_2nd_campaign
+    Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
   end
 end
