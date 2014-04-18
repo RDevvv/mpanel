@@ -44,4 +44,25 @@ ActiveAdmin.register Article do
     end
     f.actions
   end
+
+  show do
+    attributes_table do
+      row :id
+      row :page_title
+      row :blog_title
+      row :blog_category
+      row :blog_url
+      row :blog_keywords
+      row :blog_excerpt
+      row :author
+      row :author_linkedin_url
+      row :social_share_caption
+      row :twitter_blockquote
+      row :image_title
+      row :image_alt_text
+      row :image_caption
+      row :summary_image_caption
+      row (:blog_body) {|a| raw(a.blog_body)}
+    end
+  end
 end
