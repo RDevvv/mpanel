@@ -46,10 +46,14 @@ ActiveAdmin.setup do |config|
           menu.add :label => "Resque", :parent => "System", :url => '/admin/resque'
           menu.add :label => 'Routing errors', :parent => 'System', :url => 'http://www.gullakmaster.com/admin/error_messages?error_type=RoutingError'
           menu.add :label => 'Database errors', :parent => 'System', :url => 'http://www.gullakmaster.com/admin/error_messages?error_type=StatementInvalid'
+          menu.add :label => 'SMS Chart', :parent => 'Charts', :url => '/admin/sms_chart'
+          menu.add :label => 'Button Click Chart', :parent => 'Charts', :url => '/admin/chart_index'
          else
           menu.add :label => "Resque", :parent => "System", :url => '/admin/resque'
           menu.add :label => 'Routing errors', :parent => 'System', :url => 'http://localhost:3000/admin/error_messages?error_type=RoutingError'
           menu.add :label => 'Database errors', :parent => 'System', :url => 'http://localhost:3000/admin/error_messages?error_type=StatementInvalid'
+          menu.add :label => 'SMS Chart', :parent => 'Charts', :url => '/admin/sms_chart'
+          menu.add :label => 'Button Click Chart', :parent => 'Charts', :url => '/admin/chart_index'
          end
         end
      end
