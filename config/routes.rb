@@ -118,9 +118,9 @@ Gullak2::Application.routes.draw do
     post "set_sms_data" => "sms_sents#set_sms_data"
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
-    match "sms_chart" => "charts#sms_chart"
-    match "chart_index" => "charts#chart_index"
-    match "button_click_chart" => "charts#button_click_chart"
+    match "/admin/sms_chart" => "charts#sms_chart"
+    match "/admin/chart_index" => "charts#chart_index"
+    match "/admin/button_click_chart" => "charts#button_click_chart"
     match "outletview_offers_log" => "sms_sents#outletview_offers_log"
     match "outletview_call_log" => "call_forwardings#outletview_call_log"
     post 'create_ad_likes' => 'ad_likes#create'
