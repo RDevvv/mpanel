@@ -130,7 +130,7 @@
           </div>
 
           <div id="discussion">
-    <div class="section-heading">3 comments</div>
+    <div class="section-heading"><%= @article_comments.count %>comments</div>
     <div id="update-container">
     <% @article_comments.each do |comment| %>
     <ul class="commentlist">
@@ -138,11 +138,12 @@
          <div class="comment-wrapper">
            <div class="name1"><%= comment.name %>
              <span class="dte"><%= comment.created_at.strftime("%e %b %Y %H:%m:%S%p") %></span>
-             <span class="time">4 hrs ago</span>
+             <span class="time"><%=time_ago_in_words(comment.created_at)%> ago</span>
            </div>
            <div class="comment"><%= comment.comment %></div>
          </div>
      </li>
+     <hr>
     </ul>
     <% end %>
     </div>

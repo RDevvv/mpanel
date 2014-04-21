@@ -35,4 +35,5 @@ class Article < ActiveRecord::Base
   def escape_blog_body
     self.blog_body = CGI.escapeHTML self.blog_body
   end
+
 end
