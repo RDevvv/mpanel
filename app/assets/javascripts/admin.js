@@ -9,4 +9,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require highcharts
+//= require active_admin
 
