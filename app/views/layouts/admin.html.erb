@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
     <title>Charts | Gullak2</title>
-    <link href="/admin-dashboard/css/admin-styles.css" rel="stylesheet" type="text/css"/>
       <!--[if lt IE 9]>
         <%#= javascript_include_tag "vendor/html5shiv" %>
         <%#= javascript_include_tag "vendor/excanvas" %>
@@ -26,46 +25,46 @@
     <div class="header" id="header">
       <h1 class="site_title" id="site_title">Gullak2</h1>
       <ul class="header-item tabs" id="tabs">
-        <li class="current" id="dashboard"><a href="/admin/dashboard">Dashboard</a></li>
-        <li id="articles"><a href="/admin/articles">Articles</a></li>
-        <li id="brands"><a href="/admin/brands">Brands</a></li>
+        <li class="current" id="dashboard"><%= link_to "Dashboard", admin_root_path %></li>
+        <li id="articles"><%= link_to "Articles", admin_articles_path %></li>
+        <li id="brands"><%= link_to "Brands", admin_brands_path %></li>
         <li class="has_nested" id="campaigns">
           <a href="#">Campaigns</a>            <ul>
-          <li id="campaigns"><a href="/admin/campaigns">Campaigns</a></li>
+          <li id="campaigns"><%= link_to "Campaigns", admin_campaigns_path %></li>
         </ul>
         </li>
         <li class="has_nested" id="charts">
           <a href="#">Charts</a>            <ul>
-          <li id="charts"><a href="/admin/chart_index">Button Click Charts</a></li>
-          <li id="charts"><a href="/admin/sms_chart">SMS Chart</a></li>
+          <li id="charts"><%= link_to "Button Click Charts", admin_chart_index_path %></li>
+          <li id="charts"><%= link_to "SMS Chart", admin_sms_chart_path %></li>
         </ul>
         </li>
         <li class="has_nested" id="geocoding">
           <a href="#">Geocoding</a>            <ul>
-          <li id="outlets"><a href="/admin/outlets">Nongeocoded Outlets</a></li>
+          <li id="outlets"><%=  link_to "Nongeocoded Outlets", admin_outlets_path %></li>
         </ul>
         </li>
         <li class="has_nested" id="master_tables">
           <a href="#">Master Tables</a>            <ul>
-          <li id="admin_users"><a href="/admin/admin_users">Admin Users</a></li>
-          <li id="areas"><a href="/admin/areas">Areas</a></li>
-          <li id="categories"><a href="/admin/categories">Categories</a></li>
-          <li id="cities"><a href="/admin/cities">Cities</a></li>
+          <li id="admin_users"><%= link_to "Admin Users", admin_admin_users_path %></li>
+          <li id="areas"><%= link_to "Areas", admin_areas_path %></li>
+          <li id="categories"><%= link_to "Categories", admin_categories_path %></li>
+          <li id="cities"><%= link_to "Cities", admin_cities_path %></li>
         </ul>
         </li>
         <li class="has_nested" id="system">
           <a href="#">System</a>
           <ul>
-            <li id="database_errors"><a href="http://localhost:3000/admin/error_messages?error_type=StatementInvalid">Database errors</a></li>
-            <li id="error_messages"><a href="/admin/error_messages">Error Messages</a></li>
-            <li id="resque"><a href="http://localhost:3000/resque">Resque</a></li>
-            <li id="routing_errors"><a href="http://localhost:3000/admin/error_messages?error_type=RoutingError">Routing errors</a></li>
+            <li id="database_errors"><a href="/admin/error_messages?error_type=StatementInvalid">Database errors</a></li>
+            <li id="error_messages"><%=  link_to "Error Messages", admin_error_messages_path %></li>
+            <li id="resque"><%= link_to "Resque", resque_web_path %></li>
+            <li id="routing_errors"><a href="/admin/error_messages?error_type=RoutingError">Routing errors</a></li>
           </ul>
         </li>
       </ul>
       <ul class="header-item tabs" id="utility_nav">
         <li id="current_user"><a href="#">admin@gmail.com</a></li>
-        <li id="logout"><a href="/admin/logout" data-method="get">Logout</a></li>
+        <li id="logout"><%= link_to "Logout", destroy_admin_user_session_path %></li>
       </ul>
     </div>
   </div>
