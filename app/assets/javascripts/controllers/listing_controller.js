@@ -7,12 +7,13 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.fetch_posters = function(){
+        console.log(domain);
         $scope.page++;
         $scope.disabled = true;
         if($scope.no_more_results == false){
             $http({
                 method: 'GET',
-                url   : 'outlet_listing.json',
+                url   : domain+'outlet_listing.json',
                 params: {
                     page: $scope.page,
                     search: $routeParams['search'],
@@ -80,7 +81,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $scope.change_icon = false;
         $http({
             method: 'POST',
-            url   : 'set_sms_data.json',
+            url   : domain+'set_sms_data.json',
             params: {
                 customer_uuid: $cookies.customer_uuid,
                 ad_id: ad_id,
@@ -107,7 +108,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     $scope.tracking = function(ad_id,outlet_id,button_class, current_link){
         $http({
             method: 'POST',
-            url: 'get_button_click.json',
+            url: domain+'get_button_click.json',
             params: {
                 customer_uuid: $cookies.customer_uuid,
                 ad_id: ad_id,
@@ -139,7 +140,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             });
             $http({
                 method: 'POST',
-                url   : 'set_sms_data.json',
+                url   : domain+'set_sms_data.json',
                 params: {
                     customer_uuid: $cookies.customer_uuid,
                     outlet_id: outlet_id,

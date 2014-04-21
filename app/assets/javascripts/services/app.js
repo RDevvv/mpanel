@@ -2,20 +2,25 @@ var app = angular.module('app', ['ngRoute', 'ngCookies','google-maps', 'infinite
 app.config(function($routeProvider){
     $routeProvider
     .when('/outlet_view', {
-        templateUrl: '/templates/outlet_view.html',
+        templateUrl: 'templates/outlet_view.html',
         controller: 'ListingController'
     })
     .when('/map_view',{
-        templateUrl: '/templates/map_view.html',
+        templateUrl: 'templates/map_view.html',
         controller: 'ListingController'
     })
     .when('/ad_outlet',{
-        templateUrl: '/templates/ad_outlet.html',
+        templateUrl: 'templates/ad_outlet.html',
         controller: 'SingleOutletController'
     })
-    .when('/',{
-        templateUrl: '/templates/home.html',
+    .when('/home',{
+        templateUrl: 'templates/home.html',
         controller: 'GeocodingController'
     })
-    .otherwise({redirectTo: '/templates/home.html'})
+    .when('/',{
+        templateUrl: 'templates/home.html',
+        controller: 'GeocodingController'
+    })
+    .otherwise({redirectTo: 'templates/home.html'})
 });
+var domain= 'http://staging.shoffr.com/';

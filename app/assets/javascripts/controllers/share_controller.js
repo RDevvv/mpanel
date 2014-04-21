@@ -11,7 +11,7 @@ app.controller('ShareController', function($scope, $cookies, $http){
             });
             $http({
                 method: 'POST',
-                url   : 'set_sms_data.json',
+                url   : domain+'set_sms_data.json',
                 params: {
                     customer_uuid: $cookies.customer_uuid,
                     misc_sms: true

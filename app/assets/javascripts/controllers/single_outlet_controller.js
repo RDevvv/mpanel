@@ -1,7 +1,7 @@
 app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies){
     $http({
         method: 'GET',
-        url: 'individual_outlet.json',
+        url: domain+'individual_outlet.json',
         params: {
             customer_uuid: $cookies['customer_uuid'],
             id: $routeParams['id']

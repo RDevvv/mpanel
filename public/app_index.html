@@ -18,9 +18,9 @@
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 
-<link rel='stylesheet' type='text/css' href='assets/application.css'>
+<link rel='stylesheet' type='text/css' href='/assets/application.css'>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script src="assets/application.js" type="text/javascript"></script>
+<script src="/assets/application.js" type="text/javascript"></script>
 
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -50,6 +50,8 @@
 
   ga('create', 'UA-49715139-2', 'shoffr.com');
   ga('send', 'pageview');
+
+
 </script>
 <style type="text/css">
 html, body {width: 100%; overflow-x: hidden;}
@@ -57,25 +59,6 @@ html, body {width: 100%; overflow-x: hidden;}
 </head>
 <body>
 
-<div id="fb-root"></div>
-<script>
-window.fbAsyncInit = function() {
-    FB.init({
-appId      : '206827969522380',
-status     : true,
-cookie     : true,
-xfbml      : true
-});
-};
-
-(function(d, s, id){
- var js, fjs = d.getElementsByTagName(s)[0];
- if (d.getElementById(id)) {return;}
- js = d.createElement(s); js.id = id;
- js.src = "//connect.facebook.net/en_US/all.js";
- fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-</script>
 
 <div id="header">
     <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
@@ -201,6 +184,7 @@ reverse_geocode($('#s'));
 <footer>GullakMaster &copy; 2014</footer>
 <script type="text/javascript">
 $(document).ready(function(){
+  $.pnotify({title: 'vivek'});
         $('nav#menu').mmenu();
         modal_submit();
         verification_modal_submit();
