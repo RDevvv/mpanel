@@ -7,7 +7,8 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
-    <title><%= content_for?(:title) ? yield(:title) : "Gullak Master" %></title>
+    <title>Charts | Gullak2</title>
+    <link href="/admin-dashboard/css/admin-styles.css" rel="stylesheet" type="text/css"/>
       <!--[if lt IE 9]>
         <%#= javascript_include_tag "vendor/html5shiv" %>
         <%#= javascript_include_tag "vendor/excanvas" %>
@@ -20,6 +21,55 @@
 
   </head>
   <body>
+  <body class="index admin_dashboard active_admin logged_in admin_namespace">
+  <div id="wrapper">
+    <div class="header" id="header">
+      <h1 class="site_title" id="site_title">Gullak2</h1>
+      <ul class="header-item tabs" id="tabs">
+        <li class="current" id="dashboard"><a href="/admin/dashboard">Dashboard</a></li>
+        <li id="articles"><a href="/admin/articles">Articles</a></li>
+        <li id="brands"><a href="/admin/brands">Brands</a></li>
+        <li class="has_nested" id="campaigns">
+          <a href="#">Campaigns</a>            <ul>
+          <li id="campaigns"><a href="/admin/campaigns">Campaigns</a></li>
+        </ul>
+        </li>
+        <li class="has_nested" id="charts">
+          <a href="#">Charts</a>            <ul>
+          <li id="charts"><a href="/admin/chart_index">Button Click Charts</a></li>
+          <li id="charts"><a href="/admin/sms_chart">SMS Chart</a></li>
+        </ul>
+        </li>
+        <li class="has_nested" id="geocoding">
+          <a href="#">Geocoding</a>            <ul>
+          <li id="outlets"><a href="/admin/outlets">Nongeocoded Outlets</a></li>
+        </ul>
+        </li>
+        <li class="has_nested" id="master_tables">
+          <a href="#">Master Tables</a>            <ul>
+          <li id="admin_users"><a href="/admin/admin_users">Admin Users</a></li>
+          <li id="areas"><a href="/admin/areas">Areas</a></li>
+          <li id="categories"><a href="/admin/categories">Categories</a></li>
+          <li id="cities"><a href="/admin/cities">Cities</a></li>
+        </ul>
+        </li>
+        <li class="has_nested" id="system">
+          <a href="#">System</a>
+          <ul>
+            <li id="database_errors"><a href="http://localhost:3000/admin/error_messages?error_type=StatementInvalid">Database errors</a></li>
+            <li id="error_messages"><a href="/admin/error_messages">Error Messages</a></li>
+            <li id="resque"><a href="http://localhost:3000/resque">Resque</a></li>
+            <li id="routing_errors"><a href="http://localhost:3000/admin/error_messages?error_type=RoutingError">Routing errors</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="header-item tabs" id="utility_nav">
+        <li id="current_user"><a href="#">admin@gmail.com</a></li>
+        <li id="logout"><a href="/admin/logout" data-method="get">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  </body>
 
 
     <%= yield :sidebar %>
