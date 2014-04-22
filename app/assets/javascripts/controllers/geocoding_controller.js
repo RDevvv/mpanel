@@ -8,7 +8,6 @@ app.controller('GeocodingController',function($scope){
     }
 
     $scope.showPosition = function(position){
-        $.pnotify({title: 'vivek'});
         var new_link=document.getElementById("change_location");
         user_latitude = position.coords.latitude;
         user_longitude = position.coords.longitude;
