@@ -2,4 +2,5 @@
  *= require_self
  *= require bootstrap
  *= require admin-styles
+ *= require active_admin
  */
