@@ -1,11 +1,7 @@
 module HomeHelper
     def generate_title
         if controller_name == 'home'
-            if action_name == 'outlet_listing'
-                return "GullakMaster - Outlet View"
-            elsif action_name == 'outlet_search'
-                return "#{params[:search]} - Outlet Search"
-            elsif action_name == 'index'
+            if action_name == 'index'
                 return "GullakMaster - Home"
             else
                 return "GullakMaster - Deals"

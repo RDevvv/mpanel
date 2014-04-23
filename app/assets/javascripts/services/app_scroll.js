@@ -1,7 +1,5 @@
 app.factory('appScroll',function($http){
-    var vivek = 2;
     var fetch_posters = function(){
-        console.log('vivek');
         this.busy = false;
         this.no_more_results = false;
 
