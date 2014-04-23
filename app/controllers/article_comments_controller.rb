@@ -23,10 +23,8 @@ class ArticleCommentsController < ApplicationController
     @article = @commentable
     respond_to do |format|
       if @article_comment.save
-        format.html { redirect_to @article, notice: 'Comment was successfully created.' }
-        format.json { render json: @article, status: :created, location: @article }
+        format.json { render json: @article_comment}
       else
-        format.html { render action: "new" }
         format.json { render json: @article_comment.errors, status: :unprocessable_entity }
       end
     end

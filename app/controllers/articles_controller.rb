@@ -8,9 +8,9 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = Article.find(params[:id])
-        @commentable = @article
-        @article_comments = @commentable.article_comments
+        blog_title = params[:blog_url].gsub('-',' ')
+        @article = Article.where(:blog_title => blog_title).first
+        @article_comments = @article.article_comments
         @article_comment = ArticleComment.new
         respond_with @article
     end

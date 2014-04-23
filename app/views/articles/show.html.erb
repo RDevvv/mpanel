@@ -104,7 +104,7 @@
             </ul>
           </div>
           <div class="cont-right">
-            <p class="story-body-text"><%= CGI.unescapeHTML (@article.blog_body) %></p>
+              <p class="story-body-text"><%= CGI.unescapeHTML(@article.blog_body).html_safe %></p>
           </div>
 
           <div class="sharebox">
@@ -121,7 +121,6 @@
               <li>
                 <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://shoffr.com/xxx"><i class="fb-icon"></i><span class="sharelink-text">facebook</span></a>
               </li>
-
               <li>
                 <a href="https://plus.google.com/share?url=http://shoffr.com/xxx" onclick="javascript:window.open(this.href,
                         '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="gplus-icon"></i><span class="sharelink-text">google +</span></a>
@@ -132,24 +131,24 @@
           <div id="discussion">
     <div class="section-heading"><%= @article_comments.count %>comments</div>
     <div id="update-container">
-    <% @article_comments.each do |comment| %>
     <ul class="commentlist">
+    <% @article_comments.each do |comment| %>
      <li>
          <div class="comment-wrapper">
            <div class="name1"><%= comment.name %>
-             <span class="dte"><%= comment.created_at.strftime("%e %b %Y %H:%m:%S%p") %></span>
+             <span class="dte"><%= comment.created_at.strftime("%e %b %Y %H:%m %p") %></span>
              <span class="time"><%=time_ago_in_words(comment.created_at)%> ago</span>
            </div>
            <div class="comment"><%= comment.comment %></div>
          </div>
      </li>
-     <hr>
-    </ul>
     <% end %>
+     <hr />
+    </ul>
     </div>
     <div class="leave-comment">
       <div class="section-heading">leave a comment</div>
-      <%= form_for [@commentable, @article_comment], :remote => true, :'data-update-target' => 'update-container', :html=>{:class => "form-horizontal", :id => "comment-form"} do |f| %>
+      <%= form_for [@article, @article_comment], :remote => true, :'data-update-target' => 'update-container', :format => :json, :html=>{:class => "form-horizontal", :id => "comment-form"} do |f| %>
         <fieldset>
           <div class="control-group">
              <label class="control-label">Name</label>
@@ -175,13 +174,12 @@
           <div class="control-group">
             <label class="control-label"></label>
             <div class="controls">
-              <%= f.submit "Add Comment", :class => "btn btn-custom" %>
+                <%= f.submit "Add Comment", :class => "btn btn-custom", :on_click => 'create_comment()' %>
             </div>
           </div>
         </fieldset>
       <% end %>
     </div>
-
   </div>
 
         </div>
@@ -209,6 +207,7 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/bootstrap.js"></script>
+<script type="text/javascript" src="/assets/moment.min.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function(){
         var pxShow = 80;//height on which the button will show
@@ -242,20 +241,22 @@
                     data : postData,
                     success:function(data, textStatus, jqXHR)
                     {
+                    date = new moment();
+                    date = date.format("D MMM YYYY h:mm A");
+                    $('.commentlist').append("<li><div class='comment-wrapper'><div class='name1'>"+data['name']+" <span class='dte'>"+date+"</span><span class='time'>just posted</span></div><div class='comment'>"+data['comment']+"</div></div></li>");
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
                     },
                     complete:function(){
                         $('#comment-form').each(function(){
-                            this.reset();   //Here form fields will be cleared.
+                            //this.reset();   //Here form fields will be cleared.
                         });
                     }
                 });
         e.preventDefault();	//STOP default action
     });
 
-    $("#comment-form").submit(); //SUBMIT FORM
 </script>
 
 </body>
