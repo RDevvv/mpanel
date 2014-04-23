@@ -35,6 +35,11 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
         $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
     }
 
+    $scope.disable_button = function(search){
+        console.log(search);
+        return true;
+    }
+
 
     $scope.show_top_menu = function(){
         angular.element('#header').removeClass('hide');
