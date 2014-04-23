@@ -1,3 +1,9 @@
+function reload_if_home(){
+    if(window.location.hash=='#/home'||window.location.hash=='#/'){
+        location.reload();
+    }
+}
+
 function mobile_number_verification(){
     binding_tags_for_tracking = false
     all_buttons = binding_tags(binding_tags_for_tracking);
@@ -32,6 +38,7 @@ function verification_modal_submit(){
                 {
                     $('#verification').modal('hide');
                     $.pnotify({ title: 'Your account is verified', text: '', closer_hover: false, sticker_hover: false, icon: false});
+                    reload_if_home();
                 }
                 else{
                     $.pnotify({ title: 'Please enter correct verification code.', text: '', closer_hover: false, sticker_hover: false, icon: false});
@@ -65,6 +72,7 @@ function modal_submit(){
                         else{
                             $.pnotify({ title: 'Welcome back', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                             $('#mobile-number').modal('hide');
+                            reload_if_home();
                         }
                     }
                     else
