@@ -7,7 +7,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.fetch_posters = function(){
-        console.log(domain);
         $scope.page++;
         $scope.disabled = true;
         if($scope.no_more_results == false){
@@ -53,7 +52,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     $scope.generate_markers = function(){
         $scope.map.marker_index++;
         //var link = 'http://maps.google.com/mapfiles/marker'+String.fromCharCode($scope.map.marker_index+65)+'.png';
-        //console.log($scope.map.marker_index);
         //return link;
     }
 

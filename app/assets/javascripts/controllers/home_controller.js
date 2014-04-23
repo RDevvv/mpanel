@@ -43,7 +43,6 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
 
     hide_top_menu = function(){
         if(($location.url()=='/')||($location.url()=='/home')){
-            console.log($location.url());
             angular.element('#header').addClass('hide');
             angular.element('#top_search').addClass('hide');
         }
