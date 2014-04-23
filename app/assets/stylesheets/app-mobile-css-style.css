@@ -1,29 +1,29 @@
 
 @font-face {
     font-family: 'pittorifamosiregular';
-    src: url('fonts/handwritten-pittorifamosi-02-webfont.eot');
-    src: url('fonts/handwritten-pittorifamosi-02-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/handwritten-pittorifamosi-02-webfont.woff') format('woff'),
-         url('fonts/handwritten-pittorifamosi-02-webfont.ttf') format('truetype')
+    src: url('../fonts/handwritten-pittorifamosi-02-webfont.eot');
+    src: url('../fonts/handwritten-pittorifamosi-02-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/handwritten-pittorifamosi-02-webfont.woff') format('woff'),
+         url('../fonts/handwritten-pittorifamosi-02-webfont.ttf') format('truetype')
 }
 @font-face {
     font-family: 'luna_barregular';
-    src: url('fonts/lunabar-webfont.eot');
-    src: url('fonts/lunabar-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/lunabar-webfont.woff') format('woff'),
-         url('fonts/lunabar-webfont.ttf') format('truetype'),
-         url('fonts/lunabar-webfont.svg#luna_barregular') format('svg');
+    src: url('../fonts/lunabar-webfont.eot');
+    src: url('../fonts/lunabar-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lunabar-webfont.woff') format('woff'),
+         url('../fonts/lunabar-webfont.ttf') format('truetype'),
+         url('../fonts/lunabar-webfont.svg#luna_barregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 @font-face {
     font-family: 'kg_begin_againregular';
-    src: url('fonts/kgbeginagain-webfont.eot');
-    src: url('fonts/kgbeginagain-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/kgbeginagain-webfont.woff') format('woff'),
-         url('fonts/kgbeginagain-webfont.ttf') format('truetype'),
-         url('fonts/kgbeginagain-webfont.svg#kg_begin_againregular') format('svg');
+    src: url('../fonts/kgbeginagain-webfont.eot');
+    src: url('../fonts/kgbeginagain-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/kgbeginagain-webfont.woff') format('woff'),
+         url('../fonts/kgbeginagain-webfont.ttf') format('truetype'),
+         url('../fonts/kgbeginagain-webfont.svg#kg_begin_againregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
