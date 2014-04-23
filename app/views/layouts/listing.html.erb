@@ -70,25 +70,7 @@ html, body {width: 100%; overflow-x: hidden;}
 </head>
 <body>
 
-<div id="fb-root"></div>
-<script>
-window.fbAsyncInit = function() {
-    FB.init({
-appId      : '206827969522380',
-status     : true,
-cookie     : true,
-xfbml      : true
-});
-};
-
-(function(d, s, id){
- var js, fjs = d.getElementsByTagName(s)[0];
- if (d.getElementById(id)) {return;}
- js = d.createElement(s); js.id = id;
- js.src = "//connect.facebook.net/en_US/all.js";
- fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-</script>
+<%#= render :partial => 'shared/facebook_share' %>
 
 <div id="header">
     <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
@@ -159,13 +141,7 @@ $(document).ready(function(){
         $('nav#menu').mmenu();
         modal_submit();
         verification_modal_submit();
-        get_backtotop_button();
         mobile_number_verification();
-        facebook_share_binding();
-        bind_tracking();
-        bind_send_ad();
-        bind_display_ad();
-        enable_submit($('#s'),$('#submitbutton'));
         })
 </script>
 </body>
