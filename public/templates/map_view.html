@@ -51,13 +51,15 @@
             <ul>
                 <li>
                 <!--<div class="pin-box">&nbsp;</div>-->
-                <a class="pin-box" ng-href="#/ad_outlet?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}">{{$index|convert_to_character}}</a>
+                <a class="pin-box" ng-href="#/ad_outlet?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}"></a>
                 </li>
                 <li>
                 <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
-                    {{$cookies.mobile_number}}re
-                    <div ng-if="$cookies.mobile_number=='verified'" >
-                        <a class="call button_call2" href="tel:09223584822">&nbsp;</a>
+                    <div ng-if="verified()" >
+                        <a class="call button_call2" href="tel:09223584822" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a>
+                    </div>
+                    <div ng-if="verified()==false" >
+                        <a class="call button_call2" ng-href="{{}}" ng-click='show_modal(); tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id)'>&nbsp;</a>
                     </div>
                 </div>
                 <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >
