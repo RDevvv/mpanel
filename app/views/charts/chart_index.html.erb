@@ -6,7 +6,11 @@
             <%= select_tag(:chart_type, options_for_select([['Call', 'call'], ['Address', 'address'], ['View', 'description']], selected: :option )) %>
             <%= select_month(Date.today) %>
             <%= select_year(Date.today, :start_year => 2013, :end_year => Date.today.year) %>
-            <%= submit_tag "Submit" %>
+            <fieldset class="actions" >
+              <ol>
+                <%= submit_tag "Submit" %>
+              </ol>
+            </fieldset>
         <% end %>
       </div>
     </div>
