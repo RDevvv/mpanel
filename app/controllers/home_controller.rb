@@ -1,19 +1,10 @@
 class HomeController < ApplicationController
     respond_to :html, :json
 
-    before_filter :set_headers
     before_filter :check_cookies
     before_filter :record_session
     before_filter :get_referer, :only => [:index]
     caches_action :outlet_listing, :cache_path => Proc.new {|c|c.params}
-
-    def set_headers
-        response.headers['Access-Control-Allow-Origin'] = '*'
-        response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-        response.headers['Access-Control-Request-Method'] = '*'
-        response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-        response.headers['Accept-Encoding'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-    end
 
     def check_cookies
         if cookies[:customer_uuid].blank?
