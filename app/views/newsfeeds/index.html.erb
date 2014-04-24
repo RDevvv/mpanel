@@ -85,7 +85,7 @@
                     <h3 class="entry-title">
                       <%= newsfeed.news_title %>
                     </h3>
-                    <address class="byline author vcard"><a title="" class="url fn"><%= newsfeed.journal_name %></a> </address>
+                    <address class="byline author vcard"><a title="" class="url fn"><%= link_to newsfeed.journal_name, newsfeed.journal_url %></a> </address>
                   </header>
                   <div class="entry-content2">
                     <p><%= newsfeed.news_excerpt %> <a class="more-link"><%= link_to 'Read more…', newsfeed.news_url %></a></p>
