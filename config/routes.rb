@@ -1,5 +1,6 @@
 Gullak2::Application.routes.draw do
 
+
     get 'articles/:blog_url' => 'articles#show'
     resources :articles do
         resources :article_comments
@@ -18,7 +19,7 @@ Gullak2::Application.routes.draw do
     resources :call_button_selects
     resources :customers
     resources :pages
-
+    resources :newsfeeds
 
     namespace :merchant do
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
