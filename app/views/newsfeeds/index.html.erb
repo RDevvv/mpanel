@@ -1,0 +1,39 @@
+<h1>Listing newsfeeds</h1>
+
+<table>
+  <tr>
+    <th>News type</th>
+    <th>Journal name</th>
+    <th>Journal url</th>
+    <th>Image caption</th>
+    <th>Image alt text</th>
+    <th>Image title</th>
+    <th>News title</th>
+    <th>News excerpt</th>
+    <th>News url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @newsfeeds.each do |newsfeed| %>
+  <tr>
+    <td><%= newsfeed.news_type %></td>
+    <td><%= newsfeed.journal_name %></td>
+    <td><%= newsfeed.journal_url %></td>
+    <td><%= newsfeed.image_caption %></td>
+    <td><%= newsfeed.image_alt_text %></td>
+    <td><%= newsfeed.image_title %></td>
+    <td><%= newsfeed.news_title %></td>
+    <td><%= newsfeed.news_excerpt %></td>
+    <td><%= newsfeed.news_url %></td>
+    <td><%= link_to 'Show', newsfeed %></td>
+    <td><%= link_to 'Edit', edit_newsfeed_path(newsfeed) %></td>
+    <td><%= link_to 'Destroy', newsfeed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Newsfeed', new_newsfeed_path %>

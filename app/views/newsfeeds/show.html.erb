@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>News type:</b>
+  <%= @newsfeed.news_type %>
+</p>
+
+<p>
+  <b>Journal name:</b>
+  <%= @newsfeed.journal_name %>
+</p>
+
+<p>
+  <b>Journal url:</b>
+  <%= @newsfeed.journal_url %>
+</p>
+
+<p>
+  <b>Image caption:</b>
+  <%= @newsfeed.image_caption %>
+</p>
+
+<p>
+  <b>Image alt text:</b>
+  <%= @newsfeed.image_alt_text %>
+</p>
+
+<p>
+  <b>Image title:</b>
+  <%= @newsfeed.image_title %>
+</p>
+
+<p>
+  <b>News title:</b>
+  <%= @newsfeed.news_title %>
+</p>
+
+<p>
+  <b>News excerpt:</b>
+  <%= @newsfeed.news_excerpt %>
+</p>
+
+<p>
+  <b>News url:</b>
+  <%= @newsfeed.news_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_newsfeed_path(@newsfeed) %> |
+<%= link_to 'Back', newsfeeds_path %>

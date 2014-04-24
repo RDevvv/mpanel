@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  news_type: MyString
+  journal_name: MyString
+  journal_url: MyString
+  image_caption: MyString
+  image_alt_text: MyString
+  image_title: MyString
+  news_title: MyString
+  news_excerpt: MyString
+  news_url: MyString
+
+two:
+  news_type: MyString
+  journal_name: MyString
+  journal_url: MyString
+  image_caption: MyString
+  image_alt_text: MyString
+  image_title: MyString
+  news_title: MyString
+  news_excerpt: MyString
+  news_url: MyString
