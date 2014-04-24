@@ -69,7 +69,7 @@
                 <article id="post-154732" class="post entry no-top">
                   <div class="w190 left">
                     <% if newsfeed.attachments.present? %>
-                        <%= image_tag(newsfeed.attachments.order(:id).first.image, :alt=> newsfeed.image_alt_text, :title=> newsfeed.image_title) %>
+                        <%= image_tag(newsfeed.attachments.order(:id).first.image, :alt=> newsfeed.image_alt_text, :title=> newsfeed.image_alt_text) %>
                     <% end %>
                     <span class="caption"><%= newsfeed.image_caption %></span>
                   </div>
