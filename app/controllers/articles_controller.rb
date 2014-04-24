@@ -8,8 +8,8 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        blog_title = params[:blog_url].gsub('-',' ')
-        @article = Article.where(:blog_title => blog_title).first
+        blog_url = params[:blog_url].gsub('-',' ')
+        @article = Article.where(:blog_url => blog_url).first
         @article_comments = @article.article_comments
         @article_comment = ArticleComment.new
         respond_with @article

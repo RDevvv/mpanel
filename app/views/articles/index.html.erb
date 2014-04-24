@@ -87,12 +87,12 @@
                   <span class="ccount"><i class="icon"></i><%= link_to article.article_comments.count, article %></span>
                 </div>
                 <h3 class="entry-title">
-                  <%= link_to article.blog_title, article %>
+                  <%= link_to article.blog_title, article_path(article.blog_url.gsub(' ','-')) %>
                 </h3>
                 <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url %></a> </address>
               </header>
               <div class="entry-content2">
-                <p><%=h truncate(article.blog_excerpt, :length => 150) %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_title.gsub(' ','-')) %></a></p>
+                <p><%=h truncate(article.blog_excerpt, :length => 150) %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url.gsub(' ','-')) %></a></p>
               </div>
             </article>
             <% end %>
