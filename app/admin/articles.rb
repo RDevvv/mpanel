@@ -25,7 +25,7 @@ ActiveAdmin.register Article do
     f.inputs do
       f.input :page_title
       f.input :blog_title
-      f.input :blog_category
+      f.input :blog_category, :as => :select, :collection => [["RETAILER'S CORNER","RETAILER'S CORNER"], ["CUSTOMER INSIGHT","CUSTOMER INSIGHT"], ["PRODUCT UPDATE","PRODUCT UPDATE"]]
       f.input :blog_url
       f.input :blog_keywords
       f.input :blog_excerpt
