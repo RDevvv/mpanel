@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title><%= @article.page_title %></title>
-  <link href="/assets/bootstrap.css" rel="stylesheet" type="text/css"/>
-  <link href="/assets/blog-styles.css" rel="stylesheet" type="text/css"/>
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
   <meta name="title" content="<%= @article.page_title %>"/>
   <meta name="description" content="<%= @article.blog_excerpt %>"/>
@@ -14,7 +12,7 @@
   <!-- Facebook -->
   <meta property="og:title" content="<%= @article.blog_title %>" >
   <meta property="og:site_name" content = "Shoffr" >
-  <meta property="og:url" content="http://staging.shoffr.com/articles/<%= @article.id %><%= @article.blog_url.gsub(/ /, '') %>">
+  <meta property="og:url" content="http://www.shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %>">
   <meta property="og:description" content="<%= @article.blog_excerpt %>" >
   <% if @article.attachments.present? %>
   <meta property="og:image" content="<%= @article.attachments.order(:id).last.image %>" >
@@ -206,8 +204,6 @@
   </ul>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script type="text/javascript" src="/assets/bootstrap.js"></script>
-<script type="text/javascript" src="/assets/moment.min.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function(){
         var pxShow = 80;//height on which the button will show
