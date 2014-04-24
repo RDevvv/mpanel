@@ -4,6 +4,16 @@ class Newsfeed < ActiveRecord::Base
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   accepts_nested_attributes_for :attachments ,allow_destroy: true
 
+  validates_presence_of :image_alt_text
+  validates_presence_of :image_caption
+  validates_presence_of :image_title
+  validates_presence_of :journal_name
+  validates_presence_of :journal_url
+  validates_presence_of :news_excerpt
+  validates_presence_of :news_title
+  validates_presence_of :news_type
+  validates_presence_of :news_url
+
   after_create :create_campaign
 
   def create_campaign
