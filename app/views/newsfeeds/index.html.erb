@@ -1,15 +1,15 @@
 <div class="blog-main">
   <header class="wrap" id="blogs-masthead">
     <div class="element1">
-      <div id="logo"><a title="" href="home.html"><%= image_tag("logo.png", :border=> "0", :alt=>"Drive Footfall to your stores", :title=>"Drive Footfall to your stores") %></a></div>
+      <div id="logo"><%= link_to image_tag("logo.png", :border=> "0", :alt=>"Drive Footfall to your stores", :title=>"Drive Footfall to your stores"), "/home.html" %></div>
     </div>
     <div class="clear"></div>
   </header>
   <div class="miniNavContainer">
     <nav class="miniNav">
       <ul>
-        <li><a href="/home.html">Home</a></li>
-        <li><a href="/articles">Blog</a></li>
+        <li><%= link_to "Home", "/home.html" %></li>
+        <li><%= link_to "Blog", "/articles" %></li>
       </ul>
     </nav>
   </div>
@@ -53,15 +53,13 @@
 </div>
 
 <div id="backtotop">
-  <a href="#">
-    <img src="/assets/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
-  </a>
+  <%= link_to image_tag("back_to_top_btn-3.png", :border => "0", :alt => "Back to TOP"), "#" %>
 </div>
 <div id="footer">
   <div class="copy-div">GullakMaster &copy; 2014</div>
   <ul class="footerlinksmain">
-    <li><a target="_blank" href="/terms-of-use.html">Terms of Use</a></li>
-    <li><a target="_blank" href="/privacy-policy.html">Privacy Policy</a></li>
+    <li><%= link_to "Terms of Use", "/terms-of-use.html", target: "_blank" %></li>
+    <li><%= link_to "Privacy Policy", "/privacy-policy.html", target: "_blank" %></li>
   </ul>
 </div>
 
