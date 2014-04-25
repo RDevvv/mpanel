@@ -63,12 +63,12 @@ module ArticlesHelper
   def og_url
     if controller_name == 'articles'
       if action_name == 'index'
-        return ""
+        return "articles"
       else
-        return @article.blog_url.gsub(' ','-')
+        return "articles/#{@article.blog_url.gsub(' ','-')}"
       end
     else
-      return "http://www.shoffr.com/newsfeed/"
+      return "newsfeeds"
     end
   end
 
@@ -119,6 +119,18 @@ module ArticlesHelper
       end
     else
       return "Shoffr News"
+    end
+  end
+
+  def twitter_url
+    if controller_name == 'articles'
+      if action_name == 'index'
+        return "articles"
+      else
+        return "articles/#{@article.blog_url.gsub(' ','-')}"
+      end
+    else
+      return "newsfeeds"
     end
   end
 
