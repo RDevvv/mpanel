@@ -1,0 +1,31 @@
+  <%= form_for [@article, @article_comment], :remote => true, :'data-update-target' => 'update-container', :format => :json, :html=>{:class => "form-horizontal", :id => "comment-form"} do |f| %>
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label">Name</label>
+          <div class="controls">
+            <%= f.text_field :name, :class => "input-large" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Email</label>
+          <div class="controls">
+            <%= f.text_field :email, :class => "input-large" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">Comment</label>
+          <div class="controls">
+            <%= f.text_area :comment, :rows => 5, :class=>"form-control" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls">
+            <%= f.submit "Add Comment", :class => "btn btn-custom", :on_click => 'create_comment()' %>
+          </div>
+        </div>
+      </fieldset>
+  <% end %>
