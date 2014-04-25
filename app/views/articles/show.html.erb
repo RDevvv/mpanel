@@ -1,63 +1,15 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title><%= @article.page_title %></title>
-  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
-  <meta name="title" content="<%= @article.page_title %>"/>
-  <meta name="description" content="<%= @article.blog_excerpt %>"/>
-  <meta name="keywords" content="<%= @article.blog_keywords %>"/>
-
-  <!-- Facebook -->
-  <meta property="og:title" content="<%= @article.blog_title %>" >
-  <meta property="og:site_name" content = "Shoffr" >
-  <meta property="og:url" content="http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %>">
-  <meta property="og:description" content="<%= @article.blog_excerpt %>" >
-  <% if @article.attachments.present? %>
-  <meta property="og:image" content="<%= @article.attachments.order(:id).last.image %>" >
-  <% end %>
-  <!-- Twitter-->
-  <meta name="twitter:card" content="summary_large_image" >
-  <meta name="twitter:site" content="@_shoffr">
-  <meta name="twitter:title" content="<%= @article.blog_title %>" >
-  <% if @article.attachments.present? %>
-  <meta name="twitter:image:src" content="<%= @article.attachments.order(:id).last.image %>" >
-  <% end %>
-  <meta name="twitter:description" content="<%= @article.blog_excerpt %>" >
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-49715139-1', 'shoffr.com');
-      ga('send', 'pageview');
-
-  </script>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  <script>
-      window.setTimeout(function(){
-          $(".twitter-tweet").contents().find(".e-entry-title").css("font-family","tahoma");
-          $(".twitter-tweet").contents().find(".tweet").css("font-family","tahoma");
-          $(".twitter-tweet").contents().find(".e-entry-title").css("font-size","12px");
-          $(".twitter-tweet").contents().find(".tweet").css("font-size","10px");
-      }, 1000);
-  </script>
-</head>
-<body>
 <div class="blog-main">
   <header class="wrap" id="blogs-masthead">
     <div class="element1">
-      <div id="logo"><a title="" href="home.html"><%= image_tag("logo.png", :border=> "0", :alt=>"Drive Footfall to your stores", :title=>"Drive Footfall to your stores") %></a></div>
+      <div id="logo"><%= link_to image_tag("logo.png", :border=> "0", :alt=>"Drive Footfall to your stores", :title=>"Drive Footfall to your stores"), "/home.html" %></div>
     </div>
     <div class="clear"></div>
   </header>
   <div class="miniNavContainer">
     <nav class="miniNav">
       <ul>
-        <li><a href="/home.html">Home</a></li>
-        <li><a href="/articles">All Posts</a></li>
+        <li><%= link_to "Home", "/home.html" %></li>
+        <li><%= link_to "All Posts", "/articles" %></li>
       </ul>
     </nav>
   </div>
@@ -192,15 +144,13 @@
   <blockquote class="twitter-tweet" lang="en"><p>10 Major Factors Responsible for the Growth of Organised Retailing in India <a href="http://t.co/m3lcEuNyo8">http://t.co/m3lcEuNyo8</a></p>&mdash; Shoffr (@_shoffr) <a href="https://twitter.com/_shoffr/statuses/453413944120446976">April 8, 2014</a></blockquote>
 </div>
 <div id="backtotop">
-  <a href="#">
-    <img src="/assets/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
-  </a>
+    <%= link_to image_tag("back_to_top_btn-3.png", :border => "0", :alt => "Back to TOP"), "#" %>
 </div>
 <div id="footer">
   <div class="copy-div">GullakMaster &copy; 2014</div>
   <ul class="footerlinksmain">
-    <li><a target="_blank" href="/terms-of-use.html">Terms of Use</a></li>
-    <li><a target="_blank" href="/privacy-policy.html">Privacy Policy</a></li>
+    <li><%= link_to "Terms of Use", "/terms-of-use.html", target: "_blank" %></li>
+    <li><%= link_to "Privacy Policy", "/privacy-policy.html", target: "_blank" %></li>
   </ul>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
@@ -254,6 +204,3 @@
     });
 
 </script>
-
-</body>
-</html>

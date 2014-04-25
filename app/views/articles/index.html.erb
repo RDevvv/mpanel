@@ -1,65 +1,18 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.4, user-scalable=no" />
-  <title>Shoffr - Blog</title>
-  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon"/>
-  <meta name="title" content="Shoffr Blog -  Indian retail & customers insights"/>
-  <meta name="description" content="Shoffr blog reports on insights and analysis from the Indian retail industry, customer behaviour, mobile marketing, and Shoffr product updates."/>
-  <meta name="keywords" content="retail industry blog, customer insights blog, digital marketing blog, mobile marketing blog, location based marketing blog, retail industry insights, customer insights, digital marketing, digital marketing insights, behavioural marketing, contextual marketing, increase footfall, mobile marketing, mobile advertising, location based marketing, location based advertising"/>
-
-  <!-- Facebook -->
-  <meta property="og:title" content="Shoffr Blog -  Indian retail & customers insights" >
-  <meta property="og:site_name" content = "Shoffr">
-  <meta property="og:url" content="http://www.shoffr.com/articles/">
-  <meta property="og:description" content="Shoffr blog reports on insights and analysis from the Indian retail industry, customer behaviour, mobile marketing, and Shoffr product updates." >
-  <meta property="og:image" content="http://shoffr.com/assets/social-media/shoffr_social_media_logo.png" >
-
-  <!-- Twitter-->
-  <meta name="twitter:card" content="summary" >
-  <meta name="twitter:site" content="@_shoffr">
-  <meta name="twitter:title" content="Shoffr Blog -  Indian retail & customers insights" >
-  <meta name="twitter:image:src" content="http://shoffr.com/assets/social-media/shoffr_social_media_logo.png" >
-  <meta name="twitter:description" content="Shoffr blog reports on insights and analysis from the Indian retail industry, customer behaviour, mobile marketing, and Shoffr product updates." >
-  <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-49715139-1', 'shoffr.com');
-      ga('send', 'pageview');
-  </script>
-
-  <script>
-      window.setTimeout(function(){
-          $(".twitter-timeline").contents().find(".e-entry-title").css("font-family","tahoma");
-          $(".twitter-timeline").contents().find(".tweet").css("font-family","tahoma");
-          $(".twitter-timeline").contents().find(".e-entry-title").css("font-size","12px");
-          //$(".twitter-timeline").contents().find(".tweet").css("font-size","10px");
-          $(".twitter-timeline").contents().find(".summary").css("font-family","tahoma");
-      }, 1000);
-  </script>
-</head>
-
-
-<body>
 <div class="blog-main">
   <header class="wrap" id="blogs-masthead">
     <div class="element1">
-      <div id="logo"><a title="" href="home.html"><%= image_tag("logo.png", :border=> "0", :alt=>"Drive Footfall to your stores", :title=>"Drive Footfall to your stores") %></a></div>
+      <div id="logo"><%= link_to image_tag("logo.png", :border=> "0", :alt=>"Drive Footfall to your stores", :title=>"Drive Footfall to your stores"), "/home.html" %></div>
     </div>
     <div class="clear"></div>
   </header>
   <div class="miniNavContainer">
     <nav class="miniNav">
       <ul>
-        <li><a href="/home.html">Home</a></li>
-        <li><a href="/articles">All Posts</a></li>
-        <li><a href="#">Retailer's Corner</a></li>
-        <li><a href="#" title="Coming Soon">Customer Insight</a></li>
-        <li><a href="#" title="Coming Soon">Product Update</a></li>
+        <li><%= link_to "Home", "/home.html" %></li>
+        <li><%= link_to "All Posts", "/articles" %></li>
+        <li><%= link_to "Retailer's Corner", "#" %></li>
+        <li><%= link_to "Customer Insight", "#" %></li>
+        <li><%= link_to "Product Update", "#" %></li>
       </ul>
     </nav>
   </div>
@@ -104,15 +57,13 @@
 </div>
 
 <div id="backtotop">
-  <a href="#">
-    <img src="/assets/back_to_top_btn-3.png" border="0" alt="Back to TOP" />
-  </a>
+  <%= link_to image_tag("back_to_top_btn-3.png", :border => "0", :alt => "Back to TOP"), "#" %>
 </div>
 <div id="footer">
   <div class="copy-div">GullakMaster &copy; 2014</div>
   <ul class="footerlinksmain">
-    <li><a target="_blank" href="/terms-of-use.html">Terms of Use</a></li>
-    <li><a target="_blank" href="/privacy-policy.html">Privacy Policy</a></li>
+    <li><%= link_to "Terms of Use", "/terms-of-use.html", target: "_blank" %></li>
+    <li><%= link_to "Privacy Policy", "/privacy-policy.html", target: "_blank" %></li>
   </ul>
 </div>
 
@@ -137,5 +88,4 @@
     });
 </script>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</body>
-</html>
+
