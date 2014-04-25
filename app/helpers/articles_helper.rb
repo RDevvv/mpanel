@@ -7,6 +7,8 @@ module ArticlesHelper
       else
         return @article.page_title
       end
+    else
+      return "Shoffr News"
     end
   end
 
@@ -17,6 +19,8 @@ module ArticlesHelper
       else
         return @article.page_title
       end
+    else
+      return "Shoffr News"
     end
   end
 
@@ -27,6 +31,8 @@ module ArticlesHelper
       else
         return @article.blog_excerpt
       end
+    else
+      return "Shoffr News delivers curated news and analysis about Indian Retail. It also reports on media coverage about Shoffr."
     end
   end
 
@@ -37,6 +43,8 @@ module ArticlesHelper
       else
         return @article.blog_keywords
       end
+    else
+      return ""
     end
   end
 
@@ -47,6 +55,8 @@ module ArticlesHelper
       else
         return @article.blog_title
       end
+    else
+      return "Shoffr News"
     end
   end
 
@@ -57,6 +67,8 @@ module ArticlesHelper
       else
         return @article.blog_url.gsub(' ','-')
       end
+    else
+      return "http://www.shoffr.com/newsfeed/"
     end
   end
 
@@ -67,6 +79,8 @@ module ArticlesHelper
       else
         return @article.blog_excerpt
       end
+    else
+      return "Shoffr News delivers curated news and analysis about Indian Retail. It also reports on media coverage about Shoffr."
     end
   end
 
@@ -79,6 +93,8 @@ module ArticlesHelper
           return @article.attachments.order(:id).last.image
         end
       end
+    else
+      return "http://shoffr.com/assets/social-media/shoffr_social_media_logo.png"
     end
   end
 
@@ -89,6 +105,8 @@ module ArticlesHelper
       else
         return "summary_large_image"
       end
+    else
+      return "summary"
     end
   end
 
@@ -99,6 +117,8 @@ module ArticlesHelper
       else
         return @article.blog_title
       end
+    else
+      return "Shoffr News"
     end
   end
 
@@ -111,6 +131,8 @@ module ArticlesHelper
           return @article.attachments.order(:id).last.image
         end
       end
+    else
+      return "http://shoffr.com/assets/social-media/shoffr_social_media_logo.png"
     end
   end
 
@@ -121,6 +143,8 @@ module ArticlesHelper
       else
         return @article.blog_excerpt
       end
+    else
+      return "Shoffr News delivers curated news and analysis about Indian Retail. It also reports on media coverage about Shoffr."
     end
   end
 
