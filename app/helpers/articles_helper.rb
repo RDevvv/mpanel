@@ -65,7 +65,7 @@ module ArticlesHelper
       if action_name == 'index'
         return "articles"
       else
-        return "articles/#{@article.blog_url.gsub(' ','-')}"
+        return "articles/#{@article.blog_url}"
       end
     else
       return "newsfeeds"
@@ -127,7 +127,7 @@ module ArticlesHelper
       if action_name == 'index'
         return "articles"
       else
-        return "articles/#{@article.blog_url.gsub(' ','-')}"
+        return "articles/#{@article.blog_url}"
       end
     else
       return "newsfeeds"
