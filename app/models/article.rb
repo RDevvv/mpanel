@@ -12,9 +12,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :blog_keywords
   validates_presence_of :blog_excerpt
   validates_presence_of :author
-  validates_presence_of :author_linkedin_url
+  validates_presence_of :blog_body
   validates_presence_of :social_share_caption
-  validates_presence_of :twitter_blockquote
 
   validates_presence_of :image_title
   validates_presence_of :image_alt_text
@@ -31,19 +30,15 @@ class Article < ActiveRecord::Base
   validates_length_of :social_share_caption, :maximum => 115, :allow_blank => false
 
   before_save :escape_blog_body
-  after_create :create_1st_campaign
-  after_create :create_2nd_campaign
+  after_create :create_campaign
   before_save :update_blog_url
 
   def escape_blog_body
     self.blog_body = CGI.escapeHTML self.blog_body
   end
 
-  def create_1st_campaign
+  def create_campaign
     Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Blog", :medium => "Native Client", :placement =>  "User Feed", :marketer => "Business", :campaign_type => "1T1 Button Click", :purpose => "Acquisition", :target => "Business")
-  end
-
-  def create_2nd_campaign
     Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
   end
 
