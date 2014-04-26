@@ -32,6 +32,7 @@ class Article < ActiveRecord::Base
   before_save :escape_blog_body
   after_create :create_campaign
   before_save :update_blog_url
+  before_update :unescape_blog_body
 
   def escape_blog_body
     self.blog_body = CGI.escapeHTML self.blog_body
@@ -44,5 +45,9 @@ class Article < ActiveRecord::Base
 
   def update_blog_url
     self.blog_url = self.blog_url.squish.gsub(' ','-')
+  end
+
+  def unescape_blog_body
+    self.blog_body = CGI.unescapeHTML self.blog_body
   end
 end
