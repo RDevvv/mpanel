@@ -42,7 +42,7 @@
                 <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url %></a> </address>
               </header>
               <div class="entry-content2">
-                <p><%=h truncate(article.blog_excerpt, :length => 150) %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url) %></a></p>
+                <p><%= article.blog_excerpt %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url) %></a></p>
               </div>
             </article>
             <% end %>
