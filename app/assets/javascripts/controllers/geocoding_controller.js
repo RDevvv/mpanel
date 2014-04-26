@@ -2,6 +2,7 @@ app.controller('GeocodingController',function($scope){
 
     var user_latitude=0;
     var user_longitude=0;
+    $scope.searchh = '';
     $scope.change_location = function(){
         if (navigator.geolocation)
             navigator.geolocation.getCurrentPosition($scope.showPosition,$scope.geo_error,{enableHighAccuracy: true, maximumAge: 0});
@@ -25,7 +26,7 @@ app.controller('GeocodingController',function($scope){
                 sub_result = result[i];
                 if(sub_result['types'][0]=='sublocality'){
                     final_result = sub_result['long_name'];
-                    $('#search-text').attr('value',final_result);
+                    $scope.searchh = '';
                 }
             }
             if (status == google.maps.GeocoderStatus.OK) {
