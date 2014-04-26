@@ -109,7 +109,7 @@
   </div>
 </div>
 <div class="twit-container">
-  <%= @article.twitter_blockquote.html_safe %>
+  <%= CGI.unescapeHTML(@article.twitter_blockquote).html_safe %>
 </div>
 <div id="backtotop">
     <%= link_to image_tag("back_to_top_btn-3.png", :border => "0", :alt => "Back to TOP"), "#" %>

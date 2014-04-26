@@ -36,6 +36,7 @@ class Article < ActiveRecord::Base
 
   def escape_blog_body
     self.blog_body = CGI.escapeHTML self.blog_body
+    self.twitter_blockquote = CGI.escapeHTML self.twitter_blockquote
   end
 
   def create_campaign
@@ -49,5 +50,6 @@ class Article < ActiveRecord::Base
 
   def unescape_blog_body
     self.blog_body = CGI.unescapeHTML self.blog_body
+    self.twitter_blockquote = CGI.unescapeHTML self.twitter_blockquote
   end
 end

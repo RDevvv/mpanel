@@ -57,7 +57,7 @@ ActiveAdmin.register Article do
       row :author
       row :author_linkedin_url
       row :social_share_caption
-      row :twitter_blockquote
+      row (:twitter_blockquote) {|t| CGI.unescapeHTML(t.twitter_blockquote)}
       row :image_title
       row :image_alt_text
       row :image_caption
