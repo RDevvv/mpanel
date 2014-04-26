@@ -109,9 +109,7 @@
   </div>
 </div>
 <div class="twit-container">
-
-  <!--<blockquote class="twitter-tweet" lang="en"><p>&quot;Silence is the ultimate weapon of power.&quot; -Charles De Gaulle <a href="http://t.co/M5dL0y4T5p">http://t.co/M5dL0y4T5p</a></p>&mdash; 40Billion (@40billion) <a href="https://twitter.com/40billion/statuses/454933499992997888">April 12, 2014</a></blockquote> -->
-  <blockquote class="twitter-tweet" lang="en"><p>10 Major Factors Responsible for the Growth of Organised Retailing in India <a href="http://t.co/m3lcEuNyo8">http://t.co/m3lcEuNyo8</a></p>&mdash; Shoffr (@_shoffr) <a href="https://twitter.com/_shoffr/statuses/453413944120446976">April 8, 2014</a></blockquote>
+  <%= @article.twitter_blockquote.html_safe %>
 </div>
 <div id="backtotop">
     <%= link_to image_tag("back_to_top_btn-3.png", :border => "0", :alt => "Back to TOP"), "#" %>
