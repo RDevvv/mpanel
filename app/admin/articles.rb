@@ -62,7 +62,7 @@ ActiveAdmin.register Article do
       row :image_alt_text
       row :image_caption
       row :summary_image_caption
-      row (:blog_body) {|a| raw(a.blog_body)}
+      row (:blog_body) {|a| CGI.unescapeHTML(a.blog_body).html_safe}
     end
   end
 end
