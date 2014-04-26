@@ -41,12 +41,14 @@ class ApplicationController < ActionController::Base
             "admin"
         elsif controller_name == 'home'
             "listing"
-        elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads' || controller_name == 'error_messages'
+        elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads'
             "home_index"
         elsif controller_name == 'charts'
             "admin"
         elsif controller_name == 'articles' || controller_name == 'newsfeeds'
             "blog"
+        elsif controller_name == 'error_messages'
+            "error"
         else
             "application"
         end
