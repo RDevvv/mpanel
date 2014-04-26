@@ -25,7 +25,7 @@
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
                 <% if article.attachments.present? %>
-                    <%= link_to image_tag(article.attachments.order(:id).first.image, :alt=> article.image_alt_text, :title=> article.image_alt_text), article_path(article.blog_url.gsub(' ','-')) %>
+                    <%= link_to image_tag(article.attachments.order(:id).first.image, :alt=> article.image_alt_text, :title=> article.image_alt_text), article_path(article.blog_url) %>
                 <% end %>
                 <span class="caption"><%= article.summary_image_caption %></span>
               </div>
@@ -34,15 +34,15 @@
                   <span class="kicker"><%= article.blog_category %></span>
                   <!-- date published -->
                   <time><%= article.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
-                  <span class="ccount"><i class="icon"></i><%= link_to article.article_comments.count, article_path(article.blog_url.gsub(' ','-')) %></span>
+                  <span class="ccount"><i class="icon"></i><%= link_to article.article_comments.count, article_path(article.blog_url) %></span>
                 </div>
                 <h3 class="entry-title">
-                  <%= link_to article.blog_title, article_path(article.blog_url.gsub(' ','-')) %>
+                  <%= link_to article.blog_title, article_path(article.blog_url) %>
                 </h3>
                 <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url %></a> </address>
               </header>
               <div class="entry-content2">
-                <p><%=h truncate(article.blog_excerpt, :length => 150) %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url.gsub(' ','-')) %></a></p>
+                <p><%=h truncate(article.blog_excerpt, :length => 150) %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url) %></a></p>
               </div>
             </article>
             <% end %>
