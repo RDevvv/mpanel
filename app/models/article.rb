@@ -33,6 +33,7 @@ class Article < ActiveRecord::Base
   before_save :escape_blog_body
   after_create :create_1st_campaign
   after_create :create_2nd_campaign
+  before_save :update_blog_url
 
   def escape_blog_body
     self.blog_body = CGI.escapeHTML self.blog_body
@@ -46,4 +47,7 @@ class Article < ActiveRecord::Base
     Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
   end
 
+  def update_blog_url
+    self.blog_url = self.blog_url.squish.gsub(' ','-')
+  end
 end

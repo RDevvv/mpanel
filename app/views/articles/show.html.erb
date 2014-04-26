@@ -35,20 +35,20 @@
           <div class="shareboxdiv">
             <ul class="sharelinks">
               <li>
-                <a href="mailto:?subject=<%= @article.social_share_caption %>&body=I thought you might find this article interesting.%20http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="email-icon"></i><span class="sharelink-text">e-mail</span></a>
+                <a href="mailto:?subject=<%= @article.social_share_caption %>&body=I thought you might find this article interesting.%20http://shoffr.com/articles/<%= @article.blog_url %> "><i class="email-icon"></i><span class="sharelink-text">e-mail</span></a>
               </li>
               <li>
-                <a href="https://twitter.com/share?text=<%= @article.social_share_caption %>%20&url=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="tw-icon"></i><span class="sharelink-text">twitter</span></a>
+                <a href="https://twitter.com/share?text=<%= @article.social_share_caption %>%20&url=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="tw-icon"></i><span class="sharelink-text">twitter</span></a>
               </li>
               <li>
-                <a href="http://www.linkedin.com/cws/share?url=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="li-icon"></i><span class="sharelink-text">LinkedIn</span></a>
+                <a href="http://www.linkedin.com/cws/share?url=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="li-icon"></i><span class="sharelink-text">LinkedIn</span></a>
               </li>
               <li>
-                <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="fb-icon"></i><span class="sharelink-text">facebook</span></a>
+                <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="fb-icon"></i><span class="sharelink-text">facebook</span></a>
               </li>
 
               <li>
-                <a href="https://plus.google.com/share?url=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> " onclick="javascript:window.open(this.href,
+                <a href="https://plus.google.com/share?url=http://shoffr.com/articles/<%= @article.blog_url %> " onclick="javascript:window.open(this.href,
                         '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="gplus-icon"></i><span class="sharelink-text">google +</span></a>
               </li>
             </ul>
@@ -60,19 +60,19 @@
           <div class="sharebox">
              <ul class="sharenow">
               <li>
-                <a href="mailto:?subject=<%= @article.social_share_caption %>&body=I thought you might find this article interesting.%20http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="email-icon"></i><span class="sharelink-text">e-mail</span></a>
+                <a href="mailto:?subject=<%= @article.social_share_caption %>&body=I thought you might find this article interesting.%20http://shoffr.com/articles/<%= @article.blog_url %> "><i class="email-icon"></i><span class="sharelink-text">e-mail</span></a>
               </li>
               <li>
-                <a href="https://twitter.com/share?text=<%= @article.social_share_caption %>%20&url=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="tw-icon"></i><span class="sharelink-text">twitter</span></a>
+                <a href="https://twitter.com/share?text=<%= @article.social_share_caption %>%20&url=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="tw-icon"></i><span class="sharelink-text">twitter</span></a>
               </li>
               <li>
-                <a href="http://www.linkedin.com/cws/share?url=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> "><i class="li-icon"></i><span class="sharelink-text">LinkedIn</span></a>
+                <a href="http://www.linkedin.com/cws/share?url=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="li-icon"></i><span class="sharelink-text">LinkedIn</span></a>
               </li>
               <li>
                 <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://shoffr.com/xxx"><i class="fb-icon"></i><span class="sharelink-text">facebook</span></a>
               </li>
               <li>
-                <a href="https://plus.google.com/share?url=http://shoffr.com/articles/<%= @article.blog_url.gsub(' ','-') %> " onclick="javascript:window.open(this.href,
+                <a href="https://plus.google.com/share?url=http://shoffr.com/articles/<%= @article.blog_url %> " onclick="javascript:window.open(this.href,
                         '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="gplus-icon"></i><span class="sharelink-text">google +</span></a>
               </li>
              </ul>
@@ -98,37 +98,7 @@
     </div>
     <div class="leave-comment">
       <div class="section-heading">leave a comment</div>
-      <%= form_for [@article, @article_comment], :remote => true, :'data-update-target' => 'update-container', :format => :json, :html=>{:class => "form-horizontal", :id => "comment-form"} do |f| %>
-        <fieldset>
-          <div class="control-group">
-             <label class="control-label">Name</label>
-            <div class="controls">
-              <%= f.text_field :name, :class => "input-large" %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label">Email</label>
-            <div class="controls">
-              <%= f.text_field :email, :class => "input-large" %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label">Comment</label>
-            <div class="controls">
-              <%= f.text_area :comment, :rows => 5, :class=>"form-control" %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label"></label>
-            <div class="controls">
-                <%= f.submit "Add Comment", :class => "btn btn-custom", :on_click => 'create_comment()' %>
-            </div>
-          </div>
-        </fieldset>
-      <% end %>
+      <%= render :partial => "comments" %>
     </div>
   </div>
 
@@ -196,7 +166,7 @@
                     },
                     complete:function(){
                         $('#comment-form').each(function(){
-                            //this.reset();   //Here form fields will be cleared.
+                            this.reset();   //Here form fields will be cleared.
                         });
                     }
                 });

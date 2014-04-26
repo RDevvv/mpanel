@@ -41,12 +41,14 @@ class ApplicationController < ActionController::Base
             "admin"
         elsif controller_name == 'home'
             "listing"
-        elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads' || controller_name == 'error_messages'
+        elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads'
             "home_index"
         elsif controller_name == 'charts'
             "admin"
         elsif controller_name == 'articles' || controller_name == 'newsfeeds'
             "blog"
+        elsif controller_name == 'error_messages'
+            "error"
         else
             "application"
         end
@@ -70,7 +72,7 @@ class ApplicationController < ActionController::Base
     def render_404(exception)
         @not_found_path = exception.message
         respond_to do |format|
-            format.html { render template: 'error_messages/error_404', layout: 'layouts/home_index', status: 404 }
+            format.html { render template: 'error_messages/error_404', layout: 'layouts/error', status: 404 }
             format.all { render nothing: true, status: 404 }
         end
     end
@@ -79,7 +81,7 @@ class ApplicationController < ActionController::Base
         logger.info exception.backtrace.join("\n")
         @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.order(:id).last.id
         respond_to do |format|
-            format.html { render template: 'error_messages/error_500', layout: 'layouts/home_index', status: 500 }
+            format.html { render template: 'error_messages/error_500', layout: 'layouts/error', status: 500 }
             format.all { render nothing: true, status: 500}
         end
     end
