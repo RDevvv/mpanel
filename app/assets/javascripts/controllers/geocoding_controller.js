@@ -12,6 +12,8 @@ app.controller('GeocodingController',function($scope){
         var new_link=document.getElementById("change_location");
         user_latitude = position.coords.latitude;
         user_longitude = position.coords.longitude;
+        $routeParams['latitude'] =user_latitude;
+        $routeParams['longitude'] =user_longitude;
         geocoder = new google.maps.Geocoder();
         var latlng = new google.maps.LatLng(user_latitude, user_longitude);
         geocoder.geocode({'latLng': latlng}, $scope.google_geocoding);
@@ -25,8 +27,7 @@ app.controller('GeocodingController',function($scope){
             for(i=0;i<result.length;i++){
                 sub_result = result[i];
                 if(sub_result['types'][0]=='sublocality'){
-                    final_result = sub_result['long_name'];
-                    $scope.searchh = '';
+                    $scope.searchh = sub_result['long_name'];
                 }
             }
             if (status == google.maps.GeocoderStatus.OK) {
