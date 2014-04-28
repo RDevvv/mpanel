@@ -1,19 +1,19 @@
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='disabled'>
-<div class="row-fluid">
-    <div class="google-map"
-        center="map.center"
-        draggable='true'
-        zoom="map.zoom"
-        bounds="map.bounds"
-        >
-        <div ng-repeat='poster in posters'>
-            <marker coords='{latitude: poster.latitude, longitude: poster.longitude}' icon='generate_markers()'></marker>
+    <div class="row-fluid">
+        <div class="google-map"
+            center="map.center"
+            draggable='true'
+            zoom="map.zoom"
+            bounds="map.bounds"
+            >
+            <div ng-repeat='poster in posters'>
+                <marker coords='{latitude: poster.latitude, longitude: poster.longitude}' icon='generate_markers()'></marker>
+            </div>
+            <marker coords='map.center' icon='map.user_icon'></marker>
         </div>
-        <marker coords='map.center' icon='map.user_icon'></marker>
     </div>
-</div>
 
-    <li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="<%= poster[:outlet_id] %>">
+    <li ng-repeat='poster in posters track by $index' class="mix bsc span12" data-outlet="<%= poster[:outlet_id] %>">
     <div class="bdiv" ng-controller='ListingController'>
         <div class="bbox">
             <div class="brandtitle">
