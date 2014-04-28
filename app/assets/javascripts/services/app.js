@@ -23,4 +23,4 @@ app.config(function($routeProvider){
     })
     .otherwise({redirectTo: 'templates/home.html'})
 });
-var domain= 'http://www.shoffr.com/';
+var domain= '';
