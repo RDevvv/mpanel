@@ -23,6 +23,9 @@
   <meta name="twitter:url" content="http://shoffr.com/<%= twitter_url %>">
   <meta name="twitter:image:src" content="<%= twitter_image_src %>" >
   <meta name="twitter:description" content="<%= twitter_description %>" >
+  <% if controller_name == 'articles' && action_name == 'show' %>
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <% end %>
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
