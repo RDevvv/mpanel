@@ -39,7 +39,7 @@ ActiveAdmin.register Brand do
       row :created_at
       row :updated_at
       row :attachments do |brand|
-        if brand.attachments.last.image.present?
+        if brand.attachments.present?
           image_tag brand.attachments.last.image
         else
           status_tag('No logo uploaded')

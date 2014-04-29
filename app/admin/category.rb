@@ -42,6 +42,13 @@ ActiveAdmin.register Category do
       end
       row :created_at
       row :updated_at
+      row :attachments do |category|
+        if category.attachments.present?
+          image_tag category.attachments.last.image
+        else
+          status_tag('No logo uploaded')
+        end
+      end
     end
     active_admin_comments
   end
