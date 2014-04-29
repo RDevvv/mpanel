@@ -64,11 +64,7 @@
 
 
     <div class="distance-div">{{poster.distance | number:2}} km</div>
-    <div ng-if="date('poster.ad_expiry_date') > Date('01-01-2050')">
-    </div>
-    <div ng-if="date('poster.ad_expiry_date') < Date('01-01-2050')">
-        <div class="distance-div-below2">Ends: {{poster.ad_expiry_date}}</div>
-    </div>
+    <expiry-date/></expiry-date>
 
     <div class="add-box">
         <div class="adtitle1"><b>Address:</b></div>

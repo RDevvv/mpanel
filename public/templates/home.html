@@ -10,8 +10,8 @@
                     <form 'outlet_listing', method ='GET' class = 'form-without-submit' name='outlet_listing'>
                         <input type='text' id='search-text' class = 'form-control' placeholder ='Enter Location' ng-model='searchh' required>
                         <input type='hidden' name='search' value='all' >
-                        <input type='hidden' name='latitude' value='0' ng-model='search.latitude'>
-                        <input type='hidden' name='longitude' value='0' ng-model='search.latitude'>
+                        <input type='hidden' name='latitude' value='0' ng-model='latitude'>
+                        <input type='hidden' name='longitude' value='0' ng-model='latitude'>
                         <input type='hidden' name='view' value='outlet_listing' >
                     <div class="input-group-btn">
 
@@ -24,7 +24,7 @@
         </div>
         <div class="span12">
             <div class="sub-txt-below"></div>
-            <input type='submit' ng-disabled='outlet_listing.$invalid' ng-click='home_submit(searchh, search.latitude, search.longitude);show_top_menu();' ng-controller='HomeController' value='Show All Deals' id="button" class="btn btn-blue1">
+            <input type='submit' ng-disabled='outlet_listing.$invalid' ng-click='home_submit(searchh, latitude, longitude);show_top_menu();' ng-controller='HomeController' value='Show All Deals' id="button" class="btn btn-blue1">
         </div>
         </form>
     </div>

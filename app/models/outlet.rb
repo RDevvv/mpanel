@@ -286,10 +286,10 @@ class Outlet < ActiveRecord::Base
       customer = Customer.where(:uuid => customer_uuid).first
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
-          if defined?(outlet.new_distance)
-              distance =0
-          else
+          if outlet.new_distance.nil?
               distance = outlet.distance
+          else
+              distance =0
           end
 
           if (outlet.ads.empty? && outlet.ads.map{|ad|ad.promocode_available?.include?(true)})||(outlet.ads.map{|ad|ad.expired?}.include?(true))
