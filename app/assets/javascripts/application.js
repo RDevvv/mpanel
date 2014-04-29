@@ -27,4 +27,5 @@
 //= require_directory ./mobile_site
 //= require_directory ./services
 //= require_directory ./filters
+//= require_directory ./directives
 //= require_directory ./controllers
