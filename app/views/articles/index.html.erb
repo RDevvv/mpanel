@@ -17,11 +17,11 @@
     </nav>
   </div>
   <div id="aCol">
+    <% @articles.each do |article| %>
     <div class="aColumn2">
       <div id="content" class="hfeed">
         <section class="posts">
           <div class="content">
-            <% @articles.each do |article| %>
             <article id="post-154732" class="post entry no-top">
               <div class="w190 left">
                 <% if article.attachments.present? %>
@@ -33,7 +33,7 @@
                 <div class="postMetaHeader">
                   <span class="kicker"><%= article.blog_category %></span>
                   <!-- date published -->
-                  <time><%= article.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
+                  <time><%= article.created_at.strftime("%e %b %Y") %></time>
                   <span class="ccount"><i class="icon"></i><%= link_to article.article_comments.count, article_path(article.blog_url) %></span>
                 </div>
                 <h3 class="entry-title">
@@ -45,11 +45,11 @@
                 <p><%= article.blog_excerpt %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url) %></a></p>
               </div>
             </article>
-            <% end %>
           </div>
         </section>
       </div>
     </div>
+    <% end %>
   </div>
   <div class="twit-container">
     <a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>

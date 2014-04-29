@@ -14,11 +14,11 @@
     </nav>
   </div>
   <div id="aCol">
+    <% @newsfeeds.each do |newsfeed| %>
     <div class="aColumn2">
       <div id="content" class="hfeed">
         <section class="posts">
           <div class="content">
-            <% @newsfeeds.each do |newsfeed| %>
                 <article id="post-154732" class="post entry no-top">
                   <div class="w190 left">
                     <% if newsfeed.attachments.present? %>
@@ -30,7 +30,7 @@
                     <div class="postMetaHeader">
                       <span class="kicker"><%= newsfeed.news_type %></span>
                       <!-- date published -->
-                      <time><%= newsfeed.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
+                      <time><%= newsfeed.created_at.strftime("%e %b %Y") %></time>
                     </div>
                     <h3 class="entry-title">
                       <%= newsfeed.news_title %>
@@ -41,11 +41,11 @@
                     <p><%= newsfeed.news_excerpt %> <a class="more-link"><%= link_to 'Read more…', newsfeed.news_url %></a></p>
                   </div>
                 </article>
-            <% end %>
           </div>
         </section>
       </div>
     </div>
+    <% end %>
   </div>
   <div class="twit-container">
     <a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>
