@@ -79,7 +79,7 @@
           </div>
 
           <div id="discussion">
-    <div class="section-heading"><%= @article_comments.count %>comments</div>
+    <div class="section-heading"><%= @article_comments.count %>&nbsp;Comments</div>
     <div id="update-container">
     <ul class="commentlist">
     <% @article_comments.each do |comment| %>
@@ -97,7 +97,7 @@
     </ul>
     </div>
     <div class="leave-comment">
-      <div class="section-heading">leave a comment</div>
+      <div class="section-heading">Leave a comment</div>
       <%= render :partial => "comments" %>
     </div>
   </div>
@@ -108,7 +108,7 @@
     </div> <!-- end content -->
   </div>
 </div>
-<div class="twit-container">
+<div class="twit-container-detail">
   <%= CGI.unescapeHTML(@article.twitter_blockquote).html_safe %>
 </div>
 <div id="backtotop">
