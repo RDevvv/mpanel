@@ -33,7 +33,7 @@
                 <div class="postMetaHeader">
                   <span class="kicker"><%= article.blog_category %></span>
                   <!-- date published -->
-                  <time><%= article.created_at.strftime("%e %b %Y %H:%m:%S%p") %></time>
+                  <time><%= article.created_at.strftime("%e %b %Y") %></time>
                   <span class="ccount"><i class="icon"></i><%= link_to article.article_comments.count, article_path(article.blog_url) %></span>
                 </div>
                 <h3 class="entry-title">
