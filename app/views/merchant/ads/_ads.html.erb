@@ -8,6 +8,7 @@
         <th><div>SMS Text</div></th>
         <th><div>Exclusive</div></th>
         <th><div>Status</div></th>
+        <th><div>Logo</div></th>
         <th>Manage</th>
       </tr>
     </thead>
@@ -48,6 +49,11 @@
               </button>
             <%end%>
           <%end %>
+        </td>
+        <td>
+          <% if ad.attachments.present? %>
+              <%= image_tag ad.attachments.order(:id).last.image %>
+          <% end %>
         </td>
         <td> 
           <% if can? :update, ad %>
