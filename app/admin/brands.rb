@@ -1,5 +1,5 @@
 ActiveAdmin.register Brand do
-
+  menu :parent => "Master Tables"
   index do
     column :id do |brand|
       link_to "#{brand.id}"
