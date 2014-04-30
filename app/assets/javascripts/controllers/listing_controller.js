@@ -1,4 +1,26 @@
 app.controller('ListingController', function($scope, $http, $routeParams, $cookies, getOutlet, $location){
+    $scope.page = 0;
+    $scope.no_more_results = false;
+    $scope.change_icon =true;
+    $scope.enabled= false;
+
+    $scope.map = {
+        user_icon: 'http://localhost:3000/assets/user_pin.png',
+        icon: 'http://maps.google.com/mapfiles/markerA.png',
+        center: {latitude: 12.8, longitude: 72.8},
+        marker_index: 0,
+        zoom:13,
+        events: {
+            tilesloaded: function (map) {
+                $scope.$apply(function () {
+
+                    console.log('this is the map instance', map);
+                    oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied: true});
+                });
+            }
+        }
+    }
+
     $scope.verified = function(){
         if($cookies.mobile_number=='verified')
             return true;
@@ -8,7 +30,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
 
     $scope.fetch_posters = function(){
         $scope.page++;
-        $scope.disabled = true;
+        $scope.enabled= true;
         if($scope.no_more_results == false){
             $http({
                 method: 'GET',
@@ -22,16 +44,20 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 }
             }).success(function(data){
                 $scope.show_top_menu();
-                if(typeof(data.length)=='undefined')
+                if(typeof($scope.posters)=='undefined'&&data.length==0){
                     $scope.no_more_results = true;
+                }
                 if(typeof($scope.posters)=='undefined'){
                     $scope.posters = [];
+                    $scope.enabled=false;
                 }
                 for(i=0;i<data.length;i++){
                     $scope.posters.push(data[i]);
                 }
-                $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
-                $scope.disabled =false;
+                if($scope.posters.length>0){
+                    $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
+                    $scope.enabled=false;
+                }
             })
         }
     }
@@ -41,29 +67,16 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         angular.element('#top_search').removeClass('hide');
     }
 
-    $scope.map = {
-        user_icon: 'http://localhost:3000/assets/user_pin.png',
-        icon: 'http://maps.google.com/mapfiles/markerA.png',
-        center: {latitude: 12.8, longitude: 72.8},
-        marker_index: 0,
-        zoom:13
-    }
-
     $scope.generate_markers = function(){
         $scope.map.marker_index++;
         //var link = 'http://maps.google.com/mapfiles/marker'+String.fromCharCode($scope.map.marker_index+65)+'.png';
         //return link;
     }
 
-    $scope.page = 0;
-    $scope.no_more_results = false;
-    $scope.disabled = false;
-
     $scope.distance_filter = function(filter){
         angular.element('nav#menu').trigger('close');
         $location.search('filter',filter);
     }
-
 
     $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text) {
         $.pnotify({
@@ -89,8 +102,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         })
     }
 
-
-    $scope.change_icon =true; //= function(element){
 
     $scope.view_ad = function(brand_name, title, sms_text){
         $.pnotify({ title: brand_name+' - '+title, text: sms_text,

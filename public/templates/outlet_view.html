@@ -1,4 +1,4 @@
-<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='disabled'>
+<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled'>
 <li ng-repeat='poster in posters track by $index' class="mix bsc span12" data-outlet="{{poster.outlet_id}}" >
 <div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" ng-controller='ListingController'>
     <div class="bbox">
@@ -12,7 +12,7 @@
         <hr style="width:100%; margin:2px 0;">
         <div class="lower-box">
             <div ng-if='poster.ad_usage == -1' %>
-                <div class="report-offer"><a  href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brareport-offernd: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
+                <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
                 </div>
             </div>
             <div ng-if='poster.ad_usage!= -1' %>
@@ -77,9 +77,13 @@
     </div>
 </div>
 </li>
-<div ng-show='disabled'>
+<div ng-show='no_more_results'>
+    <div class="error-box-no-results">
+    </div>
+</div>
+<div ng-show='enabled'>
     <div ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
-      <span class="loading-style">Loading Data . . .</span>
+        <span class="loading-style">Loading Data . . .</span>
     </div>
 </div>
 </div>

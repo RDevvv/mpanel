@@ -9,7 +9,6 @@ app.directive('expiryDate', function($filter){
             }
             else{
                 formatted_date = $filter('date')(scope.poster.ad_expiry_date, 'shortDate');
-                console.log(formatted_date);
                 scope.expiry_date = "Ends: "+formatted_date;
             }
         }
