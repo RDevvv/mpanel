@@ -26,7 +26,7 @@
             <hr style="width:100%; margin:2px 0;">
             <div class="lower-box">
                 <div ng-if='poster.ad_usage == -1' %>
-                    <div class="report-offer"><a  href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brareport-offernd: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
+                    <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
                     </div>
                 </div>
                 <div ng-if='poster.ad_usage!= -1' %>
@@ -34,7 +34,7 @@
                         <div class="like"><div class="button_liked_offer"></div></div>
                     </div>
                     <div ng-if='poster.is_unlocked != true' %>
-                        <div class="like"><a href='#', class='ad_request button_offer'>&nbsp;</a></div>
+                        <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text)'>&nbsp;</a></div>
                     </div>
                     <a class="share" >
                         <div class="refr2"></div>
@@ -67,20 +67,18 @@
                 </div>
 
                 </li>
-                <div ng-if='poster.ad_id==0' %>
-                    <li> <div class="button_no_offer">&nbsp;</div> </li>
-                </div>
-                <div ng-if='poster.ad_id!=0' %>
-                    <li> <a class="button_view" ng-click='view_ad(poster.brand_name, poster.ad_title, poster.sms_text)'>&nbsp;</a></li>
-                </div>
             </ul>
         </div>
 
 
-    <div class="distance-div">{{poster.distance | number:2}} km</div>
-    <expiry-date/></expiry-date>
+        <div class="distance-div">{{poster.distance | number:2}} km</div>
+        <expiry-date/></expiry-date>
 
         <div class="add-box">
+            <div class="adtitle1"><b>Offer details:</b></div>
+            <div class="adaddress">
+                {{poster.sms_text}}
+            </div>
             <div class="adtitle1"><b>Address:</b></div>
             <div class="adaddress">
                 {{poster.shop_no}}

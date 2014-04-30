@@ -20,6 +20,7 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
         $location.search('search',$scope.category);
     }
 
+
     $scope.view_button = function(){
         if($location.path()=='/outlet_view')
             return 'loc';
@@ -36,7 +37,6 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
     }
 
     $scope.disable_button = function(search){
-        console.log(search);
         return true;
     }
 
