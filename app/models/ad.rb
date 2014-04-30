@@ -151,7 +151,7 @@ class Ad < ActiveRecord::Base
             return outlet.account_brand.brand.attachments.order(:id).last.image.url unless outlet.account_brand.brand.attachments.blank?
             return outlet.account_brand.brand.category.attachments.order(:id).last.image.url unless outlet.account_brand.brand.category.attachments.blank?
         else
-            return ad.attachments.order(:id).image.url unless ad.attachments.blank?
+            return ad.attachments.order(:id).last.image.url unless ad.attachments.blank?
             return ad.account_brand.brand.attachments.order(:id).last.image.url unless ad.account_brand.brand.attachments.blank?
             return ad.account_brand.brand.category.attachments.order(:id).last.image.url unless ad.account_brand.brand.category.attachments.blank?
         end
