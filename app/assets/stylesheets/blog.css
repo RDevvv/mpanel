@@ -2,4 +2,8 @@
  *= require_self
  *= require bootstrap
  *= require blog-styles
+ *= require jquery.fancybox
+ *= require normalize
+ *= require grid
+ *= require new-styles
  */
