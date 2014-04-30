@@ -38,11 +38,12 @@ blockquote {margin: 0; border: none; padding: 0;}
 hr {margin: 0;}
 /* General styles */
 
+.container-fluid {padding-left:0;}
 .wrap:before,.clearfix:before,.wrap:after,.clearfix:after,.menu.layout-horizontal:before,.menu.layout-horizontal:after,.ad.user-subscriptions .user-subscriptions-menu:before,.ad.user-subscriptions .user-subscriptions-menu:after,.masthead .container:before,.masthead .container:after,.masthead .quick-navigation:before,.masthead .quick-navigation:after,.masthead .user-tools:before,.masthead .user-tools:after,.masthead .ad:before,.masthead .ad:after,.masthead .flyout-panel:before,.masthead .flyout-panel:after,.search-form-control:before,.search-form-control:after,.ribbon .ribbon-menu:before,.ribbon .ribbon-menu:after,.show-all-sharetool-modal .sharetools-menu:before,.show-all-sharetool-modal .sharetools-menu:after,.page-footer:before,.page-footer:after,.page-footer nav ul:before,.page-footer nav ul:after,.whats-next header:before,.whats-next header:after,.media.video.promo .caption .kicker-credit:before,.media.video.promo .caption .kicker-credit:after,.interactive:before,.interactive:after,.flag-modal:before,.flag-modal:after,.comments .comments-header-container:before,.comments .comments-header-container:after,.comments+.comments-header-container:before,.comments+.comments-header-container:after,.comments .comments-header-container .comments-header:before,.comments .comments-header-container .comments-header:after,.comments+.comments-header-container .comments-header:before,.comments+.comments-header-container .comments-header:after,.comments .comments-header-container .comments-view-navigation:before,.comments .comments-header-container .comments-view-navigation:after,.comments+.comments-header-container .comments-view-navigation:before,.comments+.comments-header-container .comments-view-navigation:after,.comments .comment:before,.comments .comment:after,.comments .comment .comment-actions:before,.comments .comment .comment-actions:after{display:table;content:"";line-height:0}.wrap:after,.clearfix:after,.menu.layout-horizontal:after,.ad.user-subscriptions .user-subscriptions-menu:after,.masthead .container:after,.masthead .quick-navigation:after,.masthead .user-tools:after,.masthead .ad:after,.masthead .flyout-panel:after,.search-form-control:after,.ribbon .ribbon-menu:after,.show-all-sharetool-modal .sharetools-menu:after,.page-footer:after,.page-footer nav ul:after,.whats-next header:after,.media.video.promo .caption .kicker-credit:after,.interactive:after,.flag-modal:after,.comments .comments-header-container:after,.comments+.comments-header-container:after,.comments .comments-header-container .comments-header:after,.comments+.comments-header-container .comments-header:after,.comments .comments-header-container .comments-view-navigation:after,.comments+.comments-header-container .comments-view-navigation:after,.comments .comment:after,.comments .comment .comment-actions:after{clear:both}.lt-ie8 .wrap,.lt-ie8 .clearfix,.lt-ie8 .menu.layout-horizontal,.lt-ie8 .ad.user-subscriptions .user-subscriptions-menu,.lt-ie8 .masthead .container,.lt-ie8 .masthead .quick-navigation,.lt-ie8 .masthead .user-tools,.lt-ie8 .masthead .ad,.lt-ie8 .masthead .flyout-panel,.lt-ie8 .search-form-control,.lt-ie8 .ribbon .ribbon-menu,.lt-ie8 .show-all-sharetool-modal .sharetools-menu,.lt-ie8 .page-footer,.lt-ie8 .page-footer nav ul,.lt-ie8 .whats-next header,.lt-ie8 .media.video.promo .caption .kicker-credit,.lt-ie8 .interactive,.lt-ie8 .flag-modal,.lt-ie8 .comments .comments-header-container,.lt-ie8 .comments+.comments-header-container,.lt-ie8 .comments .comments-header-container .comments-header,.lt-ie8 .comments+.comments-header-container .comments-header,.lt-ie8 .comments .comments-header-container .comments-view-navigation,.lt-ie8 .comments+.comments-header-container .comments-view-navigation,.lt-ie8 .comments .comment,.lt-ie8 .comments .comment .comment-actions{zoom:1}
 #blogs-masthead {height: 71px; margin-bottom: 10px; padding-bottom: 10px; position: relative;}
 .wrap {display: block;}
 .single #blogs-masthead, .single #blogs-masthead .element1 {height: 90px;}
-#blogs-masthead .element1 {float: none; height:auto; position: absolute; width: auto; top:25px; z-index: 1;}
+#blogs-masthead .element1 {float: none; height:auto; position: absolute; width: auto; top:33px; z-index: 1;}
 .single .blog-main #blogs-masthead, .single .blog-main #logo {margin-top: 0;}
 #logo {display: block; margin-right: 15px;}
 
@@ -189,6 +190,15 @@ body.blog-universal .w592 {margin-left: -120px;}
 .miniNav ul li a:hover {text-decoration: none; color: #be1e2d;}    
 .miniNav ul li:last-child {border-right:none;}    
 /* Nav */
+
+/* Bootstrap nav */
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
+.navbar-inner {background-image: none; background-color:transparent; box-shadow: none; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; border-left: none; border-right:none; border-radius:0; padding-left: 0;}
+.navbar .nav > li > a {padding: 3px 15px; font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: 1px solid #DDDDDD; text-transform: uppercase;}
+.navbar .nav {margin:7px 10px 0 0;}
+.navbar .brand {display: none;}
+/* Bootstrap nav */
+
 
 /*Main text container */
 .cont-right {float:right; width:73%;}
@@ -374,6 +384,21 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 .li-icon {background: url(LinkedIn.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
 .gplus-icon {background: url(gplus-16x16.png) no-repeat left center transparent; position: relative; padding: 0 12px 0 8px;}
 #discussion {float:left; clear:both; width:98%; margin:2% 0 0 1%;  padding: 0 0 1em 0; position: relative;}
+
+/* Bootstrap nav */
+.navbar .btn-navbar {position:relative; right:-10px; margin-right: 0;}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
+.navbar-inner {background-color: #F9F9F9;
+    /*background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);*/
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;}
+.navbar .nav > li > a {font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: none; text-transform: uppercase;}
+/* Bootstrap nav */  
 }
 
 /* targets iPad Landscape */

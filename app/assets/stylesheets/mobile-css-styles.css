@@ -179,8 +179,8 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 
 .input-group {position: relative; left:10%;}
 .input-group .form-control {float:left; margin:0 0 0 3%; width: 70%; text-align: center;}
-.btn-submit2 {float:right !important; position:relative; margin:-35px 0 0 0; /*bottom:35px;*/ right:9px; font-weight:normal; padding: 8px 8px !important;
-  background-color: #414042!important; /*background-color: #007ab8!important;*/ text-shadow:none !important; color: #ffffff!important;
+.btn-submit2 {float:right !important; position:relative; margin:-35px 0 0 0; right:9px; font-weight:normal; padding: 8px 8px !important;
+  background-color: #414042!important; text-shadow:none !important; color: #ffffff!important;
   background-image: -moz-linear-gradient(top, #0088cc, #006699);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#006699));
   background-image: -webkit-linear-gradient(top, #0088cc, #006699);
@@ -192,6 +192,8 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #006699;
 }
+.grey_filter {float:right !important; position:relative; margin:-33px 0 0 0; right:6%; background: url(ikons-img.png) no-repeat -435px -945px transparent !important; padding:4px 15px !important;}
+.non_grey_filter {float:right !important; position:relative; margin:-33px 0 0 0; right:6%; background: url(ikons-img.png) no-repeat -475px -945px transparent !important; padding:4px 15px !important;}
 .top-share {background-image: url(Share_72.jpg); background-repeat: no-repeat; background-repeat: no-repeat; background-position: center; background-size: cover;
     margin: 0 auto; width: 300px; height: 450px;}
 .top-share-box {float:left; margin:300px 0 0 10px; width:200px; height:100px;}
