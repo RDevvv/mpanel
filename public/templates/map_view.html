@@ -34,7 +34,7 @@
                         <div class="like"><div class="button_liked_offer"></div></div>
                     </div>
                     <div ng-if='poster.is_unlocked != true' %>
-                        <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text)'>&nbsp;</a></div>
+                        <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text, $index)' ng-controller='ListingController'>&nbsp;</a></div>
                     </div>
                     <a class="share" >
                         <div class="refr2"></div>
