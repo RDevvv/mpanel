@@ -22,7 +22,9 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
 
 
     $scope.view_button = function(){
-        if($location.path()=='/deals/outlets')
+        if($location.path()=='/deals/shop')
+            return 'hidden';
+        else if($location.path()=='/deals/outlets')
             return 'loc';
         else
             return 'outlet';
