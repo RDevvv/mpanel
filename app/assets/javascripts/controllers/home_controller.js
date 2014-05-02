@@ -1,5 +1,5 @@
 app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies', '$location', function($scope, $http, $routeParams, $cookies, $location){
-    $scope.home_submit = function(location, latitude, longitude){
+    $scope.home_submit = function(){
         if($cookies['mobile_number']=='undefined'||$cookies['mobile_number']=='false'){
             angular.element('#mobile-number').modal('show');
         }
@@ -7,8 +7,16 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
             angular.element('#verification').modal('show');
         }
         else{
-            $location.url('/outlet_view?search=all&location='+location+'&latitude='+latitude+'&longitude='+longitude+'&view=outlet_listing')
+            $location.url('/deals/outlets?search=coffee&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude);
         }
+    }
+
+    $scope.filter_class = function(){
+        if($routeParams.search=='all'){
+            return 'btn grey_filter';
+        }
+        else
+            return 'btn non_grey_filter';
     }
 
     $scope.listing_form = function(){
@@ -17,22 +25,26 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
     }
 
     $scope.category_form = function(){
+        //if($routeParams.search!='all'){
+        //}
         $location.search('search',$scope.category);
     }
 
 
     $scope.view_button = function(){
-        if($location.path()=='/outlet_view')
+        if($location.path()=='/deals/shop')
+            return 'hidden';
+        else if($location.path()=='/deals/outlets')
             return 'loc';
         else
             return 'outlet';
     }
 
     $scope.map_view_link = function(){
-        if($location.path()=='/outlet_view')
-            new_location = 'map_view';
+        if($location.path()=='/deals/outlets')
+            new_location = 'deals/map';
         else
-            new_location = 'outlet_view';
+            new_location = 'deals/outlets';
         $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
     }
 

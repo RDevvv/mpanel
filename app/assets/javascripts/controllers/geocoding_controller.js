@@ -53,4 +53,9 @@ app.controller('GeocodingController',function($scope){
             opacity: .9
         });
     }
+
+    $scope.location_changed = function(){
+        $scope.latitude  = 0;
+        $scope.longitude = 0;
+    }
 })
