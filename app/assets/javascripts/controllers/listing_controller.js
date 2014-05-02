@@ -78,7 +78,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.search('filter',filter);
     }
 
-    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text) {
+    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text, index) {
         $.pnotify({
             title: brand_name+' - Offer sent',
             text: sms_text,
@@ -90,6 +90,8 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             opacity: .9
         });
         $scope.change_icon = false;
+        console.log(index);
+        ($scope.posters[index].ad_usage++);
         $http({
             method: 'POST',
             url   : domain+'set_sms_data.json',

@@ -1,15 +1,15 @@
 var app = angular.module('app', ['ngRoute', 'ngCookies','google-maps', 'infinite-scroll']);
 app.config(function($routeProvider){
     $routeProvider
-    .when('/outlet_view', {
+    .when('/deals/outlets', {
         templateUrl: 'templates/outlet_view.html',
         controller: 'ListingController'
     })
-    .when('/map_view',{
+    .when('/deals/map',{
         templateUrl: 'templates/map_view.html',
         controller: 'ListingController'
     })
-    .when('/ad_outlet',{
+    .when('/deals/shop',{
         templateUrl: 'templates/ad_outlet.html',
         controller: 'SingleOutletController'
     })
