@@ -198,7 +198,7 @@ class Outlet < ActiveRecord::Base
       latitude = latitude.to_f
       longitude = longitude.to_f
       coordinates = {:latitude => nil, :longitude => nil}
-      if (latitude.blank?||longitude.blank?||(latitude==0&&longitude==0))&(location.blank?!=true)
+      if(latitude == 0 && longitude== 0)
           result = Geocoder.search(location+" india")
           unless result.empty?
               @location = result.first.data["geometry"]["location"]
