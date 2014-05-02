@@ -1,7 +1,7 @@
 
 * {margin: 0; padding: 0;} 
 html, body {-webkit-text-size-adjust: 100%; font-size:14px;}
-html, body {max-width: 100%; overflow-x: hidden;}
+html, body {max-width: 100%; /*overflow-x: hidden;*/}
 @font-face {
     font-family: 'CheltenhamLTRegular';
     src: url('itc-cheltenham-lt-book.eot');
@@ -33,6 +33,7 @@ html, body {max-width: 100%; overflow-x: hidden;}
 
 }
 
+.container-fluid {padding-left: 0;}
 /* Top header styles */
 #header2 {position:fixed; top:0; height:30px; display: block; width:100%; margin: 0 auto; background:#000; font-size:11px; color:#fff; z-index:2000; /*width:800px;*/}
 #top-bar {width:100%; 
@@ -68,15 +69,25 @@ ul.social-links li a {vertical-align: middle;}
     color: #000000; font-size: 11px; font-weight: bold; margin: 0 4px; padding: 4px; text-transform: uppercase;}
 .miniNav ul li a:hover {text-decoration: none; color: #be1e2d;}    
 .miniNav ul li:last-child {border-right:none;}
-#nav {/*border-bottom:1px solid #CCCCCC;*/ border-bottom:1px solid #CCCCCC; height: 37px; margin: 0 auto 10px auto;}    
+#nav {/*border-bottom:1px solid #CCCCCC;*/ border-bottom:1px solid #CCCCCC; height: 37px; margin: 0 auto 10px auto; font-family: sans-serif;}    
 /* Nav */
+
+/* Bootstrap nav */
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
+.navbar-inner {background-image: none; background-color:transparent; box-shadow: none; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; border-left: none; border-right:none; border-radius:0; padding-left: 0;}
+.navbar .nav > li > a {padding: 3px 15px; font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: 1px solid #DDDDDD; text-transform: uppercase;}
+.navbar .nav > li:first-child > a {padding-left: 0;}
+.navbar .nav > li:last-child > a {border-right: none;}
+.navbar .nav {margin:7px 10px 0 0;}
+.navbar .brand {display: none;}
+/* Bootstrap nav */
 
 menu, ol, ul {padding:0;}
 p, pre {margin: 0;}
 
 /* Main Container */
 .main-container {margin: 0 auto; width: 975px; height: auto; padding: 1px;}
-#blogs-masthead {width: 100%; border-bottom: 1px solid #CCCCCC; height: 71px; /*height: 110px;*/margin-bottom: 2px; margin-top: 0; padding-bottom: 10px; position: relative;}
+#blogs-masthead {width: 100%; height: 71px; /*height: 110px;*/margin-bottom: 2px; margin-top: 0; padding-bottom: 10px; position: relative;}
 #blogs-masthead .element1 {float: none; height: auto; position: absolute; width: auto; z-index: 1; top:25px;}
 #blogs-masthead .element1 #logo a img {}
 #logo {display: block;}
@@ -101,7 +112,7 @@ div.teampic {float:left; width:auto; height: auto;}
 .orng-box .desig {color: #000000; font-weight: bold; padding: 5px 0 0;}*/
 div.teamemname {float: right; font-size: 21px; font-weight:bold; margin: 90px 0 0 82px; text-transform: uppercase;}
 
-ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none;}
+ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none; font-family: sans-serif;}
 ul.team-members li {float:left; width:33%; height:auto; margin:3px 0 3px 0; line-height: 15px; /*margin:3px 7px 3px 30px;*/}
 .tm-div {float:left; width: 100%; max-width:136px; height:auto;}
 .tm-div .mem-pict {float:left; width:100%; margin:0 0 0 0; border:none;}
@@ -127,9 +138,13 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 }
 
 /* Main div container */
+.menu {width:950px; margin:0 auto;}
 .main-div-contr {width:950px; margin:0 auto;}
-.left-contr {float:left; width:65%;}
+.left-contr {float:left; width:65%; border-right: 1px solid #E2E2E2;}
 .right-contr {float:left; width:32%; margin:0 0 0 2%;}
+#team {position: relative; top:22px;}
+#careers {position: relative; top:22px;}
+#contact {position: relative; top:40px;}
 /* Main div container */
 
 /* Team page */
@@ -217,9 +232,9 @@ ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: lef
 /* Careers Styles */
 
 /* Footer */
-#footer {width:100%; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
+#footer {width:100%; color:#000; clear:both; margin:0 auto; position: relative; top:36px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
 .copy-div {text-align: center; color: #6e6e6e;}
-ul.footerlinksmain {float:right; width:190px; height:auto; position: relative; left: 20px; bottom:30px;}
+ul.footerlinksmain {float:right; width:190px; height:auto; position: relative; left: 12px; bottom:16px;}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 4px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;}
 ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:visited, ul.footerlinksmain li a:active {text-decoration: none; color:#6e6e6e;}
@@ -301,6 +316,22 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .prof-div-lft .l-in img {max-width: 50%; max-height: 50%;}
 .prf-div-pop .prof-div-rht {float:left; width:25%; color:#333333; height:auto; margin:0; font-family: Tahoma,"times new roman",times,serif; font-size:0.6em;}
 .prof-div-rht p {text-align:justify; color:#000; margin:0px 0 10px 0; width: 100%;}
+
+/* Bootstrap nav */
+.navbar .btn-navbar {float:left; position:relative; margin-right: 0; left:-17px; /*right:-10px;*/}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
+.navbar-inner {background-color: #F9F9F9;
+    /*background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);*/
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;}
+.navbar .nav > li > a {font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: none; text-transform: uppercase;}
+/* Bootstrap nav */  
+
 }
 
 @media (max-width: 603px) and (orientation : landscape){
