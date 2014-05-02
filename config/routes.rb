@@ -2,6 +2,7 @@ Gullak2::Application.routes.draw do
 
 
     get 'articles/:blog_url' => 'articles#show'
+    get 'newsletters/:id' => 'newsletters#show'
     resources :articles do
         resources :article_comments
     end
