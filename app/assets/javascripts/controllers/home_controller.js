@@ -1,5 +1,5 @@
 app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies', '$location', function($scope, $http, $routeParams, $cookies, $location){
-    $scope.home_submit = function(location, latitude, longitude){
+    $scope.home_submit = function(){
         if($cookies['mobile_number']=='undefined'||$cookies['mobile_number']=='false'){
             angular.element('#mobile-number').modal('show');
         }
@@ -7,8 +7,16 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
             angular.element('#verification').modal('show');
         }
         else{
-            $location.url('/deals/outlets?search=all&location='+location+'&latitude='+latitude+'&longitude='+longitude+'&view=outlet_listing')
+            $location.url('/deals/outlets?search=coffee&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude);
         }
+    }
+
+    $scope.filter_class = function(){
+        if($routeParams.search=='all'){
+            return 'btn grey_filter';
+        }
+        else
+            return 'btn non_grey_filter';
     }
 
     $scope.listing_form = function(){
@@ -17,6 +25,8 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
     }
 
     $scope.category_form = function(){
+        //if($routeParams.search!='all'){
+        //}
         $location.search('search',$scope.category);
     }
 

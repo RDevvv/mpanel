@@ -39,6 +39,8 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     page: $scope.page,
                     search: $routeParams['search'],
                     filter: $routeParams['filter'],
+                    latitude: $routeParams['latitude'],
+                    longitude: $routeParams['longitude'],
                     view: 'outlet_listing',
                     location: $routeParams['location']
                 }
