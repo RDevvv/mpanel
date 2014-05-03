@@ -679,6 +679,7 @@ input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidde
 #searchForm fieldset {width:100%; position:relative; display:block;}
 
 .grey_filter {float:right !important; position:relative; margin:-29px 0 0 0; right:13%; background: url(ikons-img.png) no-repeat -435px -945px transparent !important; padding:4px 15px !important;}  
+.non_grey_filter {float:right !important; position:relative; margin:-31px 0 0 0; right:15%; background: url(ikons-img.png) no-repeat -475px -945px transparent !important; padding:4px 15px !important; border:none;}
 div.input {width:65%; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0;
     background:#fff !important;}
 
