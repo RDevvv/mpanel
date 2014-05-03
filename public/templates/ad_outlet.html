@@ -1,3 +1,4 @@
+<div ng-init='get_individual_outlet()'>
 <div class="row-fluid" >
     <div class="google-map"
         center="map.center"
@@ -11,8 +12,8 @@
         <marker coords='map.user_location' icon='map.user_icon' ></marker>
     </div>
 </div>
-<li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="{{poster.outlet_id}}" >
-<div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" ng-controller='ListingController'>
+<li ng-repeat='poster in posters' class="mix bsc span12" data-outlet="{{poster.outlet_id}}" ng-controller='SingleOutletController'>
+<div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" >
     <div class="bbox">
         <div class="brandtitle">
             {{poster.brand_name}}
@@ -44,7 +45,7 @@
     </div>
 </div>
 
-<div class="pin-add-div" ng-controller='ListingController'>
+<div class="pin-add-div">
     <div class="rch-btns-div4">
         <ul>
             <li>
@@ -98,3 +99,4 @@
     </div>
 </div>
 </li>
+</div>

@@ -1,16 +1,5 @@
 app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies){
-    $http({
-        method: 'GET',
-        url: domain+'individual_outlet.json',
-        params: {
-            customer_uuid: $cookies['customer_uuid'],
-            id: $routeParams['id']
-        }
-    })
-    .success(function(response){
-        $scope.posters = response.outlet;
-    })
-
+    $scope.title_brand_name = '';
     $scope.map = {
         user_icon: 'http://localhost:3000/assets/user_pin.png',
         icon: 'http://maps.google.com/mapfiles/markerA.png',
@@ -20,5 +9,21 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         start_point: new google.maps.LatLng($routeParams['customer_latitude'],$routeParams['customer_longitude']),
         end_point: new google.maps.LatLng(1,2),
         zoom:13
+    }
+
+    $scope.get_individual_outlet = function(){
+        $scope.title_brand_name = 'zz';
+        $http({
+            method: 'GET',
+            url: domain+'individual_outlet.json',
+            params: {
+                customer_uuid: $cookies['customer_uuid'],
+                id: $routeParams['id']
+            }
+        })
+        .success(function(response){
+            $scope.posters = response.outlet;
+            $scope.title_brand_name = response.outlet[0].brand_name;
+        })
     }
 })
