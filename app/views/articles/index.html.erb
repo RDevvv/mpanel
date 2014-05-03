@@ -39,7 +39,7 @@
                 <h3 class="entry-title">
                   <%= link_to article.blog_title, article_path(article.blog_url) %>
                 </h3>
-                <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url %></a> </address>
+                <address class="byline author vcard">By <a title="" class="url fn"><%= link_to article.author, article.author_linkedin_url, :target => '_blank' %></a> </address>
               </header>
               <div class="entry-content2">
                 <p><%= article.blog_excerpt %> <a class="more-link"><%= link_to 'Read more…', article_path(article.blog_url) %></a></p>
