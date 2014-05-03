@@ -7,7 +7,7 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
             angular.element('#verification').modal('show');
         }
         else{
-            $location.url('/deals/outlets?search=coffee&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude);
+            $location.url('/deals/outlets?search=all&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude);
         }
     }
 
