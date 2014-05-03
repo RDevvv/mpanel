@@ -96,8 +96,8 @@ body.single .hfeed .post {padding-top: 0;}
     margin-left: 2px; padding: 0 0 4px; text-transform: uppercase;}
 .comments-button.theme-kicker .button-text {margin-left: 1px;}
 body.single .entry-title {font-size: 1.5625rem; font-weight: bold; line-height: 1.6875rem; margin-bottom: 6px;}
-.blog-main .entry-title {font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.6em; font-weight: bold;
-    line-height: 1.2em;} 
+.blog-main .entry-title {font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.5em; font-weight: bold;
+    line-height: 1.2em; letter-spacing: -1px;} 
 .blog-main .entry-title a {text-decoration: none; color: #000;}
 
 .blog-main h1, .blog-main h2, .blog-main h3, .blog-main h4, .blog-main h5, .blog-main h6 {font-size: 1.3125rem; line-height: normal;}

@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     respond_to :html, :json
 
     def index
-        @articles = Article.all
+        @articles = Article.order.all.reverse
 
         respond_with @articles
     end
