@@ -9,7 +9,7 @@
             <div ng-repeat='poster in posters'>
                 <marker coords='{latitude: poster.latitude, longitude: poster.longitude}' icon='generate_markers()'></marker>
             </div>
-            <marker coords='map.center' icon='map.user_icon'></marker>
+            <marker coords='{latitude: posters[0].customer.latitude, longitude: posters[0].customer.longitude}' icon='map.user_icon' options='{zIndex: 100}'></marker>
         </div>
     </div>
 
