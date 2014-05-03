@@ -22,7 +22,7 @@
                 <article id="post-154732" class="post entry no-top">
                   <div class="w190 left">
                     <% if newsfeed.attachments.present? %>
-                        <%= image_tag(newsfeed.attachments.order(:id).last.image, :alt=> newsfeed.image_alt_text, :title=> newsfeed.image_alt_text) %>
+                        <%= link_to image_tag(newsfeed.attachments.order(:id).last.image, :alt=> newsfeed.image_alt_text, :title=> newsfeed.image_alt_text), newsfeed.news_url, :target => '_blank' %>
                     <% end %>
                     <span class="caption"><%= newsfeed.image_caption %></span>
                   </div>
@@ -33,12 +33,12 @@
                       <time><%= newsfeed.created_at.strftime("%e %b %Y") %></time>
                     </div>
                     <h3 class="entry-title">
-                      <%= newsfeed.news_title %>
+                      <%= link_to newsfeed.news_title, newsfeed.news_url, :target => '_blank' %>
                     </h3>
-                    <address class="byline author vcard"><a title="" class="url fn"><%= link_to newsfeed.journal_name, newsfeed.journal_url %></a> </address>
+                    <address class="byline author vcard"><a title="" class="url fn"><%= link_to newsfeed.journal_name, newsfeed.journal_url, :target => '_blank' %></a> </address>
                   </header>
                   <div class="entry-content2">
-                    <p><%= newsfeed.news_excerpt %> <a class="more-link"><%= link_to 'Read more…', newsfeed.news_url %></a></p>
+                    <p><%= newsfeed.news_excerpt %> <a class="more-link"><%= link_to 'Read more…', newsfeed.news_url, :target => '_blank' %></a></p>
                   </div>
                 </article>
           </div>
