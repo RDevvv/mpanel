@@ -47,7 +47,7 @@ Gullak2::Application.configure do
   config.action_controller.asset_host = "d3qgzzn4q9bivw.cloudfront.net"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( merchant.css merchant.js)
+  config.assets.precompile += %w( merchant.css merchant.js blog.css blog.js)
   config.assets.initialize_on_precompile = false
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
