@@ -1,4 +1,4 @@
-app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies', '$location', function($scope, $http, $routeParams, $cookies, $location){
+app.controller('HomeController', function($scope, $http, $routeParams, $cookies, $location, $route){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
@@ -36,12 +36,14 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
     $scope.set_attribute= function(type){
         $scope.hide_filter = false;
         if(type=='filter'){
+            $scope.category='';
             $scope.submit_type='filter';
         }
         else{
             $scope.submit_type='search';
         }
     }
+
 
     $scope.set_class = function(){
         if($scope.submit_type!='filter'&&$scope.hide_filter==false)
@@ -84,4 +86,4 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
         }
     }
     hide_top_menu();
-}])
+})

@@ -11,7 +11,6 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
     }
 
     $scope.get_individual_outlet = function(){
-        $scope.title_brand_name = 'zz';
         $http({
             method: 'GET',
             url: domain+'individual_outlet.json',
