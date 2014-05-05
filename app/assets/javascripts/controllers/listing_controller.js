@@ -92,7 +92,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             opacity: .9
         });
         $scope.change_icon = false;
-        console.log(index);
         ($scope.posters[index].ad_usage++);
         $http({
             method: 'POST',
