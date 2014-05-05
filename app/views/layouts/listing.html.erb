@@ -89,27 +89,25 @@ html, body {width: 100%; overflow-x: hidden;}
         </ul>
     </nav>
 </div>
-<%= bootstrap_flash %>
 <%= render :partial => "back_to_top" %>
 <%= render :partial => "new_mobile_number_modal" %>
 <%= render :partial => "verify_mobile_number" %>
 <%= render :partial => "share_partial" %>
 
-<div class="container-location">
+<div class="container-location" ng-controller="HomeController">
     <div class="row-fluid">
         <div class="span12" id='top_search'>
             <div class="search-div3">
-            <form ng-submit='category_form()' ng-controller='HomeController' method='get' id='categoryForm'>
-                <fieldset>
-                    <div class="input">
-                        <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category' ng-init='top_search_value()'>
-                    </div>
-                </fieldset>
+                <form ng-submit='category_form()' ng-controller='HomeController' method='get'>
+                    <fieldset>
+                        <div class="input">
+                            <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category' ng-init='top_search_value()' required/>
+                        </div>
+                    </fieldset>
                     <!--<div class="non_grey_filter">&nbsp;</div>-->
-                    <input type='submit' value='' name='' id ='' class= "non_grey_filter" >
-                    <input type='submit' value='Go' name='Go' id ='submitbutton' class = "btn btn-submit2" >
-
-            </form>
+                    <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
+                    <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
+                </form>
             </div>
         </div>
         <div id='view' ng-view>
@@ -140,13 +138,13 @@ $(document).ready(function(){
 </script>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49715139-2', 'shoffr.com');
-  ga('send', 'pageview');
+ga('create', 'UA-49715139-2', 'shoffr.com');
+ga('send', 'pageview');
 </script>
 </body>
 </html>
