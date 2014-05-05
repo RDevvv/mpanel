@@ -1,13 +1,13 @@
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled'>
 <li ng-repeat='poster in posters track by $index' class="mix bsc span12" data-outlet="{{poster.outlet_id}}" >
-<div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" >
+<div class="bdiv">
     <div class="bbox">
         <div class="brandtitle">
             {{poster.brand_name}}
         </div>
         <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
         <div align="center" class="brandlogo">
-            <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}">
+            <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}">
                 <img ng-src={{poster.brand_image}}>
             </a>
         </div>
@@ -33,7 +33,7 @@
         </div>
     </div>
 </div>
-<div class="pin-add-div" outlet_id="<%= poster[:outlet_id] %>" id="<%= poster[:outlet_id] %>" ad_id="<%= poster[:ad_id] %>">
+<div class="pin-add-div">
     <div class="rch-btns-div4">
         <ul>
             <li>

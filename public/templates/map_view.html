@@ -21,7 +21,9 @@
             </div>
             <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
             <div align="center" class="brandlogo">
-                <img ng-src='{{poster.brand_image}}'>
+                <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}">
+                    <img ng-src='{{poster.brand_image}}'>
+                </a>
             </div>
             <hr style="width:100%; margin:2px 0;">
             <div class="lower-box">
