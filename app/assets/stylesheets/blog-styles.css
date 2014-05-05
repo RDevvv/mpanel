@@ -405,8 +405,8 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 @media (max-width: 603px) and (orientation : landscape){
 body {font-family: Tahoma,"times new roman",times,serif;}
 .blog-main {margin: 0 auto; width: 98%; height: auto; padding: 1px;}
-.blog-main .entry-title {position:relative; font-family: 'CheltenhamLTRegular',georgia,times,serif; width:95%; font-size: 1.3em; font-weight: bold;
-    line-height: 1.2em;} 
+.blog-main .entry-title {position:relative; font-family: 'CheltenhamLTRegular',georgia,times,serif; width:95%; font-size: 1.2em; font-weight: bold;
+    line-height: 1.2em; letter-spacing: -1px;} 
 .w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 5px;}
 .w190 {width: 35%;}
 .w592 {width:100%;}
