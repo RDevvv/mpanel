@@ -78,7 +78,7 @@ ul.social-links li a {vertical-align: middle;}
 .navbar .nav > li > a {padding: 3px 15px; font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: 1px solid #DDDDDD; text-transform: uppercase;}
 .navbar .nav > li:first-child > a {padding-left: 0; cursor: pointer;}
 
-.navbar .nav > li:last-child > a {border-right: none;}
+.navbar .nav > li:last-child > a {border-right: none; cursor: pointer;}
 .navbar .nav {margin:7px 10px 0 0;}
 .navbar .brand {display: none;}
 .navbar-form {float:right; position:relative; right:-6%; width:200px;}
@@ -181,9 +181,9 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 .main-div-contr {width:950px; margin:0 auto;}
 .left-contr {float:left; width:65%; border-right: 1px solid #E2E2E2;}
 .right-contr {float:left; width:32%; margin:0 0 0 2%;}
-#team {position: relative; top:22px;}
-#careers {position: relative; top:22px;}
-#contact {position: relative; top:40px;}
+#team {float:left; clear:both; width: 100%; border-bottom:solid 1px #CCCCCC; padding-bottom: 20px; /*position: relative; top:22px;*/}
+#careers {float:left; clear:both; width: 100%; border-bottom:solid 1px #CCCCCC; padding-bottom: 20px;/*position: relative; top:22px;*/}
+#contact {float:left; clear:both; width: 100%; padding-bottom: 20px;/*position: relative; top:40px;*/}
 /* Main div container */
 
 /* Team page */
@@ -207,7 +207,6 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 /* Slide 4 */
 
 #slide4{background-color:#ffffff; color:#000; font-size:1.1em; height:auto; padding: 0 0 15px; float:left;}
-
 
 /* Slide 5 */
 h4 {font-family: 'CheltenhamLTRegular',georgia,times,serif; color: #000000; font-weight: bold; font-size:1.6em; line-height: 30px; margin:0 auto; margin: 20px 0 20px 0px;}
@@ -237,14 +236,11 @@ ul.navigation li.home a {position: relative; bottom: 13px;}
 ul.navigation li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #be1e2d;}
 ul.navigation li:visited {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #be1e2d;}
 ul.navigation li ul {z-index:10000; margin-top: 0; padding: 0; position: absolute; margin-left:-15px; background: none repeat scroll 0 0 #fff;
-          box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
-          width: 200px; text-align: left; display: none; opacity: 0; visibility: hidden;
-          -webkit-transiton: opacity 0.2s;
-          -moz-transition: opacity 0.2s;
-          -ms-transition: opacity 0.2s;
-          -o-transition: opacity 0.2s;
-          -transition: opacity 0.2s;
-        }
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+  width: 200px; text-align: left; display: none; opacity: 0; visibility: hidden;
+  -webkit-transiton: opacity 0.2s; -moz-transition: opacity 0.2s; -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s; -transition: opacity 0.2s;}
+
 ul.navigation li ul li {width:80%; background: #ffffff; border-bottom: solid 1px #fff; display: block; color: #fff; padding: 10px 20px; display:block;}
 ul.navigation li ul li a, ul.navigation li ul li div {width:90%; color: #7770777 !important; font-size: 12px !important; font-weight: 600 !important; margin-left: 0 !important; padding: 0 10px !important; /*padding: 5px 20px !important;*/}
 ul.navigation li ul li:hover {width:80%; background: #F5F5F5; padding: 10px 20px;}
@@ -254,26 +250,26 @@ ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
 
 /* Contact Us styles */
 .con-container {float:left; width:100%; font-family: Tahoma,"times new roman",times,serif; color: #333333; margin: 0;}
-.con-container .ofc-box {float:left;  width: 31%;}
+.con-container .ofc-box {float:left;  width: 20%;}
 .con-container .emailids {float:left; border-left: 1px solid #ccc; padding: 0% 0 0 3%; width: 65%;}
 .ofc-box .head {color: #0095F4; font-weight: bold; line-height: 20px; margin: 0;}
 .ofc-box p {text-align: left; line-height: 1.5em;}
-.emailids .entry{float:left; clear: both; margin: 2px 0; text-align: left;}
+.emailids .entry{float:left; clear: both; margin:0; /*margin: 2px 0;*/ text-align: left;}
 .emailids .entry a {text-decoration: none; color: #000;}
 /* Contact Us styles */
 
 /* Careers Styles */
 #wrapper-div {width:100%; line-height: 1.42857; background-color: #FFFFFF; float:left; font-family: Tahoma,"times new roman",times,serif; text-align: left; clear: both; height: auto; color:#333333;}
-#wrapper-div .post a {font-family: arial,helvetica,sans-serif; font-weight: bold; text-transform: uppercase; font-size: 0.9em;}
+#wrapper-div .post a {font-family: arial,helvetica,sans-serif; color:#000; font-weight: bold; text-transform: uppercase; font-size: 0.9em;}
 ul.cpoints {float:left; clear:both; width:100%; height:auto; margin: 5px 0 0 0;}
 ul.cpoints li {float:left; clear: both; padding: 2px 0 2px 17px; text-align: left;
     background: url(tm-dot-pic.png) no-repeat 1px center; list-style: none;}
 /* Careers Styles */
 
 /* Footer */
-#footer {width:100%; color:#000; clear:both; margin:0 auto; position: relative; top:36px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
+#footer {width:100%; color:#000; clear:both; margin:0 auto; position: relative; top:10px; font-size:12px; padding:5px 0; border-top:solid 1px #cecece;}
 .copy-div {text-align: center; color: #6e6e6e;}
-ul.footerlinksmain {float:right; width:190px; height:auto; position: relative; left: 12px; bottom:16px;}
+ul.footerlinksmain {float:right; width:190px; height:auto; position: relative; left: 12px; bottom:20px;}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 4px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;}
 ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:visited, ul.footerlinksmain li a:active {text-decoration: none; color:#6e6e6e;}
@@ -301,7 +297,7 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 #backtotop a {border: 0 none; display: block; height: 155px; text-decoration: none; width: 31px;}
 /* Backtotop */
 
-.image-contr {float:left; border:none; width:100%;}
+.image-contr {float:left; border:none; width:100%; padding-bottom: 20px; border-bottom: solid 1px #CCC;}
 .image-contr img {max-width:98%; max-height:auto; float:left; display: block;}
 .imagedesc {clear:both; padding:10px 0 0 0; text-align:justify; font-family:Tahoma,times new roman,times,serif; font-size:1em; width:98%;}
 
@@ -333,13 +329,19 @@ body {font-size: 0.9em;}
 .orng-box .title {text-transform:uppercase; font-weight:bold; font-size: 0.8em; padding:5px 0 0 0; color:#FFF;}
 .orng-box .nickname {padding:1px 0 0 0; color:#FFF; font-size: 9px;}
 .orng-box .desig {padding:5px 0 0 0; font-weight:normal; color:#fff; font-size: 9px;}
-#footer {width:100%; color:#000; clear:both; margin:10px auto; position: relative; font-size:0.6em; padding:5px 0; border-top:solid 1px #cecece;}
+#footer {width:100%; color:#000; clear:both; margin:10px auto; position: relative; font-size:0.6em; padding:2px 0; border-top:solid 1px #cecece;}
 .copy-div {float:left; color: #6e6e6e;}
-ul.footerlinksmain {float:right; position: relative; left: -3px; bottom: 11px; width:auto; height:auto; font-size:9px}
-ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 1px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain {float:right; position: relative; left: -3px; top: 5px; width:auto; height:auto; font-size:8px}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; line-height: 8px; padding:0 3px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;}
-.con-container .ofc-box {font-size: 0.85em;}
-.con-container .emailids {font-size: 0.85em;}
+.con-container .ofc-box {float:left; width: 35%; font-size: 0.85em;}
+.con-container .emailids {float:left; font-size: 0.85em; padding: 0 0 0 1%; margin:0 0 0 1%; /*border-left: 1px solid #ccc;*/ padding: 0; width: 59%;}
+
+.emailids .entry{float:left; clear: both; padding: 0 0 0 4%; line-height: 16px; /*margin: 2px 0;*/ text-align: left;}
+.emailids .entry a {text-decoration: none; color: #000;}
+
+
+
 .wrapper-terms {float:left; width:95%; padding: 0 2%; line-height: 1.42857; font-size: 1em; background-color: #FFFFFF;font-family: Tahoma,"times new roman",times,serif; text-align: justify; clear: both; height: auto; color:#333333;}
 .wrapper-terms p {color: #333333; font-family: Tahoma,"times new roman",times,serif; line-height: 1.42857; text-align: left;}
 .wrapper-terms p a {color: #000; text-decoration:none;}
@@ -397,6 +399,25 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 /* Bootstrap nav */  
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape) {
+.left-contr {border-right: none;}
+.non-bs-bar {display: none !important;}  
+.navbar .btn-navbar {float:left; display: block; position:relative; margin-right: 0; left:-17px;}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
+.navbar-inner {background-color: #F9F9F9;
+    /*background-image: linear-gradient(to bottom, #FFFFFF, #F2F2F2);*/
+    background-repeat: repeat-x;
+    border: 1px solid #D4D4D4;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    min-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;}
+.navbar .nav > li > a {padding: 3px 15px 3px 0; font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: none; text-transform: uppercase;}
+.navbar .nav > li:first-child > a {padding-left: 0; cursor: pointer;}
+}
+
+
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
 .navbar {border:solid 10px #000; width:97%; display: none;}
 .navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
@@ -410,7 +431,8 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .non-bs-bar .nav > li {float: left;}
 .non-bs-bar .nav > li > a {float:none; border-right: 1px solid #DDDDDD; color: #000000; font-family: sans-serif;
   font-size: 11px; font-weight: bold; padding: 3px 15px; text-decoration:none; text-transform: uppercase; text-shadow:0 1px 0 #FFFFFF; display: block;}
-.non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;}     
+.non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;} 
+#mc_embed_signup {float:right; margin:0 1% 0 0;}    
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
@@ -426,7 +448,8 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .non-bs-bar .nav > li {float: left;}
 .non-bs-bar .nav > li > a {float:none; border-right: 1px solid #DDDDDD; color: #000000; font-family: sans-serif;
     font-size: 11px; font-weight: bold; padding: 3px 15px; text-decoration:none; text-transform: uppercase; text-shadow:0 1px 0 #FFFFFF; display: block;}
-.non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;}     
+.non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;}  
+#mc_embed_signup {float:right; margin:0 1% 0 0;}   
 }
 
 @media (max-width: 603px) and (orientation : portrait){
@@ -458,6 +481,17 @@ html, body {width:95%; overflow-x: hidden;}
 .non-bs-bar .nav > li > a {float:none; border-right: 1px solid #DDDDDD; color: #000000; font-family: sans-serif;
     font-size: 11px; font-weight: bold; padding: 3px 15px; text-decoration:none; text-transform: uppercase; text-shadow:0 1px 0 #FFFFFF; display: block;}
 .non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;} */
+
+#footer {width:100%; color:#000; clear:both; margin:10px auto; position: relative; font-size:0.6em; padding:2px 0; border-top:solid 1px #cecece;}
+.copy-div {float:left; color: #6e6e6e;}
+ul.footerlinksmain {float:right; position: relative; left: -3px; top: 5px; width:auto; height:auto; font-size:8px}
+ul.footerlinksmain li {float:left; text-align: left; display:inline; line-height: 8px; padding:0 3px; border-right:solid 1px #ddd; list-style: none;}
+ul.footerlinksmain li:last-child {border-right:none;}
+.con-container .ofc-box {float:left; width: 22%; font-size: 0.85em;}
+.con-container .emailids {float:left; font-size: 0.85em; padding: 0 0 0 1%; margin:0 0 0 1%; /*border-left: 1px solid #ccc;*/ padding: 0; width: 59%;}
+
+.emailids .entry{float:left; clear: both; padding: 0 0 0 4%; line-height: 16px; /*margin: 2px 0;*/ text-align: left;}
+.emailids .entry a {text-decoration: none; color: #000;}
 }
 
 @media (max-width: 966px) and (orientation :landscape){
@@ -471,6 +505,7 @@ html, body {width:98%; margin:0 auto; overflow-x: hidden;}
 .non-bs-bar .nav > li > a {float:none; border-right: 1px solid #DDDDDD; color: #000000; font-family: sans-serif;
     font-size: 11px; font-weight: bold; padding: 3px 15px; text-decoration:none; text-transform: uppercase; text-shadow:0 1px 0 #FFFFFF; display: block;}
 .non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;}
+#mc_embed_signup {float:right; margin:0 1% 0 0;}
 }
 
 @media (max-width: 603px) and (orientation : landscape){
