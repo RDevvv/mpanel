@@ -1,5 +1,4 @@
 app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies){
-    $scope.title_brand_name = '';
     $scope.map = {
         user_icon: 'http://localhost:3000/assets/user_pin.png',
         icon: 'http://maps.google.com/mapfiles/markerA.png',
@@ -23,6 +22,7 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         })
         .success(function(response){
             $scope.posters = response.outlet;
+            $scope.distance = $routeParams['distance'];
             $scope.title_brand_name = response.outlet[0].brand_name;
         })
     }
