@@ -380,7 +380,7 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .navbar-form {position: relative; left:-6%; border-top:none; border-bottom:none; box-shadow: none;}
 }
 
-@media (min-width: 540px), handheld and (orientation: landscape) {
+@media only screen and (min-width: 540px) and (max-width: 1200px), handheld {
 .non-bs-bar {display: none !important;}
 /* Bootstrap nav */
 .navbar .btn-navbar {float:left; display: block; position:relative; margin-right: 0; left:-17px;}

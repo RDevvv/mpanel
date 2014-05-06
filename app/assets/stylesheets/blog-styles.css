@@ -29,6 +29,7 @@
 
 }
 
+
 /* General styles */
 html {width: 100%;}
 .clear {clear: both;}
@@ -37,7 +38,6 @@ html, body {max-width: 100%; overflow-x: hidden;}
 blockquote {margin: 0; border: none; padding: 0;}
 hr {margin: 0;}
 /* General styles */
-
 .container-fluid {padding-left:0;}
 .wrap:before,.clearfix:before,.wrap:after,.clearfix:after,.menu.layout-horizontal:before,.menu.layout-horizontal:after,.ad.user-subscriptions .user-subscriptions-menu:before,.ad.user-subscriptions .user-subscriptions-menu:after,.masthead .container:before,.masthead .container:after,.masthead .quick-navigation:before,.masthead .quick-navigation:after,.masthead .user-tools:before,.masthead .user-tools:after,.masthead .ad:before,.masthead .ad:after,.masthead .flyout-panel:before,.masthead .flyout-panel:after,.search-form-control:before,.search-form-control:after,.ribbon .ribbon-menu:before,.ribbon .ribbon-menu:after,.show-all-sharetool-modal .sharetools-menu:before,.show-all-sharetool-modal .sharetools-menu:after,.page-footer:before,.page-footer:after,.page-footer nav ul:before,.page-footer nav ul:after,.whats-next header:before,.whats-next header:after,.media.video.promo .caption .kicker-credit:before,.media.video.promo .caption .kicker-credit:after,.interactive:before,.interactive:after,.flag-modal:before,.flag-modal:after,.comments .comments-header-container:before,.comments .comments-header-container:after,.comments+.comments-header-container:before,.comments+.comments-header-container:after,.comments .comments-header-container .comments-header:before,.comments .comments-header-container .comments-header:after,.comments+.comments-header-container .comments-header:before,.comments+.comments-header-container .comments-header:after,.comments .comments-header-container .comments-view-navigation:before,.comments .comments-header-container .comments-view-navigation:after,.comments+.comments-header-container .comments-view-navigation:before,.comments+.comments-header-container .comments-view-navigation:after,.comments .comment:before,.comments .comment:after,.comments .comment .comment-actions:before,.comments .comment .comment-actions:after{display:table;content:"";line-height:0}.wrap:after,.clearfix:after,.menu.layout-horizontal:after,.ad.user-subscriptions .user-subscriptions-menu:after,.masthead .container:after,.masthead .quick-navigation:after,.masthead .user-tools:after,.masthead .ad:after,.masthead .flyout-panel:after,.search-form-control:after,.ribbon .ribbon-menu:after,.show-all-sharetool-modal .sharetools-menu:after,.page-footer:after,.page-footer nav ul:after,.whats-next header:after,.media.video.promo .caption .kicker-credit:after,.interactive:after,.flag-modal:after,.comments .comments-header-container:after,.comments+.comments-header-container:after,.comments .comments-header-container .comments-header:after,.comments+.comments-header-container .comments-header:after,.comments .comments-header-container .comments-view-navigation:after,.comments+.comments-header-container .comments-view-navigation:after,.comments .comment:after,.comments .comment .comment-actions:after{clear:both}.lt-ie8 .wrap,.lt-ie8 .clearfix,.lt-ie8 .menu.layout-horizontal,.lt-ie8 .ad.user-subscriptions .user-subscriptions-menu,.lt-ie8 .masthead .container,.lt-ie8 .masthead .quick-navigation,.lt-ie8 .masthead .user-tools,.lt-ie8 .masthead .ad,.lt-ie8 .masthead .flyout-panel,.lt-ie8 .search-form-control,.lt-ie8 .ribbon .ribbon-menu,.lt-ie8 .show-all-sharetool-modal .sharetools-menu,.lt-ie8 .page-footer,.lt-ie8 .page-footer nav ul,.lt-ie8 .whats-next header,.lt-ie8 .media.video.promo .caption .kicker-credit,.lt-ie8 .interactive,.lt-ie8 .flag-modal,.lt-ie8 .comments .comments-header-container,.lt-ie8 .comments+.comments-header-container,.lt-ie8 .comments .comments-header-container .comments-header,.lt-ie8 .comments+.comments-header-container .comments-header,.lt-ie8 .comments .comments-header-container .comments-view-navigation,.lt-ie8 .comments+.comments-header-container .comments-view-navigation,.lt-ie8 .comments .comment,.lt-ie8 .comments .comment .comment-actions{zoom:1}
 #blogs-masthead {height: 71px; margin-bottom: 10px; padding-bottom: 10px; position: relative;}
@@ -182,7 +182,7 @@ body.blog-universal .w592 {margin-left: -120px;}
 /* Bootstrap nav */
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
 .navbar-inner {background-image: none; background-color:transparent; box-shadow: none; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; border-left: none; border-right:none; border-radius:0; padding-left: 0;}
-.navbar .nav > li > a {padding: 3px 15px; font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: 1px solid #DDDDDD; text-transform: uppercase;}
+.navbar .nav > li > a {padding: 3px 12px; font-family: sans-serif; font-size:11px; color: #000000; font-weight: bold; border-right: 1px solid #DDDDDD; text-transform: uppercase;}
 .navbar .nav > li:first-child > a {padding-left: 0; cursor: pointer;}
 
 .navbar .nav > li:last-child > a {border-right: none; cursor: pointer;}
@@ -425,8 +425,9 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 .navbar-form {position: relative; left:-6%; border-top:none; border-bottom:none; box-shadow: none;}
 }
 
-@media (min-width: 540px), handheld and (orientation: landscape) {
-html, body {overflow-x: hidden;}     
+
+@media only screen and (min-width: 540px) and (max-width: 1200px), handheld {
+html, body {overflow-x: hidden;}   
 .blog-main {margin: 0 auto; width: 95%; height: auto; padding: 1px;}
 .non-bs-bar {display: none !important;}
 /* Bootstrap nav */
@@ -450,7 +451,9 @@ ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2
 ul.footerlinksmain li:last-child {border-right:none;} 
 #backtotop {display: none;}
 /* Bootstrap nav */  
+
 }
+
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape) {
 .left-contr {border-right: none;}
