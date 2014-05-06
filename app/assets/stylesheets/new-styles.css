@@ -428,7 +428,7 @@ ul.footerlinksmain li:last-child {border-right:none;}
 .navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
 .menu {width:95%; margin: 0 auto;}
 .left-contr {border-right:none;}
-.non-bs-bar {display:block; margin-bottom: 20px; overflow: visible;}
+.non-bs-bar {display:block!important; margin-bottom: 20px; overflow: visible;}
 .non-bs-bar {background-color: rgba(0, 0, 0, 0); background-image: none; border-color: #CCCCCC -moz-use-text-color;
     border-radius: 0; border-style: solid none; border-width: 1px medium; box-shadow: none; padding-left: 0; min-height: 40px; 
     }
@@ -441,11 +441,11 @@ ul.footerlinksmain li:last-child {border-right:none;}
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-  .navbar {border:solid 10px #000; width:97%; display: none;}
-  .navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
+.navbar {border:solid 10px #000; width:97%; display: none;}
+.navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
 .menu {width:92.5%; margin: 0 auto;}
 
-.non-bs-bar {display:block; margin-bottom: 20px; overflow: visible;}
+.non-bs-bar {display:block !important; margin-bottom: 20px; overflow: visible;}
 .non-bs-bar {background-color: rgba(0, 0, 0, 0); background-image: none; border-color: #CCCCCC -moz-use-text-color;
     border-radius: 0; border-style: solid none; border-width: 1px medium; box-shadow: none; padding-left: 0; min-height: 40px; 
     }
