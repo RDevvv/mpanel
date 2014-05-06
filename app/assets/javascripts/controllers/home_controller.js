@@ -63,10 +63,10 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
     }
 
     $scope.top_search_class = function(){
-        if($location.path()=='/deals/shop')
-            return 'hide';
-        else
+        if($location.path()=='/deals/outlets'||$location.path()=='/deals/map')
             return 'span12';
+        else
+            return 'hide';
     }
 
     $scope.map_view_link = function(){
