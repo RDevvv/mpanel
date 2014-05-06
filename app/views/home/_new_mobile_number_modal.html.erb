@@ -1,16 +1,15 @@
-<div id="mobile-number" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="mobile-number" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller='VerificationController'>
     <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
     <div class="modal-body">
-            <div class="sub-txt2">We need to verify your mobile number</div>
-        <%= form_tag '/customers', :validate => true, :class => 'customer-mobile-number-form form-horizontal' do  %>
+        <div class="sub-txt2">We need to verify your mobile number</div>
+        <form class='customer-mobile-number-form form-horizontal' ng-submit='enter_number()'>
             <div class="control-group">
-            <label class="control-label"> +91</label>
-            <div class="controls">
-                <%= text_field_tag :mobile_number,'', :class => 'datetime_select', :placeholder => "Enter mobile number" %>
-                <%= submit_tag 'Submit', :class => 'datetime_select btn-blue' %>
+                <label class="control-label"> +91</label>
+                <div class="controls">
+                    <input type='text' name='mobile_number' class ='datetime_select' placeholder = "Enter mobile number" ng-model='mobile_number'>
+                    <input type='submit' name='Submit' class ='datetime_select btn-blue' >
+                </div>
             </div>
-        </div>
-        <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
-    <% end %>
+        </form>
     </div>
 </div>

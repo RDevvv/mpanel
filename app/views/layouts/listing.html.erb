@@ -63,7 +63,8 @@ html, body {width: 100%; overflow-x: hidden;}
 
 <%#= render :partial => 'shared/facebook_share' %>
 
-<div id="header">
+<div ng-controller="HomeController">
+<div id="header" >
     <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
     <ul class="left-icons">
         <li><a href="#menu" class="srchlink3"></a></li>
@@ -72,14 +73,14 @@ html, body {width: 100%; overflow-x: hidden;}
     <div class="head-brand"><a href='#/home'>shoffr</a></div>
     <ul class="right-icons">
         <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController' ngg="update_top_share_url($(this))"></a></li>
-        <li><a href='' ng-class='view_button()' ng-click='map_view_link()' ng-controller='HomeController'></a></li>
+        <li><a href='' ng-class='view_button()' ng-click='map_view_link()'></a></li>
     </ul>
 
     <nav id="menu">
         <ul>
             <li class="subcat">Filter by:</li>
             <li style="margin-top:10px;">
-                <form ng-submit='listing_form()' ng-controller='HomeController' method='get' id='searchForm'>
+                <form ng-submit='listing_form()' method='get' id='searchForm'>
                     <fieldset>
                         <div class="input">
                             <input type='text' name='location' id='s' placeholder ='Enter Location' ng-model='topsearch'>
@@ -101,40 +102,36 @@ html, body {width: 100%; overflow-x: hidden;}
         </ul>
     </nav>
 </div>
-<%= bootstrap_flash %>
-<%= render :partial => "back_to_top" %>
-<%= render :partial => "new_mobile_number_modal" %>
-<%= render :partial => "verify_mobile_number" %>
-<%= render :partial => "share_partial" %>
 
-<div class="container-location">
+<div class="container-location" >
     <div class="row-fluid">
         <div class="span12" id='top_search'>
             <div class="search-div3">
-            <form ng-submit='category_form()' ng-controller='HomeController' method='get' id='categoryForm'>
-                <fieldset>
-                    <div class="input">
-                        <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category' ng-init='top_search_value()'>
-                    </div>
-                </fieldset>
+                <form ng-submit='category_form()' method='get'>
+                    <fieldset>
+                        <div class="input">
+                            <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category' ng-init='top_search_value()' >
+                        </div>
+                    </fieldset>
                     <!--<div class="non_grey_filter">&nbsp;</div>-->
-                    <input type='submit' value='' name='' id ='' class= "non_grey_filter" >
-                    <input type='submit' value='Go' name='Go' id ='submitbutton' class = "btn btn-submit2" >
-
-            </form>
+                    <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
+                    <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
+                </form>
             </div>
         </div>
         <div id='view' ng-view>
         </div>
     </div>
 </div>
+</div>
 <footer>GullakMaster &copy; 2014</footer>
+<%= render :partial => "back_to_top" %>
+<%= render :partial => "new_mobile_number_modal" %>
+<%= render :partial => "verify_mobile_number" %>
+<%= render :partial => "share_partial" %>
 <script type="text/javascript">
 $(document).ready(function(){
         $('nav#menu').mmenu();
-        modal_submit();
-        verification_modal_submit();
-        mobile_number_verification();
         get_backtotop_button();
         })
 </script>

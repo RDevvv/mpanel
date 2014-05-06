@@ -1,16 +1,15 @@
 <div id="verification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
     <div style="width:100%; overflow-x:hidden; margin:0; padding:0;" class="modal-body">
-            <div class="sub-txt2">Verification code sent by SMS</div>
-            <%= form_tag '/check_verification_code.json', :method => 'POST', :validate => true, :class => 'customer-verification-code-form cust-ver form-horizontal' do  %>
+        <div class="sub-txt2">Verification code sent by SMS</div>
+        <form method = 'POST' class = 'customer-verification-code-form cust-ver form-horizontal' >
             <div class="control-group">
-            <div class="controls">
-                <%= text_field_tag :verification_code,'', :class => 'datetime_select', :placeholder => "Enter verification code" %>
-                <%= submit_tag 'Submit', :class => 'btn-blue' %>
+                <div class="controls">
+                    < input type='text' name='verification_code' class = 'datetime_select' placeholder ="Enter verification code" >
+                    < input type='submit' name='Submit' class = 'btn-blue'>
+                </div>
             </div>
-        </div>
-        <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
-    <% end %>
+            <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
+        </form>
     </div>
-    <div class="send-code"><%= link_to 'Resend verification code', '#', :onClick => 'resend_verification_code()'%></div>
 </div>
