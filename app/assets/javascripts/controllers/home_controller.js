@@ -62,6 +62,13 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
             return 'outlet';
     }
 
+    $scope.top_search_class = function(){
+        if($location.path()=='/deals/shop')
+            return 'hide';
+        else
+            return 'span12';
+    }
+
     $scope.map_view_link = function(){
         if($location.path()=='/deals/outlets')
             new_location = 'deals/map';
