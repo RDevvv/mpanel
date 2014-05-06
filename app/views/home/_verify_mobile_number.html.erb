@@ -1,15 +1,14 @@
-<div id="verification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="verification" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller='VerificationController'>
     <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
     <div style="width:100%; overflow-x:hidden; margin:0; padding:0;" class="modal-body">
         <div class="sub-txt2">Verification code sent by SMS</div>
-        <form method = 'POST' class = 'customer-verification-code-form cust-ver form-horizontal' >
+        <form method = 'POST' class = 'customer-verification-code-form cust-ver form-horizontal' ng-submit='enter_verification_code()'>
             <div class="control-group">
                 <div class="controls">
-                    < input type='text' name='verification_code' class = 'datetime_select' placeholder ="Enter verification code" >
-                    < input type='submit' name='Submit' class = 'btn-blue'>
+                    <input type='text' name='verification_code' class = 'datetime_select' placeholder ="Enter verification code" ng-model='verification_code' required/>
+                    <input type='submit' name='Submit' class = 'btn-blue'>
                 </div>
             </div>
-            <%= hidden_field_tag 'customer_uuid', cookies[:customer_uuid] %>
         </form>
     </div>
 </div>

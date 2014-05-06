@@ -1,14 +1,15 @@
-app.controller('HomeController', function($scope, $http, $routeParams, $cookies, $location, $route){
+app.controller('HomeController', function($scope, $http, $routeParams, $cookies, $location, $route, UrlContent){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
-        if($cookies['mobile_number']=='undefined'||$cookies['mobile_number']=='false'){
+        if($cookies['mobile_number']!='verified'){
+            UrlContent.location = $scope.searchh;
+            UrlContent.latitude = $scope.latitude;
+            UrlContent.longitude= $scope.longitude;
             angular.element('#mobile-number').modal('show');
         }
-        else if($cookies['mobile_number']=='not_verified'){
-            angular.element('#verification').modal('show');
-        }
         else{
+            UrlContent.location = $scope.searchh;
             $location.url('/deals/outlets?search=all&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude);
         }
     }

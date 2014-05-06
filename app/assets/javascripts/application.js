@@ -16,7 +16,6 @@
 //= require jquery.pnotify.min
 //= require jquery.mmenu.min
 //= require jquery.scrollTo
-//= require jquery.cookie
 //= require oms.min
 //= require angular
 //= require angular-route
