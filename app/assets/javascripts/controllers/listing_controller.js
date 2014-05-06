@@ -10,15 +10,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         center: {latitude: 12.8, longitude: 72.8},
         marker_index: 0,
         zoom:13,
-        events: {
-            tilesloaded: function (map) {
-                $scope.$apply(function () {
-
-                    console.log('this is the map instance', map);
-                    oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied: true});
-                });
-            }
-        }
     }
 
     $scope.verified = function(){

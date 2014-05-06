@@ -105,12 +105,12 @@ html, body {width: 100%; overflow-x: hidden;}
 
 <div class="container-location" >
     <div class="row-fluid">
-        <div class="span12" id='top_search'>
+        <div ng-class='top_search_class()'>
             <div class="search-div3">
                 <form ng-submit='category_form()' method='get'>
                     <fieldset>
                         <div class="input">
-                            <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category' ng-init='top_search_value()' >
+                            <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category'>
                         </div>
                     </fieldset>
                     <!--<div class="non_grey_filter">&nbsp;</div>-->

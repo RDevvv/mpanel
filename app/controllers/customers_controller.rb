@@ -22,18 +22,16 @@ class CustomersController < ApplicationController
           if @existing_customer.is_verified == true
               cookies[:mobile_number] = {:value => "verified", :expires => 1.year.from_now}
           else
-              cookies[:mobile_number] = {:value => "not_verified", :expires => 1.year.from_now}
+              cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
           end
           @mobile_number = 'exist'
       else
-          unless params[:mobile_number].empty?
-              if @customer.update_attributes(:mobile_number => params[:mobile_number])
-                  cookies[:mobile_number] = {:value => "not_verified", :expires => 1.year.from_now}
-                  @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
-                  @mobile_number = true
-              else
-                  @mobile_number = false
-              end
+          cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
+          if @customer.update_attributes(:mobile_number => params[:mobile_number])
+              @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
+              @mobile_number = true
+          else
+              @mobile_number = false
           end
       end
       respond_to do |format|
@@ -45,10 +43,6 @@ class CustomersController < ApplicationController
       @customer = Customer.where(:uuid => params[:customer_uuid]).first
       @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
       render :json => {:success => true}
-  end
-
-  def facebook_data
-      cookies[:facebook_auth] = {:value => true, :expires => 1.year.from_now}
   end
 
   def location_from_ip
