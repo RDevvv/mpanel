@@ -5,14 +5,58 @@
     </div>
     <div class="clear"></div>
   </header>
-  <div class="miniNavContainer">
+  <div class="navbar navbar-default">
+      <div class="navbar-inner">
+            <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Menu</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><%= link_to "Home", "/home.html" %></li>
+                <li><%= link_to "Blog", "/articles" %></li>
+              </ul>
+              <div id="mc_embed_signup">
+              <form action="http://gullakmaster.us3.list-manage.com/subscribe/post?u=c917f58b606fb04950bac9123&amp;id=7520d888c7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="navbar-form navbar-left" target="_blank" role="search" novalidate>
+                <div class="form-group">
+                  <div style="position: absolute; left: -5000px;"><input type="text" name="b_c917f58b606fb04950bac9123_7520d888c7" value=""></div>
+                  <input type="text" class="form-control" placeholder="Subscribe">
+                </div>
+                <!--<input type="submit" value="Go" name="subscribe" id="mc-embedded-subscribe" class="btn-subs">-->
+                <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-subs">Go</button>
+              </form>
+              </div>
+            </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+    <div class="non-bs-bar">
+      <ul class="nav">
+        <li><%= link_to "Home", "/home.html" %></li>
+        <li><%= link_to "Blog", "/articles" %></li>
+      </ul>
+      <div id="mc_embed_signup">
+        <form action="http://gullakmaster.us3.list-manage.com/subscribe/post?u=c917f58b606fb04950bac9123&amp;id=7520d888c7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="navbar-form navbar-left" target="_blank" role="search" novalidate>
+          <div class="form-group">
+            <div style="position: absolute; left: -5000px;"><input type="text" name="b_c917f58b606fb04950bac9123_7520d888c7" value=""></div>
+            <input type="text" class="form-control" placeholder="Subscribe">
+          </div>
+          <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-subs">Go</button>
+          <!--<input type="submit" value="Go" name="subscribe" id="mc-embedded-subscribe" class="button">-->
+        </form>
+      </div>
+    </div>
+  <!--<div class="miniNavContainer">
     <nav class="miniNav">
       <ul>
         <li><%= link_to "Home", "/home.html" %></li>
         <li><%= link_to "Blog", "/articles" %></li>
       </ul>
     </nav>
-  </div>
+  </div>-->
   <div id="aCol">
     <% @newsfeeds.each do |newsfeed| %>
     <div class="aColumn2">
