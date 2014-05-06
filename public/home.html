@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="google-site-verification" content="7qS_zVhTyooKguGmptrOU4qbeL1-J9edQkZnhDcOuhs" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.4, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Shoffr drives footfall to your store</title>
 <meta name="title" content="Shoffr drives footfall to your store"/>
 <meta name="description" content="Shoffr's location based mobile marketing platform generates footfall for retail storefronts. It instills your brand recall just when customers reveal their intent to buy from nearby stores. Shoffr studies customer behavior and provides the impetus to walk-in by communicating your offer to the customer in real-time."/>
@@ -27,13 +27,20 @@
 <meta name="twitter:image:src" content="http://shoffr.com/assets/benefits-for-stores.png" >
 <meta name="twitter:description" content="Shoffr's location based mobile marketing platform generates footfall for retail storefronts. It instills your brand recall just when customers reveal their intent to buy from nearby stores. Shoffr studies customer behavior and provides the impetus to walk-in by communicating your offer to the customer in real-time." >
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/assets/normalize.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="/assets/grid.css" type="text/css" media="screen">
-    <link href="/assets/new-styles.css" rel="stylesheet" type="text/css"/>
+    <!--<link rel="stylesheet" href="/assets/normalize.css" type="text/css" media="screen">-->
+    <!--<link rel="stylesheet" href="/assets/grid.css" type="text/css" media="screen">-->
+  <link href="/assets/bootstrap.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+  <link href="/assets/new-styles.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-  <!--<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
-    <script type="text/javascript" src="/assets/bootstrap.js"></script>
-
+  <script type="text/javascript" src="/assets/bootstrap.js"></script>
+  <script type="text/javascript" src="/assets/jquery.fancybox.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/jquery.fancybox.css" media="screen" />
+  <script type="text/javascript">
+      $(document).ready(function() {
+      $('.fancybox').fancybox();
+    });
+  </script>
   <!-- <link rel="stylesheet" href="css/style.min.css" type="text/css" media="screen"> -->
   <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <!-- efforless script below -->
@@ -73,177 +80,192 @@
 <body>
 
 
-  <div class="menu">
-    <div class="container clearfix">
-      <header id="blogs-masthead">
+<div class="menu">
+  <header id="blogs-masthead">
         <div class="element1">
           <div id="logo"><a href=""><img alt="Drive Footfall to your stores" title="Drive Footfall to your stores" src="/assets/logo.png"></a></div>    
         </div>
         <div class="clear"></div>
-      </header>
-      <div id="nav">
-        <ul class="navigation">
-          <!--<li><div onclick="window.open('/articles');" target="_blank">Blog</div></li>-->
-          <li><div onclick=location.href='/articles'>Blog</div></li>
-          <li data-slide="3">Team</li>
-          <li data-slide="4">Careers</li>
-          <li data-slide="5">Contact Us</li>
-          <li><div onclick=location.href='/newsfeeds'>News feed</div></li>
-        </ul>
-      </div>
+  </header>
+  <div class="navbar navbar-default">
+    <div class="navbar-inner">
+          <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Menu</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <!--<li><div onclick=location.href='/articles'><a href="#">Blog</a></div></li>-->
+              <li><a onclick=location.href='/articles'>Blog</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+              <li><a onclick=location.href='/newsfeeds'>News feed</a></li>
+              <!--<li><div onclick=location.href='/newsfeeds'><a href="#">News feed</a></div></li>-->
+            </ul>
+            <div id="mc_embed_signup">
+            <form action="http://gullakmaster.us3.list-manage.com/subscribe/post?u=c917f58b606fb04950bac9123&amp;id=7520d888c7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="navbar-form navbar-left" target="_blank" role="search" novalidate>
+              <div class="form-group">
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_c917f58b606fb04950bac9123_7520d888c7" value=""></div>
+                <input type="text" class="form-control" placeholder="Subscribe">
+              </div>
+              <!--<input type="submit" value="Go" name="subscribe" id="mc-embedded-subscribe" class="btn-subs">-->
+              <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-subs">Go</button>
+            </form>
+            </div>
+          </div><!-- /.nav-collapse -->
+          </div><!-- /.container -->
+    </div><!-- /.navbar-inner -->
+  </div><!-- /.navbar -->
+  <div class="non-bs-bar">
+    <ul class="nav">
+      <li><a onclick=location.href='/articles'>Blog</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a onclick=location.href='/newsfeeds'>News feed</a></li>
+    </ul>
 
+    <div id="mc_embed_signup">
+      <form action="http://gullakmaster.us3.list-manage.com/subscribe/post?u=c917f58b606fb04950bac9123&amp;id=7520d888c7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="navbar-form navbar-left" target="_blank" role="search" novalidate>
+        <div class="form-group">
+          <div style="position: absolute; left: -5000px;"><input type="text" name="b_c917f58b606fb04950bac9123_7520d888c7" value=""></div>
+          <input type="text" class="form-control" placeholder="Subscribe">
+        </div>
+        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn-subs">Go</button>
+        <!--<input type="submit" value="Go" name="subscribe" id="mc-embedded-subscribe" class="button">-->
+      </form>
     </div>
   </div>
+</div>
 <div class="main-div-contr">
   <div class="left-contr">
-    <div id="slide-container">
-    <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
-      <div class="container clearfix">
-        <div id="content">
-          <div class="image-contr">
-            <img src="/assets/benefits-for-stores.png" alt="Drive Footfall to your stores" title="Drive Footfall to your stores" />
-            <div class="imagedesc">Shoffr's location based mobile marketing platform generates footfall for retail storefronts. It instills your brand recall just when customers reveal their intent to buy from nearby stores. Shoffr studies customer behavior and provides the impetus to walk-in by communicating your offer to the customer in real-time.</div>
-          </div>
-        </div>
+    <div class="image-contr">
+      <img src="/assets/benefits-for-stores.png" alt="Drive Footfall to your stores" title="Drive Footfall to your stores" />
+      <div class="imagedesc">Shoffr's location based mobile marketing platform generates footfall for retail storefronts. It instills your brand recall just when customers reveal their intent to buy from nearby stores. Shoffr studies customer behavior and provides the impetus to walk-in by communicating your offer to the customer in real-time.</div>
+    </div>
+
+    <div id="team">
+      <h4>Team</h4>
+      <ul class="team-members">
+                          <li>
+                              <div class="tm-div">
+                                  <div class="mem-pict"><a class="fancybox" href="#ad"><img src="/assets/Abhishek.png" border="0" alt="Abhishek Dadoo" title="Abhishek Dadoo" /></a></div>
+                                  <div class="orng-box">
+                                      <div class="title">abhishek dadoo</div>
+                                      <div class="nickname">(Mr. ProveIt)</div>
+                                      <div class="desig">Founder, CEO</div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="tm-div">
+                                  <div class="mem-pict"><a class="fancybox" href="#kg"><img src="/assets/Kaustubh.png" border="0" alt="Kaustubh Gupte" title="Kaustubh Gupte" /></a></div>
+                                  <div class="orng-box">
+                                      <div class="title">kaustubh gupte</div>
+                                      <div class="nickname">(Biggest Bhukkad)</div>
+                                      <div class="desig">Business Development</div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="tm-div">
+                                  <div class="mem-pict"><a class="fancybox" href="#nvm"><img src="/assets/Narren.png" border="0" alt="Narrendra Murthhy" title="Narrendra Murthhy" /></a></div>
+                                  <div class="orng-box">
+                                      <div class="title">narrendra murthhy</div>
+                                      <div class="nickname">(Sir Krodhit Panchi)</div>
+                                      <div class="desig">Product Development</div>
+                                  </div>
+                              </div>
+                          </li>
+      </ul>
+      <ul class="team-members">
+                          <li>
+                              <div class="tm-div">
+                                  <div class="mem-pict">
+                                      <a href="#">
+                                          <img border="0" title="" src="/assets/Vijay.png" alt="Vijay Gaikwad">
+                                      </a>
+                                  </div>
+                                  <div class="orng-box">
+                                      <div class="title">Vijay Gaikwad</div>
+                                      <div class="nickname">(TBA)</div>
+                                      <div class="desig">Junior Developer</div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="tm-div">
+                                  <div class="mem-pict">
+                                      <a class="fancybox" href="#gd">
+                                      <img border="0" title="" src="/assets/Vivek.png" alt="Vivek Varade"></a></div>
+                                  <div class="orng-box">
+                                      <div class="title">vivek varade</div>
+                                      <div class="nickname">(TBA)</div>
+                                      <div class="desig">Senior Developer</div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="tm-div">
+                                  <div class="mem-pict">
+                                      <a href="#">
+                                      <img border="0" title="" src="/assets/Abhimanyu.png" alt="Abhimanyu Lad"></a></div>
+                                  <div class="orng-box">
+                                      <div class="title">abhimanyu lad</div>
+                                      <div class="nickname">(TBA)</div>
+                                      <div class="desig">Graphic Designer</div>
+                                  </div>
+                              </div>
+                          </li>
+      </ul>
+    </div>
+
+    <div id="careers">
+      <section id="wrapper-div">
+                          <h4>Careers</h4>
+                          <p></p>
+                          At Shoffr we entrust employees with high responsibility and fast-track career growth opportunities. At our office, there are no hierarchies and you are able to execute on your ideas with speed. And the best part – our pay is competitive! Interested candidates please send your resume to
+                          <strong>hr@shoffr.com</strong>.
+                          Kindly mention the job title in the subject line of your email.
+                          <div>
+                          </div>
+                          <div class="clear-div">&nbsp;</div>
+
+                          <div class="post"><a id="intern"><strong>Freelance Content Writer</strong></a></div>
+                          <ul class="cpoints">
+                              <li>4-5 years of analytical writing experiance.</li>
+                              <li>Content Ideation for blogs/write ups.</li>
+                              <li>Must have experience in writing about the Indian Retail industry.</li>
+                              <li>Some experience in writing about mobile apps is preferred</li>
+                          </ul>
+                          <!--<div class="post">In this role there is an opportunity to convert to a permanent employee depending upon your performance.</div>-->
+      </section>
+    </div>
+
+    <div id="contact">
+      <h4>Contact Us</h4>
+      <div class="con-container">
+                <div class="ofc-box">
+                  <p>303 Ashish Mahal<br>Golibar 1, TPS 3<br>Nr. Khar Subway<br>Santacruz East<br> Mumbai 400055
+                  </p>
+                </div>
+                <div class="emailids">
+                 <div class="entry">General: <a href="mailto:hello@shoffr.com">hello@shoffr.com</a></div>
+                 <div class="entry">Career: <a href="mailto:hr@shoffr.com">hr@shoffr.com</a></div>
+                 <div class="entry">Merchant: <a href="mailto:kaustubh@shoffr.com">kaustubh@shoffr.com</a></div>
+                 <div class="entry">Investor: <a href="mailto:abhishek@shoffr.com">abhishek@shoffr.com</a></div>
+                 <div class="entry">Media: <a href="mailto:abhishek@shoffr.com">abhishek@shoffr.com</a></div>
+                </div>
       </div>
     </div>
 
-    <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
-      <div class="container clearfix">
-
-        <div id="content" class="grid_12">
-          <h4>Team</h4>
-          <ul class="team-members">
-                      <li>
-                          <div class="tm-div">
-                              <div class="mem-pict"><a class="fancybox" href="#ad"><img src="/assets/Abhishek.png" border="0" alt="Abhishek Dadoo" title="Abhishek Dadoo" /></a></div>
-                              <div class="orng-box">
-                                  <div class="title">abhishek dadoo</div>
-                                  <div class="nickname">(Mr. ProveIt)</div>
-                                  <div class="desig">Founder, CEO</div>
-                              </div>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="tm-div">
-                              <div class="mem-pict"><a class="fancybox" href="#kg"><img src="/assets/Kaustubh.png" border="0" alt="Kaustubh Gupte" title="Kaustubh Gupte" /></a></div>
-                              <div class="orng-box">
-                                  <div class="title">kaustubh gupte</div>
-                                  <div class="nickname">(Biggest Bhukkad)</div>
-                                  <div class="desig">Business Development</div>
-                              </div>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="tm-div">
-                              <div class="mem-pict"><a class="fancybox" href="#nvm"><img src="/assets/Narren.png" border="0" alt="Narrendra Murthhy" title="Narrendra Murthhy" /></a></div>
-                              <div class="orng-box">
-                                  <div class="title">narrendra murthhy</div>
-                                  <div class="nickname">(Sir Krodhit Panchi)</div>
-                                  <div class="desig">Product Development</div>
-                              </div>
-                          </div>
-                      </li>
-          </ul>
-          <ul class="team-members">
-                      <li>
-                          <div class="tm-div">
-                              <div class="mem-pict">
-                                  <a href="#">
-                                      <img border="0" title="" src="/assets/Vijay.png" alt="Vijay Gaikwad">
-                                  </a>
-                              </div>
-                              <div class="orng-box">
-                                  <div class="title">Vijay Gaikwad</div>
-                                  <div class="nickname">(TBA)</div>
-                                  <div class="desig">Junior Developer</div>
-                              </div>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="tm-div">
-                              <div class="mem-pict">
-                                  <a class="fancybox" href="#gd">
-                                  <img border="0" title="" src="/assets/Vivek.png" alt="Vivek Varade"></a></div>
-                              <div class="orng-box">
-                                  <div class="title">vivek varade</div>
-                                  <div class="nickname">(TBA)</div>
-                                  <div class="desig">Senior Developer</div>
-                              </div>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="tm-div">
-                              <div class="mem-pict">
-                                  <a href="#">
-                                  <img border="0" title="" src="/assets/Abhimanyu.png" alt="Abhimanyu Lad"></a></div>
-                              <div class="orng-box">
-                                  <div class="title">abhimanyu lad</div>
-                                  <div class="nickname">(TBA)</div>
-                                  <div class="desig">Graphic Designer</div>
-                              </div>
-                          </div>
-                      </li>
-                  </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5">
-      <div class="container clearfix">
-
-        <div id="content" class="grid_12">
-          <section id="wrapper-div">
-                      <h4>Careers</h4>
-                      <p></p>
-                      At Shoffr we entrust employees with high responsibility and fast-track career growth opportunities. At our office, there are no hierarchies and you are able to execute on your ideas with speed. And the best part – our pay is competitive! Interested candidates please send your resume to
-                      <strong>hr@shoffr.com</strong>.
-                      Kindly mention the job title in the subject line of your email.
-                      <div>
-                      </div>
-                      <div class="clear-div">&nbsp;</div>
-
-                      <div class="post"><a id="intern"><strong>Freelance Content Writer</strong></a></div>
-                      <ul class="cpoints">
-                          <li>4-5 years of analytical writing experiance.</li>
-                          <li>Content Ideation for blogs/write ups.</li>
-                          <li>Must have experience in writing about the Indian Retail industry.</li>
-                          <li>Some experience in writing about mobile apps is preferred</li>
-                      </ul>
-                      <!--<div class="post">In this role there is an opportunity to convert to a permanent employee depending upon your performance.</div>-->
-                  </section>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="slide" id="slide5" data-slide="5" data-stellar-background-ratio="0.5">
-      <div class="container clearfix">
-
-        <div id="content" class="grid_12">
-          <h4>Contact Us</h4>
-          <div class="con-container">
-            <div class="ofc-box">
-              <p>303 Ashish Mahal<br>Golibar 1, TPS 3<br>Nr. Khar Subway<br>Santacruz East<br> Mumbai 400055
-              </p>
-            </div>
-            <div class="emailids">
-             <div class="entry">General: <a href="mailto:hello@shoffr.com">hello@shoffr.com</a></div>
-             <div class="entry">Career: <a href="mailto:hr@shoffr.com">hr@shoffr.com</a></div>
-             <div class="entry">Merchant: <a href="mailto:kaustubh@shoffr.com">kaustubh@shoffr.com</a></div>
-             <div class="entry">Investor: <a href="mailto:abhishek@shoffr.com">abhishek@shoffr.com</a></div>
-             <div class="entry">Media: <a href="mailto:abhishek@shoffr.com">abhishek@shoffr.com</a></div>
-            </div>
-          </div> 
-        </div>
-
-      </div>
-    </div>
-    </div>
     <ul class="team-members">
-                              <div id="ad">
-                              <div class="prf-div-pop">
+      <div id="ad">
+        <div class="prf-div-pop">
                                   <div class="prof-div-lft">
                                       <div class="pic"><img src="/assets/Abhishek.png" border="0" /></div>
                                       <div class="name">abhishek dadoo</div>
@@ -261,10 +283,10 @@
                                       Abhishek welcomes feedback and learns from his mistakes. Surrounded by numbers and data, he is a big proponent of data driven decisions. He will refute any assumption unless it is proven; so much so that the entire Shoffr team has learnt the same gospel. At the moment, Abhishek is busy becoming a growth hacker and goes by the nickname 'Mr. ProveIt'.
                                       </p>
                                   </div>
-                              </div>
-                              </div>
-                              <div id="kg">
-                                  <div class="prf-div-pop">
+        </div>
+      </div>
+      <div id="kg">
+        <div class="prf-div-pop">
                                       <div class="prof-div-lft">
                                           <div class="pic"><img src="/assets/Kaustubh.png" border="0" /></div>
                                           <div class="name">kaustubh gupte</div>
@@ -280,10 +302,10 @@
                                               Kaustubh loves his job, but has various other interests like cricket, food, food, food and food. Rather than pondering about a problem, Kaustubh believes in carving out a solution. Fortunately or unfortunately for every problem he faces, the solution is always the same; Food. He is nicknamed ‘biggest bhukkad’ at office for obvious reasons and currently has no close contender.
                                           </p>
                                       </div>
-                                  </div>
-                              </div>
-                              <div id="nvm">
-                                  <div class="prf-div-pop">
+        </div>
+      </div>
+      <div id="nvm">
+        <div class="prf-div-pop">
                                       <div class="prof-div-lft">
                                           <div class="pic"><img src="/assets/Narren.png" border="0" /></div>
                                           <div class="name">narrendra murthhy</div>
@@ -299,10 +321,10 @@
                                               Apart from being a workaholic, he is such an Angry Bird fanatic that he is nicknamed “Sir Krodhit Panchi” by his colleagues. After Sir Rajnikanth and Sir Ravindra Jadeja there is only one man in our team who can be titled as ‘Sir’ and that is none other than Sir Narrendra Murthhy; not because he has done anything extraordinary for our society, but his mere existence in our workspace is a blessing in disguise.
                                           </p>
                                       </div>
-                                  </div>
-                              </div>
-                              <div id="rh">
-                                  <div class="prf-div-pop">
+        </div>
+      </div>
+      <div id="rh">
+        <div class="prf-div-pop">
                                       <div class="prof-div-lft">
                                           <div class="pic"><img src="/assets/Ritesh.png" border="0" /></div>
                                           <div class="name">ritesh haldankar</div>
@@ -318,10 +340,10 @@
                                              Apart from being the serious Graphic Designer, Ritesh is often spotted with his best friend, his digital camera. When asked about his passion for photography, he says, “I can imagine my life without a girlfriend but not without my camera”. Although not the tallest person around, Ritesh is endearingly addressed as the ‘Giraffe-Man’ by everyone at the office. Giraffe being Shoffr’s official mascot, Ritesh spends majority of his work day dressing up the Giraffe.
                                           </p>
                                       </div>
-                                  </div>
-                              </div>
-                              <div id="gd">
-                                  <div class='prf-div-pop'>
+        </div>
+      </div>
+      <div id="gd">
+        <div class='prf-div-pop'>
                                       <div class='prof-div-lft'>
                                           <div class='pic'>
                                               <img border='0' src='/assets/Vivek.png'>
@@ -338,9 +360,10 @@
                                               Vivek proves to be an asset for our company as the ‘Agile methodology’ of development used by him, would speed up the pace of development for the web application. Vivek, when not in the serious work mode, will most likely be found developing and playing strategy games like the ‘Age of Empires’, and is soon coming up with his very own creation, ‘Dwarven Defenders’ – of course another strategy game. His calm and passionate nature towards application development is what makes him brilliant at his work.
                                           </p>
                                       </div>
-                              </div>
-                              <div id="vv">
-                                <div class="prf-div-pop">
+        </div>
+      </div>
+      <div id="vv">
+        <div class="prf-div-pop">
                                   <div class="prof-div-lft">
                                       <div class="pic"><img src="assets/Vivek.png" border="0" /></div>
                                       <div class="name">Vivek Varade</div>
@@ -355,10 +378,10 @@
                                           Vivek proves to be an asset for our company as the ‘Agile methodology’ of development used by him, would speed up the pace of development for the web application. Vivek, when not in the serious work mode, will most likely be found developing and playing strategy games like the ‘Age of Empires’, and is soon coming up with his very own creation, ‘Dwarven Defenders’ – of course another strategy game. His calm and passionate nature towards application development is what makes him brilliant at his work.
                                       </p>
                                   </div>
-                                </div>
-                              </div>
+        </div>
+      </div>
     </ul>
-  </div>
+  </div>  
   <div class="right-contr">
     <div class="twit-container">
      <a class="twitter-timeline" href="https://twitter.com/_shoffr" data-widget-id="453080619451301888" height="420">Tweets by @_shoffr</a>   
@@ -378,19 +401,8 @@
     </a>
   </div>
 
-  <script type="text/javascript" src="/assets/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/jquery.stellar.min.js"></script>
-  <script type="text/javascript" src="/assets/waypoints.min.js"></script>
-  <script type="text/javascript" src="/assets/jquery.easing.1.3.js"></script>
-  <script type="text/javascript" src="/assets/scripts.js"></script>
-  <!-- <script type="text/javascript" src="js/scripts.min.js"></script> -->
-  <script type="text/javascript" src="/assets/jquery.fancybox.js"></script>
-  <link rel="stylesheet" type="text/css" href="/assets/jquery.fancybox.css" media="screen" />
-  <script type="text/javascript">
-      $(document).ready(function() {
-      $('.fancybox').fancybox();
-    });
-  </script>
+
+  
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

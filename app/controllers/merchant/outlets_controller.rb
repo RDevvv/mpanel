@@ -4,7 +4,7 @@ class Merchant::OutletsController <  Merchant::BaseController
   #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
     skip_before_filter :load_account_and_brand, :authenticate_merchant_user!, :only => :show
 
-  layout "outlet_manager", :only => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
+  #layout "outlet_manager", :only => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
 
 	def index
     @outlets = @account_brand.outlets
