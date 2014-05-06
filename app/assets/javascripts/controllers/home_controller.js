@@ -1,4 +1,6 @@
-app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies', '$location', function($scope, $http, $routeParams, $cookies, $location){
+app.controller('HomeController', function($scope, $http, $routeParams, $cookies, $location, $route){
+    $scope.hide_filter = true;
+
     $scope.home_submit = function(){
         if($cookies['mobile_number']=='undefined'||$cookies['mobile_number']=='false'){
             angular.element('#mobile-number').modal('show');
@@ -25,11 +27,30 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
     }
 
     $scope.category_form = function(){
-        //if($routeParams.search!='all'){
-        //}
-        $location.search('search',$scope.category);
+        if($scope.submit_type=='filter')
+            $location.search('search','all');
+        else
+            $location.search('search',$scope.category);
     }
 
+    $scope.set_attribute= function(type){
+        $scope.hide_filter = false;
+        if(type=='filter'){
+            $scope.category='';
+            $scope.submit_type='filter';
+        }
+        else{
+            $scope.submit_type='search';
+        }
+    }
+
+
+    $scope.set_class = function(){
+        if($scope.submit_type!='filter'&&$scope.hide_filter==false)
+            return 'non_grey_filter';
+        else
+            return 'non_grey_filter hide';
+    }
 
     $scope.view_button = function(){
         if($location.path()=='/deals/shop')
@@ -65,4 +86,4 @@ app.controller('HomeController', ['$scope', '$http', '$routeParams', '$cookies',
         }
     }
     hide_top_menu();
-}])
+})

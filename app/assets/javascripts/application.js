@@ -24,7 +24,7 @@
 //= require underscore-min
 //= require angular-cookies
 //= require angular-google-maps.min
-//= require_directory ./mobile_site
+//= require mobile_site/back_to_top
 //= require_directory ./services
 //= require_directory ./filters
 //= require_directory ./directives
