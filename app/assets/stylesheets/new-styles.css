@@ -36,8 +36,7 @@ html, body {max-width: 100%; /*overflow-x: hidden;*/}
 .container-fluid {padding-left: 0;}
 /* Top header styles */
 #header2 {position:fixed; top:0; height:30px; display: block; width:100%; margin: 0 auto; background:#000; font-size:11px; color:#fff; z-index:2000; /*width:800px;*/}
-#top-bar {width:100%; 
-    background-color: #252525; background-repeat: repeat-x;
+#top-bar {width:100%; background-color: #252525; background-repeat: repeat-x;
   /* Safari 4-5, Chrome 1-9 */
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#252525), to(#393939));
   /* Safari 5.1, Chrome 10+ */
@@ -146,9 +145,6 @@ ul.team {float:left; width: 650px; margin: 0;}
 ul.team li {float: left; clear: both; margin: 5px 0; list-style: none;}
 div.teampic {float:left; width:auto; height: auto;}
 .fl {float: left;}
-/*.orng-box {background-color: #F08D1E; clear: both;font-size: 10px; height: 45px; text-align: center; width: 137px;}
-.orng-box .nickname {color: #FFFFFF; padding: 1px 0 0;}
-.orng-box .desig {color: #000000; font-weight: bold; padding: 5px 0 0;}*/
 div.teamemname {float: right; font-size: 21px; font-weight:bold; margin: 90px 0 0 82px; text-transform: uppercase;}
 
 ul.team-members {float:left; clear:both; width:100%; height:auto; margin:0 0 10px 0; list-style-type:none; font-family: sans-serif;}
@@ -175,7 +171,6 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 .modal_close {position: absolute; top: -13px; right: -10px; display: block; width: 30px; height: 28px; z-index: 2; background-image: url(fancybox.png);
   background-position: -40px 0px;
 }
-
 /* Main div container */
 .menu {width:950px; margin:0 auto;}
 .main-div-contr {width:950px; margin:0 auto;}
