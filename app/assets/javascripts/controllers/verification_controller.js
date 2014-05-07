@@ -8,19 +8,20 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
                 customer_uuid: $cookies['customer_uuid']
             }
         }).success(function(data){
+                    angular.element('#mobile-number').modal('hide');
             if(data["mobile_number"]==1){
                 $('#mobile-number').modal('hide');
                 $('#verification').modal('show');
             }
             else if(data["mobile_number"]=="exist"){
-                if($cookies['mobile_number']=='not_verified'){
-                    $('#verification').modal('show');
-                    $('#mobile-number').modal('hide');
-                }
-                else{
+                if(data['verified']==true){
                     $.pnotify({ title: 'Welcome back', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
                     $location.url('/deals/outlets?search=all&location='+UrlContent.location+'&latitude='+UrlContent.latitude+'&longitude='+UrlContent.longitude);
-                    $('#mobile-number').modal('hide');
+                    angular.element('#mobile-number').modal('hide');
+                }
+                else{
+                    $('#verification').modal('show');
+                    angular.element('#mobile-number').modal('hide');
                 }
             }
             else{

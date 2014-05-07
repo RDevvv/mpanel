@@ -21,6 +21,7 @@ class CustomersController < ApplicationController
           cookies[:customer_uuid] = {:value => @existing_customer.uuid, :expires => 1.year.from_now}
           if @existing_customer.is_verified == true
               cookies[:mobile_number] = {:value => "verified", :expires => 1.year.from_now}
+              @verified = true
           else
               cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
           end
@@ -35,7 +36,7 @@ class CustomersController < ApplicationController
           end
       end
       respond_to do |format|
-          format.json { render :json => {:mobile_number => @mobile_number}}
+          format.json { render :json => {:mobile_number => @mobile_number, :verified => @verified}}
       end
   end
 
