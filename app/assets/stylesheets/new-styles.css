@@ -376,6 +376,8 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 }
 
 @media only screen and (min-width: 540px) and (max-width: 1200px), handheld {
+html, body {max-width: 100%; overflow-x: hidden;}
+.left-contr {border-right:none;}
 .non-bs-bar {display: none !important;}
 /* Bootstrap nav */
 .navbar .btn-navbar {float:left; display: block; position:relative; margin-right: 0; left:-17px;}
@@ -397,6 +399,7 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 ul.footerlinksmain {float:right; position: relative; left: -3px; height: 10px; bottom: 0; width:auto; height:auto; font-size:9px}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;} 
+#mc_embed_signup {float:left !important; clear:both; position: relative; left:-28px;}
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape) {
