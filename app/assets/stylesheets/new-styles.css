@@ -58,19 +58,6 @@ ul.social-links li {float:left; margin: 0 6px; border: none; list-style: none;}
 ul.social-links li a {vertical-align: middle;}
 /* Top header styles */
 
-/* Nav */
-.miniNavContainer {float:left; height:auto; font-family: 'Arial Black', Gadget, sans-serif; border-bottom: 1px solid #CCCCCC; width:100%; margin:0 0 10px 0;}
-.miniNav {padding: 0; position: relative;}
-.miniNav ul {float:left; text-align: left; margin: 0 10px 0 -6px; padding: 9px 0 12px;}
-.miniNav ul li {background: none repeat scroll 0 center rgba(0, 0, 0, 0); border-right: solid 1px #ccc; display: inline;
-    list-style: none outside none; padding: 0;}
-.miniNav ul li a, .miniNav ul li a:visited {text-decoration: none;
-    color: #000000; font-size: 11px; font-weight: bold; margin: 0 4px; padding: 4px; text-transform: uppercase;}
-.miniNav ul li a:hover {text-decoration: none; color: #be1e2d;}    
-.miniNav ul li:last-child {border-right:none;}
-#nav {/*border-bottom:1px solid #CCCCCC;*/ border-bottom:1px solid #CCCCCC; height: 37px; margin: 0 auto 10px auto; font-family: sans-serif;}    
-/* Nav */
-
 /* Bootstrap nav */
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {background-color:#ffffff; box-shadow:none; color:#000;}
 .navbar-inner {background-image: none; background-color:transparent; box-shadow: none; border-top: 1px solid #CCCCCC; border-bottom: 1px solid #CCCCCC; border-left: none; border-right:none; border-radius:0; padding-left: 0;}
@@ -181,67 +168,7 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 #contact {float:left; clear:both; width: 100%; padding-bottom: 20px;/*position: relative; top:40px;*/}
 /* Main div container */
 
-/* Team page */
-#slide-container {width:100%; margin:0 auto;}
-#slide1, #slide2, #slide3, #slide4, #slide5, #slide6, #slide7 {width: 100%; border-right:1px solid #E2E2E2;}
 
-#slide1, #slide2, #slide3, #slide4, #slide6, #slide7 {border-bottom:1px solid #E2E2E2;}
-/* Slide 1 */ 
-
-#slide1{background-color:#ffffff; height:auto; font-size:1.1em; padding: 0 0 15px; /*height:768px;*/ float:left;}
-
-/* Slide 2 */ 
-
-#slide2{background-color:#f68f67; color:#ffffff; height:auto; font-size:1.1em; float:left;}
-
-/* Slide 3 */ 
-
-#slide3{ height:auto; float:left;}
-#test{background-color:#bde2df; color:#ffffff; text-align:center; font-size: 2em; font-weight: 400;}
-
-/* Slide 4 */
-
-#slide4{background-color:#ffffff; color:#000; font-size:1.1em; height:auto; padding: 0 0 15px; float:left;}
-
-/* Slide 5 */
-h4 {font-family: 'CheltenhamLTRegular',georgia,times,serif; color: #000000; font-weight: bold; font-size:1.6em; line-height: 30px; margin:0 auto; margin: 20px 0 20px 0px;}
-#slide5{background-color:#ffffff; color:#000; height:auto; float:left; font-size: 1.1em;}
-
-/* Slide 6 */
-#slide6{color:#ffffff; height: 500px;}
-
-/* Slide 7 */
-#slide7{color:#000; height: 300px;}
-.head {color: #494949; font-size: 15px; font-weight: bold; line-height: 20px; margin: 0;}
-.subhead {color: #4E4E4E; font-size: 18px; font-weight: bold; line-height: 20px;}
-.office_locations {float:left; border-bottom: 0 dashed #666666; height: auto; padding-bottom: 20px;}
-.address {margin:0 auto; overflow-x: hidden; width: 800px; /*width: 250px;*/}
-
-/* Navigation */
-ul.navigation{float: left; list-style: none; margin:10px 0 10px -9px; position: relative;}
-ul.navigation li {float: left; color: #000000; font-size: 11px; border-right:1px solid #DDDDDD; font-weight: bold; /*margin: 0 9px;*/ padding:0 10px; /*padding: 4px; border-right: solid 1px #ccc;*/ text-transform: uppercase;}
-ul.navigation li a, ul.navigation li div{float: left; color: #000000; font-size: 11px; font-weight: bold; margin: 0; text-transform: uppercase; text-decoration: none;}
-ul.navigation li div:hover {text-decoration: none; color: #be1e2d;}
-ul.navigation li:hover{cursor:pointer; color: #a9d3d0;}
-ul.navigation li:last-child {border-right:none;}
-ul.navigation li p {text-align: left; padding: 5px 10px; color: #000; font-size:12px;}
-ul.navigation li a:hover {text-decoration: none; color: #be1e2d;}
-ul.navigation li.home, ul.navigation li.home:hover {position:relative; bottom:9px; background: url(../img/ikons-img.png) no-repeat -203px -942px transparent; padding:27px 0 1px 13px; /*padding:27px 32px 10px 22px; top:0px;*/}
-ul.navigation li.home a {position: relative; bottom: 13px;}
-ul.navigation li:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #be1e2d;}
-ul.navigation li:visited {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1); color: #be1e2d;}
-ul.navigation li ul {z-index:10000; margin-top: 0; padding: 0; position: absolute; margin-left:-15px; background: none repeat scroll 0 0 #fff;
-  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
-  width: 200px; text-align: left; display: none; opacity: 0; visibility: hidden;
-  -webkit-transiton: opacity 0.2s; -moz-transition: opacity 0.2s; -ms-transition: opacity 0.2s;
-  -o-transition: opacity 0.2s; -transition: opacity 0.2s;}
-
-ul.navigation li ul li {width:80%; background: #ffffff; border-bottom: solid 1px #fff; display: block; color: #fff; padding: 10px 20px; display:block;}
-ul.navigation li ul li a, ul.navigation li ul li div {width:90%; color: #7770777 !important; font-size: 12px !important; font-weight: 600 !important; margin-left: 0 !important; padding: 0 10px !important; /*padding: 5px 20px !important;*/}
-ul.navigation li ul li:hover {width:80%; background: #F5F5F5; padding: 10px 20px;}
-ul.navigation li:hover ul {display: block; opacity: 1; visibility: visible;}
-.linkalign {padding-top:10px; vertical-align:middle; text-transform: uppercase; font-weight: bold;}
-/* Navigation */
 
 /* Contact Us styles */
 .con-container {float:left; width:100%; font-family: Tahoma,"times new roman",times,serif; color: #333333; margin: 0;}
