@@ -29,7 +29,14 @@
 
 }
 
-
+@font-face {
+    font-family: 'DenseRegular';
+    src: url('dense-regular.eot');
+    src: url('dense-regular.eot') format('embedded-opentype'),
+         url('dense-regular.woff') format('woff'),
+         url('dense-regular.ttf') format('truetype'),
+         url('dense-regular.svg#DenseRegular') format('svg');
+}
 /* Custom font */
 
  /*CSS hack to prevent layout breaking in landscape
@@ -280,6 +287,45 @@ textarea.feedback {background-color: #FFFFFF; text-align: left; resize:none; bac
     vertical-align: middle; width: 66%;
 }
 /* Feedback box styles */
+
+/* Social Feeds page */
+#social-feeds {float:left; clear:both; width:100%; height: 100%; max-height: 70%; background: transparent; margin:-15px 0 0 0; padding: 3px 0;}
+.social-img-cntr {float: left; width:100%; height:auto;}
+.social-img-cntr .social-pic {border:none; outline:none; margin:0; padding:0; background: inherit;}
+.social-img-cntr .social-pic img {width:100%; max-width: 100%; max-height: auto;}
+.social-chnls {float:left; clear: both; margin: 7px 0 5% 0; padding:7px 0; width: 100%; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC;}
+ul.chnls {width: 90%; margin: 0 auto; font-family: 'DenseRegular', sans-serif; text-transform: uppercase; list-style: none; height: 40%; }
+ul.chnls li {float:left; display: inline; width: 30%; height: 100%; border-right:solid 1px #dddddd;}
+ul.chnls li:last-child {border-right:none;}
+.chnl-box {float:left; width:100%; text-align: center; }
+.chnl-box .logo {clear:both; margin:0 0 2px 0;}
+.chnl-box img {border:none; outline:none;}
+.chnl-box .flw-count {clear:both; margin: 12% 0 0 0; font-size: 2em; font-weight: normal;}
+.chnl-box .seed{clear:both; margin: 8% 0 0 0; outline:none; border:none;}
+
+/*Social posts classes */
+.social-comment {clear:both; background:#BE1E2D; width:95%; height: 28%; margin: 2% auto 10% auto;}
+.social-comment-picbox {clear:both; background:#BE1E2D; width:95%; height: 67%; margin: 2% auto 10% auto;}
+.logocircle {float:left; margin:-3% 0 0 -3%; width: 65px; height: 65px; border-radius: 50%; background: #e9e9e9; }
+.logocircle img {width:100%; max-width: 100%; max-height: auto;}    
+.logocircle .txt {font-family:Arial, sans-serif; font-size: 0.6em; line-height: 10px; color:#000; text-align: center; font-weight:bold; padding: 20% 0 0 2px; }
+.commentline {/*float:left; margin: 2% 0 0 3%; position: relative; left:0; position: absolute; top:10%; left:22%;*/float:left; margin: 2% 0 0 3%; color: #ffffff; font-size:0.9em; font-family:Helvetica, sans-serif;}
+.comments-box {float: left; clear: both; position: relative; font-family:Helvetica, sans-serif; color:#fff; font-size: 0.8em; width:99%; margin:10px 0 0 0; padding:1% 2px 2px 2px;}
+.post-picbox {position:relative; top:5%; margin: 2% auto; width: 60%; height:auto;}
+.post-picbox img {max-width: 100%; max-height: 100%; margin: 0 auto; text-align: center; border: none; outline: none;}
+ul.params1 {/*position: absolute; left:0; bottom:1%;*/float:left; clear: both; width:100%; border-top:solid 1px #ffffff; list-style: none; font-size:1em; padding:1% 0 1% 0;}
+ul.params1 li {float:left; margin:0 2%; border-right:solid 2px #fff; width: 25%; }
+ul.params1 li:last-child {float:left; border-right:none; width: 8%; margin:0 1%;}
+.fblikebox {float: left; /*position: relative; right:0;*/ text-align: left; margin: 0;}
+.twlikebox {float: left; /*position: relative; right:0;*/ text-align: left;  margin:0;}
+.fblikebox img {max-width: 35%; max-height: 35%; /*position: relative; bottom:5%;*/}
+.twlikebox img {max-width: 70%; max-height: 70%; /*position: relative; bottom:5%;*/}
+div.param-fb, div.likes-fb {float:left; text-align: left; padding:0 2px;}
+div.param-fb span {padding:0 4px; font-weight: bold; }
+div.likes-fb span, div.comm-fb span {font-weight: bold;}
+div.comm-fb {float:left; text-align: left; padding:0 1px;}
+/*Social posts classes */
+/* Social Feeds page */
 
 /* Landscape phones and down */
 @media (max-width: 320px) {
