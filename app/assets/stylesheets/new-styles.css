@@ -326,7 +326,7 @@ html, body {max-width: 100%; overflow-x: hidden;}
 ul.footerlinksmain {float:right; position: relative; left: -3px; height: 10px; bottom: 0; width:auto; height:auto; font-size:9px}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;} 
-#mc_embed_signup {float:left !important; clear:both; position: relative; left:-28px;}
+#mc_embed_signup {float:left; clear:both; position: relative; left:-28px;}
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape) {
@@ -362,7 +362,8 @@ ul.footerlinksmain li:last-child {border-right:none;}
 .non-bs-bar .nav > li > a {float:none; border-right: 1px solid #DDDDDD; color: #000000; font-family: sans-serif;
   font-size: 11px; font-weight: bold; padding: 3px 15px; text-decoration:none; text-transform: uppercase; text-shadow:0 1px 0 #FFFFFF; display: block;}
 .non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;} 
-#mc_embed_signup {float:right; margin:0 1% 0 0;}    
+.non-bs-bar .nav > li:last-child > a {border-right: none;} 
+#mc_embed_signup {float:right; margin:-33px -3% 0 0;}    
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
@@ -379,7 +380,8 @@ ul.footerlinksmain li:last-child {border-right:none;}
 .non-bs-bar .nav > li > a {float:none; border-right: 1px solid #DDDDDD; color: #000000; font-family: sans-serif;
     font-size: 11px; font-weight: bold; padding: 3px 15px; text-decoration:none; text-transform: uppercase; text-shadow:0 1px 0 #FFFFFF; display: block;}
 .non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;}  
-#mc_embed_signup {float:right; margin:0 1% 0 0;}   
+.non-bs-bar .nav > li:last-child > a {border-right: none;}
+#mc_embed_signup {float:right; margin:-33px -3% 0 0;}   
 }
 
 @media (max-width: 603px) and (orientation : portrait){
