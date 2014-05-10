@@ -17,10 +17,15 @@ app.config(function($routeProvider){
         templateUrl: 'templates/home.html',
         controller: 'GeocodingController'
     })
+    .when('/profile',{
+        templateUrl: 'templates/profile.html',
+        controller: 'GeocodingController'
+    })
     .when('/',{
         templateUrl: 'templates/home.html',
         controller: 'GeocodingController'
     })
     .otherwise({redirectTo: 'templates/home.html'})
 });
-var domain= '';
+var domain   = 'http://staging.shoffr.com/';
+var app_type = 'native';
