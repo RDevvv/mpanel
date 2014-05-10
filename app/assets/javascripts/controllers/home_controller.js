@@ -2,7 +2,7 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
-        if($cookies['mobile_number']!='verified'){
+        if(($cookies['mobile_number']!='verified')&&(app_type=='html5')){
             UrlContent.location = $scope.searchh;
             UrlContent.latitude = $scope.latitude;
             UrlContent.longitude= $scope.longitude;
