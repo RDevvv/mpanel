@@ -1,10 +1,6 @@
 app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies){
     $scope.map = {
-<<<<<<< HEAD
-        user_icon: 'http://www.gullakmaster.com/assets/user_pin.png',
-=======
         user_icon: 'http://shoffr.com/assets/user_pin.png',
->>>>>>> 284cf5e76f993b3a8b0b6b30d5ff6c59305dbd28
         icon: 'http://maps.google.com/mapfiles/markerA.png',
         center: {latitude: $routeParams['customer_latitude'], longitude: $routeParams['customer_longitude']},
         user_location: {latitude: $routeParams['customer_latitude'], longitude: $routeParams['customer_longitude']},

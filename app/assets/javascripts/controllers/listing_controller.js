@@ -5,11 +5,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     $scope.enabled= false;
 
     $scope.map = {
-<<<<<<< HEAD
-        user_icon: 'http://www.gullakmaster.com/assets/user_pin.png',
-=======
         user_icon: 'http://shoffr.com/assets/user_pin.png',
->>>>>>> 284cf5e76f993b3a8b0b6b30d5ff6c59305dbd28
         icon: 'http://maps.google.com/mapfiles/markerA.png',
         center: {latitude: 12.8, longitude: 72.8},
         marker_index: 0,
