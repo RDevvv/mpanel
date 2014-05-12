@@ -27,5 +27,5 @@ app.config(function($routeProvider){
     })
     .otherwise({redirectTo: 'templates/home.html'})
 });
-var domain   = 'http://staging.shoffr.com/';
+var domain   = ''; //'http://staging.shoffr.com/';
 var app_type = 'html5'; //native or html5
