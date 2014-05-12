@@ -34,7 +34,7 @@ class SmsSentsController < ApplicationController
                 ad_promocode_outlet = ad.ad_promocode_outlets.where(:outlet_id => params[:outlet_id]).first
                 button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).order(:id).last
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
-                text = "<b>Offer:</b> #{ad.account_brand.brand.brand_name} #{ad.sms_text} <br /><b>Promocode:</b> #{ad_promocode.promocode} <br /><b>Address:</b><br /> #{outlet.shop_no}, #{outlet.address}<br /> #{outlet.area.area_name}<br /> #{outlet.area.city.city_name} #{outlet.area.pincode}<br /> Share URL: http://#{request.host}/#{campaign_copy.short_url} Thanks, Shoffr"
+                text = "<b>Offer:</b> #{ad.account_brand.brand.brand_name} #{ad.sms_text} <br />\n<b>Promocode:</b> #{ad_promocode.promocode} <br />\n<b>Address:</b><br /> #{outlet.shop_no}, #{outlet.address}<br /> #{outlet.area.area_name}<br /> #{outlet.area.city.city_name} #{outlet.area.pincode}<br /> Share URL: http://#{request.host}/#{campaign_copy.short_url} Thanks, Shoffr"
                 @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.order(:id).last.id, :button_click_id => 0)
             end
         end
