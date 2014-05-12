@@ -17,7 +17,7 @@ class SmsSentsController < ApplicationController
         unless customer.mobile_number.nil? && customer.is_verified?
             if params[:misc_sms] == 'true'
                 if params[:poster_share]=='true'
-                    pre_expiry_forward_url, campaign_name = "/#/ad_outlet?id=#{params[:outlet_id]}", 'Poster Share'
+                    pre_expiry_forward_url, campaign_name = "/#/deals/shop?id=#{params[:outlet_id]}", 'Poster Share'
                 else
                     pre_expiry_forward_url, campaign_name = "", 'Generic Share'
                 end
