@@ -104,6 +104,7 @@ Gullak2::Application.routes.draw do
     match 'resend_verification_code' => 'customers#resend_verification_code'
     match 'update_vendor_id' => 'campaigns#update_vendor_id'
     match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
+    match 'get_profile' => 'customers#show'
     get 'generate_campaign_copy' => 'campaigns#generate_campaign_copy'
     match 'get_campaign_details' => 'campaigns#get_campaign_details'
     match 'sms_share' => 'sms_sents#sms_share'
@@ -144,14 +145,14 @@ Gullak2::Application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     authenticate :admin_user do
-      mount ResqueWeb::Engine, at: '/admin/resque'
-      match "/admin/sms_chart" => "charts#sms_chart"
-      match "/admin/chart_index" => "charts#chart_index"
-      match "/admin/button_click_chart" => "charts#button_click_chart"
+        mount ResqueWeb::Engine, at: '/admin/resque'
+        match "/admin/sms_chart" => "charts#sms_chart"
+        match "/admin/chart_index" => "charts#chart_index"
+        match "/admin/button_click_chart" => "charts#button_click_chart"
     end
     get '/:short_url' => 'campaigns#campaign_landing'#, constraints: {domain: 'gullak.co'}
 
     unless Rails.application.config.consider_all_requests_local
-      match '*not_found', to: 'error_messages#error_404'
+        match '*not_found', to: 'error_messages#error_404'
     end
 end
