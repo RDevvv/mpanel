@@ -101,11 +101,13 @@ body.pmb-open #wrapper {top: -100px;}
 \* ------------------------------------------------------------ */
 @media all and (max-width: 860px) { 
     .buttons br {display: none}
-    .buttons button {padding: 10px 20px}
+    .buttons button {padding: 15px 9px;}
 }
 @media all and (max-width: 330px) { 
     nav.menu ul {list-style-type: none; margin:5% 0 0 0; padding: 0;}
 nav.menu a {font-weight: 300; color: #fff;}
+.buttons button {display: inline-block; margin: 0 0 4px 0; padding: 15px 9px; /*padding: 15px 30px;*/
+    color: transparent;}
 button.close-menu {background-color: #3184a1; color: #fff;}
 button.close-menu:focus {outline: none}
 /* slide menu left and right, push menu left and right */
