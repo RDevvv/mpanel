@@ -3,7 +3,6 @@ app.factory('UserProfile', function($http){
         name:  'vivek varade',
         mobile_number:  9503467486,
         fetch_profile: function(){
-            console.log('fetched');
             return $http({
                 method: 'POST',
                 url: 'get_mobile_number.json',

@@ -23,3 +23,11 @@ set :environment, "production"
 every :day, :at => '12.00 am' do
   rake "data_update:brand_score"
 end
+
+every :day, :at => '12.00 am' do
+  rake "sitemap:refresh CONFIG_FILE='config/sitemap.rb'"
+end
+
+every :day, :at => '12.00 am' do
+  rake "sitemap:refresh CONFIG_FILE='config/m_sitemap.rb'"
+end

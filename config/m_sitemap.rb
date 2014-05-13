@@ -10,8 +10,8 @@ SitemapGenerator::Sitemap.create do
     add "/#/deals/map?location=#{area.area_name}&search=all&latitude=00&longitude=00&view=outlet_view", :changefreq => 'daily', :priority => 0.9
   end
 
- # Outlet.all.each do |outlet| do
- #   add "/#/deals/shop?id=#{outlet.id}&customer_latitude=19.055229&customer_longitude=72.830829&distance=0.43", :changefreq => 'daily', :priority => 0.9
- # end
+  Outlet.all.each do |outlet|
+    add "/#/deals/shop?id=#{outlet.id}&customer_latitude=#{outlet.area.city.latitude}&customer_longitude=#{outlet.area.city.longitude}&distance=0.00", :changefreq => 'daily', :priority => 0.9
+  end
 
 end

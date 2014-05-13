@@ -7,8 +7,6 @@ app.controller('ProfileController',function($scope, $http, $cookies, UserProfile
             customer_uuid: $cookies['customer_uuid']
         }
     }).success(function(data){
-        console.log($cookies);
-        console.log(data);
         $scope.name = data['name'];
         $scope.mobile_number = data['mobile_number'];
     })

@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require jquery.pnotify.min
 //= require jquery.scrollTo
+//= require fastclick
 //= require oms.min
 //= require nav
 //= require classie
