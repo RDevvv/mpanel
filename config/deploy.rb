@@ -40,6 +40,4 @@ namespace :deploy do
 end
 
 
-set :workers, { "*" => 1 }
 
-after "deploy:restart", "resque:restart"

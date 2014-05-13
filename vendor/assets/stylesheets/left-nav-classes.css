@@ -1,0 +1,126 @@
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Globals
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Template
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+body {
+    overflow-x: hidden
+}
+#wrapper {
+    position: relative;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background:transparent;
+    /*background: rgba(0, 0, 0, 0.8);*/
+}
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Toggle Buttons
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+.buttons {
+    /*text-align: center;*/
+}
+.buttons button {display: inline-block; margin: 0 0 4px 0; padding: 15px 9px; /*padding: 15px 30px;*/
+    color: transparent;}
+.buttons button:hover,
+.buttons button.active {/*background-color: #3184a1;*/}
+.buttons button:focus {outline: none;}
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Menus
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+/* general style for all menus */
+nav.menu {position: fixed; z-index: 20;/*background-color: #67b5d1;*/background: #333333;
+    overflow: hidden; -webkit-transition: all 0.3s; -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s;}
+nav.menu ul {list-style-type: none; margin:5% 0 0 0; padding: 0;}
+nav.menu a {font-weight: 300; color: #fff;}
+button.close-menu {background-color: #3184a1; color: #fff;}
+button.close-menu:focus {outline: none}
+/* slide menu left and right, push menu left and right */
+nav.slide-menu-left {top: 0; width: 280px; height: 100%;}
+nav.slide-menu-left li {float:left; clear:both; width:96%; padding:0 0 0 4%; display: block; border-bottom: solid 1px #6a6a6a;}
+nav.slide-menu-left li.empty {float: left; clear: both; width: 100%; margin: 2% 0; border:none;}
+nav.slide-menu-left li.form {float:left; clear: both; border-bottom: none; width:85%; margin:4% 0;}
+nav.slide-menu-left li:first-child {border-top: none}
+nav.slide-menu-left li:last-child {border-bottom: none}
+nav.slide-menu-left a {display: block; padding: 6px;
+    font: inherit;font-size: 13px; font-weight: normal; text-transform: uppercase;
+}
+nav.slide-menu-left button.close-menu {margin: 10px 0; padding: 10px 30px; background-color: #3184a1;
+    color: #fff;}
+nav.slide-menu-left li.subcat {float:left; clear: both; white-space: nowrap; overflow: hidden; color: #ffffff;
+      line-height: 14px; font-weight:bold; width:100%; margin:2% 0 2% 0; padding:0; text-transform: uppercase; display: block; border-bottom: none;}
+nav.slide-menu-left li.subcat a {font-weight:bold; border-bottom: none;}
+nav.slide-menu-left {left: -280px;}
+body.sml-open nav.slide-menu-left {left: 0;}
+body.pml-open #wrapper {left: 280px;}
+body.pmr-open #wrapper {left: -280px;}
+body.pmt-open #wrapper {top: 100px;}
+body.pmb-open #wrapper {top: -100px;}
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+@media all and (max-width: 860px) { 
+    .buttons br {display: none}
+    .buttons button {padding: 10px 20px}
+}
+@media all and (max-width: 330px) { 
+    nav.menu ul {list-style-type: none; margin:5% 0 0 0; padding: 0;}
+nav.menu a {font-weight: 300; color: #fff;}
+button.close-menu {background-color: #3184a1; color: #fff;}
+button.close-menu:focus {outline: none}
+/* slide menu left and right, push menu left and right */
+nav.slide-menu-left {top: 0; width: 280px; height: 100%;}
+nav.slide-menu-left li {float:left; clear:both; width:96%; padding:0 0 0 4%; display: block; border-bottom: solid 1px #6a6a6a;}
+nav.slide-menu-left li.empty {float: left; clear: both; width: 100%; margin: 2% 0; border:none;}
+nav.slide-menu-left li.form {float:left; clear: both; border-bottom: none; width:85%; margin:4% 0;}
+nav.slide-menu-left li:first-child {border-top: none}
+nav.slide-menu-left li:last-child {border-bottom: none}
+nav.slide-menu-left a {display: block; padding: 6px;
+    font: inherit;font-size: 13px; font-weight: normal; text-transform: uppercase;
+}
+    body.sml-open nav.slide-menu-left {left: 0}
+    body.pml-open #wrapper {left: 280px;}
+body.pmr-open #wrapper {left: -280px;}
+body.pmt-open #wrapper {top: 100px;}
+body.pmb-open #wrapper {top: -100px;}
+}
