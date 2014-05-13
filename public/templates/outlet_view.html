@@ -7,7 +7,7 @@
         </div>
         <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
         <div align="center" class="brandlogo">
-            <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}&distance={{poster.distance | number: 2}}">
+            <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}">
                 <img ng-src={{poster.brand_image}}>
             </a>
         </div>
@@ -38,7 +38,7 @@
         <ul>
             <li>
             <!--<div class="pin-box">&nbsp;</div>-->
-            <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}&distance={{poster.distance | number: 2}}"></a>
+            <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}"></a>
             </li>
             <li>
             <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >

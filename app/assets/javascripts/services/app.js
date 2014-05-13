@@ -29,3 +29,4 @@ app.config(function($routeProvider){
 });
 var domain   = ''; //'http://staging.shoffr.com/';
 var app_type = 'html5'; //native or html5
+
