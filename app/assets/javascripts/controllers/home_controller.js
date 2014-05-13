@@ -87,11 +87,12 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
         angular.element('#top_search').removeClass('hide');
     }
 
-    hide_top_menu = function(){
+    $scope.hide_top_menu = function(){
+        $scope.$on('$locationChangeSuccess', function(){$scope.brand_name=$location.search().brand_name});
         if(($location.url()=='/')||($location.url()=='/home')){
             angular.element('#header').addClass('hide');
             angular.element('#top_search').addClass('hide');
         }
     }
-    hide_top_menu();
+    $scope.hide_top_menu();
 })
