@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  verification_code: Texnka
-  customer_id: 1
-
-two:
-  verification_code: d1hhsi
-  customer_id: 2
