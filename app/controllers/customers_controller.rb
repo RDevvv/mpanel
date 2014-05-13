@@ -40,6 +40,13 @@ class CustomersController < ApplicationController
       end
   end
 
+  def show
+      @customer = Customer.where(:uuid => params[:customer_uuid]).first
+      respond_to do |format|
+          format.json { render :json => {:mobile_number => @customer.mobile_number, :name => @customer.name}}
+      end
+  end
+
   def resend_verification_code
       @customer = Customer.where(:uuid => params[:customer_uuid]).first
       @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
