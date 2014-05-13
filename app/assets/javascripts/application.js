@@ -14,9 +14,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.pnotify.min
-//= require jquery.mmenu.min
 //= require jquery.scrollTo
 //= require oms.min
+//= require nav
+//= require classie
 //= require angular
 //= require angular-route
 //= require ng-infinite-scroll.min
