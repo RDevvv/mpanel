@@ -17,8 +17,7 @@
 //= require jquery.scrollTo
 //= require fastclick
 //= require oms.min
-//= require nav
-//= require classie
+//= require jquery.mmenu
 //= require angular
 //= require angular-route
 //= require ng-infinite-scroll.min
