@@ -13,7 +13,10 @@
         </div>
         <hr style="width:100%; margin:2px 0;">
         <div class="lower-box">
-            
+            <div ng-if='poster.ad_usage == -1' %>
+                <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -51,10 +54,7 @@
     <div class="distance-div">{{poster.distance | number:2}} km</div>
     <expiry-date/></expiry-date>
     <div class="add-box">
-      <div ng-if='poster.ad_usage == -1' %>
-                <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
-                </div>
-            </div>
+      
             <div ng-if='poster.ad_usage!= -1' %>
                 <div ng-if='poster.is_unlocked == true' %>
                     <div class="like"><div class="button_liked_offer" ></div></div>
@@ -63,7 +63,7 @@
                     <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, poster.ad_id, poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text, $index)' ng-controller='ListingController'>&nbsp;</a></div>
                 </div>
                 
-                <p>{{poster.ad_usage}}</p>
+                <p style="position:relative; top:4px;">{{poster.ad_usage}}  unlocked offers</p>
             </div>
 
     </div>
