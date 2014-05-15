@@ -23,6 +23,7 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
     }
 
     $scope.listing_form = function(){
+        $('nav#menu').trigger('close');
         $location.search('search','all');
         $location.search('location',$scope.topsearch);
     }
