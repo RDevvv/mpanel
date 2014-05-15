@@ -2,7 +2,7 @@ app.directive('topHeader', function($location, $routeParams){
     return{
         restrict: 'E',
         replace: true,
-        template: '<div><a href="javascript:history.back()" class="{{back_link}}">< </a><a href="#/home">{{header}}</a></div>',
+        template: '<div><a href="javascript:history.back()" class="backpage">&nbsp;</a><a href="#/home">{{header}}</a></div>',
         link: function(scope){
             scope.$on('$locationChangeSuccess', function(){
                 if($location.path()=='/deals/shop'){
