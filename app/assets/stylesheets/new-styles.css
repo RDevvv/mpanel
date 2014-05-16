@@ -227,20 +227,38 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 /* App landing page */
 .app-wrapper {width:1200px; height:627px; margin: 10px auto; background-image: url(Background.png);}
 .app-drawer {float:right; clear: both; width:50%; height:100%; margin: 4% 3% 0 0;}
-.app-drawer .logo {float:right; clear: both; margin:5% 0 0 0; text-align: right;}
+.app-drawer .logo {float:right; clear: both; margin:5% 0 0 0; text-align: right; font-family:'kg_begin_againregular', Tahoma, Arial, Helvetica, sans-serif; font-weight:normal; color:#BE1E2D; font-size:4.2em; letter-spacing:0.1em;}
 .app-drawer .logo a {font-family:'kg_begin_againregular', Tahoma, Arial, Helvetica, sans-serif; font-weight:normal; color:#BE1E2D; font-size:4.2em; letter-spacing:0.1em;}
 .app-drawer .logo a, .app-drawer .logo a:active, .app-drawer .logo a:visited, .app-drawer .logo a:hover {text-decoration: none;}
 .app-drawer .app-txt {float: right; clear: both; width:100%; height:auto; margin:6% 0 0 0; font-family:Helvetica, sans-serif; text-align: right; color:#BE1E2D;}
-.app-txt .app-title {float:right; font-size:1.8em; font-weight: normal; letter-spacing:0.06em; }
+.app-txt .app-title {float:right; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size:1.91em; font-weight: normal; letter-spacing:0.06em; }
 .app-txt p {font-size:1em; display: inline-block; text-align: right; margin:2% 0 0 0;}
 
-ul.market-icons {float: right; width: 70%; height: auto; margin: 5% 0 0 0; list-style: none;}
+ul.market-icons {float: right; width: 70%; height: auto; margin: 0; /*margin: 5% 0 0 0;*/ list-style: none;}
 ul.market-icons li {float:left; display: inline; margin:0 1% 0 1%;}
+ul.market-icons li img {opacity:0.3; max-width:70%; max-height:70%;}
 ul.market-icons li:last-child {margin-right:0;}
 
 ul.app-social {float:right; clear:both; width: 20%; height: 20px; margin: 42% 0 0 0;}
 ul.app-social li {float:left; display: inline; line-height: 10px; padding:0 3% 0 2%; margin:0 2% 0 2%; outline: none;}
 ul.app-social li:last-child {}
+
+ul.keyfeatures {float:right; clear: both; width:69%; height:auto; margin: 2% 0; list-style: none; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.3em; color: #727171; font-weight: bold;}
+ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:1% 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; padding:2% 2px 0 8%; }
+
+.ss-wrapper {clear:both; width:1200px; height:627px; margin: 10px auto; background-image: url(Facebook-app-creative.png); border:solid 1px #000;}
+.ss-wrapper .headline {clear: both; width: 77%; margin:2% auto; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
+ul.screenshots {clear:both; width: 80%; height: 40%; margin: 10px auto; list-style: none; }
+ul.screenshots li {float:left; display: inline; width: 20%; height: 100%; margin:0 2%;}
+ul.screenshots li div.box-screen {width:100%; height: 100%; border:solid 1px #000; outline: none;}
+div.box-screen .screen {float:left; width:99%; height: 40%; max-width:100%; max-height:100%; border:solid 1px #000; text-align:center; vertical-align: middle; outline: none; color: #000;}
+div.box-screen .title {float:left; font-size:1.2em; text-align: left; margin:0 0 1% 0;}
+div.box-screen p {float: left; clear: both; text-align: left; display: block; font-size: 0.9em;}
+
+.fdb-wrapper {clear:both; width:77%; height: 30%; margin:1% auto; border:solid 1px #000;}
+.fdb-wrapper .headline {clear: both; width: 100%; float:left; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
+.fdb-wrapper .box1 {float:left; clear: both; display: inline; border:solid 1px #000; width: 25%; height: 30%; margin:0;}
+.fdb-wrapper .box2 {float:left; display: inline; border:solid 1px #000; width: 30%; height: 30%; margin:0 1%;}
 /* App landing page */
 
 /* Backtotop */
