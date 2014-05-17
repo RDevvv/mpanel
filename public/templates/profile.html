@@ -1,11 +1,11 @@
 <div class="page-header">
   <h4>My Profile</h4>
 </div>
-<form ng-submit='profile_submit()' class="form-vertical" ng-controller='ProfileController'>
+<form ng-submit='profile_submit()' class="form-vertical" ng-controller='ProfileController' >
   <div class="control-group">
     <!--<label for="" class="control-label">Mobile Number</label>-->
     <div class="controls">
-      <input type="text" size="30" name="" id="" class="input-large" placeholder="Mobile Number" ng-model='mobile_number'>
+        <input type="text" size="30" name="" id="" class="input-large" placeholder="Mobile Number" ng-model='mobile_number' ng-change='check_size()'><div ng-show='number_submit_message' >Verification message sent to your number</div>
     </div>
   </div>
   <div class="control-group">
@@ -17,9 +17,8 @@
   <div class="control-group">
     <!--<label for="" class="control-label">Name</label>-->
     <div class="controls">
-      <input type="text" size="30" name="" id="" class="input-large" placeholder="Verification Code">
+        <input type="text" size="30" name="" id="" class="input-large" placeholder="Verification Code" ng-model='verification_code' ng-change='check_verification_code_size()'><div ng-show='verification_code_submit_message'>{{verification_message}}</div>
       <div class="label-subtxt2"><span>Number verified!</span><a href="#">Resend verification code</a></div>
     </div>
   </div>
-  <input type='submit' value='submit'>
 </form>
