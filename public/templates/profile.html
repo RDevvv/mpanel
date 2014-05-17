@@ -1,11 +1,10 @@
-<div class="page-header">
-  <h4>My Profile</h4>
-</div>
 <form ng-submit='profile_submit()' class="form-vertical" ng-controller='ProfileController' >
   <div class="control-group">
     <!--<label for="" class="control-label">Mobile Number</label>-->
     <div class="controls">
-        <input type="text" size="30" name="" id="" class="input-large" placeholder="Mobile Number" ng-model='mobile_number' ng-change='check_size()'><div ng-show='number_submit_message' >Verification message sent to your number</div>
+        <input type="text" size="30" name="" id="" class="input-large" placeholder="Mobile Number" ng-model='mobile_number' ng-change='check_size()'>
+        <div class="input-subtxt">*Because Shoffr will send nearby offer codes by SMS.</div>
+        <div class="field-success" ng-show='number_submit_message' >Verification message sent by SMS</div>
     </div>
   </div>
   <div class="control-group">
