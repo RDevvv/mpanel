@@ -50,8 +50,7 @@ html.mm-opened #mm-blocker, html.mm-blocking #mm-blocker {display: block;}
 .mm-list a, .mm-list a:hover {text-decoration: none;}
 .mm-list > li {position: relative;}
 .mm-list > li > a,
-.mm-list > li > span {background: url(img/arrw-right-2.png) no-repeat right center transparent;
-      text-overflow: ellipsis; width:97%; border-bottom: solid 1px #6a6a6a;
+.mm-list > li > span {text-overflow: ellipsis; width:97%; border-bottom: solid 1px #6a6a6a;
       white-space: nowrap; overflow: hidden; color: inherit; line-height: 14px; /*line-height: 20px;*/
       display: block; padding: 10px 10px 10px 20px; margin: 0;}
 li.subcat {font-weight:bold;}
