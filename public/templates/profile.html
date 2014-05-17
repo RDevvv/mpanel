@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h4>My Profile</h4>
+</div>
+<form ng-submit='profile_submit()' class="form-vertical" ng-controller='ProfileController'>
+  <div class="control-group">
+    <!--<label for="" class="control-label">Mobile Number</label>-->
+    <div class="controls">
+      <input type="text" size="30" name="" id="" class="input-large" placeholder="Mobile Number" ng-model='mobile_number'>
+    </div>
+  </div>
+  <div class="control-group">
+    <!--<label for="" class="control-label">Name</label>-->
+    <div class="controls">
+      <input type="text" size="30" name="" id="" class="input-large" placeholder="Your Name" ng-model='name'>
+    </div>
+  </div>
+  <div class="control-group">
+    <!--<label for="" class="control-label">Name</label>-->
+    <div class="controls">
+      <input type="text" size="30" name="" id="" class="input-large" placeholder="Verification Code">
+      <div class="label-subtxt2"><span>Number verified!</span><a href="#">Resend verification code</a></div>
+    </div>
+  </div>
+  <input type='submit' value='submit'>
+</form>
