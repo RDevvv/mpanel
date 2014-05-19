@@ -1,4 +1,4 @@
-app.controller('ShareController', function($scope, $cookies, $http){
+app.controller('ShareController', function($scope, $cookies, $http, $location){
     $scope.top_share = function(){
         if($cookies['mobile_number']=='verified'){
             $.pnotify({ title: ' ', text: 'You will receive a SMS from Shoffr shortly. Kindly share the link with your friends',
@@ -19,6 +19,6 @@ app.controller('ShareController', function($scope, $cookies, $http){
             })
         }
         else
-            angular.element('#popup_share').modal('show');
+            $location.path('/profile');
     }
 })
