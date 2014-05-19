@@ -41,13 +41,6 @@ html, body {max-width: 100%; /*overflow-x: hidden;*/}
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'RobotoThin';
-    src: url('roboto-thin.eot');
-    src: url('roboto-thin.eot') format('embedded-opentype'),
-         url('roboto-thin.woff') format('woff'),
-         url('roboto-thin.ttf') format('truetype'),
-}
 
 .container-fluid {padding-left: 0;}
 /* Top header styles */
