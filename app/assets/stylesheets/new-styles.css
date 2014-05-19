@@ -40,7 +40,13 @@ html, body {max-width: 100%; /*overflow-x: hidden;*/}
          url('kgbeginagain-webfont.svg#kg_begin_againregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
+}
+@font-face {
+    font-family: 'RobotoThin';
+    src: url('roboto-thin.eot');
+    src: url('roboto-thin.eot') format('embedded-opentype'),
+         url('roboto-thin.woff') format('woff'),
+         url('roboto-thin.ttf') format('truetype'),
 }
 
 .container-fluid {padding-left: 0;}
@@ -234,8 +240,8 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 .app-txt .app-title {float:right; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size:1.91em; font-weight: normal; letter-spacing:0.06em; }
 .app-txt p {font-size:1em; display: inline-block; text-align: right; margin:2% 0 0 0;}
 
-ul.market-icons {float: right; width: 70%; height: auto; margin: 0; /*margin: 5% 0 0 0;*/ list-style: none;}
-ul.market-icons li {float:left; display: inline; margin:0 1% 0 1%;}
+ul.market-icons {float: right; width: 65%; height: auto; margin: 0; position: relative; left:5%; bottom:1%; list-style: none;}
+ul.market-icons li {float:left; display: inline; margin:0 -5%;}
 ul.market-icons li img {opacity:0.3; max-width:70%; max-height:70%;}
 ul.market-icons li:last-child {margin-right:0;}
 
@@ -246,7 +252,7 @@ ul.app-social li:last-child {}
 ul.keyfeatures {float:right; clear: both; width:69%; height:auto; margin: 2% 0; list-style: none; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.3em; color: #727171; font-weight: bold;}
 ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:1% 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; padding:2% 2px 0 8%; }
 
-.ss-wrapper {clear:both; width:1200px; height:627px; margin: 10px auto; background-image: url(Facebook-app-creative.png); border:solid 1px #000;}
+.ss-wrapper {clear:both; width:1200px; height:627px; margin: 10px auto; background-image: url(Facebook-app-creative.png);}
 .ss-wrapper .headline {clear: both; width: 77%; margin:2% auto; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
 ul.screenshots {clear:both; width: 80%; height: 40%; margin: 10px auto; list-style: none; }
 ul.screenshots li {float:left; display: inline; width: 20%; height: 100%; margin:0 2%;}
@@ -255,10 +261,52 @@ div.box-screen .screen {float:left; width:99%; height: 40%; max-width:100%; max-
 div.box-screen .title {float:left; font-size:1.2em; text-align: left; margin:0 0 1% 0;}
 div.box-screen p {float: left; clear: both; text-align: left; display: block; font-size: 0.9em;}
 
-.fdb-wrapper {clear:both; width:77%; height: 30%; margin:1% auto; border:solid 1px #000;}
+.fdb-wrapper {clear:both; width:77%; height: 30%; margin:1% auto;}
 .fdb-wrapper .headline {clear: both; width: 100%; float:left; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
-.fdb-wrapper .box1 {float:left; clear: both; display: inline; border:solid 1px #000; width: 25%; height: 30%; margin:0;}
-.fdb-wrapper .box2 {float:left; display: inline; border:solid 1px #000; width: 30%; height: 30%; margin:0 1%;}
+.fdb-wrapper ul.feedbackboxes {float:left; clear:both; width:100%; height:auto; margin: 0;}
+ul.feedbackboxes li {float:left; width:30%; display: inline; margin:0 2% 0 0;}
+ul.feedbackboxes li div.fdb-div {width: 100%; padding: 5px; outline:none;}
+ul.feedbackboxes li div.fdb-play {width: 100%; padding: 5px; outline:none;}
+
+ul.feedbackboxes li div.fdb-fb {max-width: 80%; outline:none;}
+
+/*Google play styles */
+.single-review {position: relative; margin-top:10px; width:100%;}
+.single-review .author-image {left:0; position: absolute; top:0;}
+.author-image {border-radius: 24px; box-shadow: 0 1px 2px #8D8D8D; height: 48px; width: 48px;}
+.single-review img {max-width: 50%; max-height: 50%;}
+.review-info {display: inline-block; margin-top: 6px; padding-bottom: 3px; padding-left: 57px;
+    vertical-align: top;}
+.review-date {color:#000; font-size:0.8em;}
+.review-info .author-name {color: #8D8D8D; display: inline-block; height: 21px;
+    max-width: 170px; overflow: hidden; vertical-align: top;}
+.author-name {font-weight: 500;} 
+.review-info-star-rating {height: 18px; margin-top: -1px;}   
+.tiny-star.star-rating-non-editable-container {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAcklEQVQoz2P4//8/AzmYgWKN6KC4uFgYhGF8UjTqgjBJGqG2GUOxMF6NQAViQCwFxGpAbICk0QAqBpITw6ZRAUkxLqyA1akENCvg9SNQgRYWTVoEA4cSjTDFalAM5uPVCFTABY0/ASSDBKBiXNRNcqRiADBao1Bj6dJdAAAAAElFTkSuQmCC") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 14px; width: 69px;}
+.tiny-star .current-rating {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAdElEQVQoz2P4//8/AzmYgWKN6KC4uDgBhGF8UjQ+AGGSNEJt+w/FCXg1AhUUAHEDEB8A4g9IGj9AxUByBdg0LkBSjAsvwOpUApoX4PUjUMEFLJouEAwcSjTCFB+AYjAfr0agAgNo/AUgGRQAFTOgbpIjFQMAtcfKBD81ItYAAAAASUVORK5CYII=") repeat scroll left bottom rgba(0, 0, 0, 0);
+    height: 14px; width:20px;}    
+.review-body {margin: 4px 0 20px 57px; max-height: 308px; overflow: hidden;}    
+.review-title {color: #555555; font-weight: bold;}
+
+/*Google play styles */
+
+/*App store feedback styles */
+div.customer-review {clear: both; content: " "; display: block; float: none;}
+div.customer-review h5 {color:#898989; font-size: 1em; font-weight: bold; line-height: 12px;}
+div.customer-review h5 span {color:#898989;}
+div.rating {margin-top:6px; display:inline-block;}
+div.rating div span.rating-star {background: url(rating_star.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block; float: left; height: 11px; margin-right: 2px; width: 11px;}
+div.rating div span.ghost {background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+    margin: 0; position: absolute; width: 0;}    
+div.customer-review span.user-info {display: block; margin: 2px 0 10px;}
+div.customer-review p {color:#898989; height: auto; margin-bottom:18px;}
+
+/*App store feedback styles */
+
 /* App landing page */
 
 /* Backtotop */
