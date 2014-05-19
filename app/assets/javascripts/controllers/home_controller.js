@@ -1,9 +1,4 @@
 app.controller('HomeController', function($scope, $rootScope, $http, $routeParams, $cookies, $location, $route, UrlContent){
-    $rootScope.$on('$routeChangeStart', function(){
-        if($cookies.mobile_number!='verified'&&app_type=='native')
-            $location.path('/profile');
-    })
-
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
@@ -86,4 +81,12 @@ app.controller('HomeController', function($scope, $rootScope, $http, $routeParam
         else
             return 'right-icons';
     }
+
+    $scope.profile_redirection = function(){
+        $rootScope.$on('$routeChangeStart', function(){
+            if(($location.path()=='/'||$location.path()=='/home')&&$cookies.mobile_number!='verified'&&app_type=='native')
+                $location.path('/profile');
+        })
+    }
+    $scope.profile_redirection();
 })
