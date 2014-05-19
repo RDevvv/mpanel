@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $http, $routeParams, $cookies, $location, $route, UrlContent){
+app.controller('HomeController', function($scope, $rootScope, $http, $routeParams, $cookies, $location, $route, UrlContent){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
@@ -35,7 +35,7 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
             $location.search('search',$scope.category);
     }
 
-    $scope.set_attribute= function(type){
+    $scope.set_attribute = function(type){
         $scope.hide_filter = false;
         if(type=='filter'){
             $scope.category='';
@@ -54,46 +54,39 @@ app.controller('HomeController', function($scope, $http, $routeParams, $cookies,
             return 'non_grey_filter hide';
     }
 
-    $scope.view_button = function(){
-        if($location.path()=='/deals/shop')
-            return 'hidden';
-        else if($location.path()=='/deals/outlets')
-            return 'loc';
-        else
-            return 'outlet';
-    }
-
     $scope.top_search_class = function(){
-        if($location.path()=='/deals/outlets'||$location.path()=='/deals/map')
+        if($location.path()=='/deals/outlets')
             return 'span12';
         else
             return 'hide';
     }
 
-    $scope.map_view_link = function(){
-        if($location.path()=='/deals/outlets')
-            new_location = 'deals/map';
+    $scope.top_menu_class = function(){
+        if($location.path()=='/deals/outlets'||$location.path()=='/profile'||$location.path()=='/deals/shop')
+            return '';
         else
-            new_location = 'deals/outlets';
-        $location.url(new_location+'?location='+$routeParams['location']+'&search='+$routeParams['search']+'&latitude='+$routeParams['latitude']+'&longitude='+$routeParams['longitude']+'&view='+$routeParams['view']);
+            return 'hide';
     }
 
-    $scope.disable_button = function(search){
-        return true;
+    $scope.left_buttons_class = function(){
+        if($location.path()=='/profile')
+            return 'hide';
+        else
+            return 'left-icons';
     }
 
-
-    $scope.show_top_menu = function(){
-        angular.element('#header').removeClass('hide');
-        angular.element('#top_search').removeClass('hide');
+    $scope.right_buttons_class = function(){
+        if($location.path()=='/profile')
+            return 'hide';
+        else
+            return 'right-icons';
     }
 
-    $scope.hide_top_menu = function(){
-        $scope.$on('$locationChangeSuccess', function(){$scope.brand_name=$location.search().brand_name});
-        if(($location.url()=='/')||($location.url()=='/home')){
-            angular.element('#header').addClass('hide');
-            angular.element('#top_search').addClass('hide');
-        }
+    $scope.profile_redirection = function(){
+        $rootScope.$on('$routeChangeStart', function(){
+            if(($location.path()=='/'||$location.path()=='/home')&&$cookies.mobile_number!='verified'&&app_type=='native')
+                $location.path('/profile');
+        })
     }
-    $scope.hide_top_menu();
+    $scope.profile_redirection();
 })

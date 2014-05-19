@@ -1,4 +1,14 @@
 class CustomersController < ApplicationController
+    before_filter :set_headers
+
+    def set_headers
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+        response.headers['Access-Control-Request-Method'] = '*'
+        response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+        response.headers['Accept-Encoding'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    end
+
   def check_verification_code
       @customer = Customer.where(:uuid => cookies[:customer_uuid]).first
       if @customer.verification_code == (params[:verification_code])

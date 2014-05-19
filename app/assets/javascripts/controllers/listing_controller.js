@@ -152,8 +152,9 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 }
             })
         }
-        else
-            angular.element('#popup_share').modal('show');
+        else{
+            $location.path('/profile');
+        }
     }
 })
 
