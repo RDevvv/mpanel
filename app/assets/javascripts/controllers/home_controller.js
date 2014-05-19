@@ -62,7 +62,7 @@ app.controller('HomeController', function($scope, $rootScope, $http, $routeParam
     }
 
     $scope.top_menu_class = function(){
-        if($location.path()=='/deals/outlets'||$location.path()=='/profile')
+        if($location.path()=='/deals/outlets'||$location.path()=='/profile'||$location.path()=='/deals/shop')
             return '';
         else
             return 'hide';

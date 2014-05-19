@@ -1,4 +1,4 @@
-app.controller('ProfileController',function($scope, $http, $cookies, $location, $timeout, UserProfile){
+app.controller('ProfileController',function($scope, $http, $cookies, $location, $timeout, $cookies, UserProfile){
     $scope.number_submit_message = false;
     $scope.verification_code_submit_message = false;
     $http({
@@ -30,7 +30,6 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
     }
 
     $scope.profile_submit = function(){
-        console.log('profile submit');
         $http({
             url: domain+"/check_verification_code.json",
             method: 'POST',
@@ -41,8 +40,9 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
         }).success(function(data){
             if(data["verified"]==true){
                 $scope.verification_message = 'Your number is verified, redirection to home page ...';
+                $cookies.mobile_number = 'verified';
                 $timeout(function(){
-                    $location.path('/home')
+                    $location.path('/')
                 },2000);
             }
             else
