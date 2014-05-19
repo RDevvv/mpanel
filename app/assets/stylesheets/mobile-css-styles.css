@@ -346,7 +346,7 @@ footer {clear: both; margin: 10px 0 0 0; height: 3em; margin-top: -3em; font-fam
 .bbox .brandtitle{float:left; padding:1px 0; width: 100%; font-weight:normal; font-size:80%; background-color: #414042; color: #fff; text-align: center; text-transform: uppercase;}
 
 .lower-box {clear:both; width:96%; height:15px; margin:0 0 0 -1px; padding: 3px;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; visibility: visible;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
@@ -452,7 +452,7 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; visibility: visible;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
@@ -592,7 +592,7 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; visibility: visible;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
@@ -715,7 +715,7 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; visibility: visible;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
@@ -830,7 +830,7 @@ footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helveti
 
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; visibility: visible;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 .lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 
 .report-offer {width:100%; text-align:center; padding:4px 0; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}

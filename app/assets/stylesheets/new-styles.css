@@ -260,7 +260,6 @@ div.box-screen p {float: left; clear: both; text-align: left; display: block; fo
 ul.feedbackboxes li {float:left; width:30%; display: inline; margin:0 2% 0 0;}
 ul.feedbackboxes li div.fdb-div {width: 100%; padding: 5px; outline:none;}
 ul.feedbackboxes li div.fdb-play {width: 100%; padding: 5px; outline:none;}
-
 ul.feedbackboxes li div.fdb-fb {max-width: 80%; outline:none;}
 
 /*Google play styles */
@@ -452,19 +451,35 @@ ul.footerlinksmain li:last-child {border-right:none;}
 .non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;} 
 .non-bs-bar .nav > li:last-child > a {border-right: none;} 
 #mc_embed_signup {float:right; margin:-33px -3% 0 0;}    
-.app-wrapper {width:750px; height:627px; margin: 10px auto; background-image: url(Background.png);
-background-repeat:no-repeat;
-background-size:contain;
-background-position:center;background-size: 90%; vertical-align: middle;}
-.app-drawer {float:right; clear: both; width:50%; height:80%; margin: 0 3% 0 0; padding: 15% 0 0 0;}
-.app-drawer .logo a {font-family:'kg_begin_againregular', Tahoma, Arial, Helvetica, sans-serif; font-weight:normal; color:#BE1E2D; font-size:3.2em; letter-spacing:0.1em;}  
+.app-wrapper {width:750px; height:475px; margin: 2px auto; background-image: url(Background.png);
+background-repeat:no-repeat; background-size:contain; background-position:center;
+background-size: 90%; vertical-align: middle;}
+.app-drawer .logo {float:right; clear: both; text-align: right; margin:10% 0 2% 0;}
+.app-drawer .logo a {font-family:'kg_begin_againregular', Tahoma, Arial, Helvetica, sans-serif; font-weight:normal; color:#BE1E2D; font-size:2em; letter-spacing:0.1em;}  
 .app-txt .app-title {float:right; font-size:1.2em; font-weight: normal; letter-spacing:0.06em; }
-.app-txt p {font-size:0.8em; display: inline-block; text-align: right; margin:2% 0 0 0;}
-.app-drawer {float:right; clear: both; width:50%; height:100%; margin: 4% 1% 0 0;}
-ul.market-icons {float:right; width: 100%; height: 30%; margin: 6% -10% 0 -1%; list-style: none;}
-ul.market-icons li {float:left; display: inline; margin:0; padding:0;}
-ul.market-icons li a img{max-width: 60%; max-height: 60%;}
+.app-txt p {font-size:0.8em; display: inline-block; text-align: right; margin:1% 0 0 0;}
+.app-drawer {float:right; clear: both; width:50%; height:85%; margin: 1% 1% 0 0;}
+ul.market-icons {float:right; width: 100%; height: 30%; margin: 1% -23% 0 -1%; list-style: none;}
+ul.market-icons li {float:left; display: inline; margin:0 -9%; padding:0;}
+ul.market-icons li a img{max-width: 50%; max-height: 50%;}
 ul.app-social {float:right; clear:both; width: 30%; height: 20px; margin: 0 0 0 0;}
+
+ul.keyfeatures {float:right; clear: both; width:80%; height:auto; margin: 1% 0; list-style: none; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size:0.8em; color: #727171; font-weight: bold;}
+ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:3px 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; background-size:20px 20px; padding:2px 2px 0 8%;}
+
+.ss-wrapper {clear:both; width:750px; height:650px; margin: 10px auto; background-image: url(Facebook-app-creative.png);}
+.fdb-wrapper {clear:both; width:77%; height: 30%; margin:1% auto;}
+.fdb-wrapper .headline {clear: both; width: 100%; float:left; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
+.fdb-wrapper ul.feedbackboxes {float:left; clear:both; width:100%; height:auto; margin: 0;}
+ul.feedbackboxes li {float:left; width:31%; display: inline; margin:0 2% 0 0;}
+ul.feedbackboxes li div.fdb-div {width: 100%; height: 40%; overflow: auto; padding: 5px; outline:none;}
+ul.feedbackboxes li div.fdb-play {width: 100%; padding: 5px; outline:none;}
+ul.feedbackboxes li div.fdb-fb {max-width: 100%; outline:none;}
+
+#fb-root {display: none;}
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {width:230px !important; margin:0 0 0 1%; color: #efefef;}
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
@@ -485,10 +500,28 @@ ul.app-social {float:right; clear:both; width: 30%; height: 20px; margin: 0 0 0 
 #mc_embed_signup {float:right; margin:-33px -3% 0 0;}   
 
 .app-wrapper {width:990px; height:627px; margin: 10px auto; background-image: url(Background.png);
-    -webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover;
+    -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;
   background-size: cover;}
-ul.market-icons {float: right; width: 85%; height: auto; margin: 5% 0 0 0; list-style: none;}  
-ul.app-social {float:right; clear:both; width: 20%; height: 20px; margin: 57% 0 0 0;}
+.fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {width: 100% !important; border:solid 10px #000; }
+
+.app-drawer .logo {float:right; clear: both; text-align: right; margin:5% 0 2% 0;}
+ul.keyfeatures {float:right; clear: both; width:81%; height:auto; margin: 2% 0; list-style: none; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.1em; color: #727171; font-weight: bold;}
+ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:1% 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; background-size:20px 20px; padding:1% 2px 0 8%; }
+
+ul.market-icons {float: right; width: 82%; height: auto; margin: 5% 0 0 0; list-style: none;}  
+ul.app-social {float:right; clear:both; width: 20%; height: 20px; margin: 45% 0 0 0;}
+
+.ss-wrapper {clear:both; width:990px; height:650px; margin: 10px auto; background-image: url(Facebook-app-creative.png);}
+.fdb-wrapper ul.feedbackboxes {float:left; clear:both; width:100%; height:auto; margin: 0;}
+ul.feedbackboxes li {float:left; width:31%; display: inline; margin:0 2% 0 0;}
+ul.feedbackboxes li div.fdb-div {width: 100%; height: 40%; overflow: auto; padding: 5px; outline:none;}
+ul.feedbackboxes li div.fdb-play {width: 100%; padding: 5px; outline:none;}
+ul.feedbackboxes li div.fdb-fb {width:70%; max-width: 100%; outline:none;}
+
+#fb-root {display: none;}
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {width:310px !important; margin:0 0 0 1%; color: #efefef;}
 }
 
 @media (max-width: 603px) and (orientation : portrait){
@@ -611,3 +644,4 @@ ul.footerlinksmain li:last-child {border-right:none;}
 
 
 }
+
