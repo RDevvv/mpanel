@@ -30,27 +30,31 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
         }
     }
 
+    $scope.check_verification_code_size= function(){
+        if($scope.verification_code.length == 4){
+            $http({
+                url: domain+"/check_verification_code.json",
+                method: 'POST',
+                params: {
+                    name: $scope.name,
+                    verification_code: $scope.verification_code,
+                    customer_uuid: $cookies['customer_uuid']
+                }
+            }).success(function(data){
+                if(data["verified"]==true){
+                    $scope.verification_message = 'Your number is verified.';
+                    $cookies.mobile_number = 'verified';
+                    $scope.submit_button = true;
+                }
+                else
+                    $scope.verification_message = 'Please enter a correct verification code';
+            });
+            $scope.verification_code_submit_message = true;
+        }
+    }
+
     $scope.profile_submit = function(){
-        $http({
-            url: domain+"/check_verification_code.json",
-            method: 'POST',
-            params: {
-                name: $scope.name,
-                verification_code: $scope.verification_code,
-                customer_uuid: $cookies['customer_uuid']
-            }
-        }).success(function(data){
-            if(data["verified"]==true){
-                $scope.verification_message = 'Your number is verified, redirection to home page ...';
-                $cookies.mobile_number = 'verified';
-                $timeout(function(){
-                    $location.path('/')
-                },2000);
-            }
-            else
-                $scope.verification_message = 'Please enter a correct verification code';
-        });
-        $scope.verification_code_submit_message = true;
+        $location.path('/');
     }
 
     $scope.resend_verification_code = function(){
