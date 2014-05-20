@@ -9,6 +9,10 @@ app.directive('topHeader', function($location, $routeParams){
                     scope.header = $location.search().brand_name;
                     scope.back_link= 'backpage';
                 }
+                else if($location.path()=='/profile'){
+                    scope.header = 'shoffr';
+                    scope.back_link= 'backpage';
+                }
                 else{
                     scope.header = 'shoffr';
                     scope.back_link = 'hide'
