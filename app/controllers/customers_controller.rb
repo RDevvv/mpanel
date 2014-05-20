@@ -13,7 +13,7 @@ class CustomersController < ApplicationController
       @customer = Customer.where(:uuid => cookies[:customer_uuid]).first
       if @customer.verification_code == (params[:verification_code])
           cookies[:mobile_number] = {:value => "verified", :expires => 1.year.from_now}
-          @customer.update_attributes(:is_verified => true)
+          @customer.update_attributes(:is_verified => true, :name => params[:name])
           @verified = true
       else
           @customer.errors.add(:verification_code, "Enter correct verification code")

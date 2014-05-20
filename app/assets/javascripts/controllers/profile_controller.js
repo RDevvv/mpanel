@@ -35,6 +35,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
             url: domain+"/check_verification_code.json",
             method: 'POST',
             params: {
+                name: $scope.name,
                 verification_code: $scope.verification_code,
                 customer_uuid: $cookies['customer_uuid']
             }
