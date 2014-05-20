@@ -68,13 +68,6 @@ app.controller('HomeController', function($scope, $rootScope, $http, $routeParam
             return 'hide';
     }
 
-    $scope.left_buttons_class = function(){
-        if($location.path()=='/profile')
-            return 'hide';
-        else
-            return 'left-icons';
-    }
-
     $scope.right_buttons_class = function(){
         if($location.path()=='/profile')
             return 'hide';
