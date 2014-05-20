@@ -1,6 +1,7 @@
 app.controller('ProfileController',function($scope, $http, $cookies, $location, $timeout, $cookies, UserProfile){
     $scope.number_submit_message = false;
     $scope.verification_code_submit_message = false;
+
     $http({
         method: 'GET',
         url: domain+'get_profile.json',
@@ -51,4 +52,16 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
         $scope.verification_code_submit_message = true;
     }
 
+    $scope.resend_verification_code = function(){
+        $http({
+            url: domain+"/resend_verification_code.json",
+            method: 'POST',
+            params: {
+                customer_uuid: $cookies.customer_uuid
+            }
+        }).success(function(){
+            $.pnotify({title: 'verification code sent again'});
+
+        })
+    }
 })
