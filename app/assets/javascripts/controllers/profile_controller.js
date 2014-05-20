@@ -60,7 +60,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 customer_uuid: $cookies.customer_uuid
             }
         }).success(function(){
-            $.pnotify({title: 'verification code sent again'});
+            $.pnotify({title: 'verification code sent.'});
 
         })
     }

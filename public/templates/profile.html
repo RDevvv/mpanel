@@ -14,13 +14,13 @@
     </div>
   </div>
   <div class="control-group">
-    <!--<label for="" class="control-label">Name</label>-->
-    <div class="controls">
-        <input type="text" size="30" name="" id="" class="input-large" placeholder="Verification Code" ng-model='verification_code' ng-change='check_verification_code_size()'><div ng-show='verification_code_submit_message'>{{verification_message}}</div>
-      <div class="label-subtxt2"><a href="" ng-click='resend_verification_code()'>Resend verification code</a></div>
-    </div>
+      <!--<label for="" class="control-label">Name</label>-->
+      <div class="controls">
+          <input type="text" size="30" name="" id="" class="input-large" placeholder="Verification Code" ng-model='verification_code' ng-change='check_verification_code_size()'><div ng-show='verification_code_submit_message'>{{verification_message}}</div>
+          <resend-link></resend-link>
+      </div>
   </div>
   <div class="control-group">
-    <input type='submit' class="btn2 btn-primary btn-small" value="Submit">
+      <input type='submit' class="btn2 btn-primary btn-small" value="Submit">
   </div>
 </form>
