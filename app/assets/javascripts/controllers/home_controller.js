@@ -26,6 +26,8 @@ app.controller('HomeController', function($scope, $rootScope, $http, $routeParam
         $('nav#menu').trigger('close');
         $location.search('search','all');
         $location.search('location',$scope.topsearch);
+        $location.search('latitude',0);
+        $location.search('longitude',0);
     }
 
     $scope.category_form = function(){
