@@ -162,7 +162,7 @@ background: url(ikons-img.png) no-repeat -275px -452px #be1e2d; padding:1px 4px 
 .add-box .promo {float: left; text-align: left; width: 100%; display: block; clear: both; font-weight:bold; margin: 5px 0 0 0; line-height: 15px;}
 .add-box .promocode {float: left; clear:both; text-align: left; width: 100%; display: block; clear: both; font-weight:normal; margin: 5px 0 10px 0; line-height: 4px;}
 .distance-div {width:100%; clear:both; margin: 43px 0 0 0; font-size: 11px; text-align: center; color: #959595;}
-.add-box a {float: left; clear: both; margin:3% 0 0 0; color: inherit; text-decoration: none; font-weight: bold; text-transform: uppercase;}
+.add-box a {float: left; clear: both; margin:3% 0 0 0; color: inherit; text-decoration: underline; font-weight: bold; text-transform: uppercase;}
 
 /* Scroll to top Styles */
 #backtotop {position: fixed; right:10px; bottom:-80px; display:none; z-index:10000;/* right:60px; hid the button first*/}
