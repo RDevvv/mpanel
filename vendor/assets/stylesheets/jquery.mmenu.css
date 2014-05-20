@@ -53,7 +53,7 @@ html.mm-opened #mm-blocker, html.mm-blocking #mm-blocker {display: block;}
 .mm-list > li > span {text-overflow: ellipsis; width:97%; border-bottom: solid 1px #6a6a6a;
       white-space: nowrap; overflow: hidden; color: inherit; line-height: 14px; /*line-height: 20px;*/
       display: block; padding: 10px 10px 10px 20px; margin: 0;}
-li.subcat {font-weight:bold;}
+li.subcat {clear:both; font-weight:bold;}
 li.subcat a {border-bottom: none;}
 .example-text {float:left; color:#ccc; font-size:10px; margin:0 0 0 10px; text-transform:none;}
 .mm-list > li.subcat > a, .mm-list > li.subcat > span {
