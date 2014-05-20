@@ -26,7 +26,7 @@ class CallForwardingsController < ApplicationController
   end
 
   def return_outlet_number
-      outlet = CallForwarding.where(:call_sid=> params[:CallSid]).last.customer.button_clicks.where(:button_class => "call").last.outlet
+      outlet = CallForwarding.where(:call_sid=> params[:CallSid]).order(:id).last.customer.button_clicks.where(:button_class => "call").last.outlet
       if outlet.phone_number.blank?
           number = outlet.mobile_number
       else
