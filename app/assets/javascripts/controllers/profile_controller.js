@@ -15,6 +15,12 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
     })
 
     $scope.check_size = function(){
+        if(isNaN(parseInt($scope.mobile_number))){
+            $scope.error_message = true;
+        }
+        else{
+            $scope.error_message = false;
+        }
         if($scope.mobile_number.length==10){
             $http({
                 method: 'POST',
@@ -24,7 +30,6 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                     customer_uuid: $cookies['customer_uuid']
                 }
             }).success(function(data){
-                $scope.phone_number_message = 'vivek';
                 $scope.number_submit_message = true;
             });
         }
