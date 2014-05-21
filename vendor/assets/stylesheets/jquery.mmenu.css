@@ -149,3 +149,5 @@ html.mm-nooverflowscrolling.mm-opened .mm-page {min-height: 1000px; position: fi
   html.mm-nooverflowscrolling.mm-opened > .mm-panel {
     position: relative; height: auto; display: none; left: 0;}
     html.mm-nooverflowscrolling.mm-opened > .mm-panel.mm-current {display: block;}
+.ml-class {margin:0 0 0 -8%;}
+.gl-class {float:left; margin:-3% 0 0 -8%;}
