@@ -10,7 +10,7 @@ app.directive('topHeader', function($location, $routeParams){
                     scope.back_link= 'backpage';
                 }
                 else if($location.path()=='/profile'){
-                    scope.header = 'shoffr';
+                    scope.header = 'My profile';
                     scope.back_link= 'backpage';
                 }
                 else{
