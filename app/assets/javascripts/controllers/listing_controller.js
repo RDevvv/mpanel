@@ -71,7 +71,8 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.search('filter',filter);
     }
 
-    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text, index) {
+    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text, index, distance, latitude, longitude) {
+        console.log(distance+' '+latitude);
         $.pnotify({
             title: brand_name+' - Offer sent',
             text: sms_text,
@@ -90,6 +91,10 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             params: {
                 customer_uuid: $cookies.customer_uuid,
                 ad_id: ad_id,
+                brand_name: brand_name,
+                distance: parseFloat(distance).toPrecision(2),
+                longitude: longitude,
+                latitude: latitude,
                 outlet_id: outlet_id,
                 misc_sms: false
             }
@@ -148,7 +153,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     customer_uuid: $cookies.customer_uuid,
                     outlet_id: outlet_id,
                     poster_share: true,
-                    distance: distance,
+                    distance: parseFloat(distance).toPrecision(2),
                     latitude: latitude,
                     longitude: longitude,
                     brand_name: brand_name,

@@ -24,7 +24,7 @@ class SmsSentsController < ApplicationController
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
                 customer.misc_smss.create(:text => "Check out http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
             else
-                pre_expiry_forward_url, campaign_name = "/#/ad_outlet?id=#{params[:outlet_id]}", 'Unlock Deals'
+                pre_expiry_forward_url, campaign_name = "/#/deals/shop?id=#{params[:outlet_id]}&customer_latitude=#{params[:latitude]}&customer_longitude=#{params[:longitude]}&distance=#{params[:distance]}&brand_name=#{params[:brand_name]}", 'Unlock Deals'
                 AdLike.create(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :customer_id => customer.id, :is_unlocked => true)
                 ad = Ad.find(params[:ad_id])
                 outlet = Outlet.find(params[:outlet_id])
