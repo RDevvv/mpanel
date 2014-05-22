@@ -12,14 +12,13 @@ class SmsSentsController < ApplicationController
     end
 
     def set_sms_data
-        p params[:brand_name]
         customer = Customer.where(:uuid => params[:customer_uuid]).first
         unless customer.mobile_number.nil? && customer.is_verified?
             if params[:misc_sms] == 'true'
                 if params[:poster_share]=='true'
                     pre_expiry_forward_url, campaign_name = "/#/deals/shop?id=#{params[:outlet_id]}&customer_latitude=#{params[:latitude]}&customer_longitude=#{params[:longitude]}&distance=#{params[:distance]}&brand_name=#{params[:brand_name]}", 'Poster Share'
                 else
-                    pre_expiry_forward_url, campaign_name = "", 'Generic Share'
+                    pre_expiry_forward_url, campaign_name = "?", 'Generic Share'
                 end
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
                 customer.misc_smss.create(:text => "Check out http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
