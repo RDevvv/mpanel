@@ -131,7 +131,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         }
     }
 
-    $scope.poster_share = function(outlet_id){
+    $scope.poster_share = function(outlet_id, distance, latitude, longitude, brand_name){
         if($cookies['mobile_number']=='verified'){
             $.pnotify({ title: ' ', text: 'You will receive a SMS from Shoffr shortly. Kindly share the link with your friends',
                       closer_hover: false,
@@ -148,6 +148,10 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     customer_uuid: $cookies.customer_uuid,
                     outlet_id: outlet_id,
                     poster_share: true,
+                    distance: distance,
+                    latitude: latitude,
+                    longitude: longitude,
+                    brand_name: brand_name,
                     misc_sms: true
                 }
             })
