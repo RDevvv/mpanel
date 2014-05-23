@@ -19,6 +19,6 @@ app.controller('ShareController', function($scope, $cookies, $http, $location){
             })
         }
         else
-            $location.path('/profile');
+            angular.element('#mobile-number').modal('show');
     }
 })
