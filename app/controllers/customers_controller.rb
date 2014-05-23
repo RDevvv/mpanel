@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    skip_before_filter  :verify_authenticity_token, :only => [:show, :get_mobile_number]
+    skip_before_filter  :verify_authenticity_token, :only => [:show, :get_mobile_number, :check_verification_code]
     before_filter :set_headers
 
     def set_headers
