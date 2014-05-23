@@ -2,7 +2,7 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
     $scope.enter_number = function(){
         $http({
             method: 'POST',
-            url: "/get_mobile_number.json",
+            url: domain+"/get_mobile_number.json",
             params: {
                 mobile_number: $scope.mobile_number,
                 customer_uuid: $cookies['customer_uuid']
@@ -32,7 +32,7 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
 
     $scope.enter_verification_code = function(){
         $http({
-            url: "/check_verification_code.json",
+            url: domain+"/check_verification_code.json",
             //dataType: 'text',
             params: {
                 verification_code: $scope.verification_code,

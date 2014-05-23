@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $rootScope, $http, $routeParams, $cookies, $location, $route, UrlContent){
+app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
