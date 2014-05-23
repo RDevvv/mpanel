@@ -246,17 +246,19 @@ ul.keyfeatures {float:right; clear: both; width:69%; height:auto; margin: 2% 0; 
 ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:1% 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; padding:2% 2px 0 8%; }
 
 .ss-wrapper {clear:both; width:1200px; height:627px; margin: 10px auto; background-image: url(Facebook-app-creative.png);}
-.ss-wrapper .headline {clear: both; width: 77%; margin:2% auto; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
-ul.screenshots {clear:both; width: 85%; /*width: 80%;*/ height: 40%; margin: 10px auto; list-style: none; }
-ul.screenshots li {float:left; display: inline; width: 20%; height: 100%; margin:0 2%;}
-ul.screenshots li div.box-screen {background: #ffffff; width:100%; height: 100%; padding:0 2px; border:solid 1px #000; outline: none;}
-div.box-screen .screen {float:left; width:98%; height: 80%; text-align:center; vertical-align: middle; outline: none; color: #000;}
-div.box-screen .screen img {width:80%; max-width:100%; max-height:100%;}
-div.box-screen .title {float:left; font-size:1.2em; text-align: left; margin:0 0 1% 0;}
-div.box-screen p {float: left; clear: both; text-align: left; display: block; font-size: 0.9em;}
+.ssdiv-box {clear:both; width: 85%; height:auto; border:solid 1px #000; margin: 10px auto;}
+.ssdiv-box .headline {float:left; width: 100%; margin:2% 0; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
+ul.screenshots {float:left; width:100%; height: 40%; margin:0 0 3% 0; list-style: none; }
+ul.screenshots li {float:left; display: inline; width: 20%; border:solid 1px #ccc; height: 100%; margin:0 2%; background: #ffffff;}
+ul.screenshots li:first-child {float:left; display: inline; width: 20%; border:solid 1px #ccc; height: 100%; margin:0 2% 0 0; background: #ffffff;}
+ul.screenshots li div.box-screen {background: #ffffff; width:98%; height: 100%; padding:0 2px; outline: none;}
+div.box-screen .screen {float:left; width:98%; height: 80%; text-align:center; vertical-align: middle; outline: none; margin:0 0 6% 0; color: #000;}
+div.box-screen .screen img {width:100%; max-width:100%; max-height:100%;}
+div.box-screen .title {clear:both; width:100%; font-size:1.2em; font-weight: bold; text-align: left;}
+div.box-screen p {float: left; clear: both; text-align: left; display: block; font-size: 0.9em; margin: 3% 0 3% 1%;}
 
 .fdb-wrapper {clear:both; width:85%; /*width:77%; height: 30%;*/ height: auto; margin:1% auto; border:solid 1px #000;}
-.fdb-wrapper .headline {clear: both; width: 100%; float:left; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
+.fdb-wrapper .headline {float:left; width: 100%; margin:2% 0; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
 .fdb-wrapper ul.feedbackboxes {float:left; clear:both; width:100%; height:auto; margin: 0;}
 ul.feedbackboxes li {float:left; width:47%; /*width:30%;*/ display: inline; margin:0 5% 0 0;}
 ul.feedbackboxes li:last-child {margin-right:0;}
@@ -481,10 +483,12 @@ ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:3px
 .fdb-wrapper {clear:both; width:85%; height: auto; margin:1% auto;}
 .fdb-wrapper .headline {clear: both; width: 100%; float:left; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
 .fdb-wrapper ul.feedbackboxes {float:left; clear:both; width:100%; height:auto; margin: 0;}
-/*ul.feedbackboxes li {float:left; width:31%; display: inline; margin:0 2% 0 0;}
-ul.feedbackboxes li div.fdb-div {width: 100%; height: 40%; overflow: auto; padding: 5px; outline:none;}
-ul.feedbackboxes li div.fdb-play {width: 100%; padding: 5px; outline:none;}
-ul.feedbackboxes li div.fdb-fb {max-width: 100%; outline:none;}*/
+
+ul.screenshots li {float:left; display: inline; width: 23%; border:solid 1px #ccc; font-size: 0.9em; height: 100%; margin:0 1%; background: #ffffff;}
+ul.screenshots li:first-child {float:left; display: inline; width: 23.5%; border:solid 1px #ccc; height: 100%; margin:0 1% 0 0; background: #ffffff;}
+ul.screenshots li div.box-screen {background: #ffffff; width:97%; height: 100%; padding:0 2px; outline: none;}
+
+div.box-screen .screen {float:left; width:100%; height: 80%; text-align:center; vertical-align: middle; outline: none; margin:0 0 6% 0; color: #000;}
 
 /*Apple and Google play combined styles */
 .social-combined {float:left; width:97%; height: 100%; padding:0 1%;}
