@@ -1,5 +1,6 @@
 class ButtonClicksController < ApplicationController
     before_filter :set_headers
+    skip_before_filter  :verify_authenticity_token, :only => [:get_click]
 
     def set_headers
         response.headers['Access-Control-Allow-Origin'] = '*'
