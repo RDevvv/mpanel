@@ -4,7 +4,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
 
     $http({
         method: 'POST',
-        url: domain+'../check_cookies.json',
+        url: domain+'check_cookies.json',
         params:{
             customer_uuid: $cookies['customer_uuid']
         }
@@ -13,7 +13,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
             $cookies.customer_uuid= data['customer']['uuid'];
         $http({
             method: 'GET',
-            url: domain+'../get_profile.json',
+            url: domain+'get_profile.json',
             params: {
                 mobile_number: $scope.mobile_number,
                 customer_uuid: $cookies['customer_uuid']

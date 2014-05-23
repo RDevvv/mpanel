@@ -120,6 +120,7 @@ Gullak2::Application.routes.draw do
     match "get_outlet_number" => "call_forwardings#return_outlet_number"
     match "set_outlet_number" => "call_forwardings#set_outlet_number"
     match "set_sms_data" => "sms_sents#set_sms_data"
+    match 'check_cookies' => 'home#check_cookies'
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
     match "outletview_offers_log" => "sms_sents#outletview_offers_log"
