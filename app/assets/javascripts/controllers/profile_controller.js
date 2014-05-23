@@ -4,6 +4,12 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
 
     $http({
         method: 'GET',
+        url: domain+'check_cookies.json',
+    }).success(function(data){
+        console.log(data['customer'])
+    })
+    $http({
+        method: 'GET',
         url: domain+'get_profile.json',
         params: {
             mobile_number: $scope.mobile_number,
@@ -13,6 +19,9 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
         $scope.name = data['name'];
         $scope.mobile_number = data['mobile_number'];
     })
+
+    $scope.set_uuid = function(){
+    }
 
     $scope.check_size = function(){
         if(isNaN(parseInt($scope.mobile_number))){
