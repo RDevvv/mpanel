@@ -6,9 +6,9 @@ class HomeController < ApplicationController
     before_filter :get_referer, :only => [:index]
 
     def check_cookies
-        if cookies[:customer_uuid].blank?
+        if (cookies[:customer_uuid].blank?)||(params[:customer_uuid].blank?)
             cookies[:customer_uuid] = {:value => Customer.generate_cookie, :expires => 1.year.from_now}
-            Customer.create(:uuid => cookies[:customer_uuid])
+            @customer = Customer.create(:uuid => cookies[:customer_uuid])
         end
     end
 

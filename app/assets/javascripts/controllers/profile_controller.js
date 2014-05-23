@@ -3,25 +3,26 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
     $scope.verification_code_submit_message = false;
 
     $http({
-        method: 'GET',
-        url: domain+'check_cookies.json',
-    }).success(function(data){
-        console.log(data['customer'])
-    })
-    $http({
-        method: 'GET',
-        url: domain+'get_profile.json',
-        params: {
-            mobile_number: $scope.mobile_number,
+        method: 'POST',
+        url: domain+'../check_cookies.json',
+        params:{
             customer_uuid: $cookies['customer_uuid']
         }
     }).success(function(data){
-        $scope.name = data['name'];
-        $scope.mobile_number = data['mobile_number'];
+        if(data['customer']!=null)
+            $cookies.customer_uuid= data['customer']['uuid'];
+        $http({
+            method: 'GET',
+            url: domain+'../get_profile.json',
+            params: {
+                mobile_number: $scope.mobile_number,
+                customer_uuid: $cookies['customer_uuid']
+            }
+        }).success(function(data){
+            $scope.name = data['name'];
+            $scope.mobile_number = data['mobile_number'];
+        })
     })
-
-    $scope.set_uuid = function(){
-    }
 
     $scope.check_size = function(){
         if(isNaN(parseInt($scope.mobile_number))){
