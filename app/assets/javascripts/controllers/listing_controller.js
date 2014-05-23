@@ -72,33 +72,32 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text, index, distance, latitude, longitude) {
-        console.log(distance+' '+latitude);
-        $.pnotify({
-            title: brand_name+' - Offer sent',
-            text: sms_text,
-            sticker_hover: false,
-            closer_hover: false,
-            animate_speed: 'fast',
-            icon: false,
-            addclass: 'stack-topleft',
-            opacity: .9
-        });
-        $scope.change_icon = false;
-        ($scope.posters[index].ad_usage++);
-        $http({
-            method: 'POST',
-            url   : domain+'set_sms_data.json',
-            params: {
-                customer_uuid: $cookies.customer_uuid,
-                ad_id: ad_id,
-                brand_name: brand_name,
-                distance: parseFloat(distance).toPrecision(2),
-                longitude: longitude,
-                latitude: latitude,
-                outlet_id: outlet_id,
-                misc_sms: false
-            }
-        })
+        if($cookies['mobile_number']=='verified'){
+            $.pnotify({
+                title: brand_name+' - Offer sent', text: sms_text,
+                sticker_hover: false, closer_hover: false,
+                animate_speed: 'fast', icon: false,
+                addclass: 'stack-topleft', opacity: .9
+            });
+            $scope.change_icon = false;
+            ($scope.posters[index].ad_usage++);
+            $http({
+                method: 'POST',
+                url   : domain+'set_sms_data.json',
+                params: {
+                    customer_uuid: $cookies.customer_uuid,
+                    ad_id: ad_id,
+                    brand_name: brand_name,
+                    distance: parseFloat(distance).toPrecision(2),
+                    longitude: longitude,
+                    latitude: latitude,
+                    outlet_id: outlet_id,
+                    misc_sms: false
+                }
+            })
+        }
+        else
+            angular.element('#mobile-number').modal('show');
     }
 
 
@@ -162,7 +161,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             })
         }
         else{
-            $location.path('/profile');
+            angular.element('#mobile-number').modal('show');
         }
     }
 })

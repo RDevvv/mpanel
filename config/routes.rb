@@ -135,6 +135,8 @@ Gullak2::Application.routes.draw do
 
     if Rails.env.development?
     root :to => "home#index"
+    elsif
+    root :to => "home#index", constraints: {subdomain: 'api'}
     else
     root :to => "home#index", constraints: {subdomain: 'm'}
     end
