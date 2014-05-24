@@ -73,6 +73,7 @@ body.single .hfeed .post {padding-top: 0;}
     letter-spacing: 0; margin-bottom: 0; text-transform: uppercase;
 }
 .story-body-text {font-family: georgia,"times new roman",times,serif; font-size: 1.2em; font-weight: 400; text-align: justify;}
+.story-body-small {clear:both; margin:0 0 1% 0; font-family: georgia,"times new roman",times,serif; font-size: 1em; font-weight: 400; text-align: justify;}
 .story-body-text .sp-highlight {position:relative; top:3px; font-weight: bold;}
 .story-body-text .sp-italic {font-style:italic;}
 .story-body-text:last-child {padding:0 0 10px 0; border-bottom: solid 3px #dddddd;}
