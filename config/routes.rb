@@ -136,12 +136,11 @@ Gullak2::Application.routes.draw do
 
     if Rails.env.development?
     root :to => "home#index"
-    elsif
-    root :to => "home#index", constraints: {subdomain: 'api'}
     else
     root :to => "home#index", constraints: {subdomain: 'm'}
     end
     root :to => "home#index", constraints: {subdomain: 'm.staging'}
+    root :to => "home#index", constraints: {subdomain: 'api'}
     root :to => "merchant#index", constraints: {subdomain: 'admin'}
     root :to => "home#index", constraints: {domain: 'gullak.co'}
     root :to => redirect('/home.html')
