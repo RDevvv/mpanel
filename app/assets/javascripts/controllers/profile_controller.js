@@ -34,7 +34,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
         if($scope.mobile_number.length==10){
             $http({
                 method: 'POST',
-                url: domain+"/get_mobile_number.json",
+                url: domain+"get_mobile_number.json",
                 params: {
                     mobile_number: $scope.mobile_number,
                     customer_uuid: $cookies['customer_uuid']
@@ -48,7 +48,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
     $scope.check_verification_code_size= function(){
         if($scope.verification_code.length == 4){
             $http({
-                url: domain+"/check_verification_code.json",
+                url: domain+"check_verification_code.json",
                 method: 'POST',
                 params: {
                     name: $scope.name,
@@ -74,7 +74,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
 
     $scope.resend_verification_code = function(){
         $http({
-            url: domain+"/resend_verification_code.json",
+            url: domain+"resend_verification_code.json",
             method: 'POST',
             params: {
                 customer_uuid: $cookies.customer_uuid
