@@ -21,6 +21,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
         }).success(function(data){
             $scope.name = data['name'];
             $scope.mobile_number = data['mobile_number'];
+            $scope.customer_uuid = $cookies['customer_uuid']
         })
     })
 
