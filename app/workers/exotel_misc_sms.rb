@@ -7,7 +7,7 @@ class ExotelMiscSms
         end
 
         misc_sms = MiscSms.find(sms_id)
-        response = Exotel::Sms.send(:from => '09223584822', :to => misc_sms.get_number, :body => misc_sms.text)
+        response = Exotel::Sms.send(:from => '08767451515', :to => misc_sms.get_number, :body => misc_sms.text)
         misc_sms.update_attributes(:vendor_id => response.sid)
     end
 end
