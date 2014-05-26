@@ -47,8 +47,7 @@ html {
   overflow-x: hidden;
 }
 
-
-body {font-family: Tahoma, Arial, Helvetica, sans-serif;}
+body {font-family: Tahoma, Arial, Helvetica, sans-serif; width:98%; overflow-x:hidden;}
 /*body > div { -webkit-transition: all 1s ease-in-out; }*/
 header, #header {width:100%; background-color:#be1e2d; /*background-color:#f08b38;*/ height: 42px; margin:0 auto;}
 .logo {margin:3% 0 0 0; width:110px; height:110px;}
@@ -110,49 +109,13 @@ ul.right-icons li a.phn {background: url(ikons-img.png) no-repeat -34px -323px t
 .out-add-div {float:left; width: 100%; height:auto; background: #fff; margin: 5px 0;}
 .cust-ver {float: left; margin: 0; width: 100%;}
 
-.hp-cat-ttl {float:left; text-align: left; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc; background: #f1f1f1; width: 100%; height:15px; padding: 2px 0 7px 15%; font-size: 12px; font-weight: bold; color: #000; text-transform: uppercase;}
-.hp-cat-txt-acc {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -46px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-app {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -145px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-ele {float:left; position: relative; text-align: left;  width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -78px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-food {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -12px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-mobile {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -178px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
-.hp-cat-txt-shoes {float:left; position: relative; text-align: left; width: 100%; height:20px; /*background: url(category-sprite.png) no-repeat 33px -112px transparent;*/ padding: 4px 0 8px 12%; font-size: 12px; font-weight: normal; color: #000;}
 a.filldiv {position: absolute; display: block; width: 100%; height:74%; text-decoration:none; color: #000; text-transform: uppercase; padding: 3px 0 0 10px;}
 .lower-txt-below {float:left; clear:both; width:100%; font-size:10px; color:#ddd; text-align:center;}
-
-/* Members online styles */
-.members-online {background: none repeat scroll 0 0 #FFFFFF;
-    float: left; clear: both; height: auto; margin: 10px 0 5px 0%;
-    position: relative; width: 135px;}
-.members-online .mem-active {float:left; clear: both; font-family: 'luna_barregular', Tahoma, Arial, Helvetica, sans-serif; width: 82%; background: url(green-dot.png) no-repeat left center transparent; font-size: 0.8em; color: #3e3e3e; margin:0; padding: 0 0 0 18%; font-weight: bold;}
-.members-online .mem-busy {float:left; clear: both; font-family: 'luna_barregular', Tahoma, Arial, Helvetica, sans-serif; width: 82%; background: url(red-dot.png) no-repeat left center transparent; font-size: 0.8em; color: #3e3e3e; padding: 0 0 0 18%; font-weight: bold;}
-.members-online .mem-offline {float:left; clear: both; font-family: 'luna_barregular', Tahoma, Arial, Helvetica, sans-serif; width: 82%; background: url(offline-dot.png) no-repeat left center transparent; font-size: 0.8em; color: #3e3e3e; padding: 0 0 0 18%; font-weight: bold;}
-/* Members online styles */
 
 a.backpage {
 height: 30px; position: absolute; top:-1px; left: 7px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -275px -452px #be1e2d; padding:3px 9px 4px 16px; width:auto; height:auto;
 }
-
-/* Testing styles for homepage categories */
-.cat-link-div {float:left; position: relative;  border-bottom: solid 1px #ccc; width: 100%; height:20px; padding:2px 0 14px 0;}
-/* Testing styles for homepage categories */
-
-.btn-show-deals { 
-  background-color: hsl(36, 95%, 54%) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbc97d", endColorstr="#f99f1a");
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fbc97d), to(#f99f1a));
-  background-image: -moz-linear-gradient(top, #fbc97d, #f99f1a);
-  background-image: -ms-linear-gradient(top, #fbc97d, #f99f1a);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fbc97d), color-stop(100%, #f99f1a));
-  background-image: -webkit-linear-gradient(top, #fbc97d, #f99f1a);
-  background-image: -o-linear-gradient(top, #fbc97d, #f99f1a);
-  background-image: linear-gradient(#fbc97d, #f99f1a);
-  border-color: #f99f1a #f99f1a hsl(36, 95%, 49%);
-  color: #fff !important;
-}
-
 
 .add-box{width:97%; float: left; position:relative; text-align: justify; background-color:transparent; color: #000; font-size:80%; margin: 0 2px 2px 3px; height:auto;}
 .add-box .adtitle {float: left; text-align: left; text-decoration: underline; }
@@ -176,10 +139,7 @@ background: url(ikons-img.png) no-repeat -275px -452px #be1e2d; padding:3px 9px 
 .span12 { width:97%; margin:0 auto; float:none !important;}
 .cont-box{width: 90%; margin:auto;}
 .bdiv2{border: 1px solid #ccc; background: #fff; float: left;  height: 218px; margin: 5px 2.9%; width: 140px; position:relative;}
-.lower-box2 {clear:both; position: relative; top:30px; width:auto; border-top: solid 1px #efefef; height: auto; margin:0; padding: 0 5px;}
-.lower-box2 p {float:right; text-align: left; font-size: 11px; color:#959595; margin: 0 3px 0 5px; padding: 0;}
-.lower-box2 .refr2, .refr2 {float: left; background: url(glyphicons-halflings.png) no-repeat -336px -97px transparent; margin: 4px 0 0 2px; width: 14px; height: 11px; visibility: visible;}
-.lower-box2 .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px; cursor:pointer;}
+
 .report-offer {width:100%; text-align:center; padding:4px 0; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
 /* Test Styles */
@@ -372,7 +332,7 @@ footer {clear: both; margin: 10px 0 0 0; height: 3em; margin-top: -3em; font-fam
 .lower-box {clear:both; width:96%; height:15px; margin:0 0 0 -1px; padding: 3px;}
 .lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
+
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
 
@@ -400,11 +360,6 @@ ul.right-icons li a.loc {background: url(ikons-img.png) no-repeat -289px -37px t
 
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:11px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
-
-.rch-btns-div3 {float:left; position:relative; width:100%; bottom:3px; margin:3px 0 0 0; border-bottom: solid 1px #ccc;}
-.rch-btns-div3 ul {float:left; width:100%; margin:0 0 7px 0;}
-.rch-btns-div3 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-.rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
@@ -435,7 +390,6 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
  font-weight: bold; height: 24px; margin: 0 0 0 1px; color:#06097D; padding:0 2px 0 1px; text-align: center; width: 24px;}
-.pin-initiate-meeting {float:right; font-size:12px; font-weight:normal; margin:0 0 1% 0; color:#959595;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -476,11 +430,9 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
 .lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:0; float:left; position: relative; top: 3px; width:100%; text-align: center;  color: #fff;}
@@ -520,11 +472,6 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:11px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; width:100%; bottom:3px; margin:3px 0 0 0; border-bottom: solid 1px #ccc;}
-.rch-btns-div3 ul {float:left; width:100%; margin:0 0 7px 0;}
-.rch-btns-div3 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-.rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
-
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
@@ -557,7 +504,7 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; text-align: center; width: 24px;}
-.pin-initiate-meeting {float:right; font-size:12px; font-weight:normal; margin:0 0 1% 0; color:#959595;}
+
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -614,11 +561,10 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
 .lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
+
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:0; float:left; position: relative; top: 3px;  width:100%; text-align: center; color: #fff;}
@@ -655,11 +601,6 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:11px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; width:100%; bottom:3px; margin:3px 0 0 0; border-bottom: solid 1px #ccc;}
-.rch-btns-div3 ul {float:left; width:100%; margin:0 0 7px 0;}
-.rch-btns-div3 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-.rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
-
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
@@ -693,7 +634,6 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
-.pin-initiate-meeting {float:right; font-size:12px; font-weight:normal; margin:0 0 1% 0; color:#959595;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -735,11 +675,9 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
 .lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidden; background:url(search-icon.png) no-repeat;
@@ -782,11 +720,6 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 .rch-btns-div4 {float:left; width:auto; height: 48px; position: absolute; left: 2px; bottom:11px; margin:2px -16px 0 0; z-index:1000; text-transform: uppercase; }
 .rch-btns-div4 .btn190{float:left; clear: both; margin: -8px 0 8px;}
 
-.rch-btns-div3 {float:left; position:relative; width:100%; bottom:3px; margin:3px 0 0 0; border-bottom: solid 1px #ccc;}
-.rch-btns-div3 ul {float:left; width:100%; margin:0 0 7px 0;}
-.rch-btns-div3 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-.rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
-
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
 .rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
@@ -821,7 +754,6 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
-.pin-initiate-meeting {float:right; font-size:12px; font-weight:normal; margin:0 0 1% 0; color:#959595;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
 .distance-div-below {position:relative; top:4px; width:auto; float:right; margin: 0 1px 0 0; font-size: 11px; text-align: left; color: #959595;}
@@ -861,12 +793,10 @@ footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helveti
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
 .lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 
 .report-offer {width:100%; text-align:center; padding:4px 0; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
 
-.lower-box .refr2txt {float:left; color:#959595; text-decoration:none; font-size:11px; margin:0 0 0 1px;}
 .lower-box .star2 {background: url(glyphicons-halflings.png) no-repeat -95px -121px transparent; width:13px; height: 13px; /*position: relative;*/ float:left; margin-left: 32%; bottom: 0px; padding: 0 3px 0 1px;}
 
 .head-brand {margin:0; position: relative; top: 3px; width:100%; text-align: center; color: #fff;}
@@ -889,12 +819,6 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 ul.left-icons li a.notification{
 height: 30px; position: absolute; top:3px; left: 43px; z-index: 1000;
 background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 11px 14px 18px; width:auto; height:auto;}
-
-.rch-btns-div3 {float:left; position:relative; width:100%; bottom:3px; margin:3px 0 0 0; border-bottom: solid 1px #ccc;}
-.rch-btns-div3 ul {float:left; width:100%; margin:0 0 7px 4px;}
-.rch-btns-div3 ul li{float:left; margin:0 8px; display: inline; list-style-type: none;}
-
-.rch-btns-div3 .btn190{float:left; clear: both; margin: 0; text-transform: uppercase;}
 
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
@@ -934,7 +858,6 @@ display:inline-block; position:relative; top:1px; left:0px; cursor: pointer;}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
 .pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
     font-weight: bold; height: 24px; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
-.pin-initiate-meeting {float:right; font-size:12px; font-weight:normal; margin:0 0 1% 0; color:#959595;}
 
 div.input {/*width:395px; width:82%;*/ width:93%; padding:1px 15px 3px !important; border-radius:4px; border:1px solid #c6d2db; border-top:1px solid #b4c1cb; box-shadow:inset 0 1px 2px rgba(0,0,0,0.08);  float:left; margin: 0 0 0 0; background:#fff !important;}
 #go { margin: 0 auto; width: 200px; }
