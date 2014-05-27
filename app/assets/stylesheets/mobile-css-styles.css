@@ -47,7 +47,7 @@ html {
   overflow-x: hidden;
 }
 
-body {font-family: Tahoma, Arial, Helvetica, sans-serif; width:98%; overflow-x:hidden;}
+body {font-family: Tahoma, Arial, Helvetica, sans-serif; width:100%; overflow-x:hidden;}
 /*body > div { -webkit-transition: all 1s ease-in-out; }*/
 header, #header {width:100%; background-color:#be1e2d; /*background-color:#f08b38;*/ height: 42px; margin:0 auto;}
 .logo {margin:3% 0 0 0; width:110px; height:110px;}
@@ -290,7 +290,7 @@ textarea.feedback {background-color: #FFFFFF; text-align: left; resize:none; bac
 .social-img-cntr .social-pic {border:none; outline:none; margin:0; padding:0; background: inherit;}
 .social-img-cntr .social-pic img {width:100%; max-width: 100%; max-height: auto;}
 .social-chnls {float:left; clear: both; margin: 7px 0 5% 0; padding:7px 0; width: 100%; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC;}
-ul.chnls {width: 90%; margin: 0 auto; font-family: 'DenseRegular', sans-serif; text-transform: uppercase; list-style: none; height: 40%; }
+ul.chnls {width: 90%; margin: 0 auto; font-family: 'DenseRegular', sans-serif; text-transform: uppercase; list-style: none; height: 40%;}
 ul.chnls li {float:left; display: inline; width: 30%; height: 100%; border-right:solid 1px #dddddd;}
 ul.chnls li:last-child {border-right:none;}
 .chnl-box {float:left; width:100%; text-align: center; }
