@@ -2,15 +2,22 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
     $scope.number_submit_message = false;
     $scope.verification_code_submit_message = false;
 
-    $http({
-        method: 'POST',
-        url: domain+'check_cookies.json',
-        params:{
-            customer_uuid: $cookies['customer_uuid']
+    $scope.init = function(){
+        if(app_type=='native'){
+            $http({
+                method: 'POST',
+                url: domain+'check_app_cookies.json',
+                params:{
+                    customer_uuid: $cookies['customer_uuid']
+                }
+            }).success(function(data){
+                if(data['customer']!=null)
+                    $cookies.customer_uuid= data['customer']['uuid'];
+            })
         }
-    }).success(function(data){
-        if(data['customer']!=null)
-            $cookies.customer_uuid= data['customer']['uuid'];
+    }
+
+    $scope.get_profile = function(){
         $http({
             method: 'GET',
             url: domain+'get_profile.json',
@@ -22,7 +29,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
             $scope.name = data['name'];
             $scope.mobile_number = data['mobile_number'];
         })
-    })
+    }
 
     $scope.check_size = function(){
         if(isNaN(parseInt($scope.mobile_number))){
@@ -84,4 +91,8 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
 
         })
     }
+
+    $scope.init();
+    if(app_type='html5')
+        $scope.get_profile();
 })
