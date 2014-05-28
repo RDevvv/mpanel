@@ -37,6 +37,7 @@ class CustomersController < ApplicationController
               cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
           end
           @mobile_number = 'exist'
+          @uuid = @existing_customer.uuid
       else
           cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
           if @customer.update_attributes(:mobile_number => params[:mobile_number])
@@ -47,12 +48,17 @@ class CustomersController < ApplicationController
           end
       end
       respond_to do |format|
-          format.json { render :json => {:mobile_number => @mobile_number, :verified => @verified}}
+          format.json { render :json => {:mobile_number => @mobile_number, :verified => @verified, :uuid => @uuid}}
       end
   end
 
   def show
-      @customer = Customer.where(:uuid => params[:customer_uuid]).first
+      @customer = Customer.where(:mobile_number => params[:mobile_number])
+      if @customer.nil?
+          @customer = Customer.where(:uuid => params[:customer_uuid]).first
+      else
+          @customer = @customer.first
+      end
       respond_to do |format|
           format.json { render :json => {:mobile_number => @customer.mobile_number, :name => @customer.name}}
       end
