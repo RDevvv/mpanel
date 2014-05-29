@@ -320,7 +320,7 @@ box-shadow:         1px 0px 4px 0px rgba(50, 50, 50, 0.75);}
 .post-picbox img {max-width: 100%; max-height: 100%; padding: 1% 0; margin: 0 auto; text-align: center; border: none; outline: none;}
 
 .selfie-picbox {position:relative; margin: 0 auto; padding: 2% 0; text-align: center; width: 97%; height:auto;}
-.selfie-picbox img {max-width: 100%; max-height: 100%; position: relative; padding: 1% 0; margin: 0 auto; text-align: center; border: none; outline: none;}
+.selfie-picbox img {max-width: 100%; max-height: 100%; border:solid 1px #000; position: relative; padding: 1% 0; margin: 0 auto; text-align: center; outline: none;}
 
 .selfie-post-time {clear:both; width: 97%; margin: 0; color: #414042; font-size:0.85em; font-family:Helvetica, sans-serif; font-weight: bold; text-align: left; margin: 0 auto;}
 ul.selfie-list {clear:both; width: 97%; margin: 0 auto; color: #414042; font-size:0.85em; font-family:Helvetica, sans-serif; text-align: left; list-style: none;}
@@ -344,7 +344,8 @@ ul.selfierightpics li {float: left; clear:both; border:solid 1px #ccc; width:100
 box-shadow: 1px 0px 2px 0px rgba(50, 50, 50, 0.75);}
 
 .brndovrly {position: relative;}
-.ovrlybox {position: absolute; top:5%; right:2%; z-index: 3000;}
+.ovrlytopbox {position: absolute; top:5%; right:2%; z-index: 3000;}
+.ovrlybotbox {position: absolute; bottom:2%; right:2%; z-index: 3000;}
 .ovrlydiv {float:left; clear:both; margin:2px 0; width:100%; font-family: 'DenseRegular', sans-serif; font-size: 1.5em; font-weight:bold; text-align: center; color:#ffffff;}
 
 .btn5 {position: absolute; right:-1px; bottom: 15%; font-weight: bold;
@@ -355,6 +356,11 @@ box-shadow: 1px 0px 2px 0px rgba(50, 50, 50, 0.75);}
     font-size: 14px; line-height: 20px; margin-bottom: 0; cursor: pointer; padding: 8px 9px}
 .glyphicon-black-heart {background: url(ikons-img.png) no-repeat -477px -114px transparent; padding:3px 13px;}    
 .glyphicon-red-heart {background: url(ikons-img.png) no-repeat -516px -114px transparent; padding:3px 13px;}    
+.socialItem {background:transparent; color: #000; display: inline-block; padding: 0 7px 0 3px;}
+.likeIconSmall {background: url(glyphicons-halflings.png) no-repeat scroll -95px -1px transparent;
+    color: rgba(0, 0, 0, 0); display: inline-block; font: 0px/0 serif; height: 10px;
+    margin-bottom: 1px; text-shadow: none; width: 15px; height: 15px;}
+.socialMetaCount {color: #000; font-style: normal; font-size: 11px; font-weight: normal; position: relative;bottom:5px;}    
 ul.params1 {/*float:left; position: absolute; left:0; bottom:1%;*/ clear: both; width:100%; border-top:solid 1px #000; list-style: none; font-size:1.1em; padding: 0.5% 0 2% 0; /*padding:1% 0 1% 0;*/}
 ul.params1 li {float:left; margin:0 2%; border-right:solid 2px #414042; width: 32%; }
 ul.params1 li:last-child {border-right:none; width:26%; margin: 0;}
