@@ -29,18 +29,23 @@ html, body {
         <li><a ngg="update_top_share_url($(this))" ng-controller="ShareController" ng-click="top_share()" class="new_top_share shr ng-scope" href=""></a></li>
         <li><a ng-click="map_view_link()" ng-class="view_button()" href="" class="outlet"></a></li>
     </ul>
-</div>
+  </div>
 
   <div class="social-comment">
     
     <div class="selfie-picbox">
       <img src="assets/FBImage.png" />
+      <div class="ovrlybox">
+        <button type="button" class="btn7 btn-default btn-lg"> <span class="glyphicon-black-heart"></span></button>
+        <!--<button type="button" class="btn7 btn-primary btn-lg"> <span class="glyphicon-red-heart"></span></button>-->
+      </div>
     </div>
 
     <!--<div class="selfie-post-time">Last Facebook Post: 15 hrs ago</div>-->
     <ul class="selfie-list">
       <li>+91-9830151515</li>
       <li>15 hrs ago</li>
+      <li>Public</li>
       <li>Kolkata</li>
     </ul>
     <div class="selfie-caption">This Super Saturday, we’re giving you a special Super power – THE GOLDEN TICKET! Ditch the long queue and get a direct entry into the store by paying a redeemable amount of INR 1000.</div>
