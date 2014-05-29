@@ -53,8 +53,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-      @customer = Customer.where(:mobile_number => params[:mobile_number])
-      if @customer.nil?
+      @customer = Customer.where(:mobile_number => params[:mobile_number]) unless params[:mobile_number].blank?
+      if @customer.blank?
           @customer = Customer.where(:uuid => params[:customer_uuid]).first
       else
           @customer = @customer.first
