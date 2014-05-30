@@ -13,9 +13,12 @@ class HomeController < ApplicationController
     end
 
     def check_app_cookies
-        if !params[:customer_uuid].blank?
-            @customer = Customer.create(:uuid => cookies[:customer_uuid])
+        if params[:customer_uuid].blank?
+            @customer = Customer.create(:uuid => Customer.generate_cookie)
+        else
+            @customer = Customer.where(:uuid => params[:customer_uuid]).first
         end
+        return @customer
     end
 
     def record_session

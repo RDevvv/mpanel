@@ -37,6 +37,14 @@
          url('dense-regular.ttf') format('truetype'),
          url('dense-regular.svg#DenseRegular') format('svg');
 }
+
+@font-face {
+    font-family: 'HelveticaNeueRegular';
+    src: url('helveticaneue-webfont.eot');
+    src: url('helveticaneue-webfont.eot') format('embedded-opentype'),
+         url('helveticaneue-webfont.woff') format('woff'),
+         url('helveticaneue-webfont.ttf') format('truetype')
+}
 /* Custom font */
 
  /*CSS hack to prevent layout breaking in landscape
@@ -326,7 +334,7 @@ box-shadow:         1px 0px 4px 0px rgba(50, 50, 50, 0.75);}
 ul.selfie-list {clear:both; width: 97%; margin: 0 auto; color: #414042; font-size:0.85em; font-family:Helvetica, sans-serif; text-align: left; list-style: none;}
 ul.selfie-list li {float: left; padding:0 2%; border-right: 2px solid #414042; line-height: 14px;}
 ul.selfie-list li:first-child {padding-left: 0; margin-left: 0; font-weight: bold;}
-ul.selfie-list li:last-child {font-weight:normal; font-style:italic; border-right:none;}
+ul.selfie-list li:last-child {font-weight:normal; border-right:none;}
 .selfie-caption {clear: both; width: 97%; text-align: left; color: #000; font-size:0.85em; line-height:16px; margin:0 auto; padding-top:2%;}
 
 .selfie-comments-bar {width: 100%; clear: both; background: #cccccc; font-family: 'DenseRegular', sans-serif; text-align: center; font-weight: bold; font-size: 1.4em; text-transform: uppercase; color: #000000; margin: 4% 0; padding: 1% 0;}
@@ -336,12 +344,27 @@ ul.selfie-list li:last-child {font-weight:normal; font-style:italic; border-righ
 .selfie-feedback-bar {width: 100%; position: fixed; bottom: 0; padding: 2% 0; background: #ccc; }
 .selfibox {clear:both; width:96%; margin:2% auto;}
 ul.selfieleftpics {float:left; width:47%; height: auto; list-style: none;}
-ul.selfieleftpics li {float: left; clear:both; border:solid 1px #ccc; width:100%; margin:0 0 5% 0; padding: 2% 0; -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
-box-shadow: 1px 0px 2px 0px rgba(50, 50, 50, 0.75);}
+ul.selfieleftpics li {float: left; clear:both; width:100%; height: auto; margin:0 0 5% 0; padding: 2% 0; /*padding: 2% 0;*/ -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
+/*box-shadow: 1px 0px 2px 0px rgba(50, 50, 50, 0.75);*/}
+
+.brnd-wrp {border:solid 1px #ccc; height:auto;padding:0 0 11%; -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
+box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75);}
+
+.brand-info-box {clear:both; width:95%; height: auto; margin:1% auto; font-size: 0.8em;}
+.brand-info-title {clear: both; width: 97%; text-align: left; margin:2px 1%; text-transform: uppercase; border-bottom: solid 1px #ddd; padding:0 0 2px 0; font-family: 'DenseRegular', sans-serif; font-size: 1.4em; color: #000; font-weight: bold;}
+.brand-info-below {position:relative; clear: both; width: 100%; margin:2px 0 2px 0;}
+.brand-icon-left {position: absolute; left:1%; width:auto; height: auto; width: 40%;}
+.brand-info-comt {float:left;background: url(glyphicons-halflings.png) no-repeat scroll -240px -120px transparent;width: 16px; height: 15px; margin:0 3% 0 0;} 
+.brand-info-cct{float:left; margin:0; padding:0; font-weight: bold; line-height: 13px;}
+
+
+.brand-icon-right {position: absolute; right:1%; width:auto; height: auto; width: 35%;}
+.brand-info-comt2 {float:right;background: url(glyphicons-halflings.png) no-repeat scroll -95px -1px transparent;width: 15px; height: 15px; margin:0 0 0 6%;} 
+.brand-info-cct2{float:right; margin:0; padding:0; font-weight: bold; line-height: 13px;}
+.brand-info-below .brand-info-like {position: absolute; right:0; background: url(glyphicons-halflings.png) no-repeat scroll -95px -1px transparent; padding: 0 1%; font-weight: bold;} 
 
 ul.selfierightpics {float:right; width:47%; height: auto; margin:0 1% 0 0; list-style: none;}
-ul.selfierightpics li {float: left; clear:both; border:solid 1px #ccc; width:100%; margin:0 0 5% 0; padding: 2% 0; -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
-box-shadow: 1px 0px 2px 0px rgba(50, 50, 50, 0.75);}
+ul.selfierightpics li {float: left; clear:both; width:100%; margin:0 0 5% 0; padding: 2% 0;}
 
 .brndovrly {position: relative;}
 .ovrlytopbox {position: absolute; top:5%; right:2%; z-index: 3000;}
