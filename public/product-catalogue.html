@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+<head>
+<title>Shoffr: Shop with an offer</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<meta name="title" content="Shoffr: Shop with an offer"/>
+<meta name="description" content="Shoffr’s mobile app alerts you about free deals and offers at nearby and relevant stores. You can unlock an offer, walk into the sotre and redeem the offer instantly."/>
+<meta name="keywords" content="free deals, free offers, free coupons, free discounts, deals, offers, cuopons, discounts, nearby stores" />
+<link href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<link href="/assets/mobile-css-styles.css?body=1" media="all" rel="stylesheet" type="text/css" />
+<style type="text/css">
+html, body {
+  width: 100%; height:100%;
+  overflow-x: hidden;
+}
+</style>
+</head>
+<body>
+  <div id="header">
+    <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
+    <ul class="left-icons">
+        <li><a class="srchlink3" href="#menu"></a></li>
+        <!--<li><a href="#" class="notification"></a></li>-->
+    </ul>
+    <div class="head-brand"><a href="#/home">shoffr</a></div>
+    <ul class="right-icons">
+        <li><a ngg="update_top_share_url($(this))" ng-controller="ShareController" ng-click="top_share()" class="new_top_share shr ng-scope" href=""></a></li>
+        <li><a ng-click="map_view_link()" ng-class="view_button()" href="" class="outlet"></a></li>
+    </ul>
+  </div>
+  <div class="selfibox">
+  	<ul class="selfieleftpics">
+      <li>
+        <div class="brnd-wrp">
+        	<div class="brndovrly">
+        	  <img src="assets/fcuk/Effie-Kitten-Heels-Shoes.jpg" border="0" />
+          </div>
+          <div class="brand-info-box">
+            <div class="brand-info-title">Effie Kitten Heels Shoes</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="brnd-wrp">
+          <div class="brndovrly">
+            <img src="assets/fcuk/Garden-Silk-Dress.jpg" border="0" />
+          </div>
+          <div class="brand-info-box">
+            <div class="brand-info-title">Garden Silk Dress</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="brnd-wrp">
+          <div class="brndovrly">
+            <img src="assets/fcuk/Golossy-Nude-Leather-Watch.jpg" border="0" />
+          </div>
+          <div class="brand-info-box">
+            <div class="brand-info-title">Golossy Nude Leather Watch</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="brnd-wrp">
+          <div class="brndovrly">
+            <img src="assets/fcuk/Stone-Rib-Necklace.jpg" border="0" />
+          </div>
+          <div class="brand-info-box">
+            <div class="brand-info-title">Stone Rib Necklace</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+	</ul>
+	<ul class="selfierightpics">
+	  <li>
+      <div class="brnd-wrp">
+  	  	<div class="brndovrly">
+  	  	  <img src="assets/fcuk/Lola-Bucket-Bag.jpg" border="0" />
+  	  	</div>
+        <div class="brand-info-box">
+            <div class="brand-info-title">Lola Bucket Bag</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+      </div>  
+	  </li>
+      <li>
+        <div class="brnd-wrp">
+        	<div class="brndovrly">
+        	  <img src="assets/fcuk/RUG.jpg" border="0" />
+          </div>
+          <div class="brand-info-box">
+            <div class="brand-info-title">RUG</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="brnd-wrp">
+        	<div class="brndovrly">
+        	  <img src="assets/fcuk/Stitch-Embriodered-Top.jpg" border="0" />
+          </div>
+          <div class="brand-info-box">
+            <div class="brand-info-title">Stitch Embriodered Top</div>
+            <div class="brand-info-below">
+              <div class="brand-icon-left">
+                <div class="brand-info-comt"></div>
+                <div class="brand-info-cct">304</div>
+              </div>
+              <div class="brand-icon-right">
+                <div class="brand-info-comt2"></div>
+                <div class="brand-info-cct2">304</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+	</ul>
+  </div>
+</body>
+</html>
