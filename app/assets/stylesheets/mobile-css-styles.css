@@ -43,7 +43,7 @@
     src: url('helveticaneue-webfont.eot');
     src: url('helveticaneue-webfont.eot') format('embedded-opentype'),
          url('helveticaneue-webfont.woff') format('woff'),
-         url('helveticaneue-webfont.ttf') format('truetype'),
+         url('helveticaneue-webfont.ttf') format('truetype')
 }
 /* Custom font */
 
