@@ -344,8 +344,9 @@ ul.selfie-list li:last-child {font-weight:normal; border-right:none;}
 .selfie-feedback-bar {width: 100%; position: fixed; bottom: 0; padding: 2% 0; background: #ccc; }
 .selfibox {clear:both; width:96%; margin:2% auto;}
 ul.selfieleftpics {float:left; width:47%; height: auto; list-style: none;}
-ul.selfieleftpics li {float: left; clear:both; width:100%; height: auto; margin:0 0 5% 0; padding: 2% 0; /*padding: 2% 0;*/ -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
+ul.selfieleftpics li {float: left; clear:both; position: relative; width:100%; height: auto; margin:0 0 5% 0; padding: 2% 0; /*padding: 2% 0;*/ -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
 /*box-shadow: 1px 0px 2px 0px rgba(50, 50, 50, 0.75);*/}
+.brnd-wrp .brndovrly a {position: relative; width: 100%; height: 100%; top: 0; left: 0; text-decoration: none; z-index: 1000;}
 
 .brnd-wrp {border:solid 1px #ccc; height:auto;padding:0 0 11%; -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
 box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75);}

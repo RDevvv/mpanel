@@ -46,6 +46,9 @@ hr {margin: 0;}
 #blogs-masthead .element1 {float: none; height:auto; position: absolute; width: auto; top:33px; z-index: 1;}
 .single .blog-main #blogs-masthead, .single .blog-main #logo {margin-top: 0;}
 #logo {display: block; margin-right: 15px;}
+#head-rightdiv {float:right; width:20%; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
+#head-rightdiv .intro-txt {float: left; line-height: 40px;}
+#head-rightdiv .android-icon {float: right; border:0; outline: none;}
 
 /* Main Blog Container */
 .blog-main {margin: 0 auto; width: 950px; height: auto; padding: 1px;}
@@ -373,7 +376,12 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 
 /* Tablet Nexus7 and 7 inch tablets */
 @media (max-width: 480px) and (orientation : portrait) {
-html, body {max-width: 99%; height:100%; overflow-x: hidden;}    
+html, body {max-width: 99%; height:100%; overflow-x: hidden;} 
+
+#head-rightdiv {float:right; width:20%; height:auto; position: relative; top:30px; right:-20px; padding:4px;}
+#head-rightdiv .intro-txt {display: none;}
+#head-rightdiv .android-icon {float: none; border:0; outline: none;}
+
 .twit-container {display: none;}
 .twit-container-detail {display: none;}
 .blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
