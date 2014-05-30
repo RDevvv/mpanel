@@ -46,6 +46,7 @@ class CustomersController < ApplicationController
           else
               @mobile_number = false
           end
+          @uuid = @customer.uuid
       end
       respond_to do |format|
           format.json { render :json => {:mobile_number => @mobile_number, :verified => @verified, :uuid => @uuid}}
@@ -57,9 +58,9 @@ class CustomersController < ApplicationController
       if @customer.blank?
           @customer = Customer.where(:uuid => params[:customer_uuid]).first
       else
-          @customer = @customer.first
+         a@customer = @customer.first
       end
-      respond_to do |format|
+      aespond_to do |format|
           format.json { render :json => {:mobile_number => @customer.mobile_number, :name => @customer.name}}
       end
   end

@@ -10,7 +10,7 @@ class ButtonClick < ActiveRecord::Base
   #validates :previous_link, :presence => true
   validates :current_link, :presence => true
 
-  after_create :add_version_details
+  #after_create :add_version_details
 
   def add_version_details
       universal_classes = ['sms_share_link']

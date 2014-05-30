@@ -8,7 +8,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 method: 'POST',
                 url: domain+'check_app_cookies.json',
                 params:{
-                    customer_uuid: $cookies['customer_uuid']
+                    customer_uuid: $cookies.customer_uuid
                 }
             }).success(function(data){
                 if(data['customer']!=null)
@@ -44,7 +44,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 url: domain+"get_mobile_number.json",
                 params: {
                     mobile_number: $scope.mobile_number,
-                    customer_uuid: $cookies['customer_uuid']
+                    customer_uuid: $cookies.customer_uuid
                 }
             }).success(function(data){
                 $cookies['customer_uuid'] = data['uuid'];
@@ -61,7 +61,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 params: {
                     name: $scope.name,
                     verification_code: $scope.verification_code,
-                    customer_uuid: $cookies['customer_uuid']
+                    customer_uuid: $cookies.customer_uuid
                 }
             }).success(function(data){
                 if(data["verified"]==true){
@@ -94,6 +94,4 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
     }
 
     $scope.init();
-    if(app_type='html5')
-        $scope.get_profile();
 })
