@@ -247,7 +247,8 @@ ol.numbered li {list-style-position: inside; clear: both; margin: 3px 0;}
 
 ul.market-icons {float: right; width: 65%; height: auto; margin: 0; position: relative; left:5%; bottom:1%; list-style: none;}
 ul.market-icons li {float:left; display: inline; margin:0 -5%;}
-ul.market-icons li img {opacity:0.3; max-width:70%; max-height:70%;}
+ul.market-icons li:first-child {opacity: 0.3}
+ul.market-icons li img {max-width:70%; max-height:70%;}
 ul.market-icons li:last-child {margin-right:0;}
 
 ul.app-social {float:right; clear:both; width: 20%; height: 20px; margin: 33% 0 0 0;}
@@ -257,8 +258,8 @@ ul.app-social li:last-child {}
 ul.keyfeatures {float:right; clear: both; width:69%; height:auto; margin: 2% 0; list-style: none; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.3em; color: #727171; font-weight: bold;}
 ul.keyfeatures li {float: left; clear:both; width: 100%; height:auto; margin:1% 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; padding:2% 2px 0 8%; }
 
-.ss-wrapper {clear:both; width:1200px; height:627px; margin: 10px auto; background-image: url(Facebook-app-creative.png);}
-.ssdiv-box {clear:both; width: 85%; height:auto; border:solid 1px #000; margin: 10px auto;}
+.ss-wrapper {clear:both;  width:1200px; height:627px; margin: 10px auto; background-image: url(Facebook-app-creative.png);}
+.ssdiv-box {clear:both; width: 85%; height:auto; border-top:solid 1px #000; margin: 10px auto; }
 .ssdiv-box .headline {float:left; width: 100%; margin:2% 0; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1.8em; color: #000; font-weight: bold;}
 ul.screenshots {float:left; width:100%; height: 40%; margin:0 0 3% 0; list-style: none; }
 ul.screenshots li {float:left; display: inline; width: 20%; border:solid 1px #ccc; height: 100%; margin:0 2%; background: #ffffff;}
@@ -310,7 +311,7 @@ ul.feedbackboxes li div.fdb-fb {max-width: 95%; outline:none;}
 /*Google play styles */
 
 /*App store feedback styles */
-div.customer-review {clear: both; content: " "; display: block; float: none;}
+div.customer-review {clear: both; content:" "; display: block; float: none;}
 div.customer-review h5 {color:#898989; font-size: 1em; font-weight: bold; line-height: 12px;}
 div.customer-review h5 span {color:#898989;}
 div.rating {float:left; clear:both; margin:0 0 5px 0; display:inline-block;}
@@ -319,9 +320,16 @@ div.rating div span.rating-star {background: url(rating_star.png) no-repeat scro
 div.rating div span.ghost {background: none repeat scroll 0 center rgba(0, 0, 0, 0);
     margin: 0; position: absolute; width: 0;}    
 div.customer-review span.user-info {display: block; margin: 2px 0 0; font-weight:bold;}
-div.customer-review p {float:left; clear:both; scolor:#898989; height: auto; margin-bottom:18px;}
+div.customer-review p {float:left; clear:both; color:#898989; height: auto; margin-bottom:18px;}
 
 /*App store feedback styles */
+
+/* Press Releases */
+.press-release-div {width:100%; clear:both; padding:4px 0;}
+.press-release-div .dt1 {float:left; width: 100%;}
+.press-release-div span {float:left; margin:0 1% 0 0; font-weight:bold;}
+.dt1 .prlink1 {float: left; text-decoration: underline; background: url(pdficon.png) no-repeat scroll right center transparent; padding:0 2% 0 0;}
+/* Press Releases */
 
 /* App landing page */
 
