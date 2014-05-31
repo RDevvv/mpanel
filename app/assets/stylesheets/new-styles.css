@@ -41,6 +41,14 @@ html, body {max-width: 100%; /*overflow-x: hidden;*/}
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'DenseRegular';
+    src: url('dense-regular.eot');
+    src: url('dense-regular.eot') format('embedded-opentype'),
+         url('dense-regular.woff') format('woff'),
+         url('dense-regular.ttf') format('truetype'),
+         url('dense-regular.svg#DenseRegular') format('svg');
+}
 
 .container-fluid {padding-left: 0;}
 /* Top header styles */
@@ -125,6 +133,10 @@ p, pre {margin: 0;}
 #blogs-masthead .element1 {float: none; height: auto; position: absolute; width: auto; z-index: 1; top:25px;}
 #blogs-masthead .element1 #logo a img {}
 #logo {display: block;}
+
+#head-rightdiv {float:right; width:20%; height:auto; position: relative; top:37px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
+#head-rightdiv .intro-txt {float: left; line-height: 40px;}
+#head-rightdiv .android-icon {float: right; border:0; outline: none;}
 /* Main Container */
 
 /* SLideshow page */
@@ -337,6 +349,11 @@ div.customer-review p {float:left; clear:both; scolor:#898989; height: auto; mar
 /* Tablet Nexus7 and 7 inch tablets */
 @media (max-width: 480px) and (orientation : portrait) {
 body {font-size: 0.9em;}
+
+#head-rightdiv {float:right; width:20%; height:auto; position: relative; top:25px; right:-20px; padding:4px;}
+#head-rightdiv .intro-txt {display: none;}
+#head-rightdiv .android-icon {float: none; border:0; outline: none;}
+
 .menu {width:100%; margin: 0 auto;}
 .twit-container {display: none;}
 .main-div-contr {width: 95%;}
@@ -448,6 +465,10 @@ ul.footerlinksmain li:last-child {border-right:none;}
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+#head-rightdiv {float:right; width:28%; height:auto; position: relative; top:30px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
+#head-rightdiv .intro-txt {float: left; line-height: 40px;}
+#head-rightdiv .android-icon {float: right; border:0; outline: none;}
+
 .navbar {border:solid 10px #000; width:97%; display: none;}
 .navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
 .menu {width:95%; margin: 0 auto;}
@@ -504,6 +525,8 @@ div.box-screen .screen {float:left; width:100%; height: 80%; text-align:center; 
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+#head-rightdiv {float:right; width:22%; height:auto; position: relative; top:30px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
+
 .navbar {border:solid 10px #000; width:97%; display: none;}
 .navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
 .menu {width:92.5%; margin: 0 auto;}
