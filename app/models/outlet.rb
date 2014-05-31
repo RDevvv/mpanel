@@ -127,9 +127,7 @@ class Outlet < ActiveRecord::Base
         )
         valid_records.push(row)
       rescue
-        puts "Exception Occured"
         invalid_records.push(row)
-        puts invalid_records
       end
     end
     return valid_records,invalid_records
