@@ -56,16 +56,6 @@ module ArticlesHelper
         end
     end
 
-    def og_image
-        if action_name == 'index'
-            return "http://shoffr.com/assets/social-media/shoffr_social_media_logo.png"
-        else
-            if @article.attachments.present?
-                return @article.attachments.order(:id).last.image
-            end
-        end
-    end
-
     def twitter_card
         if action_name == 'index'
             return "summary"
@@ -90,13 +80,11 @@ module ArticlesHelper
         end
     end
 
-    def twitter_image_src
+    def og_image
         if action_name == 'index'
             return "http://shoffr.com/assets/social-media/shoffr_social_media_logo.png"
-        else
-            if @article.attachments.present?
-                return @article.attachments.order(:id).last.image
-            end
+        elsif @article.attachments.present?
+            return @article.attachments.order(:id).last.image
         end
     end
 
