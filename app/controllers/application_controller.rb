@@ -13,12 +13,11 @@ class ApplicationController < ActionController::Base
     end
 
     def user_for_paper_trail
-
         if current_admin_user
             current_admin_user
         else
-            'Unknown User'  
-        end  
+            'Unknown User'
+        end
         admin_user_signed_in? ? current_admin_user : 'Unknown user'
     end
 
@@ -47,8 +46,6 @@ class ApplicationController < ActionController::Base
             "admin"
         elsif controller_name == 'articles' || controller_name == 'newsfeeds'
             "blog"
-        elsif controller_name == 'error_messages'
-            "error"
         else
             "application"
         end
@@ -58,32 +55,4 @@ class ApplicationController < ActionController::Base
         flash[:error] = "Access denied."
         redirect_to root_url
     end
-
-    if Rails.env.production?
-        unless Rails.application.config.consider_all_requests_local
-            rescue_from Exception, with: :render_500
-            rescue_from ActionController::RoutingError, with: :render_404
-            rescue_from ActionController::UnknownController, with: :render_404
-            rescue_from ActionController::UnknownAction, with: :render_404
-            rescue_from ActiveRecord::RecordNotFound, with: :render_404
-        end
-    end
-
-    def render_404(exception)
-        @not_found_path = exception.message
-        respond_to do |format|
-            format.html { render template: 'error_messages/error_404', layout: 'layouts/error', status: 404 }
-            format.all { render nothing: true, status: 404 }
-        end
-    end
-
-    def render_500(exception)
-        logger.info exception.backtrace.join("\n")
-        @current_session_id = Customer.where(:uuid => cookies[:customer_uuid]).first.customer_sessions.order(:id).last.id
-        respond_to do |format|
-            format.html { render template: 'error_messages/error_500', layout: 'layouts/error', status: 500 }
-            format.all { render nothing: true, status: 500}
-        end
-    end
-
 end
