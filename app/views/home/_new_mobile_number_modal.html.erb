@@ -1,13 +1,13 @@
 <div id="mobile-number" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller='VerificationController'>
     <button type="button" class="modal_close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
     <div class="modal-body">
-        <div class="sub-txt2">We need to verify your mobile number</div>
-        <form class='customer-mobile-number-form form-horizontal' ng-submit='enter_number()'>
+        <div class="sub-txt2">We need to verify your mobile numberrrr</div>
+        <form name='mobile_number_submit' class='customer-mobile-number-form form-horizontal' ng-submit='enter_number()'>
             <div class="control-group">
                 <label class="control-label"> +91</label>
                 <div class="controls">
-                    <input type='text' name='mobile_number' class ='datetime_select' placeholder = "Enter mobile number" ng-model='mobile_number' required/>
-                    <input type='submit' name='Submit' class ='datetime_select btn-blue' >
+                    <input type='text' name='mobile_number' class ='datetime_select' placeholder = "Enter mobile number" ng-model='mobile_number' ng-minlength='10' ng-maxlength='10' required/>
+                    <input type='submit' name='Submit' class ='datetime_select btn-blue' ng-disabled='mobile_number_submit.$invalid'>
                 </div>
             </div>
         </form>

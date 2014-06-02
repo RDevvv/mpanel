@@ -21,28 +21,21 @@ class CustomersController < ApplicationController
       @customer = Customer.where(:uuid => params[:customer_uuid]).first
       @existing_customer = Customer.where(:mobile_number => params[:mobile_number])
       if @existing_customer.exists?
-          @existing_customer = @existing_customer.first
-          cookies[:customer_uuid] = {:value => @existing_customer.uuid, :expires => 1.year.from_now}
-          if @existing_customer.is_verified == true
+          @customer = @existing_customer.first
+          cookies[:customer_uuid] = {:value => @customer.uuid, :expires => 1.year.from_now}
+          if @customer.is_verified == true
               cookies[:mobile_number] = {:value => "verified", :expires => 1.year.from_now}
               @verified = true
-          else
-              cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
           end
           @mobile_number = 'exist'
-          @uuid = @existing_customer.uuid
       else
           cookies[:mobile_number] = {:value => "false", :expires => 1.year.from_now}
-          if @customer.update_attributes(:mobile_number => params[:mobile_number])
-              @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
-              @mobile_number = true
-          else
-              @mobile_number = false
-          end
-          @uuid = @customer.uuid
+          @customer.update_attributes(:mobile_number => params[:mobile_number])
+          @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
+          @mobile_number = true
       end
       respond_to do |format|
-          format.json { render :json => {:mobile_number => @mobile_number, :verified => @verified, :uuid => @uuid}}
+          format.json { render :json => {:mobile_number => @mobile_number, :verified => @verified, :uuid => @customer.uuid}}
       end
   end
 
@@ -51,9 +44,9 @@ class CustomersController < ApplicationController
       if @customer.blank?
           @customer = Customer.where(:uuid => params[:customer_uuid]).first
       else
-         a@customer = @customer.first
+          @customer = @customer.first
       end
-      aespond_to do |format|
+      respond_to do |format|
           format.json { render :json => {:mobile_number => @customer.mobile_number, :name => @customer.name}}
       end
   end
