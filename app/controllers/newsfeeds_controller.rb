@@ -1,5 +1,5 @@
 class NewsfeedsController < InheritedResources::Base
-  layout 'blog'
+  layout 'newsfeeds'
 
   def index
     @newsfeeds = Newsfeed.order.all.reverse
