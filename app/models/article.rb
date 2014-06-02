@@ -40,8 +40,9 @@ class Article < ActiveRecord::Base
   end
 
   def create_campaign
-    Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Blog", :medium => "Native Client", :placement =>  "User Feed", :marketer => "Business", :campaign_type => "1T1 Button Click", :purpose => "Acquisition", :target => "Business")
-    Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}", :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
+    campaign_name ="#{self.id}"+ "-" +"#{self.blog_category}"+" "+"#{self.created_at}"+" "+"#{self.blog_title}"
+    Campaign.create(:campaign_name => campaign_name, :source => "Blog", :medium => "Native Client", :placement =>  "User Feed", :marketer => "Business", :campaign_type => "1T1 Button Click", :purpose => "Acquisition", :target => "Business")
+    Campaign.create(:campaign_name => campaign_name, :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
   end
 
   def update_blog_url
