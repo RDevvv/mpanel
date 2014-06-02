@@ -19,8 +19,9 @@ class CustomersController < ApplicationController
 
   def get_mobile_number
       @customer = Customer.where(:uuid => params[:customer_uuid]).first
-      if Customer.all.map{|c| c.mobile_number}.uniq.include?(params[:mobile_number].to_i)
-          @existing_customer = Customer.where(:mobile_number => params[:mobile_number]).first
+      @existing_customer = Customer.where(:mobile_number => params[:mobile_number])
+      if @existing_customer.exists?
+          @existing_customer = @existing_customer.first
           cookies[:customer_uuid] = {:value => @existing_customer.uuid, :expires => 1.year.from_now}
           if @existing_customer.is_verified == true
               cookies[:mobile_number] = {:value => "verified", :expires => 1.year.from_now}
