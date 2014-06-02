@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
         if resource.is_a?(User)
             merchant_merchants_path
         else
-            super  
+            super
         end
     end
     private
@@ -34,18 +34,8 @@ class ApplicationController < ActionController::Base
     def set_layout
         if devise_controller? && devise_mapping.name == :merchant_user
             "merchant"
-        elsif controller_name == 'home' && action_name == 'index'
-            "listing"
-        elsif controller_name == 'home' && action_name == 'admin_panel'
-            "admin"
-        elsif controller_name == 'home'
-            "listing"
         elsif controller_name == 'campaigns' || controller_name == 'customers' || controller_name == 'ads'
             "home_index"
-        elsif controller_name == 'charts'
-            "admin"
-        elsif controller_name == 'articles' || controller_name == 'newsfeeds'
-            "blog"
         else
             "application"
         end

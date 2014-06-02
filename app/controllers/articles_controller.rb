@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+    layout 'blog'
     respond_to :html, :json
 
     def index

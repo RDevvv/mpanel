@@ -1,4 +1,5 @@
 class ChartsController < ApplicationController
+  layout 'admin'
 
   def sms_chart
     @sms = []
