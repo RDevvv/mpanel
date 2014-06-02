@@ -3,15 +3,6 @@ class Merchant::OutletsController <  Merchant::BaseController
     before_filter  :load_account_and_brand, :except => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
     #skip_before_filter :authenticate_merchant_user!, :only=>[:outlet_key, :outletview_edit]
     skip_before_filter :load_account_and_brand, :authenticate_merchant_user!, :only => :show
-    before_filter :set_headers, :only =>[:set_headers]
-
-    def set_headers
-        response.headers['Access-Control-Allow-Origin'] = '*'
-        response.headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-        response.headers['Access-Control-Request-Method'] = '*'
-        response.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-        response.headers['Accept-Encoding'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-    end
 
     #layout "outlet_manager", :only => [:select_outlet, :outletview_edit, :get_area, :get_address, :outlet_update]
 

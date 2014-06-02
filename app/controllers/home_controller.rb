@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+    layout 'listing'
     respond_to :html, :json
 
     before_filter :check_cookies, :except => [:check_app_cookies]

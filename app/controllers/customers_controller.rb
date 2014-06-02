@@ -1,6 +1,5 @@
 class CustomersController < ApplicationController
     skip_before_filter  :verify_authenticity_token, :only => [:show, :get_mobile_number, :check_verification_code]
-    before_filter :set_headers
 
     def check_verification_code
         @customer = Customer.where(:uuid => params[:customer_uuid]).first
