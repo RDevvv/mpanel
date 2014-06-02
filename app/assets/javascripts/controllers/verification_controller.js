@@ -8,6 +8,7 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
                 customer_uuid: $cookies['customer_uuid']
             }
         }).success(function(data){
+            console.log(data);
                     angular.element('#mobile-number').modal('hide');
             if(data["mobile_number"]==1){
                 $('#mobile-number').modal('hide');
@@ -16,6 +17,8 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
             else if(data["mobile_number"]=="exist"){
                 if(data['verified']==true){
                     $.pnotify({ title: 'Welcome back', text: '', closer_hover: false, sticker_hover: false, icon: false, opacity: .9 });
+                    $cookies.mobile_number = 'verified';
+                    $cookies.customer_uuid = data['customer_uuid']
                     $location.url('/deals/outlets?search=all&location='+UrlContent.location+'&latitude='+UrlContent.latitude+'&longitude='+UrlContent.longitude);
                     angular.element('#mobile-number').modal('hide');
                 }
@@ -44,6 +47,7 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
                 {
                     $('#verification').modal('hide');
                     $.pnotify({ title: 'Your account is verified', text: '', closer_hover: false, sticker_hover: false, icon: false});
+                    $cookies.mobile_number = 'verified';
                     $location.url('/deals/outlets?search=all&location='+UrlContent.location+'&latitude='+UrlContent.latitude+'&longitude='+UrlContent.longitude);
                 }
                 else{
