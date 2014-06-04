@@ -1,14 +1,7 @@
 app.controller('ShareController', function($scope, $cookies, $http, $location){
     $scope.top_share = function(){
         if($cookies['mobile_number']=='verified'){
-            $.pnotify({ title: ' ', text: 'You will receive a SMS from Shoffr shortly. Kindly share the link with your friends',
-                      closer_hover: false,
-                      sticker_hover: false,
-                      animate_speed: 'fast',
-                      icon: false,
-                      addclass: 'stack-topleft',
-                      opacity: .9
-            });
+            new PNotify({ title: ' ', text: 'You will receive a SMS from Shoffr shortly. Kindly share the link with your friends'});
             $http({
                 method: 'POST',
                 url   : domain+'set_sms_data.json',

@@ -43,14 +43,9 @@ app.controller('GeocodingController',function($scope){
     }
 
     $scope.geo_error = function(error){
-        $.pnotify({
+        new PNotify({
             title: 'Location not identified',
             text: 'Location services are disabled either for your browser or for your device. Please turn on location services and re-launch your browser.',
-            sticker_hover: false,
-            animate_speed: 'fast',
-            icon: false,
-            closer_hover: false,
-            opacity: .9
         });
     }
 
