@@ -898,9 +898,12 @@ license GPL/LGPL/MPL
 		pin_down: "icon-play"
 	});
 	$.extend(PNotify.styling.bootstrap3, {
-		closer: "glyphicon glyphicon-remove",
-		pin_up: "glyphicon glyphicon-pause",
-		pin_down: "glyphicon glyphicon-play"
+		closer: "icon-remove",
+		pin_up: "icon-pause",
+		pin_down: "icon-play"
+		//closer: "glyphicon glyphicon-remove",
+		//pin_up: "glyphicon glyphicon-pause",
+		//pin_down: "glyphicon glyphicon-play"
 	});
 	$.extend(PNotify.styling.fontawesome, {
 		closer: "fa fa-times",
