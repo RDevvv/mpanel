@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     end
 
     def check_app_cookies
+        params[:customer_uuid] = nil if params[:customer_uuid] == 'undefined'
         if params[:customer_uuid].blank?
             @customer = Customer.create(:uuid => Customer.generate_cookie)
         else
