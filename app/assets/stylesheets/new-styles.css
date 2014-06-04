@@ -134,7 +134,7 @@ p, pre {margin: 0;}
 #blogs-masthead .element1 #logo a img {}
 #logo {display: block;}
 
-#head-rightdiv {float:right; width:20%; height:auto; position: relative; top:37px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
+#head-rightdiv {float:right; width:23%; height:auto; position: relative; top:37px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
 #head-rightdiv .intro-txt {float: left; line-height: 40px;}
 #head-rightdiv .android-icon {float: right; border:0; outline: none;}
 /* Main Container */
@@ -454,10 +454,10 @@ ul.footerlinksmain li:last-child {border-right:none;}
 }
 
 @media only screen and (max-width: 320px) {
-.app-wrapper {width:90%; height: auto; padding: 1%; margin:1% auto; background-image: none!important;}
+.app-wrapper {width:90%; height: auto; padding: 1%; margin:1% auto; background: url(Background-wrapper.png) no-repeat; background-size:60% 50% ; /*background-image: none!important;*/}
 .app-drawer {float:left !important; clear: both; width:50% !important; height:auto; margin: 0 0 0 1%;}
 .app-drawer .logo {float:right; margin:2% 9% 0 0; font-size:2.6em;}
-.ss-wrapper {clear:both; border:solid 4px #000; width:95%; height:auto; margin: 1% auto; background-image: url(Facebook-app-creative.png);}
+.ss-wrapper {clear:both; width:95%; height:auto; margin: 1% auto; background-image: url(Facebook-app-creative.png);}
 .ssdiv-box {clear:both; width: 100%; height:auto; border-top:solid 1px #000; margin: 1% auto; }
 ul.screenshots li {clear: both; width: 100%; border:solid 1px #ccc; height: 100%; margin:1% auto; background: #ffffff;}
 ul.screenshots li:first-child {display: inline; width: 100%; border:solid 1px #ccc; height: 100%; margin:1% auto; background: #ffffff;}
@@ -466,7 +466,7 @@ ul.screenshots li:first-child {display: inline; width: 100%; border:solid 1px #c
 ul.keyfeatures {float:right; clear: both; width:80%; border:solid 1px #000; height:auto; margin: 2% 5% 0 0; list-style: none; font-family: 'CheltenhamLTRegular',georgia,times,serif; font-size: 1em;}
 ul.keyfeatures li {float: left; clear:both; width: 95%; display: inline-block; height:auto; margin:1% 0; background: url(iphone-dark-checkbox.original.png) no-repeat left center; background-size: 8%; padding:2% 2px 0 8%; }
 ul.market-icons {float: right; width: 90%; height: auto; border:solid 1px #000; margin: 0 5% 0 0 !important; position: relative; bottom:1%; list-style: none;}
-ul.market-icons li {float:left; display: inline; margin:0 -2%;}
+ul.market-icons li {float:left; display:inline; margin:0;}
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape) {
