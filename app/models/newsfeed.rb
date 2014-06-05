@@ -17,8 +17,7 @@ class Newsfeed < ActiveRecord::Base
   after_create :create_campaign
 
   def create_campaign
-      campaign_name = self.id+'-'+self.news_type+' '+self.created_at+' '+self.news_title
-      Campaign.create(:campaign_name => campaign_name, :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
+    Campaign.create(:campaign_name => "#{self.id}"+ "-" +"#{self.news_type}"+" "+"#{self.created_at}"+" "+"#{self.news_title}", :source => "Social Media", :medium => "Wall", :placement =>  "User Feed", :marketer => "Shoffr", :campaign_type => "1TM Manual", :purpose => "Acquisition", :target => "Business")
   end
 
 end
