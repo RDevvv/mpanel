@@ -58,7 +58,6 @@ class HomeController < ApplicationController
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km)
 
-
         unless @outlets.blank?
             @outlets = @outlets.where(:is_active => true).includes({:account_brand => [:brand => :attachments]}, {:ads => [:ad_promocodes]}, {:area => [:city]})
             if params[:search] != 'all'
