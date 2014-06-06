@@ -85,9 +85,9 @@
             <li>&nbsp;</li>
             <li class="subcat"><a class="no-left-pad" href="/#/profile" onClick="$('nav#menu').trigger('close')">My Profile</a></li>
             <li class="subcat">Sort by:</li>
-            <li><a href='' ng-click="distance_filter('distance')" ng-controller='ListingController'>Distance</a></li>
-            <li><a href='' ng-click="distance_filter('ad_expiry_date')" ng-controller='ListingController'>Expiry Date</a></li>
-            <li><a href='' ng-click="distance_filter('ad_usage')" ng-controller='ListingController'>Hotpicks</a></li>
+            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'distance'; reverse=false">Distance</a></li>
+            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_expiry_date'; reverse=false">Expiry Date</a></li>
+            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_usage'; reverse=true">Hotpicks</a></li>
             <li>&nbsp;</li>
 
             <li class="subcat ml-class"><a href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
@@ -134,6 +134,7 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
+angular.element('.left-menu-buttons').click(function(){angular.element('nav#menu').trigger('close')});
 (function() {
  if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
  var msViewportStyle = document.createElement("style");

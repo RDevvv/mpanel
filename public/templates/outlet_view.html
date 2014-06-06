@@ -1,5 +1,5 @@
-<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled'>
-<li ng-repeat='poster in posters track by $index' class="mix bsc span12" data-outlet="{{poster.outlet_id}}" >
+<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
+<li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
 <div class="bdiv">
     <div class="bbox">
         <div class="brandtitle">{{poster.brand_name}}</div>

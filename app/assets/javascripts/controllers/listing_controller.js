@@ -68,7 +68,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         if($cookies['mobile_number']=='verified'){
             new PNotify({title: brand_name+' - Offer sent', text: sms_text});
             $scope.change_icon = false;
-            ($scope.posters[index].ad_usage++);
+            $scope.posters[index].ad_usage++;
             $http({
                 method: 'POST',
                 url   : domain+'set_sms_data.json',
