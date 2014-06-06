@@ -184,9 +184,9 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 .main-div-contr {width:950px; margin:0 auto;}
 .left-contr {float:left; width:65%; border-right: 1px solid #E2E2E2;}
 .right-contr {float:left; width:32%; margin:0 0 0 2%;}
-#team {float:left; clear:both; width: 100%; border-bottom:solid 1px #CCCCCC; padding-bottom: 20px; /*position: relative; top:22px;*/}
-#careers {float:left; clear:both; width: 100%; border-bottom:solid 1px #CCCCCC; padding-bottom: 20px;/*position: relative; top:22px;*/}
-#contact {float:left; clear:both; width: 100%; padding-bottom: 20px;/*position: relative; top:40px;*/}
+#team {float:left; clear:both; width: 100%; border-bottom:solid 1px #CCCCCC; padding-bottom: 10px; /*position: relative; top:22px;*/}
+#careers {float:left; clear:both; width: 100%; border-bottom:solid 1px #CCCCCC; padding-bottom: 10px;/*position: relative; top:22px;*/}
+#contact {float:left; clear:both; width: 100%; padding-bottom: 10px;/*position: relative; top:40px;*/}
 /* Main div container */
 
 
