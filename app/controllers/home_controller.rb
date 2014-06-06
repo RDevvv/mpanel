@@ -37,11 +37,9 @@ class HomeController < ApplicationController
                     cookies[:mobile_number] = {:value => false, :expires => 1.year.from_now}
                 elsif customer.is_verified == true
                     cookies[:mobile_number] = {:value => 'verified', :expires => 1.year.from_now}
-                else
-                    cookies[:mobile_number] = {:value => true, :expires => 1.year.from_now}
                 end
-                CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer_id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
-                session[:customer_id] = customer_id
+                CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer.id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser)
+                session[:customer_id] = customer.id
             end
         end
     end
