@@ -182,15 +182,15 @@ class Outlet < ActiveRecord::Base
     brands.uniq
   end
 
-  def sort_by_brands(brand_id)
-    outlets = Array.new
-    Brand.find(brand_id).account_brands.each do |account_brand|
-      account_brand.ads.each do |ad|
-        outlets.push ad.outlets
-      end
-    end
-    outlets = outlets.flatten.uniq
-  end
+ # def sort_by_brands(brand_id)
+ #   outlets = Array.new
+ #   Brand.find(brand_id).account_brands.each do |account_brand|
+ #     account_brand.ads.each do |ad|
+ #       outlets.push ad.outlets
+ #     end
+ #   end
+ #   outlets = outlets.flatten.uniq
+ # end
 
   def self.get_coordinates(location,longitude,latitude)
       latitude = latitude.to_f
@@ -227,7 +227,8 @@ class Outlet < ActiveRecord::Base
               end
           end
       end
-      return (@outlets_with_ad+@outlets_without_ad)
+      #return (@outlets_with_ad+@outlets_without_ad)    ## Use this statement if outlets without ads need to be returned
+      return (@outlets_with_ad)
   end
 
   def self.discard_outlets_from_same_brand(outlets)
