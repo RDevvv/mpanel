@@ -45,8 +45,9 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     $scope.enabled=false;
                 }
                 for(i=0;i<data.length;i++){
-                    if(AdOutlets.first_poster.ad_id!=data[0].ad_id){
+                    if(!_.contains(AdOutlets.outlet_ids,data[i].outlet_id)){
                         AdOutlets.posters.push(data[i]);
+                        AdOutlets.outlet_ids.push(data[i].outlet_id);
                     }
                 }
                 if(AdOutlets.first_poster_set ==false){
