@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class NewsfeedsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @user = users(:one)
+    sign_in @user
     @newsfeed = newsfeeds(:one)
   end
 

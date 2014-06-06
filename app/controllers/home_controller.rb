@@ -32,7 +32,6 @@ class HomeController < ApplicationController
             campaign_url = request.env['HTTP_HOST']+request.env['ORIGINAL_FULLPATH']
             customer = Customer.includes(:customer_sessions).where(:uuid => cookies[:customer_uuid]).first
             unless customer.blank?
-                customer_id = customer.id
                 if customer.mobile_number.nil?
                     cookies[:mobile_number] = {:value => false, :expires => 1.year.from_now}
                 elsif customer.is_verified == true
