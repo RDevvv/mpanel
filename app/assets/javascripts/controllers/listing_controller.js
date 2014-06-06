@@ -1,4 +1,4 @@
-app.controller('ListingController', function($scope, $http, $routeParams, $cookies, getOutlet, $location){
+app.controller('ListingController', function($scope, $http, $routeParams, $cookies, AdOutlets, $location){
     $scope.page = 0;
     $scope.no_more_results = false;
     $scope.change_icon =true;
@@ -20,6 +20,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.fetch_posters = function(){
+        $scope.posters = AdOutlets.posters;
         $scope.page++;
         $scope.enabled= true;
         if($scope.no_more_results == false){
@@ -44,7 +45,13 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     $scope.enabled=false;
                 }
                 for(i=0;i<data.length;i++){
-                    $scope.posters.push(data[i]);
+                    if(AdOutlets.first_poster.ad_id!=data[0].ad_id){
+                        AdOutlets.posters.push(data[i]);
+                    }
+                }
+                if(AdOutlets.first_poster_set ==false){
+                    AdOutlets.first_poster = data[0];
+                    AdOutlets.first_poster_set = true;
                 }
                 if($scope.posters.length>0){
                     $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
