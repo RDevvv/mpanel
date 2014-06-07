@@ -47,7 +47,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                     customer_uuid: $cookies.customer_uuid
                 }
             }).success(function(data){
-                $cookies.customer_uuid = data['customer_uuid'];
+                $cookies.customer_uuid = data.customer_uuid;
                 $scope.number_submit_message = true;
             });
         }
