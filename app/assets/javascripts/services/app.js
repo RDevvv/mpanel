@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ngCookies','google-maps', 'infinite-scroll']);
+var app = angular.module('app', ['snap', 'ngRoute', 'ngCookies','google-maps', 'infinite-scroll']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/deals/outlets', {
