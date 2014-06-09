@@ -1,5 +1,6 @@
 require 'csv'
 
+$previous_brands = Hash.new
 class Outlet < ActiveRecord::Base
 
     attr_accessor :new_distance
@@ -231,16 +232,17 @@ class Outlet < ActiveRecord::Base
       return (@outlets_with_ad)
   end
 
-  def self.discard_outlets_from_same_brand(outlets)
+  def self.discard_outlets_from_same_brand(outlets,previous_brands)
       final_outlets = Array.new
       brands = outlets.map{|o|o.get_brand.brand_name}.uniq.map{|brand|[brand,0]}.flatten
       brands = Hash[*brands]
+      previous_brands = brands.merge(previous_brands)
       outlets.each do |outlet|
           outlet_brand = outlet.get_brand.brand_name
           brands[outlet_brand] += 1
           final_outlets.push(outlet) if brands[outlet_brand] == 1
       end
-      final_outlets
+      [final_outlets, previous_brands]
   end
 
   def get_brand
