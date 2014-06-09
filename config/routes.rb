@@ -129,7 +129,6 @@ Gullak2::Application.routes.draw do
     get 'individual_outlet' => 'merchant::outlets#show'
 
     get 'location_from_ip' => 'customers#location_from_ip'
-    get 'error_404' => 'error_messages#error_404'
     get 'no_results' => 'home#no_results'
     get 'location_not_found' => 'home#location_not_found'
     match 'auth/facebook/callback' => 'customers#facebook_data'
@@ -153,8 +152,4 @@ Gullak2::Application.routes.draw do
         match "/admin/button_click_chart" => "charts#button_click_chart"
     end
     get '/:short_url' => 'campaigns#campaign_landing'#, constraints: {domain: 'gullak.co'}
-
-    unless Rails.application.config.consider_all_requests_local
-        match '*not_found', to: 'error_messages#error_404'
-    end
 end

@@ -11,9 +11,7 @@ class CampaignsController < ApplicationController
 
   def campaign_landing
       campaign_copy = CampaignCopy.where(:short_url => params[:short_url]).first
-      if(campaign_copy).blank?
-          redirect_to :error_404
-      else
+      unless(campaign_copy).blank?
           campaign = campaign_copy.campaign
           campaign_copy.update_attributes(:use_count=> campaign_copy.use_count+1)
           if campaign.expires_in!= nil
