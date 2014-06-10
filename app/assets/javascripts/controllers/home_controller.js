@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent){
+app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent, snapRemote){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
@@ -23,7 +23,7 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
     }
 
     $scope.listing_form = function(){
-        $('nav#menu').trigger('close');
+        snapRemote.close();
         $location.search('search','all');
         $location.search('location',$scope.topsearch);
         $location.search('latitude',0);

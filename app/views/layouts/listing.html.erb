@@ -73,16 +73,16 @@
                 </form>
             </li>
             <li>&nbsp;</li>
-            <li class="subcat"><a class="no-left-pad" href="/#/profile" onClick="$('nav#menu').trigger('close')">My Profile</a></li>
+            <li class="subcat"><a class="no-left-pad" href="/#/profile" snap-close>My Profile</a></li>
             <li class="subcat">Sort by:</li>
-            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'distance'; reverse=false">Distance</a></li>
-            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_expiry_date'; reverse=false">Expiry Date</a></li>
-            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_usage'; reverse=true">Hotpicks</a></li>
+            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'distance'; reverse=false" snap-close>Distance</a></li>
+            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_expiry_date'; reverse=false" snap-close>Expiry Date</a></li>
+            <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_usage'; reverse=true" snap-close>Hotpicks</a></li>
             <li>&nbsp;</li>
 
-            <li class="subcat ml-class"><a href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:">Report An Offer</a></li>
+            <li class="subcat ml-class"><a href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:" snap-close>Report An Offer</a></li>
             <li class="subcat gl-class">
-                <a href="mailto:hello@shoffr.com?subject=Feedback" >Provide Feedback</a>
+                <a href="mailto:hello@shoffr.com?subject=Feedback" snap-close>Provide Feedback</a>
             </li>
             
         </ul>
