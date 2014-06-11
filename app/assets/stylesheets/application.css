@@ -11,7 +11,6 @@
  *= require_self
  *= require bootstrap
  *= require angular-snap.min
- *= require jquery.mmenu
  *= require jquery.pnotify.default
  *= require jquery.pnotify.default.icons
  *= require mobile-css-styles
