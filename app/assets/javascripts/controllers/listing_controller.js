@@ -20,10 +20,13 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     }
 
     $scope.fetch_posters = function(){
+        if($routeParams.search!='all'){
+            AdOutlets.posters =[];
+        }
         if((AdOutlets.url_location==$routeParams.location)||(AdOutlets.url_location=='')){}
         else
             AdOutlets.posters =[];
-        AdOutlets.url_location = $routeParams.location
+        AdOutlets.url_location = $routeParams.location;
         $scope.posters = AdOutlets.posters;
         $scope.page++;
         $scope.enabled= true;
