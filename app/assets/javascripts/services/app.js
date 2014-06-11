@@ -26,6 +26,8 @@ app.config(function($routeProvider){
         controller: 'GeocodingController'
     })
     .otherwise({redirectTo: 'templates/home.html'})
+}).config(function(snapRemoteProvider){
+    snapRemoteProvider.globalOptions.disable = 'right';
 });
 var domain   = '';//'http://api.shoffr.com/';
 var app_type = 'html5'; //native or html5
