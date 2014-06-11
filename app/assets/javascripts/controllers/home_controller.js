@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent, snapRemote){
+app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent, snapRemote, AdOutlets){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
@@ -38,6 +38,8 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
     }
 
     $scope.set_attribute = function(type){
+            AdOutlets.outlet_ids =[];
+            AdOutlets.posters =[];
         $scope.hide_filter = false;
         if(type=='filter'){
             $scope.category='';
