@@ -60,13 +60,13 @@
 
 <div ng-controller="HomeController">
 <snap-drawer>
-    <nav id="menu">
+    <nav class="mm-list">
         <ul>
             <li class="subcat">Change Location:</li>
             <li>
                 <form ng-submit='listing_form()' method='get' id='searchForm'>
                     <fieldset>
-                        <div class="input">
+                        <div class="input2">
                             <input type='text' name='location' id='s' placeholder ='Enter Location' ng-model='topsearch'>
                         </div>
                     </fieldset>
@@ -80,8 +80,8 @@
             <li><a href="" class='left-menu-buttons' ng-click="predicate = 'ad_usage'; reverse=true" snap-close>Hotpicks</a></li>
             <li>&nbsp;</li>
 
-            <li class="subcat ml-class"><a href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:" snap-close>Report An Offer</a></li>
-            <li class="subcat gl-class">
+            <li class="subcat"><a href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: %0A Offer Details: %0A Expiry Date: %0A Address:" snap-close>Report An Offer</a></li>
+            <li class="subcat">
                 <a href="mailto:hello@shoffr.com?subject=Feedback" snap-close>Provide Feedback</a>
             </li>
             
