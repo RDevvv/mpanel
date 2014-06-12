@@ -1,4 +1,4 @@
-app.controller('ProfileController',function($scope, $http, $cookies, $location, $timeout, $cookies, UserProfile){
+app.controller('ProfileController',function($scope, $http, $location, $timeout, UserProfile, ipCookie){
     $scope.number_submit_message = false;
     $scope.verification_code_submit_message = false;
 
@@ -8,11 +8,11 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 method: 'POST',
                 url: domain+'check_app_cookies.json',
                 params:{
-                    customer_uuid: $cookies.customer_uuid
+                    customer_uuid: ipCookie('customer_uuid')
                 }
             }).success(function(data){
                 if(data['customer']!=null)
-                    $cookies.customer_uuid= data['customer']['uuid'];
+                    ipCookie('customer_uuid',data['customer']['uuid'], {expires: 365});
             })
         }
     }
@@ -23,7 +23,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
             url: domain+'get_profile.json',
             params: {
                 mobile_number: $scope.mobile_number,
-                customer_uuid: $cookies['customer_uuid']
+                customer_uuid: ipCookie('customer_uuid')
             }
         }).success(function(data){
             $scope.name = data['name'];
@@ -44,10 +44,10 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 url: domain+"get_mobile_number.json",
                 params: {
                     mobile_number: $scope.mobile_number,
-                    customer_uuid: $cookies.customer_uuid
+                    customer_uuid: ipCookie('customer_uuid')
                 }
             }).success(function(data){
-                $cookies.customer_uuid = data.customer_uuid;
+                ipCookie('customer_uuid',data.customer_uuid, {expires: 365});
                 $scope.number_submit_message = true;
             });
         }
@@ -61,12 +61,12 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
                 params: {
                     name: $scope.name,
                     verification_code: $scope.verification_code,
-                    customer_uuid: $cookies.customer_uuid
+                    customer_uuid: ipCookie('customer_uuid')
                 }
             }).success(function(data){
                 if(data["verified"]==true){
                     $scope.verification_message = 'Your number is verified.';
-                    $cookies.mobile_number = 'verified';
+                    ipCookie('mobile_number','verified',{expires: 365});
                     $scope.submit_button = true;
                 }
                 else
@@ -85,7 +85,7 @@ app.controller('ProfileController',function($scope, $http, $cookies, $location, 
             url: domain+"resend_verification_code.json",
             method: 'POST',
             params: {
-                customer_uuid: $cookies.customer_uuid
+                customer_uuid: ipCookie('customer_uuid')
             }
         }).success(function(){
             new PNotify({title: 'verification code sent.'});

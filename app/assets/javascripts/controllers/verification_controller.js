@@ -1,11 +1,11 @@
-app.controller('VerificationController',function($scope, $http, $cookies, $location, UrlContent){
+app.controller('VerificationController',function($scope, $http, $location, UrlContent, ipCookie){
     $scope.enter_number = function(){
         $http({
             method: 'POST',
             url: domain+"/get_mobile_number.json",
             params: {
                 mobile_number: $scope.mobile_number,
-                customer_uuid: $cookies['customer_uuid']
+                customer_uuid: ipCookie('customer_uuid')
             }
         }).success(function(data){
                     angular.element('#mobile-number').modal('hide');
@@ -16,8 +16,8 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
             else if(data["mobile_number"]=="exist"){
                 if(data['verified']==true){
                     new PNotify({ title: 'Welcome back'});
-                    $cookies.mobile_number = 'verified';
-                    $cookies.customer_uuid = data['customer_uuid']
+                    ipCookie('mobile_number','verified',{expires: 365});
+                    ipCookie('customer_uuid',data['customer_uuid'],{expires: 365});
                     $location.url('/deals/outlets?search=all&location='+UrlContent.location+'&latitude='+UrlContent.latitude+'&longitude='+UrlContent.longitude);
                     angular.element('#mobile-number').modal('hide');
                 }
@@ -38,7 +38,7 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
             //dataType: 'text',
             params: {
                 verification_code: $scope.verification_code,
-                customer_uuid: $cookies['customer_uuid']
+                customer_uuid: ipCookie('customer_uuid')
             },
             method: 'POST'
         }).success(function(data){
@@ -46,7 +46,7 @@ app.controller('VerificationController',function($scope, $http, $cookies, $locat
                 {
                     $('#verification').modal('hide');
                     new PNotify({ title: 'Your account is verified', text: ''});
-                    $cookies.mobile_number = 'verified';
+                    ipCookie('mobile_number','verified',{expires: 365});
                     $location.url('/deals/outlets?search=all&location='+UrlContent.location+'&latitude='+UrlContent.latitude+'&longitude='+UrlContent.longitude);
                 }
                 else{
