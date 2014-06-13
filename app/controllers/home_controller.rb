@@ -54,7 +54,7 @@ class HomeController < ApplicationController
         @location = Outlet.get_coordinates(params[:location],params[:longitude], params[:latitude])
         CustomerSession.update_coordinates(cookies[:customer_uuid], @location)
         @outlets = Outlet.new(:latitude => @location[:latitude], :longitude => @location[:longitude]).nearbys(5, :units => :km).page(params[:page])
-        if session[:brands].nil?||session[:location]!=params[:location]
+        if session[:brands].nil?||session[:location]!=params[:location]||params[:page]=='1'
             session[:location] = params[:location]
             session[:brands] = Hash.new
         end
