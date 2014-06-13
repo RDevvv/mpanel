@@ -42,5 +42,23 @@ ActiveAdmin.register Outlet do
       link_to "update", edit_admin_outlet_path(outlet)
     end
   end
+
+  collection_action :download_report, :method => :get do
+    outlets = Outlet.where(:latitude => nil)
+    csv = CSV.generate( encoding: 'Windows-1251' ) do |csv|
+      # add header
+          # add data
+          outlets.each do |outlet|
+            csv << [ outlet.id, outlet.shop_no, outlet.address, outlet.area.area_name, outlet.area.city.city_name, outlet.latitude, outlet.longitude ]
+          end
+    end
+    # send file to user
+    send_data csv.encode('utf-8'), type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=report.csv"
+  end
+
+  action_item only: :index do
+    link_to('csv report', params.merge(:action => :download_report))
+  end
+
 end
 
