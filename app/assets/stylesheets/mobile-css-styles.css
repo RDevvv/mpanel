@@ -1,7 +1,7 @@
 
 @font-face {add-box
     font-family: 'pittorifamosiregular';
-    src: url('handwritten-pittorifamosi-02-webfont.eot');add-box
+    src: url('handwritten-pittorifamosi-02-webfont.eot');
     src: url('handwritten-pittorifamosi-02-webfont.eot?#iefix') format('embedded-opentype'),
          url('handwritten-pittorifamosi-02-webfont.woff') format('woff'),
          url('handwritten-pittorifamosi-02-webfont.ttf') format('truetype')
@@ -83,6 +83,7 @@ button, button:hover, li:hover, a:hover , li , a , *:hover, *
 /* CSS resets for native app */
 
 /* Left menu styles */
+
 .mm-list {background:none repeat scroll 0 0 #333333; height: 100%; color:#ffffff; padding: 20px 0 40px;
 -moz-font-feature-settings: inherit; -moz-font-language-override: inherit; font-family: inherit; font-size: 13px;
     font-size-adjust: inherit; font-stretch: inherit; font-style: inherit; font-variant: inherit;
