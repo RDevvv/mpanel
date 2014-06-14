@@ -1080,50 +1080,31 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
     transform: translate3d(0, 0, 0);}
 .slideLeft.ng-enter, .slideLeft.ng-leave, .slideRight.ng-enter, .slideRight.ng-leave {
     /*-webkit-transition:all 1s; transition:all 1s;*/
-    -webkit-transition-duration: .20s;
-    transition-duration: .10s;
+    -webkit-transition-duration: .30s;
+    transition-duration: .30s;
 }
 
 .slideLeft.ng-enter {
     -webkit-transform: translate3d(100%, 0, 0);
-    -moz-transform: translate3d(100%, 0, 0);
-    -ms-transform: translate3d(100%, 0, 0);
-    -o-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   /*left:100%;*/}
 .slideLeft.ng-enter.ng-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0);
 /*left:0;*/}
 .slideLeft.ng-leave.ng-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
-  -moz-transform: translate3d(-100%, 0, 0);
-    -ms-transform: translate3d(-100%, 0, 0);
-    -o-transform: translate3d(-100%, 0, 0);
    transform: translate3d(-100%, 0, 0);
 /*left:-100%;*/}
 .slideRight.ng-enter {
-  -webkit-transform: translate3d(-100%, 0, 0);
-  -moz-transform: translate3d(-100%, 0, 0);
-    -ms-transform: translate3d(-100%, 0, 0);
-    -o-transform: translate3d(-100%, 0, 0);
-   transform: translate3d(-100%, 0, 0);
+
 /*left:-100%;*/}
 .slideRight.ng-enter.ng-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0);
 /*left:0;*/}
 .slideRight.ng-leave.ng-leave-active {
   -webkit-transform: translate3d(100%, 0, 0);
-  -moz-transform: translate3d(100%, 0, 0);
-    -ms-transform: translate3d(100%, 0, 0);
-    -o-transform: translate3d(100%, 0, 0);
    transform: translate3d(100%, 0, 0);
 /*left:100%;*/}
 
