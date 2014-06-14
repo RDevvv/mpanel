@@ -239,8 +239,8 @@ class Outlet < ActiveRecord::Base
       previous_brands = brands.merge(previous_brands)
       outlets.each do |outlet|
           outlet_brand = outlet.get_brand.brand_name
-          brands[outlet_brand] += 1
-          final_outlets.push(outlet) if brands[outlet_brand] == 1
+          previous_brands[outlet_brand] += 1
+          final_outlets.push(outlet) if previous_brands[outlet_brand] == 1
       end
       [final_outlets, previous_brands]
   end
