@@ -34,3 +34,16 @@ app.config(function($routeProvider){
 });
 var domain   = '';//'http://api.shoffr.com/';
 var app_type = 'html5'; //native or html5
+
+app.controller('ViewController', function($scope){
+    $scope.$on("$routeChangeSuccess", function(event, current, previous) {
+        var previousCtrl = previous && previous.$$route && previous.$$route.controller;
+        if (previousCtrl === "ListingController") {
+            $scope.animationStyle = "slideLeft";
+        } else if (previousCtrl === "SingleOutletController") {
+            $scope.animationStyle = "slideRight";
+        }
+        $scope.$apply();
+    });
+})
+
