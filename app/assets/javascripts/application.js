@@ -22,6 +22,7 @@
 //= require ng-infinite-scroll.min
 //= require underscore-min
 //= require angular-cookies
+//= require angular-animate.min
 //= require snap
 //= require angular-snap
 //= require angular-cookie.min

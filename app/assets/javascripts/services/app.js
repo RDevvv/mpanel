@@ -1,4 +1,4 @@
-var app = angular.module('app', ['snap', 'ngRoute', 'ngCookies','google-maps', 'infinite-scroll', 'ipCookie']);
+var app = angular.module('app', ['snap', 'ngRoute', 'ngAnimate', 'ngCookies','google-maps', 'infinite-scroll', 'ipCookie']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/deals/outlets', {
@@ -23,12 +23,14 @@ app.config(function($routeProvider){
     })
     .when('/',{
         templateUrl: 'templates/home.html',
-        controller: 'GeocodingController'
-    })
-    .otherwise({redirectTo: 'templates/home.html'})
+        redirectTo: function(current, path, search){
+            if(search.goto){
+                console.log(search.goto);
+            }
+        }
+    });
 }).config(function(snapRemoteProvider){
     snapRemoteProvider.globalOptions.disable = 'right';
 });
 var domain   = '';//'http://api.shoffr.com/';
 var app_type = 'html5'; //native or html5
-
