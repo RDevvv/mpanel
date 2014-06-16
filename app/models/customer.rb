@@ -6,7 +6,7 @@ class Customer < ActiveRecord::Base
   has_many :button_clicks, :dependent => :destroy
   has_many :customer_feedbacks
   has_many :misc_smss
-  has_one :customer_brand_score
+  has_many :customer_brand_scores
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
   attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates

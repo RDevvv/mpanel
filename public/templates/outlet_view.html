@@ -5,7 +5,7 @@
         <div class="brandtitle">{{poster.brand_name}}</div>
         <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
         <div align="center" class="brandlogo">
-            <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}">
+            <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)">
                 <img ng-src={{poster.brand_image}}>
             </a>
         </div>
@@ -19,7 +19,7 @@
                     <div class="like"><div class="button_liked_offer" ></div></div>
                 </div>
                 <div ng-if='poster.is_unlocked != true' %>
-                    <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, "like", poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text, $index, poster.distance, poster.latitude, poster.longitude)' ng-controller='ListingController'>&nbsp;</a></div>
+                    <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text, $index, poster.distance, poster.latitude, poster.longitude)' ng-controller='ListingController'>&nbsp;</a></div>
                 </div>
                 <p style="position:relative; top:1px;">{{poster.ad_usage}}  unlocked</p>
             </div>
@@ -34,7 +34,7 @@
     <div class="rch-btns-div4">
         <ul>
             <li>
-            <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}"></a>
+            <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)"></a>
             </li>
             <li>
             <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
@@ -52,7 +52,7 @@
             </li>
             <li>
               <a class="share" >
-                    <div class="refr2" ng-click='tracking(poster.ad_id, poster.outlet_id, "poster share", poster.ad_id); poster_share(poster.outlet_id, poster.distance, poster.latitude, poster.longitude, poster.brand_name)'></div>
+                    <div class="refr2" ng-click='tracking(poster.ad_id, poster.outlet_id, "poster_share", poster.ad_id); poster_share(poster.outlet_id, poster.distance, poster.latitude, poster.longitude, poster.brand_name)'></div>
                 </a>
             </li>
         </ul>
