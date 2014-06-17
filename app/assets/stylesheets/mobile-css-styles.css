@@ -1077,25 +1077,29 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
 
 .loading-style {position:relative; top:10px; left:10px; font-weight:bold; font-size:11px; background:#000; padding:5px; color:#fff; border-radius:5px;}
 
-.view {width: 100%; padding-left: 0; position:relative; top: 0; left: 0; -webkit-transform: translate3d(0, 0, 0);
+.view {width: 100%; padding-left: 0; position:absolute; top: 18%; left: 0; -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);}
 .slideLeft.ng-enter, .slideLeft.ng-leave, .slideRight.ng-enter, .slideRight.ng-leave {
     /*-webkit-transition:all 1s; transition:all 1s;*/
-    -webkit-transition-duration: .30s;
-    transition-duration: .30s;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    line-height: 0;
 }
 
 .slideLeft.ng-enter {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
+    line-height: 0;
   /*left:100%;*/}
 .slideLeft.ng-enter.ng-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0);
+   line-height: 0;
 /*left:0;*/}
 .slideLeft.ng-leave.ng-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
    transform: translate3d(-100%, 0, 0);
+   line-height: 0;
 /*left:-100%;*/}
 .slideRight.ng-enter {
 
@@ -1103,11 +1107,13 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
 .slideRight.ng-enter.ng-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0);
+   line-height: 0;
 /*left:0;*/}
 .slideRight.ng-leave.ng-leave-active {
   -webkit-transform: translate3d(100%, 0, 0);
    transform: translate3d(100%, 0, 0);
-/*left:100%;*/}
+   line-height: 0;
+   /*left:100%;*/}
 
 /* Angular animation styles */
 
