@@ -6,10 +6,11 @@
             zoom="map.zoom"
             bounds="map.bounds"
             >
-                <marker coords='{latitude: poster.latitude, longitude: poster.longitude}'></marker>
+            <marker coords='{latitude: poster.latitude, longitude: poster.longitude}'></marker>
             <marker coords='map.user_location' icon='map.user_icon' ></marker>
         </div>
     </div>
+    <snap-dragger>
     <div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" >
         <div class="bbox">
             <div class="brandtitle">
@@ -93,4 +94,5 @@
 
 
     </div>
+    </snap-dragger>
 </div>
