@@ -1079,7 +1079,7 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
 
 /*.view {width: 100%; padding-left: 0; position:absolute; top: 18%; left: 0; -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);}*/
-.outlet_view {width: 100%; padding-left: 0; position:absolute; top: 15%; left: 0; -webkit-transform: translate3d(0, 0, 0);
+.outlet_view {width: 100%; padding-left: 0; position:absolute; top: 17%; left: 0; -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);}    
 .deal_shop {width: 100%; padding-left: 0; position:absolute; top: 6%; left: 0; -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);}    
