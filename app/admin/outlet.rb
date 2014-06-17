@@ -49,7 +49,7 @@ ActiveAdmin.register Outlet do
       # add header
           # add data
           outlets.each do |outlet|
-            csv << [ outlet.id, outlet.shop_no, outlet.address, outlet.area.area_name, outlet.area.city.city_name, outlet.latitude, outlet.longitude ]
+            csv << [ outlet.id, outlet.shop_no, outlet.address, outlet.area.area_name, outlet.area.city.city_name, outlet.latitude, outlet.longitude, outlet.area.pincode, outlet.account_brand.brand.brand_name ]
           end
     end
     # send file to user
