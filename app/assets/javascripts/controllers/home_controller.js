@@ -59,7 +59,7 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
     }
 
     $scope.top_search_class = function(){
-        if($location.path()=='/deals/outlets')
+        if($location.path()=='/deals/outlets'||$location.path()=='/deals/shop')
             return 'span12';
         else
             return 'hide';
