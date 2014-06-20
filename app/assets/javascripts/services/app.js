@@ -23,14 +23,10 @@ app.config(function($routeProvider){
     })
     .when('/',{
         templateUrl: 'templates/home.html',
-        redirectTo: function(current, path, search){
-            if(search.goto){
-                console.log(search.goto);
-            }
-        }
     });
 }).config(function(snapRemoteProvider){
     snapRemoteProvider.globalOptions.disable = 'right';
+    snapRemoteProvider.globalOptions.touchToDrag = false;
 });
 var domain   = '';//'http://api.shoffr.com/';
 var app_type = 'html5'; //native or html5
