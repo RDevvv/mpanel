@@ -134,7 +134,7 @@ p, pre {margin: 0;}
 #blogs-masthead .element1 #logo a img {}
 #logo {display: block;}
 
-#head-rightdiv {float:right; width:23%; height:auto; position: relative; top:37px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}
+#head-rightdiv {float:right; width:28%; height:auto; position: relative; top:37px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
 #head-rightdiv .intro-txt {float: left; line-height: 40px;}
 #head-rightdiv .android-icon {float: right; border:0; outline: none;}
 /* Main Container */
