@@ -12,8 +12,12 @@ class SmsSentsController < ApplicationController
                     pre_expiry_forward_url, campaign_name = "?", 'Generic Share'
                 end
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
-                customer.misc_smss.create(:text => "Check out free offer near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
-                render :nothing => true
+                if params[:whatsapp_share] =='true'
+                    render :text => "Check out free offer near you - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr"
+                else
+                    customer.misc_smss.create(:text => "Check out free offer near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
+                    render :nothing => true
+                end
             else
                 pre_expiry_forward_url, campaign_name = "/#/deals/shop?id=#{params[:outlet_id]}&customer_latitude=#{params[:latitude]}&customer_longitude=#{params[:longitude]}&distance=#{params[:distance]}&brand_name=#{params[:brand_name]}", 'Unlock Deals'
                 AdLike.create(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :customer_id => customer.id, :is_unlocked => true)

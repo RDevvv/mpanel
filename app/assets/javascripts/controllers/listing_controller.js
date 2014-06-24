@@ -132,6 +132,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         }).success(function(data){
             if(app_type=='native')
                 window.plugins.socialsharing.shareViaWhatsApp(data,null,null,success,function(msg){window.plugins.socialsharing.shareViaSMS(data,null,success,failure)})
+            else{}
         });
     }
 
