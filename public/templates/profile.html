@@ -1,33 +1,15 @@
 <div id="header" ng-class='top_menu_class()'>
     <ul class='left-icons'>
-        <li><a href='' class="srchlink3" snap-toggle="left"></a></li>
+        <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
         <!--<li><a href="#" class="notification"></a></li>-->
     </ul>
     <div class="head-brand">
         <div>
-            <a href="javascript:history.back()" class="backpage">&nbsp;</a><a href="#/home">My profile</a>
+            <a href="#/home">My profile</a>
         </div>
     </div>
-    <ul ng-class='right_buttons_class()'>
-        <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController' ngg="update_top_share_url($(this))"></a></li>
-        <!--<li><a href='' ng-class='view_button()' ng-click='map_view_link()'></a></li>-->
-    </ul>
+</div>
 
-</div>
-<div ng-class='top_search_class()'>
-    <div class="search-div3">
-        <form ng-submit='category_form()' method='get'>
-            <fieldset>
-                <div class="input">
-                    <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category'>
-                </div>
-            </fieldset>
-            <!--<div class="non_grey_filter">&nbsp;</div>-->
-            <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
-            <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
-        </form>
-    </div>
-</div>
 <form ng-submit='profile_submit()' class="form-vertical" ng-controller='ProfileController' >
   <div class="control-group">
     <!--<label for="" class="control-label">Mobile Number</label>-->

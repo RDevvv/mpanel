@@ -58,25 +58,11 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
             return 'non_grey_filter hide';
     }
 
-    $scope.top_search_class = function(){
-        if($location.path()=='/deals/outlets'||$location.path()=='/deals/shop')
-            return 'span12';
-        else
-            return 'hide';
-    }
-
     $scope.top_menu_class = function(){
         if($location.path()=='/deals/outlets'||$location.path()=='/profile'||$location.path()=='/deals/shop')
             return '';
         else
             return 'hide';
-    }
-
-    $scope.right_buttons_class = function(){
-        if($location.path()=='/profile')
-            return 'hide';
-        else
-            return 'right-icons';
     }
 
     $scope.profile_redirection = function(){
