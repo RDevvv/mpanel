@@ -117,6 +117,24 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         })
     }
 
+    $scope.vvv = function(brand_name, ad_id, outlet_id){
+        $http({
+            method: 'POST',
+            url   : domain+'set_sms_data.json',
+            params: {
+                customer_uuid: $cookies.customer_uuid,
+                whatsapp_share: true,
+                outlet_id: outlet_id,
+                ad_id: ad_id,
+                brand_name: brand_name,
+                misc_sms: false
+            }
+        }).success(function(data){
+            if(app_type=='native')
+                window.plugins.socialsharing.shareViaWhatsApp(data,null,null,success,function(msg){window.plugins.socialsharing.shareViaSMS(data,null,success,failure)})
+        });
+    }
+
     $scope.show_modal = function(){
         if($cookies['mobile_number']=='not_verified'||$cookies['mobile_number']=='true'){
             angular.element('#verification').modal('show');

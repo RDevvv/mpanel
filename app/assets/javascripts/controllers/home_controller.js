@@ -1,4 +1,4 @@
-app.controller('HomeController', function($scope, $rootScope, $http, $routeParams, $cookies, $location, $route, UrlContent, snapRemote, AdOutlets){
+app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent, snapRemote, AdOutlets){
     $scope.hide_filter = true;
 
     $scope.home_submit = function(){
@@ -77,22 +77,6 @@ app.controller('HomeController', function($scope, $rootScope, $http, $routeParam
             return 'hide';
         else
             return 'right-icons';
-    }
-
-    $scope.vvv = function(brand_name){
-        $http({
-            method: 'POST',
-            url   : domain+'set_sms_data.json',
-            params: {
-                customer_uuid: $cookies.customer_uuid,
-                whatsapp_share: true,
-                brand_name: brand_name,
-                misc_sms: true
-            }
-        }).success(function(data){
-            if(app_type=='native')
-                window.plugins.socialsharing.shareViaWhatsApp(data,null,null,success,function(msg){window.plugins.socialsharing.shareViaSMS(data,null,success,failure)})
-        });
     }
 
     $scope.profile_redirection = function(){

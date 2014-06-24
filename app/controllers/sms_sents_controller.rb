@@ -12,7 +12,8 @@ class SmsSentsController < ApplicationController
                     pre_expiry_forward_url, campaign_name = "?", 'Generic Share'
                 end
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
-                customer.misc_smss.create(:text => "Check out the free offer from #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
+                customer.misc_smss.create(:text => "Check out free offer near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
+                render :nothing => true
             else
                 pre_expiry_forward_url, campaign_name = "/#/deals/shop?id=#{params[:outlet_id]}&customer_latitude=#{params[:latitude]}&customer_longitude=#{params[:longitude]}&distance=#{params[:distance]}&brand_name=#{params[:brand_name]}", 'Unlock Deals'
                 AdLike.create(:ad_id => params[:ad_id], :outlet_id => params[:outlet_id], :customer_id => customer.id, :is_unlocked => true)
@@ -25,7 +26,12 @@ class SmsSentsController < ApplicationController
                 button_click = ButtonClick.where(:button_class => "ad_request", :customer_id => customer.id, :ad_id => ad.id).order(:id).last
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
                 text = "Offer: #{ad.account_brand.brand.brand_name} #{ad.sms_text} \nPromocode: #{ad_promocode.promocode} \nAddress: #{outlet.shop_no},\n #{outlet.address} #{outlet.area.area_name}\n #{outlet.area.city.city_name} #{outlet.area.pincode}\nShare URL: http://m.shoffr.com/#{campaign_copy.short_url} Thanks, Shoffr"
-                @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.order(:id).last.id, :button_click_id => 0)
+                if params[:whatsapp_share]=='true'
+                    render :text => "Check out free offer near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr"
+                else
+                    @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.order(:id).last.id, :button_click_id => 0)
+                    render :nothing => true
+                end
             end
         end
     end
@@ -34,6 +40,12 @@ class SmsSentsController < ApplicationController
         customer = Customer.where(:uuid => params[:customer_uuid]).first
         text = "Check out http://gullak.co/#{campaign_copy.short_url} Shop with an offer via Shoffr"
         sms_sent = customer.sms_sents.create(:ad_promocode_outlet_id => 100000, :ad_promocode_outlet_version_id => 100000, :text => text)
+        render :json => {:sms_sent => true, :text => text}
+    end
+
+    def native_share
+        customer = Customer.where(:uuid => params[:customer_uuid]).first
+        text = "Check out http://gullak.co/#{campaign_copy.short_url} Shop with an offer via Shoffr"
         render :json => {:sms_sent => true, :text => text}
     end
 
