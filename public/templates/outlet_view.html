@@ -16,7 +16,7 @@
 </div>
 <div ng-class='top_search_class()'>
     <div class="search-div3">
-        <form ng-submit='category_form()' method='get'>
+        <form ng-submit='category_form()' method='get' ng-controller='HomeController'>
             <fieldset>
                 <div class="input">
                     <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category'>
