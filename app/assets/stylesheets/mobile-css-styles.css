@@ -172,7 +172,7 @@ background: url(ikons-img.png) no-repeat -275px -452px #be1e2d; padding:3px 9px 
 .add-box a {float: left; clear: both; margin:3% 0 0 0; color: inherit; text-decoration: underline; font-weight: bold; text-transform: uppercase;}
 
 /* Scroll to top Styles */
-#backtotop {position: fixed; right:10px; bottom:-80px; display:none; z-index:10000;/* right:60px; hid the button first*/}
+#backtotop {position: fixed; right:10px; bottom:-80px; display:none; z-index:9999;/* right:60px; hid the button first*/}
 #backtotop a {text-decoration:none; border:0 none; display:block; width:31px; height:155px;/*opacity:.8;*/}
 #backtotop a:hover {/*opacity:.3;*/ /*mouse over fade effect*/}
 /* Scroll to top Styles */
@@ -923,7 +923,7 @@ ul.left-icons li a.notify{background: url(bigger-icons.png) no-repeat -227px -18
 
 ul.right-icons {float:right; width:auto; height: auto; position: relative; margin: 0px 4px 4px; bottom: 15px;}
 ul.right-icons li {float:left; margin:0 4px 0 3px; border-right: none; list-style: none;}
-ul.right-icons li a.shr {background: url(ikons-img.png) no-repeat -478px -740px transparent; padding: 12px 5px 6px 20px; width:auto; height:auto;}
+ul.right-icons li a.shr {background: url(ikons-img.png) no-repeat -478px -737px transparent; padding: 12px 5px 6px 20px; width:auto; height:auto;}
 ul.right-icons li a.loc {position:relative; top:3px; right:-2px; background: url(ikons-img.png) no-repeat -267px -28px transparent;  padding: 13px 8px 6px 20px; width:auto; height:auto;}
 ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -14px -743px transparent; position: relative; bottom: 6px; padding:2px 12px 7px 14px; margin:0 2px 0 3px; width:auto; height:auto;}
 
