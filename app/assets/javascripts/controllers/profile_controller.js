@@ -11,8 +11,11 @@ app.controller('ProfileController',function($scope, $http, $location, $timeout, 
                     customer_uuid: ipCookie('customer_uuid')
                 }
             }).success(function(data){
-                if(data['customer']!=null)
+                if(data['customer']!=null){
                     ipCookie('customer_uuid',data['customer']['uuid'], {expires: 365});
+                    $scope.mobile_number = data['customer']['mobile_number'];
+                    $scope.name= data['customer']['name'];
+                }
             })
         }
     }
@@ -79,6 +82,7 @@ app.controller('ProfileController',function($scope, $http, $location, $timeout, 
     $scope.profile_submit = function(){
         $location.path('/');
     }
+
 
     $scope.resend_verification_code = function(){
         $http({
