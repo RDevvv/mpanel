@@ -24,9 +24,9 @@ class CustomersController < ApplicationController
             @mobile_number = 'exist'
         else
             @customer.update_attributes(:mobile_number => params[:mobile_number])
-            @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
             @mobile_number = true
         end
+        @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
 
         render :json => {:mobile_number => @mobile_number, :verified => @verified, :customer_uuid => @customer.uuid}
     end
