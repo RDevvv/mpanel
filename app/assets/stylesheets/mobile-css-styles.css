@@ -429,6 +429,9 @@ div.param-fb, div.likes-fb {float:left; text-align: left; padding:0 2px; color: 
 div.param-fb span {padding:0 4px; font-weight: bold; }
 div.likes-fb span, div.comm-fb span {font-weight: bold; color:#000000;}
 div.comm-fb {float:left; text-align: left; padding:0 1px; color: #414042;}
+
+.pin-box:hover, .pin-box:focus {text-decoration: none;}
+
 /*Social posts classes */
 /* Social Feeds page */
 
