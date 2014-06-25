@@ -15,7 +15,7 @@ class SmsSentsController < ApplicationController
                 if params[:whatsapp_share] =='true'
                     render :text => "Check out free offer near you - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr"
                 else
-                    customer.misc_smss.create(:text => "Check out free offer near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
+                    customer.misc_smss.create(:text => "Check out free offers near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr")
                     render :nothing => true
                 end
             else
@@ -31,7 +31,7 @@ class SmsSentsController < ApplicationController
                 campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
                 text = "Offer: #{ad.account_brand.brand.brand_name} #{ad.sms_text} \nPromocode: #{ad_promocode.promocode} \nAddress: #{outlet.shop_no},\n #{outlet.address} #{outlet.area.area_name}\n #{outlet.area.city.city_name} #{outlet.area.pincode}\nShare URL: http://m.shoffr.com/#{campaign_copy.short_url} Thanks, Shoffr"
                 if params[:whatsapp_share]=='true'
-                    render :text => "Check out free offer near you #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr"
+                    render :text => "Check out the free offer from #{params[:brand_name]} - http://shoffr.com/#{campaign_copy.short_url} Shop with an offer via Shoffr"
                 else
                     @sms_sent = SmsSent.create(:text => text, :customer_id => customer.id, :ad_promocode_outlet_id => ad_promocode_outlet.id, :ad_promocode_outlet_version_id => ad_promocode_outlet.versions.order(:id).last.id, :button_click_id => 0)
                     render :nothing => true
