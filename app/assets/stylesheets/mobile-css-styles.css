@@ -171,7 +171,7 @@ background: url(ikons-img.png) no-repeat -275px -452px #be1e2d; padding:3px 9px 
 .add-box a {float: left; clear: both; margin:3% 0 0 0; color: inherit; text-decoration: underline; font-weight: bold; text-transform: uppercase;}
 
 /* Scroll to top Styles */
-#backtotop {position: fixed; right:10px; bottom:-80px; display:none; z-index:9999;*/ /* right:60px; hid the button first*/}
+#backtotop {position: fixed; right:10px; bottom:-80px; display:none; z-index:9999; /* right:60px; hid the button first*/}
 #backtotop a {text-decoration:none; border:0 none; display:block; width:31px; height:155px;/*opacity:.8;*/}
 #backtotop a:hover {/*opacity:.3;*/ /*mouse over fade effect*/}
 /* Scroll to top Styles */
