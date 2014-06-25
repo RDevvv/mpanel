@@ -3,21 +3,19 @@ app.controller('ProfileController',function($scope, $http, $location, $timeout, 
     $scope.verification_code_submit_message = false;
 
     $scope.init = function(){
-        if(app_type=='native'){
-            $http({
-                method: 'POST',
-                url: domain+'check_app_cookies.json',
-                params:{
-                    customer_uuid: ipCookie('customer_uuid')
-                }
-            }).success(function(data){
-                if(data['customer']!=null){
-                    ipCookie('customer_uuid',data['customer']['uuid'], {expires: 365});
-                    $scope.mobile_number = data['customer']['mobile_number'];
-                    $scope.name= data['customer']['name'];
-                }
-            })
-        }
+        $http({
+            method: 'POST',
+            url: domain+'check_app_cookies.json',
+            params:{
+                customer_uuid: ipCookie('customer_uuid')
+            }
+        }).success(function(data){
+            if(data['customer']!=null){
+                ipCookie('customer_uuid',data['customer']['uuid'], {expires: 365});
+                $scope.mobile_number = data['customer']['mobile_number'];
+                $scope.name= data['customer']['name'];
+            }
+        })
     }
 
     $scope.get_profile = function(){
