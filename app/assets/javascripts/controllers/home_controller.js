@@ -72,4 +72,6 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
         })
     }
     $scope.profile_redirection();
+
+    window.onscroll = function(){snapRemote.close()}
 })
