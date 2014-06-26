@@ -1,7 +1,8 @@
 app.controller('ViewController', function($scope, $location){
     $scope.$on("$routeChangeSuccess", function(event, current, previous) {
         var previousCtrl = previous && previous.$$route && previous.$$route.controller;
-        if (previousCtrl === "ListingController") {
+        var currentCtrl = current && current.$$route && current.$$route.controller;
+        if (previousCtrl === "ListingController" && currentCtrl!='ListingController') {
             $scope.animationStyle = "slideLeft";
         } else if (previousCtrl === "SingleOutletController") {
             $scope.animationStyle = "slideRight";
