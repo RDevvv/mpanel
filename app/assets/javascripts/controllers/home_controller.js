@@ -1,5 +1,4 @@
-app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent, snapRemote, AdOutlets){
-    $scope.hide_filter = true;
+app.controller('HomeController', function($scope, $rootScope, $routeParams, $cookies, $location, $route, UrlContent, snapRemote, AdOutlets, FilterState){
 
     $scope.home_submit = function(){
         if(($cookies['mobile_number']!='verified')&&(app_type=='html5')){
@@ -38,21 +37,21 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
     }
 
     $scope.set_attribute = function(type){
-            AdOutlets.outlet_ids =[];
-            AdOutlets.posters =[];
-        $scope.hide_filter = false;
+        AdOutlets.outlet_ids =[];
+        AdOutlets.posters =[];
+        FilterState.hide_filter = false;
         if(type=='filter'){
-            $scope.category='';
-            $scope.submit_type='filter';
+            $scope.category='all';
+            FilterState.submit_type='filter';
         }
         else{
-            $scope.submit_type='search';
+            FilterState.submit_type='search';
         }
     }
 
 
     $scope.set_class = function(){
-        if($scope.submit_type!='filter'&&$scope.hide_filter==false)
+        if(FilterState.submit_type!='filter'&&FilterState.hide_filter==false)
             return 'non_grey_filter';
         else
             return 'non_grey_filter hide';

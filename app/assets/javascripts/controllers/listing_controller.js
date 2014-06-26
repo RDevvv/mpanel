@@ -30,7 +30,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $scope.posters = AdOutlets.posters;
         $scope.page++;
         $scope.enabled= true;
-        if($scope.no_more_results == false){
             $http({
                 method: 'GET',
                 url   : domain+'outlet_listing.json',
@@ -43,16 +42,15 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     location: $routeParams['location']
                 }
             }).success(function(data){
-                $scope.show_top_menu();
-                if(typeof($scope.posters)=='undefined'&&data.length==0){
-                    $scope.no_more_results = true;
-                }
                 if(typeof($scope.posters)=='undefined'){
                     $scope.posters = [];
                     $scope.enabled=false;
                 }
                 for(i=0;i<data.length;i++){
-                    if(!_.contains(AdOutlets.outlet_ids,data[i].outlet_id)){
+                    if($routeParams.search!='all'){
+                        AdOutlets.posters.push(data[i]);
+                    }
+                    else if(!_.contains(AdOutlets.outlet_ids,data[i].outlet_id)){
                         AdOutlets.posters.push(data[i]);
                         AdOutlets.outlet_ids.push(data[i].outlet_id);
                     }
@@ -65,8 +63,10 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
                     $scope.enabled=false;
                 }
+                if(typeof($scope.posters)=='undefined'||data.length==0){
+                    $scope.no_more_results = true;
+                }
             })
-        }
     }
 
     $scope.show_top_menu = function(){

@@ -65,6 +65,7 @@ class HomeController < ApplicationController
                 result = Keyword.search(params[:search])
                 @outlets, @ad_ids = Outlet.sort_by_distance_and_presence(result,@outlets)
             end
+            @outlets = Outlet.where(:id => 0) if @outlets.blank?
             @outlets, session[:brands]= Outlet.discard_outlets_from_same_brand(@outlets, session[:brands])
             @final_outlets = Outlet.sort_outlet_by_ad_presence(@outlets)
             @poster_data = Outlet.get_poster_data(@final_outlets, cookies[:customer_uuid])
