@@ -57,13 +57,6 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
             return 'non_grey_filter hide';
     }
 
-    $scope.top_menu_class = function(){
-        if($location.path()=='/deals/outlets'||$location.path()=='/profile'||$location.path()=='/deals/shop')
-            return '';
-        else
-            return 'hide';
-    }
-
     $scope.profile_redirection = function(){
         $rootScope.$on('$routeChangeStart', function(){
             if(($location.path()=='/'||$location.path()=='/home')&&$cookies.mobile_number!='verified'&&app_type=='native')
