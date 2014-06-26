@@ -34,7 +34,7 @@
 </div>
 <snap-dragger>
 </snap-dragger>
-<div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
+<div infinite-scroll=fetch_posters() infinite-scroll-distance='6' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
     <div class="bdiv">
         <div class="bbox">
@@ -46,7 +46,7 @@
                 </a>
             </div>
             <div class="unlk_ofr">
-                Unlock the Offer 
+                Unlock the Offer
             </div>
             <hr style="width:100%; margin:2px 0;">
             <div class="lower-box">
