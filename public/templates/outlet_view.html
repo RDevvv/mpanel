@@ -27,8 +27,8 @@
                 </div>
             </fieldset>
             <!--<div class="non_grey_filter">&nbsp;</div>-->
-            <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
             <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
+            <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
         </form>
     </div>
 </div>
@@ -36,41 +36,14 @@
 </snap-dragger>
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='6' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
-    <div class="bdiv">
-        <div class="bbox">
-            <div class="brandtitle">{{poster.brand_name}}</div>
-            <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
-            <div align="center" class="brandlogo">
-                <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)">
-                    <img ng-src={{poster.brand_image}}>
-                </a>
-            </div>
-            <div class="unlk_ofr">
-                Unlock the Offer
-            </div>
-            <hr style="width:100%; margin:2px 0;">
-            <div class="lower-box">
-                <div ng-if='poster.ad_usage!= -1' %>
-                    <div ng-if='poster.is_unlocked == true' %>
-                        <div class="like"><div class="button_liked_offer" ></div></div>
-                    </div>
-                    <div ng-if='poster.is_unlocked != true' %>
-                        <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text, $index, poster.distance, poster.latitude, poster.longitude)' ng-controller='ListingController'>&nbsp;</a></div>
-                    </div>
-                    <p style="position:relative; top:1px;">{{poster.ad_usage}}  unlocked</p>
-                </div>
-                <div ng-if='poster.ad_usage == -1' %>
-                    <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
+        <left-poster></left-poster>
+    </a>
     <div class="pin-add-div">
         <div class="rch-btns-div4">
             <ul>
                 <li>
-                <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)"></a>
+                <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)"></a>
                 </li>
                 <li>
                 <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
@@ -109,10 +82,6 @@
         </div>
     </div>
     </li>
-    <div ng-show='no_more_results'>
-        <div class="error-box-no-results">
-        </div>
-    </div>
     <div ng-show='enabled'>
         <div ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
             <span class="loading-style">Loading Data . . .</span>

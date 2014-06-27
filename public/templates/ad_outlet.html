@@ -19,18 +19,6 @@
 
 </div>
 <div class='span12'>
-    <div class="search-div3">
-        <form ng-submit='category_form()' method='get' ng-controller='HomeController'>
-            <fieldset>
-                <div class="input">
-                    <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category'>
-                </div>
-            </fieldset>
-            <!--<div class="non_grey_filter">&nbsp;</div>-->
-            <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
-            <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
-        </form>
-    </div>
 </div>
 <div ng-init='get_individual_outlet()'>
     <div class="row-fluid" >
@@ -45,36 +33,9 @@
         </div>
     </div>
     <snap-dragger>
-    <div class="bdiv" outlet_id="{{poster.outlet_id}}" id="{{poster.outlet_id}}" ad_id="{{poster.ad_id}}" >
-        <div class="bbox">
-            <div class="brandtitle">
-                {{poster.brand_name}}
-            </div>
-            <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
-            <div align="center" class="brandlogo">
-                <img ng-src={{poster.brand_image}}>
-            </div>
-            <div class="unlk_ofr">
-                Unlock the Offer
-            </div>
-            <hr style="width:100%; margin:2px 0;">
-            <div class="lower-box">
-                <div ng-if='poster.ad_usage!= -1' >
-                    <div ng-if='poster.is_unlocked == true' >
-                        <div class="like"><div class="button_liked_offer" ></div></div>
-                    </div>
-                    <div ng-if='poster.is_unlocked != true' >
-                        <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster.brand_name, poster.ad_id, poster.outlet_id, poster.sms_text, $index, poster.distance, poster.latitude, poster.longitude)' ng-controller='ListingController'>&nbsp;</a></div>
-                    </div>
-                    <p style="position:relative; top:2px;">{{poster.ad_usage}}  unlocked</p>
-                </div>
-                <div ng-if='poster.ad_usage == -1' %>
-                    <div class="report-offer"><a  href="mailto:merchant@gullakmaster.com?subject=Report an Offer&body=Brareport-offernd: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
+        <left-poster></left-poster>
+    </a>
 
     <div class="pin-add-div">
         <div class="rch-btns-div4">
@@ -105,7 +66,7 @@
         </div>
 
 
-        <div class="distance-div">{{poster.distance | number: 2}} km</div>
+        <div class="distance-div">{{poster.distance}} km</div>
         <expiry-date/></expiry-date>
         <div class="ofr_dtl">{{poster.sms_text}}</div>
         <div class="add-box">

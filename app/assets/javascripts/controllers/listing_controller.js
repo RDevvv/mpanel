@@ -1,13 +1,22 @@
 app.controller('ListingController', function($scope, $http, $routeParams, $cookies, AdOutlets, $location){
     $scope.page = 0;
     $scope.no_more_results = false;
+    $scope.no_results = false;
     $scope.change_icon =true;
     $scope.enabled= false;
+
+    $scope.map = {
+        center: {
+            latitude: 12.8,
+            longitude: 72.8
+        }
+    }
+
     if($routeParams.search!='all')
         $scope.category = $routeParams.search;
 
     $scope.fetch_posters = function(){
-        if($routeParams.search!='all'){
+        if($routeParams.search!='all'&&$routeParams.page==1){
             AdOutlets.posters =[];
         }
         if((AdOutlets.url_location==$routeParams.location)||(AdOutlets.url_location=='')){}
@@ -51,7 +60,12 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             }
             if(data.length==0){
                 $scope.no_more_results = true;
+                $scope.enabled = false;
+                if($routeParams.search!='all')
+                    $scope.no_results = true;
             }
+            if($scope.posters.length>0)
+                $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude}
         })
     }
 
@@ -60,22 +74,23 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.search('filter',filter);
     }
 
-    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text, index, distance, latitude, longitude) {
+    $scope.unlock = function(poster) {
         if($cookies['mobile_number']=='verified'){
-            new PNotify({title: brand_name+' - Offer sent', text: sms_text});
+            new PNotify({title: poster.brand_name+' - Offer sent', text: poster.sms_text});
             $scope.change_icon = false;
-            $scope.posters[index].ad_usage++;
+            poster.is_unlocked = true;
+            poster.ad_usage++;
             $http({
                 method: 'POST',
                 url   : domain+'set_sms_data.json',
                 params: {
                     customer_uuid: $cookies.customer_uuid,
-                    ad_id: ad_id,
-                    brand_name: brand_name,
-                    distance: parseFloat(distance).toPrecision(2),
-                    longitude: longitude,
-                    latitude: latitude,
-                    outlet_id: outlet_id,
+                    ad_id: poster.ad_id,
+                    brand_name: poster.brand_name,
+                    distance: parseFloat(poster.distance).toPrecision(2),
+                    longitude: poster.longitude,
+                    latitude: poster.latitude,
+                    outlet_id: poster.outlet_id,
                     misc_sms: false
                 }
             })
@@ -125,6 +140,14 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             angular.element('#mobile-number').modal('show');
         }
     }
+
+    $scope.verified = function(){
+        if($cookies.mobile_number=='verified')
+            return true;
+        else
+            return false;
+    }
+
 
     $scope.poster_share = function(outlet_id, distance, latitude, longitude, brand_name){
         if($cookies['mobile_number']=='verified'){
