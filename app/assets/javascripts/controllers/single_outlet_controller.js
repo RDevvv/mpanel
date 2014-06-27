@@ -6,8 +6,6 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         center: {latitude: $routeParams['customer_latitude'], longitude: $routeParams['customer_longitude']},
         user_location: {latitude: $routeParams['customer_latitude'], longitude: $routeParams['customer_longitude']},
         marker_index: 0,
-        start_point: new google.maps.LatLng($routeParams['customer_latitude'],$routeParams['customer_longitude']),
-        end_point: new google.maps.LatLng(1,2),
         zoom:13
     }
 
