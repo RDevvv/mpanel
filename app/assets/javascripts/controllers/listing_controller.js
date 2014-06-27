@@ -3,21 +3,8 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     $scope.no_more_results = false;
     $scope.change_icon =true;
     $scope.enabled= false;
-
-    $scope.map = {
-        user_icon: 'http://shoffr.com/assets/user_pin.png',
-        icon: 'http://maps.google.com/mapfiles/markerA.png',
-        center: {latitude: 12.8, longitude: 72.8},
-        marker_index: 0,
-        zoom:13,
-    }
-
-    $scope.verified = function(){
-        if($cookies.mobile_number=='verified')
-            return true;
-        else
-            return false;
-    }
+    if($routeParams.search!='all')
+        $scope.category = $routeParams.search;
 
     $scope.fetch_posters = function(){
         if($routeParams.search!='all'){
@@ -30,48 +17,42 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $scope.posters = AdOutlets.posters;
         $scope.page++;
         $scope.enabled= true;
-            $http({
-                method: 'GET',
-                url   : domain+'outlet_listing.json',
-                params: {
-                    page: $scope.page,
-                    search: $routeParams['search'],
-                    filter: $routeParams['filter'],
-                    latitude: $routeParams['latitude'],
-                    longitude: $routeParams['longitude'],
-                    location: $routeParams['location']
+        $http({
+            method: 'GET',
+            url   : domain+'outlet_listing.json',
+            params: {
+                page: $scope.page,
+                search: $routeParams['search'],
+                filter: $routeParams['filter'],
+                latitude: $routeParams['latitude'],
+                longitude: $routeParams['longitude'],
+                location: $routeParams['location']
+            }
+        }).success(function(data){
+            if(typeof($scope.posters)=='undefined'){
+                $scope.posters = [];
+                $scope.enabled=false;
+            }
+            for(i=0;i<data.length;i++){
+                if($routeParams.search!='all'){
+                    AdOutlets.posters.push(data[i]);
                 }
-            }).success(function(data){
-                if(typeof($scope.posters)=='undefined'){
-                    $scope.posters = [];
-                    $scope.enabled=false;
+                else if(!_.contains(AdOutlets.outlet_ids,data[i].outlet_id)){
+                    AdOutlets.posters.push(data[i]);
+                    AdOutlets.outlet_ids.push(data[i].outlet_id);
                 }
-                for(i=0;i<data.length;i++){
-                    if($routeParams.search!='all'){
-                        AdOutlets.posters.push(data[i]);
-                    }
-                    else if(!_.contains(AdOutlets.outlet_ids,data[i].outlet_id)){
-                        AdOutlets.posters.push(data[i]);
-                        AdOutlets.outlet_ids.push(data[i].outlet_id);
-                    }
-                }
-                if(AdOutlets.first_poster_set ==false){
-                    AdOutlets.first_poster = data[0];
-                    AdOutlets.first_poster_set = true;
-                }
-                if($scope.posters.length>0){
-                    $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude};
-                    $scope.enabled=false;
-                }
-                if(typeof($scope.posters)=='undefined'||data.length==0){
-                    $scope.no_more_results = true;
-                }
-            })
-    }
-
-    $scope.show_top_menu = function(){
-        angular.element('#header').removeClass('hide');
-        angular.element('#top_search').removeClass('hide');
+            }
+            if(AdOutlets.first_poster_set ==false){
+                AdOutlets.first_poster = data[0];
+                AdOutlets.first_poster_set = true;
+            }
+            if($scope.posters.length>0){
+                $scope.enabled=false;
+            }
+            if(data.length==0){
+                $scope.no_more_results = true;
+            }
+        })
     }
 
     $scope.distance_filter = function(filter){
