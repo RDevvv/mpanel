@@ -35,6 +35,7 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
             FilterState.hide_filter=true;
         }
         else{
+            $location.path('/deals/outlets');
             $location.search('search',$scope.category);
             FilterState.hide_filter=false;
         }

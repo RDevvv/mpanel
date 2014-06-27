@@ -36,18 +36,9 @@
 </snap-dragger>
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='6' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
-    <div class="bdiv">
-        <div class="bbox">
-            <div class="brandtitle">{{poster.brand_name}}</div>
-            <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
-            <div align="center" class="brandlogo">
-                <a class="" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}&distance={{poster.distance | number: 2}}&brand_name={{poster.brand_name}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)">
-                    <img ng-src={{poster.brand_image}}>
-                </a>
-            </div>
-            <unlock-offer></unlock-offer>
-        </div>
-    </div>
+    <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
+        <left-poster></left-poster>
+    </a>
     <div class="pin-add-div">
         <div class="rch-btns-div4">
             <ul>

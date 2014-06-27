@@ -64,22 +64,23 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $location.search('filter',filter);
     }
 
-    $scope.unlock = function(brand_name,ad_id, outlet_id, sms_text, index, distance, latitude, longitude) {
+    $scope.unlock = function(poster) {
         if($cookies['mobile_number']=='verified'){
-            new PNotify({title: brand_name+' - Offer sent', text: sms_text});
+            new PNotify({title: poster.brand_name+' - Offer sent', text: poster.sms_text});
             $scope.change_icon = false;
-            $scope.posters[index].ad_usage++;
+            poster.is_unlocked = true;
+            poster.ad_usage++;
             $http({
                 method: 'POST',
                 url   : domain+'set_sms_data.json',
                 params: {
                     customer_uuid: $cookies.customer_uuid,
-                    ad_id: ad_id,
-                    brand_name: brand_name,
-                    distance: parseFloat(distance).toPrecision(2),
-                    longitude: longitude,
-                    latitude: latitude,
-                    outlet_id: outlet_id,
+                    ad_id: poster.ad_id,
+                    brand_name: poster.brand_name,
+                    distance: parseFloat(poster.distance).toPrecision(2),
+                    longitude: poster.longitude,
+                    latitude: poster.latitude,
+                    outlet_id: poster.outlet_id,
                     misc_sms: false
                 }
             })
