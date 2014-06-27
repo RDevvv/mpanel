@@ -10,7 +10,7 @@ class Keyword < ActiveRecord::Base
     validates_uniqueness_of :keyword, :message => " Oops...This keyword already exists."
 
     def self.search(term)
-        result = Keyword.where("LOWER(keyword) like '%#{term.downcase}%'") 
+        result = Keyword.where("LOWER(keyword) like '%#{term.downcase}%'").includes(:ad_keywords => :ad)
         unless result.blank?
             final_result = result.first.ad_keywords.map{|ak| ak.ad}
         end
