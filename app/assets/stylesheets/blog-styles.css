@@ -155,10 +155,12 @@ body.blog-universal .w592 {margin-left: -120px;}
     margin-bottom: 1em; max-width: 540px;}    
 .story.theme-main .aCol .story-body-text a, .story.theme-main .aColumn .story-body-text a {text-decoration: none;}    
 
-ul.instabox {float:left; margin:0; clear:both; width: 99%; list-style-type: none; border-bottom:1px solid #000; margin: 0 0 3%; padding-bottom:3%; }
+ul.instabox {float:left; margin:0; clear:both; width: 99%; list-style-type: none;}
 ul.instabox li {float: left; margin:0 0 0 1%; width: 49%; height: auto;}
 ul.instabox li img {max-width: 100%; max-height: 100%;}
-.br-bt {margin-bottom:1% !important; border-bottom: none !important;}
+
+.br-top {float:left; clear:both; width: 100%; border-top:1px solid #000; margin: 3% 0 1%; padding-top:2%;}
+.cr {float: left; clear: both;}
 
 .aCol .entry, .aColumn .entry {border-bottom: 1px solid #F2F2F2;  padding: 25px 0 15px;}
 .right {clear: right; float: right; margin-left: 12px; margin-right: 0;}
