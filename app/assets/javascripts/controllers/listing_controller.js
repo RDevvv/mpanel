@@ -1,6 +1,7 @@
 app.controller('ListingController', function($scope, $http, $routeParams, $cookies, AdOutlets, $location){
     $scope.page = 0;
     $scope.no_more_results = false;
+    $scope.no_results = false;
     $scope.change_icon =true;
     $scope.enabled= false;
     if($routeParams.search!='all')
@@ -51,6 +52,9 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             }
             if(data.length==0){
                 $scope.no_more_results = true;
+                $scope.enabled = false;
+                if($routeParams.search!='all')
+                    $scope.no_results = true;
             }
         })
     }

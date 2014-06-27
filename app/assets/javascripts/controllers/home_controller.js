@@ -30,23 +30,25 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
     }
 
     $scope.category_form = function(){
-        if($scope.submit_type=='filter')
+        if($scope.submit_type=='filter'){
             $location.search('search','all');
-        else
+            FilterState.hide_filter=true;
+        }
+        else{
             $location.search('search',$scope.category);
+            FilterState.hide_filter=false;
+        }
     }
 
     $scope.set_attribute = function(type){
         AdOutlets.outlet_ids =[];
         AdOutlets.posters =[];
-        FilterState.hide_filter = false;
         if(type=='filter'){
             $scope.category='all';
             FilterState.submit_type='filter';
         }
-        else{
+        else
             FilterState.submit_type='search';
-        }
     }
 
 
