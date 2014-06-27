@@ -8,7 +8,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
         $scope.category = $routeParams.search;
 
     $scope.fetch_posters = function(){
-        if($routeParams.search!='all'){
+        if($routeParams.search!='all'&&$routeParams.page==1){
             AdOutlets.posters =[];
         }
         if((AdOutlets.url_location==$routeParams.location)||(AdOutlets.url_location=='')){}
