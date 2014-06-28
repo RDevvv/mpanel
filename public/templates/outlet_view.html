@@ -34,7 +34,7 @@
 </div>
 <snap-dragger>
 </snap-dragger>
-<div infinite-scroll=fetch_posters() infinite-scroll-distance='6' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
+<div infinite-scroll=fetch_posters() infinite-scroll-distance='2' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
     <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
         <left-poster></left-poster>

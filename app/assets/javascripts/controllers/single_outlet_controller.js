@@ -11,5 +11,19 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
 
     $scope.get_individual_outlet = function(){
         $scope.poster = _.find(AdOutlets.posters,function(poster){return poster.outlet_id==$routeParams.id})
+        if(typeof($scope.poster)=='undefined')
+        $http({
+            method: 'GET',
+            url: domain+'individual_outlet.json',
+            params: {
+                customer_uuid: $cookies['customer_uuid'],
+                id: $routeParams['id']
+            }
+        })
+        .success(function(response){
+            $scope.poster = response.outlet[0];
+            $scope.distance = $routeParams['distance'];
+            $scope.title_brand_name = response.outlet[0].brand_name;
+        })
     }
 })
