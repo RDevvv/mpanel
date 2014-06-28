@@ -378,7 +378,7 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 .copyinfo {float:left; text-align: left; color: #6e6e6e;}   
 .twit-container {display: none;}
 .twit-container-detail {display: none;}
-
+#head-rightdiv {float:right; width:45% !important; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
 #discussion {float:left; clear:both; width:98%; margin:2% 0 0 0;  padding: 0 0 1em 0; position: relative;}
 }    
 /* iPad portrait mode, Tablet Nexus7 and 7 inch tablets */
@@ -518,10 +518,11 @@ ul.footerlinksmain li:last-child {border-right:none;}
 ul.footerlinksmain {float:right; position: relative; left: -3px; bottom: 0; width:auto; height:auto; font-size:9px}
 ul.footerlinksmain li {float:left; text-align: left; display:inline; padding:0 2px; border-right:solid 1px #ddd; list-style: none;}
 ul.footerlinksmain li:last-child {border-right:none;}
+#head-rightdiv {float:right; width:35%; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-#head-rightdiv {float:right; width:21%; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 0.8em;}    
+#head-rightdiv {float:right; width:39%; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:bold; color:#000000; font-size: 1.2em;}    
 .navbar {border:solid 10px #000; width:97%; display: none;}
 .navbar .nav {display: block; float: left; left: 0; margin: 0 10px 0 0; position: relative;}
 .menu {width:92.5%; margin: 0 auto;}
@@ -557,6 +558,7 @@ html, body {width:95%; overflow-x: hidden;}
 .menu {width:99%; margin: 0 auto;}
 .left-contr {border-right:none;}
 .non-bs-bar {display:none;}
+#head-rightdiv {float:right; width:35%; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
 }
 
 /* targets iPad Landscape */
