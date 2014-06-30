@@ -288,7 +288,7 @@ class Outlet < ActiveRecord::Base
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
           if outlet.new_distance.nil?
-              distance = outlet.distance
+              distance = outlet.distance.to_f.round(2)
           else
               distance =0
           end
