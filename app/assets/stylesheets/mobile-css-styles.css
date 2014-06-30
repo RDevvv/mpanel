@@ -431,6 +431,7 @@ div.likes-fb span, div.comm-fb span {font-weight: bold; color:#000000;}
 div.comm-fb {float:left; text-align: left; padding:0 1px; color: #414042;}
 
 .pin-box:hover, .pin-box:focus {text-decoration: none;}
+.lower-box .ce-box {margin:0 auto; width:75%;}
 
 /*Social posts classes */
 /* Social Feeds page */
@@ -674,7 +675,7 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
 .lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; /*margin: 0 4px 4px;*/ width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
 .report-offer {width:100%; text-align:center; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
@@ -718,9 +719,9 @@ ul.pop-up-list li {float: left; margin: 0 1px 0 0; padding: 0; border: none; lis
 
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
-.rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-.rch-btns-div4 ul li:first-child {margin-right:10%; margin-left:1%;}
-.rch-btns-div4 ul li:last-child {margin-left:10%; margin-right: 1px;}
+.rch-btns-div4 ul li{float:left; /*margin:0 9px;*/ display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {/*margin-right:10%; margin-left:1%;*/}
+.rch-btns-div4 ul li:last-child {/*margin-left:10%; margin-right: 1px;*/}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht a {float:right; margin:0 5px 0 0;}
@@ -747,7 +748,7 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 
 .pin-add-div {float:right; width:140px; height:auto; /*height:214px;*/ margin:5px 0 0 0; padding:2px 0; /*height:208px;*/}
 .pin-div{float:left; margin:3px 0 0 0; width: 100%; height: 40px;}
-.pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); float: left; font-size: 11px;
+.pin-box {background: url("ikons-img.png") no-repeat scroll -353px -943px rgba(0, 0, 0, 0); /*float: left;*/ font-size: 11px;
     font-weight: bold; height: 24px; text-decoration: none; margin: 0 0 0 1px;color:#06097D; padding: 0 2px 0 1px; text-align: center; width: 24px;}
 
 .distance-div {position:relative; top:0; width:auto; float:left; margin: 0 0 0 8px; font-size: 11px; text-align: left; color: #959595;}
@@ -906,8 +907,8 @@ footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helveti
 .bbox .brandlogo img{text-align: center; width: auto; height: auto; /*width: 108px; height:108px; */ border: none;}
 
 .lower-box {clear:both; width:auto; text-align: center; height: auto; margin:0; padding: 0 1px;}
-.lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 2px; padding: 0;}
-.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; margin: 0 4px 4px; width: 24px; height: 24px; cursor: pointer; visibility: visible;}
+.lower-box p {float:left; text-align: left; font-size: 11px; color:#959595; margin: 5px 3px 0 0; padding: 0;}
+.lower-box .refr2, .refr2 {float: right; background: url(ikons-img.png) no-repeat -186px -945px transparent; /*margin: 0 4px 4px;*/ width: 24px; height: 24px; cursor: pointer; visibility: visible;}
 
 .report-offer {width:100%; text-align:center; padding:4px 0; font-size:11px; font-weight:bold; color:#ccc; text-transform:uppercase;}
 .report-offer a {text-decoration: none; color:#ccc;}
@@ -937,9 +938,9 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 
 .rch-btns-div4 {float:left; position:relative; width:100%; height: auto; bottom:3px; margin:3px 0 0 0; padding: 1px 0; border-top: solid 1px #ccc; border-bottom: solid 1px #ccc;}
 .rch-btns-div4 ul {float:left; width:100%; margin:0 0 3px 0;}
-.rch-btns-div4 ul li{float:left; margin:0 9px; display: inline; list-style-type: none;}
-.rch-btns-div4 ul li:first-child {margin-right:12%; margin-left:1%;}
-.rch-btns-div4 ul li:last-child {margin-left:7%; margin-right: 1px;}
+.rch-btns-div4 ul li{float:left; width:32%; border:solid 1px #000; /*margin:0 9px;*/ display: inline; list-style-type: none;}
+.rch-btns-div4 ul li:first-child {/*margin-right:12%; margin-left:1%;*/}
+.rch-btns-div4 ul li:last-child {/*margin-left:7%; margin-right: 1px;*/}
 .rch-btns-div4 ul li.lft{float:left; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht{float:right; margin:0; display: inline; list-style-type: none;}
 .rch-btns-div4 ul li.rht a {float:right; margin:0 5px 0 0;}
@@ -947,7 +948,7 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 .button_map2 {float:left; background: url(ikons-img.png) no-repeat -143px -945px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 .button_view_address {float:left; background: url(ikons-img.png) no-repeat -143px -943px transparent; padding:0; width:24px; height:24px; cursor: pointer;}
 .button_call2 {float:left; display: inline-block; margin: 0 3px 0 3px; background: url(ikons-img.png) no-repeat -101px -945px transparent; width:24px; height:24px; text-decoration: none;}
-.button_call_grey {float:left; display: inline-block; margin:0; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px; text-decoration: none;}
+.button_call_grey {/*float:left;*/ display: inline-block; margin:0; text-decoration: none; background: url(ikons-img.png) no-repeat -311px -945px transparent; width:24px; height:24px; text-decoration: none;}
 .button_call3 {float:left; position:relative; bottom:21px; left:94px; z-index:1000; background: none repeat scroll 0 0 #7F7F7F; border: 0 solid #7D99CA; margin: 2px 0 5px 2px;
 color: #FFFFFF; display: inline-block; cursor:pointer; font-family: Arial,Helvetica,sans-serif;font-size: 11px;
 font-weight: normal; padding: 1px 4px; text-decoration: none;}
