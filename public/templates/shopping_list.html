@@ -1,0 +1,18 @@
+<div id="header">
+    <ul class='left-icons'>
+        <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
+        <!--<li><a href="#" class="notification"></a></li>-->
+    </ul>
+    <div class="head-brand">
+        <div>
+            <a href="">Shopping List</a>
+        </div>
+    </div>
+</div>
+
+<form ng-submit='' class="form-vertical" ng-controller='ShoppingListController' >
+    <tags-input ng-model="tags">
+    <auto-complete source="load_keywords($query)"></auto-complete>
+    </tags-input>
+</form>
+
