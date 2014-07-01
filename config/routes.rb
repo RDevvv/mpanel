@@ -127,6 +127,8 @@ Gullak2::Application.routes.draw do
     match "outletview_call_log" => "call_forwardings#outletview_call_log"
     post 'create_ad_likes' => 'ad_likes#create'
     get 'individual_outlet' => 'merchant::outlets#show'
+    get 'get_keywords' => 'merchant::keywords#get_keywords'
+    get 'get_customer_keywords' => 'merchant::keywords#get_customer_keywords'
 
     get 'location_from_ip' => 'customers#location_from_ip'
     get 'no_results' => 'home#no_results'

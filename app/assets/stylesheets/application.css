@@ -12,6 +12,7 @@
  *= require bootstrap
  *= require angular-snap.min
  *= require jquery.pnotify.default
+ *= require ng-tags-input.min
  *= require jquery.pnotify.default.icons
  *= require mobile-css-styles
  */

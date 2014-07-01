@@ -26,6 +26,7 @@
 //= require snap
 //= require angular-snap
 //= require angular-cookie.min
+//= require ng-tags-input.min
 //= require angular-google-maps.min
 //= require mobile_site/back_to_top
 //= require_directory ./services
