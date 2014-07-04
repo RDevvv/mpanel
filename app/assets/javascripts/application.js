@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require pnotify.custom
 //= require jquery.scrollTo
+//= require jquery.cookie
 //= require fastclick
 //= require jquery.mmenu
 //= require angular
