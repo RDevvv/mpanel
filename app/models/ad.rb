@@ -156,4 +156,11 @@ class Ad < ActiveRecord::Base
             return ad.account_brand.brand.category.attachments.order(:id).last.image.url unless ad.account_brand.brand.category.attachments.blank?
         end
     end
+
+    def self.get_nearest_ad(outlets)
+    ads = outlets.map{|outlet|outlet.ads}.flatten
+    #select week day
+    ads = ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}
+    ads.first
+    end
 end
