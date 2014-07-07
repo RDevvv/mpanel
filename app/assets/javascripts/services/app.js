@@ -1,4 +1,4 @@
-var app = angular.module('app', ['snap', 'ngRoute', 'ngAnimate', 'ngCookies','google-maps', 'infinite-scroll', 'ipCookie']);
+var app = angular.module('app', ['snap', 'ngRoute', 'ngAnimate', 'ngCookies','google-maps', 'infinite-scroll', 'ipCookie', 'ngTagsInput']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/deals/outlets', {
@@ -21,8 +21,12 @@ app.config(function($routeProvider){
         templateUrl: 'templates/profile.html',
         controller: 'GeocodingController'
     })
-    .when('/',{
-        templateUrl: 'templates/home.html',
+    .when('/shopping_list',{
+        templateUrl: 'templates/shopping_list',
+        controller: 'ShoppingListController'
+    })
+    .otherwise({
+        redirectTo: '/home'
     });
 }).config(function(snapRemoteProvider){
     snapRemoteProvider.globalOptions.disable = 'right';

@@ -11,7 +11,7 @@
 </div>
 
 <form ng-submit='' class="form-vertical" ng-controller='ShoppingListController' >
-    <tags-input ng-model="tags">
+    <tags-input ng-model="tags" on-tag-removed="remove_tag">
     <auto-complete source="load_keywords($query)"></auto-complete>
     </tags-input>
 </form>
