@@ -17,7 +17,7 @@
                 <div ng-if='poster.is_unlocked != true' %>
                     <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" >&nbsp;</a></div>
                 </div>
-                <p style="position:relative; top:1px;">{{poster.ad_usage}}  unlocked</p>
+                <p style="position:relative; margin:2px 0; top:1px;">{{poster.ad_usage}}  unlocked</p>
             </div>
             <div ng-if='poster.ad_usage == -1' %>
                 <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
