@@ -26,7 +26,15 @@ class NativeNotificationsController < ApplicationController
         brand_name = @notification_ad.account_brand.brand.brand_name
         data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav"}
 
-        GCM.send_notification( destination, data)
+        upper_limit = Time.now.change(:hour => 7)
+        lower_limit = Time.now.change(:hour => 22)
+        if((Time.now>upper_limit)&&(Time.now.<lower_limit))
+            @similar_notification = NativeNotification.where(:ad_id => @notification_ad.id, :customer_id => @customer.id)
+            unless(@similar_notification.exists?)
+                GCM.send_notification( destination, data)
+                @customer.native_notifications.create(:ad_id => @notification_ad.id)
+            end
+        end
 
         render :json => {:vivek => 'vivek'}#{:notification_text => @ad.sms_text}
     end

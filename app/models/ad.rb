@@ -3,6 +3,7 @@ class Ad < ActiveRecord::Base
     attr_accessible :keyword_ids,:attachments_attributes, :deleted_at, :usage
     has_many :ad_keywords, :dependent => :destroy
     has_many :keywords, :through => :ad_keywords
+    has_many :native_notifications
     belongs_to :account_brand
     has_many :ad_promocodes ,:dependent=>:destroy
     has_many :ad_promocode_outlets,:dependent=>:destroy
