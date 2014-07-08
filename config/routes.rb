@@ -21,6 +21,7 @@ Gullak2::Application.routes.draw do
     resources :customers
     resources :pages
     resources :newsfeeds
+    resources :customer_keywords
 
     namespace :merchant do
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}

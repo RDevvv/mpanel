@@ -18,6 +18,17 @@ app.controller('ShoppingListController', function($scope, ipCookie, $http){
         console.log('vivek');
     }
 
+    $scope.add_tag = function(tag){
+        $http({
+            method: 'POST',
+            url   : domain+'customer_keywords.json',
+            params: {
+            customer_uuid: ipCookie('customer_uuid'),
+            keyword: tag.text
+            }
+        })
+    }
+
     $scope.save_keywords = function(){
     }
 
