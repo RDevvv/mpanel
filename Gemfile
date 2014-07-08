@@ -24,6 +24,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jbuilder'
 gem 'asset_sync'
+gem 'pushmeup'
 #gem 'dalli'
 
 
