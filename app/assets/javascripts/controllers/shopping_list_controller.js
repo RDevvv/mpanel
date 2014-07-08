@@ -14,6 +14,10 @@ app.controller('ShoppingListController', function($scope, ipCookie, $http){
         return $http.get(domain+"/get_keywords?query="+query_keyword);
     }
 
+    $scope.remove_tag = function(){
+        console.log('vivek');
+    }
+
     $scope.save_keywords = function(){
     }
 
