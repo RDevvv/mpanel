@@ -11,10 +11,31 @@ class NativeNotificationsController < ApplicationController
     end
 
     def get_customer_coordinates
-        @customer = Customer.where(:uuid => params[:customer_uuid]).first
-        @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(1, :units => :km)
-        @ad = Ad.get_nearest_ad(@outlets)
+        GCM.host = 'https://android.googleapis.com/gcm/send'
+        GCM.format = :json
+        GCM.key = "AIzaSyBuletaXNhA4lTg3AfOkMsnEg998wMj2a4"
 
-        render :json => {:notification_text => @ad.sms_text}
+        @customer = Customer.where(:uuid => params[:customer_uuid]).first
+        @keyword_ads = @customer.keywords.map{|keyword|keyword.ads}.flatten
+        @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(50, :units => :km)
+        @ads = @outlets.map{|outlet|outlet.ads}.flatten
+        @final_ads = Ad.get_nearest_ad(@ads,@keyword_ads)
+        @notification_ad = Ad.find(@final_ads.first)
+
+        destination = [@customer.gcm_registration_id]
+        brand_name = @notification_ad.account_brand.brand.brand_name
+        data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav"}
+
+        upper_limit = Time.now.change(:hour => 7)
+        lower_limit = Time.now.change(:hour => 22)
+        if((Time.now>upper_limit)&&(Time.now.<lower_limit))
+            @similar_notification = NativeNotification.where(:ad_id => @notification_ad.id, :customer_id => @customer.id)
+            unless(@similar_notification.exists?)
+                GCM.send_notification( destination, data)
+                @customer.native_notifications.create(:ad_id => @notification_ad.id)
+            end
+        end
+
+        render :json => {:vivek => 'vivek'}#{:notification_text => @ad.sms_text}
     end
 end

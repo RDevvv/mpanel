@@ -298,6 +298,9 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pushmeup (0.2.0)
+      httparty
+      json
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -496,6 +499,7 @@ DEPENDENCIES
   passenger
   pg
   pry
+  pushmeup
   quiet_assets
   railroady
   rails (= 3.2.14)

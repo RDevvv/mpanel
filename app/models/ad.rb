@@ -3,6 +3,7 @@ class Ad < ActiveRecord::Base
     attr_accessible :keyword_ids,:attachments_attributes, :deleted_at, :usage
     has_many :ad_keywords, :dependent => :destroy
     has_many :keywords, :through => :ad_keywords
+    has_many :native_notifications
     belongs_to :account_brand
     has_many :ad_promocodes ,:dependent=>:destroy
     has_many :ad_promocode_outlets,:dependent=>:destroy
@@ -157,10 +158,13 @@ class Ad < ActiveRecord::Base
         end
     end
 
-    def self.get_nearest_ad(outlets)
-    ads = outlets.map{|outlet|outlet.ads}.flatten
-    #select week day
-    ads = ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}
-    ads.first
+    def self.get_nearest_ad(outlet_ads,keyword_ads)
+        outlet_ads_ids = outlet_ads.map{|ad|ad.id}
+        keyword_ads_ids = keyword_ads.map{|ad|ad.id}
+        @final_ads = Array.new
+        outlet_ads_ids.each do |outlet_ad_id|
+            @final_ads <<outlet_ad_id if keyword_ads_ids.include?(outlet_ad_id)
+        end
+        @final_ads
     end
 end
