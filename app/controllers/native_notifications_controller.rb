@@ -17,7 +17,7 @@ class NativeNotificationsController < ApplicationController
 
         @customer = Customer.where(:uuid => params[:customer_uuid]).first
         @keyword_ads = @customer.keywords.map{|keyword|keyword.ads}.flatten
-        @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(50, :units => :km)
+        @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(1, :units => :km)
         @ads = @outlets.map{|outlet|outlet.ads}.flatten
         @final_ads = Ad.get_nearest_ad(@ads,@keyword_ads)
         @notification_ad = Ad.find(@final_ads.first)
