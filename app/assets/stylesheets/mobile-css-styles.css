@@ -1199,7 +1199,7 @@ legend + .control-group {margin-top: 0;}
 .label-subtxt2 span {font-style: italic;}
 .label-subtxt2 a {position: relative; /*left:10%;*/}
 .onoffswitch, .onoffswitch2, .onoffswitch3 {float:right;
-    position: relative; width: 82px; height: 29px; bottom: 14px; right:10%; /*left:65%;*/
+    position: relative; width: 82px; height: 29px; z-index: 5000; bottom: 14px; right:10%; /*left:65%;*/
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 
