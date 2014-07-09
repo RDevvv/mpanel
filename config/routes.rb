@@ -139,7 +139,7 @@ Gullak2::Application.routes.draw do
 
     get 'fetch_gcm_id' => 'native_notifications#fetch_gcm_id'
     post 'set_gcm_id' => 'native_notifications#set_gcm_id'
-    get 'get_customer_coordinates' => 'native_notifications#get_customer_coordinates'
+    match 'get_customer_coordinates' => 'native_notifications#get_customer_coordinates'
 
     if Rails.env.development?
     root :to => "home#index"
