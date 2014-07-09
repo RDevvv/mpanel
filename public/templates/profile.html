@@ -33,6 +33,18 @@
           <resend-link></resend-link>
       </div>
   </div>
+
+  <div class="control-group">
+      <label for="" class="labelnot control-label">Notifications</label>
+      <div class="onoffswitch2">
+          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox2" id="myonoffswitch2" ng-model='notification_enabled' ng-change='notification_toggle()'>
+          <label class="onoffswitch-label2" for="myonoffswitch2">
+              <div class="onoffswitch-inner2"></div>
+              <div class="onoffswitch-switch2"></div>
+          </label>
+      </div>
+  </div>
+
   <div class="control-group">
       <input type='submit' class="btn btn-blue11 ng-scope" value="Submit">
   </div>

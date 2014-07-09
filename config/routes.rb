@@ -106,6 +106,7 @@ Gullak2::Application.routes.draw do
     match 'update_vendor_id' => 'campaigns#update_vendor_id'
     match 'get_mobile_number/(:id)' => 'customers#get_mobile_number'
     match 'get_profile' => 'customers#show'
+    post  'notification_toggle' => 'customers#notification_toggle'
     get 'generate_campaign_copy' => 'campaigns#generate_campaign_copy'
     match 'get_campaign_details' => 'campaigns#get_campaign_details'
     match 'sms_share' => 'sms_sents#sms_share'
