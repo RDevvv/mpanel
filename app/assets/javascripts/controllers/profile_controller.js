@@ -14,8 +14,21 @@ app.controller('ProfileController',function($scope, $http, $location, $timeout, 
                 ipCookie('customer_uuid',data['customer']['uuid'], {expires: 365});
                 $scope.mobile_number = data['customer']['mobile_number'];
                 $scope.name= data['customer']['name'];
+                $scope.notification_enabled= data['customer']['notification_enabled'];
             }
         })
+    }
+
+    $scope.notification_toggle= function(){
+        $http({
+            method: 'post',
+            url: domain+'notification_toggle.json',
+            params: {
+                customer_uuid: ipCookie('customer_uuid'),
+                notification_enabled: $scope.notification_enabled
+            }
+        })
+        console.log('vivek'+$scope.notification_enabled);
     }
 
     $scope.get_profile = function(){

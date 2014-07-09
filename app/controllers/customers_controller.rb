@@ -13,6 +13,12 @@ class CustomersController < ApplicationController
         render :json => {:verified => @verified}
     end
 
+    def notification_toggle
+        @customer = Customer.where(:uuid => params[:customer_uuid]).first
+        @customer.update_attributes(:notification_enabled => params[:notification_enabled])
+        render :json => {:notification_enabled => @customer.notification_enabled}
+    end
+
     def get_mobile_number
         @customer = Customer.where(:uuid => params[:customer_uuid]).first
         @existing_customer = Customer.where(:mobile_number => params[:mobile_number])

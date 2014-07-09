@@ -13,6 +13,7 @@ class Customer < ActiveRecord::Base
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
   attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates, :gcm_registration_id
+  attr_accessible :notification_enabled
 
   validates :mobile_number, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
   validates :uuid, :presence => true, :uniqueness => true
