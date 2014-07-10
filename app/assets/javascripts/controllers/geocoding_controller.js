@@ -29,7 +29,7 @@ app.controller('GeocodingController',function($scope){
             result = results[0]['address_components'];
             for(i=0;i<result.length;i++){
                 sub_result = result[i];
-                if(sub_result['types'][0]=='sublocality'){
+                if((sub_result['types'][0]=='sublocality')||(sub_result['types'][1]=='sublocality')||(sub_result['types'][2])=='sublocality'){
                     final_result = sub_result['long_name'];
                     $('#search-text').attr('value',final_result);
                     $scope.searchh = final_result;
