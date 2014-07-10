@@ -16,23 +16,28 @@ class NativeNotificationsController < ApplicationController
         GCM.key = "AIzaSyBuletaXNhA4lTg3AfOkMsnEg998wMj2a4"
 
         @customer = Customer.where(:uuid => params[:customer_uuid]).first
+        @customer.customer_locations.create(:latitude => params[:latitude], :longitude => params[:longitude])
+        @notification_ad = Ad.new
+
         @keyword_ads = @customer.keywords.map{|keyword|keyword.ads}.flatten
         @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(1, :units => :km)
         @ads = @outlets.map{|outlet|outlet.ads}.flatten
         @final_ads = Ad.get_nearest_ad(@ads,@keyword_ads)
-        @notification_ad = Ad.find(@final_ads.first)
+        binding.pry
+        unless @final_ads.blank?
+            @notification_ad = Ad.find(@final_ads.first)
+            destination = [@customer.gcm_registration_id]
+            brand_name = @notification_ad.account_brand.brand.brand_name
+            data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav"}
 
-        destination = [@customer.gcm_registration_id]
-        brand_name = @notification_ad.account_brand.brand.brand_name
-        data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav"}
-
-        upper_limit = Time.now.change(:hour => 7)
-        lower_limit = Time.now.change(:hour => 22)
-        if((Time.now>upper_limit)&&(Time.now.<lower_limit))
-            @similar_notification = NativeNotification.where(:ad_id => @notification_ad.id, :customer_id => @customer.id)
-            unless(@similar_notification.exists?)
-                GCM.send_notification( destination, data)
-                @customer.native_notifications.create(:ad_id => @notification_ad.id)
+            upper_limit = Time.now.change(:hour => 7)
+            lower_limit = Time.now.change(:hour => 22)
+            if((Time.now>upper_limit)&&(Time.now.<lower_limit))
+                @similar_notification = NativeNotification.where(:ad_id => @notification_ad.id, :customer_id => @customer.id)
+                unless(@similar_notification.exists?)
+                    GCM.send_notification( destination, data)
+                    @customer.native_notifications.create(:ad_id => @notification_ad.id)
+                end
             end
         end
 
