@@ -1286,18 +1286,18 @@ legend + .control-group {margin-top: 0;}
 /* Notifications button style */
 
 /* Sweepstakes Contest */
-#sweep-div {clear:both; width: 98%; height: auto; margin: 2% auto 0 auto; padding: 2px; color: #000; position: relative;}
-#sweep-div .title {float: left; clear: both; text-align: left; margin: 1% 0; width: 100%; font-weight:bold; font-size: 1.5%; text-decoration: underline; color: #000; }
+#sweep-div {clear:both; width: 95%; height: auto; margin: 2% auto 0 auto; padding: 2px; font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif; color: #000; position: relative;}
+#sweep-div .title {float: left; clear: both; text-align: left; margin: 1% 0; width: 100%; font-weight:bold; font-size: 1.5%; text-decoration: underline; color: #000000; }
 
 #sweep-div .box {clear:both; width: 98%; height: auto; display:table-header-group; margin: 1% auto 2% auto;}
-#sweep-div .box p {clear: both; margin: 2% 0;}
+#sweep-div .box p {float:left; clear: both; margin: 3% 0 2%;}
 ol.ctrules {clear: both; font-weight: normal; text-align: left; font-size: 1.1%; width: 100%; margin: 1% auto;}
 ol.ctrules li {float: left; clear: both; margin: 2px 0; list-style-position: inside;}
 
 ul.gnrules {clear: both; font-weight: normal; text-align: left; width: 100%; margin: 1% auto 2%;}
-ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: circle; list-style-position: inside;}
+ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: decimal; list-style-position: inside;}
 
-.CSSTableGenerator {margin:0px;padding:0px; width:100%; border:1px solid #000000;
+.CSSTableGenerator {clear:both; margin:0 0 1% 0; padding:0px; width:95%; border:1px solid #000000;
   -moz-border-radius-bottomleft:0px;
   -webkit-border-bottom-left-radius:0px;
   border-bottom-left-radius:0px;
@@ -1332,7 +1332,7 @@ ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: circle;
   border-bottom-left-radius:0px;
 }.CSSTableGenerator tr:hover td{background-color:#ffffff;}
 .CSSTableGenerator td{vertical-align:middle; background-color:#ffffff; border:1px solid #000000;
-  border-width:0px 1px 1px 0px; text-align:center; padding:7px; font-size:14px; font-family:Arial;
+  border-width:0px 1px 1px 0px; text-align:center; padding:7px; font-size:14px;
   font-weight:normal; color:#000000;}.CSSTableGenerator tr:last-child td{
   border-width:0px 1px 0px 0px;
 }.CSSTableGenerator tr td:last-child{
@@ -1345,7 +1345,7 @@ ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: circle;
   background:-moz-linear-gradient( center top, #ff7f00 5%, #ff7f00 100% );
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff7f00", endColorstr="#ff7f00");  background: -o-linear-gradient(top,#ff7f00,ff7f00);
   background-color:#ff7f00; border:0px solid #000000; text-align:center; border-width:0px 0px 1px 1px;
-  font-size:13px; font-family:Arial; font-weight:bold; color:#ffffff;}
+  font-size:13px; font-weight:bold; color:#ffffff;}
 .CSSTableGenerator tr:first-child:hover td{
   background:-o-linear-gradient(bottom, #ff7f00 5%, #ff7f00 100%);  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff7f00), color-stop(1, #ff7f00) );
   background:-moz-linear-gradient( center top, #ff7f00 5%, #ff7f00 100% );
@@ -1359,4 +1359,18 @@ ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: circle;
   border-width:0px 0px 1px 1px;
 }
 
+.btn.btn-refrhr {
+    color: #ffffff;
+    background-color: #be1e2d;
+    background-image: linear-gradient(to bottom, #be1e2d, #be1e2d);
+    border-color: #be1e2d #be1e2d #be1e2d; font-weight:bold; text-shadow:none;
+}
+.btn.btn-refrhr:hover {
+    color: #ffffff;
+    background-color: #be1e2d;
+    background-image: linear-gradient(to bottom, #be1e2d, #be1e2d);
+    border-color: #be1e2d #be1e2d #be1e2d; font-weight:bold; text-shadow:none;
+}
 /* Sweepstakes Contest */
+
+
