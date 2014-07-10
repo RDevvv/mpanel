@@ -10,9 +10,8 @@
     </div>
 </div>
 
-<form ng-submit='' class="form-vertical" ng-controller='ShoppingListController' >
+<form ng-submit='' class="form-vertical fv-pad" ng-controller='ShoppingListController' >
     <tags-input ng-model="tags" on-tag-removed="remove_tag()" on-tag-added='add_tag($tag)' add-from-autocomplete-only='true'>
     <auto-complete source="load_keywords($query)"></auto-complete>
     </tags-input>
 </form>
-
