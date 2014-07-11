@@ -55,7 +55,7 @@ html {
   overflow-x: hidden !important;
 }
 
-body {font-family: Tahoma, Arial, Helvetica, sans-serif; width:99.99%; height: 100%; overflow-x:hidden !important;}
+body {font-family: Tahoma, Arial, Helvetica, sans-serif; width:99.99%; /*height: 100%;*/ overflow-x:hidden !important;}
 /*body > div { -webkit-transition: all 1s ease-in-out; }*/
 header, #header {width:100%; background-color:#be1e2d; height: 42px; /*margin:0 auto;*/}
 hr {margin:0;}
@@ -1146,7 +1146,7 @@ table-normal {margin-bottom: 0; font-size:12px;color: #5a6573; }
   opacity: 1;
 }
 
-.loading-style {position:relative; top:10px; left:10px; font-weight:bold; font-size:11px; background:#000; padding:5px; color:#fff; border-radius:5px;}
+.loading-style {display:none; position:relative; top:10px; left:10px; font-weight:bold; font-size:11px; background:#000; padding:5px; color:#fff; border-radius:5px;}
 
 /*.view {width: 100%; padding-left: 0; position:absolute; top: 18%; left: 0; -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);}*/
@@ -1377,4 +1377,72 @@ ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: decimal
 }
 /* Sweepstakes Contest */
 
+/* Page loader */
+@-webkit-keyframes three-quarters {
+  0% {
+    -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);
+  }
 
+  100% {
+    -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes three-quarters {
+  0% {
+    -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg); -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes three-quarters {
+  0% {
+    -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg); -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg); -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes three-quarters {
+  0% {
+    -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg); -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg); -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles for old versions of IE */
+.three-quarters {font-family: sans-serif; font-weight: 100;}
+
+/* :not(:required) hides this rule from IE9 and below */
+.three-quarters:not(:required) {
+  -webkit-animation: three-quarters 1250ms infinite linear;
+  -moz-animation: three-quarters 1250ms infinite linear;
+  -ms-animation: three-quarters 1250ms infinite linear;
+  -o-animation: three-quarters 1250ms infinite linear;
+  animation: three-quarters 1250ms infinite linear;
+  border: 3px solid #be1e2d; border-right-color: transparent; border-radius: 16px;
+  box-sizing: border-box; display: inline-block; position: relative; overflow: hidden;
+  text-indent: -9999px; width: 32px; height: 32px; left:50%;
+}
+/* Page loader */
