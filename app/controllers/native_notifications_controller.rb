@@ -23,7 +23,6 @@ class NativeNotificationsController < ApplicationController
         @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(1, :units => :km)
         @ads = @outlets.map{|outlet|outlet.ads}.flatten
         @final_ads = Ad.get_nearest_ad(@ads,@keyword_ads)
-        binding.pry
         unless @final_ads.blank?
             @notification_ad = Ad.find(@final_ads.first)
             destination = [@customer.gcm_registration_id]
