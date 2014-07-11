@@ -113,6 +113,8 @@ li.subcat {clear: both; font-weight: bold; padding-left: 2px;}
 tags-input .host {width:94.5%;}
 /* Shopping list click tags */
 
+hr {margin: 1px 0 !important;}
+
 .unlk_ofr {clear:both; color: #959595; font-size: 10px; margin: 5px 3px 0 2px; text-align:center; text-transform:uppercase;}
 .ofr_cde {float: left; clear: both; color:#000; font-size:80%; text-align: left; margin:0 2px 0 3px;}
 .ofr_cde span{font-weight: bold;}
@@ -1284,7 +1286,6 @@ legend + .control-group {margin-top: 0;}
 
 
 /* Notifications button style */
-
 /* Sweepstakes Contest */
 #sweep-div {clear:both; width: 95%; height: auto; margin: 2% auto 0 auto; padding: 2px; font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif; color: #000; position: relative;}
 #sweep-div .title {float: left; clear: both; text-align: left; margin: 1% 0; width: 100%; font-weight:bold; font-size: 1.5%; text-decoration: underline; color: #000000; }
