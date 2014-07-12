@@ -1,6 +1,8 @@
 class CampaignCopy < ActiveRecord::Base
     belongs_to :campaign
     belongs_to :customer
+    has_many :customer_campaign_copys
+
     attr_accessible :copy_sent, :expires_at, :is_delivered, :is_opened, :is_sent, :use_count, :short_url, :vendor_id, :customer_id, :post_expiry_forward_url, :pre_expiry_forward_url
     after_create :create_short_url
     after_create :update_campaign

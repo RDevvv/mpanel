@@ -12,6 +12,9 @@ class Customer < ActiveRecord::Base
   has_many :native_notifications
   has_many :customer_locations
 
+  has_many :customer_campaign_copys
+  has_many :campaign_copies, :through => :customer_campaign_copys
+
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
   attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates, :gcm_registration_id
   attr_accessible :notification_enabled
