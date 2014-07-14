@@ -371,7 +371,7 @@ input#s {font-family: Arial, Helvetica, sans-serif; color: #cbcbcb !important; f
 width:100%; border:0; border-radius:0px; background:transparent; height:auto; color:#b4bdc4;
 text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; }
 input#s:focus {outline:none}
-input#s3 {font-family: Arial, Helvetica, sans-serif; color: #cbcbcb !important; font-size: 15px !important;
+input#s3 {font-family: Arial, Helvetica, sans-serif; color: #cbcbcb; font-size: 15px;
 width:100%; border:none; border-radius:0px; background:transparent; height:auto; color:#b4bdc4; text-shadow:0 1px 1px #fff; margin: 3px 0 0 0; box-shadow: none; text-align: center;}
 input#s3:focus {width:80%; outline:none}
 .auto-locate {float:right; margin: -37px 15px 0 0;}
@@ -701,6 +701,7 @@ ul.right-icons li a.outlet{background: url(ikons-img.png) no-repeat -37px -751px
 
 @media only screen and (min-width: 533px) {
     /* styles go here */
+
 footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .navbar-header {float: right !important;}
 ul.left-icons {float:left; position: relative; margin:6px 9px 4px; width:auto; height: auto;}
@@ -813,8 +814,9 @@ position:relative; background: url(ikons-img.png) no-repeat -477px -981px transp
 .block-div {display:none;}
 }
 
-@media only screen and (max-width: 533px) {
+@media only screen and (max-width: 532px) {
     /* styles go here */
+body {color:red;}
 footer {clear: both; margin: 10px 0 0 0; height: 3em; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 .navbar-header {float: right !important;}
 ul.left-icons {float:left; position: relative; margin:6px 9px 4px; width:auto; height: auto;}
@@ -1375,6 +1377,12 @@ ul.gnrules li {float: left; clear: both; margin: 2px 0; list-style-type: decimal
     background-image: linear-gradient(to bottom, #be1e2d, #be1e2d);
     border-color: #be1e2d #be1e2d #be1e2d; font-weight:bold; text-shadow:none;
 }
+
+.flip-counter ul.cd{float:left;list-style-type:none;margin:0;padding:0}
+.flip-counter li{background:url(digits.png) 0 0 no-repeat}
+.flip-counter li.t{background-position:0 0;width:53px;height:39px}
+.flip-counter li.b{background-position:0 0;width:53px;height:64px}
+.flip-counter li.s{background-position:-53px -1030px;width:14px;height:103px}
 /* Sweepstakes Contest */
 
 /* Page loader */
