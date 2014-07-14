@@ -284,7 +284,7 @@ class Outlet < ActiveRecord::Base
   def self.get_poster_data(outlets, customer_uuid)
       outlets_with_ads = Array.new
       outlets_without_ads = Array.new
-      customer = Customer.where(:uuid => customer_uuid).first
+      @customer = Customer.includes(:ad_likes).where(:uuid => customer_uuid).first
       #outlets.select{|o|o.ads.blank? == false}
       outlets.each do |outlet|
           if outlet.new_distance.nil?
@@ -298,7 +298,7 @@ class Outlet < ActiveRecord::Base
           else
               ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
               ads.each do |ad|
-                  is_unlocked_row = AdLike.where(:ad_id => ad.id, :outlet_id => outlet.id, :customer_id => customer.id)
+                  is_unlocked_row = @customer.ad_likes.where(:ad_id => ad.id)
                   unless is_unlocked_row.blank?
                       is_unlocked = is_unlocked_row.first.is_unlocked
                   end

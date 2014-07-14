@@ -23,23 +23,27 @@ class NativeNotificationsController < ApplicationController
         @outlets  = Outlet.new(:latitude => params[:latitude], :longitude => params[:longitude]).nearbys(1, :units => :km)
         @ads = @outlets.map{|outlet|outlet.ads}.flatten
         @final_ads = Ad.get_nearest_ad(@ads,@keyword_ads)
+        @notifications_sent = @customer.native_notifications.map{|notification|notification.ad_id}
+        @final_ads = @final_ads-@notifications_sent
         unless @final_ads.blank?
             @notification_ad = Ad.find(@final_ads.first)
             destination = [@customer.gcm_registration_id]
             brand_name = @notification_ad.account_brand.brand.brand_name
             data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav"}
 
-            upper_limit = Time.now.change(:hour => 7)
-            lower_limit = Time.now.change(:hour => 22)
-            if((Time.now>upper_limit)&&(Time.now.<lower_limit))
+            binding.pry
+            @location_changed_flag = @customer.check_if_location_changed_significantly(params[:latitude], params[:longitude])
+
+            if (NativeNotification.check_if_within_timeframe)&&(@location_changed_flag>1)
                 @similar_notification = NativeNotification.where(:ad_id => @notification_ad.id, :customer_id => @customer.id)
                 unless(@similar_notification.exists?)
                     GCM.send_notification( destination, data)
-                    @customer.native_notifications.create(:ad_id => @notification_ad.id)
+                    @native_notification = @customer.native_notifications.create(:ad_id => @notification_ad.id)
+                    @customer.customer_locations.last.update_attributes(:native_notification_id => @native_notification.id)
                 end
             end
         end
 
-        render :json => {:vivek => 'vivek'}#{:notification_text => @ad.sms_text}
+        render :json => {:vivek => 'ok'}#{:notification_text => @ad.sms_text}
     end
 end

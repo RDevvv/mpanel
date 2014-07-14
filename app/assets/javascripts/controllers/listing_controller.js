@@ -90,7 +90,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                     distance: parseFloat(poster.distance).toPrecision(2),
                     longitude: poster.longitude,
                     latitude: poster.latitude,
-                    outlet_id: poster.outlet_id,
                     misc_sms: false
                 }
             })

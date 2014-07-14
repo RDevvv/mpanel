@@ -7,10 +7,14 @@ class Customer < ActiveRecord::Base
   has_many :customer_feedbacks
   has_many :misc_smss
   has_many :customer_brand_scores
+  has_many :ad_likes
   has_many :customer_keywords
   has_many :keywords, :through => :customer_keywords
   has_many :native_notifications
   has_many :customer_locations
+
+  has_many :customer_campaign_copys
+  has_many :campaign_copies, :through => :customer_campaign_copys
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
   attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates, :gcm_registration_id
@@ -39,5 +43,11 @@ class Customer < ActiveRecord::Base
           verification_code = SecureRandom.random_number(9999)
       end
       self.update_attributes(:verification_code => verification_code)
+  end
+
+  def check_if_location_changed_significantly(latitude,longitude)
+      previous_location = self.native_notifications.last.customer_location
+      current_location = CustomerLocation.new(:latitude =>latitude,:longitude =>longitude)
+      distance_moved = current_location.distance_to(previous_location,:km)
   end
 end

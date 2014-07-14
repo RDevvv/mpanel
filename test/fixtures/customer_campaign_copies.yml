@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer: 
+  campaign_copy: 
+  customer_ip: MyString
+
+two:
+  customer: 
+  campaign_copy: 
+  customer_ip: MyString

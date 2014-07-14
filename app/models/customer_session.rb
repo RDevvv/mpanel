@@ -3,7 +3,7 @@ class CustomerSession < ActiveRecord::Base
     belongs_to :customer
     geocoded_by :geocoding_address
 
-    attr_accessible :browser, :browser_version, :platform, :referer_link, :customer_id, :latitude, :longitude, :campaign_url
+    attr_accessible :browser, :browser_version, :platform, :referer_link, :customer_id, :latitude, :longitude, :campaign_url, :customer_ip
 
     def geocoding_address
         "india"
