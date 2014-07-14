@@ -7,6 +7,7 @@ class Customer < ActiveRecord::Base
   has_many :customer_feedbacks
   has_many :misc_smss
   has_many :customer_brand_scores
+  has_many :ad_likes
   has_many :customer_keywords
   has_many :keywords, :through => :customer_keywords
   has_many :native_notifications
