@@ -46,7 +46,7 @@ class Customer < ActiveRecord::Base
   end
 
   def check_if_location_changed_significantly(latitude,longitude)
-      previous_location = self.native_notifications.last.customer_locations.last
+      previous_location = self.native_notifications.last.customer_location
       current_location = CustomerLocation.new(:latitude =>latitude,:longitude =>longitude)
       distance_moved = current_location.distance_to(previous_location,:km)
   end
