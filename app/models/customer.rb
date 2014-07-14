@@ -44,4 +44,10 @@ class Customer < ActiveRecord::Base
       end
       self.update_attributes(:verification_code => verification_code)
   end
+
+  def check_if_location_changed_significantly(latitude,longitude)
+      previous_location = self.native_notifications.last.customer_locations.last
+      current_location = CustomerLocation.new(:latitude =>latitude,:longitude =>longitude)
+      distance_moved = current_location.distance_to(previous_location,:km)
+  end
 end
