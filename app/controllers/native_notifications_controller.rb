@@ -31,7 +31,6 @@ class NativeNotificationsController < ApplicationController
             brand_name = @notification_ad.account_brand.brand.brand_name
             data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav"}
 
-            binding.pry
             @location_changed_flag = @customer.check_if_location_changed_significantly(params[:latitude], params[:longitude])
 
             if (NativeNotification.check_if_within_timeframe)&&(@location_changed_flag>1)
