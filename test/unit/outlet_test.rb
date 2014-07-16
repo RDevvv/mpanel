@@ -8,7 +8,6 @@ class OutletTest < ActiveSupport::TestCase
     end
 
     test "should deactivate an outlet" do
-        Outlet.first.update_attributes(:is_active => true)
         Outlet.first.deactivate
         assert_equal false, Outlet.first.is_active
     end
