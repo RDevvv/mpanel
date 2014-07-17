@@ -71,6 +71,7 @@ group :development do
     gem 'railroady'
     gem 'better_errors'
     gem 'binding_of_caller'
+    gem 'spring'
     #gem 'rack-mini-profiler'
 end
 
