@@ -16,6 +16,7 @@
 doc/*
 /log/*.log
 /tmp
+/bin
 /config/database.yml
 /public/assets
 /public/uploads
