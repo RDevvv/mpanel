@@ -58,5 +58,12 @@ module Gullak2
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.generators do |g|
+        g.javascripts false
+        g.assets false
+        g.helper false
+        g.test_framework false #:rspec, :views => false, :views_specs => false
+    end
   end
 end

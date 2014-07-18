@@ -5,19 +5,21 @@ one:
   brand_id: 1
   category_like: 1
   brand_like: 1
-  view_count: 1
-  call_count: 1
-  unlock_count: 1
-  share_count: 1
+  view: 1
+  call: 1
+  unlock: 1
+  share: 1
   score: 1
+  is_prestine: false
 
 two:
   customer_id: 1
   brand_id: 1
   category_like: 1
   brand_like: 1
-  view_count: 1
-  call_count: 1
-  unlock_count: 1
-  share_count: 1
+  view: 1
+  call: 1
+  unlock: 1
+  share: 1
   score: 1
+  is_prestine: true

@@ -15,12 +15,3 @@ two:
   website_url: aura-spa.com
   is_active: false
   is_verified: false
-
-two:
-  id: 3
-  brand_name: Aura Spa Spa Spa Spa Spa
-  category_id: 1
-  website_url: aura-spa.com
-  is_active: false
-  is_verified: false
-

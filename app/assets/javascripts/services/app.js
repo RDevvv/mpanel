@@ -22,8 +22,11 @@ app.config(function($routeProvider){
         controller: 'GeocodingController'
     })
     .when('/shopping_list',{
-        templateUrl: 'templates/shopping_list.html',
+        templateUrl: 'templates/sweepstakes.html',
         controller: 'ShoppingListController'
+    })
+    .when('/sweepstakes',{
+        templateUrl: 'templates/sweepstakes.html'
     })
     .otherwise({
         redirectTo: '/home'

@@ -1,9 +1,43 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   title: MyString
   body: MyString
+  blog_category: string
+  page_title: string
+  blog_title: string
+  blog_url: string
+  blog_keywords: string
+  summary_image: string
+  image_caption: string
+  summary_image_caption: string
+  image_alt_text: string
+  image_title: string
+  blog_excerpt: string
+  blog_body: text
+  author: string
+  author_linkedin_url: string
+  social_share_caption: string
+  twitter_blockquote: string_block_quote
 
 two:
+  id: 2
   title: MyString
   body: MyString
+  blog_category: string
+  page_title: string
+  blog_title: string
+  blog_url: string
+  blog_keywords: string
+  summary_image: string
+  image_caption: string
+  summary_image_caption: string
+  image_alt_text: string
+  image_title: string
+  blog_excerpt: string
+  blog_body: text
+  author: string
+  author_linkedin_url: string
+  social_share_caption: string
+  twitter_blockquote: string_block_quote

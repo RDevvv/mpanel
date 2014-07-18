@@ -22,14 +22,14 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "should create article" do
     assert_difference('Article.count') do
-      post :create, article: { body: @article.body, title: @article.title }
+      post :create, article: { body: @article.body, title: @article.title , page_title: @article.page_title, blog_title: @article.blog_title, blog_category: @article.blog_category, blog_url: @article.blog_url, blog_keywords: @article.blog_keywords, blog_excerpt: @article.blog_excerpt, author: @article.author, blog_body: @article.blog_body, social_share_caption: @article.social_share_caption, image_title: @article.image_title, image_alt_text: @article.image_alt_text, image_caption: @article.image_caption, summary_image_caption: @article.summary_image_caption}
     end
 
     assert_redirected_to articles_path
   end
 
   test "should show article" do
-    get :show, id: @article
+    get :show, blog_url: @article.blog_url
     assert_response :success
   end
 
