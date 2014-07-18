@@ -125,6 +125,7 @@ Gullak2::Application.routes.draw do
     match "get_outlet_number" => "call_forwardings#return_outlet_number"
     match "set_outlet_number" => "call_forwardings#set_outlet_number"
     match "set_sms_data" => "sms_sents#set_sms_data"
+    match "sweepstakes_set_sms_data" => "sms_sents#sweepstakes_set_sms_data"
     match 'check_app_cookies' => 'home#check_app_cookies'
     post "versions/:id/revert" => "versions#revert", :as => "revert_version"
     get "accounts/create"
