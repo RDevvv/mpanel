@@ -26,4 +26,5 @@ class SmsSent < ActiveRecord::Base
     def get_number
         self.customer.mobile_number
     end
+
 end
