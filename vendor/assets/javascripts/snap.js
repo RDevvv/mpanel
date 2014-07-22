@@ -1,19 +1,47 @@
-/*
- * Snap.js
- *
- * Copyright 2013, Jacob Kelley - http://jakiestfu.com/
- * Released under the MIT Licence
- * http://opensource.org/licenses/MIT
- *
- * Github:  http://github.com/jakiestfu/Snap.js/
- * Version: 1.9.3
- */
-/*jslint browser: true*/
-/*global define, module, ender*/
+/*! Snap.js v2.0.0-rc1 */
 (function(win, doc) {
+
     'use strict';
-    var Snap = Snap || function(userOpts) {
-        var settings = {
+
+    // Our export
+    var Namespace = 'Snap';
+
+    // Our main toolbelt
+    var utils = {
+
+        /**
+         * Deeply extends two objects
+         * @param  {Object} destination The destination object
+         * @param  {Object} source      The custom options to extend destination by
+         * @return {Object}             The desination object
+         */
+        extend: function(destination, source) {
+            var property;
+            for (property in source) {
+                if (source[property] && source[property].constructor && source[property].constructor === Object) {
+                    destination[property] = destination[property] || {};
+                    utils.extend(destination[property], source[property]);
+                } else {
+                    destination[property] = source[property];
+                }
+            }
+            return destination;
+        }
+    };
+
+    /**
+     * Our Snap global that initializes our instance
+     * @param {Object} opts The custom Snap.js options
+     */
+    var Core = function( opts ) {
+
+        var self = this;
+
+        /**
+         * Our default settings for a Snap instance
+         * @type {Object}
+         */
+        var settings = self.settings = {
             element: null,
             dragger: null,
             disable: 'none',
@@ -27,10 +55,17 @@
             minPosition: -266,
             tapToClose: true,
             touchToDrag: true,
+            clickToDrag: true,
             slideIntent: 40, // degrees
             minDragDistance: 5
-        },
-        cache = {
+        };
+
+        /**
+         * Stores internally global data
+         * @type {Object}
+         */
+        var cache = self.cache = {
+            isDragging: false,
             simpleStates: {
                 opening: null,
                 towards: null,
@@ -44,42 +79,93 @@
                     percentage: 0
                 }
             }
-        },
-        eventList = {},
-        utils = {
+        };
+
+        var eventList = self.eventList = {};
+
+        utils.extend(utils, {
+
+            /**
+             * Determines if we are interacting with a touch device
+             * @type {Boolean}
+             */
             hasTouch: ('ontouchstart' in doc.documentElement || win.navigator.msPointerEnabled),
+
+            /**
+             * Returns the appropriate event type based on whether we are a touch device or not
+             * @param  {String} action The "action" event you're looking for: up, down, move, out
+             * @return {String}        The browsers supported event name
+             */
             eventType: function(action) {
                 var eventTypes = {
-                        down: (utils.hasTouch ? 'touchstart' : 'mousedown'),
-                        move: (utils.hasTouch ? 'touchmove' : 'mousemove'),
-                        up: (utils.hasTouch ? 'touchend' : 'mouseup'),
-                        out: (utils.hasTouch ? 'touchcancel' : 'mouseout')
-                    };
+                    down: (utils.hasTouch ? 'touchstart' : settings.clickToDrag ? 'mousedown' : ''),
+                    move: (utils.hasTouch ? 'touchmove' : settings.clickToDrag ? 'mousemove' : ''),
+                    up: (utils.hasTouch ? 'touchend' : settings.clickToDrag ? 'mouseup': ''),
+                    out: (utils.hasTouch ? 'touchcancel' : settings.clickToDrag ? 'mouseout' : '')
+                };
                 return eventTypes[action];
             },
+
+            /**
+             * Returns the correct "cursor" position on both browser and mobile
+             * @param  {String} t The coordinate to retrieve, either "X" or "Y"
+             * @param  {Object} e The event object being triggered
+             * @return {Number}   The desired coordiante for the events interaction
+             */
             page: function(t, e){
                 return (utils.hasTouch && e.touches.length && e.touches[0]) ? e.touches[0]['page'+t] : e['page'+t];
             },
+
+
             klass: {
+
+                /**
+                 * Checks if an element has a class name
+                 * @param  {Object}  el   The element to check
+                 * @param  {String}  name The class name to search for
+                 * @return {Boolean}      Returns true if the class exists
+                 */
                 has: function(el, name){
                     return (el.className).indexOf(name) !== -1;
                 },
+
+                /**
+                 * Adds a class name to an element
+                 * @param  {Object}  el   The element to add to
+                 * @param  {String}  name The class name to add
+                 */
                 add: function(el, name){
                     if(!utils.klass.has(el, name) && settings.addBodyClasses){
                         el.className += " "+name;
                     }
                 },
+
+                /**
+                 * Removes a class name
+                 * @param  {Object} el   The element to remove from
+                 * @param  {String} name The class name to remove
+                 */
                 remove: function(el, name){
-                    if(settings.addBodyClasses){
+                    if(utils.klass.has(el, name) && settings.addBodyClasses){
                         el.className = (el.className).replace(name, "").replace(/^\s+|\s+$/g, '');
                     }
                 }
             },
+
+            /**
+             * Dispatch a custom Snap.js event
+             * @param  {String} type The event name
+             */
             dispatchEvent: function(type) {
-                if (typeof eventList[type] === 'function') {
-                    return eventList[type].call();
+                if( typeof eventList[type] === 'function') {
+                    return eventList[type].apply();
                 }
             },
+
+            /**
+             * Determines the browsers vendor prefix for CSS3
+             * @return {String} The browsers vendor prefix
+             */
             vendor: function(){
                 var tmp = doc.createElement("div"),
                     prefixes = 'webkit Moz O ms'.split(' '),
@@ -90,24 +176,29 @@
                     }
                 }
             },
+
+            /**
+             * Determines the browsers vendor prefix for transition callback events
+             * @return {String} The event name
+             */
             transitionCallback: function(){
                 return (cache.vendor==='Moz' || cache.vendor==='ms') ? 'transitionend' : cache.vendor+'TransitionEnd';
             },
+
+            /**
+             * Determines if the users browser supports CSS3 transformations
+             * @return {[type]} [description]
+             */
             canTransform: function(){
                 return typeof settings.element.style[cache.vendor+'Transform'] !== 'undefined';
             },
-            deepExtend: function(destination, source) {
-                var property;
-                for (property in source) {
-                    if (source[property] && source[property].constructor && source[property].constructor === Object) {
-                        destination[property] = destination[property] || {};
-                        utils.deepExtend(destination[property], source[property]);
-                    } else {
-                        destination[property] = source[property];
-                    }
-                }
-                return destination;
-            },
+
+            /**
+             * Determines an angle between two points
+             * @param  {Number} x The X coordinate
+             * @param  {Number} y The Y coordinate
+             * @return {Number}   The number of degrees between the two points
+             */
             angleOfDrag: function(x, y) {
                 var degrees, theta;
                 // Calc Theta
@@ -122,7 +213,16 @@
                 }
                 return Math.abs(degrees);
             },
+
+
             events: {
+
+                /**
+                 * Adds an event to an element
+                 * @param {Object} element   Element to add event to
+                 * @param {String} eventName The event name
+                 * @param {Function} func      Callback function
+                 */
                 addEvent: function addEvent(element, eventName, func) {
                     if (element.addEventListener) {
                         return element.addEventListener(eventName, func, false);
@@ -130,6 +230,13 @@
                         return element.attachEvent("on" + eventName, func);
                     }
                 },
+
+                /**
+                 * Removes an event to an element
+                 * @param {Object} element   Element to remove event from
+                 * @param {String} eventName The event name
+                 * @param {Function} func      Callback function
+                 */
                 removeEvent: function addEvent(element, eventName, func) {
                     if (element.addEventListener) {
                         return element.removeEventListener(eventName, func, false);
@@ -137,6 +244,11 @@
                         return element.detachEvent("on" + eventName, func);
                     }
                 },
+
+                /**
+                 * Prevents the default event
+                 * @param  {Object} e The event object
+                 */
                 prevent: function(e) {
                     if (e.preventDefault) {
                         e.preventDefault();
@@ -145,6 +257,13 @@
                     }
                 }
             },
+
+            /**
+             * Searches the parent element until a specified attribute has been matched
+             * @param  {Object} el   The element to search from
+             * @param  {String} attr The attribute to search for
+             * @return {Object|null}      Returns a matched element if it exists, else, null
+             */
             parentUntil: function(el, attr) {
                 var isStr = typeof attr === 'string';
                 while (el.parentNode) {
@@ -157,19 +276,34 @@
                 }
                 return null;
             }
-        },
-        action = {
+        });
+
+
+        var action = self.action = {
+
+            /**
+             * Handles translating the elements position
+             * @type {Object}
+             */
             translate: {
                 get: {
+
+                    /**
+                     * Returns the amount an element is translated
+                     * @param  {Number} index The index desired from the CSS3 values of translate3d
+                     * @return {Number}       The amount of pixels an element is translated
+                     */
                     matrix: function(index) {
 
-                        if( !utils.canTransform() ){
+                        if( !cache.canTransform ){
                             return parseInt(settings.element.style.left, 10);
                         } else {
                             var matrix = win.getComputedStyle(settings.element)[cache.vendor+'Transform'].match(/\((.*)\)/),
                                 ieOffset = 8;
                             if (matrix) {
                                 matrix = matrix[1].split(',');
+
+                                // Internet Explorer likes to give us 16 fucking values
                                 if(matrix.length===16){
                                     index+=ieOffset;
                                 }
@@ -179,23 +313,37 @@
                         }
                     }
                 },
-                easeCallback: function(){
+
+                /**
+                 * Called when the element has finished transitioning
+                 */
+                easeCallback: function(fn){
                     settings.element.style[cache.vendor+'Transition'] = '';
                     cache.translation = action.translate.get.matrix(4);
                     cache.easing = false;
-                    clearInterval(cache.animatingInterval);
 
                     if(cache.easingTo===0){
                         utils.klass.remove(doc.body, 'snapjs-right');
                         utils.klass.remove(doc.body, 'snapjs-left');
                     }
 
+                    if( cache.once ){
+                        cache.once.call(self, self.state());
+                        delete cache.once;
+                    }
+
                     utils.dispatchEvent('animated');
                     utils.events.removeEvent(settings.element, utils.transitionCallback(), action.translate.easeCallback);
-                },
-                easeTo: function(n) {
 
-                    if( !utils.canTransform() ){
+                },
+
+                /**
+                 * Animates the pane by the specified amount of pixels
+                 * @param  {Number} n The amount of pixels to move the pane
+                 */
+                easeTo: function(n, cb) {
+
+                    if( !cache.canTransform ){
                         cache.translation = n;
                         action.translate.x(n);
                     } else {
@@ -204,22 +352,25 @@
 
                         settings.element.style[cache.vendor+'Transition'] = 'all ' + settings.transitionSpeed + 's ' + settings.easing;
 
-                        cache.animatingInterval = setInterval(function() {
-                            utils.dispatchEvent('animating');
-                        }, 1);
-                        
+                        cache.once = cb;
+
                         utils.events.addEvent(settings.element, utils.transitionCallback(), action.translate.easeCallback);
                         action.translate.x(n);
                     }
                     if(n===0){
-                           settings.element.style[cache.vendor+'Transform'] = '';
-                       }
+                        settings.element.style[cache.vendor+'Transform'] = '';
+                    }
                 },
+
+                /**
+                 * Immediately translates the element on its X axis
+                 * @param  {Number} n Amount of pixels to translate
+                 */
                 x: function(n) {
                     if( (settings.disable==='left' && n>0) ||
                         (settings.disable==='right' && n<0)
                     ){ return; }
-                    
+
                     if( !settings.hyperextensible ){
                         if( n===settings.maxPosition || n>settings.maxPosition ){
                             n=settings.maxPosition;
@@ -227,13 +378,13 @@
                             n=settings.minPosition;
                         }
                     }
-                    
+
                     n = parseInt(n, 10);
                     if(isNaN(n)){
                         n = 0;
                     }
 
-                    if( utils.canTransform() ){
+                    if( cache.canTransform ){
                         var theTranslate = 'translate3d(' + n + 'px, 0,0)';
                         settings.element.style[cache.vendor+'Transform'] = theTranslate;
                     } else {
@@ -244,46 +395,64 @@
                     }
                 }
             },
+
+            /**
+             * Handles all the events that interface with dragging
+             * @type {Object}
+             */
             drag: {
+
+                /**
+                 * Begins listening for drag events on our element
+                 */
                 listen: function() {
                     cache.translation = 0;
                     cache.easing = false;
-                    utils.events.addEvent(settings.element, utils.eventType('down'), action.drag.startDrag);
-                    utils.events.addEvent(settings.element, utils.eventType('move'), action.drag.dragging);
-                    utils.events.addEvent(settings.element, utils.eventType('up'), action.drag.endDrag);
+                    utils.events.addEvent(self.settings.element, utils.eventType('down'), action.drag.startDrag);
+                    utils.events.addEvent(self.settings.element, utils.eventType('move'), action.drag.dragging);
+                    utils.events.addEvent(self.settings.element, utils.eventType('up'), action.drag.endDrag);
                 },
+
+                /**
+                 * Stops listening for drag events on our element
+                 */
                 stopListening: function() {
                     utils.events.removeEvent(settings.element, utils.eventType('down'), action.drag.startDrag);
                     utils.events.removeEvent(settings.element, utils.eventType('move'), action.drag.dragging);
                     utils.events.removeEvent(settings.element, utils.eventType('up'), action.drag.endDrag);
                 },
+
+                /**
+                 * Fired immediately when the user begins to drag the content pane
+                 * @param  {Object} e Event object
+                 */
                 startDrag: function(e) {
                     // No drag on ignored elements
                     var target = e.target ? e.target : e.srcElement,
                         ignoreParent = utils.parentUntil(target, 'data-snap-ignore');
-                    
+
                     if (ignoreParent) {
                         utils.dispatchEvent('ignore');
                         return;
                     }
-                    
-                    
+
+
                     if(settings.dragger){
                         var dragParent = utils.parentUntil(target, settings.dragger);
-                        
+
                         // Only use dragger if we're in a closed state
-                        if( !dragParent && 
-                            (cache.translation !== settings.minPosition && 
+                        if( !dragParent &&
+                            (cache.translation !== settings.minPosition &&
                             cache.translation !== settings.maxPosition
                         )){
                             return;
                         }
                     }
-                    
+
                     utils.dispatchEvent('start');
                     settings.element.style[cache.vendor+'Transition'] = '';
                     cache.isDragging = true;
-                    cache.hasIntent = null;
+
                     cache.intentChecked = false;
                     cache.startDragX = utils.page('X', e);
                     cache.startDragY = utils.page('Y', e);
@@ -307,7 +476,13 @@
                         }
                     };
                 },
+
+                /**
+                 * Fired while the user is moving the content pane
+                 * @param  {Object} e Event object
+                 */
                 dragging: function(e) {
+
                     if (cache.isDragging && settings.touchToDrag) {
 
                         var thePageX = utils.page('X', e),
@@ -335,6 +510,7 @@
                         }
 
                         if (cache.hasIntent === false || cache.hasIntent === null) {
+
                             var deg = utils.angleOfDrag(thePageX, thePageY),
                                 inRightRange = (deg >= 0 && deg <= settings.slideIntent) || (deg <= 360 && deg > (360 - settings.slideIntent)),
                                 inLeftRange = (deg >= 180 && deg <= (180 + settings.slideIntent)) || (deg <= 180 && deg >= (180 - settings.slideIntent));
@@ -357,6 +533,7 @@
                         utils.dispatchEvent('drag');
 
                         cache.dragWatchers.current = thePageX;
+
                         // Determine which direction we are going
                         if (cache.dragWatchers.last > thePageX) {
                             if (cache.dragWatchers.state !== 'left') {
@@ -413,6 +590,11 @@
                         action.translate.x(translateTo + translated);
                     }
                 },
+
+                /**
+                 * Fired when the user releases the content pane
+                 * @param  {Object} e Event object
+                 */
                 endDrag: function(e) {
                     if (cache.isDragging) {
                         utils.dispatchEvent('end');
@@ -464,41 +646,58 @@
                     }
                 }
             }
-        },
-        init = function(opts) {
-            if (opts.element) {
-                utils.deepExtend(settings, opts);
-                cache.vendor = utils.vendor();
-                action.drag.listen();
-            }
         };
-        /*
-         * Public
+
+
+        // Initialize
+        if (opts.element) {
+            utils.extend(settings, opts);
+            cache.vendor = utils.vendor();
+            cache.canTransform = utils.canTransform();
+            action.drag.listen();
+        }
+    };
+
+
+    utils.extend(Core.prototype, {
+
+        /**
+         * Opens the specified side menu
+         * @param  {String} side Must be "left" or "right"
          */
-        this.open = function(side) {
+        open: function(side, cb) {
             utils.dispatchEvent('open');
             utils.klass.remove(doc.body, 'snapjs-expand-left');
             utils.klass.remove(doc.body, 'snapjs-expand-right');
 
             if (side === 'left') {
-                cache.simpleStates.opening = 'left';
-                cache.simpleStates.towards = 'right';
+                this.cache.simpleStates.opening = 'left';
+                this.cache.simpleStates.towards = 'right';
                 utils.klass.add(doc.body, 'snapjs-left');
                 utils.klass.remove(doc.body, 'snapjs-right');
-                action.translate.easeTo(settings.maxPosition);
+                this.action.translate.easeTo(this.settings.maxPosition, cb);
             } else if (side === 'right') {
-                cache.simpleStates.opening = 'right';
-                cache.simpleStates.towards = 'left';
+                this.cache.simpleStates.opening = 'right';
+                this.cache.simpleStates.towards = 'left';
                 utils.klass.remove(doc.body, 'snapjs-left');
                 utils.klass.add(doc.body, 'snapjs-right');
-                action.translate.easeTo(settings.minPosition);
+                this.action.translate.easeTo(this.settings.minPosition, cb);
             }
-        };
-        this.close = function() {
+        },
+
+        /**
+         * Closes the pane
+         */
+        close: function(cb) {
             utils.dispatchEvent('close');
-            action.translate.easeTo(0);
-        };
-        this.expand = function(side){
+            this.action.translate.easeTo(0, cb);
+        },
+
+        /**
+         * Hides the content pane completely allowing for full menu visibility
+         * @param  {String} side Must be "left" or "right"
+         */
+        expand: function(side){
             var to = win.innerWidth || doc.documentElement.clientWidth;
 
             if(side==='left'){
@@ -511,58 +710,76 @@
                 utils.klass.remove(doc.body, 'snapjs-expand-left');
                 to *= -1;
             }
-            action.translate.easeTo(to);
-        };
+            this.action.translate.easeTo(to);
+        },
 
-        this.on = function(evt, fn) {
-            eventList[evt] = fn;
+        /**
+         * Listen in to custom Snap events
+         * @param  {String}   evt The snap event name
+         * @param  {Function} fn  Callback function
+         * @return {Object}       Snap instance
+         */
+        on: function(evt, fn) {
+            this.eventList[evt] = fn;
             return this;
-        };
-        this.off = function(evt) {
-            if (eventList[evt]) {
-                eventList[evt] = false;
+        },
+
+        /**
+         * Stops listening to custom Snap events
+         * @param  {String} evt The snap event name
+         */
+        off: function(evt) {
+            if (this.eventList[evt]) {
+                this.eventList[evt] = false;
             }
-        };
+        },
 
-        this.enable = function() {
+        /**
+         * Enables Snap.js events
+         */
+        enable: function() {
             utils.dispatchEvent('enable');
-            action.drag.listen();
-        };
-        this.disable = function() {
+            this.action.drag.listen();
+        },
+
+        /**
+         * Disables Snap.js events
+         */
+        disable: function() {
             utils.dispatchEvent('disable');
-            action.drag.stopListening();
-        };
+            this.action.drag.stopListening();
+        },
 
-        this.settings = function(opts){
-            utils.deepExtend(settings, opts);
-        };
+        /**
+         * Updates the instances settings
+         * @param  {Object} opts The Snap options to set
+         */
+        settings: function(opts){
+            utils.extend(this.settings, opts);
+        },
 
-        this.state = function() {
+        /**
+         * Returns information about the state of the content pane
+         * @return {Object} Information regarding the state of the pane
+         */
+        state: function() {
             var state,
-                fromLeft = action.translate.get.matrix(4);
-            if (fromLeft === settings.maxPosition) {
+                fromLeft = this.action.translate.get.matrix(4);
+            if (fromLeft === this.settings.maxPosition) {
                 state = 'left';
-            } else if (fromLeft === settings.minPosition) {
+            } else if (fromLeft === this.settings.minPosition) {
                 state = 'right';
             } else {
                 state = 'closed';
             }
             return {
                 state: state,
-                info: cache.simpleStates
+                info: this.cache.simpleStates
             };
-        };
-        init(userOpts);
-    };
-    if ((typeof module !== 'undefined') && module.exports) {
-        module.exports = Snap;
-    }
-    if (typeof ender === 'undefined') {
-        this.Snap = Snap;
-    }
-    if ((typeof define === "function") && define.amd) {
-        define("snap", [], function() {
-            return Snap;
-        });
-    }
+        }
+    });
+
+    // Assign to the global namespace
+    this[Namespace] = Core;
+
 }).call(this, window, document);
