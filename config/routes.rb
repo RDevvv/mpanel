@@ -101,7 +101,6 @@ Gullak2::Application.routes.draw do
     # MAIN APP ROUTES
     resources :home
     get 'outlet_listing' => 'home#outlet_listing'
-    get 'abcdef12345' => 'home#outlet_listing'
 
     get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
     match 'check_verification_code' => 'customers#check_verification_code'
@@ -136,10 +135,8 @@ Gullak2::Application.routes.draw do
     get 'get_keywords' => 'merchant::keywords#get_keywords'
     get 'get_customer_keywords' => 'merchant::keywords#get_customer_keywords'
 
-    get 'location_from_ip' => 'customers#location_from_ip'
     get 'no_results' => 'home#no_results'
     get 'location_not_found' => 'home#location_not_found'
-    match 'auth/facebook/callback' => 'customers#facebook_data'
 
     get 'fetch_gcm_id' => 'native_notifications#fetch_gcm_id'
     post 'set_gcm_id' => 'native_notifications#set_gcm_id'
