@@ -1,3 +1,11 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myModal').modal('show');
+    });
+    $(function(){
+      $("#myModal").appendTo("body");
+    });
+</script>
 <div id="header" >
     <ul class='left-icons'>
         <li><a href='' class="srchlink3" snap-toggle="left"></a></li>
@@ -18,6 +26,7 @@
     </ul>
 
 </div>
+
 <div class='span12'>
     <div class="search-div3">
         <form ng-submit='category_form()' method='get' ng-controller='HomeController'>
@@ -34,6 +43,16 @@
 </div>
 <snap-dragger>
 </snap-dragger>
+
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <a class="modal_close" data-dismiss="modal"></a>
+  </div>
+  <div class="modal-body">
+    <p class="swpdiv"><a href="http://localhost:3000/#/sweepstakes">Refer and Win <br />Rs 50,000/-</a></p>
+  </div>
+</div>
+
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='2' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
     <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
