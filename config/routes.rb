@@ -164,4 +164,5 @@ Gullak2::Application.routes.draw do
         match "/admin/button_click_chart" => "charts#button_click_chart"
     end
     get '/:short_url' => 'campaigns#campaign_landing'#, constraints: {domain: 'gullak.co'}
+    ResqueWeb::Engine.eager_load!
 end
