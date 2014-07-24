@@ -19,10 +19,12 @@ class NativeNotificationsController < ApplicationController
         @ads = @outlets.map{|outlet|outlet.ads}.flatten
         @keyword_ads = @customer.keywords.map{|keyword|keyword.ads}.flatten
         @final_ads = Ad.get_nearest_ad(@ads,@keyword_ads) unless @ads.blank?&&@keyword_ads.blank?
-        unless @final_ads.blank?
 
         @notifications_sent = @customer.native_notifications.map{|notification|notification.ad_id}
         @final_ads = @final_ads-@notifications_sent
+
+        unless @final_ads.blank?
+
 
             @notification_ad = Ad.find(@final_ads.first)
             destination = [@customer.gcm_registration_id]
@@ -35,6 +37,6 @@ class NativeNotificationsController < ApplicationController
             end
         end
 
-        render :json => {:vivek => 'ok'}#{:notification_text => @ad.sms_text}
+        render :json => {:result => 'ok'}#{:notification_text => @ad.sms_text}
     end
 end
