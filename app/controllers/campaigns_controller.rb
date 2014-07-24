@@ -5,7 +5,11 @@ class CampaignsController < ApplicationController
           campaign = campaign_copy.campaign
           campaign_copy.update_attributes(:use_count=> campaign_copy.use_count+1)
           Customer.where(:uuid => cookies['customer_uuid']).first.customer_campaign_copys.create(:campaign_copy_id => campaign_copy.id, :customer_ip => request.ip)
-          if campaign.expires_in!= nil
+
+          url_check = campaign_copy.pre_expiry_forward_url.gsub('google.com')
+          if !url_check.first.blank?
+              redirect_to campaign_copy.pre_expiry_forward_url
+          elsif campaign.expires_in!= nil
               if(campaign.expires_at+campaign.expires_in.hours+330.minutes < Time.now)
                   redirect_to 'http://www.shoffr.com/'+campaign_copy.post_expiry_forward_url+"&short_url="+campaign_copy.short_url
               end

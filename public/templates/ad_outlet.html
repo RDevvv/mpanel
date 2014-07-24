@@ -22,15 +22,7 @@
 </div>
 <div ng-init='get_individual_outlet()'>
     <div class="row-fluid" >
-        <div class="google-map"
-            center="map.center"
-            draggable='true'
-            zoom="map.zoom"
-            bounds="map.bounds"
-            >
-            <marker coords='{latitude: poster.latitude, longitude: poster.longitude}'></marker>
-            <marker coords='map.user_location' icon='map.user_icon' ></marker>
-        </div>
+        <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{customer_latitude}},{{customer_longitude}}&zoom=13&size={{width}}x200&markers=icon:http://shoffr.com/assets/user_pin.png%7C{{customer_latitude}},{{customer_longitude}}&markers=label:A%7C{{poster.latitude}},{{poster.longitude}}" ng-controller='SingleOutletController'>
     </div>
     <snap-dragger>
     <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
