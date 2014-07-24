@@ -37,6 +37,15 @@ ActiveAdmin.register Outlet do
     redirect_to admin_outlets_path
   end
 
+  action_item only:[:index] do
+    link_to "Update unlock count", "/admin/outlets/unlock_count", :method => :post, :confirm => "Want to remove irregular geocoding?"
+  end
+
+  collection_action :unlock_count, :method => :post do
+    system "rake data_update:ad_usage RAILS_ENV=production CLASS=Outlet"
+    redirect_to admin_outlets_path
+  end
+
   index do
       column :id
       column :shop_no
