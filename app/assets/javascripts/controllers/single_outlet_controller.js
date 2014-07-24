@@ -26,4 +26,11 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
             $scope.title_brand_name = response.outlet[0].brand_name;
         })
     }
+
+    $scope.init = function(){
+        $scope.customer_latitude = $routeParams.customer_latitude;
+        $scope.customer_longitude= $routeParams.customer_longitude;
+        $scope.width = window.screen.availWidth;
+    }
+    $scope.init();
 })

@@ -22,7 +22,7 @@ app.config(function($routeProvider){
         controller: 'GeocodingController'
     })
     .when('/shopping_list',{
-        templateUrl: 'templates/sweepstakes.html',
+        templateUrl: 'templates/shopping_list.html',
         controller: 'ShoppingListController'
     })
     .when('/sweepstakes',{
