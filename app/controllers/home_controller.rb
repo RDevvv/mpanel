@@ -2,9 +2,20 @@ class HomeController < ApplicationController
     layout 'listing'
     respond_to :html, :json
 
+    before_filter :get_referer, :only => [:index]
 
     def get_referer
         request.env["rack.session"]["referer"].first[:base_url]
+    end
+
+    def check_app_cookies
+        params[:customer_uuid] = nil if params[:customer_uuid] == 'undefined'
+        if params[:customer_uuid].blank?
+            @customer = Customer.create(:uuid => Customer.generate_cookie)
+        else
+            @customer = Customer.where(:uuid => params[:customer_uuid]).first
+        end
+        return @customer
     end
 
     def index

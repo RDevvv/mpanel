@@ -3,9 +3,8 @@ class ApplicationController < ActionController::Base
     layout :set_layout
 
     before_filter :set_headers
-    before_filter :check_cookies, :except => [:check_app_cookies]
+    before_filter :check_cookies
     before_filter :record_session
-    before_filter :get_referer, :only => [:index]
 
     def set_headers
         response.headers['Access-Control-Allow-Origin'] = '*'
@@ -20,16 +19,6 @@ class ApplicationController < ActionController::Base
             cookies[:customer_uuid] = {:value => Customer.generate_cookie, :expires => 1.year.from_now}
             @customer = Customer.create(:uuid => cookies[:customer_uuid])
         end
-    end
-
-    def check_app_cookies
-        params[:customer_uuid] = nil if params[:customer_uuid] == 'undefined'
-        if params[:customer_uuid].blank?
-            @customer = Customer.create(:uuid => Customer.generate_cookie)
-        else
-            @customer = Customer.where(:uuid => params[:customer_uuid]).first
-        end
-        return @customer
     end
 
     def record_session
