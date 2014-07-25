@@ -322,7 +322,7 @@ button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-ap
 .icon-stop{background-position:-312px -72px}
 /*pnotify essential classes */
 
-.modal{position:absolute; top:10%; left: 65%; margin-top: -15px; margin-left: -130px; z-index:1050; width:150px; background-color:#fff;
+.modal{position:absolute; top:10%; left: 61%; margin-top: -15px; margin-left: -130px; z-index:1050; width:173px; background-color:#fff;
   border:1px solid #999;border:1px solid rgba(0,0,0,0.3);*border:1px solid #999;-webkit-border-radius:6px;
   -moz-border-radius:6px;border-radius:6px;outline:0;-webkit-box-shadow:0 3px 7px rgba(0,0,0,0.3);
   -moz-box-shadow:0 3px 7px rgba(0,0,0,0.3);box-shadow:0 3px 7px rgba(0,0,0,0.3);
