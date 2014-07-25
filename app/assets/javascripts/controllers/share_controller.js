@@ -27,8 +27,10 @@ app.controller('ShareController', function($scope, $cookies, $http, $location){
 
     $scope.sweepstakes_share = function(){
         if($cookies.sweepstakes_modal ==undefined){
-            $cookies.sweepstakes_modal = true;
-            angular.element('#myModal').modal('show');
+            setTimeout(function(){
+                $cookies.sweepstakes_modal = true;
+                angular.element('#myModal').modal('show');
+            },20000)
         }
     }
     $scope.sweepstakes_share();

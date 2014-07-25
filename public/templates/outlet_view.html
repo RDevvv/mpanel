@@ -37,15 +37,6 @@
 </snap-dragger>
 
 
-<div class="modal hide fade" id="myModal">
-  <div class="modal-header">
-    <a class="modal_close" data-dismiss="modal"></a>
-  </div>
-  <div class="modal-body2">
-    <p class="swpdiv"><a href="http://localhost:3000/#/sweepstakes"><img src="assets/Refer-and-Win1.png" border="0" /><!--Refer and Win <br />Rs 50,000/- --></a></p>
-  </div>
-</div>
-
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='2' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
     <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
