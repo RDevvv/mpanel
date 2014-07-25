@@ -1,11 +1,3 @@
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#myModal').modal('show');
-    });
-    $(function(){
-      $("#myModal").appendTo("body");
-    });
-</script>
 <div id="header" >
     <ul class='left-icons'>
         <li><a href='' class="srchlink3" snap-toggle="left"></a></li>
@@ -44,14 +36,6 @@
 <snap-dragger>
 </snap-dragger>
 
-<div class="modal hide fade" id="myModal">
-  <div class="modal-header">
-    <a class="modal_close" data-dismiss="modal"></a>
-  </div>
-  <div class="modal-body2">
-    <p class="swpdiv"><a href="http://localhost:3000/#/sweepstakes"><img src="assets/Refer-and-win.png" border="0" /><!--Refer and Win <br />Rs 50,000/- --></a></p>
-  </div>
-</div>
 
 <div infinite-scroll=fetch_posters() infinite-scroll-distance='2' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
     <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >

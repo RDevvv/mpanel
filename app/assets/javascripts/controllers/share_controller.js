@@ -24,4 +24,12 @@ app.controller('ShareController', function($scope, $cookies, $http, $location){
         else
             angular.element('#mobile-number').modal('show');
     }
+
+    $scope.sweepstakes_share = function(){
+        if($cookies.sweepstakes_modal ==undefined){
+            $cookies.sweepstakes_modal = true;
+            angular.element('#myModal').modal('show');
+        }
+    }
+    $scope.sweepstakes_share();
 })
