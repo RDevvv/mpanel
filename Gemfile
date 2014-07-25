@@ -2,7 +2,9 @@ ruby "1.9.3"
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.14'
-gem 'pg'
+gem 'pg', :platform => :ruby
+gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby
+
 
 gem 'geocoder'
 gem 'resque'
@@ -60,17 +62,17 @@ group :assets do
 end
 
 group :development do
-    gem 'ruby-prof'
+    gem 'ruby-prof', :platform => :ruby
+    gem 'mailcatcher', :platform => :ruby
+    gem 'binding_of_caller', :platform => :ruby
     gem 'sextant'
     gem 'pry'
-    gem 'mailcatcher'
     gem 'quiet_assets'
     gem 'irbtools'
     gem 'rails_best_practices'
     gem 'seed_dump'
     gem 'railroady'
     gem 'better_errors'
-    gem 'binding_of_caller'
     #gem 'rack-mini-profiler'
 end
 
