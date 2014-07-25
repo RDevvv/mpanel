@@ -71,8 +71,6 @@ group :development do
     gem 'railroady'
     gem 'better_errors'
     gem 'binding_of_caller'
-    gem 'spring'
-    gem "spring-commands-rspec"
     #gem 'rack-mini-profiler'
 end
 
@@ -81,5 +79,4 @@ group :test do
     #gem 'simplecov'
     #gem 'guard-test'
     gem 'guard-rspec'
-    gem 'guard-spring'
 end

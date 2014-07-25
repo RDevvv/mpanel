@@ -54,10 +54,4 @@ class CustomersController < ApplicationController
         @sms_sent = @customer.misc_smss.create(:text => "Your verification code is #{@customer.verification_code} Thanks, Shoffr")
         render :json => {:success => true}
     end
-
-    def location_from_ip
-        result = Net::HTTP.get('freegeoip.net',"/json/#{request.remote_ip}")
-        city = JSON.parse(result)['city']
-        render :json => {:city => city}
-    end
 end

@@ -86,6 +86,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 params: {
                     customer_uuid: $cookies.customer_uuid,
                     ad_id: poster.ad_id,
+                    outlet_id: poster.outlet_id,
                     brand_name: poster.brand_name,
                     distance: parseFloat(poster.distance).toPrecision(2),
                     longitude: poster.longitude,
