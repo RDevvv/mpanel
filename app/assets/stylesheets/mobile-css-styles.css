@@ -109,7 +109,6 @@ li.subcat {clear: both; font-weight: bold; padding-left: 2px;}
 
 .snap-drawers, [snap\:drawers], [snap-drawers], [data-snap-drawers], [x-snap-drawers], .snap-drawers, .x-snap-drawers, .snap-drawers {height:100%;}
 .scrollable{
-    overflow: auto;
     -webkit-transition-property: top, bottom;
     transition-property: top, bottom;
     -webkit-transition-duration: .2s, .2s;
