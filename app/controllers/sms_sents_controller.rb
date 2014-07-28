@@ -45,9 +45,9 @@ class SmsSentsController < ApplicationController
         pre_expiry_forward_url, campaign_name = "https://play.google.com/store/apps/details?id=com.phonegap.shoffr", 'Sweepstakes'
         campaign_copy = Campaign.where(:campaign_name => campaign_name).first.campaign_copies.create(:customer_id => customer.id, :pre_expiry_forward_url => pre_expiry_forward_url)
         if params[:whatsapp_share] =='true'
-            render :text => "Download Shoffr Shopping Assistant - http://shoffr.com/#{campaign_copy.short_url}. Create your shopping list and get updates for free offers from nearby stores and brands you love!"
+            render :text => "Download Shoffr - http://shoffr.com/#{campaign_copy.short_url}. Create your shopping list and get auto-notifications for free offers from nearby stores & brands you love!"
         else
-            customer.misc_smss.create(:text => "Download Shoffr Shopping Assistant - http://shoffr.com/#{campaign_copy.short_url}. Create your shopping list and get updates for free offers from nearby stores and brands you love!")
+            customer.misc_smss.create(:text => "Download Shoffr - http://shoffr.com/#{campaign_copy.short_url}. Create your shopping list and get auto-notifications for free offers from nearby stores & brands you love!")
             render :nothing => true
         end
     end
