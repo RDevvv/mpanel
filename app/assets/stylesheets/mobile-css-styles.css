@@ -58,6 +58,9 @@ html {
 body {font-family: Tahoma, Arial, Helvetica, sans-serif; width:99.99%; /*height: 100%;*/ overflow-x:hidden !important;}
 /*body > div { -webkit-transition: all 1s ease-in-out; }*/
 header, #header {width:100%; background-color:#be1e2d; height: 42px; /*margin:0 auto;*/}
+.location-box {position:relative; top:-7px; clear:both; width:100%; background-color:#be1e2d; height: 20px; margin: 0 0 1% 0;}
+.location-box .location-div {float:left; width:100%; text-align: center; font-size: 0.9em; color: #fff; padding:1px 0 1px 0; }
+.location-box .location-div span {font-weight: bold;}
 footer {clear: both; margin: 10px 0 0 0; height: 3em; 
   font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6D6E71; text-align: center; }
 hr {margin:0;}
@@ -147,7 +150,7 @@ background: url(ikons-img.png) no-repeat -390px -451px transparent; padding:12px
 /*ul.right-icons {float:right; right:1px; margin:0 0 4px 0; bottom:6px; width:auto; height: auto; position: relative;}
 ul.right-icons li {float:left; margin:0 36px; border-right: none; list-style: none;}*/
 
-ul.right-icons {float:right; right:1px; margin:0 0 4px 0; bottom:6px; width:auto; height: auto; position: relative;}
+ul.right-icons {float:right; right:1px; margin:0; /*margin:0 0 4px 0;*/ bottom:6px; width:auto; height: auto; position: relative;}
 ul.right-icons li {float:left; margin:0 36px; border-right: none; list-style: none;}
 ul.right-icons li a.invfrnd{background: url(glyphicons-halflings-white.png) no-repeat -168px 0 transparent; padding: 0 3px 0px 14px; width:auto; height:auto; border: none;}
 ul.right-icons li a.invfrnd2{background: url(bigger-icons.png) no-repeat -481px -274px transparent; padding: 1px 7px 0px 14px; width:auto; height:auto; border: none; visibility: hidden;}
