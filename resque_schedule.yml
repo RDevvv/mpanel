@@ -1,7 +1,7 @@
 clear_leaderboards_moderator:
   every:
-    - "5s"
+    - "24h"
     - :first_in: '120s'
-  class: "GcmNotification"
-  queue: daemons
-  description: "This job will check Daemon every 30 seconds after 120 seconds after start"
+  class: "CalculateInactive"
+  queue: calculate_inactive
+  description: "This job will mark users as inactive who haven't used app for last 3 days."

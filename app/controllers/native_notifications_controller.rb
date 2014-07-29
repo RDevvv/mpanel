@@ -24,20 +24,20 @@ class NativeNotificationsController < ApplicationController
         @final_ads = @final_ads-@notifications_sent
 
         unless @final_ads.blank?
-
-
             @notification_ad = Ad.find(@final_ads.first)
             @notification_outlet_id = @outlets.select{|o|o.ads.map{|ad|ad.id}.include?(@notification_ad.id)}.first.id
-            destination = [@customer.gcm_registration_id]
             brand_name = @notification_ad.account_brand.brand.brand_name
             data = {:message => brand_name+' - '+@notification_ad.sms_text, :msgcnt => "1", :soundname => "beep.wav", :shop_id => @notification_outlet_id, :customer_latitude => params[:latitude], :customer_longitude => params[:longitude]}
             @location_changed_flag = @customer.check_if_location_changed_significantly(params[:latitude], params[:longitude])
 
             if (NativeNotification.check_if_within_timeframe)&&(@location_changed_flag>1)
-                Resque.enqueue(GcmNotification,[destination,data,@customer.id,@notification_ad.id])
+                Resque.enqueue(GcmNotification,{:data => data, :customer_id => @customer.id, :ad_id => @notification_ad.id})
             end
         end
 
         render :json => {:result => 'ok'}#{:notification_text => @ad.sms_text}
+    end
+
+    def inactivity_notification
     end
 end

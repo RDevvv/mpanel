@@ -18,7 +18,7 @@ class Customer < ActiveRecord::Base
 
   attr_accessible :uuid, :mobile_number, :browser, :platform, :browser_version, :email_id, :name, :age, :gender
   attr_accessible :date_of_birth, :incentive_count, :verification_code, :is_verified, :subscribe_crm_updates, :gcm_registration_id
-  attr_accessible :notification_enabled
+  attr_accessible :notification_enabled, :is_inactive
 
   validates :mobile_number, :numericality => true,:length => {:minimum => 9, :maximum => 11}, :allow_blank => true
   validates :uuid, :presence => true, :uniqueness => true
@@ -56,5 +56,15 @@ class Customer < ActiveRecord::Base
       Rails.logger.info "previous_location => (#{previous_location.latitude},#{previous_location.longitude})"
       Rails.logger.info "current_location  => (#{current_location.latitude},#{current_location.longitude})"
       distance_moved = current_location.distance_to(previous_location,:km)
+  end
+
+  def self.calculate_inactive
+      Customer.where(:is_verified => true).each do |customer|
+          last_tracked = customer.customer_locations.order(:created_at).last
+          unless last_tracked.blank?
+              last_tracked = last_tracked.created_at
+              customer.update_attributes(:is_inactive => true) if(Date.today-last_tracked.to_date).numerator>2
+          end
+      end
   end
 end
