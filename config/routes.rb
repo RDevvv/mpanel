@@ -1,9 +1,4 @@
 Gullak2::Application.routes.draw do
-
-
-  resources :customer_campaign_copies
-
-
     get 'articles/:blog_url' => 'articles#show'
     get 'newsletters/:created_at' => 'newsletters#show'
     resources :articles do

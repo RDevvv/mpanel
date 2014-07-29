@@ -8,6 +8,7 @@ gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby
 
 gem 'geocoder'
 gem 'resque'
+gem 'resque-scheduler', '3.0.0'
 gem 'resque-web', :require => 'resque_web'
 gem 'useragent'
 gem 'kaminari'
