@@ -1,0 +1,7 @@
+clear_leaderboards_moderator:
+  every:
+    - "5s"
+    - :first_in: '120s'
+  class: "GcmNotification"
+  queue: daemons
+  description: "This job will check Daemon every 30 seconds after 120 seconds after start"
