@@ -55,6 +55,7 @@ hr {margin: 0;}
 #aCol {float: left; width: 69%;}
 .aCol, .aColumn {float: left; margin: 0 0 24px; width:65%; overflow: visible; padding: 0 2% 0 0; position: relative; border-right:1px solid #E2E2E2; /*  width:99%; width: 630px*/  }
 .aColumn2 {float: left; /*margin: 0 0 24px; width:65%;*/ width:100%; overflow: visible; padding: 1% 2% 1% 0; position: relative; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;/*  width:99%; width: 630px*/  }
+.aColumn3 {float: left; width:81%; overflow: visible; margin: 0 0 0 17%; padding: 1% 2% 1% 0; position: relative; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;}
 .aColumn2:last-child {border-bottom: none;}
 /* Twitter roll */
 .twit-container {float: left; position: relative; margin: 0 0 0 2%;  /*right: 11.5%;*/ top: 0px; width:28%;}
@@ -260,6 +261,19 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 
 .sharebox {display: none;}
 /* Share icons */
+
+/* Tracker page styles */
+.tracker-div{float:left; clear: both; width:61%;}
+.tracker-head {text-align:left; font-family: 'CheltenhamLTRegular',georgia,times,serif; color:#ffffff; 
+   font-size:1.4em; font-weight: bold; margin:2% 0 1% 0; padding: 4% 1%; background: #5183C9;}
+ul.trackertrack {float:left; clear:both; width:98%; margin:1% 0; list-style: none;}   
+ul.trackertrack li {float:left; clear: both; width:100%; margin: 2px 0; padding: 1%; color: #000; background: #8AC0E3;}
+ul.trackertrack li.nxtpost {float:left; clear: both; width:100%; margin: 2px 0; padding: 1%; color: #000; background: #D5E9F7;}
+.highcharts-title {text-align: left; font-weight: bold; color: #000;}
+.highcharts-drilldown-axis-label {text-decoration: none !important;}
+
+
+/* Tracker page styles */
 
 /* Backtotop */
 #backtotop {bottom: -60px; display: none; position: fixed; right: 60px;}
