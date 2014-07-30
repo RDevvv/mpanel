@@ -57,10 +57,16 @@ hr {margin: 0;}
 .aColumn2 {float: left; /*margin: 0 0 24px; width:65%;*/ width:100%; overflow: visible; padding: 1% 2% 1% 0; position: relative; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;/*  width:99%; width: 630px*/  }
 .aColumn3 {float: left; width:81%; overflow: visible; margin: 0 0 0 17%; padding: 1% 2% 1% 0; position: relative; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;}
 .aColumn2:last-child {border-bottom: none;}
+form.mystats {}
+form.mystats label {font-weight: bold;}
 /* Twitter roll */
 .twit-container {float: left; position: relative; margin: 0 0 0 2%;  /*right: 11.5%;*/ top: 0px; width:28%;}
 .twit-container-detail {float: left; position: relative; margin: 0 0 0 0.5%; top: 0px; width:21%;}
 /* Twitter roll */
+
+/* Stats Container */
+.stats-container {float: left; position: relative; margin: 0 0 0 1%;  /*right: 11.5%;*/ top: 0px; width:28%;}
+/* Stats Container */
 
 body.single .hfeed {border-bottom: 0 none; margin: 0;}   
 body.single .hfeed .post {padding-top: 0;}
@@ -247,6 +253,7 @@ fieldset[disabled] .btn-subs.active {background-color: #1C9BC9; border-color: #F
 
 /* Share icons */
 .shareboxdiv {float:left; width:25%; height:auto; margin: 0 0 0 1%;}
+.shareboxdiv2 {float:left; clear: both; width:67%; height:auto; margin: 2% 0 0 1%;}
 ul.sharelinks {float: left; width: 100%; margin: 0; padding: 0;}
 ul.sharelinks li {float:left; clear: both; width: 90%; list-style-type:none; margin: 4px 0; padding: 2px 0; border-bottom: 1px solid #E2E2E2;}
 ul.sharelinks li:last-child {border-bottom: none;}
@@ -271,8 +278,7 @@ ul.trackertrack li {float:left; clear: both; width:100%; margin: 2px 0; padding:
 ul.trackertrack li.nxtpost {float:left; clear: both; width:100%; margin: 2px 0; padding: 1%; color: #000; background: #D5E9F7;}
 .highcharts-title {text-align: left; font-weight: bold; color: #000;}
 .highcharts-drilldown-axis-label {text-decoration: none !important;}
-
-
+.highcharts-drilldown-data-label {text-decoration: none !important;}
 /* Tracker page styles */
 
 /* Backtotop */
@@ -407,6 +413,8 @@ html, body {max-width: 99%; height:100%; overflow-x: hidden;}
 
 .twit-container {display: none;}
 .twit-container-detail {display: none;}
+
+
 .blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
 #aCol {float: left; width: 100%;}
 .aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:98%; overflow: visible; padding: 0 1% 0 1%; position: relative; border-right:1px solid #E2E2E2;}
@@ -552,6 +560,8 @@ ul.footerlinksmain li:last-child {border-right:none;}
 .non-bs-bar .nav > li:first-child > a {cursor: pointer; padding-left:0;}  
 .non-bs-bar .nav > li:last-child > a {border-right: none; cursor: pointer;}
 #mc_embed_signup {float:right; margin:0 1% 0 0;}   
+.tracker-div{float:left; clear: both; width:77%;}
+.shareboxdiv2 {float:left; clear: both; width:85%; height:auto; margin: 2% 0 0 1%;}
 }
 
 @media (max-width: 603px) and (orientation : portrait){
