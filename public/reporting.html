@@ -7,6 +7,7 @@
 <script type="text/javascript" src="assets/flipcounter.js"></script>
 
 <link rel="stylesheet" href="assets/bootstrap.css"  type="text/css"/>
+<link href="/assets/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="assets/blog-styles.css">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
@@ -106,13 +107,16 @@ Microsoft Internet Explorer 8.0 - Tencent Traveler Edition	0.09%</pre>
  </div>
 </div>
 
-<div class="twit-container" data-twttr-id="twttr-sandbox-0">
-  <form>
+<div class="stats-container" data-twttr-id="twttr-sandbox-0">
+  <form class="mystats">
   <fieldset>
     <label>My Stats</label>
     <input type="text" placeholder="Enter Mobile #">
   </fieldset>
   </form>
+  <div style="float:left; margin:2% 0 3% 0; width:61%;">
+   <div id="stats-graph" style="float:left; width:100%;"></div>
+  </div>
   <div class="tracker-div">
     <div class="tracker-head">Tracker</div>
     <ul class="trackertrack">
@@ -127,8 +131,30 @@ Microsoft Internet Explorer 8.0 - Tencent Traveler Edition	0.09%</pre>
     </ul>
   </div>
 
+  <div class="shareboxdiv2">
+      <ul class="sharelinks">
+                  <li>
+                    <a href="mailto:?subject=<%= @article.social_share_caption %>&body=I thought you might find this article interesting.%20http://shoffr.com/articles/<%= @article.blog_url %> "><i class="email-icon"></i><span class="sharelink-text">e-mail</span></a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/share?text=<%= @article.social_share_caption %>%20&url=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="tw-icon"></i><span class="sharelink-text">twitter</span></a>
+                  </li>
+                  <li>
+                    <a href="http://www.linkedin.com/cws/share?url=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="li-icon"></i><span class="sharelink-text">LinkedIn</span></a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://www.facebook.com/sharer.php?u=http://shoffr.com/articles/<%= @article.blog_url %> "><i class="fb-icon"></i><span class="sharelink-text">facebook</span></a>
+                  </li>
+
+                  <li>
+                    <a href="https://plus.google.com/share?url=http://shoffr.com/articles/<%= @article.blog_url %> " onclick="javascript:window.open(this.href,
+                            '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="gplus-icon"></i><span class="sharelink-text">google +</span></a>
+                  </li>
+      </ul>
 </div>
 
+</div>
+<script type="text/javascript" src="assets/bootstrap.js"></script>
 <script type="text/javascript">
 $(function () {
     	// Radialize the colors
@@ -187,7 +213,59 @@ $(function () {
             }]
         });
     });
-		</script>  
+		</script> 
+
+        <script type="text/javascript">
+$(function () {
+        $('#stats-graph').highcharts({
+            chart: {
+                type: 'column'
+            },
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            /*yAxis: {
+                min: 0,
+                title: {
+                    text: 'Population (millions)'
+                }
+            },*/
+            legend: {
+                enabled: false
+            },
+            series: [{
+                name: 'Population',
+                data: [
+                    ['Influence', 25],
+                    ['Referrals', 16],
+                ],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: 4,
+                    y: 10,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif',
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }]
+        });
+    });
+    
+
+        </script>
+
 		<script type="text/javascript">
 $(function () {
 
