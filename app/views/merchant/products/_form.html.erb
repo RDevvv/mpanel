@@ -27,6 +27,8 @@
                             <%= f.text_field :price, :placeholder => 'Price', :class => 'validate[required]' %>
                         </div>
                     </div>
+<%= f.fields_for :attachments %>
+<%= f.link_to_add "Add a image", :attachments %>
                     <div class="form-actions">
 						<button type="submit" class="btn btn-blue">Save changes</button>
                     </div>

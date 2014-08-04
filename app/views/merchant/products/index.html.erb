@@ -17,9 +17,10 @@
                     <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
                         <thead>
                             <tr>
-                                <th><div>Name</div></th>
+                                <th width='15%'><div>Name</div></th>
                                 <th><div>Description</div></th>
-                                <th><div>Price</div></th>
+                                <th width='10%'><div>Price</div></th>
+                                <th width='13%'><div>Logo</div></th>
                                 <th width="8%">Manage</th>
                             </tr>
                         </thead>
@@ -29,15 +30,20 @@
                                 <td><%= product.name %></td>
                                 <td><%= product.description %></td>
                                 <td><%= product.price %></td>
+                                <td>
+                                    <% if product.attachments.present? %>
+                                        <%= image_tag product.attachments.order(:id).last.image %>
+                                <% end %>
+                                </td>
                                 <td><%= link_to 'Edit', edit_merchant_account_account_brand_product_path(@current_account, @account_brand, product) %> |
                                     <%= link_to 'Delete', merchant_account_account_brand_product_path(@current_account, @account_brand, product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                             </tr>
                         <% end %>
-                        </tbody>
-                    </table>
-                </div>
+                            </tbody>
+                        </table>
+                    </div>
 
+                </div>
             </div>
-        </div>
-    </div>  
-</div>
+        </div>  
+    </div>
