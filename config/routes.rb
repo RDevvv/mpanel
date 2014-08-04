@@ -66,6 +66,7 @@ Gullak2::Application.routes.draw do
                     end
                 end
                 resources :keywords
+                resources :products
                 resources :ads do
                     member do
                         post 'toggle_active'
