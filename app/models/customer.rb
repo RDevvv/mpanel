@@ -13,6 +13,10 @@ class Customer < ActiveRecord::Base
   has_many :native_notifications
   has_many :customer_locations
 
+  has_many :product_likes
+  has_many :product_comments
+
+
   has_many :customer_campaign_copys
   has_many :campaign_copies, :through => :customer_campaign_copys
 

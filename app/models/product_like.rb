@@ -10,6 +10,5 @@ class ProductLike < ActiveRecord::Base
 
   def update_product_likes_count
       self.product.update_attributes(:product_likes_count => self.product.product_likes_count+1)
-      puts self.product.product_likes_count
   end
 end
