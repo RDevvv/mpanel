@@ -120,6 +120,7 @@ class Merchant::OutletsController <  Merchant::BaseController
         final_outlet =  Outlet.where(:id =>params[:id]).each {|outlet| outlet.new_distance = 0}
 
         @outlet = Outlet.get_poster_data(final_outlet,cookies[:customer_uuid])
+        @products = final_outlet.first.account_brand.products.includes(:attachments)
     end
 
     def toggle_active

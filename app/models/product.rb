@@ -1,8 +1,9 @@
 class Product < ActiveRecord::Base
     belongs_to :account_brand
-    attr_accessible :description, :name, :price, :account_brand_id, :attachments_attributes
-
     has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
+    has_many :product_likes
+
+    attr_accessible :description, :name, :price, :account_brand_id, :attachments_attributes, :product_likes_count
     accepts_nested_attributes_for :attachments ,allow_destroy: true
 
     validates :name, :presence => true
