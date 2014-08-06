@@ -299,7 +299,9 @@ class Outlet < ActiveRecord::Base
               ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
               ads.each do |ad|
                   is_unlocked_row = @customer.ad_likes.where(:ad_id => ad.id)
-                  unless is_unlocked_row.blank?
+                  if is_unlocked_row.blank?
+                      is_unlocked = false
+                  else
                       is_unlocked = is_unlocked_row.first.is_unlocked
                   end
                   outlets_with_ads += [:brand_image => Ad.get_image(ad,outlet), :is_unlocked => is_unlocked, :ad_id => ad.id, :ad_title => ad.ad_title, :sms_text => ad.sms_text, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]

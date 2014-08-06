@@ -14,7 +14,7 @@
             </li>
         </ul>
         <ul class='right-icons'>
-            <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController'></a></li>
+            <li><a href='#/home' class="new_top_share loc2" ></a></li>
         </ul>
 
     </div>
@@ -40,14 +40,13 @@
     <div class='scrollable'>
         <div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled'>
             <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
-            <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)'>
                 <left-poster></left-poster>
-            </a>
             <div class="pin-add-div">
                 <div class="rch-btns-div4">
                     <ul>
                         <li>
                         <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)"></a>
+                    <a class='pin-box' ng-href="https://www.google.com/maps/dir/{{customer_latitude}},{{customer_longitude}}/{{poster.address}}"></a>
                         </li>
                         <li>
                         <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >

@@ -3,27 +3,31 @@
         <div class="brandtitle">{{poster.brand_name}}</div>
         <div ng-class="{'eye2': poster.ad_is_exclusive}"></div>
         <div align="center" class="brandlogo">
-            <img ng-src={{poster.brand_image}}>
+            <a ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)">
+                <img ng-src={{poster.brand_image}}></img>
+            </a>
         </div>
         <div class="unlk_ofr" ng-show='poster.is_unlocked'>Offer Unlocked</div>
         <div class="unlk_ofr" ng-show='!poster.is_unlocked'>Unlock the Offer</div>
         <hr>
         <div class="lower-box">
-          <div class="ce-box">
-            <div ng-if='poster.ad_usage!= -1' %>
-                <div ng-if='poster.is_unlocked == true' %>
-                    <div class="like"><div class="button_liked_offer" ></div></div>
+            <div class="ce-box">
+                <div ng-if='poster.ad_usage!= -1' %>
+                    <div ng-if='poster.is_unlocked == true' %>
+                        <div class="like"><div class="button_liked_offer" ></div></div>
+                        <p>{{poster.ad_usage}}  unlocked</p>
+                    </div>
+                    <div ng-if='poster.is_unlocked != true' %>
+                        <div class="like">
+                            <a  ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-class="{'button_offer': !poster.is_unlocked, 'button_liked_offer': is_unlocked}" >&nbsp;</a></div>
+                        <p>{{poster.ad_usage}}  unlocked</p>
+                    </div>
                 </div>
-                <div ng-if='poster.is_unlocked != true' %>
-                    <div class="like"><a ng-class="{'button_offer': change_icon, 'button_liked_offer': !change_icon}" >&nbsp;</a></div>
+                <div ng-if='poster.ad_usage == -1' %>
+                    <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
+                    </div>
                 </div>
-                <p>{{poster.ad_usage}}  unlocked</p>
             </div>
-            <div ng-if='poster.ad_usage == -1' %>
-                <div class="report-offer"><a  href="mailto:kaustubh@shoffr.com?subject=Report an Offer&body=Brand: {{poster.brand_name}} %0A Offer Details: %0A Expiry Date: %0A Address: {{poster.poster_address}}" %>Report an Offer</a>
-                </div>
-            </div>
-          </div>
         </div>
     </div>
 </div>

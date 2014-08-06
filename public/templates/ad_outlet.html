@@ -1,3 +1,4 @@
+
 <div id="header" >
     <ul class='left-icons'>
         <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
@@ -13,9 +14,8 @@
       </li>
     </ul>
     <ul class='right-icons'>
-        <li><a href='' class="new_top_share loc2" ng-click="top_share()" ng-controller='ShareController'></a></li>
-        <!--<li><a href='' ng-class='view_button()' ng-click='map_view_link()'></a></li>-->
-    </ul>
+        <li><a href='#/home' class="new_top_share loc2" ></a></li>
+:   </ul>
 
 </div>
 <div class='span12'>
@@ -30,8 +30,7 @@
         <div class="rch-btns-div4">
             <ul>
                 <li>
-                <!--<div class="pin-box">&nbsp;</div>-->
-                <a class="pin-box" href="">&nbsp;</a>
+                    <a class='pin-box' ng-href="https://www.google.com/maps/dir/{{customer_latitude}},{{customer_longitude}}/{{poster.address}}"></a>
                 </li>
                 <li>
                 <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" ng-controller='ListingController'>
@@ -127,6 +126,7 @@
                         <div class="brand-icon-left">
                             <div class="brand-info-comt"></div>
                             <div class="brand-info-cct">{{product.product_comments_count}}</div>
+                            <div class="brand-info-cct"><a href="#">&#36; 30</a></div>
                         </div>
                         <div class="brand-icon-right">
                             <div class="brand-info-comt2"></div>
@@ -136,15 +136,15 @@
                 </div>
             </div>
             </li>
-
-
-        </ul>
+        </div>
     </div>
+</ul>
+</div>
 
-    <div class="shprd-box">
-        <a href="#" class="btn btn-primary btn-submit2">Show Products</a>
+<div class="shprd-box">
+<a href="#" class="btn btn-primary btn-submit2">Show Products</a>
+</div>
+
+        </div>
+        </snap-dragger>
     </div>
-
-</div>
-</snap-dragger>
-</div>
