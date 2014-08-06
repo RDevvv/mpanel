@@ -89,97 +89,36 @@
 
 
     <div class="selfibox">
-    	<ul class="selfieleftpics">
-        <li>
-          <div class="brnd-wrp">
-          	<div class="brndovrly">
-          	  <a href="#"><img src="assets/fcuk/Effie-Kitten-Heels-Shoes.jpg" border="0" /></a>
-            </div>
-            <div class="brand-info-box">
-              <div class="brand-info-title">Effie Kitten Heels Shoes</div>
-              <div class="brand-info-below">
-                <div class="brand-icon-left">
-                  <div class="brand-info-comt"></div>
-                  <div class="brand-info-cct">304</div>
+        <ul class="selfieleftpics">
+            <li ng-repeat="product in products">
+            <div class="brnd-wrp">
+                <div class="brndovrly">
+                    <a ng-href='#/product/{{product.id}}'><img ng-src={{product.image_url}} border="0" /></a>
                 </div>
-                <div class="brand-icon-right">
-                  <div class="brand-info-comt2"></div>
-                  <div class="brand-info-cct2">304</div>
+                <div class="brand-info-box">
+                    <div class="brand-info-title">{{product.name}}</div>
+                    <div class="brand-info-below">
+                        <div class="brand-icon-left">
+                            <div class="brand-info-comt"></div>
+                            <div class="brand-info-cct">{{product.product_comments_count}}</div>
+                        </div>
+                        <div class="brand-icon-right">
+                            <div class="brand-info-comt2"></div>
+                            <div class="brand-info-cct2">{{product.product_likes_count}}</div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </li>
+            </li>
 
-        <li>
-          <div class="brnd-wrp">
-            <div class="brndovrly">
-              <a href="#"><img src="assets/fcuk/Garden-Silk-Dress.jpg" border="0" /></a>
-            </div>
-            <div class="brand-info-box">
-              <div class="brand-info-title">Garden Silk Dress</div>
-              <div class="brand-info-below">
-                <div class="brand-icon-left">
-                  <div class="brand-info-comt"></div>
-                  <div class="brand-info-cct">304</div>
-                </div>
-                <div class="brand-icon-right">
-                  <div class="brand-info-comt2"></div>
-                  <div class="brand-info-cct2">304</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
 
-        <li>
-          <div class="brnd-wrp">
-            <div class="brndovrly">
-              <a href="#"><img src="assets/fcuk/Golossy-Nude-Leather-Watch.jpg" border="0" /></a>
-            </div>
-            <div class="brand-info-box">
-              <div class="brand-info-title">Golossy Nude Leather Watch</div>
-              <div class="brand-info-below">
-                <div class="brand-icon-left">
-                  <div class="brand-info-comt"></div>
-                  <div class="brand-info-cct">304</div>
-                </div>
-                <div class="brand-icon-right">
-                  <div class="brand-info-comt2"></div>
-                  <div class="brand-info-cct2">304</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li>
-          <div class="brnd-wrp">
-            <div class="brndovrly">
-              <a href="#"><img src="assets/fcuk/Stone-Rib-Necklace.jpg" border="0" /></a>
-            </div>
-            <div class="brand-info-box">
-              <div class="brand-info-title">Stone Rib Necklace</div>
-              <div class="brand-info-below">
-                <div class="brand-icon-left">
-                  <div class="brand-info-comt"></div>
-                  <div class="brand-info-cct">304</div>
-                </div>
-                <div class="brand-icon-right">
-                  <div class="brand-info-comt2"></div>
-                  <div class="brand-info-cct2">304</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-  	  </ul>
+        </ul>
     </div>
 
     <div class="shprd-box">
-      <a href="#" class="btn btn-primary btn-submit2">Show Products</a>
+        <a href="#" class="btn btn-primary btn-submit2">Show Products</a>
     </div>
 
 </div>
-    </snap-dragger>
+</snap-dragger>
 </div>
