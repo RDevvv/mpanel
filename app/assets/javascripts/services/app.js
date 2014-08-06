@@ -25,6 +25,10 @@ app.config(function($routeProvider){
         templateUrl: 'templates/shopping_list.html',
         controller: 'ShoppingListController'
     })
+    .when('/product',{
+        templateUrl: 'templates/product.html',
+        controller: 'ProductController'
+    })
     .when('/sweepstakes',{
         templateUrl: 'templates/sweepstakes.html'
     })

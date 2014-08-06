@@ -1,5 +1,5 @@
 class Merchant::ProductsController < Merchant::BaseController
-    before_filter :load_account, :load_account_and_brand
+    before_filter :load_account, :load_account_and_brand, :except => [:show]
     respond_to :html, :json
 
     def index
@@ -15,7 +15,7 @@ class Merchant::ProductsController < Merchant::BaseController
     end
 
     def show
-        @product = Product.new
+        @product = Product.find(params[:id])
     end
 
     def create

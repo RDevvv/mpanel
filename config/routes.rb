@@ -22,6 +22,11 @@ Gullak2::Application.routes.draw do
     resources :customer_keywords
 
     namespace :merchant do
+    resources :products do
+        member do
+        end
+    end
+
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
         get "/",:to=>"merchants#index",:as=>:merchants
 
@@ -95,8 +100,8 @@ Gullak2::Application.routes.draw do
     end
 
     # MAIN APP ROUTES
-    resources :home
     get 'outlet_listing' => 'home#outlet_listing'
+
 
     get 'ad_details/:id' => 'Merchant::ads#get_ad_details'
     match 'check_verification_code' => 'customers#check_verification_code'
@@ -109,7 +114,6 @@ Gullak2::Application.routes.draw do
     match 'get_campaign_details' => 'campaigns#get_campaign_details'
     match 'sms_share' => 'sms_sents#sms_share'
 
-    get "deals/:medium/:source/:city/:location/:category/:promocode" => "home#share_listing"
     get "get_missed_call" => "missed_calls#get_missed_call"
     get "get_sms_text" => "missed_calls#get_sms_text"
     get "deals/:campaign/:medium/:city/:area/:category/:customer_id/:ad_id" => "ads#show"
@@ -148,6 +152,7 @@ Gullak2::Application.routes.draw do
     root :to => "merchant#index", constraints: {subdomain: 'admin'}
     root :to => "home#index", constraints: {domain: 'gullak.co'}
     root :to => redirect('/home.html')
+
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
     authenticate :admin_user do
