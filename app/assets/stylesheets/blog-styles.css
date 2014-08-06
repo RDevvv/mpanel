@@ -66,6 +66,7 @@ form.mystats label {font-weight: bold;}
 
 /* Stats Container */
 .stats-container {float: left; position: relative; margin: 0 0 0 1%;  /*right: 11.5%;*/ top: 0px; width:28%;}
+.stats-graph-div {float:left; margin:2% 0 3% 0; width:61%;}
 /* Stats Container */
 
 body.single .hfeed {border-bottom: 0 none; margin: 0;}   
@@ -418,6 +419,7 @@ html, body {max-width: 99%; height:100%; overflow-x: hidden;}
 .blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
 #aCol {float: left; width: 100%;}
 .aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:98%; overflow: visible; padding: 0 1% 0 1%; position: relative; border-right:1px solid #E2E2E2;}
+.aColumn3 {float: left; clear: both; width:100%; margin:2% 0 0 0; padding: 1% 2% 1% 0; border-bottom:1px solid #E2E2E2;}
 
 .w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 0;}
 .w190, .w592 {width: 100%;}
@@ -475,6 +477,8 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 .navbar .nav > li:first-child > a {padding-left: 0; cursor: pointer;}
 /* Bootstrap nav */  
 .navbar-form {position: relative; left:-6%; border-top:none; border-bottom:none; box-shadow: none;}
+.stats-container {float: left; clear: both; margin: 4% 0 0 1%; width:99%;}
+.stats-graph-div {float:left; margin:2% 0 3% 0; width:100%;}
 }
 
 
