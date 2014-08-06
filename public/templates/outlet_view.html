@@ -1,102 +1,99 @@
-<div id="header" >
-    <ul class='left-icons'>
-        <li><a href='' class="srchlink3" snap-toggle="left"></a></li>
-        <!--<li><a href="#" class="notification"></a></li>-->
-    </ul>
-    <ul class="cntrlist">
-        <li>
-        <div class="head-brand">
-            <div>
-                <a href="#/home">shoffr</a>
-            </div>
-        </div>
-        </li>
-    </ul>
-    <ul class='right-icons'>
-        <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController'></a></li>
-        <!--<li><a href='' ng-class='view_button()' ng-click='map_view_link()'></a></li>-->
-    </ul>
-
-</div>
-
-<div class="location-box">
-  <div class="location-div">Location: <span>Bandra</span></div>
-</div>
-
-<div class='span12'>
-    <div class="search-div3">
-        <form ng-submit='category_form()' method='get' ng-controller='HomeController'>
-            <fieldset>
-                <div class="input">
-                    <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category'>
+<div ng-controller='ListingController'>
+    <div id="header" >
+        <ul class='left-icons'>
+            <li><a href='' class="srchlink3" snap-toggle="left"></a></li>
+            <!--<li><a href="#" class="notification"></a></li>-->
+        </ul>
+        <ul class="cntrlist">
+            <li>
+            <div class="head-brand">
+                <div>
+                    <a href="#/home">shoffr</a>
                 </div>
-            </fieldset>
-            <!--<div class="non_grey_filter">&nbsp;</div>-->
-            <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
-            <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
-        </form>
-    </div>
-</div>
-<snap-dragger>
-</snap-dragger>
-
-
-<div class='scrollable'>
-    <div infinite-scroll=fetch_posters() infinite-scroll-distance='2' infinite-scroll-disabled='enabled' ng-controller='ListingController'>
-        <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
-        <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
-            <left-poster></left-poster>
-        </a>
-        <div class="pin-add-div">
-            <div class="rch-btns-div4">
-                <ul>
-                    <li>
-                    <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{map.center.latitude}}&customer_longitude={{map.center.longitude}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)"></a>
-                    </li>
-                    <li>
-                    <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
-                        <div ng-if="verified()" >
-                            <a class="call button_call2" href="tel:08767451515" ng-click="tracking(poster.ad_id, poster.outlet_id, 'call', poster.ad_id)">&nbsp;</a>
-                        </div>
-                        <div ng-if="verified()==false" >
-                            <a class="call button_call2" ng-href="{{}}" ng-click="show_modal(); tracking(poster.ad_id, poster.outlet_id, 'call', poster.ad_id)">&nbsp;</a>
-                        </div>
-                    </div>
-                    <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >
-                        <a class="button_call_grey" href='#' >&nbsp;</a>
-                    </div>
-
-                    </li>
-                    <li>
-                    <a class="share" >
-                        <poster-share></poster-share>
-                    </a>
-                    </li>
-                </ul>
             </div>
+            </li>
+        </ul>
+        <ul class='right-icons'>
+            <li><a href='' class="new_top_share shr" ng-click="top_share()" ng-controller='ShareController'></a></li>
+        </ul>
+
+    </div>
+        <location-bar></location-bar>
+    <div class='span12'>
+        <div class="search-div3">
+            <form ng-submit='category_form()' method='get' ng-controller='HomeController'>
+                <fieldset>
+                    <div class="input">
+                        <input type='text' name='search' id='s3' placeholder ='I am looking for...' ng-model='category'>
+                    </div>
+                </fieldset>
+                <!--<div class="non_grey_filter">&nbsp;</div>-->
+                <input type='submit' value='Go' name='Go' class= "btn btn-submit2" ng-click='set_attribute("search")'>
+                <input type='submit' value=''   name=''   ng-class= "set_class()" ng-click='set_attribute("filter")'>
+            </form>
+        </div>
+    </div>
+    <snap-dragger>
+    </snap-dragger>
 
 
-            <div class="distance-div">{{poster.distance}} km</div>
-            <expiry-date/></expiry-date>
-            <div class="ofr_dtl">{{poster.sms_text}}</div>
-            <div class="add-box">
-                <div class="adtitle1"><b>Address:</b></div>
-                <div class="adaddress">
-                    {{poster.shop_no}}
-                    {{poster.address}}
+    <div class='scrollable'>
+        <div infinite-scroll=fetch_posters() infinite-scroll-distance='3' infinite-scroll-disabled='enabled'>
+            <li ng-repeat="poster in posters | orderBy:predicate:reverse track by $index" class="mix bsc span12" >
+            <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)'>
+                <left-poster></left-poster>
+            </a>
+            <div class="pin-add-div">
+                <div class="rch-btns-div4">
+                    <ul>
+                        <li>
+                        <a class="pin-box" ng-href="#/deals/shop?id={{poster.outlet_id}}&customer_latitude={{poster.customer.latitude}}&customer_longitude={{poster.customer.longitude}}" ng-click="tracking(poster.ad_id, poster.outlet_id, 'view', poster.ad_id)"></a>
+                        </li>
+                        <li>
+                        <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" >
+                            <div ng-if="verified()" >
+                                <a class="call button_call2" href="tel:08767451515" ng-click="tracking(poster.ad_id, poster.outlet_id, 'call', poster.ad_id)">&nbsp;</a>
+                            </div>
+                            <div ng-if="verified()==false" >
+                                <a class="call button_call2" ng-href="{{}}" ng-click="show_modal(); tracking(poster.ad_id, poster.outlet_id, 'call', poster.ad_id)">&nbsp;</a>
+                            </div>
+                        </div>
+                        <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >
+                            <a class="button_call_grey" href='#' >&nbsp;</a>
+                        </div>
+
+                        </li>
+                        <li>
+                        <a class="share" >
+                            <poster-share></poster-share>
+                        </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="adloc">{{poster.area_name}}<br/>
-                    {{poster.city_name}} {{poster.pincode}}</div>
+
+
+                <div class="distance-div">{{poster.distance}} km</div>
+                <expiry-date/></expiry-date>
+                <div class="ofr_dtl">{{poster.sms_text}}</div>
+                <div class="add-box">
+                    <div class="adtitle1"><b>Address:</b></div>
+                    <div class="adaddress">
+                        {{poster.shop_no}}
+                        {{poster.address}}
+                    </div>
+                    <div class="adloc">{{poster.area_name}}<br/>
+                        {{poster.city_name}} {{poster.pincode}}</div>
+                </div>
             </div>
+            </li>
         </div>
-        </li>
     </div>
-</div>
-<div ng-show='enabled'>
-    <div ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
-        <div class="three-quarters">
-            Loading Data...
+    <div ng-show='enabled'>
+        <div ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+            <div class="three-quarters">
+                Loading Data...
+            </div>
+            <span class="loading-style">Loading Data . . .</span>
         </div>
-        <span class="loading-style">Loading Data . . .</span>
     </div>
 </div>

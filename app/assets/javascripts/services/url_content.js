@@ -1,6 +1,6 @@
 app.factory('UrlContent', function($http){
     return{
-        location: 'bandra',
+        location: '',
         latitude: '',
         longitude: '',
         search: 'all'

@@ -23,6 +23,7 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         .success(function(response){
             $scope.poster = response.outlet[0];
             $scope.distance = $routeParams['distance'];
+            $scope.products = response.products;
             $scope.title_brand_name = response.outlet[0].brand_name;
         })
     }

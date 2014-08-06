@@ -4,18 +4,22 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
     $scope.no_results = false;
     $scope.change_icon =true;
     $scope.enabled= false;
-
-    $scope.map = {
-        center: {
-            latitude: 12.8,
-            longitude: 72.8
-        }
-    }
+    $scope.user_location = AdOutlets.user_location;
 
     if($routeParams.search!='all')
         $scope.category = $routeParams.search;
 
     $scope.fetch_posters = function(){
+        if($routeParams.search == undefined){
+            $routeParams.search = 'all';
+            $routeParams.location = 'bandra'
+            $routeParams.latitude = 0;
+            $routeParams.longitude = 0;
+
+            AdOutlets.user_location = 'bandra';
+        }
+
+
         if($routeParams.search!='all'&&$routeParams.page==1){
             AdOutlets.posters =[];
         }
@@ -64,8 +68,6 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 if($routeParams.search!='all')
                     $scope.no_results = true;
             }
-            if($scope.posters.length>0)
-                $scope.map.center = {latitude: $scope.posters[0].customer.latitude, longitude: $scope.posters[0].customer.longitude}
         })
     }
 

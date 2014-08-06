@@ -25,7 +25,7 @@ app.config(function($routeProvider){
         templateUrl: 'templates/shopping_list.html',
         controller: 'ShoppingListController'
     })
-    .when('/product',{
+    .when('/product/:id',{
         templateUrl: 'templates/product.html',
         controller: 'ProductController'
     })
@@ -33,7 +33,7 @@ app.config(function($routeProvider){
         templateUrl: 'templates/sweepstakes.html'
     })
     .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/deals/outlets'
     });
 }).config(function(snapRemoteProvider){
     snapRemoteProvider.globalOptions.disable = 'right';
