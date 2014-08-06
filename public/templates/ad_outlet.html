@@ -21,9 +21,6 @@
 <div class='span12'>
 </div>
 <div ng-init='get_individual_outlet()'>
-    <div class="row-fluid" >
-        <img ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{customer_latitude}},{{customer_longitude}}&zoom=13&size={{width}}x200&markers=icon:http://shoffr.com/assets/user_pin.png%7C{{customer_latitude}},{{customer_longitude}}&markers=label:A%7C{{poster.latitude}},{{poster.longitude}}" ng-controller='SingleOutletController'>
-    </div>
     <snap-dragger>
     <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
         <left-poster></left-poster>
@@ -83,8 +80,37 @@
         </div>
     </div>
 
+    <div class="social-chnls">
+        <ul class="chnls">
+            <li>
+            <div class="chnl-box">
+                <div class="sociallogo"><img src="assets/fb-circular.png" /></div>
+                <div class="flw-count">22k</div>
+                <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
+            </div>
+            </li>
+            <li>
+            <div class="chnl-box">
+                <div class="sociallogo"><img src="assets/twitter-circular.png" /></div>
+                <a href="https://twitter.com/_shoffr" class="twitter-follow-button" data-show-count="true" data-lang="en"></a>
+                <script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                </script>
+            </div>
+            </li>
+            <li>
+            <div class="chnl-box">
+                <div class="sociallogo"><img src="assets/pinterest-circular.png" /></div>
+                <a data-pin-do="buttonFollow" href="http://www.pinterest.com/pinterest/" data-pin-scale-width="115" data-pin-scale-height="80">Follow on Pinterest</a>
+                <!-- Please call pinit.js only once per page -->
+                <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+            </div>
+            </li>
+        </ul>
+    </div>
+
     <div class="ct-box">
-      <div class="ct-box-div">PRODUCT CATALOGUE</div>
+        <div class="ct-box-div">PRODUCT CATALOGUE</div>
     </div>
 
 
