@@ -7,4 +7,8 @@ json.product do
     json.product_likes_count @product.product_likes_count
     json.image_url @product.attachments.first.image_url
 end
-json.comments @product.product_comments
+json.comments @product.product_comments.each do |comment|
+    json.comment comment.comment
+    json.commentor_name comment.customer.name
+    json.commentor_mobile_number comment.customer.mobile_number
+end

@@ -1,4 +1,4 @@
-<body>
+<body ng-controller='ProductController'>
 <div id="header">
     <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
     <ul class="left-icons">
@@ -16,21 +16,21 @@
 <div class="social-comment">
 
     <div class="selfie-picbox">
-        <img src="assets/fcuk/RUG.jpg" />
+        <img ng-src="{{product.image_url}}" />
         <div class="ovrlytopleftbox">
-            <button type="button" class="btn8 btn-default btn-lg">
+            <!--<button type="button" class="btn8 btn-default btn-lg">
                 <div class="refr2"></div>
-            </button>
+            </button>-->
         </div>
         <div class="ovrlytopbox">
             <button type="button" class="btn7 btn-default btn-lg"> <span class="glyphicon-black-heart"></span></button>
         </div>
 
         <div class="brand-info-box">
-            <div class="brand-info-title">product name</div>
+            <div class="brand-info-title">{{product.name}}</div>
             <div class="brand-info-below">
               <div class="brand-icon-left">
-                <div class="brand-info-cct"><a href="#">&#36; 30</a></div>
+                  <div class="brand-info-cct"><a href="#">{{product.price}}</a></div>
               </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="ovrlybotbox">
             <a href="#" class="socialItem likes">
                 <em class="likeIconSmall"></em>
-                <em class="socialMetaCount">5</em>
+                <em class="socialMetaCount">{{product.product_likes_count}}</em>
             </a>
         </div>
     </div>
@@ -48,24 +48,21 @@
         <li>Posted on</li>
         <li>15 hrs ago</li>
     </ul>
-    <div class="selfie-caption">This Super Saturday, we’re giving you a special Super power – THE GOLDEN TICKET! Ditch the long queue and get a direct entry into the store by paying a redeemable amount of INR 1000.</div>
+    <div class="selfie-caption">{{product.description}}</div>
     <div class="selfie-comments-bar">comments</div>
-    <div class="selfie-comment"><span>+91-9830151515:</span> If you want to ingest all of your social-network feeds from one place</div>
-
-    <div class="selfie-comment"><span>+91-9830151515:</span> If you want to ingest all of your social-network feeds from one place</div>
-
-    <div class="selfie-comment"><span>+91-9830151515:</span> If you want to ingest all of your social-network feeds from one place</div>
-
-    <div class="selfie-comment"><span>+91-9830151515:</span> If you want to ingest all of your social-network feeds from one place</div>
-
+    <div class='comment_box'>
+        <div ng-repeat="comment in comments" >
+            <div class="selfie-comment"><span>{{comment.commentor_mobile_number}}:</span>{{comment.comment}}</div>
+        </div>
+    </div>
 </div>
-<!--<div class="selfie-feedback-bar">
+<div class="selfie-feedback-bar">
     <div class="input-group2">
-        <input type="text" class="form-control1" placeholder="Write a comment ...">
+        <input type="text" class="form-control1" placeholder="Write a comment ..." ng-model='new_comment'>
         <span class="input-group-btn">
-            <button class="btn btn-comment1" type="button">Post</button>
+            <input type='submit' value='Go' name='Go' class= "btn btn-comment1" ng-click='submit_comment(new_comment)'>
         </span>
     </div>
-</div>-->
-  </div>
+</div>
+</div>
 </body>
