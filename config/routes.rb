@@ -24,6 +24,7 @@ Gullak2::Application.routes.draw do
     namespace :merchant do
     resources :products do
         resources :product_comments
+        resources :product_likes
     end
 
         #devise_for :users ,:module => "devise" ,:controllers => {:registrations => "merchant/registrations"}
@@ -142,6 +143,7 @@ Gullak2::Application.routes.draw do
     match 'get_customer_coordinates' => 'native_notifications#get_customer_coordinates'
     get 'individual_product' => 'Merchant::products#show'
     post 'save_comment' => 'Merchant::ProductComments#create'
+    post 'save_like' => 'Merchant::ProductLikes#create'
 
     if Rails.env.development?
     root :to => "home#index"

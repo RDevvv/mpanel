@@ -23,7 +23,7 @@
             </button>-->
         </div>
         <div class="ovrlytopbox">
-            <button type="button" class="btn7 btn-default btn-lg"> <span class="glyphicon-black-heart"></span></button>
+            <button type="button" class="btn7 btn-default btn-lg" ng-click='submit_like()'> <span class="glyphicon-black-heart"></span></button>
         </div>
 
         <div class="brand-info-box">
@@ -60,7 +60,7 @@
     <div class="input-group2">
         <input type="text" class="form-control1" placeholder="Write a comment ..." ng-model='new_comment'>
         <span class="input-group-btn">
-            <input type='submit' value='Go' name='Go' class= "btn btn-comment1" ng-click='submit_comment(new_comment)'>
+            <input type='submit' value='Go' name='Go' class= "btn btn-comment1" ng-click='submit_comment()'>
         </span>
     </div>
 </div>

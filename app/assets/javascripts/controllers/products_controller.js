@@ -25,5 +25,17 @@ app.controller('ProductController',function($scope,$http,$routeParams, $cookies)
         })
     }
 
+    $scope.submit_like = function(){
+        $http({
+            method: 'post',
+            url: 'save_like.json',
+            params: {
+                product_id: $routeParams.id,
+                customer_uuid: $cookies.customer_uuid
+            }
+        })
+        $scope.product.product_likes_count+=1
+    }
+
     $scope.init();
 })
