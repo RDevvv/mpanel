@@ -33,7 +33,7 @@ app.config(function($routeProvider){
         templateUrl: 'templates/sweepstakes.html'
     })
     .otherwise({
-        redirectTo: '/deals/outlets'
+        redirectTo: '/home'
     });
 }).config(function(snapRemoteProvider){
     snapRemoteProvider.globalOptions.disable = 'right';
