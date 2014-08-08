@@ -1,13 +1,5 @@
 var arrr = [];
 app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies, AdOutlets){
-    $scope.map = {
-        user_icon: 'http://shoffr.com/assets/user_pin.png',
-        icon: 'http://maps.google.com/mapfiles/markerA.png',
-        center: {latitude: $routeParams['customer_latitude'], longitude: $routeParams['customer_longitude']},
-        user_location: {latitude: $routeParams['customer_latitude'], longitude: $routeParams['customer_longitude']},
-        marker_index: 0,
-        zoom:13
-    }
 
     $scope.get_individual_outlet = function(){
         $scope.poster = _.find(AdOutlets.posters,function(poster){return poster.outlet_id==$routeParams.id})
@@ -23,8 +15,18 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         .success(function(response){
             $scope.poster = response.outlet[0];
             $scope.distance = $routeParams['distance'];
-            $scope.products = response.products;
             $scope.title_brand_name = response.outlet[0].brand_name;
+        })
+    }
+
+    $scope.fetch_products = function(){
+        $http({
+        method: 'get',
+        url: 'get_products_by_outlet.json',
+        params: {
+            outlet_id: 17783
+        }}).success(function(data){
+            $scope.products = data.products;
         })
     }
 

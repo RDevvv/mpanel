@@ -1,23 +1,22 @@
-
 <div id="header" >
     <ul class='left-icons'>
         <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
         <!--<li><a href="#" class="notification"></a></li>-->
     </ul>
     <ul class="cntrlist">
-      <li>
-       <div class="head-brand">
-        <div>
-            <a href="#/home">{{poster.brand_name}}</a>
+        <li>
+        <div class="head-brand">
+            <div>
+                <a href="#/home">{{poster.brand_name}}</a>
+            </div>
         </div>
-       </div>
-      </li>
+        </li>
     </ul>
     <ul class='right-icons'>
         <li><a href='#/home' class="new_top_share loc2" ></a></li>
-:   </ul>
-
+    </ul>
 </div>
+
 <div class='span12'>
 </div>
 <div ng-init='get_individual_outlet()'>
@@ -25,12 +24,11 @@
     <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
         <left-poster></left-poster>
     </a>
-
     <div class="pin-add-div">
         <div class="rch-btns-div4">
             <ul>
                 <li>
-                    <a class='pin-box' ng-href="https://www.google.com/maps/dir/{{customer_latitude}},{{customer_longitude}}/{{poster.address}}"></a>
+                <a class='pin-box' ng-href="https://www.google.com/maps/dir/{{customer_latitude}},{{customer_longitude}}/{{poster.address}}"></a>
                 </li>
                 <li>
                 <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" ng-controller='ListingController'>
@@ -57,16 +55,9 @@
         <div class="distance-div">{{poster.distance}} km</div>
         <expiry-date/></expiry-date>
         <div class="ofr_dtl">{{poster.sms_text}}</div>
-        <div class="add-box">
-
-
-        </div>
+        <div class="add-box"></div>
 
         <div class="add-box">
-            <!--<div class="adtitle1"><b>Offer details:</b></div>
-            <div class="adaddress">
-                {{poster.sms_text}}
-            </div>-->
             <div class="adtitle1"><b>Address:</b></div>
             <div class="adaddress">
                 {{poster.shop_no}}
@@ -74,77 +65,17 @@
             </div>
             <div class="adloc">{{poster.area_name}}<br/>
                 {{poster.city_name}} {{poster.pincode}}</div>
-
-            <div><a href="#">search more deals</a></div>
+            <div><a href="#/home">search more deals</a></div>
         </div>
     </div>
 
-    <!--<div class="social-chnls">
-        <ul class="chnls">
-            <li>
-            <div class="chnl-box">
-                <div class="sociallogo"><img src="assets/fb-circular.png" /></div>
-                <div class="flw-count">22k</div>
-                <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
+    <div ng-controller='SingleOutletController'>
+        <a ng-click='fetch_products()' >
+            <div class="ct-box">
+                <div class="ct-box-div" >PRODUCT CATALOGUE</div>
             </div>
-            </li>
-            <li>
-            <div class="chnl-box">
-                <div class="sociallogo"><img src="assets/twitter-circular.png" /></div>
-                <a href="https://twitter.com/_shoffr" class="twitter-follow-button" data-show-count="true" data-lang="en"></a>
-                <script>
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                </script>
-            </div>
-            </li>
-            <li>
-            <div class="chnl-box">
-                <div class="sociallogo"><img src="assets/pinterest-circular.png" /></div>
-                <a data-pin-do="buttonFollow" href="http://www.pinterest.com/pinterest/" data-pin-scale-width="115" data-pin-scale-height="80">Follow on Pinterest</a>
-                <!-- Please call pinit.js only once per page -->
-                <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-            </div>
-            </li>
-        </ul>
-    </div>-->
-
-    <div class="ct-box">
-        <div class="ct-box-div">PRODUCT CATALOGUE</div>
+        </a>
+        <product-catalogue></product-catalogue>
     </div>
-
-
-    <div class="selfibox">
-        <ul class="selfieleftpics">
-            <li ng-repeat="product in products">
-            <div class="brnd-wrp">
-                <div class="brndovrly">
-                    <a ng-href='#/product/{{product.id}}'><img ng-src={{product.image_url}} border="0" /></a>
-                </div>
-                <div class="brand-info-box">
-                    <div class="brand-info-title">{{product.name}}</div>
-                    <div class="brand-info-below">
-                        <div class="brand-icon-left">
-                            <div class="brand-info-comt"></div>
-                            <div class="brand-info-cct">{{product.product_comments_count}}</div>
-                            <div class="brand-info-cct"><a href="#">&#36; 30</a></div>
-                        </div>
-                        <div class="brand-icon-right">
-                            <div class="brand-info-comt2"></div>
-                            <div class="brand-info-cct2">{{product.product_likes_count}}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </li>
-        </div>
-    </div>
-</ul>
+    </snap-dragger>
 </div>
-
-<div class="shprd-box">
-<a href="#" class="btn btn-primary btn-submit2">Show Products</a>
-</div>
-
-        </div>
-        </snap-dragger>
-    </div>

@@ -142,6 +142,7 @@ Gullak2::Application.routes.draw do
     post 'set_gcm_id' => 'native_notifications#set_gcm_id'
     match 'get_customer_coordinates' => 'native_notifications#get_customer_coordinates'
     get 'individual_product' => 'Merchant::products#show'
+    get 'get_products_by_outlet' => 'Merchant::products#get_products_by_outlet'
     post 'save_comment' => 'Merchant::ProductComments#create'
     post 'save_like' => 'Merchant::ProductLikes#create'
 

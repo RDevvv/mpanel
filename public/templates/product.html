@@ -23,7 +23,7 @@
             </button>-->
         </div>
         <div class="ovrlytopbox">
-            <button type="button" class="btn7 btn-default btn-lg" ng-click='submit_like()'> <span class="glyphicon-black-heart"></span></button>
+            <button type="button" class="btn7 btn-default btn-lg" ng-click='submit_like()'> <span ng-class="product.liked?'glyphicon-red-heart':'glyphicon-black-heart'"></span></button>
         </div>
 
         <div class="brand-info-box">

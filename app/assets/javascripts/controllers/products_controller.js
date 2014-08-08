@@ -4,7 +4,8 @@ app.controller('ProductController',function($scope,$http,$routeParams, $cookies)
             method: 'get',
             url: domain+'individual_product.json',
             params:{
-                id: $routeParams.id
+                id: $routeParams.id,
+                customer_uuid: $cookies['customer_uuid']
             }
         }).success(function(data){
             $scope.product = data.product;
@@ -34,8 +35,8 @@ app.controller('ProductController',function($scope,$http,$routeParams, $cookies)
                 customer_uuid: $cookies.customer_uuid
             }
         })
-        $scope.product.product_likes_count+=1
+        $scope.product.product_likes_count+=1;
+        $scope.product.liked = true;
     }
-
     $scope.init();
 })
