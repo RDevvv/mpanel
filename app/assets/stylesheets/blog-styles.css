@@ -401,6 +401,9 @@ ul.footerlinksmain li a, ul.footerlinksmain li a:link, ul.footerlinksmain li a:v
 .twit-container-detail {display: none;}
 #head-rightdiv {float:right; width:45% !important; height:auto; position: relative; top:42px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
 #discussion {float:left; clear:both; width:98%; margin:2% 0 0 0;  padding: 0 0 1em 0; position: relative;}
+.aColumn3 {float: left; width:95%; overflow: visible; margin: 0 0 0 2%; padding: 1% 2% 1% 0; position: relative; border-right:1px solid #E2E2E2; border-bottom:1px solid #E2E2E2;}
+.stats-container {float: left; position: relative; margin: 0 0 0 3%;  /*right: 11.5%;*/ top: 0px; width:97%;}
+.tracker-div{float:left; clear: both; width:95%;}
 }    
 /* iPad portrait mode, Tablet Nexus7 and 7 inch tablets */
 
@@ -419,7 +422,8 @@ html, body {max-width: 99%; height:100%; overflow-x: hidden;}
 .blog-main {margin: 0 auto; width: 100%; height: auto; padding: 1px;}
 #aCol {float: left; width: 100%;}
 .aColumn, .aColumn2 {float: left; margin: 0 0 10px; width:98%; overflow: visible; padding: 0 1% 0 1%; position: relative; border-right:1px solid #E2E2E2;}
-.aColumn3 {float: left; clear: both; width:100%; margin:2% 0 0 0; padding: 1% 2% 1% 0; border-bottom:1px solid #E2E2E2;}
+.aColumn3 {display: none;}
+/*.aColumn3 {float: left; clear: both; width:100%; margin:2% 0 0 0; padding: 1% 2% 1% 0; border-bottom:1px solid #E2E2E2;}*/
 
 .w190 {clear: both; float: left; overflow: hidden; margin-left: 2px; margin-right: 0;}
 .w190, .w592 {width: 100%;}
@@ -479,6 +483,7 @@ span.sharelink-text {font-family: 'casperregular',Georgia,"times new roman",time
 .navbar-form {position: relative; left:-6%; border-top:none; border-bottom:none; box-shadow: none;}
 .stats-container {float: left; clear: both; margin: 4% 0 0 1%; width:99%;}
 .stats-graph-div {float:left; margin:2% 0 3% 0; width:100%;}
+.tracker-div{float:left; clear: both; width:97%;
 }
 
 
