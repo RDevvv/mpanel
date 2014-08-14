@@ -280,6 +280,8 @@ ul, ol {margin: 0; padding: 0;}
 fieldset {position: relative;}
 .control-group {margin-bottom: 0; position:relative; width: 97%;}
 
+.control-group2 {margin-bottom: 6%; position:relative; width: 97%;}
+
 /* Bootstrap styles */
 
 .row{margin-left:-20px;}.row:before,.row:after{display:table;line-height:0;content:"";}
@@ -665,6 +667,7 @@ background: url(ikons-img.png) no-repeat -477px -30px transparent; padding:12px 
 .head-brand a, .head-brand a:visited, .head-brand a:hover, .head-brand a:active {font-family:'kg_begin_againregular', Tahoma, Arial, Helvetica, sans-serif; font-weight: bold; font-size: 21px; color: #ffffff; text-decoration: none; letter-spacing: 0.08em;}
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {width:90%;}
+select {width: 95%;}
 
 input#searchSubmit {width:19px; height:19px; text-indent:-9999px; overflow:hidden; background:url(search-icon.png) no-repeat;
     border:0; position:absolute; top:9px; right:32px; z-index:5; display:none; cursor:pointer;
@@ -1152,16 +1155,16 @@ legend + .control-group {margin-top: 0;}
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 
-.onoffswitch-checkbox, .onoffswitch-checkbox2, .onoffswitch-checkbox3 {
+.onoffswitch-checkbox, .onoffswitch-checkbox2, .onoffswitch-checkbox3, .onoffswitch-checkbox4 {
     display: none;
 }
 
-.onoffswitch-label, .onoffswitch-label2, .onoffswitch-label3 {
+.onoffswitch-label, .onoffswitch-label2, .onoffswitch-label3, .onoffswitch-label4 {
     display: block; overflow: hidden; cursor: pointer;
     border: 2px solid #666666; border-radius: 5px;
 }
 
-.onoffswitch-inner, .onoffswitch-inner2, .onoffswitch-inner3 {
+.onoffswitch-inner, .onoffswitch-inner2, .onoffswitch-inner3, .onoffswitch-inner4 {
     width: 200%; margin-left: -100%;
     -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
     -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
