@@ -1,79 +1,99 @@
 <div id="header" >
-    <ul class='left-icons'>
-        <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
-        <!--<li><a href="#" class="notification"></a></li>-->
-    </ul>
-    <ul class="cntrlist">
-        <li>
-        <div class="head-brand">
-            <div>
-                <a href="#/home">{{poster.brand_name}}</a>
-            </div>
-        </div>
-        </li>
-    </ul>
-    <ul class='right-icons'>
-        <li><a href='#/home' class="new_top_share loc2" ></a></li>
-    </ul>
+  <ul class='left-icons'>
+    <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
+    <!--<li><a href="#" class="notification"></a></li>-->
+  </ul>
+  <ul class="cntrlist">
+    <li>
+    <div class="head-brand">
+      <div>
+        <a href="#/home">{{poster.brand_name}}</a>
+      </div>
+    </div>
+    </li>
+  </ul>
+  <ul class='right-icons'>
+    <li><a href='#/home' class="new_top_share loc2" ></a></li>
+  </ul>
 </div>
 
+
 <div ng-init='get_individual_outlet()'>
-    <snap-dragger>
-    <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
-        <left-poster></left-poster>
-    </a>
-    <div class="pin-add-div">
-        <div class="rch-btns-div4">
-            <ul>
-                <li>
-                <a class='pin-box' ng-href="https://www.google.com/maps/dir/{{customer_latitude}},{{customer_longitude}}/{{poster.address}}"></a>
-                </li>
-                <li>
-                <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" ng-controller='ListingController'>
-                    <div ng-if="verified()" >
-                        <a class="call button_call2" href="tel:08767451515" ng-click='tracking(poster.ad_id, poster.outlet_id, "call", poster.ad_id)'>&nbsp;</a>
-                    </div>
-                    <div ng-if="verified()==false" >
-                        <a class="call button_call2" ng-href="{{}}" ng-click='show_modal(); tracking(poster.ad_id, poster.outlet_id, "call", poster.ad_id)'>&nbsp;</a>
-                    </div>
-                </div>
-                <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >
-                    <a class="button_call_grey" href='#' >&nbsp;</a>
-                </div>
-                </li>
-                <li>
-                <a class="share" >
-                    <poster-share></poster-share>
-                </a>
-                </li>
-            </ul>
+  <snap-dragger>
+  <a class="" ng-click='tracking(poster.ad_id, poster.outlet_id, "unlock", poster.ad_id); unlock(poster)' ng-controller='ListingController'>
+    <left-poster></left-poster>
+  </a>
+  <div class="pin-add-div">
+    <div class="rch-btns-div4">
+      <ul>
+        <li>
+        <a class='pin-box' ng-href="https://www.google.com/maps/dir/{{customer_latitude}},{{customer_longitude}}/{{poster.address}}"></a>
+        </li>
+        <li>
+        <div ng-if="(poster.mobile_number!= '')||(poster.phone_number!= '')" ng-controller='ListingController'>
+          <div ng-if="verified()" >
+            <a class="call button_call2" href="tel:08767451515" ng-click='tracking(poster.ad_id, poster.outlet_id, "call", poster.ad_id)'>&nbsp;</a>
+          </div>
+          <div ng-if="verified()==false" >
+            <a class="call button_call2" ng-href="{{}}" ng-click='show_modal(); tracking(poster.ad_id, poster.outlet_id, "call", poster.ad_id)'>&nbsp;</a>
+          </div>
         </div>
-
-
-        <div class="distance-div">{{poster.distance}} km</div>
-        <expiry-date/></expiry-date>
-        <div class="ofr_dtl">{{poster.sms_text}}</div>
-        <div class="add-box"></div>
-
-        <div class="add-box">
-            <div class="adtitle1"><b>Address:</b></div>
-            <div class="adaddress">
-                {{poster.shop_no}}
-                {{poster.address}}
-            </div>
-            <div class="adloc">{{poster.area_name}}<br/>
-                {{poster.city_name}} {{poster.pincode}}</div>
-            <div><a href="#/home">search more deals</a></div>
+        <div ng-if="(poster.mobile_number== '')&&(poster.phone_number== '')" >
+          <a class="button_call_grey" href='#' >&nbsp;</a>
         </div>
-    </div>
-
-    <div ng-controller='SingleOutletController'>
-        <a ng-click='fetch_products()' >
-            <div class="ct-box">
-                <div class="ct-box-div" >PRODUCT CATALOGUE</div>
-            </div>
+        </li>
+        <li>
+        <a class="share" >
+          <poster-share></poster-share>
         </a>
-        <product-catalogue></product-catalogue>
+        </li>
+      </ul>
     </div>
-    </snap-dragger>
+
+
+    <div class="distance-div">{{poster.distance}} km</div>
+    <expiry-date/></expiry-date>
+    <div class="ofr_dtl">{{poster.sms_text}}</div>
+    <div class="add-box"></div>
+
+    <div class="add-box">
+      <div class="adtitle1"><b>Address:</b></div>
+      <div class="adaddress">
+        {{poster.shop_no}}
+        {{poster.address}}
+      </div>
+      <div class="adloc">{{poster.area_name}}<br/>
+        {{poster.city_name}} {{poster.pincode}}</div>
+      <div><a href="#/home">search more deals</a></div>
+    </div>
+  </div>
+
+  <div class="social-chnls">
+    <ul class="chnls">
+      <li>
+      <div class="chnl-box">
+        <div class="sociallogo"><img src="assets/fb-circular.png" /></div>
+        <div class="flw-count">22k</div>
+        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
+      </div>
+      </li>
+      <li>
+      <div class="chnl-box">
+        <div class="sociallogo"><img src="assets/twitter-circular.png" /></div>
+        <div class="flw-count">14.2k</div>
+        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Follow" ></div>
+      </div>
+      </li>
+    </ul>
+  </div>
+
+  <div ng-controller='SingleOutletController'>
+    <a ng-click='fetch_products()' >
+      <div class="ct-box">
+        <div class="ct-box-div" >PRODUCT CATALOGUE</div>
+      </div>
+    </a>
+    <product-catalogue></product-catalogue>
+  </div>
+  </snap-dragger>
 </div>
