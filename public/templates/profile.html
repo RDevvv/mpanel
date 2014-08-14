@@ -20,12 +20,7 @@
         <div ng-show='error_message' class="field-error">Please enter a valid number</div>
     </div>
   </div>
-  <div class="control-group">
-    <!--<label for="" class="control-label">Name</label>-->
-    <div class="controls">
-      <input type="text" size="30" name="" id="" class="pd8 input-large" placeholder="Your Name" ng-model='name'>
-    </div>
-  </div>
+  
   <div class="control-group">
       <!--<label for="" class="control-label">Name</label>-->
       <div class="controls">
@@ -35,7 +30,27 @@
   </div>
 
   <div class="control-group">
-      <label for="" class="labelnot control-label">Notifications</label>
+    <!--<label for="" class="control-label">Name</label>-->
+    <div class="controls">
+      <input type="text" size="30" name="" id="" class="pd8 input-large" placeholder="Your Name" ng-model='name'>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <select class="form-control" >
+      <option>Gender </option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+
+  <div class="control-group">
+    <input type="text" id="dob" class="pd8 input-large" placeholder="Date of Birth">
+  </div>
+
+
+  <div class="control-group2">
+      <label for="" class="labelnot control-label">Tell me anything new</label>
       <div class="onoffswitch2">
           <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox2" id="myonoffswitch2" ng-model='notification_enabled' ng-change='notification_toggle()'>
           <label class="onoffswitch-label2" for="myonoffswitch2">
@@ -43,6 +58,17 @@
               <div class="onoffswitch-switch2"></div>
           </label>
       </div>
+  </div>
+
+  <div class="control-group2">
+     <label for="" class="labelnot control-label">Smart notifications</label>
+     <div class="onoffswitch3">
+        <input type="checkbox" name="onoffswitch3" class="onoffswitch-checkbox3" id="myonoffswitch3">
+          <label class="onoffswitch-label3" for="myonoffswitch3">
+              <div class="onoffswitch-inner3"></div>
+              <div class="onoffswitch-switch3"></div>
+          </label>
+     </div>
   </div>
 
   <div class="control-group">
