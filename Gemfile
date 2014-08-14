@@ -1,5 +1,5 @@
 ruby "1.9.3"
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg', :platform => :ruby
@@ -28,6 +28,7 @@ gem 'exotel'
 gem 'jbuilder'
 gem 'asset_sync'
 gem 'pushmeup'
+gem 'koala'
 #gem 'dalli'
 
 

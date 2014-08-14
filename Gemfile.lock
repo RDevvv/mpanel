@@ -16,7 +16,7 @@ GIT
       activerecord (~> 3.2)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.14)
       actionpack (= 3.2.14)
@@ -62,6 +62,7 @@ GEM
     activesupport (3.2.14)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.6)
     alias (0.2.3)
     arbre (1.0.1)
       activesupport (>= 3.0.0)
@@ -155,6 +156,8 @@ GEM
     fancy_irb (0.7.3)
       paint (>= 0.8.1)
       unicode-display_width (>= 0.1.1)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     ffi (1.9.3)
     ffi (1.9.3-java)
@@ -233,6 +236,10 @@ GEM
     kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.10.0)
+      addressable
+      faraday
+      multi_json
     libv8 (3.16.14.3)
     listen (2.7.5)
       celluloid (>= 0.15.2)
@@ -264,6 +271,7 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nested_form (0.3.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -504,6 +512,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails (= 2.1.0)
   kaminari
+  koala
   mailcatcher
   nested_form
   paper_trail (~> 2.7.2)

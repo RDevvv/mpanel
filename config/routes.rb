@@ -145,6 +145,7 @@ Gullak2::Application.routes.draw do
     get 'get_products_by_outlet' => 'Merchant::products#get_products_by_outlet'
     post 'save_comment' => 'Merchant::ProductComments#create'
     post 'save_like' => 'Merchant::ProductLikes#create'
+    match 'facebook_posts' => 'SocialMedia#facebook_posts'
 
     if Rails.env.development?
     root :to => "home#index"
