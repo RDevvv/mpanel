@@ -1,3 +1,13 @@
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=206827969522380&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <div id="header" >
   <ul class='left-icons'>
     <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
@@ -67,21 +77,24 @@
       <div><a href="#/home">search more deals</a></div>
     </div>
   </div>
-
   <div class="social-chnls">
     <ul class="chnls">
       <li>
       <div class="chnl-box">
         <div class="sociallogo"><img src="assets/fb-circular.png" /></div>
-        <div class="flw-count">22k</div>
-        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
+        <div class="flw-count">{{poster.facebook_likes_count}}</div>
+        <div class="seed">
+          <div class="fb-like" data-href="https://www.facebook.com/{{poster.facebook_handle}}" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+        </div>
       </div>
       </li>
       <li>
       <div class="chnl-box">
         <div class="sociallogo"><img src="assets/twitter-circular.png" /></div>
-        <div class="flw-count">14.2k</div>
-        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Follow" ></div>
+        <div class="flw-count">{{poster.twitter_followers_count}}</div>
+        <div class="seed">
+          <a ng-href="https://twitter.com/{{poster.twitter_handle}}" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>
+        </div>
       </div>
       </li>
     </ul>
