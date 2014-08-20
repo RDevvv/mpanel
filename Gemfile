@@ -1,4 +1,4 @@
-ruby "1.9.3"
+ruby '1.9.3'
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
@@ -29,6 +29,7 @@ gem 'jbuilder'
 gem 'asset_sync'
 gem 'pushmeup'
 gem 'koala'
+gem 'twitter'
 #gem 'dalli'
 
 

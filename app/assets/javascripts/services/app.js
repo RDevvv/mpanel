@@ -13,6 +13,14 @@ app.config(function($routeProvider){
         templateUrl: 'templates/ad_outlet.html',
         controller: 'SingleOutletController'
     })
+    .when('/deals/shop/facebook',{
+        templateUrl: 'templates/facebook.html',
+        controller: 'SingleOutletController'
+    })
+    .when('/deals/shop/twitter',{
+        templateUrl: 'templates/twitter.html',
+        controller: 'SingleOutletController'
+    })
     .when('/home',{
         templateUrl: 'templates/home.html',
         controller: 'GeocodingController'
