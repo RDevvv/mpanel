@@ -134,7 +134,8 @@ p, pre {margin: 0;}
 #blogs-masthead .element1 #logo a img {}
 #logo {display: block;}
 
-#head-rightdiv {float:right; width:35%; height:auto; position: relative; top:37px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
+#head-rightdiv {float:right; width:35%; height:auto; position: relative; top:26px; right:0; padding:4px; font-family:'CheltenhamLTRegular',georgia,times,serif; font-weight:normal; color:#000000; font-size: 1.2em;}
+#head-rightdiv img {float:right; max-width:60%; max-height: 60%;}
 #head-rightdiv .intro-txt {float: left; line-height: 40px;}
 #head-rightdiv .android-icon {float: right; border:0; outline: none;}
 /* Main Container */
@@ -194,7 +195,7 @@ background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px; display: none; h
 /* Contact Us styles */
 .con-container {float:left; width:100%; font-family: Tahoma,"times new roman",times,serif; color: #333333; margin: 0;}
 .con-container .ofc-box {float:left;  width: 20%;}
-.con-container .emailids {float:left; border-left: 1px solid #ccc; padding: 0% 0 0 3%; width: 65%;}
+.con-container .emailids {float:left; padding: 0; /*border-left: 1px solid #ccc; padding: 0% 0 0 3%;*/ width: 65%;}
 .ofc-box .head {color: #0095F4; font-weight: bold; line-height: 20px; margin: 0;}
 .ofc-box p {text-align: left; line-height: 1.5em;}
 .emailids .entry{float:left; clear: both; margin:0; /*margin: 2px 0;*/ text-align: left;}
