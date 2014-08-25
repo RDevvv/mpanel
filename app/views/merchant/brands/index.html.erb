@@ -18,7 +18,9 @@
               <tr>
                 <th width="8%"><div>Status</div></th>
                 <th width="8%"><div>Verified</div></th>
-                <th><div>Current Brands</div></th>
+                <th><div>Brand</div></th>
+                <th><div>Facebook handle</div></th>
+                <th><div>Twitter handle</div></th>
                 <th>Manage</th>
               </tr>
             </thead>
@@ -31,14 +33,9 @@
                 <td>
                   <%= check_box_tag :is_verified, brand.is_verified?,brand.is_verified?,:disabled=>true%>
                 </td>
-                <td><% brand_name = @current_account.brands.pluck(:brand_name) %>
-                  <% brand_name.each do |brands| %>
-                    <%= brands %>
-                    <% if brand_name.last != brands %>
-                      <%= " ,"%>
-                    <% end %>
-                  <% end %>
-                </td>
+                <td><%= brand.brand_name %></td>
+                <td><%= brand.facebook_handle %></td>
+                <td><%= brand.twitter_handle %></td>
                 <td>
                   <% if can? :update, brand %>
                     <%= link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %> |
@@ -49,7 +46,7 @@
                 </td>
               </tr> 
             <% end %>
-            </tbody>  
+            </tbody>
           </table>
       </div>
       <% end %>  
