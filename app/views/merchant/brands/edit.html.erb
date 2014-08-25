@@ -9,11 +9,25 @@
       <div class="box-content">
         <%= nested_form_for([@current_account,@brand], :url=>merchant_account_brand_path(@current_account,@brand), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
           <div class="padded">
-            
+
             <div class="control-group">
               <label class="control-label">Brand Name</label>
               <div class="controls">
               	<%= f.text_field :brand_name, :placeholder=>"Brand Name", :class=>"validate[required,maxSize[60]]", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Facebook handle</label>
+              <div class="controls">
+              	<%= f.text_field :facebook_handle, :placeholder=>"Facebook handle", :class=>"", "data-prompt-position"=>"topLeft"%>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Twitter handle</label>
+              <div class="controls">
+              	<%= f.text_field :twitter_handle, :placeholder=>"Twitter handle", :class=>"", "data-prompt-position"=>"topLeft"%>
               </div>
             </div>
 

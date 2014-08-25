@@ -164,9 +164,19 @@ class Ad < ActiveRecord::Base
             keyword_ads_ids = keyword_ads.map{|ad|ad.id}
             @final_ads = Array.new
             outlet_ads_ids.each do |outlet_ad_id|
-                @final_ads <<outlet_ad_id if keyword_ads_ids.include?(outlet_ad_id)
+                @final_ads << outlet_ad_id if keyword_ads_ids.include?(outlet_ad_id)
             end
             @final_ads
         end
     end
+
+  def is_unlocked(ad_likes)
+    is_unlocked_row = ad_likes.select{|like|like.ad_id==self.id}
+    if is_unlocked_row.blank?
+      is_unlocked = false
+    else
+      is_unlocked = is_unlocked_row.first.is_unlocked
+    end
+    is_unlocked
+  end
 end

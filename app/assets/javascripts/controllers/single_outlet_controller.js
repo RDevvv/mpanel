@@ -24,7 +24,7 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
         method: 'get',
         url: 'get_products_by_outlet.json',
         params: {
-            outlet_id: 17783
+            outlet_id: $routeParams.id
         }}).success(function(data){
             $scope.products = data.products;
         })

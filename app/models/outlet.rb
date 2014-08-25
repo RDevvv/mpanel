@@ -282,32 +282,39 @@ class Outlet < ActiveRecord::Base
   end
 
   def self.get_poster_data(outlets, customer_uuid)
-      outlets_with_ads = Array.new
-      outlets_without_ads = Array.new
-      @customer = Customer.includes(:ad_likes).where(:uuid => customer_uuid).first
-      #outlets.select{|o|o.ads.blank? == false}
-      outlets.each do |outlet|
-          if outlet.new_distance.nil?
-              distance = outlet.distance.to_f.round(2)
-          else
-              distance =0
-          end
+      outlets_with_ads, outlets_without_ads = Array.new, Array.new
+      @ad_likes = Customer.where(:uuid => customer_uuid).first.ad_likes.flatten
 
-          if (outlet.ads.empty? && outlet.ads.map{|ad|ad.promocode_available?.include?(true)})||(outlet.ads.map{|ad|ad.expired?}.include?(true))
-              outlets_without_ads += [:brand_image => Ad.get_image(0,outlet), :is_unlocked => false, :ad_id => 0, :ad_title => nil, :sms_text => nil, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
-          else
-              ads = outlet.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
-              ads.each do |ad|
-                  is_unlocked_row = @customer.ad_likes.where(:ad_id => ad.id)
-                  if is_unlocked_row.blank?
-                      is_unlocked = false
-                  else
-                      is_unlocked = is_unlocked_row.first.is_unlocked
-                  end
-                  outlets_with_ads += [:brand_image => Ad.get_image(ad,outlet), :is_unlocked => is_unlocked, :ad_id => ad.id, :ad_title => ad.ad_title, :sms_text => ad.sms_text, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
-              end
+      outlets.each do |outlet|
+        distance = outlet.get_distance
+        brand = outlet.account_brand.brand
+        if outlet.doesnt_have_ads
+          outlets_without_ads += [:brand_image => Ad.get_image(0,outlet), :facebook_handle => brand.facebook_handle, :twitter_handle => brand.twitter_handle, :twitter_followers_count => brand.twitter_followers_count, :facebook_likes_count => brand.facebook_likes_count, :is_unlocked => false, :ad_id => 0, :ad_title => nil, :sms_text => nil, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => false, :brand_name => outlet.account_brand.brand.brand_name, :brand => outlet.account_brand.brand, :ad_usage => -1, :ad_expiry_date => Date.today+100.years]
+        else
+          ads = outlet.select_ads
+          ads.each do |ad|
+            is_unlocked = ad.is_unlocked(@ad_likes)
+            outlets_with_ads += [:brand_image => Ad.get_image(ad,outlet), :facebook_handle => brand.facebook_handle, :twitter_handle => brand.twitter_handle, :twitter_followers_count => brand.twitter_followers_count, :facebook_likes_count => brand.facebook_likes_count, :is_unlocked => is_unlocked, :ad_id => ad.id, :ad_title => ad.ad_title, :sms_text => ad.sms_text, :outlet_id => outlet.id, :distance => distance, :area_name => outlet.area.area_name, :city_name => outlet.area.city.city_name, :pincode => outlet.area.pincode, :latitude => outlet.latitude, :longitude => outlet.longitude, :shop_no => outlet.shop_no, :poster_address => outlet.get_address, :address => outlet.address, :mobile_number => outlet.mobile_number, :phone_number => outlet.phone_number, :ad_is_exclusive => ad.is_exclusive, :brand_name => brand.brand_name, :brand => brand, :ad_usage => ad.usage, :ad_expiry_date => ad.expiry_date]
           end
+        end
       end
       outlets_with_ads+outlets_without_ads
+  end
+
+  def select_ads
+    ads = self.ads.select{|ad|(ad.expired? == false)&(ad.promocode_available?)}.select{|ad|ad.check_day.include?(Date.today.wday)}
+    ads
+  end
+
+  def doesnt_have_ads
+    if (self.ads.empty? && self.ads.map{|ad|ad.promocode_available?.include?(true)})||(self.ads.map{|ad|ad.expired?}.include?(true))
+      return true
+    end
+  end
+
+  def get_distance
+    distance =0
+    distance = self.distance.to_f.round(2) if self.new_distance.nil?
+    distance
   end
 end
