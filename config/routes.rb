@@ -3,6 +3,7 @@ Gullak2::Application.routes.draw do
     resources :facebook_posts
     resources :tweets
   end
+  match 'facebook_verification' => 'social_media#facebook_verification'
 
   get 'articles/:blog_url' => 'articles#show'
   get 'newsletters/:created_at' => 'newsletters#show'
@@ -150,7 +151,6 @@ Gullak2::Application.routes.draw do
   get 'get_products_by_outlet' => 'Merchant::products#get_products_by_outlet'
   post 'save_comment' => 'Merchant::ProductComments#create'
   post 'save_like' => 'Merchant::ProductLikes#create'
-  match 'facebook_posts' => 'SocialMedia#facebook_posts'
 
   if Rails.env.development?
     root :to => "home#index"
