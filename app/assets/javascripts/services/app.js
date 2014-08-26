@@ -1,4 +1,4 @@
-var app = angular.module('app', ['snap', 'ngRoute', 'ngAnimate', 'ngCookies','google-maps', 'infinite-scroll', 'ipCookie', 'ngTagsInput']);
+var app = angular.module('app', ['snap', 'ngRoute', 'ngAnimate', 'ngCookies','google-maps', 'infinite-scroll', 'ipCookie', 'ngTagsInput', 'restangular']);
 app.config(function($routeProvider){
     $routeProvider
     .when('/deals/outlets', {
@@ -13,13 +13,13 @@ app.config(function($routeProvider){
         templateUrl: 'templates/ad_outlet.html',
         controller: 'SingleOutletController'
     })
-    .when('/deals/shop/facebook',{
+    .when('/brands/:brand_id/facebook',{
         templateUrl: 'templates/facebook.html',
-        controller: 'SingleOutletController'
+        controller: 'FacebookController'
     })
-    .when('/deals/shop/twitter',{
+    .when('/brands/:brand_id/twitter',{
         templateUrl: 'templates/twitter.html',
-        controller: 'SingleOutletController'
+        controller: 'TwitterController'
     })
     .when('/home',{
         templateUrl: 'templates/home.html',
@@ -43,10 +43,14 @@ app.config(function($routeProvider){
     .otherwise({
         redirectTo: '/home'
     });
-}).config(function(snapRemoteProvider){
+}).config(function(snapRemoteProvider, RestangularProvider){
     snapRemoteProvider.globalOptions.disable = 'right';
     snapRemoteProvider.globalOptions.touchToDrag = false;
+    RestangularProvider.setRequestSuffix('.json');
+    RestangularProvider.setBaseUrl('merchant');
 });
+
 var domain   = '';//'http://api.shoffr.com/';
 var app_type = 'html5'; //native or html5
+var account_id = 1;
 

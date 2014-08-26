@@ -81,7 +81,7 @@
     <ul class="chnls">
       <li>
       <div class="chnl-box">
-        <div class="sociallogo"><img src="assets/fb-circular.png" /></div>
+        <div class="sociallogo"><a ng-href='#/brands/{{poster.brand_id}}/facebook'><img src="assets/fb-circular.png" /></a></div>
         <div class="flw-count">{{poster.facebook_likes_count}}</div>
         <div class="seed">
           <div class="fb-like" data-href="https://www.facebook.com/{{poster.facebook_handle}}" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
@@ -90,7 +90,7 @@
       </li>
       <li>
       <div class="chnl-box">
-        <div class="sociallogo"><img src="assets/twitter-circular.png" /></div>
+        <div class="sociallogo"><a ng-href='#/brands/{{poster.brand_id}}/twitter'><img src="assets/twitter-circular.png" /></a></div>
         <div class="flw-count">{{poster.twitter_followers_count}}</div>
         <div class="seed">
           <a ng-href="https://twitter.com/{{poster.twitter_handle}}" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>
