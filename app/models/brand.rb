@@ -5,6 +5,7 @@ class Brand < ActiveRecord::Base
   has_many :accounts, :through => :account_brands
   has_many :user_brands, :dependent => :destroy
   has_many :facebook_posts
+  has_many :tweets
   has_many :users, :through => :user_brands
   has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
   belongs_to :category
