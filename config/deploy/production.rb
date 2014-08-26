@@ -5,7 +5,7 @@ set :repo_url, 'git@github.com:adadoo/Gullak-2.git'
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-server '54.255.141.175', user: 'ubuntu', roles: %w{web app db resque_worker}
+server '54.179.144.23', user: 'ubuntu', roles: %w{web app db resque_worker}
 set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"production"
