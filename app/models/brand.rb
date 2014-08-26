@@ -1,5 +1,6 @@
 class Brand < ActiveRecord::Base
   has_one :customer_brand_score
+  has_many :products
   has_many :account_brands, :dependent => :destroy
   has_many :accounts, :through => :account_brands
   has_many :user_brands, :dependent => :destroy

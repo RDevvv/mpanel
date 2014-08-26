@@ -37,6 +37,7 @@
                 <td><%= brand.facebook_handle %></td>
                 <td><%= brand.twitter_handle %></td>
                 <td>
+                  <%= link_to 'Products', merchant_account_brand_products_path(@current_account,brand)  %> |
                   <% if can? :update, brand %>
                     <%= link_to 'Edit', edit_merchant_account_brand_path(@current_account,brand)  %> |
                   <% end %>

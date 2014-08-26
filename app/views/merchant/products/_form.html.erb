@@ -5,7 +5,7 @@
                 <span class="title"><i class="icon-account"></i> New Brand</span>
             </div>
             <div class="box-content">
-                <%= nested_form_for([@current_account,@account_brand,@product], :url=>merchant_account_account_brand_products_path(@current_account,@account_brand,@product), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
+                <%= nested_form_for([@current_account,@brand,@product], :url=>merchant_account_brand_products_path(@current_account,@brand,@product), :html=>{:class=>"form-horizontal fill-up validatable",:multipart => true}) do |f| %>
                     <div class="padded">
 
                     <div class="control-group">

@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
     belongs_to :account_brand
+    belongs_to :brand
     has_many :attachments, :as => :attachable ,:class_name=>'Attachment'
     has_many :product_likes
     has_many :product_comments
