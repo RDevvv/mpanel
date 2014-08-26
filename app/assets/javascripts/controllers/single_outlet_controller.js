@@ -1,5 +1,5 @@
 var arrr = [];
-app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies, AdOutlets){
+app.controller('SingleOutletController', function($scope, $http, $routeParams, $cookies, AdOutlets, Restangular){
 
     $scope.get_individual_outlet = function(){
         $scope.poster = _.find(AdOutlets.posters,function(poster){return poster.outlet_id==$routeParams.id})
@@ -20,14 +20,10 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
     }
 
     $scope.fetch_products = function(){
-        $http({
-        method: 'get',
-        url: 'get_products_by_outlet.json',
-        params: {
-            outlet_id: $routeParams.id
-        }}).success(function(data){
-            $scope.products = data.products;
-        })
+      var products = Restangular.one('accounts',account_id).one('brands', 87).all('products');
+      products.getList().then(function(products){
+            $scope.products = products;
+      });
     }
 
     $scope.init = function(){

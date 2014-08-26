@@ -1,7 +1,7 @@
 <%= render :partial=>'header' %>
 
 <div class="pull-right">
-    <%= link_to "Add Product", new_merchant_account_account_brand_product_path(@current_account,@account_brand), :class=>"btn btn-info"%>
+    <%= link_to "Add Product", new_merchant_account_brand_product_path(@current_account,@brand), :class=>"btn btn-info"%>
     <br><br>
 </div>
 
@@ -35,8 +35,8 @@
                                         <%= image_tag product.attachments.order(:id).last.image %>
                                 <% end %>
                                 </td>
-                                <td><%= link_to 'Edit', edit_merchant_account_account_brand_product_path(@current_account, @account_brand, product) %> |
-                                    <%= link_to 'Delete', merchant_account_account_brand_product_path(@current_account, @account_brand, product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                <td><%= link_to 'Edit', edit_merchant_account_brand_product_path(@current_account, @brand, product) %> |
+                                    <%= link_to 'Delete', merchant_account_brand_product_path(@current_account, @brand, product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                             </tr>
                         <% end %>
                             </tbody>

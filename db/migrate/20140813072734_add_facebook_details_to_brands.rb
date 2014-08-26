@@ -2,6 +2,6 @@ class AddFacebookDetailsToBrands < ActiveRecord::Migration
   def change
     add_column :brands, :facebook_id, :integer
     add_column :brands, :facebook_username, :string
-    add_column :brands, :facebook_likes_count, :string
+    add_column :brands, :facebook_likes_count, :string, :default => 0
   end
 end

@@ -1,8 +1,4 @@
 Gullak2::Application.routes.draw do
-  resources :brands do
-    resources :facebook_posts
-    resources :tweets
-  end
   match 'facebook_verification' => 'social_media#facebook_verification'
 
   get 'articles/:blog_url' => 'articles#show'
@@ -77,7 +73,6 @@ Gullak2::Application.routes.draw do
           end
         end
         resources :keywords
-        resources :products
         resources :ads do
           member do
             post 'toggle_active'
@@ -101,7 +96,11 @@ Gullak2::Application.routes.draw do
           end
         end
       end
-      resources :brands
+      resources :brands do
+        resources :facebook_posts
+        resources :tweets
+        resources :products
+      end
     end
   end
 
