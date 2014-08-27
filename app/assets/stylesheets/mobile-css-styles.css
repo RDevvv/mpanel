@@ -472,7 +472,7 @@ ul.selfie-list li:last-child {font-weight:normal; border-right:none;}
 .selfie-comment {clear: both; width: 95%; margin: 1% auto; padding:0 0 1% 0; line-height: 16px; font-family: inherit; font-size: 0.85em; color: #000; text-align: left; border-bottom: solid 1px #ddd;}
 .selfie-comment span {font-weight: bold; padding-right: 0.5%;}
 
-.selfie-feedback-bar {width: 100%; position: fixed; bottom: 0; padding: 2% 0; background: #ccc; }
+.selfie-feedback-bar {width: 100%; position: relative; bottom: 0; padding: 2% 0; background: #ccc; }
 .selfibox {clear:both; width:96%; margin:2% auto;}
 .shprd-box {float:left; clear:both; width:96%; margin:4% auto 2%;}
 ul.selfieleftpics {float:left; width:100%; height: auto; list-style: none;}
@@ -483,17 +483,17 @@ ul.selfieleftpics li {float: left; position: relative; width:46%; height: auto; 
 .brnd-wrp {border:solid 1px #ccc; height:auto;padding:0 0 11%; -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75); -moz-box-shadow:1px 0px 4px 0px rgba(50, 50, 50, 0.75);
 box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75);}
 
-.brand-info-box {clear:both; width:85%; /*width:95%;*/ height: auto; margin:1% auto 8%; font-size: 0.8em;}
+.brand-info-box {clear:both; width:95%; /*width:95%;*/ height: auto; margin:1% auto 8%; font-size: 0.8em;}
 .brand-info-title {clear: both; width: 97%; text-align: left; margin:2px 1%; text-transform: uppercase; border-bottom: solid 1px #ddd; padding:0 0 2px 0; font-family: 'DenseRegular', sans-serif; font-size: 1.4em; color: #000; font-weight: bold;}
-.brand-info-below {position:relative; clear: both; width: 100%; margin:2px 0 2px 0;}
+.brand-info-below {position:relative; clear: both; width: 100%; margin:2px 0 2px 0; padding: 1% 0 0 0;}
 .brand-icon-left {position: absolute; left:1%; width:auto; height: auto; width: 40%;}
 .brand-info-comt {float:left;background: url(glyphicons-halflings.png) no-repeat scroll -240px -120px transparent;width: 16px; height: 15px; margin:0 3% 0 0;} 
-.brand-info-cct{float:left; margin:0; padding:0; font-weight: bold; line-height: 13px;}
-.brand-info-cct a, .brand-info-cct a:visited, .brand-info-cct a:hover {text-decoration: none; color: #000;}
+.brand-info-cct{float:left; margin:0; padding:0; font-family: 'DenseRegular',sans-serif; font-weight: bold; font-size: 1.4em; line-height: 13px;}
+.brand-info-cct a, .brand-info-cct a:visited, .brand-info-cct a:hover, .brand-info-cct2 a, .brand-info-cct2 a:visited, .brand-info-cct2 a:hover {text-decoration: none; color: #000;}
 
-.brand-icon-right {position: absolute; right:1%; width:auto; height: auto; width: 35%;}
+.brand-icon-right {position: absolute; right:1%; height: auto; width: 35%;}
 .brand-info-comt2 {float:right;background: url(glyphicons-halflings.png) no-repeat scroll -95px -1px transparent;width: 15px; height: 15px; margin:0 0 0 6%;} 
-.brand-info-cct2{float:right; margin:0; padding:0; font-weight: bold; line-height: 13px;}
+.brand-info-cct2{float:right; margin:0; padding:0; font-family: 'DenseRegular',sans-serif; font-size: 1.4em; font-weight: normal; line-height: 13px;}
 .brand-info-below .brand-info-like {position: absolute; right:0; background: url(glyphicons-halflings.png) no-repeat scroll -95px -1px transparent; padding: 0 1%; font-weight: bold;} 
 
 ul.selfierightpics {float:right; width:47%; height: auto; margin:0 1% 0 0; list-style: none;}
@@ -519,7 +519,7 @@ ul.selfierightpics li {float: left; clear:both; width:100%; margin:0 0 5% 0; pad
 .likeIconSmall {background: url(glyphicons-halflings.png) no-repeat scroll -95px -1px transparent;
     color: rgba(0, 0, 0, 0); display: inline-block; font: 0px/0 serif; height: 10px;
     margin-bottom: 1px; text-shadow: none; width: 15px; height: 15px;}
-.socialMetaCount {color: #000; font-style: normal; font-size: 11px; font-weight: normal; position: relative;bottom:5px;}    
+.socialMetaCount {color: #000; font-style: normal; font-weight: normal; position: relative;bottom:5px;}    
 ul.params1 {/*float:left; position: absolute; left:0; bottom:1%;*/ clear: both; width:100%; border-top:solid 1px #000; list-style: none; font-size:1.1em; padding: 0.5% 0 2% 0; /*padding:1% 0 1% 0;*/}
 ul.params1 li {float:left; margin:0 2%; border-right:solid 2px #414042; width: 32%; }
 ul.params1 li:last-child {border-right:none; width:26%; margin: 0;}
