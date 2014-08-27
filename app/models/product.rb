@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
     accepts_nested_attributes_for :attachments ,allow_destroy: true
 
     validates :name, :presence => true
-    validates :description, :presence => true
-    validates :price, :presence => true
+    #validates :description, :presence => true
+    #validates :price, :presence => true
     validates :attachments, :presence => true
 end
