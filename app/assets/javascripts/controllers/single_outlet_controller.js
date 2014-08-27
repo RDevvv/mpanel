@@ -20,7 +20,7 @@ app.controller('SingleOutletController', function($scope, $http, $routeParams, $
     }
 
     $scope.fetch_products = function(){
-      var products = Restangular.one('accounts',account_id).one('brands', 87).all('products');
+      var products = Restangular.one('accounts',account_id).one('brands', $scope.poster.brand_id).all('products');
       products.getList().then(function(products){
             $scope.products = products;
       });
