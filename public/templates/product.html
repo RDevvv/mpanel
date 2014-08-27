@@ -30,16 +30,18 @@
             <div class="brand-info-title">{{product.name}}</div>
             <div class="brand-info-below">
               <div class="brand-icon-left">
-                  <div class="brand-info-cct"><a href="#">{{product.price}}</a></div>
+                  <div class="brand-info-cct"><a href="#">INR {{product.price}}</a></div>
+              </div>
+
+              <div class="brand-icon-right">
+                  <div class="brand-info-cct2">
+                    <a href="#" class="socialItem likes">
+                        <em class="likeIconSmall"></em>
+                        <em class="socialMetaCount">{{product.product_likes_count}}</em>
+                    </a>
+                  </div>
               </div>
             </div>
-        </div>
-
-        <div class="ovrlybotbox">
-            <a href="#" class="socialItem likes">
-                <em class="likeIconSmall"></em>
-                <em class="socialMetaCount">{{product.product_likes_count}}</em>
-            </a>
         </div>
     </div>
 
