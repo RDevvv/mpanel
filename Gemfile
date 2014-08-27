@@ -46,6 +46,7 @@ gem 'unf'
 gem 'paper_trail', '~> 2.7.2'
 gem 'acts_as_paranoid',:git=>"git@github.com:goncalossilva/acts_as_paranoid.git",:branch=>"rails3.2"
 gem 'rails_exception_handler', '~>2'
+gem 'honeybadger'
 gem 'sitemap_generator'
 
 

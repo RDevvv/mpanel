@@ -196,6 +196,8 @@ GEM
     high_voltage (2.1.0)
     hike (1.2.3)
     hirb (0.7.1)
+    honeybadger (1.16.4)
+      json
     http (0.6.2)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
@@ -529,6 +531,7 @@ DEPENDENCIES
   geocoder
   guard-rspec
   high_voltage
+  honeybadger
   irbtools
   jbuilder
   jquery-rails (= 2.1.0)
