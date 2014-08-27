@@ -61,8 +61,8 @@ header, #header {width:100%; background-color:#be1e2d; height: 42px; /*margin:0 
 .location-box {position:relative; top:-7px; clear:both; width:100%; background-color:#be1e2d; height: 20px; margin: 0 0 1% 0;}
 .location-box .location-div {float:left; width:100%; text-align: center; font-size: 0.9em; color: #fff; padding:1px 0 1px 0; }
 
-.ct-box {clear:both; width:100%; background-color:#be1e2d; height: 20px; margin: 2% 0 1% 0;}
-.ct-box .ct-box-div {float:left; width:100%; text-align: center; font-size: 0.9em; color: #fff; padding:1px 0 1px 0; }
+.ct-box {float:left; clear:both; width:100%; height: auto; background-color:#be1e2d; margin: 3% 0 1% 0;}
+.ct-box .ct-box-div {float:left; width:100%; height: auto; padding: 2% 0; text-align: center; font-family: 'DenseRegular', sans-serif; font-size: 2em; font-weight: bold; color: #fff;}
 
 .location-box .location-div span {font-weight: bold;}
 footer {clear: both; margin: 10px 0 0 0; height: 3em; 
@@ -431,15 +431,16 @@ textarea.feedback {background-color: #FFFFFF; text-align: left; resize:none; bac
 .social-img-cntr {float: left; width:100%; height:auto;}
 .social-img-cntr .social-pic {border:none; outline:none; margin:0; padding:0; background: inherit;}
 .social-img-cntr .social-pic img {width:100%; max-width: 100%; max-height: auto;}
-.social-chnls {float:left; clear: both; margin: 7px 0 9% 0; padding:7px 0; width: 100%; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC;}
-ul.chnls {width: 90%; margin: 0 auto; font-family: 'DenseRegular', sans-serif; text-transform: uppercase; list-style: none; height: 40%;}
-ul.chnls li {float:left; display: inline; width: 48%; height: 100%; border-right:solid 1px #dddddd;}
+.social-chnls {float:left; clear: both; margin: 7px 0 1% 0; /*margin: 7px 0 9% 0;*/ padding:7px 0; width: 100%; height: auto; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC;}
+ul.chnls {width: 90%; margin: 0 auto; font-family: 'DenseRegular', sans-serif; text-transform: uppercase; list-style: none; height:auto; /*height: 40%;*/}
+ul.chnls li {float:left; display: inline; width: 48%; height:auto; /*height: 100%;*/ border-right:solid 1px #dddddd;}
 ul.chnls li:last-child {border-right:none;}
 .chnl-box {float:left; width:100%; text-align: center; }
 .chnl-box .sociallogo {clear:both; margin:1% auto; text-align: center;}
 .chnl-box img {border:none; outline:none;}
-.chnl-box .flw-count {clear:both; margin: 12% 0 0 0; font-size: 2em; font-weight: normal;}
-.chnl-box .seed{clear:both; margin: 5% 0 0 0; outline:none; border:none;}
+.chnl-box .flw-count {clear:both; margin:4% 0; /*margin: 12% 0 0 0;*/ font-size: 2em; font-weight: normal;}
+.chnl-box .flw-count span {font-size:0.8em; margin:0 0 0 3%;}
+.chnl-box .seed{clear:both; margin:0; /*margin: 5% 0 0 0;*/ outline:none; border:none;}
 
 /*Social posts classes */
 .social-comment {clear:both; background:#fff; width:95%; height:auto; border: solid 1px #ddd;  /* height:63%; height: 28%;*/ padding:1% 0 5% 0; margin: 2% auto 10% auto; -webkit-box-shadow: 1px 0px 4px 0px rgba(50, 50, 50, 0.75);
@@ -1017,7 +1018,7 @@ label.label-style {clear:both; font-weight: normal; color: #5F5F5F; font-size: 1
     background-image: -webkit-linear-gradient(top, #5ba5cb, #3d94c0); background-image: -moz-linear-gradient(top, #5ba5cb, #3d94c0);
     background-image: -o-linear-gradient(top, #5ba5cb, #3d94c0); background-image: linear-gradient(top, #5ba5cb, #3d94c0); }    
 .btn-blue1, .btn-blue1:hover {margin: 4px 0 5px 0 !important; color: #fff; text-shadow:none; padding: 6px 20px; background: #414042; background-size: 100%; }
-.btn-social1, .btn-social1:hover {margin: 4px 0 5px 0 !important; font-weight: bold; color: #fff; text-shadow:none; padding: 2px 8px; font-size:0.9em; background: #414042; background-size: 100%; }
+.btn-social1, .btn-social1:hover {margin:0; font-weight: bold; color: #fff; text-shadow:none; padding: 2px 8px; font-size:0.9em; background: #414042; background-size: 100%; }
 
 .btn-comment1, .btn-comment1:hover {margin: 0 0 8px 0 !important; color: #fff; text-shadow:none; padding: 3px 8px; font-size: 10px; font-weight: bold; background: #414042; background-size: 100%; }
 
