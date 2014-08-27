@@ -1,5 +1,5 @@
 class Merchant::BrandsController <  Merchant::BaseController
-before_filter :load_account
+before_filter :load_non_merchant_account
 
 	def new
 		@brand = @current_account.brands.new
@@ -60,5 +60,4 @@ before_filter :load_account
       format.html # index.html.erb
     end
   end
- 
 end
