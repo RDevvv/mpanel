@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
                 elsif customer.is_verified == true
                     cookies[:mobile_number] = {:value => 'verified', :expires => 1.year.from_now}
                 end
-                CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer.id, :browser_version => parsed_agent.version, :platform => parsed_agent.platform, :browser => parsed_agent.browser, :customer_ip => request.ip)
+                CustomerSession.create(:campaign_url => campaign_url, :referer_link => referer_agent, :customer_id => customer.id, :browser_version => parsed_agent.version.to_str, :platform => parsed_agent.platform, :browser => parsed_agent.browser, :customer_ip => request.ip)
                 session[:customer_id] = customer.id
             end
         end
