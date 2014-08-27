@@ -11,11 +11,15 @@ class Merchant::BaseController < ApplicationController
     def load_account
         if current_user
             if params[:account_id]
-                @current_account = current_user.accounts.find(params[:account_id]) 
+                @current_account = current_user.accounts.find(params[:account_id])
             else
                 @current_account = current_user.accounts.first
             end
         end
+    end
+
+    def load_non_merchant_account
+      @current_account = Account.find(params[:account_id])
     end
 
     def user_for_paper_trail

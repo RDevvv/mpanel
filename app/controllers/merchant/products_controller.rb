@@ -1,5 +1,5 @@
 class Merchant::ProductsController < Merchant::BaseController
-    before_filter :load_account, :load_account_and_brand, :except => [:show, :get_products_by_outlet]
+    before_filter :load_non_merchant_account, :load_account_and_brand, :except => [:show, :get_products_by_outlet]
     skip_before_filter :authenticate_merchant_user!
     respond_to :html, :json
 
