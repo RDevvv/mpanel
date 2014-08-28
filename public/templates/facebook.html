@@ -1,51 +1,49 @@
-<div ng-controller='FacebookController'>
-  <div id="header">
-    <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
-    <ul class='left-icons'>
-        <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
-    </ul>
-    <div class="head-brand"><a href="#/home">Facebook</a></div>
+<div id="header">
+  <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
+  <ul class='left-icons'>
+    <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
+  </ul>
+  <div class="head-brand"><a href="#/home">Facebook</a></div>
+</div>
+<div id="social-feeds">
+  <div class="social-img-cntr">
+    <div class="social-pic"><!--img src="assets/ccd-freeze.png" / --></div>
   </div>
-  <div id="social-feeds">
-    <div class="social-img-cntr">
-      <div class="social-pic"><!--img src="assets/ccd-freeze.png" / --></div>
-    </div>
-    <div class="social-chnls">
-      <ul class="chnls">
-        <li>
-        <div class="chnl-box">
-          <div class="flw-count">22k</div>
-        </div>
-        </li>
-        <li>
-        <div class="chnl-box">
-          <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
-        </div>
-        </li>
-      </ul>
-    </div>
-    <div ng-repeat='post in posts'>
-      <div class="social-comment">
-        <div class="social-post-time">Last Facebook Post: {{post.created_at}}</div>
-        <div class="social-caption">{{post.post_text}}</div>
-        <div class="post-picbox">
-          <img src="assets/FBImage.png" />
-        </div>
-        <div class="social-interactions">
-          <ul class="params1">
-            <li>
-            <div class="likes-fb"><span>{{post.likes}}</span> likes</div>
-            </li>
-            <li>
-            <div class="comm-fb"><span>41</span> comments</div>
-            </li>
-            <li>
-            <div class="fblikebox">
-              <a href="#"><img src="assets/fb-like-thumb.png" border="0" /></a>
-            </div>
-            </li>
-          </ul>
-        </div>
+  <div class="social-chnls">
+    <ul class="chnls">
+      <li>
+      <div class="chnl-box">
+        <div class="flw-count">22k</div>
+      </div>
+      </li>
+      <li>
+      <div class="chnl-box">
+        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
+      </div>
+      </li>
+    </ul>
+  </div>
+  <div ng-repeat='post in posts'>
+    <div class="social-comment">
+      <div class="social-post-time">Last Facebook Post: {{post.created_at}}</div>
+      <div class="social-caption">{{post.post_text}}</div>
+      <div class="post-picbox">
+        <img ng-src={{post.image_url}} />
+      </div>
+      <div class="social-interactions">
+        <ul class="params1">
+          <li>
+          <div class="likes-fb"><span>{{post.likes}}</span> likes</div>
+          </li>
+          <li>
+          <div class="comm-fb"><span>{{post.comments}}</span> comments</div>
+          </li>
+          <li>
+          <!--<div class="fblikebox">
+            <a href="#"><img src="assets/fb-like-thumb.png" border="0" /></a>
+          </div>-->
+          </li>
+        </ul>
       </div>
     </div>
   </div>

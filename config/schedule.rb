@@ -8,9 +8,7 @@ end
 
 every :hour do
     rake 'shoffr:facebook_posts'
-end
-
-every :hour do
+    rake 'shoffr:facebook_counts'
     rake 'shoffr:tweets'
 end
 

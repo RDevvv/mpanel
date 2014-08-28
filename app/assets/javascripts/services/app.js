@@ -19,7 +19,7 @@ app.config(function($routeProvider){
     })
     .when('/brands/:brand_id/twitter',{
         templateUrl: 'templates/twitter.html',
-        controller: 'TwitterController'
+        controller: 'TweetsController'
     })
     .when('/home',{
         templateUrl: 'templates/home.html',
@@ -41,7 +41,8 @@ app.config(function($routeProvider){
         templateUrl: 'templates/sweepstakes.html'
     })
     .otherwise({
-        redirectTo: '/home'
+        templateUrl: 'templates/home.html',
+        controller: 'GeocodingController'
     });
 }).config(function(snapRemoteProvider, RestangularProvider){
     snapRemoteProvider.globalOptions.disable = 'right';
