@@ -61,8 +61,16 @@ header, #header {width:100%; background-color:#be1e2d; height: 42px; /*margin:0 
 .location-box {position:relative; top:-7px; clear:both; width:100%; background-color:#be1e2d; height: 20px; margin: 0 0 1% 0;}
 .location-box .location-div {float:left; width:100%; text-align: center; font-size: 0.9em; color: #fff; padding:1px 0 1px 0; }
 
-.ct-box {float:left; clear:both; width:100%; height: auto; background-color:#be1e2d; margin: 3% 0 1% 0;}
-.ct-box .ct-box-div {float:left; width:100%; height: auto; padding: 2% 0; text-align: center; font-family: 'DenseRegular', sans-serif; font-size: 2em; font-weight: bold; color: #fff;}
+.ct-box {/*float:left;*/ clear:both; width:95%; margin: 5% auto 1% auto; padding:2% 0 7.5% 0; /*width:100%;*/ height: auto;
+    border:0px solid #616261; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;
+    background-color: #be1e2c; background-image: -webkit-gradient(linear, left top, left bottom, from(#de2b3a), to(#be1e2c));
+ background-image: -webkit-linear-gradient(top, #de2b3a, #be1e2c);
+ background-image: -moz-linear-gradient(top, #de2b3a, #be1e2c);
+ background-image: -ms-linear-gradient(top, #de2b3a, #be1e2c);
+ background-image: -o-linear-gradient(top, #de2b3a, #be1e2c);
+ background-image: linear-gradient(to bottom, #de2b3a, #be1e2c);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#de2b3a, endColorstr=#be1e2c);    
+ /*background-color:#be1e2d; margin: 3% 0 1% 0;*/}
+.ct-box .ct-box-div {float:left; width:100%; height: auto; /*padding: 2% 0;*/ text-align: center; font-family: 'DenseRegular', sans-serif; font-size: 2em; font-weight: normal; color: #fff;}
 
 .location-box .location-div span {font-weight: bold;}
 footer {clear: both; margin: 10px 0 0 0; height: 3em; 
@@ -431,7 +439,7 @@ textarea.feedback {background-color: #FFFFFF; text-align: left; resize:none; bac
 .social-img-cntr {float: left; width:100%; height:auto;}
 .social-img-cntr .social-pic {border:none; outline:none; margin:0; padding:0; background: inherit;}
 .social-img-cntr .social-pic img {width:100%; max-width: 100%; max-height: auto;}
-.social-chnls {float:left; clear: both; margin: 7px 0 1% 0; /*margin: 7px 0 9% 0;*/ padding:7px 0; width: 100%; height: auto; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC;}
+.social-chnls {float:left; clear: both; margin: 7px 0 4% 0; /*margin: 7px 0 9% 0;*/ padding:7px 0; width: 100%; height: auto; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC;}
 ul.chnls {width: 90%; margin: 0 auto; font-family: 'DenseRegular', sans-serif; text-transform: uppercase; list-style: none; height:auto; /*height: 40%;*/}
 ul.chnls li {float:left; display: inline; width: 48%; height:auto; /*height: 100%;*/ border-right:solid 1px #dddddd;}
 ul.chnls li:last-child {border-right:none;}
