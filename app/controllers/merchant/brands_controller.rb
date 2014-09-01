@@ -1,5 +1,6 @@
 class Merchant::BrandsController <  Merchant::BaseController
 before_filter :load_non_merchant_account
+skip_before_filter :authenticate_merchant_user!, :only => :show
 
 	def new
 		@brand = @current_account.brands.new
@@ -33,6 +34,7 @@ before_filter :load_non_merchant_account
 		@brand = @current_account.brands.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
+      format.json
     end
 	end
 

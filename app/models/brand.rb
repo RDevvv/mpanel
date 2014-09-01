@@ -11,7 +11,7 @@ class Brand < ActiveRecord::Base
   belongs_to :category
 
   attr_accessible :brand_id, :brand_name, :category_id, :is_active, :is_verified, :website_url,:attachments_attributes
-  attr_accessible :twitter_followers_count, :twitter_handle, :facebook_handle, :facebook_likes_count, :facebook_username, :facebook_id
+  attr_accessible :twitter_followers_count, :twitter_handle, :facebook_handle, :facebook_likes_count, :facebook_username, :facebook_id, :cover_url
   accepts_nested_attributes_for :attachments ,allow_destroy: true
 
   validates :brand_name, :uniqueness => true, :presence => true
