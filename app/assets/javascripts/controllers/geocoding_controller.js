@@ -18,7 +18,7 @@ app.controller('GeocodingController',function($scope){
         $scope.longitude = position.coords.longitude;
         $scope.$apply();
         geocoder = new google.maps.Geocoder();
-        var latlng = new google.maps.LatLng(user_latitude, user_longitude);
+        var latlng = new google.maps.LatLng($scope.latitude, $scope.longitude);
         geocoder.geocode({'latLng': latlng}, $scope.google_geocoding);
     }
 

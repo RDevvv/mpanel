@@ -1,8 +1,7 @@
 <div id="header">
-  <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
-    <ul class='left-icons'>
-        <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
-    </ul>
+  <ul class='left-icons'>
+    <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
+  </ul>
   <div class="head-brand"><a href="#/home">Twitter</a></div>
 </div>
 <div id="social-feeds">
@@ -13,7 +12,7 @@
     <ul class="chnls">
       <li>
       <div class="chnl-box">
-        <div class="flw-count">14.2k</div>
+        <div class="flw-count">14.2k <span>followers</span></div>
       </div>
       </li>
       <li>
@@ -24,26 +23,28 @@
     </ul>
   </div>
 
-  <div class="social-comment">
-    <div class="social-post-time">Last Tweet: 15 hrs ago</div>
-    <div class="social-caption">This Super Saturday, we’re giving you a special Super power – THE GOLDEN TICKET! Ditch the long queue and get a direct entry into the store by paying a redeemable amount of INR 1000.</div>
-    <div class="post-picbox">
-      <img src="assets/TWImage.jpg" />
-    </div>
-    <div class="social-interactions">
-      <ul class="params1">
-        <li>
-        <div class="likes-fb"><span>232</span> retweets</div>
-        </li>
-        <li>
-        <div class="comm-fb"><span>76</span> favourites</div>
-        </li>
-        <li>
-        <div class="fblikebox">
-          <a href="#"><img src="assets/retweet-icon1.png" border="0" /></a>
-        </div>
-        </li>
-      </ul>
+  <div ng-repeat='tweet in tweets'>
+    <div class="social-comment">
+      <div class="social-post-time">Last Tweet: {{tweet.created_at}}</div>
+      <div class="social-caption">{{tweet.tweet_text}}</div>
+      <div class="post-picbox">
+        <!--<img src="assets/TWImage.jpg" />-->
+      </div>
+      <div class="social-interactions">
+        <ul class="params1">
+          <li>
+          <div class="likes-fb"><span>{{tweet.retweets}}</span> retweets</div>
+          </li>
+          <li>
+          <div class="comm-fb"><span>{{tweet.favorite}}</span> favourites</div>
+          </li>
+          <li>
+          <div class="fblikebox">
+            <a href="#"><img src="assets/retweet-icon1.png" border="0" /></a>
+          </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
