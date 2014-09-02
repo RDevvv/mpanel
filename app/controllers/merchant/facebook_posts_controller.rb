@@ -1,4 +1,4 @@
-class FacebookPostsController < ApplicationController
+class Merchant::FacebookPostsController < ApplicationController
   respond_to :json
 
   def index

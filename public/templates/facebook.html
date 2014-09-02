@@ -1,3 +1,11 @@
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=206827969522380&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 <div id="header">
   <!--<div class="map-btn-div"><a href="#" class="map-btn-lft2">&nbsp;</a></div>-->
   <ul class='left-icons'>
@@ -6,26 +14,28 @@
   <div class="head-brand"><a href="#/home">Facebook</a></div>
 </div>
 <div id="social-feeds">
+  <div ng-controller='BrandsController'>
   <div class="social-img-cntr">
-    <div class="social-pic"><!--img src="assets/ccd-freeze.png" / --></div>
+    <div class="social-pic"><img ng-src="{{brand.cover_url}}" ></div>
   </div>
   <div class="social-chnls">
     <ul class="chnls">
       <li>
       <div class="chnl-box">
-        <div class="flw-count">22k <span>likes</span></div>
+        <div class="flw-count">{{brand.facebook_likes_count}}<span>likes</span></div>
       </div>
       </li>
       <li>
       <div class="chnl-box">
-        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Like" ></div>
+        <div class="fb-like" data-href="https://www.facebook.com/{{brand.facebook_handle}}" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
       </div>
       </li>
     </ul>
   </div>
+  </div>
   <div ng-repeat='post in posts'>
     <div class="social-comment">
-      <div class="social-post-time">Last Facebook Post: {{post.created_at}}</div>
+      <div class="social-post-time">Posted at: {{post.created_at | date:"h:mma dd MMM, yy"}}</div>
       <div class="social-caption">{{post.post_text}}</div>
       <div class="post-picbox">
         <img ng-src={{post.image_url}} />
@@ -37,11 +47,6 @@
           </li>
           <li>
           <div class="comm-fb"><span>{{post.comments}}</span> comments</div>
-          </li>
-          <li>
-          <!--<div class="fblikebox">
-            <a href="#"><img src="assets/fb-like-thumb.png" border="0" /></a>
-          </div>-->
           </li>
         </ul>
       </div>

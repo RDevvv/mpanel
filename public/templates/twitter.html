@@ -1,3 +1,4 @@
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <div id="header">
   <ul class='left-icons'>
     <li><a href="javascript:history.back()" class="backpage">&nbsp;</a></li>
@@ -5,27 +6,29 @@
   <div class="head-brand"><a href="#/home">Twitter</a></div>
 </div>
 <div id="social-feeds">
+  <div ng-controller='BrandsController'>
   <div class="social-img-cntr">
-    <div class="social-pic"><!-- img src="assets/ccd-freeze.png" / --></div>
+    <div class="social-pic"><img ng-src="{{brand.cover_url}}" ></div>
   </div>
   <div class="social-chnls">
     <ul class="chnls">
       <li>
       <div class="chnl-box">
-        <div class="flw-count">14.2k <span>followers</span></div>
+        <div class="flw-count">{{brand.twitter_followers_count}} <span>followers</span></div>
       </div>
       </li>
       <li>
       <div class="chnl-box">
-        <div class="seed"><input type="submit" class="btn btn-social1" id="button" value="Follow" ></div>
+        <a ng-href="https://twitter.com/{{brand.twitter_handle}}" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @twitterapi</a>
       </div>
       </li>
     </ul>
   </div>
+  </div>
 
   <div ng-repeat='tweet in tweets'>
     <div class="social-comment">
-      <div class="social-post-time">Last Tweet: {{tweet.created_at}}</div>
+      <div class="social-post-time">Posted at: {{tweet.created_at | date:"h:mma dd MMM, yy"}}</div>
       <div class="social-caption">{{tweet.tweet_text}}</div>
       <div class="post-picbox">
         <!--<img src="assets/TWImage.jpg" />-->
@@ -38,11 +41,11 @@
           <li>
           <div class="comm-fb"><span>{{tweet.favorite}}</span> favourites</div>
           </li>
-          <li>
+          <!--<li>
           <div class="fblikebox">
             <a href="#"><img src="assets/retweet-icon1.png" border="0" /></a>
           </div>
-          </li>
+          </li>-->
         </ul>
       </div>
     </div>

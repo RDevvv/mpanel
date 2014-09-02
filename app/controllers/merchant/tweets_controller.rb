@@ -1,4 +1,4 @@
-class TweetsController < ApplicationController
+class Merchant::TweetsController < ApplicationController
   respond_to :json
 
   def index
