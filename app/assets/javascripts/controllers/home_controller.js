@@ -9,7 +9,7 @@ app.controller('HomeController', function($scope, $rootScope, $routeParams, $coo
         }
         else{
             UrlContent.location = $scope.searchh;
-            $location.url('/deals/outlets?search=all&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude);
+            $location.url('/deals/outlets?search=all&location='+$scope.searchh+'&latitude='+$scope.latitude+'&longitude='+$scope.longitude+'&account_id='+account_id);
         }
     }
 

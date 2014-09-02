@@ -15,6 +15,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
             $routeParams.location = 'bandra'
             $routeParams.latitude = 0;
             $routeParams.longitude = 0;
+            $routeParams.account_id = account_id;
 
             AdOutlets.user_location = 'bandra';
         }
@@ -39,6 +40,7 @@ app.controller('ListingController', function($scope, $http, $routeParams, $cooki
                 filter: $routeParams['filter'],
                 latitude: $routeParams['latitude'],
                 longitude: $routeParams['longitude'],
+                account_id: account_id,
                 location: $routeParams['location']
             }
         }).success(function(data){
