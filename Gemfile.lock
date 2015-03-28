@@ -105,6 +105,9 @@ GEM
     capistrano-rails (1.1.0)
       capistrano (>= 3.0.0)
       capistrano-bundler (>= 1.0.0)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -519,6 +522,7 @@ DEPENDENCIES
   capistrano-db-tasks
   capistrano-rails
   capistrano-resque!
+  capistrano-rvm
   carrierwave
   client_side_validations
   compass
@@ -527,7 +531,6 @@ DEPENDENCIES
   devise
   exception_notification
   exotel
-  fog
   geocoder
   guard-rspec
   high_voltage
