@@ -1,10 +1,10 @@
-AssetSync.configure do |config|
-  config.fog_provider = 'AWS'
-  config.aws_access_key_id = 'AKIAIHKA2QIPCJHWW2MQ'
-  config.aws_secret_access_key = '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'
+#AssetSync.configure do |config|
+  #config.fog_provider = 'AWS'
+  #config.aws_access_key_id = 'AKIAIHKA2QIPCJHWW2MQ'
+  #config.aws_secret_access_key = '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'
   # To use AWS reduced redundancy storage.
   # config.aws_reduced_redundancy = true
-  config.fog_directory = 'gullakbucket'
+  #config.fog_directory = 'gullakbucket'
 
   # Invalidate a file on a cdn after uploading files
   # config.cdn_distribution_id = "12345"
@@ -25,4 +25,4 @@ AssetSync.configure do |config|
   #
   # Fail silently.  Useful for environments such as Heroku
   # config.fail_silently = true
-end
+#end
