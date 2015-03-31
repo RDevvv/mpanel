@@ -20,7 +20,7 @@ doc/*
 /bin
 /config/database.yml
 /public/assets
-/public/uploads
+#/public/uploads
 /public/sitemaps
 /public/*.gz
 
