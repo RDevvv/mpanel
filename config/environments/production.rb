@@ -44,7 +44,7 @@ Gullak2::Application.configure do
   # Use a different cache store in production
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  config.action_controller.asset_host = "d3qgzzn4q9bivw.cloudfront.net"
+  #config.action_controller.asset_host = "d3qgzzn4q9bivw.cloudfront.net"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   config.assets.precompile += %w( merchant.css merchant.js blog.css blog.js)

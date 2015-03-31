@@ -5,7 +5,7 @@ set :repo_url, 'git@github.com:RDevvv/mpanel.git' #git@github.com:adadoo/Gullak-
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-server '52.4.242.140', user: 'ubuntu', roles: %w{web app db resque_worker}
+server '52.4.51.158', user: 'ubuntu', roles: %w{web app db resque_worker}
 set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"production"

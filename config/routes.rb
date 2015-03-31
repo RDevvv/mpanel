@@ -151,6 +151,7 @@ Gullak2::Application.routes.draw do
   post 'save_comment' => 'Merchant::ProductComments#create'
   post 'save_like' => 'Merchant::ProductLikes#create'
 
+    root :to => "home#index"
   if Rails.env.development?
     root :to => "home#index"
   else
